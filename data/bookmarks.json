@@ -1,0 +1,17 @@
+[
+	{
+		"category": "Technology",
+		"bookmarks": [
+			{"url": "http://macstories.net"},
+			{"url": "http://brooksreview.net"},
+			{"url": "http://macstories.net"}
+		]
+	},
+	{
+		"category": "Culture",
+		"bookmarks": [
+			{"url": "http://nytimes.com"},
+			{"url": "http://digg.com"}
+		]
+	}
+]
