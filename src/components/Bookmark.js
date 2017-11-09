@@ -10,7 +10,7 @@ const BookmarkContainer = styled.a`
 	padding: 24px;
 	background-color: ${colors.bookmark.background};
 	border-radius: 4px;
-	border: 1px solid ${colors.bookmark.border};
+	border: 1px solid ${colors.bookmark.border.outer};
 	text-decoration: none;
 	transition: 0.3s all;
 
@@ -25,19 +25,20 @@ const BookmarkContainer = styled.a`
 
 const BookmarkTitle = styled.h4`
 	padding-left: 8px;
+	margin-top: -2px;
 	margin-bottom: 0;
 	font-weight: ${fontWeights.medium};
 `
 
 const BookmarkHeader = styled.div`
 	display: flex;
-	align-items: center;
 	margin-bottom: 12px;
 `
 
 const BookmarkContent = styled.div`
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	margin-left: calc(22px + 4px + 8px);
 `
 
@@ -45,6 +46,7 @@ const BookmarkDescription = styled.p`
 	margin-bottom: 0;
 	color: ${colors.text.header};
 	font-size: 14px;
+	flex-basis: calc(100% - 48px - 16px);
 `
 
 const BookmarkImage = styled.img`
@@ -52,11 +54,21 @@ const BookmarkImage = styled.img`
 	margin: 0 0 0 16px;
 	width: 48px;
 	height: 48px;
+	object-fit: cover;
+`
+
+const BookmarkComment = BookmarkDescription.extend`
+	width: 100%;
+	margin-top: 20px;
+	padding-top: 16px;
+	border-top: 1px dashed ${colors.bookmark.border.inner};
+	flex-basis: 100%;
 `
 
 class Bookmark extends React.Component {
 	static propTypes = {
-		url: PropTypes.string.isRequired
+		url: PropTypes.string.isRequired,
+		comment: PropTypes.string
 	}
 
 	state = {
@@ -94,6 +106,8 @@ class Bookmark extends React.Component {
 					</BookmarkDescription>
 
 					{this.state.imageURL && <BookmarkImage src={this.state.imageURL} title={this.state.title} />}
+
+					{this.props.comment && <BookmarkComment>{this.props.comment}</BookmarkComment>}
 				</BookmarkContent>
 			</BookmarkContainer>
 		);

@@ -9,8 +9,13 @@ const BookmarkPage = ({data}) => {
         <div key={index1}>
           <h3>{node && node.category}</h3>
           <BookmarkGrid mb={4}>
-            {node.bookmarks && node.bookmarks.map(({url}, index2) =>
-              url && <Bookmark key={`${index1}${index2}`} url={url} />
+            {node.bookmarks && node.bookmarks.map(({url, comment}, index2) =>
+              url &&
+              <Bookmark
+                key={`${index1}${index2}`}
+                url={url}
+                comment={comment}
+              />
             )}
           </BookmarkGrid>
         </div>
@@ -23,12 +28,13 @@ export default BookmarkPage
 
 export const query = graphql`
   query BookmarkQuery {
-    allBookmarksJson {
+    allBookmarksJson(sort: {fields: [category], order: ASC}) {
       edges {
         node {
           category
           bookmarks {
             url
+            comment
           }
         }
       }
