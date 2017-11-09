@@ -91,7 +91,7 @@ class Sidebar extends React.Component {
 		isOpen: true
 	}
 
-	componentWillMount = () => {
+	componentDidMount = () => {
 		window.matchMedia(`(min-width: 40em)`).addListener(this.mediaQueryChanged)
 		this.setState({isOpen: window.matchMedia(`(min-width: 40em)`).matches})
 	}
