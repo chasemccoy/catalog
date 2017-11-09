@@ -41,7 +41,7 @@ const SidebarLink = styled(Link).attrs({
 })`
 	display: flex !important;
 	align-items: center;
-	height: 32px;
+	height: 36px;
 	padding: 8px;
 	border-radius: 4px;
 	text-decoration: none;
@@ -75,35 +75,16 @@ const SidebarLink = styled(Link).attrs({
 `
 
 const SidebarHeader = styled.h1`
-	font-size: 20px;
-	font-weight: ${fontWeights.heavy};
+	font-size: 15px;
+	font-weight: ${fontWeights.bold};
 	margin-bottom: 40px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 
 	a {
 		text-decoration: none;
 	}
-`;
-
-// const Sidebar = () => (
-//   <SidebarWrapper
-// 		noOverlay
-// 		disableOverlayClick
-// 		pageWrapId='content'
-// 		outerContainerId='wrapper'
-// 		width={sizes.sidebar.width}
-// 		isOpen={true}
-// 		// customBurgerIcon={false}
-// 		// customCrossIcon={false}
-// 	>
-// 		<SidebarHeader><Link to='/'>Chase McCoy</Link></SidebarHeader>
-// 		<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
-// 		<SidebarLink to='/test-post-2'><Icon name='person' />About Me</SidebarLink>
-// 		<SidebarLink to='/test-post-2'><Icon name='heart' />Favorites</SidebarLink>
-// 		<SidebarLink to='/test-gallery-1' secondary>Books</SidebarLink>
-// 		<SidebarLink to='/portfolio' secondary>Movies</SidebarLink>
-// 		<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>
-//   </SidebarWrapper>
-// )
+`
 
 class Sidebar extends React.Component {
 	state = {
@@ -132,6 +113,7 @@ class Sidebar extends React.Component {
 				customCrossIcon={<Icon name='sidebar-close' />}
 			>
 				<SidebarHeader><Link to='/'>Chase McCoy</Link></SidebarHeader>
+
 				<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
 				<SidebarLink to='/test-post-2'><Icon name='person' />About Me</SidebarLink>
 				<SidebarLink to='/test-post-2'><Icon name='heart' />Favorites</SidebarLink>

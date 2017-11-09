@@ -20,7 +20,10 @@ export const colors = {
 
 	bookmark: {
 		background: '#F5F9FC',
-		border: '#E6F3FA'
+		border: {
+			outer: '#E6F3FA',
+			inner: '#ABC2CC'
+		}
 	}
 }
 
