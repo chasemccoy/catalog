@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors, sizes } from '../utils/design'
+import { media } from '../utils/media'
 import {Icon} from './Icon'
 
 export const Wrapper = styled.div.attrs({
@@ -18,8 +19,8 @@ export const Content = styled.div.attrs({
 	min-height: 100vh;
 	padding: 120px ${sizes.content.padding} 0;
 
-	@media screen and (max-width: ${sizes.breakpoints.small}) {
+	${media.small`
 		width: 100%;
 		padding: 120px 32px 0;
-	}
+	`}
 `

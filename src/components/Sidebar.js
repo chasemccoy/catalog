@@ -7,6 +7,10 @@ import {Icon} from './Icon'
 import { push as Menu } from 'react-burger-menu'
 
 injectGlobal`
+	html.noScroll {
+		overflow: hidden;
+	}
+
 	.bm-menu {
 		overflow: visible !important;
 	}
@@ -27,6 +31,7 @@ const SidebarWrapper = styled(Menu)`
 	padding: 96px 24px 0 64px;
 
 	${media.small`
+		min-height: 100vh;
 		width: 100vw !important;
 		padding-right: 64px;
 	`}
@@ -101,6 +106,12 @@ class Sidebar extends React.Component {
 
 	mediaQueryChanged = () => {
 		this.setState({isOpen: window.matchMedia(`(min-width: ${sizes.breakpoints.small})`).matches})
+
+		document.documentElement.classList.toggle('noScroll', window.matchMedia(`(max-width: ${sizes.breakpoints.small})`).matches && this.state.isOpen)
+	}
+
+	handleStateChange = (state) => {
+		document.documentElement.classList.toggle('noScroll', window.matchMedia(`(max-width: ${sizes.breakpoints.small})`).matches && state.isOpen)
 	}
 
 	render() {
@@ -114,6 +125,7 @@ class Sidebar extends React.Component {
 				isOpen={this.state.isOpen}
 				customBurgerIcon={<Icon name='sidebar-open' />}
 				customCrossIcon={<Icon name='sidebar-close' />}
+				onStateChange={this.handleStateChange}
 			>
 				<SidebarHeader><Link to='/'>Chase McCoy</Link></SidebarHeader>
 
