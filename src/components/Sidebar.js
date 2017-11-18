@@ -23,10 +23,13 @@ injectGlobal`
 
 const SidebarWrapper = styled(Menu)`
 	background-color: white;
-	width: ${sizes.sidebar.width};
-	${'' /* border: 1px solid ${colors.sidebar.border};
-	padding: 96px 24px 0; */}
+	width: ${sizes.sidebar.width} !important;
 	padding: 96px 24px 0 64px;
+
+	${media.small`
+		width: 100vw !important;
+		padding-right: 64px;
+	`}
 
 	.primary + .primary,
 	.secondary + .primary {
