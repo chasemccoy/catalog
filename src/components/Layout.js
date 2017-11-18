@@ -18,8 +18,8 @@ export const Content = styled.div.attrs({
 	min-height: 100vh;
 	padding: 120px ${sizes.content.padding} 0;
 
-	@media screen and (max-width: 40em) {
+	@media screen and (max-width: ${sizes.breakpoints.small}) {
 		width: 100%;
-		padding: 120px 64px 0;
+		padding: 120px 32px 0;
 	}
 `

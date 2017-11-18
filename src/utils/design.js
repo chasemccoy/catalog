@@ -29,11 +29,15 @@ export const colors = {
 
 export const sizes = {
 	sidebar: {
-		// width: '256px'
 		width: '320px'
 	},
 	content: {
 		padding: '90px'
+	},
+	breakpoints: {
+		large: '80em',
+	  medium: '72em',
+	  small: '56em'
 	}
 }
 

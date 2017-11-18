@@ -2,6 +2,7 @@ import React from 'react'
 import styled, {injectGlobal} from 'styled-components'
 import {Link} from '../components/Components'
 import { colors, sizes, fontWeights } from '../utils/design'
+import { media } from '../utils/media'
 import {Icon} from './Icon'
 import { push as Menu } from 'react-burger-menu'
 
@@ -10,14 +11,13 @@ injectGlobal`
 		overflow: visible !important;
 	}
 
-	.bm-burger-button, .bm-cross-button {
+	.bm-burger-button,
+	.bm-cross-button {
 		position: fixed;
 	  left: 64px !important;
 	  top: 36px !important;
-
-		@media screen and (min-width: 40em) {
-			display: none;
-		}
+		display: none;
+		${media.small`display: block;`}
 	}
 `
 
@@ -88,16 +88,16 @@ const SidebarHeader = styled.h1`
 
 class Sidebar extends React.Component {
 	state = {
-		isOpen: true
+		isOpen: false
 	}
 
 	componentDidMount = () => {
-		window.matchMedia(`(min-width: 40em)`).addListener(this.mediaQueryChanged)
-		this.setState({isOpen: window.matchMedia(`(min-width: 40em)`).matches})
+		window.matchMedia(`(min-width: ${sizes.breakpoints.small})`).addListener(this.mediaQueryChanged)
+		this.setState({isOpen: window.matchMedia(`(min-width: ${sizes.breakpoints.small})`).matches})
 	}
 
 	mediaQueryChanged = () => {
-		this.setState({isOpen: window.matchMedia(`(min-width: 40em)`).matches})
+		this.setState({isOpen: window.matchMedia(`(min-width: ${sizes.breakpoints.small})`).matches})
 	}
 
 	render() {
