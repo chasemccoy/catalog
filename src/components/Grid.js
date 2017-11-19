@@ -33,3 +33,17 @@ export const BookmarkGrid = props => (
 		)}
 	</Row>
 )
+
+export const ImageGrid = props => (
+  <Row {...props}>
+    {props.children.map((child, index) =>
+			<Column
+				key={index}
+				width={[1, 1/2]}
+				flex='0 1 auto'
+			>
+				{child}
+			</Column>
+		)}
+  </Row>
+)

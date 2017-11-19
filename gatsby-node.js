@@ -51,7 +51,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         graphql(
           `
 						{
-							allFile(filter: {relativePath: {glob: "images/**/*.png"}}) {
+							allFile(filter: {relativePath: {glob: "images/**/*.{png,gif,jpg}"}}) {
 								edges {
 									node {
 										fields {
