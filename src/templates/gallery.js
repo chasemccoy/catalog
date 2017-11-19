@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
+import {Image} from '../components/Image'
 import {PostTitle} from '../components/Components'
+import {ImageGrid} from '../components/Grid'
 
 const GalleryPage = ({data}) => {
   return (
@@ -12,11 +13,13 @@ const GalleryPage = ({data}) => {
 
       <div dangerouslySetInnerHTML={{ __html: data.post.html }} />
 
-      {data.images.edges.map(({node}) =>
-        <div key={node.id}>
-          <Img sizes={node.childImageSharp.sizes} />
-        </div>
-      )}
+      <ImageGrid mb={4}>
+        {data.images.edges.map(({node}) =>
+          <div key={node.id}>
+            <Image sizes={node.childImageSharp.sizes} />
+          </div>
+        )}
+      </ImageGrid>
     </div>
   )
 }
@@ -31,7 +34,7 @@ export const query = graphql`
         parent: {eq: $parent}
       },
       internal: {
-        mediaType: {eq: "image/png"}
+        mediaType: {glob: "image/*"}
       }
     }
   ) {
