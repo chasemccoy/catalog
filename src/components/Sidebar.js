@@ -19,9 +19,13 @@ injectGlobal`
 	.bm-cross-button {
 		position: fixed;
 	  left: 64px !important;
-	  top: 36px !important;
+	  top: 32px !important;
 		display: none;
 		${media.small`display: block;`}
+	}
+
+	.bm-burger-button {
+		${media.small`left: 32px !important;`}
 	}
 `
 
