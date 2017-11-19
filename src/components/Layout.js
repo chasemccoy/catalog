@@ -17,7 +17,7 @@ export const Content = styled.div.attrs({
 	width: calc(100% - ${sizes.sidebar.width});
 	max-width: calc(850px + ${sizes.content.padding} * 2);
 	min-height: 100vh;
-	padding: 120px ${sizes.content.padding} 0;
+	padding: 96px ${sizes.content.padding} 120px;
 
 	${media.small`
 		width: 100%;

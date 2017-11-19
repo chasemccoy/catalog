@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import {Image} from '../components/Image'
 import {PostTitle} from '../components/Components'
-import {ImageGrid} from '../components/Grid'
+import {ImageGrid, ShowcaseGrid} from '../components/Grid'
 
 const GalleryPage = ({data}) => {
   return (
@@ -13,7 +13,23 @@ const GalleryPage = ({data}) => {
 
       <div dangerouslySetInnerHTML={{ __html: data.post.html }} />
 
-      <ImageGrid mb={4}>
+      <ShowcaseGrid>
+        {data.images.edges.map(({node}) =>
+          <div key={node.id}>
+            <Image sizes={node.childImageSharp.sizes} />
+          </div>
+        )}
+      </ShowcaseGrid>
+
+      <ShowcaseGrid right mt={'4'}>
+        {data.images.edges.map(({node}) =>
+          <div key={node.id}>
+            <Image sizes={node.childImageSharp.sizes} />
+          </div>
+        )}
+      </ShowcaseGrid>
+
+      <ImageGrid my={'4'}>
         {data.images.edges.map(({node}) =>
           <div key={node.id}>
             <Image sizes={node.childImageSharp.sizes} />
