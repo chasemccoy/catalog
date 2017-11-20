@@ -34,7 +34,7 @@ const SidebarWrapper = styled(Menu)`
 	width: ${sizes.sidebar.width} !important;
 	padding: 96px 24px 0 64px;
 
-	${media.small`
+	${media.tiny`
 		min-height: 100vh;
 		width: 100vw !important;
 		padding-right: 64px;
@@ -134,8 +134,8 @@ class Sidebar extends React.Component {
 				<SidebarHeader><Link to='/'>Chase McCoy</Link></SidebarHeader>
 
 				<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
-				<SidebarLink to='/test-post-2'><Icon name='person' />About Me</SidebarLink>
-				<SidebarLink to='/test-post-2'><Icon name='heart' />Favorites</SidebarLink>
+				<SidebarLink to='/portfolio'><Icon name='person' />About Me</SidebarLink>
+				<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>
 				<SidebarLink to='/test-gallery-1' secondary>Books</SidebarLink>
 				<SidebarLink to='/portfolio' secondary>Movies</SidebarLink>
 				<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>

@@ -32,13 +32,13 @@ const BookmarkTitle = styled.h4`
 
 const BookmarkHeader = styled.div`
 	display: flex;
-	margin-bottom: 12px;
 `
 
 const BookmarkContent = styled.div`
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	margin-top: 12px;
 	margin-left: calc(22px + 4px + 8px);
 `
 

@@ -37,7 +37,8 @@ export const sizes = {
 	breakpoints: {
 		large: '80em',
 	  medium: '72em',
-	  small: '56em'
+	  small: '56em',
+		tiny: '40em'
 	}
 }
 
