@@ -1,0 +1,24 @@
+[
+	{
+		"category": "Technology",
+		"bookmarks": [
+			{
+				"url": "http://macstories.net",
+				"comment": "I really like this site because it has this thing and also that other thing which is really great."
+			},
+			{"url": "http://brooksreview.net"},
+			{"url": "http://macstories.net"}
+		]
+	},
+	{
+		"category": "Culture",
+		"bookmarks": [
+			{"url": "http://nytimes.com"},
+			{"url": "http://digg.com"},
+			{
+				"url": "http://kottke.org",
+				"comment": "I really like this site because it has this thing and also that other thing which is really great."
+			}
+		]
+	}
+]

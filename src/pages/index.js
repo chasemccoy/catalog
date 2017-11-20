@@ -6,30 +6,12 @@ import {BookmarkGrid} from '../components/Grid'
 const IndexPage = ({data}) => {
   return (
     <div>
-      <BookmarkGrid mb={4}>
-        <Bookmark title='Bookmark Title Here' url='http://macstories.net'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Bookmark>
-
-        <Bookmark title='Bookmark Title Here' url='http://brooksreview.net'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Bookmark>
-
-        <Bookmark title='Bookmark Title Here' url='http://macstories.net'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Bookmark>
-
-        <Bookmark title='Bookmark Title Here' url='http://sduhsfewugrr.net'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Bookmark>
-      </BookmarkGrid>
-
       {data.allMarkdownRemark.edges.map(({node}) =>
         <div key={node.id}>
           <article>
-            <Link to={node.fields.slug}>
-              <PostTitle>{node.frontmatter.title}</PostTitle>
-            </Link>
+            <PostTitle>
+              <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+            </PostTitle>
 
             <div dangerouslySetInnerHTML={{ __html: node.html }} />
           </article>

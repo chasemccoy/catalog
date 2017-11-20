@@ -12,6 +12,7 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider
     theme={{
       breakpoints: [
+        sizes.breakpoints.tiny,
         sizes.breakpoints.small,
         sizes.breakpoints.medium,
         sizes.breakpoints.large
