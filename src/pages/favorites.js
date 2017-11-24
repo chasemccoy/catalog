@@ -1,16 +1,15 @@
 import React from 'react'
+import Page from '../components/Page'
 
 const FavoritesPage = ({data}) => {
   return (
-    <div>
-      <h3>Favorites</h3>
-
+    <Page title='Favorites'>
       {data.allBookmarksJson.edges.map(({node}, index) =>
         <div key={index}>
           <h4>{node && node.category}</h4>
         </div>
       )}
-    </div>
+    </Page>
   )
 }
 

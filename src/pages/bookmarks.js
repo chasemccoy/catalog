@@ -1,10 +1,11 @@
 import React from 'react'
+import Page from '../components/Page'
 import Bookmark from '../components/Bookmark'
 import {BookmarkGrid} from '../components/Grid'
 
 const BookmarkPage = ({data}) => {
   return (
-    <div>
+    <Page title='Bookmarks'>
       {data.allBookmarksJson.edges.map(({node}, index1) =>
         <div key={index1}>
           <h3>{node && node.category}</h3>
@@ -20,7 +21,7 @@ const BookmarkPage = ({data}) => {
           </BookmarkGrid>
         </div>
       )}
-    </div>
+    </Page>
   )
 }
 

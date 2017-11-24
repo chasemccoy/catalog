@@ -36,6 +36,20 @@ module.exports = {
         name: `bookmarks`,
         path: `${__dirname}/data/bookmarks.json`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `favorites`,
+        path: `${__dirname}/data/favorites.json`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `portfolio`,
+        path: `${__dirname}/data/portfolio.json`,
+      }
     }
   ],
 }

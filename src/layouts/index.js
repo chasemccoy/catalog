@@ -8,39 +8,52 @@ import {Link} from '../components/Components'
 import {Wrapper, Content} from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 
-const TemplateWrapper = ({ children }) => (
-  <ThemeProvider
-    theme={{
-      breakpoints: [
-        sizes.breakpoints.tiny,
-        sizes.breakpoints.small,
-        sizes.breakpoints.medium,
-        sizes.breakpoints.large
-      ]
-    }}
-  >
-    <div>
-      <Helmet
-        title="Chase McCoy"
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
-        ]}
-      />
+export default class TemplateWrapper extends React.Component {
+  getLocalTitle() {
+    function capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
-      <Wrapper>
-        <Sidebar />
+    const pathPrefix = "/";
+    const currentPath = this.props.location.pathname
+      .replace(pathPrefix, "")
+      .replace("/", "");
 
-        <Content>
-          {children()}
-        </Content>
-      </Wrapper>
-    </div>
-  </ThemeProvider>
-)
+    if (currentPath.length) {
+      return "Chase McCoy | " + capitalize(currentPath);
+    }
+  }
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  render() {
+    return (
+      <ThemeProvider
+        theme={{
+          breakpoints: [
+            sizes.breakpoints.tiny,
+            sizes.breakpoints.small,
+            sizes.breakpoints.medium,
+            sizes.breakpoints.large
+          ]
+        }}
+      >
+        <div>
+          <Helmet
+            title={this.getLocalTitle() || "Chase McCoy"}
+            meta={[
+              { name: 'description', content: 'Sample' },
+              { name: 'keywords', content: 'sample, something' },
+            ]}
+          />
+
+          <Wrapper>
+            <Sidebar />
+
+            <Content>
+              {this.props.children()}
+            </Content>
+          </Wrapper>
+        </div>
+      </ThemeProvider>
+    )
+  }
 }
-
-export default TemplateWrapper
