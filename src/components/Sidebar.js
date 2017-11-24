@@ -25,7 +25,7 @@ injectGlobal`
 	}
 
 	.bm-burger-button {
-		${media.small`left: 32px !important;`}
+		${media.small`left: ${sizes.content.smallPadding} !important;`}
 	}
 `
 

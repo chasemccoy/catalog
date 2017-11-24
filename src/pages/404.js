@@ -1,10 +1,10 @@
 import React from 'react'
+import Page from '../components/Page'
 
 const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
+  <Page title='404: Not Found'>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
+  </Page>
 )
 
 export default NotFoundPage

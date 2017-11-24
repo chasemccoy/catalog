@@ -1,23 +1,24 @@
 import React from 'react'
+import Page from '../components/Page'
 import {Link, PostTitle} from '../components/Components'
 import Bookmark from '../components/Bookmark'
 import {BookmarkGrid} from '../components/Grid'
 
 const IndexPage = ({data}) => {
   return (
-    <div>
+    <Page title='Chase McCoy'>
       {data.allMarkdownRemark.edges.map(({node}) =>
         <div key={node.id}>
           <article>
-            <PostTitle>
+            <h3>
               <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-            </PostTitle>
+            </h3>
 
             <div dangerouslySetInnerHTML={{ __html: node.html }} />
           </article>
         </div>
       )}
-    </div>
+    </Page>
   )
 }
 

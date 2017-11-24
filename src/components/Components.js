@@ -29,7 +29,3 @@ export const Link = styled(GatsbyLink)`
 		color: ${darken(0.2, colors.text.body)};
 	}
 `
-
-export const PostTitle = styled.h3`
-
-`

@@ -15,7 +15,8 @@ export const colors = {
 
 	text: {
 		body: '#393E42',
-		header: '#485661'
+		header: '#485661',
+		muted: '#9EA3A8'
 	},
 
 	bookmark: {
@@ -24,6 +25,11 @@ export const colors = {
 			outer: '#E6F3FA',
 			inner: '#ABC2CC'
 		}
+	},
+
+	timeline: {
+		line: '#E6F3FA',
+		point: '#ABC2CC'
 	}
 }
 
@@ -32,13 +38,20 @@ export const sizes = {
 		width: '320px'
 	},
 	content: {
-		padding: '90px'
+		maxWidth: '750px',
+		padding: '90px',
+		smallPadding: '48px'
 	},
 	breakpoints: {
 		large: '80em',
 	  medium: '72em',
 	  small: '56em',
 		tiny: '40em'
+	},
+	timeline: {
+		pointWidth: '12px',
+		lineWidth: '2px',
+		linePadding: '32px'
 	}
 }
 

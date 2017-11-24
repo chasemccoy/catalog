@@ -1,15 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import Page from '../components/Page'
 import {Image} from '../components/Image'
-import {PostTitle} from '../components/Components'
 import {ImageGrid, ShowcaseGrid} from '../components/Grid'
 
 const GalleryPage = ({data}) => {
   return (
-    <div>
+    <Page title={data.post.frontmatter.title}>
       <Helmet title={`${data.post.frontmatter.title} | Chase McCoy`} />
-
-      <PostTitle>{data.post.frontmatter.title}</PostTitle>
 
       <div dangerouslySetInnerHTML={{ __html: data.post.html }} />
 
@@ -36,7 +34,7 @@ const GalleryPage = ({data}) => {
           </div>
         )}
       </ImageGrid>
-    </div>
+    </Page>
   )
 }
 
