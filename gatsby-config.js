@@ -50,6 +50,20 @@ module.exports = {
         name: `portfolio`,
         path: `${__dirname}/data/portfolio.json`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `books`,
+        path: `${__dirname}/data/books.json`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `movies`,
+        path: `${__dirname}/data/movies.json`,
+      }
     }
   ],
 }
