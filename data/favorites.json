@@ -1,23 +1,35 @@
 [
 	{
-		"category": "Technology",
-		"bookmarks": [
+		"category": "Books",
+		"items": [
 			{
-				"url": "http://macstories.net",
-				"comment": "I really like this site because it has this thing and also that other thing which is really great."
+				"title": "Test",
+				"metadata": "Author",
+				"description": "Testing...",
+				"url": "http://google.com"
 			},
-			{"url": "http://brooksreview.net"},
-			{"url": "http://macstories.net"}
+			{
+				"title": "Test 2",
+				"metadata": "Author",
+				"description": "Testing...",
+				"url": "http://google.com"
+			}
 		]
 	},
 	{
-		"category": "Culture",
-		"bookmarks": [
-			{"url": "http://nytimes.com"},
-			{"url": "http://digg.com"},
+		"category": "Movies",
+		"items": [
 			{
-				"url": "http://kottke.org",
-				"comment": "I really like this site because it has this thing and also that other thing which is really great."
+				"title": "Test Movie",
+				"metadata": "Author",
+				"description": "Testing...",
+				"url": "http://google.com"
+			},
+			{
+				"title": "Test Movie 2",
+				"metadata": "Author",
+				"description": "Testing...",
+				"url": "http://google.com"
 			}
 		]
 	}

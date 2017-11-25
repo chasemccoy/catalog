@@ -43,6 +43,7 @@ const TimelineListItem = styled.li`
 		border-radius: 50%;
 		background: white;
 		border: ${sizes.timeline.lineWidth} solid ${colors.timeline.point};
+		box-shadow: 0 0 0 5px white;
 		z-index: 1;
 
 		${media.small`

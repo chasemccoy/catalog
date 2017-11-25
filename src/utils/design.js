@@ -40,7 +40,7 @@ export const sizes = {
 	content: {
 		maxWidth: '750px',
 		padding: '90px',
-		smallPadding: '48px'
+		smallPadding: '32px'
 	},
 	breakpoints: {
 		large: '80em',

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, {ThemeProvider} from 'styled-components'
 import { sizes } from '../utils/design'
+import { capitalize } from '../utils/js'
 
 import {Link} from '../components/Components'
 import {Wrapper, Content} from '../components/Layout'
@@ -10,10 +11,6 @@ import Sidebar from '../components/Sidebar'
 
 export default class TemplateWrapper extends React.Component {
   getLocalTitle() {
-    function capitalize(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
     const pathPrefix = "/";
     const currentPath = this.props.location.pathname
       .replace(pathPrefix, "")

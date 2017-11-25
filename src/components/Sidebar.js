@@ -136,8 +136,8 @@ class Sidebar extends React.Component {
 				<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
 				<SidebarLink to='/portfolio'><Icon name='person' />About Me</SidebarLink>
 				<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>
-				<SidebarLink to='/test-gallery-1' secondary>Books</SidebarLink>
-				<SidebarLink to='/portfolio' secondary>Movies</SidebarLink>
+				<SidebarLink to='/books' secondary>Books</SidebarLink>
+				<SidebarLink to='/movies' secondary>Movies</SidebarLink>
 				<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>
 				<SidebarLink to='/bookmarks'><Icon name='bookmark' />Bookmarks</SidebarLink>
 		  </SidebarWrapper>
