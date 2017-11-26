@@ -103,6 +103,8 @@ const SidebarHeader = styled.h1`
 	text-transform: uppercase;
 	letter-spacing: 2px;
 
+	${props => props.desktop && (media.small`display: none !important;`)}
+
 	a {
 		text-decoration: none;
 	}
@@ -148,11 +150,15 @@ class Sidebar extends React.Component {
 				customCrossIcon={<SidebarButton />}
 				onStateChange={this.handleStateChange}
 			>
+				<SidebarHeader desktop><Link to='/'>Chase McCoy</Link></SidebarHeader>
+
 				<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
 				<SidebarLink to='/portfolio'><Icon name='person' />About Me</SidebarLink>
+
 				<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>
 				<SidebarLink to='/books' secondary>Books</SidebarLink>
 				<SidebarLink to='/movies' secondary>Movies</SidebarLink>
+
 				<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>
 				<SidebarLink to='/bookmarks'><Icon name='bookmark' />Bookmarks</SidebarLink>
 		  </SidebarWrapper>
