@@ -18,14 +18,23 @@ injectGlobal`
 	.bm-burger-button,
 	.bm-cross-button {
 		position: fixed;
-	  left: 64px !important;
-	  top: 32px !important;
+		left: 0 !important;
+		top: 0 !important;
+		right: 0 !important;
+		background-color: white;
+		padding: 24px ${sizes.content.padding};
 		display: none;
-		${media.small`display: block;`}
+		${media.small`display: flex;`}
 	}
 
 	.bm-burger-button {
-		${media.small`left: ${sizes.content.smallPadding} !important;`}
+		${media.small`padding: 40px ${sizes.content.smallPadding};`}
+	}
+
+	.bm-cross-button {
+		${media.small`padding: 40px 64px 16px;`}
+		width: auto !important;
+		height: auto !important;
 	}
 `
 
@@ -89,7 +98,8 @@ const SidebarLink = styled(Link).attrs({
 const SidebarHeader = styled.h1`
 	font-size: 15px;
 	font-weight: ${fontWeights.bold};
-	margin-bottom: 40px;
+	margin: ${props => props.flush ? '0 0 0 8px' : '0 0 40px 0'};
+	display: ${props => props.flush ? 'inline' : 'block'};
 	text-transform: uppercase;
 	letter-spacing: 2px;
 
@@ -97,6 +107,13 @@ const SidebarHeader = styled.h1`
 		text-decoration: none;
 	}
 `
+
+const SidebarButton = (props) => (
+	<div style={{display: 'flex', alignItems: 'center'}}>
+		{props.open ? <Icon name='sidebar-open' /> : <Icon name='sidebar-close' />}
+		<SidebarHeader flush>Chase McCoy</SidebarHeader>
+	</div>
+)
 
 class Sidebar extends React.Component {
 	state = {
@@ -127,12 +144,10 @@ class Sidebar extends React.Component {
 				outerContainerId='wrapper'
 				width={sizes.sidebar.width}
 				isOpen={this.state.isOpen}
-				customBurgerIcon={<Icon name='sidebar-open' />}
-				customCrossIcon={<Icon name='sidebar-close' />}
+				customBurgerIcon={<SidebarButton open />}
+				customCrossIcon={<SidebarButton />}
 				onStateChange={this.handleStateChange}
 			>
-				<SidebarHeader><Link to='/'>Chase McCoy</Link></SidebarHeader>
-
 				<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
 				<SidebarLink to='/portfolio'><Icon name='person' />About Me</SidebarLink>
 				<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>
