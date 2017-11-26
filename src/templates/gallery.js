@@ -56,8 +56,8 @@ export const query = graphql`
         node {
           id
           childImageSharp {
-            sizes(maxWidth: 850) {
-              ...GatsbyImageSharpSizes_noBase64
+            sizes(maxWidth: 750) {
+              ...GatsbyImageSharpSizes_withWebp
             }
           }
           relativePath

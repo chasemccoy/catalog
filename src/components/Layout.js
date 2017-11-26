@@ -7,8 +7,6 @@ import {Icon} from './Icon'
 export const Wrapper = styled.div.attrs({
 	id: 'wrapper'
 })`
-	display: flex;
-	align-items: stretch;
 `
 
 export const Content = styled.div.attrs({

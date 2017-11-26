@@ -55,7 +55,7 @@ const TimelineListItem = styled.li`
 	> div {
 		position: relative;
 		width: calc(50% - ${sizes.timeline.linePadding});
-		top: -4px;
+		top: -5px;
 
 		${media.small`width: calc(100% - ${sizes.timeline.linePadding});`}
 	}
