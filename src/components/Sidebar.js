@@ -28,11 +28,11 @@ injectGlobal`
 	}
 
 	.bm-burger-button {
-		${media.small`padding: 40px ${sizes.content.smallPadding};`}
+		${media.small`padding: 24px ${sizes.content.smallPadding};`}
 	}
 
 	.bm-cross-button {
-		${media.small`padding: 40px 64px 16px;`}
+		${media.small`padding: 24px 40px 16px;`}
 		width: auto !important;
 		height: auto !important;
 	}
@@ -41,12 +41,12 @@ injectGlobal`
 const SidebarWrapper = styled(Menu)`
 	background-color: white;
 	width: ${sizes.sidebar.width} !important;
-	padding: 96px 24px 0 64px;
+	padding: 96px 24px 0 40px;
 
 	${media.tiny`
 		min-height: 100vh;
 		width: 100vw !important;
-		padding-right: 64px;
+		padding-right: 40px;
 	`}
 
 	.primary + .primary,
