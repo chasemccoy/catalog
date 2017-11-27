@@ -41,11 +41,12 @@ injectGlobal`
 const SidebarWrapper = styled(Menu)`
 	background-color: white;
 	width: ${sizes.sidebar.width} !important;
-	padding: 96px 24px 0 40px;
+	padding: 96px 24px 0 64px;
 
 	${media.tiny`
 		min-height: 100vh;
 		width: 100vw !important;
+		padding-left: 40px;
 		padding-right: 40px;
 	`}
 
