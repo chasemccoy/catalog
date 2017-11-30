@@ -6,7 +6,7 @@ import {BookmarkGrid} from '../components/Grid'
 
 const IndexPage = ({data}) => {
   return (
-    <Page title='Chase McCoy'>
+    <Page>
       {data.allMarkdownRemark.edges.map(({node}) =>
         <div key={node.id}>
           <article>

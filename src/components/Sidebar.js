@@ -25,14 +25,17 @@ injectGlobal`
 		padding: 24px ${sizes.content.padding};
 		display: none;
 		${media.small`display: flex;`}
+		border-bottom: 1px solid ${colors.sidebar.border};
 	}
 
 	.bm-burger-button {
 		${media.small`padding: 24px ${sizes.content.smallPadding};`}
+		z-index: 2 !important;
 	}
 
 	.bm-cross-button {
-		${media.small`padding: 24px 40px 16px;`}
+		padding: 24px 64px;
+		${media.tiny`padding: 24px 32px;`}
 		width: auto !important;
 		height: auto !important;
 	}
@@ -42,12 +45,13 @@ const SidebarWrapper = styled(Menu)`
 	background-color: white;
 	width: ${sizes.sidebar.width} !important;
 	padding: 96px 24px 0 64px;
+	z-index: 3 !important;
 
 	${media.tiny`
 		min-height: 100vh;
 		width: 100vw !important;
-		padding-left: 40px;
-		padding-right: 40px;
+		padding-left: ${sizes.content.smallPadding};
+		padding-right: ${sizes.content.smallPadding};
 	`}
 
 	.primary + .primary,
@@ -136,6 +140,7 @@ class Sidebar extends React.Component {
 
 	handleStateChange = (state) => {
 		document.documentElement.classList.toggle('noScroll', window.matchMedia(`(max-width: ${sizes.breakpoints.small})`).matches && state.isOpen)
+		this.setState({isOpen: state.isOpen})
 	}
 
 	render() {
@@ -150,6 +155,7 @@ class Sidebar extends React.Component {
 				customBurgerIcon={<SidebarButton open />}
 				customCrossIcon={<SidebarButton />}
 				onStateChange={this.handleStateChange}
+				className={this.state.isOpen ? 'open' : 'closed'}
 			>
 				<SidebarHeader desktop><Link to='/'>Chase McCoy</Link></SidebarHeader>
 
