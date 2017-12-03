@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors, fontWeights } from '../utils/design'
-import { Row, Column } from '../components/Grid'
-import Image from '../components/Image'
+import { Row, Column } from './Grid'
+import Image from './Image'
+import Markdown from './Markdown'
 
 const ReactMarkdown = require('react-markdown')
 
@@ -34,7 +35,7 @@ export const Library = props => {
 
 						<LibraryItemSubtitle>{node.metadata}</LibraryItemSubtitle>
 
-						<ReactMarkdown source={node.description} />
+						<Markdown>{node.description}</Markdown>
 					</Column>
 				</LibraryItem>
 			)}

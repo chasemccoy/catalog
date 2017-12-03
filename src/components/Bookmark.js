@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Icon} from './Icon'
+import Markdown from './Markdown'
 import { colors, fontWeights } from '../utils/design'
-
-const ReactMarkdown = require('react-markdown')
 
 const BookmarkContainer = styled.a`
 	display: block;
@@ -44,11 +43,14 @@ const BookmarkContent = styled.div`
 	margin-left: calc(22px + 4px + 8px);
 `
 
-const BookmarkDescription = styled(ReactMarkdown)`
-	margin-bottom: 0;
+const BookmarkDescription = styled(Markdown)`
 	color: ${colors.text.header};
 	font-size: 14px;
 	flex-basis: calc(100% - 48px - 16px);
+
+	p {
+		margin: 0;
+	}
 `
 
 const BookmarkImage = styled.img`
@@ -109,7 +111,7 @@ class Bookmark extends React.Component {
 
 					{this.state.imageURL && <BookmarkImage src={this.state.imageURL} title={this.state.title} />}
 
-					{this.props.comment && <BookmarkComment source={this.props.comment} />}
+					{this.props.comment && <BookmarkComment>{this.props.comment}</BookmarkComment>}
 				</BookmarkContent>
 			</BookmarkContainer>
 		);
