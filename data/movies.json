@@ -3,12 +3,14 @@
 		"title": "Test Movie",
 		"metadata": "Author",
 		"description": "Testing...",
-		"url": "http://google.com"
+		"url": "http://google.com",
+		"image": "music/mind-over-matter.jpg"
 	},
 	{
 		"title": "Test Movie 2",
 		"metadata": "Author",
 		"description": "Testing...",
-		"url": "http://google.com"
+		"url": "http://google.com",
+		"image": "music/viva.jpg"
 	}
 ]

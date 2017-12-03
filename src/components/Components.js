@@ -14,6 +14,10 @@ injectGlobal`
 	}
 
 	a {
+		&:link {
+			color: currentColor;
+		}
+		
 		&:visited {
 			color: currentColor;
 		}

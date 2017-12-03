@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { colors, sizes } from '../utils/design'
 
-export const Image = styled(Img)`
+const StyledImage = styled(Img)`
 	border-radius: 4px;
 	max-width: 100%;
 	position: initial !important;
@@ -15,3 +15,18 @@ export const Image = styled(Img)`
 		border-radius: 4px;
 	}
 `
+
+const RegularImage = StyledImage.withComponent('img')
+
+class Image extends React.Component {
+	render() {
+		if (this.props.src) {
+			return <RegularImage {...this.props} />
+		}
+		else {
+			return <StyledImage {...this.props} />
+		}
+	}
+}
+
+export default Image

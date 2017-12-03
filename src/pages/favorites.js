@@ -1,5 +1,6 @@
 import React from 'react'
 import Page from '../components/Page'
+import {Library} from '../components/Library'
 import { capitalize } from '../utils/js'
 
 const FavoritesPage = ({data}) => {
@@ -8,11 +9,7 @@ const FavoritesPage = ({data}) => {
       {Object.keys(data).map((item, i) => (
         <div key={i}>
           <h3>{capitalize(item)}</h3>
-          {data[item].edges.map(({node}, j) =>
-            <div key={j}>
-              <p>{node.title}</p>
-            </div>
-          )}
+          <Library data={data[item].edges} />
         </div>
       ))}
     </Page>
@@ -30,6 +27,7 @@ export const query = graphql`
           metadata
           description
           url
+          image
         }
       }
     }
@@ -41,6 +39,19 @@ export const query = graphql`
           metadata
           description
           url
+          image
+        }
+      }
+    }
+
+    music: allMusicJson(sort: {fields: [title], order: ASC}) {
+      edges {
+        node {
+          title
+          metadata
+          description
+          url
+          image
         }
       }
     }

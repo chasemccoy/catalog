@@ -1,14 +1,16 @@
 [
 	{
-		"title": "Test",
-		"metadata": "Author",
-		"description": "Testing...",
-		"url": "http://google.com"
+		"title": "The Perks of Being a Wallflower",
+		"metadata": "Stephen Chbosky",
+		"description": "If you read any book on this page, let it be this one. *Perks* is beautiful, heartbreaking, and simple.",
+		"url": "https://www.amazon.com/Stephen-Chbosky-Perks-Wallflower-1-2-1999/dp/B00HTK217O",
+		"image": "books/perks.jpg"
 	},
 	{
-		"title": "Test 2",
-		"metadata": "Author",
-		"description": "Testing...",
-		"url": "http://google.com"
+		"title": "Grid Systems in Graphic Design",
+		"metadata": "Josef Müller-Brockmann",
+		"description": "This book has probably shaped me as a designer more than any other. Adapting the ideas in this book from print to web is a great exercise.",
+		"url": "https://www.amazon.com/dp/3721201450/ref=cm_sw_r_cp_dp_T1_DqLFzbJPXTPCH",
+		"image": "books/grid-systems.jpg"
 	}
 ]
