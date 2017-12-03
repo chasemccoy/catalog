@@ -27,7 +27,7 @@ export const Library = props => {
 			{props.data.map(({node}, i) =>
 				<LibraryItem key={i}>
 					<Column width={[1/4]}>
-						<Image src={node.image} />
+						<Image src={`/${node.image}`} />
 					</Column>
 
 					<Column width={[3/4]}>
