@@ -1,14 +1,12 @@
 import React from 'react'
 import Page from '../components/Page'
+import styled from 'styled-components'
+import {Library} from '../components/Library'
 
 const BooksPage = ({data}) => {
   return (
     <Page title='Books'>
-      {data.books.edges.map(({node}, i) =>
-        <div key={i}>
-          <p>{node.title}</p>
-        </div>
-      )}
+      <Library data={data.books.edges} />
     </Page>
   )
 }
@@ -24,6 +22,7 @@ export const query = graphql`
           metadata
           description
           url
+          image
         }
       }
     }

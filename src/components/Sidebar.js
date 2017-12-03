@@ -143,6 +143,10 @@ class Sidebar extends React.Component {
 		this.setState({isOpen: state.isOpen})
 	}
 
+	closeMenu = () => {
+		this.setState({isOpen: window.matchMedia(`(min-width: ${sizes.breakpoints.small})`).matches})
+	}
+
 	render() {
 		return (
 			<SidebarWrapper
@@ -159,15 +163,18 @@ class Sidebar extends React.Component {
 			>
 				<SidebarHeader desktop><Link to='/'>Chase McCoy</Link></SidebarHeader>
 
-				<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
-				<SidebarLink to='/portfolio'><Icon name='person' />About Me</SidebarLink>
+				<div onClick={this.closeMenu}>
+					<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
+					<SidebarLink to='/about'><Icon name='person' />About Me</SidebarLink>
 
-				<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>
-				<SidebarLink to='/books' secondary>Books</SidebarLink>
-				<SidebarLink to='/movies' secondary>Movies</SidebarLink>
+					<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>
+					<SidebarLink to='/books' secondary>Books</SidebarLink>
+					<SidebarLink to='/movies' secondary>Movies</SidebarLink>
+					<SidebarLink to='/music' secondary>Music</SidebarLink>
 
-				<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>
-				<SidebarLink to='/bookmarks'><Icon name='bookmark' />Bookmarks</SidebarLink>
+					<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>
+					<SidebarLink to='/bookmarks'><Icon name='bookmark' />Bookmarks</SidebarLink>
+				</div>
 		  </SidebarWrapper>
 		);
 	}

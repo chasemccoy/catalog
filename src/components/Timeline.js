@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { colors, sizes } from '../utils/design'
 import { media } from '../utils/media'
 
+const ReactMarkdown = require('react-markdown')
+
 const TimelineContainer = styled.section`
 	position: relative;
 
@@ -103,7 +105,7 @@ class TimelineItem extends React.Component {
 
 					<h3 className='title'>{this.props.title}</h3>
 
-					<p>{this.props.children}</p>
+					<ReactMarkdown source={this.props.children} />
 				</div>
 			</TimelineListItem>
 		)

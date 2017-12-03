@@ -1,20 +1,21 @@
 import React from 'react'
 import Page from '../components/Page'
+import styled from 'styled-components'
 import {Library} from '../components/Library'
 
-const MoviesPage = ({data}) => {
+const MusicPage = ({data}) => {
   return (
-    <Page title='Movies'>
-      <Library data={data.movies.edges} />
+    <Page title='Music'>
+      <Library data={data.music.edges} />
     </Page>
   )
 }
 
-export default MoviesPage
+export default MusicPage
 
 export const query = graphql`
-  query MoviesQuery {
-    movies: allMoviesJson(sort: {fields: [title], order: ASC}) {
+  query MusicQuery {
+    music: allMusicJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {
           title
