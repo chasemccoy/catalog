@@ -14,6 +14,7 @@ export const colors = {
 	text: {
 		body: '#393E42',
 		header: '#485661',
+		heading: '#0F96D9',
 		muted: '#9EA3A8',
 		headingBorder: '#9EA3A8'
 	},
