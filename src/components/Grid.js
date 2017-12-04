@@ -4,7 +4,7 @@ import { Flex, Box } from 'grid-styled'
 
 export const Row = props => (
   <Flex
-    mx={-12}
+    mx={[-8, -12]}
 		mt={-24}
 		wrap={true}
     {...props}
@@ -13,7 +13,7 @@ export const Row = props => (
 
 export const Column = props => (
   <Box
-    px={12}
+    px={[8, 12]}
 		pt={24}
     flex='0 1 auto'
     {...props}

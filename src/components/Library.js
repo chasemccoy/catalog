@@ -4,6 +4,7 @@ import { colors, fontWeights } from '../utils/design'
 import { Row, Column } from './Grid'
 import Image from './Image'
 import Markdown from './Markdown'
+import { Heading } from './Components'
 
 const ReactMarkdown = require('react-markdown')
 
