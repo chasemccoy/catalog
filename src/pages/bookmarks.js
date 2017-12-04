@@ -1,14 +1,15 @@
 import React from 'react'
 import Page from '../components/Page'
 import Bookmark from '../components/Bookmark'
-import {BookmarkGrid} from '../components/Grid'
+import { Heading } from '../components/Components'
+import { BookmarkGrid } from '../components/Grid'
 
 const BookmarkPage = ({data}) => {
   return (
     <Page title='Bookmarks'>
       {data.allBookmarksJson.edges.map(({node}, index1) =>
         <div key={index1}>
-          <h3>{node && node.category}</h3>
+          <Heading>{node && node.category}</Heading>
           <BookmarkGrid mb={4}>
             {node.bookmarks && node.bookmarks.map(({url, comment}, index2) =>
               url &&

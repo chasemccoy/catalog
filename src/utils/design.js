@@ -2,7 +2,6 @@ export const colors = {
 	sidebar: {
 		background: '#FAFBFC',
 		border: '#F5F6F7',
-
 		link: {
 			primary: '#5A6773',
 			secondary: '#9EA3A8',
@@ -12,13 +11,12 @@ export const colors = {
 			selectedHover: '#DCF0FA'
 		}
 	},
-
 	text: {
 		body: '#393E42',
 		header: '#485661',
-		muted: '#9EA3A8'
+		muted: '#9EA3A8',
+		headingBorder: '#9EA3A8'
 	},
-
 	bookmark: {
 		background: '#F5F9FC',
 		border: {
@@ -26,7 +24,6 @@ export const colors = {
 			inner: '#ABC2CC'
 		}
 	},
-
 	timeline: {
 		line: '#E6F3FA',
 		point: '#ABC2CC'

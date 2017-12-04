@@ -17,7 +17,7 @@ injectGlobal`
 		&:link {
 			color: currentColor;
 		}
-		
+
 		&:visited {
 			color: currentColor;
 		}
@@ -32,4 +32,9 @@ export const Link = styled(GatsbyLink)`
 	&:hover {
 		color: ${darken(0.2, colors.text.body)};
 	}
+`
+
+export const Heading = styled.h3`
+	padding-bottom: 8px;
+	border-bottom: 1px dashed ${colors.text.headingBorder};
 `
