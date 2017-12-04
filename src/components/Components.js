@@ -35,6 +35,7 @@ export const Link = styled(GatsbyLink)`
 `
 
 export const Heading = styled.h3`
+	color: ${colors.text.heading} !important;
 	padding-bottom: 8px;
 	border-bottom: 1px dashed ${colors.text.headingBorder};
 `
