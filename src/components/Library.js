@@ -10,7 +10,8 @@ import { media } from '../utils/media'
 const ReactMarkdown = require('react-markdown')
 
 const LibraryItem = styled(Row)`
-  margin: -1px;
+  margin: 0;
+  margin-bottom: 16px;
   border-radius: 4px;
   border: 1px solid transparent;
 
@@ -18,19 +19,23 @@ const LibraryItem = styled(Row)`
     background-color: ${colors.bookmark.background};
     border: 1px solid ${colors.bookmark.border.outer};
   }
+
+  img, p {
+    margin-bottom: 0;
+  }
 `
 
 const LibraryLink= styled.a`
   display: inline-block;
   width: calc(100% + ${sizes.library.padding.large} * 2);
   text-decoration: none;
-  margin-left: calc(${'-' + sizes.library.padding.large});
-  margin-right: calc(${'-' + sizes.library.padding.large});
+  margin-left: ${'-' + sizes.library.padding.large};
+  margin-right: ${'-' + sizes.library.padding.large};
 
   ${media.tiny`
     width: calc(100% + ${sizes.library.padding.small} * 2);
-		margin-left: calc(${'-' + sizes.library.padding.small});
-    margin-right: calc(${'-' + sizes.library.padding.small});
+		margin-left: ${'-' + sizes.library.padding.small};
+    margin-right: ${'-' + sizes.library.padding.small};
 	`}
 
   &:last-child {
@@ -53,12 +58,12 @@ export const Library = props => {
 		<div>
 			{props.data.map(({node}, i) =>
         <LibraryLink href={node.url} target='_blank' key={i}>
-  				<LibraryItem px={['4px', 12]}>
-  					<Column width={[1/4]}>
+  				<LibraryItem px={[0, '4px']}>
+  					<Column width={[1/4]} py={[8, 16]}>
   						<Image src={`/${node.image}`} />
   					</Column>
 
-  					<Column width={[3/4]}>
+  					<Column width={[3/4]} py={[8, 16]}>
   						<LibraryItemTitle>{node.title}</LibraryItemTitle>
 
   						<LibraryItemSubtitle>{node.metadata}</LibraryItemSubtitle>

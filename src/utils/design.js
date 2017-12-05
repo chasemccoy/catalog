@@ -53,8 +53,8 @@ export const sizes = {
 	},
 	library: {
 		padding: {
-			small: '12px',
-			large: '24px'
+			small: '8px',
+			large: '16px'
 		}
 	}
 }
