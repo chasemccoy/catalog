@@ -1,7 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
 import Page from '../components/Page'
 import {Library} from '../components/Library'
-import {Heading} from '../components/Components'
+import {Heading, Link} from '../components/Components'
 import { capitalize } from '../utils/js'
 
 const FavoritesPage = ({data}) => {
@@ -9,8 +10,11 @@ const FavoritesPage = ({data}) => {
     <Page title='Favorites'>
       {Object.keys(data).map((item, i) => (
         <div key={i}>
-          <Heading>{capitalize(item)}</Heading>
-          <Library data={data[item].edges} />
+          <Heading>
+            <Link to={`/${item}`}>{capitalize(item)}</Link>
+          </Heading>
+
+          <Library preview data={data[item].edges} section={item} />
         </div>
       ))}
     </Page>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Page from '../components/Page'
-import {Link, PostTitle} from '../components/Components'
+import {Link} from '../components/Components'
 import Bookmark from '../components/Bookmark'
 import {BookmarkGrid} from '../components/Grid'
 
