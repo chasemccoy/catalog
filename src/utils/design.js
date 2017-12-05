@@ -14,7 +14,7 @@ export const colors = {
 	text: {
 		body: '#393E42',
 		header: '#485661',
-		heading: '#0F96D9',
+		heading: '#528FCC',
 		muted: '#9EA3A8',
 		headingBorder: '#9EA3A8'
 	},
@@ -50,6 +50,12 @@ export const sizes = {
 		pointWidth: '12px',
 		lineWidth: '2px',
 		linePadding: '32px'
+	},
+	library: {
+		padding: {
+			small: '12px',
+			large: '24px'
+		}
 	}
 }
 

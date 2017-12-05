@@ -6,7 +6,7 @@ const PageContainer = styled.div`
 `
 
 const PageTitle = styled.h2`
-	margin-bottom: 40px;
+	margin-bottom: 32px;
 `
 
 export default class Page extends React.Component {
