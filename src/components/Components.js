@@ -14,6 +14,8 @@ injectGlobal`
 	}
 
 	a {
+		transition: 0.3s all;
+		
 		&:link {
 			color: currentColor;
 		}
@@ -39,4 +41,8 @@ export const Heading = styled.h3`
 	margin-bottom: 16px;
 	padding-bottom: 8px;
 	border-bottom: 1px dashed ${colors.text.headingBorder};
+
+	a {
+		text-decoration: none;
+	}
 `

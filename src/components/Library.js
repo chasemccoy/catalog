@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, sizes } from '../utils/design'
+import { colors, sizes, fontWeights } from '../utils/design'
 import { Row, Column } from './Grid'
 import Image from './Image'
 import Markdown from './Markdown'
@@ -14,6 +14,7 @@ const LibraryItem = styled(Row)`
   margin-bottom: 16px;
   border-radius: 4px;
   border: 1px solid transparent;
+  transition: 0.3s all;
 
   a:hover & {
     background-color: ${colors.bookmark.background};
@@ -39,7 +40,7 @@ const LibraryLink= styled.a`
 	`}
 
   &:last-child {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
 `
 
@@ -53,26 +54,66 @@ const LibraryItemSubtitle = styled.h4`
   font-weight: normal;
 `
 
+const LibraryItemPreviewImage = styled(Image)`
+  margin-bottom: 0;
+`
+
+const LibrarySectionLink = styled.a`
+  display: block;
+  margin-bottom: 40px;
+  text-align: center;
+  color: ${colors.text.heading} !important;
+  text-decoration: none;
+  font-weight: ${fontWeights.bold};
+  padding: 12px;
+  border-radius: 4px;
+  background-color: ${colors.bookmark.background};
+  border: 1px solid ${colors.bookmark.border.outer};
+
+  &:hover {
+    color: ${colors.sidebar.link.selected} !important;
+  }
+`
+
 export const Library = props => {
-  return (
-		<div>
-			{props.data.map(({node}, i) =>
-        <LibraryLink href={node.url} target='_blank' key={i}>
-  				<LibraryItem px={[0, '4px']}>
-  					<Column width={[1/4]} py={[8, 16]}>
-  						<Image src={`/${node.image}`} />
-  					</Column>
+  const data = props.preview ? props.data.slice(0, 4) : props.data;
 
-  					<Column width={[3/4]} py={[8, 16]}>
-  						<LibraryItemTitle>{node.title}</LibraryItemTitle>
+  if (props.preview) {
+    return (
+      <Row align='flex-end'>
+        {data.map(({node}, i) =>
+					<Column width={[1/4]} key={i}>
+						<LibraryItemPreviewImage src={`/${node.image}`} />
+					</Column>
+  			)}
 
-  						<LibraryItemSubtitle>{node.metadata}</LibraryItemSubtitle>
+        <Column width={1}>
+					<LibrarySectionLink href={`/${props.section}`}>See More</LibrarySectionLink>
+				</Column>
+      </Row>
+    )
+  }
+  else {
+    return (
+      <div>
+  			{data.map(({node}, i) =>
+          <LibraryLink href={node.url} target='_blank' key={i}>
+    				<LibraryItem px={[0, '4px']}>
+    					<Column width={[1/4]} py={[8, 16]}>
+    						<Image src={`/${node.image}`} />
+    					</Column>
 
-  						<Markdown>{node.description}</Markdown>
-  					</Column>
-  				</LibraryItem>
-        </LibraryLink>
-			)}
-		</div>
-  )
+    					<Column width={[3/4]} py={[8, 16]}>
+    						<LibraryItemTitle>{node.title}</LibraryItemTitle>
+
+    						<LibraryItemSubtitle>{node.metadata}</LibraryItemSubtitle>
+
+    						<Markdown>{node.description}</Markdown>
+    					</Column>
+    				</LibraryItem>
+          </LibraryLink>
+  			)}
+  		</div>
+    )
+  }
 }
