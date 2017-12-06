@@ -11,7 +11,7 @@ const FavoritesPage = ({data}) => {
       {Object.keys(data).map((item, i) => (
         <div key={i}>
           <Heading>
-            <Link to={`/${item}`}>{capitalize(item)}</Link>
+            <Link to={item}>{capitalize(item)}</Link>
           </Heading>
 
           <Library preview data={data[item].edges} section={item} />
