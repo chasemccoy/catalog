@@ -11,7 +11,6 @@ const ReactMarkdown = require('react-markdown')
 
 const LibraryItem = styled(Row)`
   margin: 0;
-  margin-bottom: 16px;
   border-radius: 4px;
   border: 1px solid transparent;
   transition: 0.3s all;
@@ -32,6 +31,7 @@ const LibraryLink= styled.a`
   text-decoration: none;
   margin-left: ${'-' + sizes.library.padding.large};
   margin-right: ${'-' + sizes.library.padding.large};
+  margin-bottom: 16px;
 
   ${media.tiny`
     width: calc(100% + ${sizes.library.padding.small} * 2);
@@ -60,7 +60,7 @@ const LibraryItemPreviewImage = styled(Image)`
 
 const LibrarySectionLink = styled(Link)`
   display: block;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   text-align: center;
   color: ${colors.text.heading} !important;
   text-decoration: none;

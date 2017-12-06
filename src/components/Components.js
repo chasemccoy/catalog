@@ -15,7 +15,7 @@ injectGlobal`
 
 	a {
 		transition: 0.3s all;
-		
+
 		&:link {
 			color: currentColor;
 		}
@@ -38,8 +38,8 @@ export const Link = styled(GatsbyLink)`
 
 export const Heading = styled.h3`
 	color: ${colors.text.heading} !important;
-	margin-bottom: 16px;
-	padding-bottom: 8px;
+	margin: 0 0 16px;
+	padding: 32px 0 8px;
 	border-bottom: 1px dashed ${colors.text.headingBorder};
 
 	a {
