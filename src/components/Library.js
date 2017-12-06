@@ -4,7 +4,7 @@ import { colors, sizes, fontWeights } from '../utils/design'
 import { Row, Column } from './Grid'
 import Image from './Image'
 import Markdown from './Markdown'
-import { Heading } from './Components'
+import { Heading, Link } from './Components'
 import { media } from '../utils/media'
 
 const ReactMarkdown = require('react-markdown')
@@ -58,7 +58,7 @@ const LibraryItemPreviewImage = styled(Image)`
   margin-bottom: 0;
 `
 
-const LibrarySectionLink = styled.a`
+const LibrarySectionLink = styled(Link)`
   display: block;
   margin-bottom: 40px;
   text-align: center;
@@ -88,7 +88,7 @@ export const Library = props => {
   			)}
 
         <Column width={1}>
-					<LibrarySectionLink href={`/${props.section}`}>See More</LibrarySectionLink>
+					<LibrarySectionLink to={props.section}>See More</LibrarySectionLink>
 				</Column>
       </Row>
     )

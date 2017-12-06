@@ -17,7 +17,7 @@ export default class TemplateWrapper extends React.Component {
       .replace("/", "");
 
     if (currentPath.length) {
-      return "Chase McCoy | " + capitalize(currentPath);
+      return capitalize(currentPath) + " | Chase McCoy";
     }
   }
 
@@ -37,8 +37,14 @@ export default class TemplateWrapper extends React.Component {
           <Helmet
             title={this.getLocalTitle() || "Chase McCoy"}
             meta={[
-              { name: 'description', content: 'Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.' },
-              { name: 'keywords', content: 'sample, something' },
+              {
+                name: 'description',
+                content: 'Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.'
+              },
+              {
+                name: 'keywords',
+                content: 'sample, something'
+              },
             ]}
           />
 
