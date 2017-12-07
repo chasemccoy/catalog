@@ -1,27 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Card from './Card'
 import {Icon} from './Icon'
 import Markdown from './Markdown'
+import Image from './Image'
 import { colors, fontWeights } from '../utils/design'
 
-const BookmarkContainer = styled.a`
-	display: block;
-	min-height: 100%;
+const BookmarkContainer = styled(Card)`
 	padding: 24px;
-	background-color: ${colors.bookmark.background};
-	border-radius: 4px;
-	border: 1px solid ${colors.bookmark.border.outer};
-	text-decoration: none;
-	transition: 0.3s all;
-
-	&:hover {
-		transform: scale(1.02);
-	}
-
-	&:active {
-		transform: translateY(2px);
-	}
 `
 
 const BookmarkTitle = styled.h4`
@@ -43,22 +30,24 @@ const BookmarkContent = styled.div`
 	margin-left: calc(22px + 4px + 8px);
 `
 
-const BookmarkDescription = styled(Markdown)`
+const BookmarkDescription = styled.div`
+	width: 100%;
 	color: ${colors.text.header};
 	font-size: 14px;
-	flex-basis: calc(100% - 48px - 16px);
+	margin: 0;
 
 	p {
 		margin: 0;
 	}
 `
 
-const BookmarkImage = styled.img`
+const BookmarkImage = styled(Image)`
 	border-radius: 4px;
-	margin: 0 0 0 16px;
 	width: 48px;
 	height: 48px;
 	object-fit: cover;
+	float: right;
+	margin-left: 16px;
 `
 
 const BookmarkComment = BookmarkDescription.extend`
@@ -97,7 +86,7 @@ class Bookmark extends React.Component {
 
 	render() {
 		return (
-			<BookmarkContainer href={this.props.url} target='_blank'>
+			<BookmarkContainer to={this.props.url} highlight>
 				<BookmarkHeader>
 					<Icon name='open' />
 
@@ -106,10 +95,10 @@ class Bookmark extends React.Component {
 
 				<BookmarkContent>
 					<BookmarkDescription>
-						{this.state.description}
-					</BookmarkDescription>
+						{this.state.imageURL && <BookmarkImage src={this.state.imageURL} title={this.state.title} />}
 
-					{this.state.imageURL && <BookmarkImage src={this.state.imageURL} title={this.state.title} />}
+						<p>{this.state.description}</p>
+					</BookmarkDescription>
 
 					{this.props.comment && <BookmarkComment>{this.props.comment}</BookmarkComment>}
 				</BookmarkContent>

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import GatsbyLink from 'gatsby-link'
 import { colors, sizes } from '../utils/design'
 
 const StyledIcon = styled.span`

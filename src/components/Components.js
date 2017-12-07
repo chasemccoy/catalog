@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, {injectGlobal} from 'styled-components'
 import GatsbyLink from 'gatsby-link'
 import {darken} from 'polished'
@@ -30,11 +31,22 @@ injectGlobal`
 	}
 `
 
-export const Link = styled(GatsbyLink)`
+const StyledLink = styled(GatsbyLink)`
 	&:hover {
 		color: ${darken(0.2, colors.text.body)};
 	}
 `
+
+export const Link = props => {
+	if (props.to.startsWith('http')) {
+		console.log("LINK");
+		return <a href={props.to} target='_blank' {...props}>{props.children}</a>
+	}
+	else {
+		console.log("ROUTE");
+		return <StyledLink {...props}>{props.children}</StyledLink>
+	}
+}
 
 export const Heading = styled.h3`
 	color: ${colors.text.heading} !important;
