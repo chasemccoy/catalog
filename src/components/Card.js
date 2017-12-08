@@ -21,6 +21,7 @@ const smallMarginFix = () => {
 
 const DivCard = styled.div`
 	display: block;
+  min-height: 100%;
 	border-radius: 4px;
 	background-color: ${props => props.highlight ? colors.bookmark.background : 'white'};
 	border: ${props => props.highlight ? ('1px solid ' + colors.bookmark.border.outer) : '1px solid transparent'};

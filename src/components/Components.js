@@ -39,11 +39,12 @@ const StyledLink = styled(GatsbyLink)`
 
 export const Link = props => {
 	if (props.to.startsWith('http')) {
-		console.log("LINK");
 		return <a href={props.to} target='_blank' {...props}>{props.children}</a>
 	}
+	else if (props.to.startsWith('#')) {
+		return <a href={props.to} {...props}>{props.children}</a>
+	}
 	else {
-		console.log("ROUTE");
 		return <StyledLink {...props}>{props.children}</StyledLink>
 	}
 }
