@@ -1,6 +1,6 @@
 [
 	{
-		"category": "Technology",
+		"category": "technology",
 		"bookmarks": [
 			{
 				"url": "http://macstories.net",
@@ -11,7 +11,7 @@
 		]
 	},
 	{
-		"category": "Culture",
+		"category": "culture",
 		"bookmarks": [
 			{"url": "http://nytimes.com"},
 			{"url": "http://digg.com"},
