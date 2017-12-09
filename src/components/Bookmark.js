@@ -32,9 +32,7 @@ const BookmarkContent = styled.div`
 
 const BookmarkDescription = styled.div`
 	width: 100%;
-	color: ${colors.text.header};
 	font-size: 14px;
-	margin: 0;
 
 	p {
 		margin: 0;
@@ -50,7 +48,9 @@ const BookmarkImage = styled(Image)`
 	margin-left: 16px;
 `
 
-const BookmarkComment = BookmarkDescription.extend`
+const MarkdownDescription = BookmarkDescription.withComponent(Markdown)
+
+const BookmarkComment = MarkdownDescription.extend`
 	width: 100%;
 	margin-top: 20px;
 	padding-top: 16px;

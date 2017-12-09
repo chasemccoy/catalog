@@ -35,7 +35,7 @@ const LibrarySectionCard = styled(Card)`
   margin-bottom: 24px;
   text-align: center;
   color: ${colors.text.heading} !important;
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.semibold};
   padding: 12px;
 
   &:hover {
@@ -66,12 +66,12 @@ export const Library = props => {
       <div>
   			{data.map(({node}, i) =>
           <LibraryCard to={node.url} key={i}>
-    				<Row mt={0} mx={0} px={[0, '4px']}>
-    					<Column width={[1/4]} py={[8, 16]}>
+    				<Row>
+    					<Column width={[1/4]}>
     						<Image src={`/${node.image}`} />
     					</Column>
 
-    					<Column width={[3/4]} py={[8, 16]}>
+    					<Column width={[3/4]}>
     						<LibraryCardTitle>{node.title}</LibraryCardTitle>
 
     						<LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>

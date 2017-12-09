@@ -51,6 +51,12 @@ export const sizes = {
 		lineWidth: '2px',
 		linePadding: '32px'
 	},
+	card: {
+		padding: {
+			small: '12px',
+			large: '24px'
+		}
+	},
 	library: {
 		padding: {
 			small: '8px',
