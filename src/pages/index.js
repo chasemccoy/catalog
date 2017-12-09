@@ -112,10 +112,10 @@ class IndexPage extends React.Component {
           </Column>
         </Row>
 
-        <List ordered highlight>
-          <li>One</li>
-          <li>Two</li>
-          <li>Three</li>
+        <List highlight>
+          <li>The best way to make interesting work is to become a more interesting person.</li>
+          <li>If you want to be interesting, you have to be interested.</li>
+          <li>Pay attention to what you pay attention to.</li>
         </List>
 
         <Row mb={40}>
