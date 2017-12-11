@@ -46,6 +46,8 @@ const SidebarWrapper = styled(Menu)`
 	width: ${sizes.sidebar.width} !important;
 	padding: 96px 24px 0 64px;
 	z-index: 3 !important;
+	${'' /* box-shadow: rgba(0, 0, 0, 0.0392157) -1px 0px 2px inset;
+	background-color: #FAFBFC; */}
 
 	${media.tiny`
 		min-height: 100vh;

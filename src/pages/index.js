@@ -22,7 +22,7 @@ const Token = styled(Card).attrs({
 })`
 	padding: 8px;
   font-size: 14px;
-  color: ${colors.sidebar.link.selected};
+  color: ${colors.text.header};
   font-weight: ${fontWeights.medium};
   letter-spacing: .03em;
   line-height: 1.3;
