@@ -31,7 +31,7 @@ export const colors = {
 	},
 	card: {
 		background: '#FAFBFC',
-		border: '#F5F5F5',
+		border: '#EDEFF0',
 		link: {
 			background: '#F5F9FC',
 			border: '#E6F3FA',
