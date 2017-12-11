@@ -37,8 +37,8 @@ const TableOfContents = props => {
     <Container>
       Jump to:
       {props.items.map((item, index) =>
-        <TOCItem>
-          <Link to={`#${item}`} key={index}>
+        <TOCItem key={index}>
+          <Link to={`#${item}`}>
             {capitalize(item)}
           </Link>
         </TOCItem>
