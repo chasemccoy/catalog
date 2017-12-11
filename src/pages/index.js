@@ -33,20 +33,16 @@ const Header = (props) => {
     return (
       <div>
         <Row mb={16}>
-          <Column width={[1/5]}>
-            {props.image}
-          </Column>
+          <Column width={[1/4, 1/5]}>{props.image}</Column>
 
-          <Column width={[4/5]}>
+          <Column width={[3/4, 4/5]}>
             <PageTitle>{props.title}</PageTitle>
           </Column>
         </Row>
 
         <Row mb={40}>
           {props.tokens.map((token) =>
-            <Column width={[1/2, 1/3]}>
-              {token}
-            </Column>
+            <Column width={[1/2, 1/3]}>{token}</Column>
           )}
         </Row>
       </div>
@@ -55,9 +51,7 @@ const Header = (props) => {
   else {
     return (
       <Row mb={24}>
-        <Column width={[1/5]}>
-          {props.image}
-        </Column>
+        <Column width={[1/5]}>{props.image}</Column>
 
         <Column width={[4/5]}>
           <Row mb={40}>
@@ -66,9 +60,7 @@ const Header = (props) => {
             </Column>
 
             {props.tokens.map((token) =>
-              <Column width={[1/2, 1/3]}>
-                {token}
-              </Column>
+              <Column width={[1/2, 1/3]}>{token}</Column>
             )}
           </Row>
         </Column>
