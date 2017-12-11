@@ -21,7 +21,7 @@ const Token = styled(Card).attrs({
 	highlight: 'true',
 })`
   display: inline-block;
-  height: auto;
+  min-height: auto;
 	padding: 8px;
   font-size: 14px;
   color: ${colors.text.header};
@@ -47,11 +47,11 @@ const Header = (props) => {
         </Row>
 
         <Row mb={40}>
-          <Column width={1}>
-            {props.tokens.map((token, index) =>
-              React.cloneElement(token, { key: index })
-            )}
-          </Column>
+          {props.tokens.map((token, index) =>
+            <Column key={index}>
+              {token}
+            </Column>
+          )}
         </Row>
       </div>
     )
@@ -67,11 +67,11 @@ const Header = (props) => {
               <PageTitle>{props.title}</PageTitle>
             </Column>
 
-            <Column width={1}>
-              {props.tokens.map((token, index) =>
-                React.cloneElement(token, { key: index })
-              )}
-            </Column>
+            {props.tokens.map((token, index) =>
+              <Column key={index}>
+                {token}
+              </Column>
+            )}
           </Row>
         </Column>
       </Row>
