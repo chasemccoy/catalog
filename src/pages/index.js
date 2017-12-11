@@ -20,19 +20,25 @@ const PageTitle = styled.h2`
 const Token = styled(Card).attrs({
 	highlight: 'true',
 })`
+  display: inline-block;
+  height: auto;
 	padding: 8px;
   font-size: 14px;
   color: ${colors.text.header};
   font-weight: ${fontWeights.medium};
   letter-spacing: .03em;
   line-height: 1.3;
+
+  & + & {
+    margin-left: 16px;
+  }
 `
 
 const Header = (props) => {
   if (props.isSmall) {
     return (
       <div>
-        <Row mb={16}>
+        <Row mb={24}>
           <Column width={[1/4, 1/5]}>{props.image}</Column>
 
           <Column width={[3/4, 4/5]}>
@@ -41,9 +47,11 @@ const Header = (props) => {
         </Row>
 
         <Row mb={40}>
-          {props.tokens.map((token) =>
-            <Column width={[1/2, 1/3]}>{token}</Column>
-          )}
+          <Column width={1}>
+            {props.tokens.map((token, index) =>
+              React.cloneElement(token, { key: index })
+            )}
+          </Column>
         </Row>
       </div>
     )
@@ -59,9 +67,11 @@ const Header = (props) => {
               <PageTitle>{props.title}</PageTitle>
             </Column>
 
-            {props.tokens.map((token) =>
-              <Column width={[1/2, 1/3]}>{token}</Column>
-            )}
+            <Column width={1}>
+              {props.tokens.map((token, index) =>
+                React.cloneElement(token, { key: index })
+              )}
+            </Column>
           </Row>
         </Column>
       </Row>
@@ -75,13 +85,13 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount = () => {
-    window.matchMedia(`(min-width: ${sizes.breakpoints.medium})`).addListener(this.mediaQueryChanged)
+    window.matchMedia(`(min-width: ${sizes.breakpoints.tiny})`).addListener(this.mediaQueryChanged)
 
     this.mediaQueryChanged()
   }
 
   mediaQueryChanged = () => {
-    this.setState({isSmall: !window.matchMedia(`(min-width: ${sizes.breakpoints.medium})`).matches})
+    this.setState({isSmall: !window.matchMedia(`(min-width: ${sizes.breakpoints.tiny})`).matches})
   }
 
   render() {
