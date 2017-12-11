@@ -24,8 +24,8 @@ const DivCard = styled.div`
   min-height: 100%;
 	border-radius: 4px;
   padding: ${sizes.card.padding.large};
-	background-color: ${props => props.highlight ? colors.bookmark.background : 'white'};
-	border: ${props => props.highlight ? ('1px solid ' + colors.bookmark.border.outer) : '1px solid transparent'};
+	background-color: ${props => props.highlight ? colors.card.background : 'white'};
+	border: ${props => props.highlight ? ('1px solid ' + colors.card.border) : '1px solid transparent'};
   color: ${colors.text.header};
 
 	${props => !props.highlight && largeMarginFix()};
@@ -35,8 +35,8 @@ const DivCard = styled.div`
 	`}
 
 	&:hover {
-		background-color: ${colors.bookmark.background};
-		border: 1px solid ${colors.bookmark.border.outer};
+		background-color: ${colors.card.background};
+		border: 1px solid ${colors.card.border};
 	}
 `
 
@@ -44,9 +44,13 @@ const LinkComponent = DivCard.withComponent(Link)
 
 const LinkCard = LinkComponent.extend`
 	text-decoration: none;
+  background-color: ${props => props.highlight ? colors.card.link.background : 'white'};
+	border: ${props => props.highlight ? ('1px solid ' + colors.card.link.border) : '1px solid transparent'};
 
 	&:hover {
 		transform: scale(1.02);
+    background-color: ${colors.card.link.background};
+		border: 1px solid ${colors.card.link.border};
 	}
 
 	&:active {

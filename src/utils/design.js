@@ -28,6 +28,14 @@ export const colors = {
 	timeline: {
 		line: '#E6F3FA',
 		point: '#ABC2CC'
+	},
+	card: {
+		background: '#FAFBFC',
+		border: '#F5F5F5',
+		link: {
+			background: '#F5F9FC',
+			border: '#E6F3FA',
+		}
 	}
 }
 
