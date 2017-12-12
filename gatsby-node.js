@@ -41,8 +41,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 						path: node.fields.slug,
 						component: path.resolve(`./src/templates/post.js`),
 						context: {
-							// Data passed to context is available in page queries as GraphQL variables.
-							slug: node.fields.slug,
+							slug: node.fields.slug
 						}
 					})
 				})
@@ -69,8 +68,38 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: node.fields.parent,
 							component: path.resolve(`./src/templates/gallery.js`),
 							context: {
-								// Data passed to context is available in page queries as GraphQL variables.
-								parent: node.fields.parent,
+								parent: node.fields.parent
+							}
+						})
+					})
+
+          resolve()
+        })
+      })
+			.then(() => {
+        graphql(
+          `
+						{
+							allWordpressPost {
+						    edges {
+						      node {
+						        id
+						        title
+						        format
+						        slug
+						        content
+						      }
+						    }
+						  }
+						}
+          `
+        ).then(result => {
+					result.data.allWordpressPost.edges.map(({ node }) => {
+						createPage({
+							path: node.slug,
+							component: path.resolve(`./src/templates/wp-post.js`),
+							context: {
+								id: node.id
 							}
 						})
 					})
