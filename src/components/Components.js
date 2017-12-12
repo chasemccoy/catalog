@@ -29,6 +29,11 @@ injectGlobal`
 			color: ${darken(0.2, colors.text.body)};
 		}
 	}
+
+	pre {
+		line-height: 1;
+		tab-size: 2;
+	}
 `
 
 const StyledLink = styled(GatsbyLink)`

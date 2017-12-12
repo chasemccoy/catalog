@@ -78,6 +78,13 @@ module.exports = {
         name: `principles`,
         path: `${__dirname}/data/principles.json`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `templates`,
+        path: `${__dirname}/data/_templates.json`,
+      }
     }
   ],
 }
