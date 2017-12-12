@@ -176,6 +176,7 @@ class Sidebar extends React.Component {
 
 					<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>
 					<SidebarLink to='/bookmarks'><Icon name='bookmark' />Bookmarks</SidebarLink>
+					<SidebarLink to='/principles'><Icon name='heart' />Principles</SidebarLink>
 				</div>
 		  </SidebarWrapper>
 		);
