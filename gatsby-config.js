@@ -71,6 +71,13 @@ module.exports = {
         name: `music`,
         path: `${__dirname}/data/music.json`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `principles`,
+        path: `${__dirname}/data/principles.json`,
+      }
     }
   ],
 }

@@ -11,7 +11,7 @@ const GalleryPage = ({data}) => {
 
       <div dangerouslySetInnerHTML={{ __html: data.post.html }} />
 
-      <ShowcaseGrid>
+      <ShowcaseGrid mb={24}>
         {data.images.edges.map(({node}) =>
           <div key={node.id}>
             <Image sizes={node.childImageSharp.sizes} />
@@ -19,7 +19,7 @@ const GalleryPage = ({data}) => {
         )}
       </ShowcaseGrid>
 
-      <ShowcaseGrid right mt={'4'}>
+      <ShowcaseGrid right mb={24}>
         {data.images.edges.map(({node}) =>
           <div key={node.id}>
             <Image sizes={node.childImageSharp.sizes} />
@@ -27,7 +27,7 @@ const GalleryPage = ({data}) => {
         )}
       </ShowcaseGrid>
 
-      <ImageGrid my={'4'}>
+      <ImageGrid>
         {data.images.edges.map(({node}) =>
           <div key={node.id}>
             <Image sizes={node.childImageSharp.sizes} />
