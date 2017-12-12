@@ -167,6 +167,7 @@ class Sidebar extends React.Component {
 
 				<div onClick={this.closeMenu}>
 					<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
+					<SidebarLink to='/blog'><Icon name='open' />Blog</SidebarLink>
 					<SidebarLink to='/about'><Icon name='person' />About Me</SidebarLink>
 
 					<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>

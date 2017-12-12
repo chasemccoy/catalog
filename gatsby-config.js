@@ -11,6 +11,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "theowlery.co",
+        protocol: "http",
+        hostingWPCOM: false,
+        useACF: false
+      }
+    },
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography.js`
