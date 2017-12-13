@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { colors, sizes } from '../utils/design'
+import { Link } from './Components'
+import { Row, Column } from './Grid'
 
 const StyledImage = styled(Img)`
 	border-radius: 4px;
@@ -19,6 +20,7 @@ const StyledImage = styled(Img)`
 `
 
 export const ImageDiv = StyledImage.withComponent('div')
+export const ImageLink = StyledImage.withComponent(Link)
 
 const RegularImage = StyledImage.withComponent('img')
 
@@ -34,3 +36,61 @@ class Image extends React.Component {
 }
 
 export default Image
+
+const ShowcaseImageStyles = src => {
+  return `
+    background-image: url(${src});
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 100%;
+  `;
+}
+
+const ImageContainer = styled(ImageDiv)`
+  ${props => ShowcaseImageStyles(props.src)}
+`
+
+const ImageLinkContainer = styled(ImageLink)`
+  display: block;
+  ${props => ShowcaseImageStyles(props.src)}
+`
+
+export const ImageShowcase = props => {
+  const first = props.children[0]
+  const second = props.children[1]
+  const third = props.children[2]
+
+  const Container = first.props.to ? ImageLinkContainer : ImageContainer
+
+  const primary = (
+    <Column width={[2/3]} {...props}>
+      {first.props.src && <Container to={first.props.to} src={first.props.src} />}
+    </Column>
+  )
+
+  const secondary = (
+    <Column width={[1/3]}>
+      <Row>
+        <Column width={[1]}>
+          {second.props.src && <Container to={second.props.to} src={second.props.src} />}
+        </Column>
+      </Row>
+
+      <Row mt={'-1px'}>
+        <Column width={[1]}>
+          {third.props.src && <Container to={third.props.to} src={third.props.src} />}
+        </Column>
+      </Row>
+    </Column>
+  )
+
+  return (
+    <Row {...props}>
+      {!props.right && primary}
+
+      {secondary}
+
+      {props.right && primary}
+    </Row>
+  )
+}
