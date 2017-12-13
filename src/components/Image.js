@@ -18,6 +18,8 @@ const StyledImage = styled(Img)`
 	}
 `
 
+export const ImageDiv = StyledImage.withComponent('div')
+
 const RegularImage = StyledImage.withComponent('img')
 
 class Image extends React.Component {

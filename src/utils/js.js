@@ -7,11 +7,12 @@ export function lowercase(string) {
 }
 
 export function truncateExcerpt(string) {
-  return stripTags(string).slice(0, -5);
+  return stripTags(string).slice(0, -11);
 }
 
 export function stripTags(string) {
-  var div = document.createElement("div");
-  div.innerHTML = string;
-  return div.innerText;
+  if ((string===null) || (string===''))
+    return false;
+
+  return string.replace(/<[^>]*>/g, '');
 }
