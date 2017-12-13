@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from './Components'
 import { colors, sizes } from '../utils/design'
 import { media } from '../utils/media'
+import { truncateExcerpt, stripTags } from '../utils/js'
 
 const Container = styled.div`
   margin: 24px 0;
@@ -24,8 +25,11 @@ const Title = styled.h3`
   }
 `
 
-const Content = styled.div`
+const Content = styled.p`
+  margin-bottom: 0;
 `
+
+const Excerpt = Content.withComponent('span')
 
 const PostMeta = styled.div`
   color: ${colors.text.muted};
@@ -52,7 +56,7 @@ export const Post = props => {
 
   const content = props.content && <Content dangerouslySetInnerHTML={{ __html: props.content }} />
 
-  const excerpt = props.excerpt && <Content dangerouslySetInnerHTML={{ __html: props.excerpt }} />
+  const excerpt = props.excerpt && props.to && (<div><Excerpt dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }} /> <Link to={props.to}>Read more...</Link></div>)
 
   const meta = props.date && props.to && <Meta date={props.date} permalink={props.to} />
 
