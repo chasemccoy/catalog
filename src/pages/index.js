@@ -22,7 +22,7 @@ const Token = styled(Card).attrs({
 })`
   display: inline-block;
   min-height: auto;
-	padding: 8px;
+	padding: 8px !important;
   font-size: 14px;
   color: ${colors.text.header};
   font-weight: ${fontWeights.medium};
