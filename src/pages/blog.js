@@ -3,24 +3,31 @@ import styled from 'styled-components'
 import Page from '../components/Page'
 import { Link } from '../components/Components'
 import { Row, Column } from '../components/Grid'
-
-const Aside = props => (
-  <div dangerouslySetInnerHTML={{ __html: props.content }} />
-)
-
-const Post = props => (
-  <h3><Link to={`/${props.to}`}>{props.title}</Link></h3>
-)
+import { Post } from '../components/Blog'
 
 const BlogPage = ({data}) => {
   return (
-    <Page>
+    <Page narrow>
       {data.posts.edges.map(({node}, i) => (
         node.format != 'image' && (<Row mb={40} key={i}>
           <Column>
-            {node.format == 'aside' && <Aside content={node.content} />}
+            {node.format == 'aside' &&
+              <Post
+                aside
+                to={node.slug}
+                content={node.content}
+                date={node.date}
+              />
+            }
 
-            {node.format == 'standard' && <Post title={node.title} to={node.slug} />}
+            {node.format == 'standard' &&
+              <Post
+                title={node.title}
+                to={node.slug}
+                date={node.date}
+                excerpt={node.excerpt}
+              />
+            }
 
             {node.format == 'image' && null}
           </Column>
@@ -38,9 +45,11 @@ export const query = graphql`
       edges {
         node {
           title
+          date(formatString: "MMM D")
           slug
           format
           content
+          excerpt
         }
       }
     }
