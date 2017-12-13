@@ -6,7 +6,7 @@ export default ({ data }) => {
   const post = data.wordpressPost
 
   return (
-    <Page title={post.title}>
+    <Page narrow title={post.title}>
       {post.title && <Helmet title={`${post.title} | Chase McCoy`} />}
 
       <div dangerouslySetInnerHTML={{ __html: post.content }} />

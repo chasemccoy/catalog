@@ -84,10 +84,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 						    edges {
 						      node {
 						        id
-						        title
-						        format
 						        slug
-						        content
 						      }
 						    }
 						  }

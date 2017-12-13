@@ -1,22 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import { media } from '../utils/media'
 
 const PageContainer = styled.div`
+	${props => props.narrow && 'width: 75%;'}
 
+	${props => props.narrow && media.tiny`
+    width: 100%;
+	`}
 `
 
 const PageTitle = styled.h2`
 	margin-bottom: 32px;
 `
 
-export default class Page extends React.Component {
-	render() {
-		return (
-			<PageContainer>
-				{this.props.title && <PageTitle>{this.props.title}</PageTitle>}
+const Page = props => (
+	<PageContainer {...props}>
+		{props.title && <PageTitle>{props.title}</PageTitle>}
 
-				{this.props.children}
-			</PageContainer>
-		)
-	}
-}
+		{props.children}
+	</PageContainer>
+)
+
+export default Page
