@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from 'grid-styled'
+import { ImageDiv } from '../components/Image'
 
 export const Row = props => (
   <Flex
@@ -46,21 +47,36 @@ export const ImageGrid = props => (
   </Row>
 )
 
+const ImageContainer = styled(ImageDiv)`
+  background-image: ${props => `url(${props.src})`};
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 100%;
+`
+
 export const ShowcaseGrid = props => {
+  const first = props.children[0]
+  const second = props.children[1]
+  const third = props.children[2]
+
   const primary = (
-    <Column width={[2/3]}>
-      {props.children[0]}
+    <Column width={[2/3]} {...props}>
+      {first.props.src && <ImageContainer src={first.props.src} />}
     </Column>
   )
 
   const secondary = (
     <Column width={[1/3]}>
       <Row>
-        <Column width={[1]}>{props.children[1]}</Column>
+        <Column width={[1]}>
+          {second.props.src && <ImageContainer src={second.props.src} />}
+        </Column>
       </Row>
 
-      <Row mt={-5}>
-        <Column width={[1]}>{props.children[2]}</Column>
+      <Row mt={'-1px'}>
+        <Column width={[1]}>
+          {third.props.src && <ImageContainer src={third.props.src} />}
+        </Column>
       </Row>
     </Column>
   )

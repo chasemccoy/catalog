@@ -13,24 +13,20 @@ const GalleryPage = ({data}) => {
 
       <ShowcaseGrid mb={24}>
         {data.images.edges.map(({node}) =>
-          <div key={node.id}>
-            <Image sizes={node.childImageSharp.sizes} />
-          </div>
+          <Image src={node.childImageSharp.sizes.src} key={node.id} />
         )}
       </ShowcaseGrid>
 
       <ShowcaseGrid right mb={24}>
         {data.images.edges.map(({node}) =>
-          <div key={node.id}>
-            <Image sizes={node.childImageSharp.sizes} />
-          </div>
+          <Image src={node.childImageSharp.sizes.src} key={node.id} />
         )}
       </ShowcaseGrid>
 
       <ImageGrid>
         {data.images.edges.map(({node}) =>
           <div key={node.id}>
-            <Image sizes={node.childImageSharp.sizes} />
+            <Image src={node.childImageSharp.sizes.src} key={node.id} />
           </div>
         )}
       </ImageGrid>

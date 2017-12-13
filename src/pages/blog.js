@@ -4,10 +4,18 @@ import Page from '../components/Page'
 import { Link } from '../components/Components'
 import { Row, Column } from '../components/Grid'
 import { Post } from '../components/Blog'
+import Image from '../components/Image'
+import { ShowcaseGrid } from '../components/Grid'
 
 const BlogPage = ({data}) => {
   return (
     <Page narrow>
+      <ShowcaseGrid mb={24}>
+        {data.images.edges.map(({node}, i) =>
+          <Image src={node.source_url} key={i} />
+  			)}
+      </ShowcaseGrid>
+
       {data.posts.edges.map(({node}, i) => (
         node.format != 'image' && (<Row mb={40} key={i}>
           <Column>
@@ -50,6 +58,14 @@ export const query = graphql`
           format
           content
           excerpt
+        }
+      }
+    }
+
+    images: allWordpressWpMedia(limit: 3) {
+      edges {
+        node {
+          source_url
         }
       }
     }
