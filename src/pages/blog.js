@@ -6,6 +6,16 @@ import { Row, Column } from '../components/Grid'
 import { Post } from '../components/Blog'
 import Image from '../components/Image'
 import { ImageShowcase } from '../components/Image'
+import { colors } from '../utils/design'
+
+const Divider = styled.hr`
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  height: 2px;
+  background-color: ${colors.sidebar.link.hover}
+`
 
 const BlogPage = ({data}) => {
   return (
@@ -17,29 +27,33 @@ const BlogPage = ({data}) => {
       </ImageShowcase>
 
       {data.posts.edges.map(({node}, i) => (
-        node.format != 'image' && (<Row mb={40} key={i}>
-          <Column>
-            {node.format == 'aside' &&
-              <Post
-                aside
-                to={node.slug}
-                content={node.content}
-                date={node.date}
-              />
-            }
+        node.format != 'image' && (
+          <Row key={i}>
+            <Column mb={24} width={1}>
+              {node.format == 'aside' &&
+                <Post
+                  aside
+                  to={node.slug}
+                  content={node.content}
+                  date={node.date}
+                />
+              }
 
-            {node.format == 'standard' &&
-              <Post
-                title={node.title}
-                to={node.slug}
-                date={node.date}
-                excerpt={node.excerpt}
-              />
-            }
+              {node.format == 'standard' &&
+                <Post
+                  title={node.title}
+                  to={node.slug}
+                  date={node.date}
+                  excerpt={node.excerpt}
+                />
+              }
 
-            {node.format == 'image' && null}
-          </Column>
-        </Row>)
+              {node.format == 'image' && null}
+            </Column>
+
+            <Column mb={24} width={1}><Divider /></Column>
+          </Row>
+        )
       ))}
     </Page>
   )

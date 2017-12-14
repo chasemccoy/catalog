@@ -5,6 +5,10 @@ import {darken} from 'polished'
 import { colors } from '../utils/design'
 
 injectGlobal`
+	* {
+		box-sizing: border-box;
+	}
+
 	body {
 		color: ${colors.text.body};
 		-webkit-font-smoothing: antialiased;
@@ -28,6 +32,10 @@ injectGlobal`
 		&:hover {
 			color: ${darken(0.2, colors.text.body)};
 		}
+	}
+
+	img {
+		margin: 0;
 	}
 
 	pre {

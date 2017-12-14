@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import { media } from '../utils/media'
 
 const PageContainer = styled.div`
+	margin: auto;
+
 	${props => props.narrow && 'width: 75%;'}
 
 	${props => props.narrow && media.tiny`
-    width: 100%;
+    width: 95%;
 	`}
 `
 
