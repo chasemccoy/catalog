@@ -8,7 +8,7 @@ const PageContainer = styled.div`
 	${props => props.narrow && 'width: 75%;'}
 
 	${props => props.narrow && media.tiny`
-    width: 95%;
+    width: 96%;
 	`}
 `
 
