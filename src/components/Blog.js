@@ -49,6 +49,10 @@ const Content = styled.p`
     font-size: 18px;
     font-family: monospace;
   }
+
+  a {
+    font-weight: ${fontWeights.semibold}
+  }
 `
 
 const PostMeta = styled.div`
@@ -64,6 +68,8 @@ const PostMeta = styled.div`
 
 const PostDate = styled.p`
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `
 
 const Meta = ({date, permalink}) => (
