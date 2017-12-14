@@ -1,15 +1,17 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Page from '../components/Page'
+import { Post } from '../components/Blog'
 
 export default ({ data }) => {
   const post = data.wordpressPost
 
   return (
     <Page narrow title={post.title}>
-      {post.title && <Helmet title={`${post.title} | Chase McCoy`} />}
-
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <Post
+        content={post.content}
+        date={post.date}
+      />
     </Page>
   )
 }
@@ -19,6 +21,8 @@ export const query = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
+      format
+      date(formatString: "MMMM Do, YYYY")
     }
   }
 `
