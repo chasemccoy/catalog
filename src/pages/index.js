@@ -24,7 +24,6 @@ const Token = styled(Card).attrs({
   min-height: auto;
 	padding: 8px !important;
   font-size: 14px;
-  color: ${colors.text.header};
   font-weight: ${fontWeights.medium};
   letter-spacing: .03em;
   line-height: 1.3;

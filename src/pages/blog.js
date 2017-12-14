@@ -6,16 +6,8 @@ import { Row, Column } from '../components/Grid'
 import { Post } from '../components/Blog'
 import Image from '../components/Image'
 import { ImageShowcase } from '../components/Image'
+import Divider from '../components/Divider'
 import { colors } from '../utils/design'
-
-const Divider = styled.hr`
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  border: 0;
-  height: 2px;
-  background-color: ${colors.sidebar.link.hover}
-`
 
 const BlogPage = ({data}) => {
   return (

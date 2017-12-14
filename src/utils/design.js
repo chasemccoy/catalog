@@ -1,4 +1,7 @@
 export const colors = {
+	primary: {
+		blue: '#1FB6FF'
+	},
 	sidebar: {
 		background: '#FAFBFC',
 		border: '#F5F6F7',
@@ -30,8 +33,10 @@ export const colors = {
 		point: '#ABC2CC'
 	},
 	card: {
-		background: '#FAFBFC',
+		text: '#657886',
+		background: '#FFFFFF',
 		border: '#EDEFF0',
+		shadow: '#BBC9D3',
 		link: {
 			background: '#F5F9FC',
 			border: '#E6F3FA',
