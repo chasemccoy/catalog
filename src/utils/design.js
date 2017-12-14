@@ -1,6 +1,7 @@
 export const colors = {
 	primary: {
-		blue: '#1FB6FF'
+		blue: '#1FB6FF',
+		purple: '#5856D6'
 	},
 	sidebar: {
 		background: '#FAFBFC',
