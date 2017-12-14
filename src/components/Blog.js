@@ -28,7 +28,10 @@ const Title = styled.h3`
     content: "#";
     position: absolute;
     margin-left: -24px;
-    color: ${colors.sidebar.link.selected};
+    color: ${colors.primary.blue};
+    font-weight: ${fontWeights.bold};
+    font-size: 22px;
+    line-height: 1.2;
   }
 `
 

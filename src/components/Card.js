@@ -25,19 +25,14 @@ const DivCard = styled.div`
 	border-radius: 4px;
   padding: ${sizes.card.padding.large};
 	background-color: ${props => props.highlight ? colors.card.background : 'white'};
-	border: ${props => props.highlight ? ('1px solid ' + colors.card.border) : '1px solid transparent'};
-  color: ${colors.text.header};
+  color: ${colors.card.text};
+  box-shadow: ${props => props.highlight && `0 2px 4px rgba(32, 52, 61, .03), 0 1px 2px rgba(0, 0, 0, .06), inset 0 0 0 1px ${colors.card.shadow}`};
 
 	${props => !props.highlight && largeMarginFix()};
 	${props => !props.highlight && media.tiny`
     padding: ${sizes.card.padding.small};
 		${smallMarginFix()}
 	`}
-
-	&:hover {
-		background-color: ${colors.card.background};
-		border: 1px solid ${colors.card.border};
-	}
 `
 
 const LinkComponent = DivCard.withComponent(Link)
@@ -46,6 +41,7 @@ const LinkCard = LinkComponent.extend`
 	text-decoration: none;
   background-color: ${props => props.highlight ? colors.card.link.background : 'white'};
 	border: ${props => props.highlight ? ('1px solid ' + colors.card.link.border) : '1px solid transparent'};
+  box-shadow: none;
 
 	&:hover {
 		transform: scale(1.02);
