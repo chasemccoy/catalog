@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from './Components'
-import { colors, sizes } from '../utils/design'
+import { colors, sizes, fontWeights } from '../utils/design'
 import { media } from '../utils/media'
 import { truncateExcerpt, stripTags } from '../utils/js'
 
@@ -23,16 +23,34 @@ const Title = styled.h3`
   a {
     text-decoration: none;
   }
+
+  a:before {
+    content: "#";
+    position: absolute;
+    margin-left: -24px;
+    color: ${colors.sidebar.link.selected};
+  }
 `
 
 const Content = styled.p`
-  margin-bottom: 0;
-`
+  &:last-of-type {
+    margin: 0;
+  }
 
-const Excerpt = Content.withComponent('span')
+  &:before {
+    ${'' /* content: "●"; */}
+    position: absolute;
+    margin-left: -24px;
+    color: ${colors.bookmark.border.inner};
+    font-weight: ${fontWeights.heavy};
+    font-size: 18px;
+    font-family: monospace;
+  }
+`
 
 const PostMeta = styled.div`
   color: ${colors.text.muted};
+  font-weight: ${fontWeights.medium};
   font-size: 14px;
   margin-top: 8px;
 
@@ -42,7 +60,7 @@ const PostMeta = styled.div`
 `
 
 const PostDate = styled.p`
-
+  margin: 0;
 `
 
 const Meta = ({date, permalink}) => (
@@ -52,13 +70,28 @@ const Meta = ({date, permalink}) => (
 )
 
 export const Post = props => {
-  const title = props.title && <Title>{props.to ? <Link to={`/${props.to}`}>{props.title}</Link> : props.title}</Title>
+  const title = props.title &&
+    <Title>{props.to ?
+      <Link to={`/${props.to}`}>{props.title}</Link> :
+      props.title}
+    </Title>
 
-  const content = props.content && <Content dangerouslySetInnerHTML={{ __html: props.content }} />
+  const content = props.content &&
+    <Content dangerouslySetInnerHTML={{ __html: props.content }} />
 
-  const excerpt = props.excerpt && props.to && (<div><Excerpt dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }} /> <Link to={props.to}>Read more...</Link></div>)
+  const excerpt = props.excerpt &&
+    props.to &&
+    (<div>
+      <span dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }} />
+      <Link to={props.to}>Read more...</Link>
+    </div>
+    )
 
-  const meta = props.date && props.to && <Meta date={props.date} permalink={props.to} />
+  const meta = props.date &&
+    props.to &&
+    <Meta date={props.date}
+      permalink={props.to}
+    />
 
   if (props.aside) {
     return (
