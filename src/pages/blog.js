@@ -7,21 +7,31 @@ import { Post } from '../components/Blog'
 import Image from '../components/Image'
 import { ImageShowcase } from '../components/Image'
 import Divider from '../components/Divider'
-import { colors } from '../utils/design'
+import { colors, fontWeights } from '../utils/design'
+
+const Header = styled.h2`
+  font-size: 14px;
+  color: ${colors.primary.purple} !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: ${fontWeights.bold};
+`
 
 const BlogPage = ({data}) => {
   return (
     <Page narrow>
-      <ImageShowcase mb={24}>
+      <Header>Recent Images</Header>
+      <ImageShowcase mb={40}>
         {data.images.edges.map(({node}, i) =>
           <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
   			)}
       </ImageShowcase>
 
+      <Header>Thoughts</Header>
       {data.posts.edges.map(({node}, i) => (
         node.format != 'image' && (
           <Row key={i}>
-            <Column mb={24} width={1}>
+            <Column mb={40} width={1}>
               {node.format == 'aside' &&
                 <Post
                   aside
@@ -43,7 +53,7 @@ const BlogPage = ({data}) => {
               {node.format == 'image' && null}
             </Column>
 
-            <Column mb={24} width={1}><Divider /></Column>
+            <Column mb={40} width={1}><Divider /></Column>
           </Row>
         )
       ))}

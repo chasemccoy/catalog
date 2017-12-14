@@ -6,7 +6,7 @@ import { media } from '../utils/media'
 import { truncateExcerpt, stripTags } from '../utils/js'
 
 const Container = styled.div`
-  margin: 24px 0;
+  ${'' /* margin: 24px 0; */}
   color: ${colors.text.header};
 `
 
