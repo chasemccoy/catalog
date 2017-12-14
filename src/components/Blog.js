@@ -74,7 +74,9 @@ const PostDate = styled.p`
 
 const Meta = ({date, permalink}) => (
   <PostMeta>
-    {date && (<PostDate><Link to={permalink}>{date}</Link></PostDate>)}
+    {date && permalink && (<PostDate><Link to={permalink}>{date}</Link></PostDate>)}
+
+    {date && !permalink && (<PostDate>Posted on {date}</PostDate>)}
   </PostMeta>
 )
 
@@ -96,13 +98,9 @@ export const Post = props => {
     </div>
     )
 
-  const meta = props.date &&
-    props.to &&
-    <Meta date={props.date}
-      permalink={props.to}
-    />
+  const meta = props.date && <Meta date={props.date} permalink={props.to} />
 
-  if (props.aside) {
+  if (props.aside || props.content) {
     return (
       <AsideContainer>
         {content}

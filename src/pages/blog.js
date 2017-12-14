@@ -69,7 +69,7 @@ export const query = graphql`
       edges {
         node {
           title
-          date(formatString: "MMM D")
+          date(fromNow: true)
           slug
           format
           content

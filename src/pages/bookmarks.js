@@ -16,6 +16,7 @@ const BookmarkPage = ({data}) => {
       {data.allBookmarksJson.edges.map(({node}, index1) =>
         <div key={index1}>
           <Heading id={node.category}>{capitalize(node.category)}</Heading>
+          
           <BookmarkGrid mb={2}>
             {node.bookmarks && node.bookmarks.map(({url, comment}, index2) =>
               url &&

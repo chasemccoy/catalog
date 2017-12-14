@@ -18,7 +18,7 @@ const PageTitle = styled.h2`
 `
 
 const Token = styled(Card).attrs({
-	highlight: 'true',
+	highlight: 'false',
 })`
   display: inline-block;
   min-height: auto;

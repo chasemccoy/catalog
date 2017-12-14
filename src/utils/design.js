@@ -35,12 +35,13 @@ export const colors = {
 	},
 	card: {
 		text: '#657886',
-		background: '#FFFFFF',
+		background: '#F5F8fA',
 		border: '#EDEFF0',
-		shadow: '#BBC9D3',
+		shadow: '#D8E2E9',
 		link: {
 			background: '#F5F9FC',
 			border: '#E6F3FA',
+			shadow: '#D3DFE6'
 		}
 	}
 }
