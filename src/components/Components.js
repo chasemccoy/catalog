@@ -63,7 +63,6 @@ export const Link = props => {
 }
 
 export const Heading = styled.h3`
-	color: ${colors.text.heading} !important;
 	margin: 0 0 24px;
 	padding: 32px 0 8px;
 	border-bottom: 1px dashed ${colors.text.headingBorder};
