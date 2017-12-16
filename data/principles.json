@@ -1,7 +1,7 @@
 [
 	{
 		"title": "The best way to make interesting work is to become a more interesting person.",
-		"description": "Description goes here.",
+		"description": "In this case, interesting means the continual projection of interest. To be curious about the world around you, and to seek out knowledge whenever possible.",
 		"categories": ["life", "work", "creativity"],
 		"links": [
 			{
@@ -9,5 +9,11 @@
 				"url": "http://google.com"
 			}
 		]
+	},
+	{
+		"title": "Pay attention to what you pay attention to.",
+		"description": "Description goes here.",
+		"categories": ["life", "work", "creativity"],
+		"links": []
 	}
 ]

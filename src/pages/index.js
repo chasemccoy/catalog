@@ -4,6 +4,7 @@ import Page from '../components/Page'
 import { Link } from '../components/Components'
 import List from '../components/Lists'
 import Card from '../components/Card'
+import Token from '../components/Token'
 import Image from '../components/Image'
 import { Row, Column } from '../components/Grid'
 import { colors, sizes, fontWeights } from '../utils/design'
@@ -15,22 +16,6 @@ const Portrait = styled(Image)`
 
 const PageTitle = styled.h2`
   margin: 0;
-`
-
-const Token = styled(Card).attrs({
-	highlight: 'false',
-})`
-  display: inline-block;
-  min-height: auto;
-	padding: 8px !important;
-  font-size: 14px;
-  font-weight: ${fontWeights.medium};
-  letter-spacing: .03em;
-  line-height: 1.3;
-
-  & + & {
-    margin-left: 16px;
-  }
 `
 
 const Header = (props) => {
@@ -101,9 +86,9 @@ class IndexPage extends React.Component {
           title='Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.'
           image={<Portrait src='/meta/chase.jpg' />}
           tokens={[
-            <Token>Chicago, IL</Token>,
-            <Token>@chase_mccoy</Token>,
-            <Token>desk@chasemccoy.net</Token>
+            <Token highlight>Chicago, IL</Token>,
+            <Token highlight>@chase_mccoy</Token>,
+            <Token highlight>desk@chasemccoy.net</Token>
           ]}
         />
 

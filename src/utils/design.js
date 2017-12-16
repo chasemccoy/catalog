@@ -1,7 +1,12 @@
 export const colors = {
 	primary: {
 		blue: '#1FB6FF',
-		purple: '#5856D6'
+		purple: '#5856D6',
+		gray: {
+			light: '#F9FAFC',
+			medium: '#EFF2F7',
+			dark: '#E5E9F2'
+		}
 	},
 	sidebar: {
 		background: '#FAFBFC',
