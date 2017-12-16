@@ -8,8 +8,7 @@ const Divider = styled.hr`
   margin-right: auto;
   border: 0;
   height: 2px;
-  ${'' /* background-color: ${colors.sidebar.link.hover} */}
-  background: linear-gradient(to right, white, ${colors.sidebar.link.hover}, white);
+  background: linear-gradient(to right, white, ${colors.primary.gray.light}, white);
 `
 
 export default Divider

@@ -1,0 +1,49 @@
+[
+	{
+		"title": "Home",
+		"icon": "home",
+		"url": "/"
+	},
+	{
+		"title": "Thoughts",
+		"icon": "blog",
+		"url": "/blog"
+	},
+	{
+		"title": "About Me",
+		"icon": "person",
+		"url": "/about"
+	},
+	{
+		"title": "Favorites",
+		"icon": "heart",
+		"url": "/favorites"
+	},
+	{
+		"title": "Books",
+		"url": "/books"
+	},
+	{
+		"title": "Movies",
+		"url": "/movies"
+	},
+	{
+		"title": "Music",
+		"url": "/music"
+	},
+	{
+		"title": "Portfolio",
+		"icon": "portfolio",
+		"url": "/portfolio"
+	},
+	{
+		"title": "Bookmarks",
+		"icon": "bookmark",
+		"url": "/bookmarks"
+	},
+	{
+		"title": "Principles",
+		"icon": "heart",
+		"url": "/principles"
+	}
+]

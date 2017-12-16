@@ -94,6 +94,13 @@ module.exports = {
         name: `templates`,
         path: `${__dirname}/data/_templates.json`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `navigation`,
+        path: `${__dirname}/data/navigation.json`,
+      }
     }
   ],
 }

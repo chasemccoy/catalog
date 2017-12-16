@@ -65,7 +65,7 @@ export const Link = props => {
 export const Heading = styled.h3`
 	margin: 0 0 24px;
 	padding: 32px 0 8px;
-	border-bottom: 1px dashed ${colors.text.headingBorder};
+	border-bottom: 1px dashed ${colors.primary.gray.dark};
 
 	font-size: 16px;
 	color: ${colors.card.text} !important;

@@ -3,7 +3,7 @@ import styled, {injectGlobal} from 'styled-components'
 import {Link} from '../components/Components'
 import { colors, sizes, fontWeights } from '../utils/design'
 import { media } from '../utils/media'
-import {Icon} from './Icon'
+import Icon from './Icon'
 import { push as Menu } from 'react-burger-menu'
 
 injectGlobal`
@@ -166,18 +166,16 @@ class Sidebar extends React.Component {
 				<SidebarHeader desktop><Link to='/'>Chase McCoy</Link></SidebarHeader>
 
 				<div onClick={this.closeMenu}>
-					<SidebarLink to='/'><Icon name='home' />Home</SidebarLink>
-					<SidebarLink to='/blog'><Icon name='blog' />Thoughts</SidebarLink>
-					<SidebarLink to='/about'><Icon name='person' />About Me</SidebarLink>
-
-					<SidebarLink to='/favorites'><Icon name='heart' />Favorites</SidebarLink>
-					<SidebarLink to='/books' secondary>Books</SidebarLink>
-					<SidebarLink to='/movies' secondary>Movies</SidebarLink>
-					<SidebarLink to='/music' secondary>Music</SidebarLink>
-
-					<SidebarLink to='/portfolio'><Icon name='portfolio' />Portfolio</SidebarLink>
-					<SidebarLink to='/bookmarks'><Icon name='bookmark' />Bookmarks</SidebarLink>
-					<SidebarLink to='/principles'><Icon name='heart' />Principles</SidebarLink>
+					{this.props.items && this.props.items.map(({node}, i) =>
+						<SidebarLink
+							to={node.url}
+							secondary={node.icon ? false : true}
+							key={i}
+						>
+							{node.icon && <Icon name={node.icon} />}
+							{node.title}
+						</SidebarLink>
+					)}
 				</div>
 		  </SidebarWrapper>
 		);
