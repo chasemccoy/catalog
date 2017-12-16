@@ -4,6 +4,7 @@ import Bookmark from '../components/Bookmark'
 import TableOfContents from '../components/TableOfContents'
 import { Heading } from '../components/Components'
 import { BookmarkGrid } from '../components/Grid'
+import Divider from '../components/Divider'
 import { capitalize } from '../utils/js'
 
 const BookmarkPage = ({data}) => {
@@ -16,8 +17,8 @@ const BookmarkPage = ({data}) => {
       {data.allBookmarksJson.edges.map(({node}, index1) =>
         <div key={index1}>
           <Heading id={node.category}>{capitalize(node.category)}</Heading>
-          
-          <BookmarkGrid mb={2}>
+
+          <BookmarkGrid mb={64}>
             {node.bookmarks && node.bookmarks.map(({url, comment}, index2) =>
               url &&
               <Bookmark
@@ -27,6 +28,8 @@ const BookmarkPage = ({data}) => {
               />
             )}
           </BookmarkGrid>
+
+          <Divider />
         </div>
       )}
     </Page>

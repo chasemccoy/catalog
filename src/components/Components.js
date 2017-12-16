@@ -2,7 +2,7 @@ import React from 'react'
 import styled, {injectGlobal} from 'styled-components'
 import GatsbyLink from 'gatsby-link'
 import {darken} from 'polished'
-import { colors } from '../utils/design'
+import { colors, fontWeights } from '../utils/design'
 
 injectGlobal`
 	* {
@@ -64,9 +64,15 @@ export const Link = props => {
 
 export const Heading = styled.h3`
 	color: ${colors.text.heading} !important;
-	margin: 0 0 16px;
+	margin: 0 0 24px;
 	padding: 32px 0 8px;
 	border-bottom: 1px dashed ${colors.text.headingBorder};
+
+	font-size: 16px;
+	color: ${colors.card.text} !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: ${fontWeights.bold};
 
 	a {
 		text-decoration: none;

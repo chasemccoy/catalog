@@ -7,6 +7,7 @@ import { capitalize } from '../utils/js'
 const Container = styled.div`
   color: ${colors.text.muted};
   font-weight: ${fontWeights.medium};
+  margin-bottom: 24px;
 `
 
 const TOCItem = styled.span`

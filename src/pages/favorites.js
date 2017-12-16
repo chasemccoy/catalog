@@ -16,7 +16,7 @@ const FavoritesPage = ({data}) => {
             <Link to={item}>{capitalize(item)}</Link>
           </Heading>
 
-          <Library preview data={data[item].edges} section={item} />
+          <Library preview data={data[item].edges} section={item}/>
         </div>
       ))}
     </Page>
