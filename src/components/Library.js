@@ -34,7 +34,7 @@ const LibraryItemPreviewImage = styled(Image)`
 const LibrarySectionCard = styled(Card)`
   margin-bottom: 24px;
   text-align: center;
-  color: ${colors.text.heading} !important;
+  ${'' /* color: ${colors.text.heading} !important; */}
   font-weight: ${fontWeights.semibold};
   padding: 12px;
 
@@ -48,7 +48,7 @@ export const Library = props => {
 
   if (props.preview) {
     return (
-      <Row align='flex-end'>
+      <Row align='flex-end' {...props}>
         {data.map(({node}, i) =>
 					<Column width={[1/4]} key={i}>
 						<LibraryItemPreviewImage src={`/${node.image}`} />

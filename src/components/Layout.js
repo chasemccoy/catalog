@@ -19,6 +19,6 @@ export const Content = styled.div.attrs({
 
 	${media.small`
 		width: 100%;
-		padding: 88px ${sizes.content.smallPadding} 60px;
+		padding: 100px ${sizes.content.smallPadding} 60px;
 	`}
 `

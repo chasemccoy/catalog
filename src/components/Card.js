@@ -31,7 +31,7 @@ const DivCard = styled.div`
 	border-radius: 4px;
   padding: ${sizes.card.padding.large};
 	background-color: ${props => props.highlight ? colors.card.background : 'white'};
-  color: ${colors.card.text};
+  color: ${colors.card.text} !important;
   box-shadow: inset 0 0 0 1px ${colors.card.shadow};
 `
 
