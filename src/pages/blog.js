@@ -8,6 +8,7 @@ import Image from '../components/Image'
 import { ImageShowcase } from '../components/Image'
 import Divider from '../components/Divider'
 import { colors, fontWeights } from '../utils/design'
+import Icon from '../components/Icon'
 
 const Header = styled.h2`
   font-size: 14px;
@@ -20,14 +21,14 @@ const Header = styled.h2`
 const BlogPage = ({data}) => {
   return (
     <Page narrow>
-      <Header>Recent Images</Header>
+      <Icon small name='image' /><Header>Recent Images</Header>
       <ImageShowcase mb={40}>
         {data.images.edges.map(({node}, i) =>
           <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
   			)}
       </ImageShowcase>
 
-      <Header>Thoughts</Header>
+      <Icon small name='thought' /><Header>Thoughts</Header>
       {data.posts.edges.map(({node}, i) => (
         node.format != 'image' && (
           <Row key={i}>
