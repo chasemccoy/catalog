@@ -64,6 +64,14 @@ const Header = props => {
   }
 }
 
+const ScrollRow = styled(Row)`
+  flex-wrap: nowrap;
+  overflow: auto;
+
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+`
+
 class IndexPage extends React.Component {
   state = {
     isSmall: false
@@ -92,6 +100,17 @@ class IndexPage extends React.Component {
             <Token highlight>desk@chasemccoy.net</Token>
           ]}
         />
+
+        <ScrollRow mb={64}>
+          <BlogFeature width={[1, 1/3]} />
+          <BlogFeature width={[1, 1/3]} />
+          <BlogFeature width={[1, 1/3]} />
+          <BlogFeature width={[1, 1/3]} />
+          <BlogFeature width={[1, 1/3]} />
+          <BlogFeature width={[1, 1/3]} />
+          <BlogFeature width={[1, 1/3]} />
+          <BlogFeature width={[1, 1/3]} />
+        </ScrollRow>
 
         <Row mb={16}>
           <BlogFeature width={[1, 1/3]} />
