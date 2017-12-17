@@ -36,7 +36,7 @@ const Description = styled.p`
 const BlogFeature = props => {
 
   return (
-    <Column {...props}>
+    <Column flex='0 0 auto' {...props}>
       <Container>
         <Title>Test Feature</Title>
         <Description>Orphaned CSS. What happens when you delete an element or class? Post-compile auditing? Nah. Can you really trigger every possible state reliably? CSS only makes sense for apps if one person is writing it responsibly. Take the decisions away from everyone because it’s shitty to hold everyone accountable for changes they make in a global Orphaned CSS. What happens when you delete an element or class? Post-compile auditing? Nah. Can you really trigger every possible state reliably? CSS only makes sense for apps if one person is writing it responsibly. Take the decisions away from everyone because it’s shitty to hold everyone accountable for changes they make in a global Orphaned CSS. What happens when you delete an element or class? Post-compile auditing? Nah. Can you really trigger every possible state reliably? CSS only makes sense for apps if one person is writing it responsibly. Take the decisions away from everyone because it’s shitty to hold everyone accountable for changes they make in a global</Description>
