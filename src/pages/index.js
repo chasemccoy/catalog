@@ -6,6 +6,7 @@ import List from '../components/Lists'
 import Card from '../components/Card'
 import Token from '../components/Token'
 import Image from '../components/Image'
+import BlogFeature from '../components/BlogFeature'
 import { Row, Column } from '../components/Grid'
 import { colors, sizes, fontWeights } from '../utils/design'
 
@@ -18,7 +19,7 @@ const PageTitle = styled.h2`
   margin: 0;
 `
 
-const Header = (props) => {
+const Header = props => {
   if (props.isSmall) {
     return (
       <div>
@@ -30,7 +31,7 @@ const Header = (props) => {
           </Column>
         </Row>
 
-        <Row mb={40}>
+        <Row mb={64}>
           {props.tokens.map((token, index) =>
             <Column key={index}>
               {token}
@@ -46,7 +47,7 @@ const Header = (props) => {
         <Column width={[1/5]}>{props.image}</Column>
 
         <Column width={[4/5]}>
-          <Row mb={40}>
+          <Row mb={64}>
             <Column width={1}>
               <PageTitle>{props.title}</PageTitle>
             </Column>
@@ -91,6 +92,16 @@ class IndexPage extends React.Component {
             <Token highlight>desk@chasemccoy.net</Token>
           ]}
         />
+
+        <Row mb={16}>
+          <BlogFeature width={[1, 1/3]} />
+          <Column width={[1, 2/3]} />
+        </Row>
+
+        <Row mb={64}>
+          <Column width={[1, 1/3]} />
+          <BlogFeature width={[1, 2/3]} />
+        </Row>
 
         <Row>
           <Column>
