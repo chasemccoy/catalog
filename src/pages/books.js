@@ -5,7 +5,7 @@ import {Library} from '../components/Library'
 
 const BooksPage = ({data}) => {
   return (
-    <Page title='Books'>
+    <Page title='Books' icon='book'>
       <Library data={data.books.edges} />
     </Page>
   )

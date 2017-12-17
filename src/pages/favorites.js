@@ -7,7 +7,7 @@ import { capitalize } from '../utils/js'
 
 const FavoritesPage = ({data}) => {
   return (
-    <Page title='Favorites'>
+    <Page title='Favorites' icon='heart'>
       <p>Below are some things in various categories that I love. I think you can tell a lot about a person by paying attention to what they pay attention to, so here are the things that capture my attention.</p>
 
       {Object.keys(data).map((item, i) => (

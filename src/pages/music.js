@@ -5,7 +5,7 @@ import {Library} from '../components/Library'
 
 const MusicPage = ({data}) => {
   return (
-    <Page title='Music'>
+    <Page title='Music' icon='music'>
       <Library data={data.music.edges} />
     </Page>
   )

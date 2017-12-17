@@ -4,7 +4,7 @@ import {Library} from '../components/Library'
 
 const MoviesPage = ({data}) => {
   return (
-    <Page title='Movies'>
+    <Page title='Movies' icon='movie'>
       <Library data={data.movies.edges} />
     </Page>
   )

@@ -10,11 +10,6 @@
 		"url": "/blog"
 	},
 	{
-		"title": "About Me",
-		"icon": "person",
-		"url": "/about"
-	},
-	{
 		"title": "Favorites",
 		"icon": "heart",
 		"url": "/favorites"
@@ -43,7 +38,7 @@
 	},
 	{
 		"title": "Principles",
-		"icon": "heart",
+		"icon": "brain",
 		"url": "/principles"
 	}
 ]
