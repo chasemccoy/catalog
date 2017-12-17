@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { media } from '../utils/media'
+import Icon from '../components/Icon'
 
 const PageContainer = styled.div`
 	margin: auto;
@@ -10,6 +11,10 @@ const PageContainer = styled.div`
 	${props => props.narrow && media.tiny`
     width: 96%;
 	`}
+
+	.icon {
+		float: left;
+	}
 `
 
 const PageTitle = styled.h2`
@@ -18,6 +23,7 @@ const PageTitle = styled.h2`
 
 const Page = props => (
 	<PageContainer {...props}>
+		{props.icon && <Icon large name={props.icon} /> }
 		{props.title && <PageTitle>{props.title}</PageTitle>}
 
 		{props.children}
