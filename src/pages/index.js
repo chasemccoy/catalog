@@ -64,16 +64,6 @@ const Header = props => {
   }
 }
 
-const ScrollRow = styled(Row)`
-  position: relative;
-  flex-wrap: nowrap;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  border-radius: 8px;
-  mask-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 20%);
-`
-
 class IndexPage extends React.Component {
   state = {
     isSmall: false
@@ -102,17 +92,6 @@ class IndexPage extends React.Component {
             <Token highlight>desk@chasemccoy.net</Token>
           ]}
         />
-
-        <ScrollRow mb={24}>
-          {this.props.data.asides.edges.map(({node}, i) =>
-            <BlogFeature
-              title={node.title}
-              content={node.content}
-              width={[4/5, 2/5]}
-              key={i}
-            />
-    			)}
-        </ScrollRow>
 
         <Row mb={64}>
           <BlogFeature
@@ -207,15 +186,6 @@ export const query = graphql`
         node {
           title
           excerpt
-          content
-        }
-      }
-    }
-
-    asides: allWordpressPost(limit: 8, filter: {format: {eq: "aside"}}) {
-      edges {
-        node {
-          title
           content
         }
       }
