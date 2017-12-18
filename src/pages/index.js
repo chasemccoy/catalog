@@ -65,11 +65,13 @@ const Header = props => {
 }
 
 const ScrollRow = styled(Row)`
+  position: relative;
   flex-wrap: nowrap;
   overflow: auto;
-
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+  border-radius: 8px;
+  mask-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 20%);
 `
 
 class IndexPage extends React.Component {
@@ -101,25 +103,37 @@ class IndexPage extends React.Component {
           ]}
         />
 
-        <ScrollRow mb={64}>
-          <BlogFeature width={[1, 1/3]} />
-          <BlogFeature width={[1, 1/3]} />
-          <BlogFeature width={[1, 1/3]} />
-          <BlogFeature width={[1, 1/3]} />
-          <BlogFeature width={[1, 1/3]} />
-          <BlogFeature width={[1, 1/3]} />
-          <BlogFeature width={[1, 1/3]} />
-          <BlogFeature width={[1, 1/3]} />
+        <ScrollRow mb={24}>
+          {this.props.data.asides.edges.map(({node}, i) =>
+            <BlogFeature
+              title={node.title}
+              content={node.content}
+              width={[4/5, 2/5]}
+              key={i}
+            />
+    			)}
         </ScrollRow>
 
-        <Row mb={16}>
-          <BlogFeature width={[1, 1/3]} />
-          <Column width={[1, 2/3]} />
-        </Row>
-
         <Row mb={64}>
-          <Column width={[1, 1/3]} />
-          <BlogFeature width={[1, 2/3]} />
+          <BlogFeature
+            highlight
+            title={this.props.data.posts.edges[0].node.title}
+            content={this.props.data.posts.edges[0].node.excerpt}
+            width={[1, 1/3]}
+          />
+
+          {this.props.data.images.edges.map(({node}, i) =>
+            <Column width={[1/3]} key={i}>
+              <Image src={node.source_url} to={`/blog`} />
+            </Column>
+    			)}
+
+          <BlogFeature
+            highlight
+            title={this.props.data.posts.edges[1].node.title}
+            content={this.props.data.posts.edges[1].node.content}
+            width={[1, 2/3]}
+          />
         </Row>
 
         <Row>
@@ -184,6 +198,33 @@ export const query = graphql`
           }
           timeToRead
           html
+        }
+      }
+    }
+
+    posts: allWordpressPost(limit: 2, filter: {format: {eq: "standard"}}) {
+      edges {
+        node {
+          title
+          excerpt
+          content
+        }
+      }
+    }
+
+    asides: allWordpressPost(limit: 8, filter: {format: {eq: "aside"}}) {
+      edges {
+        node {
+          title
+          content
+        }
+      }
+    }
+
+    images: allWordpressWpMedia(limit: 3) {
+      edges {
+        node {
+          source_url
         }
       }
     }
