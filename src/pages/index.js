@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from '../components/Page'
-import { Link } from '../components/Components'
+import { Link, Heading } from '../components/Components'
 import List from '../components/Lists'
 import Card from '../components/Card'
 import Token from '../components/Token'
@@ -93,6 +93,13 @@ class IndexPage extends React.Component {
           ]}
         />
 
+        <Row mb={24}>
+          <Column>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </Column>
+        </Row>
+
+        <Heading>Latest thoughts</Heading>
         <Row mb={64}>
           <BlogFeature
             highlight
