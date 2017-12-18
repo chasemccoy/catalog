@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Column } from '../components/Grid'
 import { Heading } from '../components/Components'
+import Markdown from '../components/Markdown'
 import { colors } from '../utils/design'
 
 const Container = styled.div`
@@ -29,7 +30,7 @@ const Title = styled(Heading)`
   `}
 `
 
-const Description = styled.p`
+const Description = styled.div`
   margin: 0;
   padding: 0;
 
@@ -59,6 +60,7 @@ const BlogFeature = props => {
     <Column flex='0 0 auto' width={props.width}>
       <Container highlight={props.highlight}>
         {props.title && <Title highlight={props.highlight}>{props.title}</Title>}
+
         <Description highlight={props.highlight} dangerouslySetInnerHTML={{ __html: props.content }}/>
       </Container>
     </Column>
