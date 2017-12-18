@@ -1,22 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Column } from '../components/Grid'
-import { Heading } from '../components/Components'
+import { Link, Heading } from '../components/Components'
 import Markdown from '../components/Markdown'
 import { colors } from '../utils/design'
+import {darken} from 'polished'
 
-const Container = styled.div`
+const Container = styled(Link)`
+  display: block;
   overflow: hidden;
   height: 100%;
-
+  text-decoration: none;
   background-color: ${props => props.highlight ? `${colors.primary.purple}` : `white`};
+
   ${props => props.highlight && `
     color: white;
     border-radius: 4px;
     padding: 16px;
 
-    ${Heading} {
-      color: white !important;
+    &:hover {
+      background-color: ${darken(0.05, colors.primary.purple)};
     }
   `}
 `
@@ -32,8 +35,7 @@ const Title = styled(Heading)`
 
 const Description = styled.div`
   margin: 0;
-  padding: 0;
-
+  ${props => props.highlight && `color: white !important;`}
   position: relative;
   overflow: hidden;
   line-height: 1.45em;
@@ -50,7 +52,13 @@ const Description = styled.div`
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
 
     ${props => props.highlight && `
-      background: linear-gradient(to right, rgba(88, 86, 214, 0), rgba(88, 86, 214, 1) 80%);
+      background: linear-gradient(to right, rgba(88, 86, 214, 0), ${colors.primary.purple} 80%);
+    `}
+  }
+
+  ${Container}:hover &:after {
+    ${props => props.highlight && `
+      background: none
     `}
   }
 `
@@ -58,7 +66,7 @@ const Description = styled.div`
 const BlogFeature = props => {
   return (
     <Column flex='0 0 auto' width={props.width}>
-      <Container highlight={props.highlight}>
+      <Container to={props.to} highlight={props.highlight}>
         {props.title && <Title highlight={props.highlight}>{props.title}</Title>}
 
         <Description highlight={props.highlight} dangerouslySetInnerHTML={{ __html: props.content }}/>

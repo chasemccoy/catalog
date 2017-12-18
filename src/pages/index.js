@@ -87,9 +87,9 @@ class IndexPage extends React.Component {
           title='Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.'
           image={<Portrait src='/meta/chase.jpg' />}
           tokens={[
-            <Token highlight>Chicago, IL</Token>,
-            <Token highlight>@chase_mccoy</Token>,
-            <Token highlight>desk@chasemccoy.net</Token>
+            <Token>Chicago, IL</Token>,
+            <Token highlight to='http://twitter.com/chase_mccoy'>@chase_mccoy</Token>,
+            <Token highlight to='mailto:desk@chasemccoy.net'>desk@chasemccoy.net</Token>
           ]}
         />
 
@@ -105,6 +105,7 @@ class IndexPage extends React.Component {
             highlight
             title={this.props.data.posts.edges[0].node.title}
             content={this.props.data.posts.edges[0].node.excerpt}
+            to={this.props.data.posts.edges[0].node.slug}
             width={[1, 1/3]}
           />
 
@@ -118,6 +119,7 @@ class IndexPage extends React.Component {
             highlight
             title={this.props.data.posts.edges[1].node.title}
             content={this.props.data.posts.edges[1].node.content}
+            to={this.props.data.posts.edges[1].node.slug}
             width={[1, 2/3]}
           />
         </Row>
@@ -194,6 +196,7 @@ export const query = graphql`
           title
           excerpt
           content
+          slug
         }
       }
     }

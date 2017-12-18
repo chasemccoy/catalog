@@ -54,7 +54,7 @@ export const Link = props => {
 	if (props.to.startsWith('http')) {
 		return <a href={props.to} target='_blank' {...props}>{props.children}</a>
 	}
-	else if (props.to.startsWith('#')) {
+	else if (props.to.startsWith('#') || props.to.startsWith('mailto')) {
 		return <a href={props.to} {...props}>{props.children}</a>
 	}
 	else {
