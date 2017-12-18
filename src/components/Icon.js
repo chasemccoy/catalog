@@ -7,7 +7,7 @@ const StyledIcon = styled.span`
 	flex-shrink: 0;
 	width: ${props => props.large ? `26px` : props.small ? `18px` : `22px`};
 	height: ${props => props.large ? `26px` : props.small ? `18px` : `22px`};
-	margin: ${props => props.large ? `1px 8px 0 0` : props.small ? `1px 6px 0 0` : `-2px 4px 0 0`};
+	margin: ${props => props.large ? `1px 8px 0 0` : props.small ? `0 6px 0 0` : `-2px 4px 0 0`};
 
 	img {
 		margin: 0;

@@ -2,14 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 import { Column } from '../components/Grid'
 import { Heading } from '../components/Components'
+import { colors } from '../utils/design'
 
 const Container = styled.div`
   overflow: hidden;
+  height: 100%;
+
+  background-color: ${props => props.highlight ? `${colors.primary.purple}` : `white`};
+  ${props => props.highlight && `
+    color: white;
+    border-radius: 4px;
+    padding: 16px;
+
+    ${Heading} {
+      color: white !important;
+    }
+  `}
 `
 
 const Title = styled(Heading)`
   margin: 0 0 1em;
-  padding: 0 0 .25em;
+  padding: 0 0 .5em;
+
+  ${props => props.highlight && `
+    color: white !important;
+  `}
 `
 
 const Description = styled.p`
@@ -30,16 +47,19 @@ const Description = styled.p`
     width: 100%;
     height: 1.45em;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
+
+    ${props => props.highlight && `
+      background: linear-gradient(to right, rgba(88, 86, 214, 0), rgba(88, 86, 214, 1) 80%);
+    `}
   }
 `
 
 const BlogFeature = props => {
-
   return (
-    <Column flex='0 0 auto' {...props}>
-      <Container>
-        <Title>Test Feature</Title>
-        <Description>Orphaned CSS. What happens when you delete an element or class? Post-compile auditing? Nah. Can you really trigger every possible state reliably? CSS only makes sense for apps if one person is writing it responsibly. Take the decisions away from everyone because it’s shitty to hold everyone accountable for changes they make in a global Orphaned CSS. What happens when you delete an element or class? Post-compile auditing? Nah. Can you really trigger every possible state reliably? CSS only makes sense for apps if one person is writing it responsibly. Take the decisions away from everyone because it’s shitty to hold everyone accountable for changes they make in a global Orphaned CSS. What happens when you delete an element or class? Post-compile auditing? Nah. Can you really trigger every possible state reliably? CSS only makes sense for apps if one person is writing it responsibly. Take the decisions away from everyone because it’s shitty to hold everyone accountable for changes they make in a global</Description>
+    <Column flex='0 0 auto' width={props.width}>
+      <Container highlight={props.highlight}>
+        {props.title && <Title highlight={props.highlight}>{props.title}</Title>}
+        <Description highlight={props.highlight} dangerouslySetInnerHTML={{ __html: props.content }}/>
       </Container>
     </Column>
   )
