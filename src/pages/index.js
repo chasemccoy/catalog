@@ -110,7 +110,7 @@ class IndexPage extends React.Component {
 
           {this.props.data.images.edges.map(({node}, i) =>
             <Column width={[1/3]} key={i}>
-              <Image src={node.source_url} to={`/blog`} />
+              <Image stretch src={node.source_url} to={`/blog`} />
             </Column>
     			)}
 

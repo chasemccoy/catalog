@@ -56,6 +56,7 @@ const ImageContainer = styled(ImageDiv)`
 const ImageLinkContainer = styled(ImageLink)`
   display: block;
   ${props => ShowcaseImageStyles(props.src)}
+	${props => props.stretch && `height: 100%;`}
 `
 
 export const ImageShowcase = props => {
