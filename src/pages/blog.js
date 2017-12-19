@@ -1,14 +1,15 @@
+import { Column, Row } from 'components/Grid'
+import { colors, fontWeights } from 'utils/design'
+
+import Divider from 'components/Divider'
+import Icon from 'components/Icon'
+import Image from 'components/Image'
+import { ImageShowcase } from 'components/Image'
+import { Link } from 'components/Components'
+import Page from 'components/Page'
+import { Post } from 'components/Blog'
 import React from 'react'
 import styled from 'styled-components'
-import Page from '../components/Page'
-import { Link } from '../components/Components'
-import { Row, Column } from '../components/Grid'
-import { Post } from '../components/Blog'
-import Image from '../components/Image'
-import { ImageShowcase } from '../components/Image'
-import Divider from '../components/Divider'
-import { colors, fontWeights } from '../utils/design'
-import Icon from '../components/Icon'
 
 const Header = styled.h2`
   font-size: 14px;

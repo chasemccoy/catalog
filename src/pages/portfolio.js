@@ -1,6 +1,7 @@
+import {Timeline, TimelineItem} from 'components/Timeline'
+
+import Page from 'components/Page'
 import React from 'react'
-import Page from '../components/Page'
-import {Timeline, TimelineItem} from '../components/Timeline'
 
 const PortfolioPage = ({data}) => {
   return (

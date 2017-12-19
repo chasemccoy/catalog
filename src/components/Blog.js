@@ -1,9 +1,10 @@
+import { colors, fontWeights, sizes } from '../utils/design'
+import { stripTags, truncateExcerpt } from '../utils/js'
+
+import { Link } from 'components/Components'
 import React from 'react'
+import { media } from 'utils/media'
 import styled from 'styled-components'
-import { Link } from './Components'
-import { colors, sizes, fontWeights } from '../utils/design'
-import { media } from '../utils/media'
-import { truncateExcerpt, stripTags } from '../utils/js'
 
 const Container = styled.div`
   ${'' /* margin: 24px 0; */}

@@ -1,8 +1,9 @@
+import { colors, sizes } from 'utils/design'
+
+import { Link } from 'components/Components'
 import React from 'react'
+import { media } from 'utils/media'
 import styled from 'styled-components'
-import { Link } from './Components'
-import { colors, sizes } from '../utils/design'
-import { media } from '../utils/media'
 
 const largeMarginFix = () => {
   return `

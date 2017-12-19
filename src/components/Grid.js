@@ -1,8 +1,9 @@
+import { Box, Flex } from 'grid-styled'
+import { ImageDiv, ImageLink } from 'components/Image'
+
+import { Link } from 'components/Components'
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Box } from 'grid-styled'
-import { ImageDiv, ImageLink } from './Image'
-import { Link } from './Components'
 
 export const Row = props => (
   <Flex

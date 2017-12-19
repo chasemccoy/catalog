@@ -1,13 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import {Content, Wrapper} from 'components/Layout'
 import styled, {ThemeProvider} from 'styled-components'
-import { sizes } from '../utils/design'
-import { capitalize } from '../utils/js'
 
-import {Link} from '../components/Components'
-import {Wrapper, Content} from '../components/Layout'
-import Sidebar from '../components/Sidebar'
+import Helmet from 'react-helmet'
+import {Link} from 'components/Components'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Sidebar from 'components/Sidebar'
+import { capitalize } from 'utils/js'
+import { sizes } from 'utils/design'
 
 export default class TemplateWrapper extends React.Component {
   getLocalTitle() {

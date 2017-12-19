@@ -1,9 +1,9 @@
-import React from 'react'
 import Helmet from 'react-helmet'
-import Page from '../components/Page'
-import Image from '../components/Image'
-import { ImageGrid } from '../components/Grid'
-import { ImageShowcase } from '../components/Image'
+import Image from 'components/Image'
+import { ImageGrid } from 'components/Grid'
+import { ImageShowcase } from 'components/Image'
+import Page from 'components/Page'
+import React from 'react'
 
 const GalleryPage = ({data}) => {
   return (

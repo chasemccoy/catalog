@@ -1,11 +1,12 @@
+import { Column, Row } from 'components/Grid'
+import { Heading, Link } from 'components/Components'
+import { colors, fontWeights, sizes } from 'utils/design'
+
+import Card from 'components/Card'
+import Image from 'components/Image'
+import Markdown from 'components/Markdown'
 import React from 'react'
 import styled from 'styled-components'
-import { colors, sizes, fontWeights } from '../utils/design'
-import { Row, Column } from './Grid'
-import Card from './Card'
-import Image from './Image'
-import Markdown from './Markdown'
-import { Heading, Link } from './Components'
 
 const ReactMarkdown = require('react-markdown')
 

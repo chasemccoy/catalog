@@ -1,7 +1,7 @@
+import {Library} from 'components/Library'
+import Page from 'components/Page'
 import React from 'react'
-import Page from '../components/Page'
 import styled from 'styled-components'
-import {Library} from '../components/Library'
 
 const MusicPage = ({data}) => {
   return (

@@ -1,7 +1,7 @@
+import Card from 'components/Card'
 import React from 'react'
+import { fontWeights } from 'utils/design'
 import styled from 'styled-components'
-import Card from './Card'
-import { fontWeights } from '../utils/design'
 
 const Token = styled(Card)`
   display: inline-flex;

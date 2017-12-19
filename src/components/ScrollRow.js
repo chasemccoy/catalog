@@ -1,6 +1,7 @@
+import { Column, Row } from 'components/Grid'
+
 import React from 'react'
 import styled from 'styled-components'
-import { Row, Column } from '../components/Grid'
 
 const ScrollRow = styled(Row)`
   position: relative;

@@ -1,6 +1,7 @@
+import { colors, sizes } from 'utils/design'
+
 import React from 'react'
 import styled from 'styled-components'
-import { colors, sizes } from '../utils/design'
 
 const StyledIcon = styled.span`
 	display: inline-flex;

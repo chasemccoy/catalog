@@ -1,13 +1,13 @@
+import { Heading } from 'components/Components'
+import Icon from 'components/Icon'
+import { Link } from 'components/Components'
+import List from 'components/Lists'
+import Markdown from 'components/Markdown'
+import Page from 'components/Page'
 import React from 'react'
+import Token from 'components/Token'
+import { colors } from 'utils/design'
 import styled from 'styled-components'
-import Page from '../components/Page'
-import { Link } from '../components/Components'
-import List from '../components/Lists'
-import Token from '../components/Token'
-import Icon from '../components/Icon'
-import Markdown from '../components/Markdown'
-import { Heading } from '../components/Components'
-import { colors } from '../utils/design'
 
 const PrinciplesList = styled(List)`
   > div {

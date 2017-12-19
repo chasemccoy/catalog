@@ -1,11 +1,11 @@
+import Bookmark from 'components/Bookmark'
+import { BookmarkGrid } from 'components/Grid'
+import Divider from 'components/Divider'
+import { Heading } from 'components/Components'
+import Page from 'components/Page'
 import React from 'react'
-import Page from '../components/Page'
-import Bookmark from '../components/Bookmark'
-import TableOfContents from '../components/TableOfContents'
-import { Heading } from '../components/Components'
-import { BookmarkGrid } from '../components/Grid'
-import Divider from '../components/Divider'
-import { capitalize } from '../utils/js'
+import TableOfContents from 'components/TableOfContents'
+import { capitalize } from 'utils/js'
 
 const BookmarkPage = ({data}) => {
   const tocItems = data.allBookmarksJson.edges.map(a => a.node.category)

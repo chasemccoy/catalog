@@ -1,7 +1,7 @@
+import Icon from 'components/Icon'
 import React from 'react'
+import { media } from 'utils/media'
 import styled from 'styled-components'
-import { media } from '../utils/media'
-import Icon from '../components/Icon'
 
 const PageContainer = styled.div`
 	margin: auto;

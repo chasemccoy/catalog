@@ -1,5 +1,5 @@
+import Page from 'components/Page'
 import React from 'react'
-import Page from '../components/Page'
 
 const AboutPage = () => (
   <Page title='About Me'>

@@ -1,8 +1,9 @@
+import { colors, fontWeights, sizes } from 'utils/design'
+
+import { Link } from 'components/Components'
 import React from 'react'
+import { capitalize } from 'utils/js'
 import styled from 'styled-components'
-import { Link } from './Components'
-import { colors, sizes, fontWeights } from '../utils/design'
-import { capitalize } from '../utils/js'
 
 const Container = styled.div`
   color: ${colors.text.muted};

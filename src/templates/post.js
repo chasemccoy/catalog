@@ -1,6 +1,6 @@
-import React from 'react'
 import Helmet from 'react-helmet'
-import {PostTitle} from '../components/Components'
+import {PostTitle} from 'components/Components'
+import React from 'react'
 
 export default ({ data }) => {
   const post = data.markdownRemark

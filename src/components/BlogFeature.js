@@ -1,10 +1,11 @@
+import { Heading, Link } from 'components/Components'
+
+import { Column } from 'components/Grid'
+import Markdown from 'components/Markdown'
 import React from 'react'
-import styled from 'styled-components'
-import { Column } from '../components/Grid'
-import { Link, Heading } from '../components/Components'
-import Markdown from '../components/Markdown'
-import { colors } from '../utils/design'
+import { colors } from 'utils/design'
 import {darken} from 'polished'
+import styled from 'styled-components'
 
 const Container = styled(Link)`
   display: block;

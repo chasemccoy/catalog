@@ -1,6 +1,6 @@
+import {Library} from 'components/Library'
+import Page from 'components/Page'
 import React from 'react'
-import Page from '../components/Page'
-import {Library} from '../components/Library'
 
 const MoviesPage = ({data}) => {
   return (

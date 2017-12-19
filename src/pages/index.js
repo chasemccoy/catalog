@@ -1,14 +1,15 @@
+import { Column, Row } from 'components/Grid'
+import { Heading, Link } from 'components/Components'
+import { colors, fontWeights, sizes } from 'utils/design'
+
+import BlogFeature from 'components/BlogFeature'
+import Card from 'components/Card'
+import Image from 'components/Image'
+import List from 'components/Lists'
+import Page from 'components/Page'
 import React from 'react'
+import Token from 'components/Token'
 import styled from 'styled-components'
-import Page from '../components/Page'
-import { Link, Heading } from '../components/Components'
-import List from '../components/Lists'
-import Card from '../components/Card'
-import Token from '../components/Token'
-import Image from '../components/Image'
-import BlogFeature from '../components/BlogFeature'
-import { Row, Column } from '../components/Grid'
-import { colors, sizes, fontWeights } from '../utils/design'
 
 const Portrait = styled(Image)`
   width: 100%;
