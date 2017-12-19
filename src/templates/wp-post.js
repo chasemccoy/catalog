@@ -1,7 +1,7 @@
-import React from 'react'
 import Helmet from 'react-helmet'
-import Page from '../components/Page'
-import { Post } from '../components/Blog'
+import Page from 'components/Page'
+import { Post } from 'components/Blog'
+import React from 'react'
 
 export default ({ data }) => {
   const post = data.wordpressPost

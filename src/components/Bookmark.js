@@ -1,11 +1,12 @@
-import React from 'react'
+import { colors, fontWeights } from 'utils/design'
+
+import Card from 'components/Card'
+import Icon from 'components/Icon'
+import Image from 'components/Image'
+import Markdown from 'components/Markdown'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
-import Card from './Card'
-import Icon from './Icon'
-import Markdown from './Markdown'
-import Image from './Image'
-import { colors, fontWeights } from '../utils/design'
 
 const BookmarkContainer = styled(Card)`
 	padding: 24px;

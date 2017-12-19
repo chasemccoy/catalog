@@ -1,9 +1,10 @@
+import {Heading, Link} from 'components/Components'
+
+import {Library} from 'components/Library'
+import Page from 'components/Page'
 import React from 'react'
+import { capitalize } from 'utils/js'
 import styled from 'styled-components'
-import Page from '../components/Page'
-import {Library} from '../components/Library'
-import {Heading, Link} from '../components/Components'
-import { capitalize } from '../utils/js'
 
 const FavoritesPage = ({data}) => {
   return (

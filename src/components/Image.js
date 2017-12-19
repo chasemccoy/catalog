@@ -1,8 +1,9 @@
+import { Column, Row } from 'components/Grid'
+
+import Img from 'gatsby-image'
+import { Link } from 'components/Components'
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
-import { Link } from './Components'
-import { Row, Column } from './Grid'
 
 const StyledImage = styled(Img)`
 	border-radius: 4px;

@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import { colors } from '../utils/design'
+import styled from 'styled-components'
 
 const Divider = styled.hr`
   width: 75%;

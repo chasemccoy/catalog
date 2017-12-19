@@ -1,8 +1,9 @@
+import { colors, sizes } from 'utils/design'
+
+import {Icon} from 'components/Icon'
 import React from 'react'
+import { media } from 'utils/media'
 import styled from 'styled-components'
-import { colors, sizes } from '../utils/design'
-import { media } from '../utils/media'
-import {Icon} from './Icon'
 
 export const Wrapper = styled.div.attrs({
 	id: 'wrapper'

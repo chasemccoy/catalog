@@ -1,8 +1,9 @@
+import { colors, sizes } from 'utils/design'
+
+import Markdown from 'components/Markdown'
 import React from 'react'
+import { media } from 'utils/media'
 import styled from 'styled-components'
-import Markdown from './Markdown'
-import { colors, sizes } from '../utils/design'
-import { media } from '../utils/media'
 
 const TimelineContainer = styled.section`
 	position: relative;

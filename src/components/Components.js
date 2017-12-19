@@ -1,8 +1,9 @@
-import React from 'react'
+import { colors, fontWeights } from 'utils/design'
 import styled, {injectGlobal} from 'styled-components'
+
 import GatsbyLink from 'gatsby-link'
+import React from 'react'
 import {darken} from 'polished'
-import { colors, fontWeights } from '../utils/design'
 
 injectGlobal`
 	* {

@@ -1,7 +1,7 @@
+import Page from 'components/Page'
 import React from 'react'
+import { capitalize } from 'utils/js'
 import styled from 'styled-components'
-import Page from '../components/Page'
-import { capitalize } from '../utils/js'
 
 const TemplatesPage = ({data}) => {
   return (

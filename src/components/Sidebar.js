@@ -1,10 +1,11 @@
-import React from 'react'
+import { colors, fontWeights, sizes } from 'utils/design'
 import styled, {injectGlobal} from 'styled-components'
-import {Link} from '../components/Components'
-import { colors, sizes, fontWeights } from '../utils/design'
-import { media } from '../utils/media'
-import Icon from './Icon'
+
+import Icon from 'components/Icon'
+import {Link} from 'components/Components'
 import { push as Menu } from 'react-burger-menu'
+import React from 'react'
+import { media } from 'utils/media'
 
 injectGlobal`
 	html.noScroll {

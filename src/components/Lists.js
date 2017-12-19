@@ -1,6 +1,7 @@
+import { colors, fontWeights } from 'utils/design'
+
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fontWeights } from '../utils/design'
 
 const StyledUnorderedList = styled.ul`
   display: table;
