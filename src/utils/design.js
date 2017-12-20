@@ -14,7 +14,7 @@ export const colors = {
 		link: {
 			primary: '#5A6773',
 			secondary: '#9EA3A8',
-			selected: '#0F96D9',
+			selected: '#009EEB',
 			selectedBackground: '#E6F3FA',
 			hover: '#F4F5F5',
 			selectedHover: '#DCF0FA'
@@ -86,6 +86,8 @@ export const sizes = {
 }
 
 export const fontWeights = {
+	light: 300,
+	normal: 400,
 	medium: 500,
 	semibold: 600,
 	bold: 700,
