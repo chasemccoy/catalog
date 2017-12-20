@@ -21,7 +21,6 @@ const PageTitle = styled.h2`
   font-weight: ${fontWeights.normal};
 
   span {
-    letter-spacing: 1px;
     font-weight: ${fontWeights.heavy};
     color: ${colors.primary.blue};
   }
@@ -35,7 +34,7 @@ const Header = props => {
           <Column width={[1/4, 1/5]}>{props.image}</Column>
 
           <Column width={[3/4, 4/5]}>
-            <PageTitle>{props.title}</PageTitle>
+            <PageTitle><span>Chase McCoy </span>{props.title}</PageTitle>
           </Column>
         </Row>
 
