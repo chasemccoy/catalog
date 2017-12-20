@@ -22,7 +22,6 @@ const PageTitle = styled.h2`
 
   span {
     font-weight: ${fontWeights.heavy};
-    color: ${colors.primary.blue};
   }
 `
 

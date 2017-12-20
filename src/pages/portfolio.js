@@ -6,7 +6,7 @@ import React from 'react'
 const PortfolioPage = ({data}) => {
   return (
     <Page title='Portfolio' icon='portfolio'>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>A timeline of a (brief) professional career that I am very proud of. I love talking about my work/industry, so get in touch and lets talk shop.</h2>
 
       <Timeline>
         {data.allPortfolioJson.edges.map(({node}, index) =>

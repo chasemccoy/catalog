@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 const TimelineContainer = styled.section`
 	position: relative;
+	margin: 56px 0;
 
 	ul {
 		margin: 0;

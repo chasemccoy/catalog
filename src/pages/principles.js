@@ -20,7 +20,7 @@ const PrincipleDescription = styled.div`
 `
 
 const PrincipleLinkHeading = styled(Heading)`
-  padding: 0;
+  padding: 0 0 8pxr;
   margin-bottom: 8px;
 `
 
