@@ -18,6 +18,13 @@ const Portrait = styled(Image)`
 
 const PageTitle = styled.h2`
   margin: 0;
+  font-weight: ${fontWeights.normal};
+
+  span {
+    letter-spacing: 1px;
+    font-weight: ${fontWeights.heavy};
+    color: ${colors.primary.blue};
+  }
 `
 
 const Header = props => {
@@ -50,7 +57,7 @@ const Header = props => {
         <Column width={[4/5]}>
           <Row mb={64}>
             <Column width={1}>
-              <PageTitle>{props.title}</PageTitle>
+              <PageTitle><span>Chase McCoy </span>{props.title}</PageTitle>
             </Column>
 
             {props.tokens.map((token, index) =>
@@ -85,10 +92,9 @@ class IndexPage extends React.Component {
       <Page>
         <Header
           isSmall={this.state.isSmall}
-          title='Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.'
+          title='is a design developer living in Chicago that spends a lot of time thinking about how the web works.'
           image={<Portrait src='/meta/chase.jpg' />}
           tokens={[
-            <Token>Chicago, IL</Token>,
             <Token highlight to='http://twitter.com/chase_mccoy'>@chase_mccoy</Token>,
             <Token highlight to='mailto:desk@chasemccoy.net'>desk@chasemccoy.net</Token>
           ]}
