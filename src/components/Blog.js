@@ -36,7 +36,7 @@ const Title = styled.h3`
   }
 `
 
-const Content = styled.p`
+const Content = styled.div`
   &:last-of-type {
     margin: 0;
   }
@@ -52,7 +52,7 @@ const Content = styled.p`
   }
 
   a {
-    font-weight: ${fontWeights.semibold}
+    font-weight: ${fontWeights.semibold} !important;
   }
 `
 
