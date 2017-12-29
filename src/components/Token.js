@@ -4,7 +4,7 @@ import { fontWeights } from 'utils/design'
 import styled from 'styled-components'
 
 const Token = styled(Card)`
-  display: inline-flex;
+  display: inline-flex !important;
   min-height: auto;
 	padding: 6px !important;
   font-size: 14px;
