@@ -114,3 +114,18 @@ exports.modifyWebpackConfig = ({ config, _stage }) => {
     },
   })
 }
+
+exports.onCreatePage = ({ page, boundActionCreators }) => {
+  const { createPage, deletePage } = boundActionCreators;
+  return new Promise(resolve => {
+    const oldPage = Object.assign({}, page);
+    // Remove trailing slash unless page is /
+    page.path = _path => (_path === `/` ? _path : _path.replace(/\/$/, ``));
+    if (page.path !== oldPage.path) {
+      // Replace new page with old page
+      deletePage(oldPage);
+      createPage(page);
+    }
+    resolve();
+  });
+}
