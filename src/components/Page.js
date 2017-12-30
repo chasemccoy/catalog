@@ -4,12 +4,12 @@ import { media } from 'utils/media'
 import styled from 'styled-components'
 
 const PageContainer = styled.div`
-	margin: auto;
+	margin: auto; 
 
 	${props => props.narrow && 'width: 75%;'}
 
 	${props => props.narrow && media.tiny`
-    width: 96%;
+    width: 100%;
 	`}
 
 	.icon {
