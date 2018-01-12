@@ -37,6 +37,7 @@ injectGlobal`
 
 	img {
 		margin: 0;
+		border-radius: 4px;
 	}
 
 	pre {
