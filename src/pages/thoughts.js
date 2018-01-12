@@ -20,11 +20,17 @@ const Header = styled.h2`
 `
 
 const BlogPage = ({data}) => {
+  const imagePosts = data.imagePosts.edges.map(({node}) => node.slug)
+
+  const showcasePhotos = data.images.edges.filter(({node}) =>
+    imagePosts.some(post => post === node.post)
+  );
+
   return (
     <Page narrow>
       <Icon small name='image' /><Header>Recent Images</Header>
       <ImageShowcase mb={40}>
-        {data.images.edges.map(({node}, i) =>
+        {showcasePhotos.map(({node}, i) =>
           <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
   			)}
       </ImageShowcase>
@@ -80,10 +86,11 @@ export const query = graphql`
       }
     }
 
-    images: allWordpressWpMedia(limit: 3) {
+    images: allWordpressWpMedia {
       edges {
         node {
           source_url
+          post
         }
       }
     }
