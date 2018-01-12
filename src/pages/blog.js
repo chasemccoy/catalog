@@ -80,7 +80,7 @@ export const query = graphql`
       }
     }
 
-    images: allWordpressWpMedia(limit: 3) {
+    images: allWordpressWpMedia(limit: 3, filter: {format: {eq: "image"}}) {
       edges {
         node {
           source_url
