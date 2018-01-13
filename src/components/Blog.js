@@ -6,9 +6,13 @@ import React from 'react'
 import { media } from 'utils/media'
 import styled from 'styled-components'
 
-const Container = styled.div`
-  ${'' /* margin: 24px 0; */}
+const Container = styled.p`
+  margin: 0;
   color: ${colors.text.header};
+
+  & * + * {
+    margin-top: 12px;
+  }
 `
 
 const AsideContainer = Container.extend`
@@ -59,8 +63,7 @@ const Content = styled.div`
 const PostMeta = styled.div`
   color: ${colors.text.muted};
   font-weight: ${fontWeights.medium};
-  font-size: 14px;
-  margin-top: 8px;
+  font-size: 12px;
 
   a {
     text-decoration: none;
@@ -92,11 +95,13 @@ export const Post = props => {
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
 
   const excerpt = props.excerpt &&
-    props.to &&
-    (<div>
-      <span dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }} />
-      <Link to={props.to}>Read more...</Link>
-    </div>
+    props.to && (
+      <div>
+        <p>
+          <span dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }} />
+          <Link to={props.to}>Read more...</Link>
+        </p>
+      </div>
     )
 
   const meta = props.date && <Meta date={props.date} permalink={props.to} />

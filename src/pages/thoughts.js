@@ -39,7 +39,7 @@ const BlogPage = ({data}) => {
       {data.posts.edges.map(({node}, i) => (
         node.format != 'image' && (
           <Row key={i}>
-            <Column mb={40} width={1}>
+            <Column mb={24} width={1}>
               {node.format == 'aside' &&
                 <Post
                   aside
@@ -61,7 +61,7 @@ const BlogPage = ({data}) => {
               {node.format == 'image' && null}
             </Column>
 
-            <Column mb={40} width={1}><Divider /></Column>
+            <Column mb={24} width={1}><Divider /></Column>
           </Row>
         )
       ))}
