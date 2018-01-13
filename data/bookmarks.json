@@ -4,20 +4,36 @@
 		"bookmarks": [
 			{
 				"url": "http://macstories.net",
-				"comment": "I *really* like this site because it has this thing and also that other thing which is really great."
-			},
-			{"url": "http://brooksreview.net"},
-			{"url": "http://macstories.net"}
+				"comment": "Federico and his crew run the best Apple site on the web, with a focus on using iOS to get work done."
+			}
 		]
 	},
 	{
 		"category": "culture",
 		"bookmarks": [
-			{"url": "http://nytimes.com"},
 			{"url": "http://digg.com"},
 			{
 				"url": "http://kottke.org",
-				"comment": "I **really** like this site because it has this thing and also that other thing which is really great."
+				"comment": "Kottke.org is the best damn blog on the internet. Jason has been writing online longer than anyone, and his site is still consistently interesting."
+			}
+		]
+	},
+	{
+		"category": "design",
+		"bookmarks": [
+			{
+				"url": "",
+				"comment": ""
+			}
+		]
+	},
+	{
+		"category": "programming",
+		"bookmarks": [
+			{
+				"url": "http://khanlou.com",
+				"comment": "Soroush's site (and his talks) taught me more as an iOS developer than any other resource out there.",
+				"title": "Khanlou.com"
 			}
 		]
 	}

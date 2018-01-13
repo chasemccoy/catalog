@@ -46,7 +46,7 @@ const BookmarkImage = styled(Image)`
 	height: 48px;
 	object-fit: cover;
 	float: right;
-	margin-left: 16px;
+	margin-left: ${props => props.right ? `auto` : `16px`};
 `
 
 const MarkdownDescription = BookmarkDescription.withComponent(Markdown)
@@ -72,14 +72,15 @@ class Bookmark extends React.Component {
 	}
 
 	componentDidMount = () => {
-		fetch(`https://micro-open-graph-ljbqgzbbec.now.sh/?url=${this.props.url}`)
+		fetch(`https://chs-link-preview.now.sh/?url=${this.props.url}`)
 			.then((response) => response.json())
 			.then((result) => {
-				if (!result.title) {
+				if (!result.title && !this.props.title) {
 					this.setState({title: 'Error: could not load metadata'})
 					return
 				}
 				result.title && this.setState({title: result.title})
+				this.props.title && this.setState({title: this.props.title})
 				result.description && this.setState({description: result.description})
 				result.image && this.setState({imageURL: result.image})
 			})
@@ -92,11 +93,13 @@ class Bookmark extends React.Component {
 					<Icon name='open' />
 
 					<BookmarkTitle>{this.state.title}</BookmarkTitle>
+
+					{!this.state.description && this.state.imageURL && <BookmarkImage right src={this.state.imageURL} title={this.state.title} />}
 				</BookmarkHeader>
 
 				<BookmarkContent>
 					<BookmarkDescription>
-						{this.state.imageURL && <BookmarkImage src={this.state.imageURL} title={this.state.title} />}
+						{this.state.description && this.state.imageURL && <BookmarkImage src={this.state.imageURL} title={this.state.title} />}
 
 						<p>{this.state.description}</p>
 					</BookmarkDescription>

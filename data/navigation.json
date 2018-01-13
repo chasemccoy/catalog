@@ -19,10 +19,6 @@
 		"url": "/books"
 	},
 	{
-		"title": "Movies",
-		"url": "/movies"
-	},
-	{
 		"title": "Music",
 		"url": "/music"
 	},

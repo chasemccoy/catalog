@@ -19,12 +19,13 @@ const BookmarkPage = ({data}) => {
           <Heading id={node.category}>{capitalize(node.category)}</Heading>
 
           <BookmarkGrid mb={64}>
-            {node.bookmarks && node.bookmarks.map(({url, comment}, index2) =>
+            {node.bookmarks && node.bookmarks.map(({url, comment, title}, index2) =>
               url &&
               <Bookmark
                 key={`${index1}${index2}`}
                 url={url}
                 comment={comment}
+                title={title}
               />
             )}
           </BookmarkGrid>
@@ -47,6 +48,7 @@ export const query = graphql`
           bookmarks {
             url
             comment
+            title
           }
         }
       }
