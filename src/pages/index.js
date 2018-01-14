@@ -100,7 +100,7 @@ class IndexPage extends React.Component {
 
         <Row mb={24}>
           <Column>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Welcome to my home on the web. Here you'll find all sorts of things that make me who I am. Browse around, have fun, and then <a href="http://twitter.com/chase_mccoy">get in touch to talk shop</a>.</p>
           </Column>
         </Row>
 
@@ -129,37 +129,7 @@ class IndexPage extends React.Component {
           />
         </Row>
 
-        <Row>
-          <Column>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </Column>
-        </Row>
-
-        <List highlight>
-          <li>The best way to make interesting work is to become a more interesting person.</li>
-          <li>If you want to be interesting, you have to be interested.</li>
-          <li>Pay attention to what you pay attention to.</li>
-        </List>
-
-        <Row mb={40}>
-          <Column width={[1, 1/2]}>
-            <Card highlight>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Card>
-          </Column>
-
-          <Column width={[1, 1/2]}>
-            <Card highlight>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Card>
-          </Column>
-
-          <Column width={[1, 1/2]}>
-            <Card highlight>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Card>
-          </Column>
-
-          <Column width={[1, 1/2]}>
-            <Card highlight>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Card>
-          </Column>
-        </Row>
-
-        {this.props.data.allMarkdownRemark.edges.map(({node}) =>
+        {/* {this.props.data.allMarkdownRemark.edges.map(({node}) =>
           <div key={node.id}>
             <article>
               <h3>
@@ -169,7 +139,7 @@ class IndexPage extends React.Component {
               <div dangerouslySetInnerHTML={{ __html: node.html }} />
             </article>
           </div>
-        )}
+        )} */}
       </Page>
     )
   }

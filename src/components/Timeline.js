@@ -8,6 +8,8 @@ import styled from 'styled-components'
 const TimelineContainer = styled.section`
 	position: relative;
 	margin: 56px 0;
+	width: 132%;
+	${media.medium`width: 100%;`}
 
 	ul {
 		margin: 0;
