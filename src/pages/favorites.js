@@ -40,17 +40,17 @@ export const query = graphql`
       }
     }
 
-    movies: allMoviesJson(sort: {fields: [title], order: ASC}) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image
-        }
-      }
-    }
+    # movies: allMoviesJson(sort: {fields: [title], order: ASC}) {
+    #   edges {
+    #     node {
+    #       title
+    #       metadata
+    #       description
+    #       url
+    #       image
+    #     }
+    #   }
+    # }
 
     music: allMusicJson(sort: {fields: [title], order: ASC}) {
       edges {
