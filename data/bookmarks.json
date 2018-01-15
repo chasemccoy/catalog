@@ -22,8 +22,7 @@
 		"category": "design",
 		"bookmarks": [
 			{
-				"url": "",
-				"comment": ""
+				"url": "https://klim.co.nz"
 			}
 		]
 	},
@@ -34,6 +33,15 @@
 				"url": "http://khanlou.com",
 				"comment": "Soroush's site (and his talks) taught me more as an iOS developer than any other resource out there.",
 				"title": "Khanlou.com"
+			}
+		]
+	},
+	{
+		"category": "travel",
+		"bookmarks": [
+			{
+				"url": "https://onthegrid.city",
+				"comment": "The best spots in any city, curated by designers and studios with great tastes."
 			}
 		]
 	}
