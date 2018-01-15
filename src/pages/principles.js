@@ -20,14 +20,14 @@ const PrincipleDescription = styled.div`
 `
 
 const PrincipleLinkHeading = styled(Heading)`
-  padding: 0 0 8pxr;
+  padding: 0 0 8px;
   margin-bottom: 8px;
 `
 
 const PrinciplesPage = ({data}) => {
   return (
     <Page title='Principles' icon='brain'>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Here are some thoughts/ideas that I have noticed as recurring themes of my time growing up, learning new things, and starting a career. These are things that I try to keep in mind every day. I've studied these principles quite a bit, and I have collected some of that research here for future me.</p>
 
       <PrinciplesList highlight>
         {data.principles.edges.map(({node}, index) =>
@@ -52,11 +52,11 @@ const PrinciplesPage = ({data}) => {
               </div>
             }
 
-            <div>
+            {/* <div>
               {node.categories.map((category, i) =>
                 <Token key={i}><Icon small name='tag' /> {category}</Token>
               )}
-            </div>
+            </div> */}
           </div>
         )}
       </PrinciplesList>

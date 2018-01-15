@@ -118,6 +118,13 @@ const SidebarHeader = styled.h1`
 	}
 `
 
+const SidebarSubheader = styled.p`
+	margin-bottom: 40px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: ${colors.sidebar.link.secondary};
+`
+
 const SidebarButton = (props) => (
 	<div style={{display: 'flex', alignItems: 'center'}}>
 		{props.open ? <Icon name='sidebar-open' /> : <Icon name='sidebar-close' />}
@@ -165,6 +172,8 @@ class Sidebar extends React.Component {
 				className={this.state.isOpen ? 'open' : 'closed'}
 			>
 				<SidebarHeader desktop><Link to='/'>Chase McCoy</Link></SidebarHeader>
+
+				{/* <SidebarSubheader>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</SidebarSubheader> */}
 
 				<div onClick={this.closeMenu}>
 					{this.props.items && this.props.items.map(({node}, i) =>
