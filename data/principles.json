@@ -5,14 +5,13 @@
 		"categories": ["life", "work", "creativity"],
 		"links": [
 			{
-				"title": "Google",
+				"title": "Test link...",
 				"url": "http://google.com"
 			}
 		]
 	},
 	{
 		"title": "Pay attention to what you pay attention to.",
-		"description": "Description goes here.",
 		"categories": ["life", "work", "creativity"],
 		"links": []
 	}
