@@ -28,12 +28,12 @@ const BlogPage = ({data}) => {
 
   return (
     <Page narrow>
-      <Icon small name='image' /><Header>Recent Images</Header>
+      {/* <Icon small name='image' /><Header>Recent Images</Header>
       <ImageShowcase mb={40}>
         {showcasePhotos.map(({node}, i) =>
           <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
   			)}
-      </ImageShowcase>
+      </ImageShowcase> */}
 
       <Icon small name='thought' /><Header>Thoughts</Header>
       {data.posts.edges.map(({node}, i) => (
