@@ -68,7 +68,6 @@ export const Link = props => {
 export const Heading = styled.h3`
 	margin: 0 0 24px;
 	padding: 32px 0 8px;
-	border-bottom: 1px dashed ${colors.primary.gray.dark};
 
 	font-size: 16px;
 	color: ${colors.card.text} !important;
@@ -78,5 +77,15 @@ export const Heading = styled.h3`
 
 	a {
 		text-decoration: none;
+	}
+
+	display: flex;
+	align-items: center;
+
+	&:after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px dashed ${colors.primary.gray.dark};
+		margin-left: 16px;
 	}
 `

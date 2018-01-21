@@ -8,18 +8,29 @@ import Markdown from 'components/Markdown'
 import React from 'react'
 import styled from 'styled-components'
 
-const ReactMarkdown = require('react-markdown')
-
 const LibraryCard = styled(Card)`
   margin-bottom: 16px;
 
   &:last-child {
     margin-bottom: 16px;
   }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  img {
+    width: 100%;
+  }
 `
 
-const LibraryCardTitle = styled.h4`
+const LibraryCardTitle = styled.h3`
   margin-bottom: 8px;
+
+  ${props => props.media && `
+    font-size: 2rem;
+    font-weight: ${fontWeights.heavy};
+  `}
 `
 
 const LibraryCardSubtitle = styled.h4`
@@ -44,7 +55,7 @@ const LibrarySectionCard = styled(Card)`
   }
 `
 
-export const Library = props => {
+const Library = props => {
   const data = props.preview ? props.data.slice(0, 4) : props.data;
 
   if (props.preview) {
@@ -52,7 +63,7 @@ export const Library = props => {
       <Row align='flex-end' {...props}>
         {data.map(({node}, i) =>
 					<Column width={[1/4]} key={i}>
-						<LibraryItemPreviewImage src={`/${node.image}`} />
+						{node.image && <LibraryItemPreviewImage src={`/${node.image}`} />}
 					</Column>
   			)}
 
@@ -68,14 +79,16 @@ export const Library = props => {
   			{data.map(({node}, i) =>
           <LibraryCard to={node.url} key={i}>
     				<Row>
-    					<Column width={[1/4]}>
-    						<Image src={`/${node.image}`} />
-    					</Column>
+              {node.image &&
+      					<Column width={props.media ? [1] : [1/4]}>
+      						<Image src={`/${node.image}`} />
+      					</Column>
+              }
 
-    					<Column width={[3/4]}>
+    					<Column width={props.media ? [1] : [3/4]}>
     						<LibraryCardTitle>{node.title}</LibraryCardTitle>
 
-    						<LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>
+    						{node.metadata && <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>}
 
     						<Markdown>{node.description}</Markdown>
     					</Column>
@@ -86,3 +99,5 @@ export const Library = props => {
     )
   }
 }
+
+export default Library

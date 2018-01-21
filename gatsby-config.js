@@ -101,6 +101,13 @@ module.exports = {
         name: `navigation`,
         path: `${__dirname}/data/navigation.json`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `chicago`,
+        path: `${__dirname}/data/chicago.json`,
+      }
     }
-  ],
+  ]
 }
