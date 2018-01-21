@@ -37,33 +37,31 @@ const BlogPage = ({data}) => {
 
       <Icon small name='thought' /><Header>Thoughts</Header>
       {data.posts.edges.map(({node}, i) => (
-        node.format != 'image' && (
-          <Row key={i}>
-            <Column mb={24} width={1}>
-              {node.format == 'aside' &&
-                <Post
-                  aside
-                  to={node.slug}
-                  content={node.content}
-                  date={node.date}
-                />
-              }
+        <Row key={i}>
+          <Column mb={24} width={1}>
+            {(node.format == 'aside' || node.format == 'image') &&
+              <Post
+                aside
+                to={node.slug}
+                content={node.content}
+                date={node.date}
+              />
+            }
 
-              {node.format == 'standard' &&
-                <Post
-                  title={node.title}
-                  to={node.slug}
-                  date={node.date}
-                  excerpt={node.excerpt}
-                />
-              }
+            {node.format == 'standard' &&
+              <Post
+                title={node.title}
+                to={node.slug}
+                date={node.date}
+                excerpt={node.excerpt}
+              />
+            }
 
-              {node.format == 'image' && null}
-            </Column>
+            {node.format == 'image' && null}
+          </Column>
 
-            <Column mb={24} width={1}><Divider /></Column>
-          </Row>
-        )
+          <Column mb={24} width={1}><Divider /></Column>
+        </Row>
       ))}
     </Page>
   )

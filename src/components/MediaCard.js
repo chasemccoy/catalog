@@ -40,7 +40,6 @@ const Title = styled.h2`
 
   ${media.tiny`
     font-size: 1.5em;
-    margin: 0;
   `}
 `
 
