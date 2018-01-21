@@ -15,6 +15,10 @@
 		"url": "/favorites"
 	},
 	{
+		"title": "Chicago",
+		"url": "/chicago"
+	},
+	{
 		"title": "Books",
 		"url": "/books"
 	},

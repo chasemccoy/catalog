@@ -1,6 +1,6 @@
 import {Heading, Link} from 'components/Components'
 
-import {Library} from 'components/Library'
+import Library from 'components/Library'
 import Page from 'components/Page'
 import React from 'react'
 import { capitalize } from 'utils/js'
@@ -28,6 +28,17 @@ export default FavoritesPage
 
 export const query = graphql`
   query FavoritesQuery {
+    chicago: allChicagoJson(sort: {fields: [title], order: ASC}) {
+      edges {
+        node {
+          title
+          description
+          url
+          image
+        }
+      }
+    }
+    
     books: allBooksJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {

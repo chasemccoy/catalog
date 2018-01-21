@@ -45,6 +45,10 @@ export default class TemplateWrapper extends React.Component {
                 name: 'keywords',
                 content: 'sample, something'
               },
+              {
+                name: 'image',
+                content: 'http://chasem.co/meta/chase.jpg'
+              }
             ]}
           />
 
