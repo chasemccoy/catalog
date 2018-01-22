@@ -12,15 +12,15 @@
 		"category": "drink",
 		"metadata": "1670 W Division",
 		"description": "I may be biased because I live right next door, but Bangers & Lace is easily in my top 3 bars in Chicago. They have an excellent, ever-changing beer selection in addition house made sausage. Plus, the hunting lodge vibes are excellent.",
-		"url": "https://www.bangersandlacebar.com",
+		"url": "https://bangersandlacebar.com",
 		"image": "chicago/bangers.jpg"
 	},
 	{
 		"title": "Maria's Packaged Goods and Community Bar",
 		"category": "drink",
 		"metadata": "960 West 31st",
-		"description": "Also one of my favorite bars in the city, Maria's is an odd bird. You enter a liquor store, but if you walk through to the back you'll be greeted by an excellent bar serving a huge selection of beer (including exclusive brews by Marz) and some excellent cocktails. Be sure to order some food from [Kimski](http://kimskichicago.com), the Polish/Korean counter service restaurant connected to Maria's.",
-		"url": "http://www.community-bar.com",
+		"description": "Also one of my favorite bars in the city, Maria's is an odd bird. You enter a liquor store, but if you walk through to the back you'll be greeted by an excellent bar serving a huge selection of beer (including exclusive brews by Marz) and some excellent cocktails. Be sure to order some food from Kimski, the Polish/Korean counter service restaurant connected to Maria's.",
+		"url": "http://community-bar.com",
 		"image": "chicago/marias.jpg"
 	},
 	{
@@ -36,7 +36,7 @@
 		"category": "food",
 		"metadata": "1531 N Damen",
 		"description": "That patio tho. Another place I am lucky to live near, Big Star is a whiskey/beer/taco joint serving amazing food in an even better atmosphere. Come here when the weather is warm, get a spot on the patio, and stay for a few hours.",
-		"url": "http://www.bigstarchicago.com",
+		"url": "http://bigstarchicago.com",
 		"image": "chicago/bigstar.jpg"
 	},
 	{

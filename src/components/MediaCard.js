@@ -102,7 +102,7 @@ const InformationContainer = styled.div`
 
 const Badge = styled.div`
   background-color: white;
-  padding: 2px 8px;
+  padding: 4px 8px;
 
   position: absolute;
   bottom: 8px;
@@ -111,6 +111,7 @@ const Badge = styled.div`
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
+  line-height: 1.5;
 `
 
 const Information = props => (
