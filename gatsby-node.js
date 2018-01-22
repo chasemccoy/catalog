@@ -93,14 +93,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         ).then(result => {
 					result.data.allWordpressPost.edges.map(({ node }) => {
 						createPage({
-							path: `thoughts/${node.slug}`,
-							component: path.resolve(`./src/templates/wp-post.js`),
-							context: {
-								id: node.id
-							}
-						})
-
-						createPage({
 							path: node.slug,
 							component: path.resolve(`./src/templates/wp-post.js`),
 							context: {

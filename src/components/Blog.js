@@ -108,7 +108,7 @@ export const Post = props => {
       </Excerpt>
     )
 
-  const meta = props.date && <Meta date={props.date} permalink={props.to} />
+  const meta = props.date && <Meta date={props.date} permalink={`/${props.to}`} />
 
   if (props.aside || props.content) {
     return (
