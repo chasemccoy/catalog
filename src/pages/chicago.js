@@ -1,4 +1,4 @@
-import { Heading as OriginalHeading } from 'components/Components'
+import { Heading } from 'components/Components'
 import Page from 'components/Page'
 import React from 'react'
 import TableOfContents from 'components/TableOfContents'
@@ -7,10 +7,6 @@ import styled from 'styled-components'
 import { Row, Column } from 'components/Grid'
 import MediaCard from 'components/MediaCard'
 import Mosaic from 'components/Mosaic'
-
-const Heading = styled(OriginalHeading)`
-  margin: 0;
-`
 
 const ChicagoPage = ({data}) => {
   const categories = data.allChicagoJson.edges.map(a => a.node.category)
@@ -26,7 +22,7 @@ const ChicagoPage = ({data}) => {
       {uniqueCategories.map((category, index) =>
         <Row mb={80} key={index}>
           <Column width={1}>
-            <OriginalHeading id={category} key={category}>{capitalize(category)}</OriginalHeading>
+            <Heading id={category} key={category}>{capitalize(category)}</Heading>
 
             <Mosaic>
               {data.allChicagoJson.edges.filter(({node}) => node.category === category).map(({node}, i) =>
