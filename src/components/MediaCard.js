@@ -48,6 +48,15 @@ const Border = styled.div`
   width: 50%;
   margin: ${props => props.bottom ? `16px 0 0 0` : `0`};
   background-color: ${colors.primary.gray.dark};
+  display: block;
+
+  ${props => props.mobile && `
+    display: none;
+  `}
+
+  ${props => props.mobile && media.tiny`
+    display: block !important;
+  `}
 `
 
 const Description = styled.div`
@@ -151,6 +160,8 @@ const MediaCard = props => {
           <FlexImage src={`/${props.image}`} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>
+
+          <Border bottom mobile />
         </Container>
       )
     case 1/2:

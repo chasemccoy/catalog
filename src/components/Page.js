@@ -5,12 +5,6 @@ import styled from 'styled-components'
 
 const PageContainer = styled.div`
 	${props => props.narrow && 'width: 65%;'}
-
-	${props => props.narrow && media.tiny`
-		margin: auto;
-    width: 98%;
-	`}
-
 	${props => props.wide && 'width: 132%;'}
 
 	${props => (props.narrow || props.wide) && media.tiny`
