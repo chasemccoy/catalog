@@ -8,7 +8,6 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   margin: 0;
-  color: ${colors.text.header};
 
   & > * + * {
     margin-top: 12px;
