@@ -8,8 +8,7 @@ const PageContainer = styled.div`
 	${props => props.wide && 'width: 132%;'}
 
 	${props => (props.narrow || props.wide) && media.tiny`
-		margin: auto;
-    width: 98%;
+    width: 100%;
 	`}
 
 	.icon {

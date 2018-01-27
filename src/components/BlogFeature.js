@@ -28,10 +28,15 @@ const Container = styled(Link)`
 const Title = styled(Heading)`
   margin: 0 0 1em;
   padding: 0 0 .5em;
+  border-bottom: 1px dashed ${colors.primary.gray.dark};
 
   ${props => props.highlight && `
     color: white !important;
   `}
+
+  &:after {
+    content: none;
+  }
 `
 
 const Description = styled.div`
