@@ -32,7 +32,7 @@ const PrinciplesPage = ({data}) => {
       <PrinciplesList highlight>
         {data.principles.edges.map(({node}, index) =>
           <div key={index}>
-            <li>{node.title}</li>
+            <li className='serif'>{node.title}</li>
 
             <PrincipleDescription>
               <Markdown>{node.description}</Markdown>

@@ -3,23 +3,16 @@ import { colors, sizes } from 'utils/design'
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledIcon = styled.span`
+const StyledIcon = styled.img`
 	display: inline-flex;
 	flex-shrink: 0;
-	width: ${props => props.large ? `26px` : props.small ? `18px` : `22px`};
-	height: ${props => props.large ? `26px` : props.small ? `18px` : `22px`};
-	margin: ${props => props.large ? `1px 8px 0 0` : props.small ? `0 6px 0 0` : `-2px 4px 0 0`};
-
-	img {
-		margin: 0;
-		height: 100%;
-		width: 100%;
-	}
+	height: ${props => props.large ? `1.1em` : `1.4em`};
+	margin: ${props => props.large ? `-5px 8px 0 0` : props.small ? `-4px 6px 0 0` : `0 4px 0 0`} !important;
+	vertical-align: middle;
 `
 
 const Icon = props => (
-	<StyledIcon className={`icon ${props.name}`} {...props}>
-		<img src={`${__PATH_PREFIX__}/icons/${props.name}.svg`} alt={props.name} />
+	<StyledIcon className={`icon ${props.name}`} {...props} src={`${__PATH_PREFIX__}/icons/${props.name}.svg`} alt={props.name} >
 	</StyledIcon>
 )
 

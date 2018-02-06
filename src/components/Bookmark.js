@@ -12,7 +12,9 @@ const BookmarkContainer = styled(Card)`
 	padding: 24px;
 `
 
-const BookmarkTitle = styled.h4`
+const BookmarkTitle = styled.h4.attrs({
+	className:  'sans'
+})`
 	padding-left: 8px;
 	margin-top: -2px;
 	margin-bottom: 0;
