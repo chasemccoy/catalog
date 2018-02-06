@@ -36,8 +36,22 @@ injectGlobal`
 		}
 	}
 
+	p a, .e-content a {
+		margin: -4px;
+		padding: 4px;
+		box-decoration-break: clone;
+
+		&:hover {
+			color: ${colors.primary.blue};
+			background-color: #F5FAFF;
+			border-radius: 4px;
+			padding: 4px;
+			text-decoration: none;
+		}
+	}
+
 	img {
-		margin: 0;
+		margin: 0 !important;
 		border-radius: 4px;
 		height: auto;
 	}
