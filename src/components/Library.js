@@ -50,8 +50,11 @@ const LibrarySectionCard = styled(Card)`
   font-weight: ${fontWeights.semibold};
   padding: 12px;
 
-  &:hover {
-    color: ${colors.sidebar.link.selected} !important;
+  &, &:hover {
+    color: ${colors.primary.blue} !important;
+    background-color: #F5FAFF;
+    border: none;
+    box-shadow: none;
   }
 `
 

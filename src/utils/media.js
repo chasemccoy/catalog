@@ -12,3 +12,16 @@ export const media = Object.keys(sizes.breakpoints).reduce((accumulator, label) 
   `
   return accumulator
 }, {})
+
+
+// Use it like this, dummy:
+//
+// ${media.large`background-size: auto 75%;`}
+// ${media.medium`background-size: auto 50%;`}
+// ${media.small`background-size: auto 25%;`}
+// ${media.tiny`background-size: auto 10%;`}
+//
+// If screen is `large` or smaller, do this
+// If screen is `medium` or smaller, do this
+// If screen is `small` or smaller, do this
+// If screen is `tiny` or smaller, do this

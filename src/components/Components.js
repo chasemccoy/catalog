@@ -1,11 +1,13 @@
 import { colors, fontWeights } from 'utils/design'
-import styled, {injectGlobal} from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 
 import GatsbyLink from 'gatsby-link'
 import React from 'react'
 import {darken} from 'polished'
 
 injectGlobal`
+	@import url('https://fonts.googleapis.com/css?family=Lora:400,700');
+
 	* {
 		box-sizing: border-box;
 	}
@@ -80,7 +82,9 @@ export const Link = props => {
 	}
 }
 
-export const Heading = styled.h3`
+export const Heading = styled.h3.attrs({
+	className:  'sans'
+})`
 	margin: 0 0 24px;
 	padding: 32px 0 8px;
 

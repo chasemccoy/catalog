@@ -103,7 +103,9 @@ const SidebarLink = styled(Link).attrs({
 	}
 `
 
-const SidebarHeader = styled.h1`
+const SidebarHeader = styled.h1.attrs({
+	className: 'sans'
+})`
 	font-size: 15px;
 	font-weight: ${fontWeights.bold};
 	margin: ${props => props.flush ? '0 0 0 8px' : '0 0 40px 0'};

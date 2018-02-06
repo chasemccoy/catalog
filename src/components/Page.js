@@ -7,13 +7,9 @@ const PageContainer = styled.div`
 	${props => props.narrow && 'width: 65%;'}
 	${props => props.wide && 'width: 132%;'}
 
-	${props => (props.narrow || props.wide) && media.tiny`
+	${props => (props.narrow || props.wide) && media.medium`
     width: 100%;
 	`}
-
-	.icon {
-		float: left;
-	}
 `
 
 const PageTitle = styled.h2`
@@ -22,8 +18,13 @@ const PageTitle = styled.h2`
 
 const Page = props => (
 	<PageContainer {...props}>
-		{props.icon && <Icon large name={props.icon} /> }
-		{props.title && <PageTitle>{props.title}</PageTitle>}
+		{props.title && (
+			<PageTitle>
+				{props.icon && <Icon large name={props.icon} /> }
+
+				{props.title}
+			</PageTitle>
+		)}
 
 		{props.children}
 	</PageContainer>

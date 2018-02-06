@@ -11,7 +11,9 @@ import { Post } from 'components/Blog'
 import React from 'react'
 import styled from 'styled-components'
 
-const Header = styled.h2`
+const Header = styled.h2.attrs({
+	className:  'sans'
+})`
   font-size: 14px;
   color: ${colors.primary.purple} !important;
   text-transform: uppercase;
@@ -28,14 +30,14 @@ const BlogPage = ({data}) => {
 
   return (
     <Page narrow>
-      {/* <Icon small name='image' /><Header>Recent Images</Header>
+      {/* <Header><Icon small name='image' /> Recent Images</Header>
       <ImageShowcase mb={40}>
         {showcasePhotos.map(({node}, i) =>
           <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
   			)}
       </ImageShowcase> */}
 
-      <Icon small name='thought' /><Header>Thoughts</Header>
+      <Header><Icon small name='thought' /> Thoughts</Header>
       {data.posts.edges.map(({node}, i) => (
         <Row key={i}>
           <Column mb={24} width={1}>

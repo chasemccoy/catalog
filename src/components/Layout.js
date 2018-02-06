@@ -21,5 +21,12 @@ export const Content = styled.div.attrs({
 	${media.small`
 		width: 100%;
 		padding: 100px ${sizes.content.smallPadding} 60px;
+
+		padding: ${props => props.flush ? `0` : `100px ${sizes.content.smallPadding} 60px`};
+	`}
+
+	${props => props.flush && `
+		max-width: 100%;
+		padding: 0;
 	`}
 `

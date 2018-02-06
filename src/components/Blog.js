@@ -22,7 +22,6 @@ const PostContainer = Container.extend`
 
 const Title = styled.h3`
   margin-bottom: 8px;
-  color: ${colors.text.body} !important;
 
   a {
     text-decoration: none;
@@ -35,7 +34,7 @@ const Title = styled.h3`
     color: ${colors.primary.blue};
     font-weight: ${fontWeights.bold};
     font-size: 22px;
-    line-height: 1.2;
+    line-height: 1.5;
   }
 `
 
