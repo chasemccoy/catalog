@@ -21,7 +21,7 @@ export default class TemplateWrapper extends React.Component {
     }
   }
 
-  render() {    
+  render() {
     return (
       <ThemeProvider
         theme={{
@@ -55,7 +55,7 @@ export default class TemplateWrapper extends React.Component {
           <Wrapper>
             <Sidebar items={this.props.data.allNavigationJson.edges} />
 
-            <Content flush={this.props.location.pathname === '/'}>
+            <Content flush={this.props.location.pathname === '/' && false}>
               {this.props.children()}
             </Content>
           </Wrapper>

@@ -5,7 +5,7 @@ const typography = new Typography(
 		baseFontSize: '16px',
 		baseLineHeight: 1.6,
 		bodyFontFamily: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'],
-		headerFontFamily: ['Lora', 'Georgia', 'serif'],
+		headerFontFamily: ['Karla', 'Georgia', 'serif'],
 		scaleRatio: 2.3,
 		headerLineHeight: 1.5,
 		headerWeight: 600,

@@ -6,7 +6,7 @@ import React from 'react'
 import {darken} from 'polished'
 
 injectGlobal`
-	@import url('https://fonts.googleapis.com/css?family=Lora:400,700');
+	@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
 
 	* {
 		box-sizing: border-box;
@@ -19,7 +19,7 @@ injectGlobal`
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: ${colors.text.header} !important;
+		color: ${colors.text.header};
 	}
 
 	a {
