@@ -69,14 +69,17 @@ class IndexPage extends React.Component {
 
         <Content>
           <StatCard
-            title={this.state.weatherTemperature}
-            subtitle='Weather in Chicago, IL'
-            description={this.state.weatherSummary}
+            // to='http://sproutsocial.com'
+            title='Sprout Social'
+            color='#59CB59'
+            subtitle='Day Job'
+            description='Design Developer'
           />
 
           <StatCard
-            title={this.state.productivity}
-            subtitle='Productivity Score'
+            title={this.state.weatherTemperature}
+            subtitle='Weather in Chicago, IL'
+            description={this.state.weatherSummary}
           />
 
           <StatCard
@@ -85,10 +88,17 @@ class IndexPage extends React.Component {
             description={`by ${this.state.nowPlayingArtist}`}
           />
 
+          <StatCard title='22 years' subtitle='Age'/>
+
           <StatCard
             title='Jungle Boogie'
             subtitle='Currently Drinking'
             description='by Marz Brewing'
+          />
+
+          <StatCard
+            title={this.state.productivity}
+            subtitle='Productivity Score'
           />
 
           <StatCard subtitle='Elsewhere'>
@@ -96,17 +106,6 @@ class IndexPage extends React.Component {
               If you wanna chat, [ping me on Twitter](http://twitter.com/chase_mccoy) or [shoot me an email](mailto:desk@chasemccoy.net).
             </Markdown>
           </StatCard>
-
-          <StatCard title='22 years' subtitle='Age'
-          />
-
-          <StatCard
-            // to='http://sproutsocial.com'
-            title='Sprout Social'
-            color='#59CB59'
-            subtitle='Day Job'
-            description='Design Developer'
-          />
 
           <StatCard subtitle='Colophon'>
             <Markdown>
