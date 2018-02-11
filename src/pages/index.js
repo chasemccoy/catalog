@@ -33,28 +33,35 @@ class IndexPage extends React.Component {
     weatherTemperature: 'Loading...',
 		productivity: 'Loading...',
 		nowPlayingName: 'Loading...',
-    nowPlayingArtist: 'Loading...'
+    nowPlayingArtist: 'Loading...',
+    age: 'Loading...'
 	}
 
   componentDidMount = () => {
-    fetch(`https://chs-stats.now.sh/?type=weather`)
+    fetch(`https://chs-stats.now.sh/weather`)
 			.then((response) => response.json())
 			.then((result) => {
   			this.setState({weatherSummary: result.summary})
         this.setState({weatherTemperature: result.temperature})
 			})
 
-    fetch(`https://chs-stats.now.sh/?type=productivity`)
+    fetch(`https://chs-stats.now.sh/productivity`)
 			.then((response) => response.text())
 			.then((result) => {
   			this.setState({productivity: result})
 			})
 
-    fetch(`https://chs-stats.now.sh/?type=nowPlaying`)
+    fetch(`https://chs-stats.now.sh/nowPlaying`)
 			.then((response) => response.json())
 			.then((result) => {
   			this.setState({nowPlayingName: result.name})
         this.setState({nowPlayingArtist: result.artist})
+			})
+
+    fetch(`https://chs-stats.now.sh/age`)
+			.then((response) => response.text())
+			.then((result) => {
+  			this.setState({age: result})
 			})
 	}
 
@@ -88,7 +95,7 @@ class IndexPage extends React.Component {
             description={`by ${this.state.nowPlayingArtist}`}
           />
 
-          <StatCard title='22 years' subtitle='Age'/>
+          <StatCard title={this.state.age} subtitle='Age'/>
 
           <StatCard
             title='Jungle Boogie'
@@ -109,7 +116,7 @@ class IndexPage extends React.Component {
 
           <StatCard subtitle='Colophon'>
             <Markdown>
-              This site is built using [Gatsby](), [styled-components](), [Micro](), and [now](). Headings are set in [Karla](), and the body is set in your system's default typeface.
+              This site is built using [Gatsby](https://www.gatsbyjs.org), [styled-components](https://www.styled-components.com), [micro](https://github.com/zeit/micro), and [now](http://now.sh). Headings are set in [Karla](https://fonts.google.com/specimen/Karla), and the body is set in your system's default typeface.
             </Markdown>
           </StatCard>
         </Content>
