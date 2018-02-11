@@ -66,15 +66,7 @@ injectGlobal`
 	blockquote {
 		color: ${colors.text.muted};
 		border-left: 4px solid ${colors.primary.gray.medium};
-		padding-left: 16px;
 	}
-`
-
-const StyledLink = styled(GatsbyLink)`
-	${'' /* &:hover {
-		color: ${darken(0.2, colors.text.body)};
-		color: ${colors.primary.blue};
-	} */}
 `
 
 export const Link = props => {
@@ -85,7 +77,7 @@ export const Link = props => {
 		return <a href={props.to} {...props}>{props.children}</a>
 	}
 	else {
-		return <StyledLink {...props}>{props.children}</StyledLink>
+		return <GatsbyLink {...props}>{props.children}</GatsbyLink>
 	}
 }
 

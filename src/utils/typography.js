@@ -22,6 +22,9 @@ const typography = new Typography(
 			},
 			'.serif': {
 				fontFamily: options.headerFontFamily.join(`,`)
+			},
+			'blockquote': {
+				paddingLeft: '16px'
 			}
 		})
 	}
