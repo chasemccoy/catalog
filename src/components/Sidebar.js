@@ -14,6 +14,9 @@ injectGlobal`
 
 	.bm-menu {
 		overflow: visible !important;
+		width: ${sizes.sidebar.width};
+
+		${media.small`width: 100%;`}
 	}
 
 	.bm-burger-button,
@@ -44,11 +47,13 @@ injectGlobal`
 
 const SidebarWrapper = styled(Menu)`
 	background-color: white;
-	width: ${sizes.sidebar.width} !important;
+	min-width: ${sizes.sidebar.width};
 	padding: 96px 24px 0 64px;
 	z-index: 3 !important;
 	${'' /* box-shadow: rgba(0, 0, 0, 0.0392157) -1px 0px 2px inset;
 	background-color: #FAFBFC; */}
+	display: flex;
+	justify-content: flex-end;
 
 	${media.tiny`
 		min-height: 100vh;
@@ -103,10 +108,8 @@ const SidebarLink = styled(Link).attrs({
 	}
 `
 
-const SidebarHeader = styled.h1.attrs({
-	className: 'sans'
-})`
-	font-size: 15px;
+const SidebarHeader = styled.h1`
+	font-size: 16px;
 	font-weight: ${fontWeights.bold};
 	margin: ${props => props.flush ? '0 0 0 8px' : '0 0 40px 0'};
 	display: ${props => props.flush ? 'inline' : 'block'};
@@ -166,7 +169,7 @@ class Sidebar extends React.Component {
 				disableOverlayClick
 				pageWrapId='content'
 				outerContainerId='wrapper'
-				width={sizes.sidebar.width}
+				width='30vw'
 				isOpen={this.state.isOpen}
 				customBurgerIcon={<SidebarButton open />}
 				customCrossIcon={<SidebarButton />}

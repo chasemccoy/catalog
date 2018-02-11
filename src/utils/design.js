@@ -53,7 +53,7 @@ export const colors = {
 
 export const sizes = {
 	sidebar: {
-		width: '320px'
+		width: '300px'
 	},
 	content: {
 		maxWidth: '750px',

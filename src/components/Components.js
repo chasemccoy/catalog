@@ -82,9 +82,7 @@ export const Link = props => {
 	}
 }
 
-export const Heading = styled.h3.attrs({
-	className:  'sans'
-})`
+export const Heading = styled.h3`
 	margin: 0 0 24px;
 	padding: 32px 0 8px;
 
