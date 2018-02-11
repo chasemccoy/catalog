@@ -91,10 +91,10 @@ const SidebarLink = styled(Link).attrs({
 	}
 
 	&.selected {
-		background-color: ${colors.sidebar.link.selectedBackground};
+		background-color: ${colors.primary.lightBlue};
 
 		&:link, &:visited {
-			color: ${colors.sidebar.link.selected};
+			color: ${colors.primary.blue};
 		}
 
 		&:hover {

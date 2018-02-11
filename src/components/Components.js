@@ -45,7 +45,7 @@ injectGlobal`
 
 		&:hover {
 			color: ${colors.primary.blue};
-			background-color: #F5FAFF;
+			background-color: ${colors.primary.lightBlue};
 			border-radius: 4px;
 			padding: 4px;
 			text-decoration: none;

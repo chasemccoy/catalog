@@ -1,6 +1,7 @@
 export const colors = {
 	primary: {
 		blue: '#1DADF5',
+		lightBlue: '#F5FAFF',
 		purple: '#5856D6',
 		gray: {
 			light: '#F9FAFC',
@@ -15,7 +16,6 @@ export const colors = {
 			primary: '#5A6773',
 			secondary: '#9EA3A8',
 			selected: '#009EEB',
-			selectedBackground: '#E6F3FA',
 			hover: '#F4F5F5',
 			selectedHover: '#DCF0FA'
 		}

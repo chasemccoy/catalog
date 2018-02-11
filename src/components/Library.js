@@ -83,12 +83,12 @@ const Library = props => {
           <LibraryCard to={node.url} key={i}>
     				<Row>
               {node.image &&
-      					<Column width={props.media ? [1] : [1/4]}>
+      					<Column width={[1, 1/4]}>
       						<Image src={`/${node.image}`} />
       					</Column>
               }
 
-    					<Column width={props.media ? [1] : [3/4]}>
+    					<Column width={[1, 3/4]}>
     						<LibraryCardTitle>{node.title}</LibraryCardTitle>
 
     						{node.metadata && <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>}
