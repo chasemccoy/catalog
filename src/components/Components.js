@@ -34,7 +34,7 @@ injectGlobal`
 		}
 
 		&:hover {
-			color: ${darken(0.2, colors.text.body)};
+			color: ${colors.primary.blue};
 		}
 	}
 
@@ -62,12 +62,19 @@ injectGlobal`
 		line-height: 1;
 		tab-size: 2;
 	}
+
+	blockquote {
+		color: ${colors.text.muted};
+		border-left: 4px solid ${colors.primary.gray.medium};
+		padding-left: 16px;
+	}
 `
 
 const StyledLink = styled(GatsbyLink)`
-	&:hover {
+	${'' /* &:hover {
 		color: ${darken(0.2, colors.text.body)};
-	}
+		color: ${colors.primary.blue};
+	} */}
 `
 
 export const Link = props => {

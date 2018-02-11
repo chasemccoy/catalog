@@ -110,7 +110,7 @@ class IndexPage extends React.Component {
 
           <StatCard subtitle='Elsewhere'>
             <Markdown>
-              If you wanna chat, [ping me on Twitter](http://twitter.com/chase_mccoy) or [shoot me an email](mailto:desk@chasemccoy.net).
+              If you'd like to chat, [ping me on Twitter](http://twitter.com/chase_mccoy) or [shoot me an email](mailto:desk@chasemccoy.net).
             </Markdown>
           </StatCard>
 
