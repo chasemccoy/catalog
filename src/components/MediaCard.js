@@ -111,6 +111,7 @@ const InformationContainer = styled.div`
 
 const Badge = styled.div`
   background-color: white;
+  color: ${colors.text.header};
   padding: 4px 8px;
 
   position: absolute;

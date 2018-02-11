@@ -43,8 +43,16 @@
 		"title": "C.C. Ferns",
 		"category": "coffee",
 		"metadata": "2806 W Augusta",
-		"description": "Another coffee shop by the minds behind Sawada (Hogsalt), C.C. Ferns is a small little space full of leather armchairs and comfy couches. Post up here for a few hours when it's cold, get some work done, and enjoy a latte. They also sell cigars, which plays to their aesthetic perfectly.",
+		"description": "Another coffee shop from the minds behind Sawada (Hogsalt), C.C. Ferns is a small little space full of leather armchairs and comfy couches. Post up here for a few hours when it's cold, get some work done, and enjoy a latte. They also sell cigars, which plays to their aesthetic perfectly.",
 		"url": "http://ccferns.com",
 		"image": "chicago/ccferns.jpg"
+	},
+	{
+		"title": "Caffe Streets",
+		"category": "coffee",
+		"metadata": "1750 W Division",
+		"description": "I love this coffee shop not only because of it's chill vibes and great lattes, but also because it's less than a block from my apartment. Stop by in the summer to chill on the patio, or sit in the window and watch the snow fall. Be sure to try the bacon, cheddar, and chive scone.",
+		"url": "http://www.caffestreets.com",
+		"image": "chicago/caffestreets.jpg"
 	}
 ]
