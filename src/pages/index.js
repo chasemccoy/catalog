@@ -1,28 +1,13 @@
 import { Column, Row } from 'components/Grid'
-import { Heading, Link } from 'components/Components'
-import { colors, fontWeights, sizes } from 'utils/design'
-import BlogFeature from 'components/BlogFeature'
-import Image from 'components/Image'
+import { Link } from 'components/Components'
+import { colors, fontWeights } from 'utils/design'
 import Page from 'components/Page'
 import StatCard from 'components/StatCard'
 import React from 'react'
 import styled from 'styled-components'
-import { media } from 'utils/media'
+import Markdown from 'components/Markdown'
 
 const Container = styled(Page)`
-  ${'' /* min-height: 100vh;
-  background: url('/meta/chase2.png'), linear-gradient(to bottom right, #fff 0%, #fff 50%, #F5FAFF 50%, #F5FAFF 100%); */}
-  ${'' /* padding: 96px;
-  ${media.small`padding: 96px 32px;`} */}
-
-  ${'' /* background-size: auto 90%;
-  background-position: right bottom;
-  background-repeat: no-repeat;
-
-  ${media.large`background-size: auto 80%;`}
-  ${media.medium`background-size: auto 70%;`}
-  ${media.small`background-size: auto 60%;`}
-  ${media.tiny`background-size: auto 50%;`} */}
 `
 
 const PageTitle = styled.h1.attrs({
@@ -32,11 +17,15 @@ const PageTitle = styled.h1.attrs({
   letter-spacing: -1px;
 `
 
-// const Divider = styled.div`
-//   height: 4px;
-//   background-color: #DDE9F0;
-//   width: 100%;
-// `
+const Content = props => (
+  <Row mx={[-24, -40]}>
+    {props.children.map(item => (
+      <Column width={[1, 1/2]} mt={64} px={[24, 40]}>
+        {item}
+      </Column>
+    ))}
+  </Row>
+)
 
 class IndexPage extends React.Component {
   state = {
@@ -78,39 +67,53 @@ class IndexPage extends React.Component {
           </Column>
         </Row>
 
-        <Row mb={40}>
-          {/* <Column width={[1/3, 1/5]}><Divider /></Column> */}
-        </Row>
+        <Content>
+          <StatCard
+            title={this.state.weatherTemperature}
+            subtitle='Weather in Chicago, IL'
+            description={this.state.weatherSummary}
+          />
 
-        <Row mx={[-24, -40]}>
-          <Column width={[1, 1/2]} mt={64} px={[24, 40]}>
-            <StatCard
-              title={this.state.weatherTemperature}
-              subtitle='Weather in Chicago, IL'
-              description={this.state.weatherSummary}
-            />
-          </Column>
+          <StatCard
+            title={this.state.productivity}
+            subtitle='Productivity Score'
+          />
 
-          <Column width={[1, 1/2]} mt={64} px={[24, 40]}>
-            <StatCard number title={this.state.productivity} subtitle='Productivity Score' />
-          </Column>
+          <StatCard
+            title={this.state.nowPlayingName}
+            subtitle='Now Playing'
+            description={`by ${this.state.nowPlayingArtist}`}
+          />
 
-          <Column width={[1, 1/2]} mt={64} px={[24, 40]}>
-            <StatCard
-              title={this.state.nowPlayingName}
-              subtitle='Now Playing'
-              description={`by ${this.state.nowPlayingArtist}`}
-            />
-          </Column>
+          <StatCard
+            title='Jungle Boogie'
+            subtitle='Currently Drinking'
+            description='by Marz Brewing'
+          />
 
-          <Column width={[1, 1/2]} mt={64} px={[24, 40]}>
-            <StatCard
-              title='Jungle Boogie'
-              subtitle='Currently Drinking'
-              description='by Marz Brewing'
-            />
-          </Column>
-        </Row>
+          <StatCard subtitle='Elsewhere'>
+            <Markdown>
+              If you wanna chat, [ping me on Twitter](http://twitter.com/chase_mccoy) or [shoot me an email](mailto:desk@chasemccoy.net).
+            </Markdown>
+          </StatCard>
+
+          <StatCard title='22 years' subtitle='Age'
+          />
+
+          <StatCard
+            // to='http://sproutsocial.com'
+            title='Sprout Social'
+            color='#59CB59'
+            subtitle='Day Job'
+            description='Design Developer'
+          />
+
+          <StatCard subtitle='Colophon'>
+            <Markdown>
+              This site is built using [Gatsby](), [styled-components](), [Micro](), and [now](). Headings are set in [Karla](), and the body is set in your system's default typeface.
+            </Markdown>
+          </StatCard>
+        </Content>
       </Container>
     )
   }
@@ -118,25 +121,25 @@ class IndexPage extends React.Component {
 
 export default IndexPage
 
-export const query = graphql`
-  query IndexQuery {
-    posts: allWordpressPost(limit: 2, filter: {format: {eq: "standard"}}) {
-      edges {
-        node {
-          title
-          excerpt
-          content
-          slug
-        }
-      }
-    }
-
-    images: allWordpressWpMedia(limit: 3) {
-      edges {
-        node {
-          source_url
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query IndexQuery {
+//     posts: allWordpressPost(limit: 2, filter: {format: {eq: "standard"}}) {
+//       edges {
+//         node {
+//           title
+//           excerpt
+//           content
+//           slug
+//         }
+//       }
+//     }
+//
+//     images: allWordpressWpMedia(limit: 3) {
+//       edges {
+//         node {
+//           source_url
+//         }
+//       }
+//     }
+//   }
+// `

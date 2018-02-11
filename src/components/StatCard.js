@@ -27,9 +27,8 @@ const Title = styled.h1.attrs({
 })`
   font-weight: ${fontWeights.bold};
   margin: 0;
-  font-size: 48px;
-
-  ${'' /* ${props => props.large && `font-size: 64px;`} */}
+  font-size: ${props => props.large ? `64px` : `48px`};
+  ${props => props.color && `color: ${props.color};`}
 `
 
 const Subtitle = styled.p`
@@ -41,18 +40,28 @@ const Subtitle = styled.p`
   color: ${colors.text.muted};
 `
 
-const Description = styled.h4.attrs({
+const Description = styled.h3.attrs({
 	className:  'sans'
 })`
-  margin: 2px 0 0 0;
+  margin: 4px 0 0 0;
   font-weight: ${fontWeights.medium};
 `
 
+const Content = styled.div`
+  margin-top: 12px;
+  color: ${colors.text.header};
+  font-weight: ${fontWeights.medium};
+  font-size: 20px;
+  line-height: 1.6;
+`
+
 const StatCard = props => (
-  <Container>
+  <Container to={props.to}>
     <Subtitle>{props.subtitle}</Subtitle>
-    <Title large={props.number}>{props.title}</Title>
+    <Title large={!props.description} color={props.color}>{props.title}</Title>
     {props.description && <Description>{props.description}</Description>}
+
+    {props.children && <Content>{props.children}</Content>}
   </Container>
 )
 

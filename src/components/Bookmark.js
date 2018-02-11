@@ -19,6 +19,7 @@ const BookmarkTitle = styled.h4.attrs({
 	margin-top: -2px;
 	margin-bottom: 0;
 	font-weight: ${fontWeights.medium};
+	${props => props.left && `margin-right: 24px;`}
 `
 
 const BookmarkHeader = styled.div`
@@ -94,7 +95,7 @@ class Bookmark extends React.Component {
 				<BookmarkHeader>
 					<Icon name='open' />
 
-					<BookmarkTitle>{this.state.title}</BookmarkTitle>
+					<BookmarkTitle left={!this.state.description}>{this.state.title}</BookmarkTitle>
 
 					{!this.state.description && this.state.imageURL && <BookmarkImage right src={this.state.imageURL} title={this.state.title} />}
 				</BookmarkHeader>
