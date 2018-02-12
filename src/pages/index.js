@@ -7,11 +7,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Markdown from 'components/Markdown'
 
-const Container = styled(Page)`
-`
-
-const PageTitle = styled.h1.attrs({
-})`
+const PageTitle = styled.h1`
   margin: 0;
   font-weight: ${fontWeights.normal};
   letter-spacing: -1px;
@@ -67,7 +63,7 @@ class IndexPage extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Page>
         <Row mb={32}>
           <Column width={[1]}>
             <PageTitle>Chase McCoy is a design developer living in Chicago who spends a lot of time thinking about how the web works.</PageTitle>
@@ -120,7 +116,7 @@ class IndexPage extends React.Component {
             </Markdown>
           </StatCard>
         </Content>
-      </Container>
+      </Page>
     )
   }
 }
