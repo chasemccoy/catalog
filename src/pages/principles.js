@@ -27,7 +27,7 @@ const PrincipleLinkHeading = styled(Heading)`
 const PrinciplesPage = ({data}) => {
   return (
     <Page title='Principles' icon='brain'>
-      <p>Here are some thoughts/ideas that I have noticed as recurring themes of my time growing up, learning new things, and starting a career. These are things that I try to keep in mind every day. I've studied these principles quite a bit, and I have collected some of that research here for future me.</p>
+      <p>Here are some thoughts/ideas that I have noticed as recurring themes of my time growing up, learning new things, and starting a career. These are things that I try to keep in mind every day. I've studied these principles quite a bit, and I have collected some of that research here for future me (and maybe for you, too).</p>
 
       <PrinciplesList highlight>
         {data.principles.edges.map(({node}, index) =>
