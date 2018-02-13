@@ -1,14 +1,14 @@
 import Helmet from 'react-helmet'
-import {PostTitle} from 'components/Components'
 import React from 'react'
 
 export default ({ data }) => {
   const post = data.markdownRemark
+
   return (
     <div>
       <Helmet title={`${post.frontmatter.title} | Chase McCoy`} />
 
-      <PostTitle>{post.frontmatter.title}</PostTitle>
+      <h2>{post.frontmatter.title}</h2>
 
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>

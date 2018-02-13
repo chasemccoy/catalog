@@ -63,6 +63,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 						}
           `
         ).then(result => {
+					result.data.allFile &&
 					result.data.allFile.edges.map(({ node }) => {
 						createPage({
 							path: node.fields.parent,
