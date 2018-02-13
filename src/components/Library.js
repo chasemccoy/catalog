@@ -65,7 +65,7 @@ const Library = props => {
     return (
       <Row align='flex-end' {...props}>
         {data.map(({node}, i) =>
-					<Column width={[1/4]} key={i}>
+					<Column width={[1/2, 1/4]} key={i}>
 						{node.image && <LibraryItemPreviewImage src={`/${node.image}`} />}
 					</Column>
   			)}
