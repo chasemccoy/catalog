@@ -3,11 +3,11 @@ import { colors } from 'utils/design'
 
 const typography = new Typography(
 	{
-		baseFontSize: '16px',
+		baseFontSize: '17px',
 		baseLineHeight: 1.6,
 		bodyFontFamily: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'],
 		headerFontFamily: ['Karla', 'Georgia', 'serif'],
-		scaleRatio: 2.3,
+		scaleRatio: 2.2,
 		headerLineHeight: 1.4,
 		headerWeight: 600,
 		overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({

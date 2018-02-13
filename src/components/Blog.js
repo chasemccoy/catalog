@@ -27,14 +27,9 @@ const Title = styled.h3`
     text-decoration: none;
   }
 
-  a:before {
-    content: "#";
-    position: absolute;
-    margin-left: -24px;
+  span {
     color: ${colors.primary.blue};
     font-weight: ${fontWeights.bold};
-    font-size: 22px;
-    line-height: 1.5;
   }
 `
 
@@ -91,7 +86,7 @@ const Meta = ({date, permalink}) => (
 export const Post = props => {
   const title = props.title &&
     <Title>{props.to ?
-      <Link to={`/${props.to}`}>{props.title}</Link> :
+      <Link to={`/${props.to}`}><span>#</span> {props.title}</Link> :
       props.title}
     </Title>
 
