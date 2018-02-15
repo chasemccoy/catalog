@@ -11,6 +11,9 @@ const typography = new Typography(
 		headerLineHeight: 1.4,
 		headerWeight: 600,
 		overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
+			body: {
+				color: colors.text.body
+			},
 			a: {
 				WebkitTextDecorationSkip: 'unset'
 			},
