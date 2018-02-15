@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Chase McCoy",
   "dependencies": {
-    "gatsby": "^1.9.149",
+    "gatsby": "^1.9.194",
     "gatsby-cli": "^1.1.28",
     "gatsby-image": "^1.0.24",
     "gatsby-link": "^1.6.28",

@@ -97,7 +97,7 @@ export const Post = props => {
     props.to && (
       <Excerpt>
         <span dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }} />
-        <Link to={props.to}>Read more...</Link>
+        <Link to={`/${props.to}`}>Read more...</Link>
       </Excerpt>
     )
 
