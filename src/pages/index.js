@@ -13,6 +13,16 @@ const PageTitle = styled.h1`
   letter-spacing: -1px;
 `
 
+const PostLink = styled.a`
+  text-decoration: none;
+
+  & + &:before {
+    content: "/";
+    margin: 0 8px;
+    color: ${colors.primary.gray.dark};
+  }
+`
+
 const Content = props => (
   <Row mx={[-24, -40]}>
     {props.children.map(item => (
@@ -99,6 +109,12 @@ class IndexPage extends React.Component {
             description='by Marz Brewing'
           />
 
+          <StatCard subtitle='Recent Thoughts'>
+            {this.props.data.posts.edges.map(({node}) => (
+              <PostLink href={node.slug}>{node.title}</PostLink>
+            ))}
+          </StatCard>
+
           <StatCard
             title={this.state.productivity}
             subtitle='Productivity Score'
@@ -123,25 +139,15 @@ class IndexPage extends React.Component {
 
 export default IndexPage
 
-// export const query = graphql`
-//   query IndexQuery {
-//     posts: allWordpressPost(limit: 2, filter: {format: {eq: "standard"}}) {
-//       edges {
-//         node {
-//           title
-//           excerpt
-//           content
-//           slug
-//         }
-//       }
-//     }
-//
-//     images: allWordpressWpMedia(limit: 3) {
-//       edges {
-//         node {
-//           source_url
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query IndexQuery {
+    posts: allWordpressPost(limit: 3, filter: {format: {eq: "standard"}}) {
+      edges {
+        node {
+          title
+          slug
+        }
+      }
+    }
+  }
+`

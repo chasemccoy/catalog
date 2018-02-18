@@ -28,6 +28,17 @@ const typography = new Typography(
 			},
 			'blockquote': {
 				paddingLeft: '16px'
+			},
+			'code': {
+				...adjustFontSizeTo('1em'),
+				backgroundColor: colors.primary.gray.light,
+				borderRadius: '4px',
+				padding: '4px',
+				display: 'inline-block',
+				fontFamily: 'OperatorMono-Book, Inconsolata, Monaco, monospace'
+			},
+			'pre code': {
+				padding: '8px 16px'
 			}
 		})
 	}

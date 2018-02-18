@@ -42,10 +42,6 @@ export default class TemplateWrapper extends React.Component {
                 content: 'Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.'
               },
               {
-                name: 'keywords',
-                content: 'sample, something'
-              },
-              {
                 name: 'image',
                 content: 'http://chasem.co/meta/chase.jpg'
               }
@@ -55,7 +51,7 @@ export default class TemplateWrapper extends React.Component {
           <Wrapper>
             <Sidebar items={this.props.data.allNavigationJson.edges} />
 
-            <Content flush={this.props.location.pathname === '/' && false}>
+            <Content>
               {this.props.children()}
             </Content>
           </Wrapper>

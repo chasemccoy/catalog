@@ -4,7 +4,7 @@ import React from 'react'
 
 const PortfolioPage = ({data}) => {
   return (
-    <Page title='Portfolio' icon='portfolio'>
+    <Page wide title='Portfolio' icon='portfolio'>
       <h2>A timeline of a (brief) professional career that I am very proud of. I love talking about my work/industry, so get in touch and lets talk shop.</h2>
 
       <Timeline>
