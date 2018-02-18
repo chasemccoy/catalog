@@ -48,7 +48,7 @@ module.exports = {
                 return Object.assign(
                   {},
                   {
-                    title: edge.node.title,
+                    title: edge.node.title === "" ? "–" : edge.node.title,
                     description: edge.node.content,
                     url: site.siteMetadata.siteUrl + edge.node.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.slug,
