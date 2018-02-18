@@ -25,17 +25,17 @@ const BlogPage = ({data}) => {
   const imagePosts = data.imagePosts.edges.map(({node}) => node.slug)
 
   const showcasePhotos = data.images.edges.filter(({node}) =>
-    imagePosts.some(post => post === node.post)
+    imagePosts.some(post => post == node.post)
   );
 
   return (
     <Page narrow>
-      {/* <Header><Icon small name='image' /> Recent Images</Header>
+      <Header><Icon small name='image' /> Recent Images</Header>
       <ImageShowcase mb={40}>
         {showcasePhotos.map(({node}, i) =>
           <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
   			)}
-      </ImageShowcase> */}
+      </ImageShowcase>
 
       <Header><Icon small name='thought' /> Thoughts</Header>
       {data.posts.edges.map(({node}, i) => (
