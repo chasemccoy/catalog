@@ -33,10 +33,10 @@ const LibraryCardTitle = styled.h3`
   `}
 `
 
-const LibraryCardSubtitle = styled.h4`
+const LibraryCardSubtitle = styled.h3`
   margin-bottom: 12px;
-  font-style: italic;
   font-weight: normal;
+  color: ${colors.text.muted};
 `
 
 const LibraryItemPreviewImage = styled(Image)`
@@ -83,12 +83,12 @@ const Library = props => {
           <LibraryCard to={node.url} key={i}>
     				<Row>
               {node.image &&
-      					<Column width={[1, 1/4]}>
+      					<Column width={[1, (props.mediaWidth || 1/4)]}>
       						<Image src={`/${node.image}`} />
       					</Column>
               }
 
-    					<Column width={[1, 3/4]}>
+    					<Column width={[1, (props.mediaWidth ? 1 - props.mediaWidth : 3/4)]}>
     						<LibraryCardTitle>{node.title}</LibraryCardTitle>
 
     						{node.metadata && <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>}

@@ -6,7 +6,10 @@ import styled from 'styled-components'
 const MusicPage = ({data}) => {
   return (
     <Page title='Music' icon='music'>
-      <Library data={data.music.edges} />
+      <Library
+        data={data.music.edges}
+        mediaWidth={1/3}
+      />
     </Page>
   )
 }
