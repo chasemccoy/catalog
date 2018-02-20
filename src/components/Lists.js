@@ -1,7 +1,7 @@
 import { colors, fontWeights } from 'utils/design'
-
 import React from 'react'
 import styled from 'styled-components'
+import { media } from 'utils/media'
 
 const StyledUnorderedList = styled.ul`
   display: table;
@@ -36,6 +36,10 @@ const StyledUnorderedList = styled.ul`
 
   > * > *:not(li, a) {
     margin-left: 2.4em;
+
+    ${media.tiny`
+      margin-left: 0;
+  	`}
   }
 `
 
