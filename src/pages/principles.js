@@ -38,7 +38,7 @@ const PrinciplesPage = ({data}) => {
               <Markdown>{node.description}</Markdown>
             </PrincipleDescription>
 
-            {node.links.length !== 0 &&
+            {node.links && node.links.length !== 0 &&
               <div>
                 <PrincipleLinkHeading>Related Readings</PrincipleLinkHeading>
 
