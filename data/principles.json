@@ -5,14 +5,20 @@
 		"categories": ["life", "work", "creativity"],
 		"links": [
 			{
-				"title": "Austin Kleon's thoughts on this brutal advice we all need to hear.",
+				"title": "Austin Kleon's thoughts on this brutal advice we all need to hear",
 				"url": "https://austinkleon.com/2017/11/24/have-you-tried-making-yourself-a-more-interesting-person/"
 			}
 		]
 	},
 	{
 		"title": "Pay attention to what you pay attention to.",
+		"description": "Mindfulness, and restraint. Be aware of what you are taking in, and how that affects what you are putting out. Chase the things that you do when you're not working. For every yes there are a thousand no's.",
 		"categories": ["life", "work", "creativity"],
-		"links": []
+		"links": [
+			{
+				"title": "Frank Chimero discusses what he calls “the Amish lesson” — what you let in will eventually form you",
+				"url": "https://frankchimero.com/writing/the-good-room/"
+			}
+		]
 	}
 ]
