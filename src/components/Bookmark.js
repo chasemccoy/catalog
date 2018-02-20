@@ -34,6 +34,7 @@ const BookmarkContent = styled.div`
 const BookmarkDescription = styled.div`
 	width: 100%;
 	font-size: 14px;
+	line-height: 1.7;
 
 	p {
 		margin: 0;

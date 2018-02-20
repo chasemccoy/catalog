@@ -20,7 +20,7 @@ const TOCItem = styled.span`
     text-decoration: none;
 
     &:hover {
-      color: ${colors.text.heading};
+      color: ${colors.primary.blue};
     }
   }
 

@@ -23,7 +23,6 @@ export const colors = {
 	text: {
 		body: '#666666',
 		header: '#393E42',
-		heading: '#528FCC',
 		muted: '#9EA3A8',
 		headingBorder: '#C0C6CC'
 	},
