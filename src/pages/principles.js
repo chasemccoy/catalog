@@ -44,9 +44,11 @@ const PrinciplesPage = ({data}) => {
 
                 <List highlight={false}>
                   {node.links.map((link, i) =>
-                    <li key={i}>
-                      <a href={link.url} target='_blank'>{link.title}</a>
-                    </li>
+                    <p>
+                      <li key={i}>
+                        <a href={link.url} target='_blank'>{link.title}</a>
+                      </li>
+                    </p>
                   )}
                 </List>
               </div>
@@ -68,7 +70,7 @@ export default PrinciplesPage
 
 export const query = graphql`
   query PrinciplesQuery {
-    principles: allPrinciplesJson(sort: {fields: [title], order: ASC}) {
+    principles: allPrinciplesHJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {
           title

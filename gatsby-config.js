@@ -12,6 +12,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
+    `gatsby-transformer-hjson`,
     {
       resolve: "gatsby-source-wordpress",
       options: {
@@ -156,7 +157,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `principles`,
-        path: `${__dirname}/data/principles.json`,
+        path: `${__dirname}/data/principles.hjson`,
       }
     },
     {
