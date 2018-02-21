@@ -16,6 +16,7 @@
     "gatsby-plugin-typography": "^1.7.10",
     "gatsby-source-filesystem": "^1.5.8",
     "gatsby-source-wordpress": "^2.0.41",
+    "gatsby-transformer-hjson": "^1.0.3",
     "gatsby-transformer-json": "^1.0.12",
     "gatsby-transformer-remark": "^1.7.21",
     "gatsby-transformer-sharp": "^1.6.16",
