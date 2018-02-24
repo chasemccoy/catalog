@@ -128,7 +128,7 @@ class IndexPage extends React.Component {
 
           <StatCard subtitle='Colophon'>
             <Markdown>
-              This site is built using [Gatsby](https://www.gatsbyjs.org), [styled-components](https://www.styled-components.com), [micro](https://github.com/zeit/micro), and [now](http://now.sh). Headings are set in [Karla](https://fonts.google.com/specimen/Karla), and the body is set in your system's default typeface.
+              This site is built using [Gatsby](https://www.gatsbyjs.org), [styled-components](https://www.styled-components.com), [micro](https://github.com/zeit/micro), and [now](http://now.sh). Headings are set in [Karla](https://fonts.google.com/specimen/Karla), and the body is set in your device's default typeface.
             </Markdown>
           </StatCard>
         </Content>
