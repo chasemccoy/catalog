@@ -8,7 +8,7 @@ const PortfolioPage = ({data}) => {
       <h2>A timeline of a (brief) professional career that I am very proud of. I love talking about my work/industry, so get in touch and lets talk shop.</h2>
 
       <Timeline>
-        {data.allPortfolioJson.edges.map(({node}, index) =>
+        {data.portfolio.edges.map(({node}, index) =>
           <TimelineItem
             key={index}
             title={node.title}
@@ -27,7 +27,7 @@ export default PortfolioPage
 
 export const query = graphql`
   query PortfolioQuery {
-    allPortfolioJson {
+    portfolio: allPortfolioHJson {
       edges {
         node {
           title

@@ -27,6 +27,10 @@
 		"url": "/music"
 	},
 	{
+		title: Apps
+		url: /apps
+	}
+	{
 		"title": "Portfolio",
 		"icon": "portfolio",
 		"url": "/portfolio"

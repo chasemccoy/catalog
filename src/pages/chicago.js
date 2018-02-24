@@ -9,7 +9,7 @@ import MediaCard from 'components/MediaCard'
 import Mosaic from 'components/Mosaic'
 
 const ChicagoPage = ({data}) => {
-  const categories = data.allChicagoJson.edges.map(a => a.node.category)
+  const categories = data.chicago.edges.map(a => a.node.category)
 
   const uniqueCategories = categories.filter((item, i, array) =>
     array.indexOf(item) === i
@@ -25,7 +25,7 @@ const ChicagoPage = ({data}) => {
             <Heading id={category} key={category}>{capitalize(category)}</Heading>
 
             <Mosaic>
-              {data.allChicagoJson.edges.filter(({node}) => node.category === category).map(({node}, i) =>
+              {data.chicago.edges.filter(({node}) => node.category === category).map(({node}, i) =>
                 <MediaCard
                   title={node.title}
                   description={node.description}
@@ -47,7 +47,7 @@ export default ChicagoPage
 
 export const query = graphql`
   query ChicagoQuery {
-    allChicagoJson(sort: {fields: [category], order: ASC}) {
+    chicago: allChicagoHJson(sort: {fields: [category], order: ASC}) {
       edges {
         node {
           title

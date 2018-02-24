@@ -18,7 +18,7 @@ export default MusicPage
 
 export const query = graphql`
   query MusicQuery {
-    music: allMusicJson(sort: {fields: [title], order: ASC}) {
+    music: allMusicHJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {
           title

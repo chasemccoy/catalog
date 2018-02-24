@@ -1,0 +1,15 @@
+[
+	{
+		title: Things
+		metadata: Cultured Code
+		description: Things is the best task management app out there. Not only that, but it's also one of the most well designed pieces of software I have ever seen. Beautiful, easy to use, and powerful at the same time. Plus, Things' sync service is blazing fast. 
+		url: https://culturedcode.com/things
+		image: apps/things.png
+	},
+	{
+		title: Ulysses
+		description: The best writing app out there. Ulysses is available for iPhone, iPad, and Mac, and it's great on every platform. The app not only offers a great writing environment, but also has some great tools for organizing your documents. And, of course, it keep severything in sync across your devices.
+		url: https://ulyssesapp.com
+		image: apps/ulysses.png
+	}
+]

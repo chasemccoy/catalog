@@ -8,13 +8,13 @@ import TableOfContents from 'components/TableOfContents'
 import { capitalize } from 'utils/js'
 
 const BookmarkPage = ({data}) => {
-  const tocItems = data.allBookmarksJson.edges.map(a => a.node.category)
+  const tocItems = data.bookmarks.edges.map(a => a.node.category)
 
   return (
     <Page title='Bookmarks' icon='bookmark'>
       <TableOfContents items={tocItems} />
 
-      {data.allBookmarksJson.edges.map(({node}, index1) =>
+      {data.bookmarks.edges.map(({node}, index1) =>
         <div key={index1}>
           <Heading id={node.category}>{capitalize(node.category)}</Heading>
 
@@ -41,7 +41,7 @@ export default BookmarkPage
 
 export const query = graphql`
   query BookmarkQuery {
-    allBookmarksJson(sort: {fields: [category], order: ASC}) {
+    bookmarks: allBookmarksHJson(sort: {fields: [category], order: ASC}) {
       edges {
         node {
           category
