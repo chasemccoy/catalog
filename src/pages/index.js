@@ -6,6 +6,7 @@ import StatCard from 'components/StatCard'
 import React from 'react'
 import styled from 'styled-components'
 import Markdown from 'components/Markdown'
+import Image from 'components/Image'
 
 const PageTitle = styled.h1`
   margin: 0;
