@@ -8,7 +8,7 @@ const MusicPage = ({data}) => {
     <Page title='Music' icon='music'>
       <Library
         data={data.music.edges}
-        mediaWidth={1/3}
+        mediaWidth={[1, 1/3]}
       />
     </Page>
   )

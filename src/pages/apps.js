@@ -6,7 +6,9 @@ import styled from 'styled-components'
 const AppsPage = ({data}) => {
   return (
     <Page title='Apps' icon='app'>
-      <Library data={data.apps.edges} />
+      <p>Tools do not maketh man, but they sure do help us get things done. Here are some of the tools that I rely on every day to help me do better work.</p>
+
+      <Library data={data.apps.edges} mediaWidth={[1/4]} />
     </Page>
   )
 }

@@ -61,6 +61,13 @@ const LibrarySectionCard = styled(Card)`
 const Library = props => {
   const data = props.preview ? props.data.slice(0, 4) : props.data;
 
+  const calculateWidth = (mediaWidth) => {
+    return mediaWidth.map((value) => {
+      const width = value == 1 ? 1 : 1 - value
+      return width
+    })
+  }
+
   if (props.preview) {
     return (
       <Row align='flex-end' {...props}>
@@ -83,12 +90,14 @@ const Library = props => {
           <LibraryCard to={node.url} key={i}>
     				<Row>
               {node.image &&
-      					<Column width={[1, (props.mediaWidth || 1/4)]}>
+      					<Column width={props.mediaWidth || [1, 1/4]}>
       						<Image src={`/${node.image}`} />
       					</Column>
               }
 
-    					<Column width={[1, (props.mediaWidth ? 1 - props.mediaWidth : 3/4)]}>
+    					<Column
+                width={(props.mediaWidth && calculateWidth(props.mediaWidth)) || [1, 3/4]}
+              >
     						<LibraryCardTitle>{node.title}</LibraryCardTitle>
 
     						{node.metadata && <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>}
