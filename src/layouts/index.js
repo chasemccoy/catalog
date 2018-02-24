@@ -49,7 +49,7 @@ export default class TemplateWrapper extends React.Component {
           />
 
           <Wrapper>
-            <Sidebar items={this.props.data.allNavigationJson.edges} />
+            <Sidebar items={this.props.data.nav.edges} />
 
             <Content>
               {this.props.children()}
@@ -63,7 +63,7 @@ export default class TemplateWrapper extends React.Component {
 
 export const query = graphql`
   query NavigationQuery {
-    allNavigationJson {
+    nav: allNavigationHJson {
       edges {
         node {
           title

@@ -28,7 +28,7 @@ export default FavoritesPage
 
 export const query = graphql`
   query FavoritesQuery {
-    chicago: allChicagoJson(sort: {fields: [title], order: ASC}) {
+    chicago: allChicagoHJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {
           title
@@ -38,8 +38,8 @@ export const query = graphql`
         }
       }
     }
-    
-    books: allBooksJson(sort: {fields: [title], order: ASC}) {
+
+    books: allBooksHJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {
           title
@@ -51,7 +51,7 @@ export const query = graphql`
       }
     }
 
-    # movies: allMoviesJson(sort: {fields: [title], order: ASC}) {
+    # movies: allMoviesHJson(sort: {fields: [title], order: ASC}) {
     #   edges {
     #     node {
     #       title
@@ -63,7 +63,7 @@ export const query = graphql`
     #   }
     # }
 
-    music: allMusicJson(sort: {fields: [title], order: ASC}) {
+    music: allMusicHJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {
           title

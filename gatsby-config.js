@@ -115,42 +115,42 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `bookmarks`,
-        path: `${__dirname}/data/bookmarks.json`,
+        path: `${__dirname}/data/bookmarks.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `favorites`,
-        path: `${__dirname}/data/favorites.json`,
+        path: `${__dirname}/data/favorites.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `portfolio`,
-        path: `${__dirname}/data/portfolio.json`,
+        path: `${__dirname}/data/portfolio.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `books`,
-        path: `${__dirname}/data/books.json`,
+        path: `${__dirname}/data/books.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `movies`,
-        path: `${__dirname}/data/movies.json`,
+        path: `${__dirname}/data/movies.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `music`,
-        path: `${__dirname}/data/music.json`,
+        path: `${__dirname}/data/music.hjson`,
       }
     },
     {
@@ -164,21 +164,28 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `templates`,
-        path: `${__dirname}/data/_templates.json`,
+        path: `${__dirname}/data/_templates.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `navigation`,
-        path: `${__dirname}/data/navigation.json`,
+        path: `${__dirname}/data/navigation.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `chicago`,
-        path: `${__dirname}/data/chicago.json`,
+        path: `${__dirname}/data/chicago.hjson`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `apps`,
+        path: `${__dirname}/data/apps.hjson`,
       }
     }
   ]

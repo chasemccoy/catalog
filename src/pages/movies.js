@@ -14,7 +14,7 @@ export default MoviesPage
 
 export const query = graphql`
   query MoviesQuery {
-    movies: allMoviesJson(sort: {fields: [title], order: ASC}) {
+    movies: allMoviesHJson(sort: {fields: [title], order: ASC}) {
       edges {
         node {
           title

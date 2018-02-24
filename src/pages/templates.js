@@ -21,7 +21,7 @@ export default TemplatesPage
 
 export const query = graphql`
   query TemplatesQuery {
-    templates: allTemplatesJson(sort: {fields: [type], order: ASC}) {
+    templates: allTemplatesHJson(sort: {fields: [type], order: ASC}) {
       edges {
         node {
           type
