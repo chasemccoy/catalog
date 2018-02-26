@@ -39,7 +39,7 @@ injectGlobal`
 
 	.bm-cross-button {
 		padding: 24px 64px;
-		${media.tiny`padding: 24px 32px;`}
+		${media.tiny`padding: 24px;`}
 		width: auto !important;
 		height: auto !important;
 	}
