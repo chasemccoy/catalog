@@ -23,12 +23,6 @@ const Container = styled(Card)`
 		flex-direction: column;
 	`}
 
-  &:hover {
-    border: none;
-    box-shadow: none;
-    background-color: ${colors.primary.lightBlue};
-    border-radius: 0;
-  }
 `
 
 const Title = styled.h2`
