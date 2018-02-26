@@ -21,7 +21,7 @@ const smallMarginFix = () => {
 
 const linkShadow = () => {
   return `
-		0 2px 4px rgba(32, 52, 61, .03), 0 1px 2px rgba(0, 0, 0, .06), inset 0 0 0 1px ${colors.card.link.shadow}
+		0 2px 4px rgba(32, 52, 61, .03), 0 1px 2px rgba(0, 0, 0, .06), inset 0 0 0 1px ${colors.primary.gray.medium}
   `;
 }
 
@@ -38,12 +38,12 @@ const LinkComponent = DivCard.withComponent(Link)
 
 const LinkCard = LinkComponent.extend`
 	text-decoration: none;
-  background-color: ${props => props.highlight ? colors.card.link.background : 'white'};
+  background-color: ${props => props.highlight ? colors.primary.gray.light : 'white'};
   box-shadow: ${props => props.highlight ? linkShadow() : `none`};
 
 	&:hover {
 		transform: scale(1.02);
-    background-color: ${colors.card.link.background};
+    background-color: ${colors.primary.gray.light};
 		box-shadow: ${linkShadow()};
 	}
 
