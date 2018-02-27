@@ -23,6 +23,11 @@ export const Column = props => (
   />
 )
 
+export const Float = styled(Box)`
+  float: ${props => props.right ? `right` : `left`};
+  margin: ${props => props.right ? `0 0 0 24px` : `0 24px 0 0`};
+`
+
 export const BookmarkGrid = props => (
 	<Row {...props}>
 		{props.children.map((child, index) =>
