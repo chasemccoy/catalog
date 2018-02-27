@@ -67,6 +67,12 @@ injectGlobal`
 		color: ${colors.text.muted};
 		border-left: 4px solid ${colors.primary.gray.medium};
 	}
+
+	.clear:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 `
 
 export const Link = props => {

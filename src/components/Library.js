@@ -1,4 +1,4 @@
-import { Column, Row } from 'components/Grid'
+import { Column, Row, Float } from 'components/Grid'
 import { Heading, Link } from 'components/Components'
 import { colors, fontWeights, sizes } from 'utils/design'
 
@@ -88,23 +88,19 @@ const Library = props => {
       <div>
   			{data.map(({node}, i) =>
           <LibraryCard to={node.url} key={i}>
-    				<Row>
+    				<div className='clear'>
               {node.image &&
-      					<Column width={props.mediaWidth || [1, 1/4]}>
+      					<Float width={props.mediaWidth || [1, 1/4]}>
       						<Image src={`/${node.image}`} />
-      					</Column>
+      					</Float>
               }
 
-    					<Column
-                width={(props.mediaWidth && calculateWidth(props.mediaWidth)) || [1, 3/4]}
-              >
     						<LibraryCardTitle>{node.title}</LibraryCardTitle>
 
     						{node.metadata && <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>}
 
     						<Markdown>{node.description}</Markdown>
-    					</Column>
-    				</Row>
+    				</div>
           </LibraryCard>
   			)}
   		</div>
