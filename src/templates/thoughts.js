@@ -21,24 +21,45 @@ const Header = styled.h2.attrs({
   font-weight: ${fontWeights.bold};
 `
 
-const BlogPage = ({data}) => {
+const PaginationLink = styled(Link)`
+	padding: 8px 16px;
+	background-color: ${colors.primary.lightBlue};
+	color: ${colors.primary.blue} !important;
+	border-radius: 8px;
+	display: block;
+	text-decoration: none;
+
+	& + & {
+		margin-left: 24px;
+	}
+`
+
+const BlogPage = ({data, pathContext}) => {
   const imagePosts = data.imagePosts.edges.map(({node}) => node.slug)
 
   const showcasePhotos = data.images.edges.filter(({node}) =>
     imagePosts.some(post => post == node.post)
   );
 
+	const { nodes, page, prev, next } = pathContext;
+
   return (
     <Page narrow>
-      <Header><Icon small name='image' /> Recent Images</Header>
-      <ImageShowcase mb={40}>
-        {showcasePhotos.map(({node}, i) =>
-          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
-  			)}
-      </ImageShowcase>
+      {!prev && (
+				<div>
+				<Header><Icon small name='image' /> Recent Images</Header>
 
-      <Header><Icon small name='thought' /> Thoughts</Header>
-      {data.posts.edges.map(({node}, i) => (
+	      <ImageShowcase mb={40}>
+	        {showcasePhotos.map(({node}, i) =>
+	          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
+	  			)}
+	      </ImageShowcase>
+
+	      <Header><Icon small name='thought' /> Thoughts</Header>
+				</div>
+			)}
+
+      {nodes.map(({node}, i) => (
         <Row key={i}>
           <Column mb={24} width={1}>
             {(node.format == 'aside' || node.format == 'image') &&
@@ -65,6 +86,11 @@ const BlogPage = ({data}) => {
           <Column mb={24} width={1}><Divider /></Column>
         </Row>
       ))}
+
+			<Row>
+				{prev && <PaginationLink to={prev}>Newer</PaginationLink>}
+				{next && <PaginationLink to={next}>Older</PaginationLink>}
+			</Row>
     </Page>
   )
 }
@@ -73,19 +99,6 @@ export default BlogPage
 
 export const query = graphql`
   query BlogQuery {
-    posts: allWordpressPost {
-      edges {
-        node {
-          title
-          date(fromNow: true)
-          slug
-          format
-          content
-          excerpt
-        }
-      }
-    }
-
     images: allWordpressWpMedia {
       edges {
         node {
