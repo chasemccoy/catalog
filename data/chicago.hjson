@@ -52,7 +52,15 @@
 		"category": "coffee",
 		"metadata": "1750 W Division",
 		"description": "I love this coffee shop not only because of it's chill vibes and great lattes, but also because it's less than a block from my apartment. Stop by in the summer to chill on the patio, or sit in the window and watch the snow fall. Be sure to try the bacon, cheddar, and chive scone.",
-		"url": "http://www.caffestreets.com",
+		"url": "http://caffestreets.com",
 		"image": "chicago/caffestreets.jpg"
+	},
+	{
+		title: Gaslight Coffee Roasters
+		category: coffee
+		metadata: 2385 N Milwaukee
+		description: Another one of my favorite spots for coffee, this Logan Square joint is in close proximity to a lot of great stuff. Their lattes are excellent, but be sure to check out the surprisingly great food menu. Spend a morning here and then head next door to Estereo for a mid-afternoon cocktail. 
+		url: https://gaslightcoffeeroasters.com
+		image: chicago/gaslight.jpg
 	}
 ]
