@@ -148,21 +148,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `books`,
-        path: `${__dirname}/data/books.hjson`,
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `movies`,
-        path: `${__dirname}/data/movies.hjson`,
+        path: `${__dirname}/data/books/books.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `music`,
-        path: `${__dirname}/data/music.hjson`,
+        path: `${__dirname}/data/music/music.hjson`,
       }
     },
     {
@@ -197,7 +190,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `apps`,
-        path: `${__dirname}/data/apps.hjson`,
+        path: `${__dirname}/data/apps/apps.hjson`,
       }
     },
     {

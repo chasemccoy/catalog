@@ -12,18 +12,18 @@ const MoviesPage = ({data}) => {
 
 export default MoviesPage
 
-export const query = graphql`
-  query MoviesQuery {
-    movies: allMoviesHJson(sort: {fields: [title], order: ASC}) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query MoviesQuery {
+//     movies: allMoviesHJson(sort: {fields: [title], order: ASC}) {
+//       edges {
+//         node {
+//           title
+//           metadata
+//           description
+//           url
+//           image
+//         }
+//       }
+//     }
+//   }
+// `
