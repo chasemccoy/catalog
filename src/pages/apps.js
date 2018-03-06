@@ -26,7 +26,7 @@ export const query = graphql`
           url
           image {
             childImageSharp {
-              sizes(maxWidth: 900) {
+              sizes(maxWidth: 900, toFormat: PNG) {
                 ...GatsbyImageSharpSizes
               }
             }
