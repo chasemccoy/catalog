@@ -5,7 +5,7 @@ import React from 'react'
 const MoviesPage = ({data}) => {
   return (
     <Page title='Movies' icon='movie'>
-      <Library data={data.movies.edges} />
+      {/* <Library data={data.movies.edges} /> */}
     </Page>
   )
 }
