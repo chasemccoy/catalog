@@ -60,23 +60,24 @@ const Description = styled.div`
 `
 
 const FlexImage = styled(Image)`
-  flex-grow: 1;
-  padding-bottom: 0;
   min-height: 150px;
-  height: auto;
   border-radius: 0;
 
   ${props => props.split && `
     width: 55%;
-    margin-right: 24px;
   `}
 
   ${props => props.split && media.tiny`
     width: 100%;
-    margin-right: 0;
   `}
 
-  position: relative !important;
+  & > img {
+    ${props => props.split && `padding-right: 24px;`}
+
+    ${props => props.split && media.tiny`padding-right: 0;`}
+  }
+
+  position: initial !important;
 `
 
 const InformationContainer = styled.div`
@@ -142,7 +143,7 @@ const MediaCard = props => {
     case 1:
       return (
         <Container split to={props.to}>
-          <FlexImage split src={`/${props.image}`} stretch cover>
+          <FlexImage split sizes={props.image} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>
           <Information split large {...props} />
@@ -152,7 +153,7 @@ const MediaCard = props => {
       return (
         <Container to={props.to}>
           <Information {...props} />
-          <FlexImage src={`/${props.image}`} stretch cover>
+          <FlexImage sizes={props.image} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>
 
@@ -163,7 +164,7 @@ const MediaCard = props => {
     case 2/3:
       return (
         <Container to={props.to}>
-          <FlexImage src={`/${props.image}`} stretch cover>
+          <FlexImage sizes={props.image} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>
           <Information bottom medium {...props} />

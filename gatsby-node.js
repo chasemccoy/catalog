@@ -1,9 +1,9 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-const { createPaginationPages, prefixPathFormatter } = require("gatsby-pagination");
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
+const { createPaginationPages, prefixPathFormatter } = require(`gatsby-pagination`);
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-	const { createNodeField } = boundActionCreators
+exports.onCreateNode = async ({ node, getNode, boundActionCreators, store, cache }) => {
+	const { createNodeField, createNode } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
 		const slug = createFilePath({node, getNode, basePath: `posts`, trailingSlash: false})
@@ -16,6 +16,29 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 			createNodeField({node, name: 'parent', value: `/${slugArray[1]}`})
 		}
 	}
+	// else if (node.internal.owner === `gatsby-transformer-hjson`) {
+	// 	if (node.image) {
+	// 		let fileNode
+	//
+	// 		try {
+	// 			fileNode = await createRemoteFileNode({
+	// 				url: `http://chasem.co/${node.image}`,
+	// 				store,
+	// 				cache,
+	// 				createNode
+	// 			})
+	//
+	// 			console.log(fileNode);
+	// 		}
+	// 		catch (e) {
+	// 			// Ignore
+	// 		}
+	//
+	// 		if (fileNode) {
+  //       node.localFile___NODE = fileNode.id
+  //     }
+	// 	}
+	// }
 }
 
 exports.createPages = ({ graphql, boundActionCreators }) => {

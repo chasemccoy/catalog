@@ -27,5 +27,15 @@
 	{
 		title: Lead with curiosity.
 		categories: ["life", "work", "creativity", "relationships"]
+	},
+	{
+		title: Assume positive intent.
+		categories: ["work", "relationships"]
+		links: [
+			{
+				title: Hanlon's Razor states “Never attribute to malice that which is adequately explained by stupidity.”
+				url: https://en.wikipedia.org/wiki/Hanlon%27s_razor
+			}
+		]
 	}
 ]
