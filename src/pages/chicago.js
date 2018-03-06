@@ -7,7 +7,6 @@ import styled from 'styled-components'
 import { Row, Column } from 'components/Grid'
 import MediaCard from 'components/MediaCard'
 import Mosaic from 'components/Mosaic'
-import Image from 'components/Image'
 
 const ChicagoPage = ({data}) => {
   const categories = data.chicago.edges.map(a => a.node.category)
@@ -30,7 +29,7 @@ const ChicagoPage = ({data}) => {
                 <MediaCard
                   title={node.title}
                   description={node.description}
-                  image={node.image.childImageSharp.sizes}
+                  image={node.image}
                   metadata={node.metadata}
                   to={node.url}
                   key={i}
@@ -56,13 +55,7 @@ export const query = graphql`
           metadata
           description
           url
-          image {
-            childImageSharp {
-              sizes(maxWidth: 1000) {
-                ...GatsbyImageSharpSizes_withWebp
-              }
-            }
-          }
+          image
         }
       }
     }

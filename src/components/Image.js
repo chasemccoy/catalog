@@ -3,13 +3,7 @@ import { Column, Row } from 'components/Grid'
 import Img from 'gatsby-image'
 import { Link } from 'components/Components'
 import React from 'react'
-import styled, { injectGlobal } from 'styled-components'
-
-injectGlobal`
-	.gatsby-image-outer-wrapper {
-		flex-grow: 1;
-	}
-`
+import styled from 'styled-components'
 
 const StyledImage = styled(Img)`
 	border-radius: 4px;
@@ -33,10 +27,7 @@ const RegularImage = StyledImage.withComponent('img')
 
 class Image extends React.Component {
 	render() {
-		if (this.props.sizes && !this.props.cover) {
-			return <Img {...this.props} />
-		}
-		else if (this.props.src && !this.props.to && !this.props.cover) {
+		if (this.props.src && !this.props.to && !this.props.cover) {
 			return <RegularImage {...this.props} />
 		}
 		else if (this.props.src && this.props.to) {
