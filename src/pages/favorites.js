@@ -28,16 +28,16 @@ export default FavoritesPage
 
 export const query = graphql`
   query FavoritesQuery {
-    # chicago: allChicagoHJson(sort: {fields: [title], order: ASC}) {
-    #   edges {
-    #     node {
-    #       title
-    #       description
-    #       url
-    #       image
-    #     }
-    #   }
-    # }
+    chicago: allChicagoHJson(sort: {fields: [title], order: ASC}) {
+      edges {
+        node {
+          title
+          description
+          url
+          image
+        }
+      }
+    }
 
     books: allBooksHJson(sort: {fields: [title], order: ASC}) {
       edges {
