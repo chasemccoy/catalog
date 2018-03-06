@@ -28,7 +28,7 @@ const RegularImage = StyledImage.withComponent('img')
 class Image extends React.Component {
 	render() {
 		if (this.props.sizes) {
-			return <Img {...this.props} />
+			return <Img {...this.props} outerWrapperClassName='gatsby-img' />
 		}
 		else if (this.props.src && !this.props.to && !this.props.cover) {
 			return <RegularImage {...this.props} />
