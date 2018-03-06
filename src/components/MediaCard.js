@@ -12,7 +12,7 @@ const Container = styled(Card)`
     margin-bottom: 0;
   }
 
-	display: flex;
+	display: flex !important;
 	text-decoration: none;
   height: 100%;
   justify-content: space-between;
