@@ -190,14 +190,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `chicago`,
-        path: `${__dirname}/data/chicago/chicago.hjson`,
+        path: `${__dirname}/data/chicago.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `apps`,
-        path: `${__dirname}/data/apps/apps.hjson`,
+        path: `${__dirname}/data/apps.hjson`,
       }
     },
     {
