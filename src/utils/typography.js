@@ -20,6 +20,9 @@ const typography = new Typography(
 			'h1, h2, h3, h4, h5, h6': {
 				color: colors.text.header
 			},
+			'.gatsby-img': {
+				marginBottom: '0.5em'
+			},
 			'.sans': {
 				fontFamily: options.bodyFontFamily.join(`,`)
 			},
