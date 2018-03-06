@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const BooksPage = ({data}) => {
   return (
     <Page title='Books' icon='book'>
-      <Library data={data.books.edges} />
+      <Library data={data.books.edges} mediaWidth={[1/3, 1/4]} />
     </Page>
   )
 }

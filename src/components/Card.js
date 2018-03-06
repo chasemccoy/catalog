@@ -45,6 +45,7 @@ const LinkCard = LinkComponent.extend`
 		transform: scale(1.02);
     background-color: ${colors.primary.gray.light};
 		box-shadow: ${linkShadow()};
+    color: ${colors.text.body};
 	}
 
 	&:active {
