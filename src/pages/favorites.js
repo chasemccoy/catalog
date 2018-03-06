@@ -39,17 +39,17 @@ export const query = graphql`
       }
     }
 
-    books: allBooksHJson(sort: {fields: [title], order: ASC}) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image
-        }
-      }
-    }
+    # books: allBooksHJson(sort: {fields: [title], order: ASC}) {
+    #   edges {
+    #     node {
+    #       title
+    #       metadata
+    #       description
+    #       url
+    #       image
+    #     }
+    #   }
+    # }
 
     # movies: allMoviesHJson(sort: {fields: [title], order: ASC}) {
     #   edges {
@@ -63,16 +63,16 @@ export const query = graphql`
     #   }
     # }
 
-    music: allMusicHJson(sort: {fields: [title], order: ASC}) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image
-        }
-      }
-    }
+    # music: allMusicHJson(sort: {fields: [title], order: ASC}) {
+    #   edges {
+    #     node {
+    #       title
+    #       metadata
+    #       description
+    #       url
+    #       image
+    #     }
+    #   }
+    # }
   }
 `

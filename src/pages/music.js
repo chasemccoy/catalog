@@ -22,7 +22,13 @@ export const query = graphql`
           metadata
           description
           url
-          image
+          image {
+            childImageSharp {
+              sizes(maxWidth: 900) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
         }
       }
     }

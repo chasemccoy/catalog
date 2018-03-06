@@ -27,7 +27,10 @@ const RegularImage = StyledImage.withComponent('img')
 
 class Image extends React.Component {
 	render() {
-		if (this.props.src && !this.props.to && !this.props.cover) {
+		if (this.props.sizes) {
+			return <Img {...this.props} />
+		}
+		else if (this.props.src && !this.props.to && !this.props.cover) {
 			return <RegularImage {...this.props} />
 		}
 		else if (this.props.src && this.props.to) {

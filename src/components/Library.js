@@ -91,7 +91,7 @@ const Library = props => {
     				<div className='clear'>
               {node.image &&
       					<Float width={props.mediaWidth || [1, 1/4]}>
-      						<Image src={`/${node.image}`} />
+      						<Image src={`/${node.image}`} sizes={node.image.childImageSharp.sizes}/>
       					</Float>
               }
 
