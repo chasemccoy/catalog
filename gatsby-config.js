@@ -23,6 +23,18 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-dropmark`,
+      options: {
+        collection_id: '512099'
+      }
+    },
+    {
+      resolve: `gatsby-source-dropmark`,
+      options: {
+        collection_id: '514514'
+      }
+    },
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography.js`
@@ -178,14 +190,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `chicago`,
-        path: `${__dirname}/data/chicago.hjson`,
+        path: `${__dirname}/data/chicago/chicago.hjson`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `apps`,
-        path: `${__dirname}/data/apps.hjson`,
+        path: `${__dirname}/data/apps/apps.hjson`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `json`,
+        path: `${__dirname}/data/`,
       }
     }
   ]

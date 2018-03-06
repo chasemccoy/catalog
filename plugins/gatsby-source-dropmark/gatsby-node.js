@@ -1,0 +1,40 @@
+"use strict";
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+const crypto = require(`crypto`);
+const axios = require(`axios`);
+
+exports.sourceNodes = (() => {
+  var _ref = _asyncToGenerator(function* ({ boundActionCreators: { createNode } }, { collection_id }) {
+    var _ref2 = yield axios.get(`http://chs.dropmark.com/${collection_id}.json`);
+
+    const data = _ref2.data;
+
+
+    const items = data.items;
+
+    items.map(function (item) {
+      const itemNode = {
+        title: item.name,
+        description: item.description,
+        preview_url: item.preview,
+        sort: item.sort,
+        link: item.link,
+        id: item.id.toString(),
+        parent: null,
+        children: [],
+        internal: {
+          type: `Dropmark${data.name}`,
+          contentDigest: crypto.createHash(`md5`).update(JSON.stringify(item.id)).digest(`hex`)
+        }
+      };
+
+      createNode(itemNode);
+    });
+  });
+
+  return function (_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+})();
