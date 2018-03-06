@@ -73,7 +73,7 @@ const Library = props => {
       <Row align='flex-end' {...props}>
         {data.map(({node}, i) =>
 					<Column width={[1/2, 1/4]} key={i}>
-						{node.image && <LibraryItemPreviewImage src={`/${node.image}`} />}
+						{node.image && <LibraryItemPreviewImage src={`/${node.image}`} sizes={node.image.childImageSharp && node.image.childImageSharp.sizes} />}
 					</Column>
   			)}
 
@@ -91,7 +91,7 @@ const Library = props => {
     				<div className='clear'>
               {node.image &&
       					<Float width={props.mediaWidth || [1, 1/4]}>
-      						<Image src={`/${node.image}`} sizes={node.image.childImageSharp.sizes}/>
+      						<Image sizes={node.image.childImageSharp.sizes}/>
       					</Float>
               }
 
