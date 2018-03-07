@@ -39,15 +39,16 @@ injectGlobal`
 	}
 
 	p a, .e-content a {
-		margin: -4px;
-		padding: 4px;
+		margin: 0 -4px;
+		padding: 0 4px;
 		box-decoration-break: clone;
+		display: inline-block;
 
 		&:hover {
 			color: ${colors.primary.blue};
 			background-color: ${colors.primary.lightBlue};
 			border-radius: 4px;
-			padding: 4px;
+			padding: 0 4px;
 			text-decoration: none;
 		}
 	}

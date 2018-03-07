@@ -1,4 +1,4 @@
-import { colors, fontWeights, sizes } from 'utils/design'
+import { colors, fontWeights } from 'utils/design'
 
 import { Link } from 'components/Components'
 import React from 'react'
@@ -16,7 +16,6 @@ const TOCItem = styled.span`
 
   a {
     color: ${colors.text.header};
-    font-style: italic;
     text-decoration: none;
 
     &:hover {
@@ -26,9 +25,9 @@ const TOCItem = styled.span`
 
   &:not(&:first-child) {
     &:before {
-      content: '|';
-      font-weight: normal;
-      color: ${colors.text.muted};
+      content: '/';
+      font-weight: ${fontWeights.medium};
+      color: ${colors.primary.gray.dark};
       margin-right: 12px;
     }
   }

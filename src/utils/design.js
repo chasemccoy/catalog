@@ -56,7 +56,7 @@ export const sizes = {
 	},
 	content: {
 		maxWidth: '750px',
-		padding: '90px',
+		padding: '56px',
 		smallPadding: '24px'
 	},
 	breakpoints: {
