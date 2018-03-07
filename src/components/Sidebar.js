@@ -169,7 +169,7 @@ class Sidebar extends React.Component {
 				disableOverlayClick
 				pageWrapId='content'
 				outerContainerId='wrapper'
-				width='30vw'
+				width='25vw'
 				isOpen={this.state.isOpen}
 				customBurgerIcon={<SidebarButton open />}
 				customCrossIcon={<SidebarButton />}

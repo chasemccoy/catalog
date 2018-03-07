@@ -30,26 +30,14 @@ const Title = styled.h2`
   margin: 16px 0 0 0;
 
   ${props => props.medium && `font-size: 1.5em;`}
-  ${props => props.large && `font-size: 2.2rem;`}
+  ${props => props.large && `
+    font-size: 2.2rem;
+    margin-top: 0;
+  `}
 
   ${media.tiny`
     font-size: 1.5em;
-  `}
-`
-
-const Border = styled.div`
-  height: 2px;
-  width: 50%;
-  margin: ${props => props.bottom ? `16px 0 0 0` : `0`};
-  background-color: ${colors.primary.gray.dark};
-  display: block;
-
-  ${props => props.mobile && `
-    display: none;
-  `}
-
-  ${props => props.mobile && media.tiny`
-    display: block !important;
+    margin-top: 16px;
   `}
 `
 
@@ -85,22 +73,6 @@ const InformationContainer = styled.div`
   ${props => props.split && media.small`
     width: 100%;
   `}
-
-  ${Border}:first-child {
-    ${props => props.bottom && `display: none;`}
-
-    ${media.tiny`
-      display: none;
-    `}
-  }
-
-  ${Border}:last-child {
-    ${props => !props.bottom && `display: none;`}
-
-    ${media.tiny`
-      display: block;
-    `}
-  }
 `
 
 const Badge = styled.div`
@@ -120,8 +92,6 @@ const Badge = styled.div`
 
 const Information = props => (
   <InformationContainer split={props.split} bottom={props.bottom}>
-    <Border />
-
     <Title
       medium={props.medium}
       large={props.large}
@@ -132,8 +102,6 @@ const Information = props => (
     <Description split={props.split} bottom={props.bottom}>
       <Markdown>{props.description}</Markdown>
     </Description>
-
-    <Border bottom />
   </InformationContainer>
 )
 
@@ -155,8 +123,6 @@ const MediaCard = props => {
           <FlexImage src={`/${props.image}`} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>
-
-          <Border bottom mobile />
         </Container>
       )
     case 1/2:
