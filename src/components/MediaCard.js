@@ -29,6 +29,7 @@ const Title = styled.h2`
   font-weight: ${fontWeights.bold};
   margin: 16px 0 0 0;
 
+  ${props => props.small && `margin-top: 0;`}
   ${props => props.medium && `font-size: 1.5em;`}
   ${props => props.large && `
     font-size: 2.2rem;
@@ -73,6 +74,8 @@ const InformationContainer = styled.div`
   ${props => props.split && media.small`
     width: 100%;
   `}
+
+  ${media.tiny`order: 2;`}
 `
 
 const Badge = styled.div`
@@ -93,6 +96,7 @@ const Badge = styled.div`
 const Information = props => (
   <InformationContainer split={props.split} bottom={props.bottom}>
     <Title
+      small={props.small}
       medium={props.medium}
       large={props.large}
     >
@@ -119,7 +123,7 @@ const MediaCard = props => {
     case 1/3:
       return (
         <Container to={props.to}>
-          <Information {...props} />
+          <Information small {...props} />
           <FlexImage src={`/${props.image}`} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>

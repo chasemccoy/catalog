@@ -29,8 +29,6 @@ const BookmarkPage = ({data}) => {
               />
             )}
           </BookmarkGrid>
-
-          <Divider />
         </div>
       )}
     </Page>
