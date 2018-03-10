@@ -80,7 +80,7 @@ const PostDate = styled.p`
 
 const Meta = ({date, permalink}) => (
   <PostMeta>
-    {date && permalink && (<PostDate><Link to={permalink}>{date}</Link></PostDate>)}
+    {date && permalink && (<PostDate><Link to={`/${permalink}`}>{date}</Link></PostDate>)}
 
     {date && !permalink && (<PostDate>Posted on {date}</PostDate>)}
   </PostMeta>
@@ -104,7 +104,7 @@ export const Post = props => {
       </Excerpt>
     )
 
-  const meta = props.date && <Meta date={props.date} permalink={`/${props.to}`} />
+  const meta = props.date &&<Meta date={props.date} permalink={props.to} />
 
   if (props.aside || props.content) {
     return (
