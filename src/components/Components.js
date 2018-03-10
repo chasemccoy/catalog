@@ -49,10 +49,6 @@ injectGlobal`
 			border-radius: 4px;
 			padding: 4px;
 			text-decoration: none;
-
-			img {
-				vertical-align: bottom;
-			}
 		}
 	}
 
