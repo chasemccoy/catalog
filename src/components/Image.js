@@ -74,7 +74,7 @@ export const ImageShowcase = props => {
   const Container = first.props.to ? ImageLinkContainer : ImageContainer
 
   const primary = (
-    <Column width={[2/3]} {...props}>
+    <Column width={[2/3]}>
       {first.props.src && <Container to={first.props.to} src={first.props.src} />}
     </Column>
   )

@@ -35,12 +35,34 @@ const PaginationLink = styled(Link)`
 	}
 `
 
+const QuickLinks = styled.ul`
+	background-color: ${colors.primary.gray.light};
+	overflow-x: auto;
+	padding: 16px;
+	border-radius: 12px;
+	display: flex;
+	list-style: none;
+	white-space: nowrap;
+	margin: 0;
+	${'' /* margin-bottom: 64px; */}
+`
+
+const QuickLink = styled.li`
+	display: flex;
+	flex: 0 0 auto;
+	padding-right: 1.25rem;
+	max-width: 16rem;
+	white-space: normal;
+	margin: 0;
+	font-weight: ${fontWeights.medium};
+`
+
 const BlogPage = ({data, pathContext}) => {
   const imagePosts = data.imagePosts.edges.map(({node}) => node.slug)
 
   const showcasePhotos = data.images.edges.filter(({node}) =>
     imagePosts.some(post => post == node.post)
-  );
+  )
 
 	const { nodes, page, prev, next } = pathContext;
 
@@ -54,22 +76,35 @@ const BlogPage = ({data, pathContext}) => {
 
       {!prev && (
 				<div>
-				<Header><Icon small name='image' /> Recent Images</Header>
+					<Header><Icon small name='image' /> Recent Images</Header>
 
-	      <ImageShowcase mb={40}>
-	        {showcasePhotos.map(({node}, i) =>
-	          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
-	  			)}
-	      </ImageShowcase>
+		      <ImageShowcase mb={64}>
+		        {showcasePhotos.map(({node}, i) =>
+		          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
+		  			)}
+		      </ImageShowcase>
 
-	      <Header><Icon small name='thought' /> Thoughts</Header>
+		      <Header><Icon small name='thought' /> Thoughts</Header>
 				</div>
 			)}
 
-      {nodes.map(({node}, i) => (
       {posts.map(({node}, i) => (
         <Row key={i}>
           <Column mb={24} width={1}>
+						{/* {i === 2 &&
+							<div>
+								<QuickLinks>
+									{data.dropmark.edges.map(({node}) => (
+										<QuickLink>
+											<Link to={node.link}>{node.title}</Link>
+										</QuickLink>
+									))}
+								</QuickLinks>
+
+								<Column mt={24} mb={48} width={1}><Divider /></Column>
+							</div>
+						} */}
+
             {(node.format == 'aside' || node.format == 'image') &&
               <Post
                 aside
@@ -123,5 +158,17 @@ export const query = graphql`
         }
       }
     }
+
+		dropmark: allDropmark(limit: 20, sort: {fields: [date], order: DESC}) {
+	    edges {
+	      node {
+	        title
+	        description
+	        link
+	        date
+					preview_url
+	      }
+	    }
+	  }
   }
 `
