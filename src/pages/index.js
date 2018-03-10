@@ -77,7 +77,7 @@ class IndexPage extends React.Component {
       <Page>
         <Row mb={32}>
           <Column width={[1]}>
-            <PageTitle>Chase McCoy is a design developer living in Chicago who spends a lot of time thinking about how the web works.</PageTitle>
+            <PageTitle>Chase McCoy is a design systems developer living in Chicago who spends a lot of time thinking about how the web works.</PageTitle>
           </Column>
         </Row>
 
@@ -87,7 +87,7 @@ class IndexPage extends React.Component {
             title='Sprout Social'
             color='#59CB59'
             subtitle='Day Job'
-            description='Design Developer'
+            description='Design Systems'
           />
 
           <StatCard

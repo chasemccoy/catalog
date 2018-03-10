@@ -37,5 +37,13 @@
 				url: https://en.wikipedia.org/wiki/Hanlon%27s_razor
 			}
 		]
+	},
+	{
+		title: The web is a commonwealth.
+		categories: ["web", "work"]
+		description:
+			'''
+			It's also a marketplace. It's a place that breeds culture, but increasingly also breeds the negative side effects of commerce. It's up to use to make sure the web remains a place that's comfortable to occupy.
+			'''
 	}
 ]
