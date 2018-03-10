@@ -10,6 +10,7 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import React from 'react'
 import styled from 'styled-components'
+import Helmet from 'react-helmet'
 
 const Header = styled.h2.attrs({
 	className:  'sans'
@@ -43,8 +44,14 @@ const BlogPage = ({data, pathContext}) => {
 
 	const { nodes, page, prev, next } = pathContext;
 
+	const posts = nodes.filter(({node}) =>
+		!showcasePhotos.some(post => post.node.post == node.slug)
+	)
+
   return (
     <Page narrow>
+			<Helmet title={`Thoughts | Chase McCoy`} />
+
       {!prev && (
 				<div>
 				<Header><Icon small name='image' /> Recent Images</Header>
@@ -60,6 +67,7 @@ const BlogPage = ({data, pathContext}) => {
 			)}
 
       {nodes.map(({node}, i) => (
+      {posts.map(({node}, i) => (
         <Row key={i}>
           <Column mb={24} width={1}>
             {(node.format == 'aside' || node.format == 'image') &&
