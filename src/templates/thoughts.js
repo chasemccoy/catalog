@@ -48,7 +48,7 @@ const QuickLinks = styled.ul`
 const QuickLink = styled.li`
 	display: flex;
 	flex: 0 0 auto;
-	max-width: 22rem;
+	max-width: 24rem;
 	white-space: normal;
 	margin: 0;
 	font-weight: ${fontWeights.medium};
@@ -82,6 +82,20 @@ const QuickLinkImage = styled.div`
 	min-width: 96px;
 	max-width: 96px;
 	padding-right: 16px;
+`
+
+const QuickLinkContent = styled.div`
+	display: flex;
+	flex-direction: column;
+	min-height: 60%;
+	justify-content: space-between;
+
+	span {
+		color: ${colors.text.muted};
+		text-transform: uppercase;
+		font-size: 12px;
+		letter-spacing: 2px;
+	}
 `
 
 const BlogPage = ({data, pathContext}) => {
@@ -127,7 +141,10 @@ const BlogPage = ({data, pathContext}) => {
 												{node.preview_url && <Image cover src={node.preview_url} alt={node.title} to={node.link} />}
 											</QuickLinkImage>
 
-											<Link to={node.link}>{node.title}</Link>
+											<QuickLinkContent>
+												<Link to={node.link}>{node.title}</Link>
+												<span>{node.collection}</span>
+											</QuickLinkContent>
 										</QuickLink>
 									))}
 								</QuickLinks>
@@ -198,6 +215,7 @@ export const query = graphql`
 	        link
 	        date
 					preview_url
+					collection
 	      }
 	    }
 	  }
