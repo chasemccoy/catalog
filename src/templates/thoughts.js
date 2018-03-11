@@ -10,6 +10,7 @@ import { Post } from 'components/Blog'
 import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import QuickLinks from 'components/QuickLinks'
 
 const Header = styled.h2.attrs({
 	className:  'sans'
@@ -31,71 +32,6 @@ const PaginationLink = styled(Link)`
 
 	& + & {
 		margin-left: 24px;
-	}
-`
-
-const QuickLinks = styled.ul`
-	background-color: ${colors.primary.gray.light};
-	overflow-x: scroll;
-	-webkit-overflow-scrolling: touch;
-	padding: 16px;
-	border-radius: 12px;
-	display: flex;
-	list-style: none;
-	white-space: nowrap;
-	margin: 0;
-`
-
-const QuickLink = styled.li`
-	display: flex;
-	flex: 0 0 auto;
-	max-width: 24rem;
-	white-space: normal;
-	margin: 0;
-	font-weight: ${fontWeights.medium};
-	align-items: center;
-	position: relative;
-	padding-right: 16px;
-
-	& + & {
-		margin-left: 32px;
-	}
-
-	a {
-		text-decoration: none;
-	}
-
-	&:after {
-		content: "";
-		position: absolute;
-		right: 0;
-		height: 80%;
-		width: 2px;
-		background-color: ${colors.primary.gray.medium};
-	}
-
-	&:last-child:after {
-		content: none;
-	}
-`
-
-const QuickLinkImage = styled.div`
-	min-width: 96px;
-	max-width: 96px;
-	padding-right: 16px;
-`
-
-const QuickLinkContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	min-height: 60%;
-	justify-content: space-between;
-
-	span {
-		color: ${colors.text.muted};
-		text-transform: uppercase;
-		font-size: 12px;
-		letter-spacing: 2px;
 	}
 `
 
@@ -135,21 +71,7 @@ const BlogPage = ({data, pathContext}) => {
           <Column mb={24} width={1}>
 						{i === 1 &&
 							<div>
-								<QuickLinks>
-									{data.dropmark.edges.map(({node}, i) => (
-										<QuickLink key={i}>
-											<QuickLinkImage>
-												{node.preview_url && <Image cover src={node.preview_url} alt={node.title} to={node.link} />}
-											</QuickLinkImage>
-
-											<QuickLinkContent>
-												<Link to={node.link}>{node.title}</Link>
-												<span>{node.collection}</span>
-											</QuickLinkContent>
-										</QuickLink>
-									))}
-								</QuickLinks>
-
+								<QuickLinks data={data.dropmark.edges} />
 								<Column mt={24} mb={48} width={1}><Divider /></Column>
 							</div>
 						}
