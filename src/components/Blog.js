@@ -19,8 +19,9 @@ const AsideContainer = Container.extend`
 
 const PostContainer = Container.extend`
   background-color: ${colors.primary.lightBlue};
-  padding: 12px 16px;
+  padding: 16px 20px;
   border-radius: 8px;
+  color: ${colors.text.muted};
 `
 
 const Title = styled.h3`
