@@ -30,14 +30,14 @@ class Image extends React.Component {
 		if (this.props.sizes) {
 			return <Img {...this.props} outerWrapperClassName='gatsby-img' />
 		}
-		else if (this.props.src && !this.props.to && !this.props.cover) {
-			return <RegularImage {...this.props} />
-		}
 		else if (this.props.src && this.props.to) {
 			return <ImageLinkContainer {...this.props} />
 		}
 		else if (this.props.src && this.props.cover) {
 			return <ImageContainer {...this.props} />
+		}
+		else if (this.props.src) {
+			return <RegularImage {...this.props} />
 		}
 		else {
 			return <StyledImage {...this.props} />

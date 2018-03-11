@@ -11,8 +11,8 @@ exports.sourceNodes = async ({ boundActionCreators: { createNode } }, { collecti
       const itemNode = {
         title: item.name,
         description: item.description,
-        preview_url: item.preview,
-        sort: item.sort,
+        preview_url: item.thumbnails.uncropped || item.thumbnail || item.preview,
+        collection: data.name,
         link: item.link,
         date: item.created_at,
         id: item.id.toString(),

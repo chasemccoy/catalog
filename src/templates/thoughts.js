@@ -1,6 +1,5 @@
 import { Column, Row } from 'components/Grid'
 import { colors, fontWeights } from 'utils/design'
-
 import Divider from 'components/Divider'
 import Icon from 'components/Icon'
 import Image from 'components/Image'
@@ -44,17 +43,45 @@ const QuickLinks = styled.ul`
 	list-style: none;
 	white-space: nowrap;
 	margin: 0;
-	${'' /* margin-bottom: 64px; */}
 `
 
 const QuickLink = styled.li`
 	display: flex;
 	flex: 0 0 auto;
-	padding-right: 1.25rem;
-	max-width: 16rem;
+	max-width: 22rem;
 	white-space: normal;
 	margin: 0;
 	font-weight: ${fontWeights.medium};
+	align-items: center;
+	position: relative;
+	padding-right: 16px;
+
+	& + & {
+		margin-left: 32px;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		height: 80%;
+		width: 2px;
+		background-color: ${colors.primary.gray.medium};
+	}
+
+	&:last-child:after {
+		content: none;
+	}
+`
+
+const QuickLinkImage = styled.div`
+	min-width: 96px;
+	max-width: 96px;
+	padding-right: 16px;
 `
 
 const BlogPage = ({data, pathContext}) => {
@@ -91,11 +118,15 @@ const BlogPage = ({data, pathContext}) => {
       {posts.map(({node}, i) => (
         <Row key={i}>
           <Column mb={24} width={1}>
-						{/* {i === 2 &&
+						{i === 1 &&
 							<div>
 								<QuickLinks>
-									{data.dropmark.edges.map(({node}) => (
-										<QuickLink>
+									{data.dropmark.edges.map(({node}, i) => (
+										<QuickLink key={i}>
+											<QuickLinkImage>
+												{node.preview_url && <Image cover src={node.preview_url} alt={node.title} to={node.link} />}
+											</QuickLinkImage>
+
 											<Link to={node.link}>{node.title}</Link>
 										</QuickLink>
 									))}
@@ -103,7 +134,7 @@ const BlogPage = ({data, pathContext}) => {
 
 								<Column mt={24} mb={48} width={1}><Divider /></Column>
 							</div>
-						} */}
+						}
 
             {(node.format == 'aside' || node.format == 'image') &&
               <Post
