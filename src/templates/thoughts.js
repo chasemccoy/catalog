@@ -36,7 +36,8 @@ const PaginationLink = styled(Link)`
 
 const QuickLinks = styled.ul`
 	background-color: ${colors.primary.gray.light};
-	overflow-x: auto;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
 	padding: 16px;
 	border-radius: 12px;
 	display: flex;
