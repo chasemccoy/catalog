@@ -12,6 +12,15 @@ const Container = styled.div`
   & > * + * {
     margin-top: 12px;
   }
+
+  ${media.tiny`
+    img {
+      border-radius: 0;
+      margin: 0 -${sizes.content.smallPadding} !important;
+      width: calc(100% + ${sizes.content.smallPadding} * 2);
+      max-width: none;
+    }
+  `}
 `
 
 const AsideContainer = Container.extend`
