@@ -41,7 +41,9 @@ class IndexPage extends React.Component {
 		productivity: 'Loading...',
 		nowPlayingName: 'Loading...',
     nowPlayingArtist: 'Loading...',
-    age: 'Loading...'
+    age: 'Loading...',
+    beerName: 'Loading...',
+    beerBrewery: 'Loading...'
 	}
 
   componentDidMount = () => {
@@ -69,6 +71,13 @@ class IndexPage extends React.Component {
 			.then((response) => response.text())
 			.then((result) => {
   			this.setState({age: result})
+			})
+
+    fetch(`https://chs-stats.now.sh/beer`)
+			.then((response) => response.json())
+			.then((result) => {
+  			this.setState({beerName: result.beer})
+        this.setState({beerBrewery: result.brewery})
 			})
 	}
 
@@ -105,9 +114,9 @@ class IndexPage extends React.Component {
           <StatCard title={this.state.age} subtitle='Age'/>
 
           <StatCard
-            title='Jungle Boogie'
+            title={this.state.beerName}
             subtitle='Currently Drinking'
-            description='by Marz Brewing'
+            description={this.state.beerBrewery}
           />
 
           <StatCard subtitle='Recent Thoughts'>
