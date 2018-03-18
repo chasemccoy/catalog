@@ -61,10 +61,10 @@ export const sizes = {
 		smallPadding: '24px'
 	},
 	breakpoints: {
-		large: '80em',
-	  medium: '72em',
-	  small: '56em',
-		tiny: '40em'
+		large: '1300px',
+	  medium: '1000px',
+	  small: '700px',
+		tiny: '500px'
 	},
 	timeline: {
 		pointWidth: '12px',
