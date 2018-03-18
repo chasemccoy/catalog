@@ -7,7 +7,11 @@ const PageContainer = styled.div`
 	${props => props.narrow && 'width: 68%;'}
 	${props => props.wide && 'width: 125%;'}
 
-	${props => (props.narrow || props.wide) && media.large`
+	${props => props.wide && media.large`
+    width: 100%;
+	`}
+
+	${props => props.narrow && media.medium`
     width: 100%;
 	`}
 `
