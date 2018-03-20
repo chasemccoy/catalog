@@ -19,6 +19,10 @@ export const Content = styled.div.attrs({
 	padding: 96px ${sizes.content.padding} 120px ${sizes.content.padding};
 	transform: translate3d(${sizes.sidebar.width}, 0px, 0px);
 
+	${media.medium`
+		padding: 96px ${sizes.content.padding} 120px 96px;
+	`}
+
 	${media.small`
 		width: 100%;
 		padding: 100px ${sizes.content.smallPadding} 60px;
