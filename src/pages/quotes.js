@@ -11,11 +11,13 @@ const Container = styled.div`
   ${borderRadius}
   background-color: ${colors.primary.gray.light};
   overflow: hidden;
+  border: 1px solid ${colors.primary.gray.medium};
 `
 
 const Quote = styled.h2`
   ${space}
   color: ${colors.text.body};
+  display: flex;
 `
 
 const Meta = styled.div`
@@ -24,15 +26,31 @@ const Meta = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${colors.primary.gray.medium};
+  border-top: 1px solid ${colors.primary.gray.dark};
+`
+
+const Tags = styled.div`
+  ${space}
 `
 
 const Source = styled.h3`
   font-weight: ${themeGet('fontWeights.normal')};
   font-family: ${themeGet('fontFamily.sans')};
   text-align: right;
-  ${'' /* font-style: italic; */}
-  color: ${colors.text.muted};
+  color: ${colors.sidebar.link.primary};
   margin: 0;
+  flex-basis: 60%;
+  font-size: 20px;
+`
+
+const Dropcap = styled.div`
+  float: left;
+  font-family: ${themeGet('fontFamily.serif')};
+  font-size: 70px;
+  line-height: 60px;
+  padding-top: 8px;
+  ${space}
+  color: ${colors.primary.gray.dark};
 `
 
 const QuotesPage = ({data}) => {
@@ -41,14 +59,17 @@ const QuotesPage = ({data}) => {
       {data.quotes.edges.map(({node}, i) => (
         <div key={i}>
           <Container p={4} borderRadius={2}>
-            <Quote pt={2} pb={3}>“{node.content}”</Quote>
+            <Quote pt={2} pb={3}>
+              <Dropcap pr={4}>“</Dropcap>
+              {node.content}
+            </Quote>
 
             <Meta p={3} m={-4}>
-              <div>
+              <Tags mt={-2}>
                 {node.tags.map((tag, j) => (
-                  <Token key={j}>{tag}</Token>
+                  <Token mt={2} mr={2} py={1} px={2} key={j}>{tag}</Token>
                 ))}
-              </div>
+              </Tags>
 
               <Source>{node.metadata}</Source>
             </Meta>
