@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "author": "Chase McCoy",
   "dependencies": {
-    "gatsby": "^1.9.194",
-    "gatsby-cli": "^1.1.28",
+    "gatsby": "^1.9.241",
+    "gatsby-cli": "^1.1.48",
     "gatsby-image": "^1.0.24",
     "gatsby-link": "^1.6.28",
     "gatsby-pagination": "^1.2.0",
@@ -21,10 +21,11 @@
     "gatsby-transformer-json": "^1.0.12",
     "gatsby-transformer-remark": "^1.7.21",
     "gatsby-transformer-sharp": "^1.6.16",
-    "grid-styled": "^2.0.0-11",
+    "grid-styled": "^3.2.1",
     "polished": "^1.9.0",
     "react-burger-menu": "^2.1.11",
-    "react-markdown": "^3.1.0"
+    "react-markdown": "^3.1.0",
+    "styled-system": "^2.2.1"
   },
   "keywords": [
     "gatsby"

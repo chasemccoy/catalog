@@ -194,6 +194,13 @@ module.exports = {
         name: `json`,
         path: `${__dirname}/data/`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `quotes`,
+        path: `${__dirname}/data/quotes.hjson`,
+      }
     }
   ]
 }
