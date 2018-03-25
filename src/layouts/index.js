@@ -8,6 +8,7 @@ import React from 'react'
 import Sidebar from 'components/Sidebar'
 import { capitalize } from 'utils/js'
 import { sizes } from 'utils/design'
+import theme from 'utils/theme'
 
 export default class TemplateWrapper extends React.Component {
   getLocalTitle() {
@@ -23,16 +24,7 @@ export default class TemplateWrapper extends React.Component {
 
   render() {
     return (
-      <ThemeProvider
-        theme={{
-          breakpoints: [
-            sizes.breakpoints.tiny,
-            sizes.breakpoints.small,
-            sizes.breakpoints.medium,
-            sizes.breakpoints.large
-          ]
-        }}
-      >
+      <ThemeProvider theme={theme}>
         <div>
           <Helmet
             title={this.getLocalTitle() || "Chase McCoy"}

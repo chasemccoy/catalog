@@ -23,6 +23,10 @@
 		"url": "/books"
 	},
 	{
+		title: Quotes
+		url: /quotes
+	},
+	{
 		"title": "Music",
 		"url": "/music"
 	},

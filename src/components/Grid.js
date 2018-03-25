@@ -7,8 +7,8 @@ import styled from 'styled-components'
 
 export const Row = props => (
   <Flex
-    mx={[-8, -12]}
-		mt={[-16, -24]}
+    mx={['-8px', '-12px']}
+		mt={['-16px', '-24px']}
 		wrap={true}
     {...props}
   />
@@ -16,8 +16,8 @@ export const Row = props => (
 
 export const Column = props => (
   <Box
-    px={[8, 12]}
-		pt={[16, 24]}
+    px={['8px', '12px']}
+		pt={['16px', '24px']}
     flex='0 1 auto'
     {...props}
   />
