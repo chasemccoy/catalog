@@ -2,6 +2,7 @@ import Icon from 'components/Icon'
 import React from 'react'
 import { media } from 'utils/media'
 import styled from 'styled-components'
+import { space } from 'styled-system'
 
 const PageContainer = styled.div`
 	${props => props.narrow && 'width: 68%;'}
@@ -14,6 +15,8 @@ const PageContainer = styled.div`
 	${props => props.narrow && media.medium`
     width: 100%;
 	`}
+
+	${space}
 `
 
 const PageTitle = styled.h2`

@@ -14,7 +14,7 @@ const PageTitle = styled.h1`
   letter-spacing: -1px;
 `
 
-const PostLink = styled.a`
+const PostLink = styled(Link)`
   text-decoration: none;
 
   & + &:before {
@@ -121,7 +121,7 @@ class IndexPage extends React.Component {
 
           <StatCard subtitle='Recent Thoughts'>
             {this.props.data.posts.edges.map(({node}) => (
-              <PostLink href={node.slug}>{node.title}</PostLink>
+              <PostLink to={node.slug}>{node.title}</PostLink>
             ))}
           </StatCard>
 

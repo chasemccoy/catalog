@@ -59,6 +59,8 @@ const Highlight = styled.span`
 const QuotesPage = ({data}) => {
   return (
     <Page title='Quotes' icon='quote'>
+      <br></br>
+      
       {data.quotes.edges.map(({node}, i) => (
         <div key={i}>
           <Container>
