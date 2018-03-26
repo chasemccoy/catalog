@@ -13,7 +13,7 @@ const Token = styled(Card)`
   line-height: 1.3;
   ${space}
   border-radius: 500px;
-  color: ${colors.sidebar.link.primary};
+  color: ${colors.card.text};
 
   &:last-child {
     margin-right: 0;

@@ -26,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-dropmark`,
       options: {
         collection_id: '512099',
-        collections: ['512099', '514514', '515373', '510239', '514799', '518050']
+        collections: ['512099', '514514', '515373', '510239', '514799', '518050', '523405']
       }
     },
     {
