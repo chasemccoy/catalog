@@ -9,9 +9,6 @@ import { space, borderRadius, themeGet } from 'styled-system'
 const Container = styled.div`
   ${space}
   ${borderRadius}
-  ${'' /* background-color: ${colors.primary.gray.light}; */}
-  ${'' /* overflow: hidden; */}
-  ${'' /* border: 1px solid ${colors.primary.gray.medium}; */}
   display: flex;
   flex-direction: column;
 `
@@ -25,8 +22,7 @@ const Meta = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${'' /* background-color: ${colors.primary.gray.medium}; */}
-  ${'' /* border-top: 1px solid ${colors.primary.gray.dark}; */}
+  flex-wrap: wrap;
 `
 
 const Tags = styled.div`
@@ -38,17 +34,21 @@ const Source = styled.h3`
   font-family: ${themeGet('fontFamily.sans')};
   color: ${colors.card.text};
   margin: 0;
-  flex-basis: 60%;
+  flex-basis: 70%;
   font-size: 20px;
+  display: flex;
+  align-items: center
+  ${space}
 `
 
-const Dropcap = styled.div`
-  float: left;
+const Dropcap = styled.span`
   font-family: ${themeGet('fontFamily.serif')};
   font-size: 70px;
-  line-height: 60px;
-  padding-top: 8px;
-  ${space}
+  line-height: 0;
+  padding-top: .55em;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
   color: ${colors.primary.gray.dark};
 `
 
@@ -60,19 +60,18 @@ const QuotesPage = ({data}) => {
   return (
     <Page title='Quotes' icon='quote'>
       <br></br>
-      
+
       {data.quotes.edges.map(({node}, i) => (
         <div key={i}>
           <Container>
-            <Quote pb={4} mb={2}>
-              {/* <Dropcap pr={4}>“</Dropcap> */}
+            <Quote pb={4} mb={0}>
               <Highlight>{node.content}</Highlight>
             </Quote>
 
-            <Meta>
-              <Source>{node.metadata}</Source>
+            <Meta mt={-2}>
+              <Source mt={2}>{<Dropcap>“</Dropcap>}{node.metadata}</Source>
 
-              <Tags mt={-2}>
+              <Tags mt={2}>
                 {node.tags.map((tag, j) => (
                   <Token mt={2} mr={2} py={1} px={2} key={j}>{tag}</Token>
                 ))}
