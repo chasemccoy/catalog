@@ -37,7 +37,7 @@ const Source = styled.h3`
   flex-basis: 70%;
   font-size: 20px;
   display: flex;
-  align-items: center
+  align-items: center;
   ${space}
 `
 
