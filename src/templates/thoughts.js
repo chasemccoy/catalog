@@ -52,19 +52,7 @@ const BlogPage = ({data, pathContext}) => {
     <Page narrow>
 			<Helmet title={`Thoughts | Chase McCoy`} />
 
-      {!prev && (
-				<div>
-					<Header><Icon small name='image' /> Recent Images</Header>
-
-		      <ImageShowcase mb={64}>
-		        {showcasePhotos.map(({node}, i) =>
-		          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
-		  			)}
-		      </ImageShowcase>
-
-		      <Header><Icon small name='thought' /> Thoughts</Header>
-				</div>
-			)}
+			<Header><Icon small name='thought' /> Thoughts</Header>
 
       {posts.map(({node}, i) => (
         <Row key={i}>
@@ -72,6 +60,18 @@ const BlogPage = ({data, pathContext}) => {
 						{i === 1 &&
 							<div>
 								<QuickLinks data={data.dropmark.edges} />
+								<Column mt={24} mb={48} width={1}><Divider /></Column>
+							</div>
+						}
+
+						{i === 3 &&
+							<div>
+								<Header><Icon small name='image' /> Recent Images</Header>
+								<ImageShowcase>
+					        {showcasePhotos.map(({node}, i) =>
+					          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />
+					  			)}
+					      </ImageShowcase>
 								<Column mt={24} mb={48} width={1}><Divider /></Column>
 							</div>
 						}
