@@ -11,7 +11,8 @@ const StyledUnorderedList = styled.ul`
   list-style: none;
   list-style-position: inside;
 
-  > li, > * li {
+  > li,
+  > * li {
     counter-increment: li;
     display: table-row;
     padding-bottom: 16px;
@@ -21,17 +22,18 @@ const StyledUnorderedList = styled.ul`
     ${props => props.highlight && `
       color: ${colors.text.header};
       font-size: 2rem;
-      line-height: 1.3;
+      line-height: 1.5;
       font-weight: ${fontWeights.semibold};
     `}
   }
 
-  > li:before, > * li:before {
+  > li:before,
+  > * li:before {
     content: ${props => props.highlight ? `'»'` : `'•'`};
     display: table-cell;
     width: 1.2em;
     font-weight: ${props => props.highlight ? `${fontWeights.semibold}` : `normal`};
-    color: ${props => props.highlight ? `${colors.primary.blue};` : `currentColor`}
+    color: ${props => props.highlight ? `${colors.primary.gray.dark};` : `currentColor`}
   }
 
   > * > *:not(li, a) {

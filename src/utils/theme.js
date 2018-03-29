@@ -18,7 +18,7 @@ const colors = {
     '#eee',
     '#f6f6f6',
   ],
-	highlight: '#F5ED09'
+	highlight: '#FFF67F'
 }
 
 const space = [
