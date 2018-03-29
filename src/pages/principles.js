@@ -8,6 +8,7 @@ import React from 'react'
 import Token from 'components/Token'
 import { colors } from 'utils/design'
 import styled from 'styled-components'
+import { themeGet } from 'styled-system'
 
 const PrinciplesList = styled(List)`
   > div {
@@ -24,6 +25,10 @@ const PrincipleLinkHeading = styled(Heading)`
   margin-bottom: 8px;
 `
 
+const Highlight = styled.span`
+  background-color: ${themeGet('colors.highlight')};
+`
+
 const PrinciplesPage = ({data}) => {
   return (
     <Page title='Principles' icon='brain'>
@@ -32,7 +37,9 @@ const PrinciplesPage = ({data}) => {
       <PrinciplesList highlight>
         {data.principles.edges.map(({node}, index) =>
           <div key={index}>
-            <li className='serif'>{node.title}</li>
+            <li className='serif'>
+              <Highlight>{node.title}</Highlight>
+            </li>
 
             <PrincipleDescription>
               <Markdown>{node.description}</Markdown>
