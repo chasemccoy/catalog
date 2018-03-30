@@ -51,8 +51,8 @@ const PrinciplesPage = ({data}) => {
 
                 <List highlight={false}>
                   {node.links.map((link, i) =>
-                    <p>
-                      <li key={i}>
+                    <p key={i}>
+                      <li>
                         <a href={link.url} target='_blank'>{link.title}</a>
                       </li>
                     </p>
