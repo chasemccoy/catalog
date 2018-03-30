@@ -33,15 +33,19 @@ const StyledUnorderedList = styled.ul`
     display: table-cell;
     width: 1.2em;
     font-weight: ${props => props.highlight ? `${fontWeights.semibold}` : `normal`};
-    color: ${props => props.highlight ? `${colors.primary.gray.dark};` : `currentColor`}
+    color: currentColor;
+
+    ${props => props.highlight && `content: none;`}
   }
 
   > * > *:not(li, a) {
     margin-left: 2.4em;
 
-    ${media.tiny`
+    ${media.small`
       margin-left: 0;
   	`}
+
+    ${props => props.highlight && `margin-left: 0;`}
   }
 `
 
