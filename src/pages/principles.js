@@ -25,7 +25,7 @@ const PrincipleLinkHeading = styled(Heading)`
   margin-bottom: 8px;
 `
 
-const Highlight = styled.span`
+export const Highlight = styled.span`
   background-color: ${themeGet('colors.highlight')};
 `
 
