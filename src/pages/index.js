@@ -7,6 +7,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Markdown from 'components/Markdown'
 import Image from 'components/Image'
+import { fontWeight, themeGet } from 'styled-system'
 
 const PageTitle = styled.h1`
   margin: 0;
@@ -16,12 +17,18 @@ const PageTitle = styled.h1`
 
 const PostLink = styled(Link)`
   text-decoration: none;
+  line-height: 1;
 
   & + &:before {
     content: "/";
     margin: 0 8px;
     color: ${colors.primary.gray.dark};
   }
+`
+
+export const Highlight = styled.span`
+  background-color: ${themeGet('colors.highlight')};
+  ${fontWeight}
 `
 
 const Content = props => (
@@ -86,7 +93,7 @@ class IndexPage extends React.Component {
       <Page>
         <Row mb={32}>
           <Column width={[1]}>
-            <PageTitle>Chase McCoy is a design systems developer living in Chicago who spends a lot of time thinking about how the web works.</PageTitle>
+            <PageTitle><Highlight fontWeight='bold'>Chase McCoy</Highlight> is a design systems developer living in Chicago who spends a lot of time thinking about how the web works.</PageTitle>
           </Column>
         </Row>
 
