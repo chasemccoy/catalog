@@ -25,7 +25,8 @@
     "polished": "^1.9.0",
     "react-burger-menu": "^2.1.11",
     "react-markdown": "^3.1.0",
-    "styled-system": "^2.2.1"
+    "styled-system": "^2.2.1",
+    "svgxuse": "^1.2.6"
   },
   "keywords": [
     "gatsby"
