@@ -9,6 +9,7 @@ import Sidebar from 'components/Sidebar'
 import { capitalize } from 'utils/js'
 import { sizes } from 'utils/design'
 import theme from 'utils/theme'
+import svgxuse from 'svgxuse'
 
 export default class TemplateWrapper extends React.Component {
   getLocalTitle() {
@@ -38,7 +39,9 @@ export default class TemplateWrapper extends React.Component {
                 content: 'http://chasem.co/meta/chase.jpg'
               }
             ]}
-          />
+          >
+            {/* <script defer src={svgxuse}></script> */}
+          </Helmet>
 
           <Wrapper>
             <Sidebar items={this.props.data.nav.edges} />
