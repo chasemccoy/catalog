@@ -7,6 +7,10 @@ Array.prototype.sample = function() {
   return this[Math.floor(Math.random() * this.length)];
 }
 
+const add = (a, b) => a + b
+
+const approximatelyEqual = (a, b) => Math.abs(a - b) < 0.00001;
+
 function getMosaicWidths(count) {
   var state = -1
   var widthsArray = Array(count).fill(1)
@@ -47,6 +51,15 @@ function getMosaicWidths(count) {
         return width
     }
   })
+
+  // The overflow value gives us the filled width of the last row
+  const overflow = widths.reduce(add) % 1
+
+  // If the dangling orphan is too small, make it larger
+  if (approximatelyEqual(overflow, 1/3)) {
+    console.log('TRUE');
+    widths[widths.length - 1] = [1/2, 2/3, 1].sample()
+  }
 
   return widths
 }

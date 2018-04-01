@@ -1,7 +1,7 @@
-import { colors, fontWeights } from 'utils/design'
-import Card from 'components/Card'
 import React from 'react'
 import styled from 'styled-components'
+import { colors, fontWeights } from 'utils/design'
+import Card from 'components/Card'
 
 const Container = styled(Card)`
   box-shadow: none;
@@ -13,9 +13,9 @@ const Container = styled(Card)`
 
   &:after {
     content: '';
-    width: 20%;
+    width: 50px;
     height: 2px;
-    background-color: ${colors.text.header};
+    background: ${colors.text.header};
     position: absolute;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@ const Title = styled.h1.attrs({
 })`
   font-weight: ${fontWeights.bold};
   margin: 0;
-  font-size: ${props => props.large ? `64px` : `48px`};
+  font-size: ${props => props.large ? `48px` : `32px`};
   ${props => props.color && `color: ${props.color};`}
 `
 
@@ -45,20 +45,21 @@ const Description = styled.h3.attrs({
 })`
   margin: 4px 0 0 0;
   font-weight: ${fontWeights.medium};
+  font-size: 20px;
 `
 
 const Content = styled.div`
   margin-top: 12px;
   color: ${colors.text.header};
   font-weight: ${fontWeights.medium};
-  font-size: 20px;
+  ${'' /* font-size: 20px; */}
   line-height: 1.6;
 `
 
 const StatCard = props => (
   <Container to={props.to}>
     <Subtitle>{props.subtitle}</Subtitle>
-    <Title large={!props.description} color={props.color}>{props.title}</Title>
+    <Title large={props.large} color={props.color}>{props.title}</Title>
     {props.description && <Description>{props.description}</Description>}
 
     {props.children && <Content>{props.children}</Content>}

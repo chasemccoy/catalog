@@ -1,9 +1,8 @@
-import { colors, fontWeights } from 'utils/design'
-import styled, { injectGlobal } from 'styled-components'
-
-import GatsbyLink from 'gatsby-link'
 import React from 'react'
-import {darken} from 'polished'
+import GatsbyLink from 'gatsby-link'
+import styled, { injectGlobal } from 'styled-components'
+import { colors, fontWeights } from 'utils/design'
+import { space } from 'styled-system'
 
 injectGlobal`
 	@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
@@ -109,4 +108,15 @@ export const Heading = styled.h4`
     border-bottom: 1px dashed ${colors.primary.gray.dark};
 		margin-left: 16px;
 	}
+`
+
+export const BlogHeader = styled.h2.attrs({
+	className:  'sans'
+})`
+  font-size: 14px;
+  color: ${colors.primary.purple} !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: ${fontWeights.bold};
+	${space}
 `
