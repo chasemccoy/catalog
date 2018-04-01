@@ -9,7 +9,7 @@ export const Row = props => (
   <Flex
     mx={['-8px', '-12px']}
 		mt={['-16px', '-24px']}
-		wrap={true}
+		flexWrap={'wrap'}
     {...props}
   />
 )

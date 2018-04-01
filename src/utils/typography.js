@@ -36,12 +36,14 @@ const typography = new Typography(
 				...adjustFontSizeTo('1em'),
 				backgroundColor: colors.primary.gray.light,
 				borderRadius: '4px',
-				padding: '4px',
+				padding: '4px 8px',
 				display: 'inline-block',
 				fontFamily: 'OperatorMono-Book, Inconsolata, Monaco, monospace'
 			},
 			'pre code': {
-				padding: '8px 16px'
+				padding: '8px 16px',
+				background: '#31343F',
+				color: colors.primary.gray.light
 			}
 		})
 	}

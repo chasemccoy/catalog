@@ -11,16 +11,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import QuickLinks from 'components/QuickLinks'
-
-const Header = styled.h2.attrs({
-	className:  'sans'
-})`
-  font-size: 14px;
-  color: ${colors.primary.purple} !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: ${fontWeights.bold};
-`
+import { BlogHeader } from 'components/Components'
 
 const PaginationLink = styled(Link)`
 	padding: 8px 16px;
@@ -52,7 +43,7 @@ const BlogPage = ({data, pathContext}) => {
     <Page narrow>
 			<Helmet title={`Thoughts | Chase McCoy`} />
 
-			<Header><Icon small name='thought' /> Thoughts</Header>
+			<BlogHeader><Icon small name='thought' /> Thoughts</BlogHeader>
 
       {posts.map(({node}, i) => (
         <Row key={i}>
@@ -66,7 +57,7 @@ const BlogPage = ({data, pathContext}) => {
 
 						{i === 3 &&
 							<div>
-								<Header><Icon small name='image' /> Recent Images</Header>
+								<BlogHeader><Icon small name='image' /> Recent Images</BlogHeader>
 								<ImageShowcase>
 					        {showcasePhotos.map(({node}, i) =>
 					          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />

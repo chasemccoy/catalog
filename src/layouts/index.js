@@ -39,9 +39,7 @@ export default class TemplateWrapper extends React.Component {
                 content: 'http://chasem.co/meta/chase.jpg'
               }
             ]}
-          >
-            {/* <script defer src={svgxuse}></script> */}
-          </Helmet>
+          />
 
           <Wrapper>
             <Sidebar items={this.props.data.nav.edges} />

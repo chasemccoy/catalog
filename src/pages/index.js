@@ -8,6 +8,10 @@ import styled from 'styled-components'
 import Markdown from 'components/Markdown'
 import Image from 'components/Image'
 import { fontWeight, themeGet } from 'styled-system'
+import { Quote } from './quotes'
+import Divider from 'components/Divider'
+import { BlogHeader } from 'components/Components'
+import Icon from 'components/Icon'
 
 const PageTitle = styled.h1`
   margin: 0;
@@ -17,12 +21,21 @@ const PageTitle = styled.h1`
 
 const PostLink = styled(Link)`
   text-decoration: none;
-  line-height: 1;
+  display: block;
+  font-weight: ${themeGet('fontWeights.medium')};
+  margin-top: 16px;
 
   & + &:before {
-    content: "/";
-    margin: 0 8px;
-    color: ${colors.primary.gray.dark};
+    content: "";
+    margin: 16px 0;
+    background: ${colors.primary.gray.dark};
+    display: block;
+    width: 60px;
+    height: 2px;
+  }
+
+  &:first-child {
+    margin-top: 24px;
   }
 `
 
@@ -32,9 +45,9 @@ export const Highlight = styled.span`
 `
 
 const Content = props => (
-  <Row mx={[-24, -40]}>
-    {props.children.map(item => (
-      <Column width={[1, 1/2]} mt={64} px={[24, 40]}>
+  <Row mx={[-16, -32]}>
+    {props.children.map((item, i) => (
+      <Column width={[1, item.props.width || 1/3]} mt={64} px={[16, 32]} key={i}>
         {item}
       </Column>
     ))}
@@ -89,11 +102,63 @@ class IndexPage extends React.Component {
 	}
 
   render() {
+    const imagePosts = this.props.data.imagePosts.edges.map(({node}) => node.slug)
+
+    const showcasePhotos = this.props.data.images.edges.filter(({node}) =>
+      imagePosts.some(post => post == node.post)
+    )
+
     return (
       <Page>
-        <Row mb={32}>
+        <Row mb={8}>
           <Column width={[1]}>
             <PageTitle><Highlight fontWeight='bold'>Chase McCoy</Highlight> is a design systems developer living in Chicago who spends a lot of time thinking about how the web works.</PageTitle>
+          </Column>
+        </Row>
+
+        <Row mx={[-6]} mt={6}>
+          <Column width={[1, 1, 1/2, 1/3]} px={[6]}>
+            <BlogHeader mb={0}><Icon small name='thought' /> Recent Thoughts</BlogHeader>
+
+            <div>
+              {this.props.data.posts.edges.map(({node}, i) => (
+                <PostLink to={node.slug} key={i}>{node.title}</PostLink>
+              ))}
+            </div>
+          </Column>
+
+          <Column width={[1, 1, 1/2, 2/3]} px={[6]} mt={[8, 8, 0]}>
+            <Row>
+              <Column width={1}>
+                <BlogHeader mb={0}><Icon small name='image' /> Recent Images</BlogHeader>
+              </Column>
+
+              <Column width={[1, 1/3]}>
+                <Image src={showcasePhotos[0].node.source_url} to={`/${imagePosts[0]}`} />
+              </Column>
+
+              <Column width={[1, 1/3]}>
+                <Image src={showcasePhotos[1].node.source_url} to={`/${imagePosts[1]}`} />
+              </Column>
+
+              <Column width={[1, 1/3]}>
+                <Image src={showcasePhotos[2].node.source_url} to={`/${imagePosts[2]}`} />
+              </Column>
+            </Row>
+
+            <Row>
+              <Column width={1}>
+                <Divider mt={6} mb={5} />
+              </Column>
+            </Row>
+
+            <Row>
+              <Column width={1}>
+                {this.props.data.quotes.edges.map(({node}, i) => (
+                  <Quote content={node.content} source={node.metadata} key={i} />
+                ))}
+              </Column>
+            </Row>
           </Column>
         </Row>
 
@@ -107,6 +172,7 @@ class IndexPage extends React.Component {
           />
 
           <StatCard
+            large
             title={this.state.weatherTemperature}
             subtitle='Weather in Chicago, IL'
             description={this.state.weatherSummary}
@@ -118,7 +184,7 @@ class IndexPage extends React.Component {
             description={`by ${this.state.nowPlayingArtist}`}
           />
 
-          <StatCard title={this.state.age} subtitle='Age'/>
+          <StatCard large title={this.state.age} subtitle='Age'/>
 
           <StatCard
             title={this.state.beerName}
@@ -126,13 +192,14 @@ class IndexPage extends React.Component {
             description={this.state.beerBrewery}
           />
 
-          <StatCard subtitle='Recent Thoughts'>
+          {/* <StatCard subtitle='Recent Thoughts'>
             {this.props.data.posts.edges.map(({node}) => (
               <PostLink to={node.slug}>{node.title}</PostLink>
             ))}
-          </StatCard>
+          </StatCard> */}
 
           <StatCard
+            large
             title={this.state.productivity}
             subtitle='Productivity Score'
           />
@@ -143,7 +210,7 @@ class IndexPage extends React.Component {
             </Markdown>
           </StatCard>
 
-          <StatCard subtitle='Colophon'>
+          <StatCard subtitle='Colophon' width={2/3}>
             <Markdown>
               This site is built using [Gatsby](https://www.gatsbyjs.org), [styled-components](https://www.styled-components.com), [micro](https://github.com/zeit/micro), and [now](http://now.sh). Headings are set in [Karla](https://fonts.google.com/specimen/Karla), and the body is set in your device's default typeface.
             </Markdown>
@@ -158,10 +225,37 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
-    posts: allWordpressPost(limit: 3, filter: {format: {eq: "standard"}}) {
+    posts: allWordpressPost(limit: 4, filter: {format: {eq: "standard"}}) {
       edges {
         node {
           title
+          slug
+        }
+      }
+    }
+
+    quotes: allQuotesHJson(sort: {fields: [metadata], order: ASC}, limit: 1) {
+      edges {
+        node {
+          content
+          metadata
+          tags
+        }
+      }
+    }
+
+    images: allWordpressWpMedia {
+      edges {
+        node {
+          source_url
+          post
+        }
+      }
+    }
+
+    imagePosts: allWordpressPost(limit: 3, filter: {format: {eq: "image"}}) {
+      edges {
+        node {
           slug
         }
       }
