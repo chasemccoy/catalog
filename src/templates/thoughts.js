@@ -57,7 +57,7 @@ const BlogPage = ({data, pathContext}) => {
 
 						{i === 3 &&
 							<div>
-								<BlogHeader><Icon small name='image' /> Recent Images</BlogHeader>
+								<BlogHeader id='images'><Icon small name='image' /> Recent Images</BlogHeader>
 								<ImageShowcase>
 					        {showcasePhotos.map(({node}, i) =>
 					          <Image src={node.source_url} to={`/${data.imagePosts.edges[i].node.slug}`} key={i} />

@@ -24,6 +24,8 @@ const PostLink = styled(Link)`
   display: block;
   font-weight: ${themeGet('fontWeights.medium')};
   margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.5;
 
   & + &:before {
     content: "";
@@ -42,6 +44,10 @@ const PostLink = styled(Link)`
 export const Highlight = styled.span`
   background-color: ${themeGet('colors.highlight')};
   ${fontWeight}
+`
+
+export const NoUnderlineLink = styled.div`
+  a { text-decoration: none; }
 `
 
 const Content = props => (
@@ -118,7 +124,11 @@ class IndexPage extends React.Component {
 
         <Row mx={[-6]} mt={6}>
           <Column width={[1, 1, 1/2, 1/3]} px={[6]}>
-            <BlogHeader mb={0}><Icon small name='thought' /> Recent Thoughts</BlogHeader>
+            <NoUnderlineLink>
+              <Link to='/thoughts'>
+                <BlogHeader mb={0}><Icon small name='thought' /> Recent Thoughts</BlogHeader>
+              </Link>
+            </NoUnderlineLink>
 
             <div>
               {this.props.data.posts.edges.map(({node}, i) => (
@@ -130,18 +140,22 @@ class IndexPage extends React.Component {
           <Column width={[1, 1, 1/2, 2/3]} px={[6]} mt={[8, 8, 0]}>
             <Row>
               <Column width={1}>
-                <BlogHeader mb={0}><Icon small name='image' /> Recent Images</BlogHeader>
+                <NoUnderlineLink>
+                  <Link to='/thoughts#images'>
+                    <BlogHeader mb={0}><Icon small name='image' /> Recent Images</BlogHeader>
+                  </Link>
+                </NoUnderlineLink>
               </Column>
 
-              <Column width={[1, 1/3]}>
+              <Column width={[1, 1/3, 1/2, 1/3]}>
                 <Image src={showcasePhotos[0].node.source_url} to={`/${imagePosts[0]}`} />
               </Column>
 
-              <Column width={[1, 1/3]}>
+              <Column width={[1/2, 1/3, 1/2, 1/3]}>
                 <Image src={showcasePhotos[1].node.source_url} to={`/${imagePosts[1]}`} />
               </Column>
 
-              <Column width={[1, 1/3]}>
+              <Column width={[1/2, 1/3, 1/2, 1/3]}>
                 <Image src={showcasePhotos[2].node.source_url} to={`/${imagePosts[2]}`} />
               </Column>
             </Row>
@@ -154,9 +168,13 @@ class IndexPage extends React.Component {
 
             <Row>
               <Column width={1}>
-                {this.props.data.quotes.edges.map(({node}, i) => (
-                  <Quote content={node.content} source={node.metadata} key={i} />
-                ))}
+                <NoUnderlineLink>
+                  <Link to='/quotes'>
+                    {this.props.data.quotes.edges.map(({node}, i) => (
+                      <Quote content={node.content} source={node.metadata} key={i} />
+                    ))}
+                  </Link>
+                </NoUnderlineLink>
               </Column>
             </Row>
           </Column>
