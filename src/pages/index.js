@@ -12,6 +12,7 @@ import { Quote } from './quotes'
 import Divider from 'components/Divider'
 import { BlogHeader } from 'components/Components'
 import Icon from 'components/Icon'
+import { Flex } from 'grid-styled'
 
 const PageTitle = styled.h1`
   margin: 0;
@@ -124,17 +125,27 @@ class IndexPage extends React.Component {
 
         <Row mx={[-6]} mt={6}>
           <Column width={[1, 1, 1/2, 1/3]} px={[6]}>
-            <NoUnderlineLink>
-              <Link to='/thoughts'>
-                <BlogHeader mb={0}><Icon small name='thought' /> Recent Thoughts</BlogHeader>
-              </Link>
-            </NoUnderlineLink>
+            <Row mb={[8, 7]}>
+              <Column width={[1, 3/4, 1]}>
+                <NoUnderlineLink>
+                  <Link to='/thoughts'>
+                    <BlogHeader mb={0}><Icon small name='thought' /> Recent Thoughts</BlogHeader>
+                  </Link>
+                </NoUnderlineLink>
 
-            <div>
-              {this.props.data.posts.edges.map(({node}, i) => (
-                <PostLink to={node.slug} key={i}>{node.title}</PostLink>
-              ))}
-            </div>
+                <div>
+                  {this.props.data.posts.edges.map(({node}, i) => (
+                    <PostLink to={node.slug} key={i}>{node.title}</PostLink>
+                  ))}
+                </div>
+              </Column>
+            </Row>
+
+            <Flex justifyContent={['space-between', 'flex-start', 'space-between']}>
+              <Link to='/chicago'><Icon jumbo name='chicago' /></Link>
+              <Link to='/bookmarks'><Icon jumbo name='bookmark' /></Link>
+              <Link to='/favorites'><Icon jumbo name='heart' /></Link>
+            </Flex>
           </Column>
 
           <Column width={[1, 1, 1/2, 2/3]} px={[6]} mt={[8, 8, 0]}>
