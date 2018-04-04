@@ -141,7 +141,7 @@ class IndexPage extends React.Component {
               </Column>
             </Row>
 
-            <Flex justifyContent={['space-between', 'flex-start', 'space-between']}>
+            <Flex justifyContent={['space-around', 'space-around', 'space-around']}>
               <Link to='/chicago'><Icon jumbo name='chicago' /></Link>
               <Link to='/bookmarks'><Icon jumbo name='bookmark' /></Link>
               <Link to='/favorites'><Icon jumbo name='heart' /></Link>
