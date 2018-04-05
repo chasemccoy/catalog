@@ -1,3 +1,7 @@
+// require('dotenv').config();
+
+const dotenv = require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: `Chase McCoy`,
@@ -201,6 +205,28 @@ module.exports = {
         name: `quotes`,
         path: `${__dirname}/data/quotes.hjson`,
       }
-    }
+    },
+    {
+      resolve: 'gatsby-source-github',
+      options: {
+        headers: {
+          Authorization: `Bearer ${dotenv.parsed.GITHUB_ACCESS_TOKEN || process.env.GITHUB_ACCESS_TOKEN}`,
+        },
+        queries: [
+          `{
+            user(login: "chasemccoy") {
+              starredRepositories(last: 20) {
+                edges {
+                  node {
+                    id
+                  	name
+                  }
+                }
+              }
+            }
+          }`,
+        ],
+      },
+    },
   ]
 }
