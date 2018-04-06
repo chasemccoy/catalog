@@ -12,40 +12,38 @@ const Container = styled(Card)`
     margin-bottom: 0;
   }
 
-	display: flex !important;
-	text-decoration: none;
+  display: flex !important;
+  text-decoration: none;
   height: 100%;
   justify-content: space-between;
-  flex-direction: ${props => props.split ? `row` : `column`};
+  flex-direction: ${props => (props.split ? `row` : `column`)};
   color: ${colors.text.body} !important;
 
   ${media.tiny`
 		flex-direction: column;
-	`}
-
+	`};
 `
 
 const Title = styled.h2`
   font-weight: ${fontWeights.bold};
   margin: 16px 0 0 0;
 
-  ${props => props.small && `margin-top: 0;`}
-  ${props => props.medium && `font-size: 1.5em;`}
-  ${props => props.large && `
+  ${props => props.small && `margin-top: 0;`} ${props =>
+      props.medium && `font-size: 1.5em;`} ${props =>
+      props.large &&
+      `
     font-size: 2.2rem;
     margin-top: 0;
-  `}
-
-  ${media.tiny`
+  `} ${media.tiny`
     font-size: 1.5em;
     margin-top: 16px;
-  `}
+  `};
 `
 
 const Description = styled.div`
   color: ${colors.card.text};
   margin-top: 8px;
-  margin-bottom: ${props => (props.bottom || props.split) ? `0` : `12px`};
+  margin-bottom: ${props => (props.bottom || props.split ? `0` : `12px`)};
 `
 
 const FlexImage = styled(Image)`
@@ -55,27 +53,25 @@ const FlexImage = styled(Image)`
   height: auto;
   border-radius: 0;
 
-  ${props => props.split && `
+  ${props =>
+    props.split &&
+    `
     width: 55%;
     margin-right: 24px;
-  `}
-
-  ${props => props.split && media.tiny`
+  `} ${props =>
+      props.split &&
+      media.tiny`
     width: 100%;
     margin-right: 0;
-  `}
-
-  position: relative !important;
+  `} position: relative !important;
 `
 
 const InformationContainer = styled.div`
-  ${props => props.split && `width: 45%;`}
-
-  ${props => props.split && media.small`
+  ${props => props.split && `width: 45%;`} ${props =>
+      props.split &&
+      media.small`
     width: 100%;
-  `}
-
-  ${media.tiny`order: 2;`}
+  `} ${media.tiny`order: 2;`};
 `
 
 const Badge = styled.div`
@@ -95,11 +91,7 @@ const Badge = styled.div`
 
 const Information = props => (
   <InformationContainer split={props.split} bottom={props.bottom}>
-    <Title
-      small={props.small}
-      medium={props.medium}
-      large={props.large}
-    >
+    <Title small={props.small} medium={props.medium} large={props.large}>
       {props.title}
     </Title>
 
@@ -120,7 +112,7 @@ const MediaCard = props => {
           <Information split large {...props} />
         </Container>
       )
-    case 1/3:
+    case 1 / 3:
       return (
         <Container to={props.to}>
           <Information small {...props} />
@@ -129,8 +121,8 @@ const MediaCard = props => {
           </FlexImage>
         </Container>
       )
-    case 1/2:
-    case 2/3:
+    case 1 / 2:
+    case 2 / 3:
       return (
         <Container to={props.to}>
           <FlexImage src={`/${props.image}`} stretch cover>

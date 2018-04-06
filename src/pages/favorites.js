@@ -1,4 +1,4 @@
-import {Heading, Link} from 'components/Components'
+import { Heading, Link } from 'components/Components'
 
 import Library from 'components/Library'
 import Page from 'components/Page'
@@ -6,10 +6,14 @@ import React from 'react'
 import { capitalize } from 'utils/js'
 import styled from 'styled-components'
 
-const FavoritesPage = ({data}) => {
+const FavoritesPage = ({ data }) => {
   return (
-    <Page title='Favorites' icon='heart'>
-      <p>Below are some things in various categories that I love. I think you can tell a lot about a person by paying attention to what they pay attention to, so here are the things that capture my attention.</p>
+    <Page title="Favorites" icon="heart">
+      <p>
+        Below are some things in various categories that I love. I think you can
+        tell a lot about a person by paying attention to what they pay attention
+        to, so here are the things that capture my attention.
+      </p>
 
       {Object.keys(data).map((item, i) => (
         <div key={i}>
@@ -17,7 +21,7 @@ const FavoritesPage = ({data}) => {
             <Link to={item}>{capitalize(item)}</Link>
           </Heading>
 
-          <Library preview data={data[item].edges} section={item}/>
+          <Library preview data={data[item].edges} section={item} />
         </div>
       ))}
     </Page>
@@ -28,7 +32,7 @@ export default FavoritesPage
 
 export const query = graphql`
   query FavoritesQuery {
-    chicago: allChicagoHJson(sort: {fields: [title], order: ASC}) {
+    chicago: allChicagoHJson(sort: { fields: [title], order: ASC }) {
       edges {
         node {
           title
@@ -39,7 +43,7 @@ export const query = graphql`
       }
     }
 
-    books: allBooksHJson(sort: {fields: [title], order: ASC}) {
+    books: allBooksHJson(sort: { fields: [title], order: ASC }) {
       edges {
         node {
           title
@@ -69,7 +73,7 @@ export const query = graphql`
     #   }
     # }
 
-    music: allMusicHJson(sort: {fields: [title], order: ASC}) {
+    music: allMusicHJson(sort: { fields: [title], order: ASC }) {
       edges {
         node {
           title

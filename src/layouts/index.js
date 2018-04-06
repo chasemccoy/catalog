@@ -1,8 +1,8 @@
-import {Content, Wrapper} from 'components/Layout'
-import styled, {ThemeProvider} from 'styled-components'
+import { Content, Wrapper } from 'components/Layout'
+import styled, { ThemeProvider } from 'styled-components'
 
 import Helmet from 'react-helmet'
-import {Link} from 'components/Components'
+import { Link } from 'components/Components'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Sidebar from 'components/Sidebar'
@@ -13,13 +13,13 @@ import svgxuse from 'svgxuse'
 
 export default class TemplateWrapper extends React.Component {
   getLocalTitle() {
-    const pathPrefix = "/";
+    const pathPrefix = '/'
     const currentPath = this.props.location.pathname
-      .replace(pathPrefix, "")
-      .replace("/", "");
+      .replace(pathPrefix, '')
+      .replace('/', '')
 
     if (currentPath.length) {
-      return capitalize(currentPath) + " | Chase McCoy";
+      return capitalize(currentPath) + ' | Chase McCoy'
     }
   }
 
@@ -28,25 +28,24 @@ export default class TemplateWrapper extends React.Component {
       <ThemeProvider theme={theme}>
         <div>
           <Helmet
-            title={this.getLocalTitle() || "Chase McCoy"}
+            title={this.getLocalTitle() || 'Chase McCoy'}
             meta={[
               {
                 name: 'description',
-                content: 'Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.'
+                content:
+                  'Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.',
               },
               {
                 name: 'image',
-                content: 'http://chasem.co/meta/chase.jpg'
-              }
+                content: 'http://chasem.co/meta/chase.jpg',
+              },
             ]}
           />
 
           <Wrapper>
             <Sidebar items={this.props.data.nav.edges} />
 
-            <Content>
-              {this.props.children()}
-            </Content>
+            <Content>{this.props.children()}</Content>
           </Wrapper>
         </div>
       </ThemeProvider>

@@ -9,10 +9,9 @@ const Token = styled(Card)`
   min-height: auto;
   font-size: 12px;
   font-weight: ${fontWeights.medium};
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   line-height: 1.3;
-  ${space}
-  border-radius: 500px;
+  ${space} border-radius: 500px;
   color: ${colors.card.text};
 
   &:last-child {

@@ -29,15 +29,21 @@ export const Highlight = styled.span`
   background-color: ${themeGet('colors.highlight')};
 `
 
-const PrinciplesPage = ({data}) => {
+const PrinciplesPage = ({ data }) => {
   return (
-    <Page title='Principles' icon='brain'>
-      <p>Here are some thoughts/ideas that I have noticed as recurring themes of my time growing up, learning new things, and starting a career. These are things that I try to keep in mind every day. I've studied these principles quite a bit, and I have collected some of that research here for future me (and maybe for you, too).</p>
+    <Page title="Principles" icon="brain">
+      <p>
+        Here are some thoughts/ideas that I have noticed as recurring themes of
+        my time growing up, learning new things, and starting a career. These
+        are things that I try to keep in mind every day. I've studied these
+        principles quite a bit, and I have collected some of that research here
+        for future me (and maybe for you, too).
+      </p>
 
       <PrinciplesList highlight>
-        {data.principles.edges.map(({node}, index) =>
+        {data.principles.edges.map(({ node }, index) => (
           <div key={index}>
-            <li className='serif'>
+            <li className="serif">
               <Highlight>{node.title}</Highlight>
             </li>
 
@@ -45,21 +51,24 @@ const PrinciplesPage = ({data}) => {
               <Markdown>{node.description}</Markdown>
             </PrincipleDescription>
 
-            {node.links && node.links.length !== 0 &&
-              <div>
-                <PrincipleLinkHeading>Related Readings</PrincipleLinkHeading>
+            {node.links &&
+              node.links.length !== 0 && (
+                <div>
+                  <PrincipleLinkHeading>Related Readings</PrincipleLinkHeading>
 
-                <List highlight={false}>
-                  {node.links.map((link, i) =>
-                    <p key={i}>
-                      <li>
-                        <a href={link.url} target='_blank'>{link.title}</a>
-                      </li>
-                    </p>
-                  )}
-                </List>
-              </div>
-            }
+                  <List highlight={false}>
+                    {node.links.map((link, i) => (
+                      <p key={i}>
+                        <li>
+                          <a href={link.url} target="_blank">
+                            {link.title}
+                          </a>
+                        </li>
+                      </p>
+                    ))}
+                  </List>
+                </div>
+              )}
 
             {/* <div>
               {node.categories.map((category, i) =>
@@ -67,7 +76,7 @@ const PrinciplesPage = ({data}) => {
               )}
             </div> */}
           </div>
-        )}
+        ))}
       </PrinciplesList>
     </Page>
   )
@@ -77,7 +86,7 @@ export default PrinciplesPage
 
 export const query = graphql`
   query PrinciplesQuery {
-    principles: allPrinciplesHJson(sort: {fields: [title], order: ASC}) {
+    principles: allPrinciplesHJson(sort: { fields: [title], order: ASC }) {
       edges {
         node {
           title

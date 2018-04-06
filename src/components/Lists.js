@@ -7,7 +7,7 @@ const StyledUnorderedList = styled.ul`
   display: table;
   margin-left: 0;
   margin-bottom: 32px;
-  border-spacing: ${props => props.highlight ? `0 16px` : '0 8px'};
+  border-spacing: ${props => (props.highlight ? `0 16px` : '0 8px')};
   list-style: none;
   list-style-position: inside;
 
@@ -19,27 +19,30 @@ const StyledUnorderedList = styled.ul`
     font-size: 1rem;
     font-weight: normal;
 
-    ${props => props.highlight && `
+    ${props =>
+      props.highlight &&
+      `
       color: ${colors.text.header};
       font-size: 2rem;
       line-height: 1.5;
       font-weight: ${fontWeights.semibold};
-    `}
+    `};
   }
 
   > li:before,
   > * li:before {
-    content: ${props => props.highlight ? `'»'` : `'•'`};
+    content: ${props => (props.highlight ? `'»'` : `'•'`)};
     display: table-cell;
     width: 1.2em;
-    font-weight: ${props => props.highlight ? `${fontWeights.semibold}` : `normal`};
+    font-weight: ${props =>
+      props.highlight ? `${fontWeights.semibold}` : `normal`};
     color: currentColor;
 
-    ${props => props.highlight && `content: none;`}
-
-    ${props => props.plain && `
+    ${props => props.highlight && `content: none;`} ${props =>
+        props.plain &&
+        `
       display: none;
-    `}
+    `};
   }
 
   > * > *:not(li, a) {
@@ -47,9 +50,7 @@ const StyledUnorderedList = styled.ul`
 
     ${media.small`
       margin-left: 0;
-  	`}
-
-    ${props => (props.highlight || props.plain) && `margin-left: 0;`}
+  	`} ${props => (props.highlight || props.plain) && `margin-left: 0;`};
   }
 `
 
@@ -65,10 +66,9 @@ const StyledOrderedList = OrderedList.extend`
 
 const List = props => {
   if (props.ordered) {
-    return (<StyledOrderedList {...props} />)
-  }
-  else {
-    return (<StyledUnorderedList {...props} />)
+    return <StyledOrderedList {...props} />
+  } else {
+    return <StyledUnorderedList {...props} />
   }
 }
 
