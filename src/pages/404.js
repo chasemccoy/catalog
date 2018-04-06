@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'components/Image'
 
 const NotFoundPage = () => (
-  <Page title='404: Not Found'>
+  <Page title="404: Not Found">
     <Image src={`meta/404/surfing-net.gif`} />
     <Image src={`meta/404/internet-party.gif`} />
     <Image src={`meta/404/dialup.gif`} />

@@ -34,16 +34,14 @@ const TOCItem = styled.span`
 `
 
 const TableOfContents = props => {
-	return (
+  return (
     <Container>
       Jump to:
-      {props.items.map((item, index) =>
+      {props.items.map((item, index) => (
         <TOCItem key={index}>
-          <Link to={`#${item}`}>
-            {capitalize(item)}
-          </Link>
+          <Link to={`#${item}`}>{capitalize(item)}</Link>
         </TOCItem>
-      )}
+      ))}
     </Container>
   )
 }

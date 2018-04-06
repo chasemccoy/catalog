@@ -27,10 +27,12 @@ const LibraryCard = styled(Card)`
 const LibraryCardTitle = styled.h3`
   margin-bottom: 8px;
 
-  ${props => props.media && `
+  ${props =>
+    props.media &&
+    `
     font-size: 2rem;
     font-weight: ${fontWeights.heavy};
-  `}
+  `};
 `
 
 const LibraryCardSubtitle = styled.h3`
@@ -46,23 +48,23 @@ const LibraryItemPreviewImage = styled(Image)`
 const LibrarySectionCard = styled(Card)`
   margin-bottom: 24px;
   text-align: center;
-  ${'' /* color: ${colors.text.heading} !important; */}
-  font-weight: ${fontWeights.semibold};
+  ${'' /* color: ${colors.text.heading} !important; */} font-weight: ${fontWeights.semibold};
   padding: 12px;
 
-  &, &:hover {
+  &,
+  &:hover {
     color: ${colors.primary.blue} !important;
-    background-color: #F5FAFF;
+    background-color: #f5faff;
     border: none;
     box-shadow: none;
   }
 `
 
 const Library = props => {
-  const data = props.preview ? props.data.slice(0, 4) : props.data;
+  const data = props.preview ? props.data.slice(0, 4) : props.data
 
-  const calculateWidth = (mediaWidth) => {
-    return mediaWidth.map((value) => {
+  const calculateWidth = mediaWidth => {
+    return mediaWidth.map(value => {
       const width = value == 1 ? 1 : 1 - value
       return width
     })
@@ -70,40 +72,50 @@ const Library = props => {
 
   if (props.preview) {
     return (
-      <Row align='flex-end' {...props}>
-        {data.map(({node}, i) =>
-					<Column width={[1/2, 1/4]} key={i}>
-						{node.image && <LibraryItemPreviewImage src={`/${node.image}`} sizes={node.image.childImageSharp && node.image.childImageSharp.sizes} />}
-					</Column>
-  			)}
+      <Row align="flex-end" {...props}>
+        {data.map(({ node }, i) => (
+          <Column width={[1 / 2, 1 / 4]} key={i}>
+            {node.image && (
+              <LibraryItemPreviewImage
+                src={`/${node.image}`}
+                sizes={
+                  node.image.childImageSharp && node.image.childImageSharp.sizes
+                }
+              />
+            )}
+          </Column>
+        ))}
 
         <Column width={1}>
-					<LibrarySectionCard to={props.section} highlight>See More</LibrarySectionCard>
-				</Column>
+          <LibrarySectionCard to={props.section} highlight>
+            See More
+          </LibrarySectionCard>
+        </Column>
       </Row>
     )
-  }
-  else {
+  } else {
     return (
       <div>
-  			{data.map(({node}, i) =>
+        {data.map(({ node }, i) => (
           <LibraryCard to={node.url} key={i}>
-    				<div className='clear'>
-              {node.image &&
-      					<Float width={props.mediaWidth || [1, 1/4]}>
-      						<Image sizes={node.image.childImageSharp.sizes}/>
-      					</Float>
-              }
+            <div className="clear">
+              {node.image && (
+                <Float width={props.mediaWidth || [1, 1 / 4]}>
+                  <Image sizes={node.image.childImageSharp.sizes} />
+                </Float>
+              )}
 
-    						<LibraryCardTitle>{node.title}</LibraryCardTitle>
+              <LibraryCardTitle>{node.title}</LibraryCardTitle>
 
-    						{node.metadata && <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>}
+              {node.metadata && (
+                <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>
+              )}
 
-    						<Markdown>{node.description}</Markdown>
-    				</div>
+              <Markdown>{node.description}</Markdown>
+            </div>
           </LibraryCard>
-  			)}
-  		</div>
+        ))}
+      </div>
     )
   }
 }

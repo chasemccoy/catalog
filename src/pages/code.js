@@ -18,7 +18,7 @@ const TwoColumns = styled(List)`
   ${media.tiny`
     column-count: 1;
     column-width: 100%;
-  `}
+  `};
 `
 
 const RepositoryListItem = styled.li`
@@ -31,7 +31,7 @@ const RepositoryListItem = styled.li`
 
     ${media.tiny`
       margin-bottom: 24px;
-    `}
+    `};
   }
 `
 
@@ -60,27 +60,34 @@ const StarredRepository = props => (
       <Link to={props.repository.url}>
         <h3>{props.repository.name}</h3>
 
-        {<P m={0} color='gray.1'>
-          {props.repository.description}
-        </P>}
+        {
+          <P m={0} color="gray.1">
+            {props.repository.description}
+          </P>
+        }
 
-        {<P color='gray.2' fontSize={14}>
-          {props.repository.owner.login}
-        </P>}
+        {
+          <P color="gray.2" fontSize={14}>
+            {props.repository.owner.login}
+          </P>
+        }
       </Link>
     </Container>
   </RepositoryListItem>
 )
 
-const CodePage = ({data}) => {
+const CodePage = ({ data }) => {
   return (
-    <Page icon='code' title='Code'>
-      <P mb={8}>Some of my favorite open sourced projects (sourced from my starred repositories on GitHub).</P>
+    <Page icon="code" title="Code">
+      <P mb={8}>
+        Some of my favorite open sourced projects (sourced from my starred
+        repositories on GitHub).
+      </P>
 
       <Divider mb={8} />
 
       <TwoColumns plain>
-        {data.starredRepositories.edges.map(({node}, i) => (
+        {data.starredRepositories.edges.map(({ node }, i) => (
           <StarredRepository repository={node} key={i} />
         ))}
       </TwoColumns>

@@ -5,23 +5,23 @@ import Image from 'components/Image'
 import { colors, fontWeights } from 'utils/design'
 
 const Container = styled.div`
-	background-color: ${colors.primary.gray.light};
-	border-radius: 12px;
+  background-color: ${colors.primary.gray.light};
+  border-radius: 12px;
   padding: 12px 16px 8px 16px;
 `
 
- const Grid = styled.ul`
+const Grid = styled.ul`
   display: flex;
   list-style: none;
   white-space: nowrap;
   margin: 0;
   overflow-x: scroll;
-	-webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   padding: 0 0 8px 0;
- `
+`
 
 const Header = styled.h2.attrs({
-	className:  'sans'
+  className: 'sans',
 })`
   font-size: 14px;
   color: ${colors.text.muted};
@@ -32,57 +32,57 @@ const Header = styled.h2.attrs({
 `
 
 const Item = styled.li`
-	display: flex;
-	flex: 0 0 auto;
-	max-width: 24rem;
-	white-space: normal;
-	margin: 0;
-	font-weight: ${fontWeights.medium};
-	align-items: center;
-	position: relative;
-	padding-right: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  max-width: 24rem;
+  white-space: normal;
+  margin: 0;
+  font-weight: ${fontWeights.medium};
+  align-items: center;
+  position: relative;
+  padding-right: 16px;
 
-	& + & {
-		margin-left: 32px;
-	}
+  & + & {
+    margin-left: 32px;
+  }
 
-	a {
-		text-decoration: none;
-	}
+  a {
+    text-decoration: none;
+  }
 
-	&:after {
-		content: "";
-		position: absolute;
-		right: 0;
-		height: 80%;
-		width: 2px;
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 80%;
+    width: 2px;
     border-radius: 1px;
-		background-color: ${colors.primary.gray.medium};
-	}
+    background-color: ${colors.primary.gray.medium};
+  }
 
-	&:last-child:after {
-		content: none;
-	}
+  &:last-child:after {
+    content: none;
+  }
 `
 
 const ImageContainer = styled.div`
-	min-width: 96px;
-	max-width: 96px;
-	padding-right: 16px;
+  min-width: 96px;
+  max-width: 96px;
+  padding-right: 16px;
 `
 
 const Content = styled.div`
-	display: flex;
-	flex-direction: column;
-	min-height: 60%;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  min-height: 60%;
+  justify-content: space-between;
 
-	span {
-		color: ${colors.text.muted};
-		text-transform: uppercase;
-		font-size: 12px;
-		letter-spacing: 2px;
-	}
+  span {
+    color: ${colors.text.muted};
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
 `
 
 const QuickLinks = props => (
@@ -90,10 +90,17 @@ const QuickLinks = props => (
     <Header>Quick Links</Header>
 
     <Grid>
-      {props.data.map(({node}, i) => (
+      {props.data.map(({ node }, i) => (
         <Item key={i}>
           <ImageContainer>
-            {node.preview_url && <Image cover src={node.preview_url} alt={node.title} to={node.link} />}
+            {node.preview_url && (
+              <Image
+                cover
+                src={node.preview_url}
+                alt={node.title}
+                to={node.link}
+              />
+            )}
           </ImageContainer>
 
           <Content>

@@ -2,9 +2,9 @@ import Library from 'components/Library'
 import Page from 'components/Page'
 import React from 'react'
 
-const MoviesPage = ({data}) => {
+const MoviesPage = ({ data }) => {
   return (
-    <Page title='Movies' icon='movie'>
+    <Page title="Movies" icon="movie">
       {/* <Library data={data.movies.edges} /> */}
     </Page>
   )
