@@ -1,8 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { width, color } from 'styled-system'
+import { width, color, space } from 'styled-system'
 
 export const P = styled.p`
 	${width}
+	${color}
+	${space}
+`
+
+export const Span = styled.span`
 	${color}
 `

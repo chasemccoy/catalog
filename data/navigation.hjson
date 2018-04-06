@@ -33,6 +33,10 @@
 	{
 		title: Apps
 		url: /apps
+	},
+	{
+		title: Code
+		url: /code
 	}
 	{
 		"title": "Portfolio",

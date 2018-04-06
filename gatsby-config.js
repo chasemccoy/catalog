@@ -213,11 +213,27 @@ module.exports = {
         queries: [
           `{
             user(login: "chasemccoy") {
-              starredRepositories(last: 20) {
+              starredRepositories(first: 100, orderBy: {field: STARRED_AT, direction: DESC}) {
                 edges {
                   node {
-                    id
                   	name
+                    url
+                    description
+                    repositoryTopics(last: 5) {
+                      edges {
+                        node {
+                          id
+                          topic {
+                            id
+                            name
+                          }
+                        }
+                      }
+                    }
+                    owner {
+                    	id
+                      login
+                    }
                   }
                 }
               }
