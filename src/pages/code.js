@@ -7,8 +7,10 @@ import { Link } from 'components/Components'
 import { media } from 'utils/media'
 import { colors } from 'utils/design'
 import { P, Span } from 'components/Base'
+import Divider from 'components/Divider'
 
-const TwoColumns = styled.div`
+const TwoColumns = styled(List)`
+  display: block;
   column-count: 2;
   column-gap: 40px;
   column-width: 50%;
@@ -22,9 +24,14 @@ const TwoColumns = styled.div`
 const RepositoryListItem = styled.li`
   display: block !important;
   padding: 0 !important;
+  break-inside: avoid;
 
   & + & {
     margin-bottom: 16px;
+
+    ${media.tiny`
+      margin-bottom: 24px;
+    `}
   }
 `
 
@@ -43,7 +50,7 @@ const Container = styled.div`
   }
 
   h3 {
-    margin: 0;
+    margin: 0 0 4px;
   }
 `
 
@@ -57,7 +64,7 @@ const StarredRepository = props => (
           {props.repository.description}
         </P>}
 
-        {<P color='gray.2'>
+        {<P color='gray.2' fontSize={14}>
           {props.repository.owner.login}
         </P>}
       </Link>
@@ -67,15 +74,15 @@ const StarredRepository = props => (
 
 const CodePage = ({data}) => {
   return (
-    <Page title='Code'>
-      <P>Some of my favorite open sourced projects (sourced from my starred repositories on GitHub).</P>
+    <Page icon='code' title='Code'>
+      <P mb={8}>Some of my favorite open sourced projects (sourced from my starred repositories on GitHub).</P>
 
-      <TwoColumns>
-        <List plain>
-          {data.starredRepositories.edges.map(({node}, i) => (
-            <StarredRepository repository={node} key={i} />
-          ))}
-        </List>
+      <Divider mb={8} />
+
+      <TwoColumns plain>
+        {data.starredRepositories.edges.map(({node}, i) => (
+          <StarredRepository repository={node} key={i} />
+        ))}
       </TwoColumns>
     </Page>
   )
