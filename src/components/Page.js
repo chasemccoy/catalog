@@ -24,7 +24,7 @@ const PageTitle = styled.h2`
 `
 
 const Page = props => (
-	<PageContainer {...props}>
+	<PageContainer {...props} title=''>
 		{props.title && (
 			<PageTitle>
 				{props.icon && <Icon large name={props.icon} /> }
