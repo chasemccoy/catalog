@@ -1,6 +1,4 @@
-// require('dotenv').config();
-
-const dotenv = require('dotenv').config();
+onst dotenv = require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -210,7 +208,7 @@ module.exports = {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
-          Authorization: `Bearer ${dotenv.parsed.GITHUB_ACCESS_TOKEN || process.env.GITHUB_ACCESS_TOKEN}`,
+          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
         },
         queries: [
           `{
