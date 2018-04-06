@@ -36,6 +36,10 @@ const StyledUnorderedList = styled.ul`
     color: currentColor;
 
     ${props => props.highlight && `content: none;`}
+
+    ${props => props.plain && `
+      display: none;
+    `}
   }
 
   > * > *:not(li, a) {
@@ -45,7 +49,7 @@ const StyledUnorderedList = styled.ul`
       margin-left: 0;
   	`}
 
-    ${props => props.highlight && `margin-left: 0;`}
+    ${props => (props.highlight || props.plain) && `margin-left: 0;`}
   }
 `
 

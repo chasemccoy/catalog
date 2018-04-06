@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { sizes } from './design'
+import { sizes } from 'utils/design'
 
 // iterate through the sizes and create a media template
 export const media = Object.keys(sizes.breakpoints).reduce((accumulator, label) => {
