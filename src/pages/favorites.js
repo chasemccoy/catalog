@@ -90,5 +90,23 @@ export const query = graphql`
         }
       }
     }
+
+    apps: allAppsHJson(sort: { fields: [title], order: ASC }) {
+      edges {
+        node {
+          title
+          metadata
+          description
+          url
+          image {
+            childImageSharp {
+              sizes(maxWidth: 900, toFormat: PNG) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
