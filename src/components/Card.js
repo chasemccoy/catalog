@@ -30,7 +30,7 @@ const linkShadow = () => {
 const DivCard = styled.div`
   display: block;
   min-height: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: ${sizes.card.padding.large};
   background-color: ${props =>
     props.highlight ? colors.card.background : 'white'};

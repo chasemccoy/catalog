@@ -29,7 +29,7 @@ const PostContainer = Container.extend`
   background-color: ${colors.primary.lightBlue};
   padding: 16px 20px;
   border-radius: 8px;
-  color: ${colors.text.muted};
+  color: ${colors.card.text};
 `
 
 const Title = styled.h3`
