@@ -70,5 +70,21 @@
     description: Marz is not only my favorite Chicago brewery, but is also one of the most well designed businesses in the city (they partner with the excellent Franklyn design firm for a lot of their stuff). Located in the eclectic Bridgeport neightborhood, the newly opened taproom is as beautiful as the beer is tasty. Spend an afternoon here drinking their beer and tasting the equally excellent grub.
     url: http://marzbrewing.com
     image: chicago/marz.jpg
+  },
+  {
+    title: Purple Llama
+    category: coffee
+    metadata: 2140 W Division
+    description: Another great coffee shop on Division. Purple Llama is a coffee shop and record store (of course) that makes probably one of the best cups in the city. These folks are _really_ into coffee. Small space, patio when it's warm, a little out of the way. Come get a flight of coffee from a variety of rotating roasters, some delicious toast and jam, and chill for an afternoon.
+    url: http://purplellamachicago.com
+    image: chicago/purplellama.jpg
+  },
+  {
+    title: Kimski
+    category: food
+    metadata: 954-960 W 31st
+    description: We don't deserve to have Kimski. It's too pure for this world. Especially since it is connected to one of Chicago's best bars, Maria's (see above). Kimski blends Korean and Polish influences together to create some of the best food in the city. And they are always mixing up their menu with new specials (hello pizza puff burger). Eat here as often as you can. 
+    url: http://kimskichicago.com
+    image: chicago/kimski.jpg
   }
 ]

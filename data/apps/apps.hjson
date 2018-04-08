@@ -11,5 +11,11 @@
 		description: The best writing app out there. Ulysses is available for iPhone, iPad, and Mac, and it's great on every platform. The app not only offers a great writing environment, but also has some great tools for organizing your documents. And, of course, it keep severything in sync across your devices.
 		url: https://ulyssesapp.com
 		image: ulysses.png
+	},
+	{
+		title: Fantastical
+		description: Fantastical is the best calendar app out there. The highlight feature is its excellent natural language input mechanism for adding calendar events. Just type in a description of the event and when it's happening and Fantastical will fill in the details as you type. My favorite way to use the app is via the menu bar app on the Mac.
+		url: https://flexibits.com/fantastical
+		image: fantastical.png
 	}
 ]

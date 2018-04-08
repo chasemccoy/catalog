@@ -79,12 +79,12 @@ const StarredRepository = props => (
 const CodePage = ({ data }) => {
   return (
     <Page icon="code" title="Code">
-      <P mb={8}>
+      <P mb={6}>
         Some of my favorite open sourced projects (sourced from my starred
         repositories on GitHub).
       </P>
 
-      <Divider mb={8} />
+      <Divider mb={6} />
 
       <TwoColumns plain>
         {data.starredRepositories.edges.map(({ node }, i) => (
