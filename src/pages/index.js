@@ -1,10 +1,9 @@
-import { Column, Row } from 'components/Grid'
-import { Link } from 'components/Components'
-import { colors, fontWeights } from 'utils/design'
-import Page from 'components/Page'
-import StatCard from 'components/StatCard'
 import React from 'react'
 import styled from 'styled-components'
+import { Column, Row } from 'components/Grid'
+import { Link } from 'components/Components'
+import Page from 'components/Page'
+import StatCard from 'components/StatCard'
 import Markdown from 'components/Markdown'
 import Image from 'components/Image'
 import { fontWeight, themeGet } from 'styled-system'
@@ -13,6 +12,7 @@ import Divider from 'components/Divider'
 import { BlogHeader } from 'components/Components'
 import Icon from 'components/Icon'
 import { Flex } from 'grid-styled'
+import { colors, fontWeights } from 'utils/design'
 
 const PageTitle = styled.h1`
   margin: 0;
@@ -42,19 +42,17 @@ const PostLink = styled(Link)`
   }
 `
 
-export const Highlight = styled.span`
+const Highlight = styled.span`
   background-color: ${themeGet('colors.highlight')};
   ${fontWeight};
 `
 
-export const NoUnderlineLink = styled.div`
-  a {
-    text-decoration: none;
-  }
+const NoUnderlineLink = styled(Link)`
+  text-decoration: none;
 `
 
 const Content = props => (
-  <Row mx={[-16, -32]}>
+  <Row mx={[-16, -32]} mt={4}>
     {props.children.map((item, i) => (
       <Column
         width={[1, item.props.width || 1 / 3]}
@@ -140,12 +138,10 @@ class IndexPage extends React.Component {
           <Column width={[1, 1, 1 / 2, 1 / 3]} px={[6]}>
             <Row mb={[8, 7]}>
               <Column width={[1, 3 / 4, 1]}>
-                <NoUnderlineLink>
-                  <Link to="/thoughts">
-                    <BlogHeader mb={0}>
-                      <Icon small name="thought" /> Recent Thoughts
-                    </BlogHeader>
-                  </Link>
+                <NoUnderlineLink to="/thoughts">
+                  <BlogHeader mb={0}>
+                    <Icon small name="thought" /> Recent Thoughts
+                  </BlogHeader>
                 </NoUnderlineLink>
 
                 <div>
@@ -174,12 +170,10 @@ class IndexPage extends React.Component {
           <Column width={[1, 1, 1 / 2, 2 / 3]} px={[6]} mt={[8, 8, 0]}>
             <Row>
               <Column width={1}>
-                <NoUnderlineLink>
-                  <Link to="/thoughts#images">
-                    <BlogHeader mb={0}>
-                      <Icon small name="image" /> Recent Images
-                    </BlogHeader>
-                  </Link>
+                <NoUnderlineLink to="/thoughts#images">
+                  <BlogHeader mb={0}>
+                    <Icon small name="image" /> Recent Images
+                  </BlogHeader>
                 </NoUnderlineLink>
               </Column>
 
@@ -213,16 +207,14 @@ class IndexPage extends React.Component {
 
             <Row>
               <Column width={1}>
-                <NoUnderlineLink>
-                  <Link to="/quotes">
-                    {this.props.data.quotes.edges.map(({ node }, i) => (
-                      <Quote
-                        content={node.content}
-                        source={node.metadata}
-                        key={i}
-                      />
-                    ))}
-                  </Link>
+                <NoUnderlineLink to="/quotes">
+                  {this.props.data.quotes.edges.map(({ node }, i) => (
+                    <Quote
+                      content={node.content}
+                      source={node.metadata}
+                      key={i}
+                    />
+                  ))}
                 </NoUnderlineLink>
               </Column>
             </Row>
@@ -231,7 +223,6 @@ class IndexPage extends React.Component {
 
         <Content>
           <StatCard
-            // to='http://sproutsocial.com'
             title="Sprout Social"
             color="#59CB59"
             subtitle="Day Job"
@@ -258,12 +249,6 @@ class IndexPage extends React.Component {
             subtitle="Currently Drinking"
             description={this.state.beerBrewery}
           />
-
-          {/* <StatCard subtitle='Recent Thoughts'>
-            {this.props.data.posts.edges.map(({node}) => (
-              <PostLink to={node.slug}>{node.title}</PostLink>
-            ))}
-          </StatCard> */}
 
           <StatCard
             large

@@ -16,29 +16,6 @@ exports.onCreateNode = async ({ node, getNode, boundActionCreators, store, cache
 			createNodeField({node, name: 'parent', value: `/${slugArray[1]}`})
 		}
 	}
-	// else if (node.internal.owner === `gatsby-transformer-hjson`) {
-	// 	if (node.image) {
-	// 		let fileNode
-	//
-	// 		try {
-	// 			fileNode = await createRemoteFileNode({
-	// 				url: `http://chasem.co/${node.image}`,
-	// 				store,
-	// 				cache,
-	// 				createNode
-	// 			})
-	//
-	// 			console.log(fileNode);
-	// 		}
-	// 		catch (e) {
-	// 			// Ignore
-	// 		}
-	//
-	// 		if (fileNode) {
-  //       node.localFile___NODE = fileNode.id
-  //     }
-	// 	}
-	// }
 }
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
