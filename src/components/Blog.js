@@ -52,7 +52,7 @@ const Content = styled.div`
   }
 
   &:before {
-    ${'' /* content: "●"; */} position: absolute;
+    position: absolute;
     margin-left: -24px;
     color: ${colors.bookmark.border.inner};
     font-weight: ${fontWeights.heavy};

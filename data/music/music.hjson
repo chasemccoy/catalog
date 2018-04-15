@@ -1,23 +1,26 @@
 [
-	{
-		"title": "Mind Over Matter",
-		"metadata": "Young the Giant",
-		"description": "Young the Giant have become one of my favorite groups, and they don't get nearly enough credit. *Mind Over Matter* is a great album, and their other two records are great as well.",
-		"url": "https://open.spotify.com/artist/4j56EQDQu5XnL7R3E9iFJT",
-		"image": "mind-over-matter.jpg"
-	},
-	{
-		"title": "Viva La Vida Or Death And All His Friends",
-		"metadata": "Coldplay",
-		"description": "Coldplay gets a lot of hate, but I love their music and lyrics. Then again, I'm a hopeless romantic. *Viva* is Coldplay at their best. See them live if you can.",
-		"url": "https://open.spotify.com/album/1CEODgTmTwLyabvwd7HBty",
-		"image": "viva.jpg"
-	},
-	{
-		"title": "What Went Down",
-		"metadata": "Foals",
-		"description": "You should check out _all_ of their music, but _What Went Down_ is a great starting point for Foals. They started back in 2005 in the UK and have been slowing bleeding into America. They are probably in my top 5 new groups of the past decade or so. Be sure to check out _Birch Tree_ and _Lonely Hunter_.",
-		"url": "https://open.spotify.com/artist/6FQqZYVfTNQ1pCqfkwVFEa?si=TUdQdJbUSZGy200ofWlAiw",
-		"image": "what-went-down.jpg"
-	}
+  {
+    title: Mind Over Matter
+    metadata: Young the Giant
+    description: Young the Giant have become one of my favorite groups, and they don't get nearly enough credit. *Mind Over Matter* is a great album, and their other two records are great as well.
+    url: https://open.spotify.com/album/3cSzKBfylctgJwqorcNEo2
+		spotify: 3cSzKBfylctgJwqorcNEo2
+    image: mind-over-matter.jpg
+  }
+  {
+    title: Viva La Vida Or Death And All His Friends
+    metadata: Coldplay
+    description: Coldplay gets a lot of hate, but I love their music and lyrics. Then again, I'm a hopeless romantic. *Viva* is Coldplay at their best. See them live if you can.
+    url: https://open.spotify.com/album/1CEODgTmTwLyabvwd7HBty
+		spotify: 1CEODgTmTwLyabvwd7HBty
+    image: viva.jpg
+  }
+  {
+    title: What Went Down
+    metadata: Foals
+    description: You should check out _all_ of their music, but _What Went Down_ is a great starting point for Foals. They started back in 2005 in the UK and have been slowing bleeding into America. They are probably in my top 5 new groups of the past decade or so. Be sure to check out _Birch Tree_ and _Lonely Hunter_.
+    url:https://open.spotify.com/album/4uIDigk79DeZEYV6Z5Yf4s
+		spotify: 4uIDigk79DeZEYV6Z5Yf4s
+    image: what-went-down.jpg
+  }
 ]

@@ -25,17 +25,11 @@ const LibraryCard = styled(Card)`
 `
 
 const LibraryCardTitle = styled.h3`
-  margin-bottom: 8px;
-
-  ${props =>
-    props.media &&
-    `
-    font-size: 2rem;
-    font-weight: ${fontWeights.heavy};
-  `};
+  margin-bottom: 6px;
 `
 
 const LibraryCardSubtitle = styled.h3`
+  font-size: 18px;
   margin-bottom: 12px;
   font-weight: normal;
   color: ${colors.text.muted};
@@ -58,6 +52,11 @@ const LibrarySectionCard = styled(Card)`
     border: none;
     box-shadow: none;
   }
+`
+
+const SpotifyEmbed = styled.iframe`
+  border: none;
+  margin: 0;
 `
 
 const Library = props => {
@@ -99,7 +98,21 @@ const Library = props => {
         {data.map(({ node }, i) => (
           <LibraryCard to={node.url} key={i}>
             <div className="clear">
-              {node.image && (
+              {node.spotify && (
+                <Float width={[1, '350px']}>
+                  <SpotifyEmbed
+                    src={`https://open.spotify.com/embed?uri=spotify:album:${node.spotify}`}
+                    height='280'
+                    width='350'
+                    frameborder="0"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                    key={i}
+                  />
+                </Float>
+              )}
+
+              {node.image && !node.spotify && (
                 <Float width={props.mediaWidth || [1, 1 / 4]}>
                   <Image sizes={node.image.childImageSharp.sizes} />
                 </Float>
@@ -108,10 +121,22 @@ const Library = props => {
               <LibraryCardTitle>{node.title}</LibraryCardTitle>
 
               {node.metadata && (
-                <LibraryCardSubtitle>{node.metadata}</LibraryCardSubtitle>
+                <LibraryCardSubtitle className='sans'>{node.metadata}</LibraryCardSubtitle>
               )}
 
               <Markdown>{node.description}</Markdown>
+
+              {/* {node.spotify && (
+                <SpotifyEmbed
+                  src={`https://open.spotify.com/embed?uri=spotify:album:${node.spotify}`}
+                  height='380'
+                  width='300'
+                  frameborder="0"
+                  allowtransparency="true"
+                  allow="encrypted-media"
+                  key={i}
+                />
+              )} */}
             </div>
           </LibraryCard>
         ))}

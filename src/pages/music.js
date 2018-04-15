@@ -1,7 +1,7 @@
-import Library from 'components/Library'
-import Page from 'components/Page'
 import React from 'react'
 import styled from 'styled-components'
+import Library from 'components/Library'
+import Page from 'components/Page'
 
 const MusicPage = ({ data }) => {
   return (
@@ -22,13 +22,7 @@ export const query = graphql`
           metadata
           description
           url
-          image {
-            childImageSharp {
-              sizes(maxWidth: 900) {
-                ...GatsbyImageSharpSizes
-              }
-            }
-          }
+          spotify
         }
       }
     }

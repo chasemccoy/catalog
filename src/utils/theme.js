@@ -1,13 +1,16 @@
-const breakpoints = ['500px', '700px', '1000px', '1300px']
+const breakpoints = [
+  '500px', // tiny
+  '700px', // small
+  '1000px', // medium
+  '1300px' // large
+]
 
 const colors = {
   text: '#024',
-  blue: '#07c',
-  // nested objects work as well
-  dark: {
-    blue: '#058',
+  blue: {
+    light: '#07C',
+    dark: '#058'
   },
-  // arrays can be used for scales of colors
   gray: ['#333', '#666', '#999', '#ccc', '#eee', '#f6f6f6'],
   highlight: '#FFF67F',
 }
