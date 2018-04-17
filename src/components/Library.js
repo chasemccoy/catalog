@@ -42,7 +42,7 @@ const LibraryItemPreviewImage = styled(Image)`
 const LibrarySectionCard = styled(Card)`
   margin-bottom: 24px;
   text-align: center;
-  ${'' /* color: ${colors.text.heading} !important; */} font-weight: ${fontWeights.semibold};
+  font-weight: ${fontWeights.semibold};
   padding: 12px;
 
   &,
@@ -103,7 +103,7 @@ const Library = props => {
                   <SpotifyEmbed
                     src={`https://open.spotify.com/embed?uri=spotify:album:${node.spotify}`}
                     height='280'
-                    width='350'
+                    width='100%'
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
@@ -125,18 +125,6 @@ const Library = props => {
               )}
 
               <Markdown>{node.description}</Markdown>
-
-              {/* {node.spotify && (
-                <SpotifyEmbed
-                  src={`https://open.spotify.com/embed?uri=spotify:album:${node.spotify}`}
-                  height='380'
-                  width='300'
-                  frameborder="0"
-                  allowtransparency="true"
-                  allow="encrypted-media"
-                  key={i}
-                />
-              )} */}
             </div>
           </LibraryCard>
         ))}
