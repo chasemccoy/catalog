@@ -33,7 +33,10 @@ const TimelineContainer = styled.section`
 
 const TimelineListItem = styled.li`
   margin-bottom: 32px;
-  ${media.small`margin-bottom: 48px;`} &:after {
+  ${media.small`margin-bottom: 48px;`}
+  font-family: ${props => props.theme.fontFamily.body};
+
+  &:after {
     content: '';
     position: absolute;
     left: calc(50% + ${sizes.timeline.lineWidth} / 2);

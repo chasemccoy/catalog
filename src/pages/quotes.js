@@ -31,6 +31,7 @@ const Source = styled.h3`
   display: flex;
   align-items: center;
   ${space};
+  font-family: ${props => props.theme.fontFamily.body};
 `
 
 const Dropcap = styled.span`

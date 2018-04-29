@@ -93,6 +93,7 @@ const BlogPage = ({ data, pathContext }) => {
                 title={node.title}
                 to={node.slug}
                 date={node.date}
+                content={node.content}
                 excerpt={node.excerpt}
               />
             )}

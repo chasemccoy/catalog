@@ -17,7 +17,9 @@ import { colors, fontWeights } from 'utils/design'
 const PageTitle = styled.h1`
   margin: 0;
   font-weight: ${fontWeights.normal};
-  letter-spacing: -1px;
+  ${'' /* letter-spacing: -1px; */}
+  line-height: 1.5;
+  font-family: ${props => props.theme.fontFamily.body};
 `
 
 const PostLink = styled(Link)`
@@ -27,6 +29,7 @@ const PostLink = styled(Link)`
   margin-top: 16px;
   font-size: 16px;
   line-height: 1.5;
+  font-family: ${props => props.theme.fontFamily.body};
 
   & + &:before {
     content: '';
@@ -124,7 +127,7 @@ class IndexPage extends React.Component {
 
     return (
       <Page>
-        <Row mb={8}>
+        <Row mb={7}>
           <Column width={[1]}>
             <PageTitle>
               <Highlight fontWeight="bold">Chase McCoy</Highlight> is a design
@@ -271,7 +274,7 @@ class IndexPage extends React.Component {
               [micro](https://github.com/zeit/micro), and [now](http://now.sh).
               Headings are set in
               [Karla](https://fonts.google.com/specimen/Karla), and the body is
-              set in your device's default typeface.
+              set in [Merriweather](https://fonts.google.com/specimen/Merriweather) or your device's default typeface.
             </Markdown>
           </StatCard>
         </Content>

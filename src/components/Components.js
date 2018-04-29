@@ -6,6 +6,8 @@ import { space } from 'styled-system'
 
 injectGlobal`
 	@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+	@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i');
+	
 
 	* {
 		box-sizing: border-box;

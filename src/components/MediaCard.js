@@ -44,6 +44,7 @@ const Description = styled.div`
   color: ${colors.card.text};
   margin-top: 8px;
   margin-bottom: ${props => (props.bottom || props.split ? `0` : `12px`)};
+  font-family: ${props => props.theme.fontFamily.body};
 `
 
 const FlexImage = styled(Image)`
