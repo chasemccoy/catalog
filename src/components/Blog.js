@@ -57,7 +57,7 @@ const Content = styled.div`
   }
 
   a {
-    font-weight: ${fontWeights.medium} !important;
+    font-weight: ${fontWeights.bold} !important;
   }
 `
 

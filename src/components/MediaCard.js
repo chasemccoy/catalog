@@ -27,14 +27,16 @@ const Container = styled(Card)`
 const Title = styled.h2`
   font-weight: ${fontWeights.bold};
   margin: 16px 0 0 0;
+  font-family: ${props => props.theme.fontFamily.body};
 
-  ${props => props.small && `margin-top: 0;`} ${props =>
-      props.medium && `font-size: 1.5em;`} ${props =>
-      props.large &&
-      `
+  ${props => props.small && `margin-top: 0;`}
+  ${props => props.medium && `font-size: 1.5em;`}
+  ${props =>props.large && `
     font-size: 2.2rem;
     margin-top: 0;
-  `} ${media.tiny`
+  `}
+
+  ${media.tiny`
     font-size: 1.5em;
     margin-top: 16px;
   `};
@@ -44,7 +46,6 @@ const Description = styled.div`
   color: ${colors.card.text};
   margin-top: 8px;
   margin-bottom: ${props => (props.bottom || props.split ? `0` : `12px`)};
-  font-family: ${props => props.theme.fontFamily.body};
 `
 
 const FlexImage = styled(Image)`
