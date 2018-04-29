@@ -10,7 +10,7 @@ export default ({ data }) => {
     <Page narrow title={post.title}>
       <Helmet title={`${post.title || post.slug} | Chase McCoy`} />
 
-      <Post content={post.content} date={post.date} />
+      <Post content={post.content} date={post.date} aside={post.format === 'aside'} />
     </Page>
   )
 }

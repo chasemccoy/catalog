@@ -3,8 +3,9 @@ import { colors } from 'utils/design'
 
 const typography = new Typography({
   baseFontSize: '17px',
-  baseLineHeight: 1.6,
+  baseLineHeight: 1.5,
   bodyFontFamily: [
+    'Karla',
     '-apple-system',
     'BlinkMacSystemFont',
     'Segoe UI',

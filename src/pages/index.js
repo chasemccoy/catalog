@@ -271,10 +271,7 @@ class IndexPage extends React.Component {
             <Markdown>
               This site is built using [Gatsby](https://www.gatsbyjs.org),
               [styled-components](https://www.styled-components.com),
-              [micro](https://github.com/zeit/micro), and [now](http://now.sh).
-              Headings are set in
-              [Karla](https://fonts.google.com/specimen/Karla), and the body is
-              set in [Merriweather](https://fonts.google.com/specimen/Merriweather) or your device's default typeface.
+              [micro](https://github.com/zeit/micro), [now](http://now.sh), and [Netlify](https://www.netlify.com). [Karla](https://fonts.google.com/specimen/Karla) and [Merriweather](https://fonts.google.com/specimen/Merriweather) are the current typefaces.
             </Markdown>
           </StatCard>
         </Content>

@@ -37,6 +37,7 @@ const ChicagoPage = ({ data }) => {
             <Mosaic>
               {data.chicago.edges
                 .filter(({ node }) => node.category === category)
+                .sort((a, b) => a.node.title < b.node.title ? -1 : 1)
                 .map(({ node }, i) => (
                   <MediaCard
                     title={node.title}

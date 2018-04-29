@@ -83,8 +83,24 @@
     title: Kimski
     category: food
     metadata: 954-960 W 31st
-    description: We don't deserve to have Kimski. It's too pure for this world. Especially since it is connected to one of Chicago's best bars, Maria's (see above). Kimski blends Korean and Polish influences together to create some of the best food in the city. And they are always mixing up their menu with new specials (hello pizza puff burger). Eat here as often as you can. 
+    description: We don't deserve to have Kimski. It's too pure for this world. Especially since it is connected to one of Chicago's best bars, Maria's (see above). Kimski blends Korean and Polish influences together to create some of the best food in the city. And they are always mixing up their menu with new specials (hello pizza puff burger). Eat here as often as you can.
     url: http://kimskichicago.com
     image: chicago/kimski.jpg
+  },
+  {
+    title: Bang Bang Pie and Biscuits
+    category: food
+    metadata: 2051 N California
+    description: The best biscuits in the city, and some pretty great pie as well. Sit out on the patio when it's warm have the biscuit and gravy with a cup of coffee. You will be stuffed afterwards, but you will be happy. Chocolate pecan pie is my favorite. Staff is ridiculously friendly.
+    url: http://bangbangpie.com
+    image: chicago/bangbang.jpg
+  },
+  {
+    title: Don Chema
+    category: food
+    metadata: 2331 N California
+    description: A family-run, tiny joint in Logan Square serving up authentic tex-mex for cheap. Get the tacos and a cold beer, and expect big portions.
+    url: http://chicagodonchema.com
+    image: chicago/donchema.jpg
   }
 ]

@@ -50,7 +50,7 @@ const BlogPage = ({ data, pathContext }) => {
       {posts.map(({ node }, i) => (
         <Row key={i}>
           <Column mb={24} width={1}>
-            {i === 1 && (
+            {i === 2 && (
               <div>
                 <QuickLinks data={data.dropmark.edges} />
                 <Column mt={24} mb={48} width={1}>
@@ -59,7 +59,7 @@ const BlogPage = ({ data, pathContext }) => {
               </div>
             )}
 
-            {i === 2 && (
+            {i === 1 && (
               <div>
                 <BlogHeader id="images">
                   <Icon small name="image" /> Recent Images
