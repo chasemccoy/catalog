@@ -22,10 +22,11 @@ const Container = styled.div`
   `};
 `
 
-const AsideContainer = Container.extend``
+const AsideContainer = styled(Container)``
 
-const PostContainer = Container.extend`
+const PostContainer = styled(Container)`
   font-family: ${props => props.theme.fontFamily.body};
+  line-height: 1.6;
 `
 
 const Title = styled.h2`
