@@ -5,7 +5,6 @@ import List from 'components/Lists'
 import Markdown from 'components/Markdown'
 import Page from 'components/Page'
 import React from 'react'
-import Token from 'components/Token'
 import { colors } from 'utils/design'
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
@@ -18,6 +17,7 @@ const PrinciplesList = styled(List)`
 
 const PrincipleDescription = styled.div`
   color: ${colors.card.text};
+  font-family: ${props => props.theme.fontFamily.body};
 `
 
 const PrincipleLinkHeading = styled(Heading)`

@@ -1,5 +1,4 @@
 import React from 'react'
-
 const ReactMarkdown = require('react-markdown')
 
 class Markdown extends React.Component {

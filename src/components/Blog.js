@@ -1,10 +1,9 @@
-import { colors, fontWeights, sizes } from '../utils/design'
-import { stripTags, truncateExcerpt } from '../utils/js'
-
-import { Link } from 'components/Components'
 import React from 'react'
-import { media } from 'utils/media'
 import styled from 'styled-components'
+import { colors, fontWeights, sizes } from 'utils/design'
+import { stripTags, truncateExcerpt } from 'utils/js'
+import { Link } from 'components/Components'
+import { media } from 'utils/media'
 
 const Container = styled.div`
   margin: 0;
@@ -26,14 +25,11 @@ const Container = styled.div`
 const AsideContainer = Container.extend``
 
 const PostContainer = Container.extend`
-  background-color: ${colors.primary.lightBlue};
-  padding: 16px 20px;
-  border-radius: 8px;
-  color: ${colors.card.text};
+  font-family: ${props => props.theme.fontFamily.body};
 `
 
-const Title = styled.h3`
-  margin-bottom: 8px;
+const Title = styled.h2`
+  margin-bottom: 12px;
 
   a {
     text-decoration: none;
@@ -61,7 +57,7 @@ const Content = styled.div`
   }
 
   a {
-    font-weight: ${fontWeights.semibold} !important;
+    font-weight: ${fontWeights.medium} !important;
   }
 `
 
@@ -75,6 +71,7 @@ const PostMeta = styled.div`
   color: ${colors.text.muted};
   font-weight: ${fontWeights.medium};
   font-size: 12px;
+  font-family: ${props => props.theme.fontFamily.sans};
 
   a {
     text-decoration: none;
@@ -129,7 +126,7 @@ export const Post = props => {
 
   const meta = props.date && <Meta date={props.date} permalink={props.to} />
 
-  if (props.aside || props.content) {
+  if (props.aside) {
     return (
       <AsideContainer>
         {content}
@@ -140,7 +137,7 @@ export const Post = props => {
     return (
       <PostContainer>
         {title}
-        {excerpt}
+        {content}
         {meta}
       </PostContainer>
     )
