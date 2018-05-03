@@ -74,6 +74,10 @@ injectGlobal`
 		display: table;
 		clear: both;
 	}
+
+	.gatsby-img {
+		margin: 0;
+	}
 `
 
 export const Link = props => {

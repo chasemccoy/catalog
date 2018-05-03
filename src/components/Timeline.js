@@ -18,7 +18,7 @@ const TimelineContainer = styled.section`
       top: 0;
       bottom: 0;
       width: ${sizes.timeline.lineWidth};
-      background: ${colors.timeline.line};
+      background: ${colors.primary.gray.dark};
       left: 50%;
 
       ${media.small`left: calc(${sizes.timeline.pointWidth} / 2);`};
@@ -35,6 +35,7 @@ const TimelineListItem = styled.li`
   margin-bottom: 32px;
   ${media.small`margin-bottom: 48px;`}
   font-family: ${props => props.theme.fontFamily.body};
+  line-height: 1.6;
 
   &:after {
     content: '';
@@ -80,9 +81,13 @@ const TimelineListItem = styled.li`
 		`};
   }
 
-  .header,
-  .title {
+  .header {
     margin-bottom: 8px;
+  }
+
+  .title {
+    display: inline;
+    box-shadow: inset 0 -12px 0 0 ${props => props.theme.colors.highlight};
   }
 
   span.type {
@@ -105,9 +110,9 @@ class TimelineItem extends React.Component {
             <span className="date">{this.props.dateRange}</span>
           </h4>
 
-          <h3 className="title">{this.props.title}</h3>
+          <h2 className="title">{this.props.title}</h2>
 
-          <Markdown>{this.props.children}</Markdown>
+          <Markdown mt={3}>{this.props.children}</Markdown>
         </div>
       </TimelineListItem>
     )
