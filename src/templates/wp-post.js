@@ -3,6 +3,12 @@ import { Post } from 'components/Blog'
 import React from 'react'
 import Helmet from 'react-helmet'
 
+const isPhotoset = categories => {
+  return categories.map(category => (
+    Object.values(category).includes('Photoset')
+  )).includes(true)
+}
+
 export default ({ data }) => {
   const post = data.wordpressPost
 
@@ -10,7 +16,12 @@ export default ({ data }) => {
     <Page narrow title={post.title}>
       <Helmet title={`${post.title || post.slug} | Chase McCoy`} />
 
-      <Post content={post.content} date={post.date} aside={post.format === 'aside'} />
+      <Post
+        content={post.content}
+        date={post.date}
+        aside={post.format === 'aside'}
+        photoset={isPhotoset(post.categories)}
+      />
     </Page>
   )
 }
@@ -23,6 +34,9 @@ export const query = graphql`
       format
       date(formatString: "MMMM Do, YYYY")
       slug
+      categories {
+        name
+      }
     }
   }
 `

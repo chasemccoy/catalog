@@ -27,6 +27,12 @@ const AsideContainer = styled(Container)``
 const PostContainer = styled(Container)`
   font-family: ${props => props.theme.fontFamily.body};
   line-height: 1.6;
+
+  ${props => props.photoset && `
+    img {
+      max-width: 145%;
+    }
+  `}
 `
 
 const Title = styled.h2`
@@ -136,7 +142,7 @@ export const Post = props => {
     )
   } else {
     return (
-      <PostContainer>
+      <PostContainer photoset={props.photoset}>
         {title}
         {content}
         {meta}
