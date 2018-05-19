@@ -13,6 +13,9 @@ const colors = {
   },
   gray: ['#333', '#666', '#999', '#ccc', '#eee', '#f6f6f6'],
   highlight: '#FFF67F',
+  text: {
+    muted: '#9EA3A8'
+  }
 }
 
 const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 128, 256, 512]
@@ -31,6 +34,10 @@ const fontFamily = {
     "'-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'",
   serif: "'Karla', 'Georgia', 'serif'",
   body: "'Merriweather', 'Georgia', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'serif'"
+}
+
+const shadows = {
+  light: '0 0 5px rgba(0, 0, 0, 0.1)'
 }
 
 // const letterSpacings = {
@@ -53,6 +60,7 @@ const theme = {
   // letterSpacings,
   radii,
   // borders,
+  shadows
 }
 
 export default theme
