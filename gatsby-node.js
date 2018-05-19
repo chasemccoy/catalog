@@ -92,6 +92,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					          format
 					          content
 					          excerpt
+										categories {
+						          name
+						        }
 						      }
 						    }
 						  }
