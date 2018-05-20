@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { width, height, color, space, fontSize, boxShadow, borderRadius } from 'styled-system'
+import { width, height, color, space, fontSize, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex } from 'styled-system'
 
 export const P = styled.p`
   ${width} ${color} ${space} ${fontSize};
@@ -16,4 +16,9 @@ export const Box = styled.div`
   ${height}
   ${boxShadow}
   ${borderRadius}
+  ${display}
+  ${justifyContent}
+  ${alignItems}
+  ${flexWrap}
+  ${flex}
 `
