@@ -16,6 +16,8 @@ export const media = Object.keys(sizes.breakpoints).reduce(
   {}
 )
 
+export default media
+
 // Use it like this, dummy:
 //
 // ${media.large`background-size: auto 75%;`}
