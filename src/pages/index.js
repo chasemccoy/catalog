@@ -36,7 +36,7 @@ const PostLink = styled(Link)`
     margin: 16px 0;
     background: ${colors.primary.gray.dark};
     display: block;
-    width: 60px;
+    width: 45px;
     height: 2px;
   }
 
