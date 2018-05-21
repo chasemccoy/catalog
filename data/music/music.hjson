@@ -23,4 +23,10 @@
 		spotify: 4uIDigk79DeZEYV6Z5Yf4s
     image: what-went-down.jpg
   }
+  {
+    title: When the Night
+    metadata: St. Lucia
+    url: https://open.spotify.com/album/5Pjft9EbneGmlhOQ2mo6bo
+    image: when-the-night.jpg
+  }
 ]
