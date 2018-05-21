@@ -6,6 +6,7 @@ const breakpoints = [
 ]
 
 const colors = {
+  primary: '#1DADF5',
   text: '#024',
   blue: {
     light: '#07C',
@@ -14,6 +15,8 @@ const colors = {
   gray: ['#333', '#666', '#999', '#ccc', '#eee', '#f6f6f6'],
   highlight: '#FFF67F',
   text: {
+    primary: '#002040',
+    secondary: '#657886',
     muted: '#9EA3A8'
   }
 }
