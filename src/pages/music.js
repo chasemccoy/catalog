@@ -3,9 +3,28 @@ import styled from 'styled-components'
 import Library from 'components/Library'
 import Page from 'components/Page'
 import { P, Box } from 'components/Base'
-import Divider from 'components/Divider'
 import Image from 'components/Image'
 import media from 'utils/media'
+import { Row, Column } from 'components/Grid'
+import Link from 'components/Link'
+import Heading from 'components/Heading'
+
+const Album = styled(Link)`
+`
+
+Album.Title = styled.h3`
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  font-family: ${props => props.theme.fontFamily.body};
+`
+
+Album.Subtitle = styled.h4`
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: normal;
+  color: ${props => props.theme.colors.text.muted};
+`
 
 const Track = styled(Box)`
   & + & {
@@ -48,15 +67,30 @@ class MusicPage extends React.Component {
   render() {
     return (
       <Page title="Music" icon="music">
-        <P mb={6}>
+        <P mb={9}>
           I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
         </P>
 
-        <Divider mb={6} />
+        <Heading>Favorite Albums</Heading>
 
-        <Library data={this.props.data.music.edges} mediaWidth={[1 / 3]} />
+        <Row mb={4}>
+          {this.props.data.music.edges.map(({node}) => (
+            <Column width={[1/2, 1/3]}>
+              <Album to={node.url} unstyled>
+                <Image sizes={node.image.childImageSharp.sizes} />
 
-        <Divider my={6} />
+                <Box height='8em' mt={3}>
+                  <Album.Title>{node.title}</Album.Title>
+                  <Album.Subtitle>{node.metadata}</Album.Subtitle>
+                </Box>
+              </Album>
+            </Column>
+          ))}
+        </Row>
+
+        {/* <Library data={this.props.data.music.edges} mediaWidth={[1 / 3]} /> */}
+
+        <Heading mb={2}>Recent Tracks</Heading>
 
         {this.state.tracks.map(track => (
           <Track py={3} display='flex' alignItems={['flex-start', 'center']}>
@@ -85,6 +119,13 @@ export const query = graphql`
           description
           url
           spotify
+          image {
+            childImageSharp {
+              sizes(maxWidth: 900) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
         }
       }
     }

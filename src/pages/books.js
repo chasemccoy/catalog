@@ -1,4 +1,3 @@
-import Library from 'components/Library'
 import Page from 'components/Page'
 import React from 'react'
 import styled from 'styled-components'
@@ -25,8 +24,6 @@ const Subtitle = styled.h4`
 const BooksPage = ({ data }) => {
   return (
     <Page title="Books" icon="book">
-      {/* <Library data={data.books.edges} mediaWidth={[1 / 3, 1 / 4]} /> */}
-
       <P mb={6}>
         A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.
       </P>
