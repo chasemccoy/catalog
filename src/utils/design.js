@@ -52,7 +52,7 @@ export const colors = {
 
 export const sizes = {
   sidebar: {
-    minWidth: '280px',
+    minWidth: '260px',
     width: '25vw',
   },
   content: {

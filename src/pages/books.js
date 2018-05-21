@@ -24,11 +24,11 @@ const Subtitle = styled.h4`
 const BooksPage = ({ data }) => {
   return (
     <Page title="Books" icon="book">
-      <P mb={6}>
+      <P>
         A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.
       </P>
 
-      <Divider mb={6} />
+      <Divider mt={6} mb={8} />
 
       <Row alignItems='flex-end'>
         {data.books.edges.map(({node}, i) => (

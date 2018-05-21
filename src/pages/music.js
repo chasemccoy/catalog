@@ -79,7 +79,7 @@ class MusicPage extends React.Component {
               <Album to={node.url} unstyled>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
-                <Box height='8em' mt={3}>
+                <Box height={['8em', '8em', '8em', '6em']} mt={3}>
                   <Album.Title>{node.title}</Album.Title>
                   <Album.Subtitle>{node.metadata}</Album.Subtitle>
                 </Box>
@@ -90,18 +90,22 @@ class MusicPage extends React.Component {
 
         {/* <Library data={this.props.data.music.edges} mediaWidth={[1 / 3]} /> */}
 
-        <Heading mb={2}>Recent Tracks</Heading>
+        {this.state.tracks.length > 0 && (
+          <div>
+            <Heading mb={2}>Recent Tracks</Heading>
 
-        {this.state.tracks.map(track => (
-          <Track py={3} display='flex' alignItems={['flex-start', 'center']}>
-            <Track.Image src={track.image} />
+            {this.state.tracks.map(track => (
+              <Track py={3} display='flex' alignItems={['flex-start', 'center']}>
+                <Track.Image src={track.image} />
 
-            <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
-              <Track.Title>{track.name}</Track.Title>
-              <Track.Artist>{track.artist}</Track.Artist>
-            </Box>
-          </Track>
-        ))}
+                <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
+                  <Track.Title>{track.name}</Track.Title>
+                  <Track.Artist>{track.artist}</Track.Artist>
+                </Box>
+              </Track>
+            ))}
+          </div>
+        )}
       </Page>
     )
   }
