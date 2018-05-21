@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Library from 'components/Library'
 import Page from 'components/Page'
 import { P, Box } from 'components/Base'
 import Image from 'components/Image'
@@ -37,8 +36,9 @@ Track.Image = styled(Image)`
   width: 48px;
 `
 
-Track.Title = styled.h4`
+Track.Title = styled.h3`
   margin: 0;
+  font-size: 20px;
 
   ${media.tiny`
     width: 100%;
@@ -65,6 +65,7 @@ class MusicPage extends React.Component {
   }
 
   render() {
+    console.log(this.state.tracks);
     return (
       <Page title="Music" icon="music">
         <P mb={9}>
@@ -74,8 +75,8 @@ class MusicPage extends React.Component {
         <Heading>Favorite Albums</Heading>
 
         <Row mb={4}>
-          {this.props.data.music.edges.map(({node}) => (
-            <Column width={[1/2, 1/3]}>
+          {this.props.data.music.edges.map(({node}, i) => (
+            <Column width={[1/2, 1/3]} key={i}>
               <Album to={node.url} unstyled>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
@@ -88,21 +89,21 @@ class MusicPage extends React.Component {
           ))}
         </Row>
 
-        {/* <Library data={this.props.data.music.edges} mediaWidth={[1 / 3]} /> */}
-
         {this.state.tracks.length > 0 && (
           <div>
             <Heading mb={2}>Recent Tracks</Heading>
 
-            {this.state.tracks.map(track => (
-              <Track py={3} display='flex' alignItems={['flex-start', 'center']}>
-                <Track.Image src={track.image} />
+            {this.state.tracks.map((track, i) => (
+              track.image && (
+                <Track py={3} display='flex' alignItems={['flex-start', 'center']} key={i}>
+                  <Track.Image src={track.image} />
 
-                <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
-                  <Track.Title>{track.name}</Track.Title>
-                  <Track.Artist>{track.artist}</Track.Artist>
-                </Box>
-              </Track>
+                  <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
+                    <Track.Title>{track.name}</Track.Title>
+                    <Track.Artist>{track.artist}</Track.Artist>
+                  </Box>
+                </Track>
+              )
             ))}
           </div>
         )}
