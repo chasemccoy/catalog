@@ -78,7 +78,7 @@ const StarredRepository = props => (
 
 const CodePage = ({ data }) => {
   return (
-    <Page icon="code" title="Code">
+    <Page icon="code" title="Code" description="My favorite open source tools on the web.">
       <P mb={6}>
         Some of my favorite open sourced projects (sourced from my starred
         repositories on GitHub).

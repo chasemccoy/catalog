@@ -19,7 +19,7 @@ export default class TemplateWrapper extends React.Component {
       .replace('/', '')
 
     if (currentPath.length) {
-      return capitalize(currentPath) + ' | Chase McCoy'
+      return capitalize(currentPath)
     }
   }
 
@@ -28,17 +28,31 @@ export default class TemplateWrapper extends React.Component {
       <ThemeProvider theme={theme}>
         <div>
           <Helmet
-            title={this.getLocalTitle() || 'Chase McCoy'}
+            titleTemplate="%s | Chase McCoy"
+            defaultTitle="Chase McCoy"
+            title={this.getLocalTitle()}
             meta={[
               {
                 name: 'description',
                 content:
-                  'Chase McCoy is a design developer living in Chicago that spends a lot of time thinking about how the web works.',
+                  'Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.'
+              },
+              {
+                name: 'og:title',
+                content: this.getLocalTitle() || 'Chase McCoy'
+              },
+              {
+                name: 'og:description',
+                content: 'Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.'
               },
               {
                 name: 'image',
-                content: 'http://chasem.co/meta/chase.jpg',
+                content: 'http://chasem.co/meta/chase.jpg'
               },
+              {
+                name: 'twitter:site',
+                content: '@chase_mccoy'
+              }
             ]}
           />
 

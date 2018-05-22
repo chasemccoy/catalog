@@ -40,7 +40,7 @@ const BlogPage = ({ data, pathContext }) => {
   )
 
   return (
-    <Page narrow>
+    <Page title={'Thoughts'} narrow untitled description="What's on my mind, and links to some interesting stuff on the web.">
       <Helmet title={`Thoughts | Chase McCoy`} />
 
       <BlogHeader>

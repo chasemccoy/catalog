@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const AppsPage = ({ data }) => {
   return (
-    <Page title="Apps" icon="app">
+    <Page title="Apps" icon="app" description='A showcase of the apps that help me get shit done.'>
       <p>
         Tools do not maketh man, but they sure do help us get things done. Here
         are some of the tools that I rely on every day to help me do better
