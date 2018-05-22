@@ -11,7 +11,7 @@ const BookmarkPage = ({ data }) => {
   const tocItems = data.bookmarks.edges.map(a => a.node.category)
 
   return (
-    <Page title="Bookmarks" icon="bookmark">
+    <Page title="Bookmarks" icon="bookmark" description="Interesting stuff that's worth hanging on to.">
       <TableOfContents items={tocItems} />
 
       {data.bookmarks.edges.map(({ node }, index1) => (

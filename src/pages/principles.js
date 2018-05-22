@@ -31,7 +31,7 @@ export const Highlight = styled.span`
 
 const PrinciplesPage = ({ data }) => {
   return (
-    <Page title="Principles" icon="brain">
+    <Page title="Principles" icon="brain" description="Read these every day before you get out of bed.">
       <p>
         Here are some thoughts/ideas that I have noticed as recurring themes of
         my time growing up, learning new things, and starting a career. These

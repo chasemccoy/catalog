@@ -23,7 +23,7 @@ const Subtitle = styled.h4`
 
 const BooksPage = ({ data }) => {
   return (
-    <Page title="Books" icon="book">
+    <Page title="Books" icon="book" description="A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.">
       <P>
         A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.
       </P>

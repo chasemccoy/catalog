@@ -67,7 +67,7 @@ class MusicPage extends React.Component {
   render() {
     console.log(this.state.tracks);
     return (
-      <Page title="Music" icon="music">
+      <Page title="Music" icon="music" description="A few of my favorite albums, as well as what I am listening to recently.">
         <P mb={9}>
           I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
         </P>

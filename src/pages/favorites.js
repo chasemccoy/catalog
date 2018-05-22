@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const FavoritesPage = ({ data }) => {
   return (
-    <Page title="Favorites" icon="heart">
+    <Page title="Favorites" icon="heart" description='The best of the best.'>
       <p>
         Below are some things in various categories that I love. I think you can
         tell a lot about a person by paying attention to what they pay attention

@@ -76,7 +76,7 @@ export const Quote = props => (
 
 const QuotesPage = ({ data }) => {
   return (
-    <Page title="Quotes" icon="quote">
+    <Page title="Quotes" icon="quote" description="Words worth keeping in mind.">
       <br />
 
       {data.quotes.edges.map(({ node }, i) => (
