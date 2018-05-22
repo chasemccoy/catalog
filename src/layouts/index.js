@@ -52,6 +52,10 @@ export default class TemplateWrapper extends React.Component {
               {
                 name: 'twitter:site',
                 content: '@chase_mccoy'
+              },
+              {
+                name: 'twitter:card',
+                content: 'summary'
               }
             ]}
           />
