@@ -29,4 +29,22 @@
     url: https://open.spotify.com/album/5Pjft9EbneGmlhOQ2mo6bo
     image: when-the-night.jpg
   }
+  {
+    title: The Human Condition
+    metadata: Jon Bellion
+    url: https://open.spotify.com/album/2jJReDZqTuAxr4R0ItimZc
+    image: human-condition.jpg
+  }
+  {
+    title: Lioness: Hidden Treasures
+    metadata: Amy Winehouse
+    url: https://open.spotify.com/album/4xdRjOhY9NHmMpI7U3e2c3
+    image: lioness.jpg
+  }
+  {
+    title: Communion
+    metadata: Years & Years
+    url: https://open.spotify.com/album/09mWpzpUOSjjvK2iNqEIYn
+    image: communion.jpg
+  }
 ]

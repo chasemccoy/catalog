@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import { Link } from 'components/Components'
 import React from 'react'
 import styled from 'styled-components'
+import { borderRadius } from 'styled-system'
 
 const StyledImage = styled(Img)`
   border-radius: 4px;
@@ -13,7 +14,10 @@ const StyledImage = styled(Img)`
   img {
     border-radius: 4px;
     margin-bottom: 0;
+    ${borderRadius}
   }
+
+  ${borderRadius}
 `
 
 export const ImageDiv = StyledImage.withComponent('div')
@@ -24,7 +28,7 @@ const RegularImage = StyledImage.withComponent('img')
 class Image extends React.Component {
   render() {
     if (this.props.sizes) {
-      return <Img {...this.props} outerWrapperClassName="gatsby-img" />
+      return <StyledImage {...this.props} outerWrapperClassName="gatsby-img" />
     } else if (this.props.src && this.props.to) {
       return <ImageLinkContainer {...this.props} />
     } else if (this.props.src && this.props.cover) {

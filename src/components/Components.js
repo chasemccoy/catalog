@@ -55,7 +55,6 @@ injectGlobal`
 
 	img {
 		margin: 0 !important;
-		border-radius: 4px;
 		height: auto;
 	}
 

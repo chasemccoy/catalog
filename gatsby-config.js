@@ -205,6 +205,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `art`,
+        path: `${__dirname}/data/art/art.hjson`,
+      }
+    },
+    {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
