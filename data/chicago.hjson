@@ -103,4 +103,12 @@
     url: http://chicagodonchema.com
     image: chicago/donchema.jpg
   }
+  {
+    title: Lost Lake
+    category: drink
+    metadata: 3154 W Diversey
+    description: I am a sucker for a great tiki bar, and my favorite is Lost Lake in Logan Square. Paul McGee's drink game is strong, and it shines in a Polynesian setting. Expect a crowd, but also expect to eat some great Asian-island bar snacks from the new food menu.
+    url: http://lostlaketiki.com
+    image: chicago/lostlake.jpg
+  }
 ]
