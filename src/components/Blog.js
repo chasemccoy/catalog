@@ -66,6 +66,14 @@ const Content = styled.div`
   a {
     font-weight: ${fontWeights.bold} !important;
   }
+
+  img {
+    border-radius: 4px;
+
+    ${media.tiny`
+      border-radius: 0;
+    `}
+  }
 `
 
 const Excerpt = styled.p`
