@@ -11,6 +11,8 @@ import { sizes } from 'utils/design'
 import theme from 'utils/theme'
 import svgxuse from 'svgxuse'
 
+import fonts from '../fonts/fonts.css'
+
 export default class TemplateWrapper extends React.Component {
   getLocalTitle() {
     const pathPrefix = '/'

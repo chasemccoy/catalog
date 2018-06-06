@@ -35,7 +35,6 @@ const TimelineListItem = styled.li`
   margin-bottom: 32px;
   ${media.small`margin-bottom: 48px;`}
   font-family: ${props => props.theme.fontFamily.body};
-  line-height: 1.6;
 
   &:after {
     content: '';
