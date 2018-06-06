@@ -26,7 +26,6 @@ const AsideContainer = styled(Container)``
 
 const PostContainer = styled(Container)`
   font-family: ${props => props.theme.fontFamily.body};
-  line-height: 1.6;
 
   ${props => props.photoset && `
     img {

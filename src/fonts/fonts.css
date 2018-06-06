@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'SF Serif';
+    src: url('SerifUIText-Regular.woff2') format('woff2'),
+        url('SerifUIText-Regular.woff') format('woff'),
+        url('SerifUIText-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Serif';
+    src: url('SerifUIText-Bold.woff2') format('woff2'),
+        url('SerifUIText-Bold.woff') format('woff'),
+        url('SerifUIText-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

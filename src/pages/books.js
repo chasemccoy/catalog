@@ -9,7 +9,6 @@ import Divider from 'components/Divider'
 
 const Title = styled.h3`
   font-size: 20px;
-  line-height: 1.6;
   margin-bottom: 6px;
   font-family: ${props => props.theme.fontFamily.body};
 `
