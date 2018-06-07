@@ -17,10 +17,7 @@ import { colors, fontWeights } from 'utils/design'
 const PageTitle = styled.h1`
   margin: 0;
   font-weight: ${fontWeights.normal};
-  ${'' /* letter-spacing: -1px; */}
-  line-height: 1.5;
   font-family: ${props => props.theme.fontFamily.body};
-  letter-spacing: -1px;
 `
 
 const PostLink = styled(Link)`
