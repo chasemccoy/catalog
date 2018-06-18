@@ -15,6 +15,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-transformer-hjson`,
+    `gatsby-plugin-twitter`,
     {
       resolve: "gatsby-source-wordpress",
       options: {
