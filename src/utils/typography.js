@@ -51,6 +51,9 @@ const typography = new Typography({
       padding: '4px 8px',
       display: 'inline-block',
       fontFamily: 'OperatorMono-Book, Inconsolata, Monaco, monospace',
+      width: '100%',
+      wordWrap: 'normal',
+      overflow: 'auto'
     },
     'pre code': {
       padding: '8px 16px',
