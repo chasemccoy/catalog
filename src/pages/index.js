@@ -56,7 +56,7 @@ const Content = props => (
   <Row mx={[-16, -32]} mt={4}>
     {props.children.map((item, i) => (
       <Column
-        width={[1, item.props.width || 1 / 3]}
+        width={[1, 1/2, 1/2, item.props.width || 1 / 3]}
         mt={64}
         px={[16, 32]}
         key={i}

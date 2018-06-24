@@ -12,6 +12,20 @@ const Container = styled.div`
     margin-top: 12px;
   }
 
+  ${props => props.photoset && `
+    img {
+      max-width: 145%;
+    }
+  `}
+
+  ${media.medium`
+    ${props => props.photoset && `
+      img {
+        max-width: 100%;
+      }
+    `}
+  `}
+
   ${media.tiny`
     img {
       border-radius: 0;
@@ -26,12 +40,6 @@ const AsideContainer = styled(Container)``
 
 const PostContainer = styled(Container)`
   font-family: ${props => props.theme.fontFamily.body};
-
-  ${props => props.photoset && `
-    img {
-      max-width: 145%;
-    }
-  `}
 `
 
 const Title = styled.h2`
