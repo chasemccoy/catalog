@@ -48,8 +48,7 @@ const Title = styled.h2`
 `
 
 const Content = styled.div`
-  &:last-of-type,
-  & p:last-of-type {
+  &:last-of-type {
     margin: 0;
   }
 
