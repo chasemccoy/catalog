@@ -3,7 +3,7 @@ import { colors } from 'utils/design'
 
 const typography = new Typography({
   baseFontSize: '17px',
-  baseLineHeight: 1.5,
+  baseLineHeight: 1.6,
   bodyFontFamily: [
     'Karla',
     '-apple-system',
@@ -62,9 +62,5 @@ const typography = new Typography({
     },
   }),
 })
-
-if (process.env.NODE_ENV !== 'production') {
-  typography.injectStyles()
-}
 
 export default typography

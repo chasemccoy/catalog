@@ -36,23 +36,14 @@ const fontFamily = {
   sans:
     "'-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'",
   serif: "'Karla', 'Georgia', 'serif'",
-  body: "'SF Serif', 'Georgia', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'serif'"
+  body: "'Merriweather', 'Tiempos', 'SF Serif', 'Georgia', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'serif'"
 }
 
 const shadows = {
   light: '0 0 5px rgba(0, 0, 0, 0.1)'
 }
 
-// const letterSpacings = {
-//   normal: 'normal',
-//   caps: '0.25em'
-// }
-
 const radii = [0, 2, 4, 8, 12]
-
-// const borders = [
-//   0, '1px solid', '2px solid'
-// ]
 
 const theme = {
   breakpoints,
