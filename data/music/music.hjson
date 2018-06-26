@@ -47,4 +47,10 @@
     url: https://open.spotify.com/album/09mWpzpUOSjjvK2iNqEIYn
     image: communion.jpg
   }
+  {
+    title: Take Me When You Go
+    metadata: Betty Who
+    url: https://open.spotify.com/album/429PrNZhn59C6djYU7caTn
+    image: who.jpg
+  }
 ]
