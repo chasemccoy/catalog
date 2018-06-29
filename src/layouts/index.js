@@ -11,13 +11,14 @@ import { sizes } from 'utils/design'
 import theme from 'utils/theme'
 import svgxuse from 'svgxuse'
 
+import fonts from '../fonts/fonts.css'
+
 export default class TemplateWrapper extends React.Component {
   getLocalTitle() {
     const pathPrefix = '/'
     const currentPath = this.props.location.pathname
       .replace(pathPrefix, '')
       .replace('/', '')
-import fonts from '../fonts/fonts.css'
 
     if (currentPath.length) {
       return capitalize(currentPath)
