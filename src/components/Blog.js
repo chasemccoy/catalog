@@ -40,6 +40,8 @@ const AsideContainer = styled(Container)``
 
 const PostContainer = styled(Container)`
   font-family: ${props => props.theme.fontFamily.body};
+  hyphens: auto;
+  color: ${props => props.theme.colors.serifText};
 `
 
 const Title = styled.h2`

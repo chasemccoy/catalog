@@ -7,7 +7,8 @@ const breakpoints = [
 
 const colors = {
   primary: '#1DADF5',
-  text: '#024',
+  text: '#444444',
+  serifText: '#000207',
   blue: {
     light: '#07C',
     dark: '#058'
@@ -36,7 +37,7 @@ const fontFamily = {
   sans:
     "'-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'",
   serif: "'Karla', 'Georgia', 'serif'",
-  body: "'Merriweather', 'Tiempos', 'SF Serif', 'Georgia', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'serif'"
+  body: "'Tiempos', 'SF Serif', 'Georgia', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'serif'"
 }
 
 const shadows = {

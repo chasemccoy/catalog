@@ -3,7 +3,7 @@ import { colors } from 'utils/design'
 
 const typography = new Typography({
   baseFontSize: '17px',
-  baseLineHeight: 1.6,
+  baseLineHeight: 1.5,
   bodyFontFamily: [
     'Karla',
     '-apple-system',
@@ -20,11 +20,11 @@ const typography = new Typography({
   ],
   headerFontFamily: ['Karla', 'Georgia', 'serif'],
   scaleRatio: 2.2,
-  headerLineHeight: 1.4,
+  headerLineHeight: 1.5,
   headerWeight: 600,
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     body: {
-      color: colors.text.body,
+      color: colors.text.body
     },
     a: {
       WebkitTextDecorationSkip: 'unset',
