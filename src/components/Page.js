@@ -6,8 +6,8 @@ import { space } from 'styled-system'
 import Helmet from 'react-helmet'
 
 const PageContainer = styled.div`
-  ${props => props.narrow && 'width: 68%;'} ${props =>
-      props.wide && 'width: 125%;'} ${props =>
+  ${props => props.narrow && 'width: 75%;'} ${props =>
+      props.wide && 'width: 145%;'} ${props =>
       props.wide &&
       media.large`
     width: 100%;
