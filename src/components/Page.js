@@ -27,6 +27,8 @@ const PageTitle = styled.h2`
 const Page = props => (
   <PageContainer {...props} title="">
     <Helmet
+      titleTemplate="%s | Chase McCoy"
+      defaultTitle="Chase McCoy"
       title={props.title}
       meta={[
         {
@@ -40,6 +42,18 @@ const Page = props => (
         {
           name: 'og:description',
           content: props.description || 'Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.'
+        },
+        {
+          name: 'image',
+          content: 'http://chasem.co/meta/chase.jpg'
+        },
+        {
+          name: 'twitter:site',
+          content: '@chase_mccoy'
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary'
         }
       ]}
     />

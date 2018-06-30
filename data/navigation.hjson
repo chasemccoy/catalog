@@ -53,4 +53,9 @@
 		"icon": "brain",
 		"url": "/principles"
 	}
+	// {
+	// 	"title": "Art",
+	// 	"icon": "art",
+	// 	"url": "/art"
+	// }
 ]

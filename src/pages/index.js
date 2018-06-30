@@ -13,6 +13,7 @@ import { BlogHeader } from 'components/Components'
 import Icon from 'components/Icon'
 import { Flex } from 'grid-styled'
 import { colors, fontWeights } from 'utils/design'
+import Helmet from 'react-helmet'
 
 const PageTitle = styled.h1`
   margin: 0;
@@ -66,6 +67,12 @@ const Content = props => (
     ))}
   </Row>
 )
+
+const Spectre = styled.div`
+  background: black;
+  min-width: 100vw;
+  min-height: 100vh;
+`
 
 class IndexPage extends React.Component {
   state = {
@@ -121,6 +128,41 @@ class IndexPage extends React.Component {
 
     const showcasePhotos = this.props.data.images.edges.filter(({ node }) =>
       imagePosts.some(post => post == node.post)
+    )
+
+    return (
+      <Spectre>
+        <Helmet
+          titleTemplate="%s | Chase McCoy"
+          defaultTitle="Chase McCoy"
+          meta={[
+            {
+              name: 'description',
+              content: 'Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.'
+            },
+            {
+              name: 'og:title',
+              content: 'Chase McCoy'
+            },
+            {
+              name: 'og:description',
+              content: 'Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.'
+            },
+            {
+              name: 'image',
+              content: 'http://chasem.co/meta/chase.jpg'
+            },
+            {
+              name: 'twitter:site',
+              content: '@chase_mccoy'
+            },
+            {
+              name: 'twitter:card',
+              content: 'summary'
+            }
+          ]}
+        />
+      </Spectre>
     )
 
     return (
