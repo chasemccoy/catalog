@@ -13,6 +13,7 @@ import { BlogHeader } from 'components/Components'
 import Icon from 'components/Icon'
 import { Flex } from 'grid-styled'
 import { colors, fontWeights } from 'utils/design'
+import { graphql } from 'gatsby'
 
 const PageTitle = styled.h1`
   margin: 0;
@@ -120,7 +121,7 @@ class IndexPage extends React.Component {
     )
 
     const showcasePhotos = this.props.data.images.edges.filter(({ node }) =>
-      imagePosts.some(post => post == node.post)
+      imagePosts.some(post => parseInt(post) === node.post)
     )
 
     return (

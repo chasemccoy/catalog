@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors, fontWeights, sizes } from 'utils/design'
-import { stripTags, truncateExcerpt } from 'utils/js'
 import { Link } from 'components/Components'
 import { media } from 'utils/media'
 
@@ -83,12 +82,12 @@ const Content = styled.div`
     `}
   }
 `
-
-const Excerpt = styled.p`
-  &:last-of-type {
-    margin: 0;
-  }
-`
+//
+// const Excerpt = styled.p`
+//   &:last-of-type {
+//     margin: 0;
+//   }
+// `
 
 const PostMeta = styled.div`
   color: ${colors.text.muted};
@@ -137,15 +136,15 @@ export const Post = props => {
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  const excerpt = props.excerpt &&
-    props.to && (
-      <Excerpt>
-        <span
-          dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }}
-        />
-        <Link to={`/${props.to}`}>Read more...</Link>
-      </Excerpt>
-    )
+  // const excerpt = props.excerpt &&
+  //   props.to && (
+  //     <Excerpt>
+  //       <span
+  //         dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }}
+  //       />
+  //       <Link to={`/${props.to}`}>Read more...</Link>
+  //     </Excerpt>
+  //   )
 
   const meta = props.date && <Meta date={props.date} permalink={props.to} />
 

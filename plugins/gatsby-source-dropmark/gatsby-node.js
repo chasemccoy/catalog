@@ -6,7 +6,7 @@ const crypto = require(`crypto`);
 const axios = require(`axios`);
 
 exports.sourceNodes = (() => {
-  var _ref = _asyncToGenerator(function* ({ boundActionCreators: { createNode } }, { collections }) {
+  var _ref = _asyncToGenerator(function* ({ actions: { createNode } }, { collections }) {
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;

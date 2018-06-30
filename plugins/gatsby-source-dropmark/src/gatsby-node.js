@@ -1,7 +1,7 @@
 const crypto = require(`crypto`)
 const axios = require(`axios`)
 
-exports.sourceNodes = async ({ boundActionCreators: { createNode } }, { collections }) => {
+exports.sourceNodes = async ({ actions: { createNode } }, { collections }) => {
   for (let collection_id of collections) {
     const { data } = await axios.get(`http://chs.dropmark.com/${collection_id}.json`);
 

@@ -7,7 +7,6 @@ const breakpoints = [
 
 const colors = {
   primary: '#1DADF5',
-  text: '#444444',
   serifText: '#000207',
   blue: {
     light: '#07C',
@@ -16,7 +15,7 @@ const colors = {
   gray: ['#333', '#666', '#999', '#ccc', '#eee', '#f6f6f6'],
   highlight: '#FFF67F',
   text: {
-    primary: '#002040',
+    primary: '#444444',
     secondary: '#657886',
     muted: '#9EA3A8'
   }
@@ -52,9 +51,7 @@ const theme = {
   space,
   fontWeights,
   fontFamily,
-  // letterSpacings,
   radii,
-  // borders,
   shadows
 }
 

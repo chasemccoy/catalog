@@ -1,11 +1,11 @@
 import Bookmark from 'components/Bookmark'
 import { BookmarkGrid } from 'components/Grid'
-import Divider from 'components/Divider'
 import { Heading } from 'components/Components'
 import Page from 'components/Page'
 import React from 'react'
 import TableOfContents from 'components/TableOfContents'
 import { capitalize } from 'utils/js'
+import { graphql } from "gatsby"
 
 const BookmarkPage = ({ data }) => {
   const tocItems = data.bookmarks.edges.map(a => a.node.category)

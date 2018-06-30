@@ -1,7 +1,4 @@
 import { Box, Flex } from 'grid-styled'
-import { ImageDiv, ImageLink } from 'components/Image'
-
-import { Link } from 'components/Components'
 import React from 'react'
 import styled from 'styled-components'
 

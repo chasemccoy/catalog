@@ -1,7 +1,4 @@
-import { colors, sizes } from 'utils/design'
-
-import { Icon } from 'components/Icon'
-import React from 'react'
+import { sizes } from 'utils/design'
 import { media } from 'utils/media'
 import styled from 'styled-components'
 

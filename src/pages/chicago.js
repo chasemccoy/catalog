@@ -3,11 +3,11 @@ import Page from 'components/Page'
 import React from 'react'
 import TableOfContents from 'components/TableOfContents'
 import { capitalize } from 'utils/js'
-import styled from 'styled-components'
 import { Row, Column } from 'components/Grid'
 import MediaCard from 'components/MediaCard'
 import Mosaic from 'components/Mosaic'
 import { P } from 'components/Base'
+import { graphql } from "gatsby"
 
 const ChicagoPage = ({ data }) => {
   const categories = data.chicago.edges.map(a => a.node.category)

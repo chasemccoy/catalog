@@ -1,4 +1,3 @@
-import Library from 'components/Library'
 import Page from 'components/Page'
 import React from 'react'
 import styled from 'styled-components'
@@ -6,8 +5,9 @@ import List from 'components/Lists'
 import Link from 'components/Link'
 import { media } from 'utils/media'
 import { colors } from 'utils/design'
-import { P, Span } from 'components/Base'
+import { P } from 'components/Base'
 import Divider from 'components/Divider'
+import { graphql } from 'gatsby'
 
 const TwoColumns = styled(List)`
   display: block;

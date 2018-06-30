@@ -1,7 +1,7 @@
 import Page from 'components/Page'
 import React from 'react'
 import { capitalize } from 'utils/js'
-import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 const TemplatesPage = ({ data }) => {
   return (

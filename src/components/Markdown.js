@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-const ReactMarkdown = require('react-markdown')
 import { space } from 'styled-system'
+const ReactMarkdown = require('react-markdown')
 
 class MarkdownComponent extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 import { Column, Row } from 'components/Grid'
-import { colors, fontWeights } from 'utils/design'
+import { colors } from 'utils/design'
 import Divider from 'components/Divider'
 import Icon from 'components/Icon'
 import Image from 'components/Image'
@@ -9,9 +9,9 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import React from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
 import QuickLinks from 'components/QuickLinks'
 import { BlogHeader } from 'components/Components'
+import { graphql } from 'gatsby'
 
 const PaginationLink = styled(Link)`
   padding: 8px 16px;
@@ -26,23 +26,21 @@ const PaginationLink = styled(Link)`
   }
 `
 
-const BlogPage = ({ data, pathContext }) => {
+const BlogPage = ({ data, pageContext }) => {
   const imagePosts = data.imagePosts.edges.map(({ node }) => node.slug)
 
   const showcasePhotos = data.images.edges.filter(({ node }) =>
-    imagePosts.some(post => post == node.post)
+    imagePosts.some(post => parseInt(post) === node.post)
   )
 
-  const { nodes, page, prev, next } = pathContext
+  const { nodes, prev, next } = pageContext
 
   const posts = nodes.filter(
-    ({ node }) => !showcasePhotos.some(post => post.node.post == node.slug)
+    ({ node }) => !showcasePhotos.some(post => post.node.post === parseInt(node.slug))
   )
 
   return (
     <Page title={'Thoughts'} narrow untitled description="What's on my mind, and links to some interesting stuff on the web.">
-      <Helmet title={`Thoughts | Chase McCoy`} />
-
       <BlogHeader>
         <Icon small name="thought" /> Thoughts
       </BlogHeader>
@@ -79,7 +77,7 @@ const BlogPage = ({ data, pathContext }) => {
               </div>
             )}
 
-            {(node.format == 'aside' || node.format == 'image') && (
+            {(node.format === 'aside' || node.format === 'image') && (
               <Post
                 aside
                 to={node.slug}
@@ -88,7 +86,7 @@ const BlogPage = ({ data, pathContext }) => {
               />
             )}
 
-            {node.format == 'standard' && (
+            {node.format === 'standard' && (
               <Post
                 title={node.title}
                 to={node.slug}
@@ -98,7 +96,7 @@ const BlogPage = ({ data, pathContext }) => {
               />
             )}
 
-            {node.format == 'image' && null}
+            {node.format === 'image' && null}
           </Column>
 
           <Column mb={24} width={1}>

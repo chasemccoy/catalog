@@ -16,23 +16,23 @@
     font-style: normal;
 } */
 
-/* @font-face {
+@font-face {
     font-family: 'Tiempos';
-    src: url('TiemposText-Bold.woff2') format('woff2'),
-        url('TiemposText-Bold.woff') format('woff'),
-        url('TiemposText-Bold.ttf') format('truetype');
+    src: url('TiemposText-Semibold.woff') format('woff'),
+        url('TiemposText-Semibold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+    font-display: optional;
 }
 
 @font-face {
     font-family: 'Tiempos';
-    src: url('TiemposText-BoldItalic.woff2') format('woff2'),
-        url('TiemposText-BoldItalic.woff') format('woff'),
-        url('TiemposText-BoldItalic.ttf') format('truetype');
+    src: url('TiemposText-SemiboldItalic.woff') format('woff'),
+        url('TiemposText-SemiboldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
-} */
+    font-display: optional;
+}
 
 @font-face {
     font-family: 'Tiempos';

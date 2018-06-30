@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import GatsbyLink from 'gatsby-link'
+import { Link as GatsbyLink } from 'gatsby'
 
 const StyledLink = styled.a`
   ${props => props.unstyled && `
@@ -16,7 +16,7 @@ const Link = ({ children, to, ...other }) => {
 
   if (external) {
     return (
-      <StyledLink href={to} target={newTab && `_blank`} {...other}>
+      <StyledLink href={to} target={newTab && `_blank`} rel={newTab && 'noopener'} {...other}>
         {children}
       </StyledLink>
     )
