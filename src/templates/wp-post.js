@@ -2,6 +2,7 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 const isPhotoset = categories => {
   return categories.map(category => (

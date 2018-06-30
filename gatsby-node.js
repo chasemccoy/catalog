@@ -2,8 +2,8 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { createPaginationPages, prefixPathFormatter } = require(`gatsby-pagination`);
 
-exports.onCreateNode = async ({ node, getNode, boundActionCreators, store, cache }) => {
-	const { createNodeField, createNode } = boundActionCreators
+exports.onCreateNode = async ({ node, getNode, actions, store, cache }) => {
+	const { createNodeField, createNode } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
 		const slug = createFilePath({node, getNode, basePath: `posts`, trailingSlash: false})
@@ -18,8 +18,9 @@ exports.onCreateNode = async ({ node, getNode, boundActionCreators, store, cache
 	}
 }
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+
   return new Promise((resolve, reject) => {
     graphql(
       `
@@ -46,37 +47,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 						}
 					})
 				})
-      })
-      .then(() => {
-        graphql(
-          `
-						{
-							allFile(filter: {relativePath: {glob: "images/**/*.{png,gif,jpg}"}}) {
-								edges {
-									node {
-										fields {
-											parent
-										}
-										relativePath
-									}
-								}
-							}
-						}
-          `
-        ).then(result => {
-					result.data.allFile &&
-					result.data.allFile.edges.map(({ node }) => {
-						createPage({
-							path: node.fields.parent,
-							component: path.resolve(`./src/templates/gallery.js`),
-							context: {
-								parent: node.fields.parent
-							}
-						})
-					})
-
-          resolve()
-        })
       })
 			.then(() => {
         graphql(
@@ -125,10 +95,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-exports.modifyWebpackConfig = ({ config, _stage }) => {
-  return config.merge({
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  actions.setWebpackConfig({
     resolve: {
-      root: path.resolve(config._config.context, 'src'),
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
     },
   })
 }

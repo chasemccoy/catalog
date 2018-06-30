@@ -1,7 +1,7 @@
 import Library from 'components/Library'
 import Page from 'components/Page'
 import React from 'react'
-import styled from 'styled-components'
+import { graphql } from "gatsby"
 
 const AppsPage = ({ data }) => {
   return (

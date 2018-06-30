@@ -1,8 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Row, Column } from 'components/Grid'
-import Card from 'components/Card'
 
+// eslint-disable-next-line
 Array.prototype.sample = function() {
   return this[Math.floor(Math.random() * this.length)]
 }
@@ -16,7 +15,9 @@ function getMosaicWidths(count) {
   var widthsArray = Array(count).fill(1)
   var width = 0
 
+  // eslint-disable-next-line
   const widths = widthsArray.map(() => {
+    // eslint-disable-next-line
     switch (state) {
       // Start every sequence with a full width
       case -1:

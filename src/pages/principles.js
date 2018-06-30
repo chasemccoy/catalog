@@ -1,6 +1,4 @@
 import { Heading } from 'components/Components'
-import Icon from 'components/Icon'
-import { Link } from 'components/Components'
 import List from 'components/Lists'
 import Markdown from 'components/Markdown'
 import Page from 'components/Page'
@@ -8,6 +6,8 @@ import React from 'react'
 import { colors } from 'utils/design'
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
+import { graphql } from 'gatsby'
+import Link from 'components/Link'
 
 const PrinciplesList = styled(List)`
   > div {
@@ -60,9 +60,9 @@ const PrinciplesPage = ({ data }) => {
                     {node.links.map((link, i) => (
                       <p key={i}>
                         <li>
-                          <a href={link.url} target="_blank">
+                          <Link to={link.url}>
                             {link.title}
-                          </a>
+                          </Link>
                         </li>
                       </p>
                     ))}

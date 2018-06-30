@@ -1,9 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import Page from 'components/Page'
 import { P, Box, Grid } from 'components/Base'
-import { Row, Column } from 'components/Grid'
 import Image from 'components/Image'
+import { graphql } from "gatsby"
 
 
 const ArtPage = ({ data }) => {

@@ -5,6 +5,7 @@ import Token from 'components/Token'
 import Divider from 'components/Divider'
 import { colors } from 'utils/design'
 import { space, themeGet } from 'styled-system'
+import { graphql } from 'gatsby'
 
 const QuoteContent = styled.h2`
   ${space};

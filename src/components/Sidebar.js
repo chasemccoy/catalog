@@ -122,13 +122,6 @@ const SidebarHeader = styled.h1`
   }
 `
 
-const SidebarSubheader = styled.p`
-  margin-bottom: 40px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: ${colors.sidebar.link.secondary};
-`
-
 const SidebarButton = props => (
   <div style={{ display: 'flex', alignItems: 'center' }}>
     {props.open ? <Icon name="sidebar-open" /> : <Icon name="sidebar-close" />}

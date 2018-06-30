@@ -4,7 +4,6 @@ import Image from 'components/Image'
 import Markdown from 'components/Markdown'
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'components/Components'
 import { media } from 'utils/media'
 
 const Container = styled(Card)`
@@ -104,6 +103,7 @@ const Information = props => (
 )
 
 const MediaCard = props => {
+  // eslint-disable-next-line
   switch (props.width) {
     case 1:
       return (

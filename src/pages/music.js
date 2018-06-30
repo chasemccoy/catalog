@@ -7,6 +7,7 @@ import media from 'utils/media'
 import { Row, Column } from 'components/Grid'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
+import { graphql } from 'gatsby'
 
 const Album = styled(Link)`
 `

@@ -1,5 +1,6 @@
 import Helmet from 'react-helmet'
 import React from 'react'
+import { graphql } from 'gatsby'
 
 export default ({ data }) => {
   const post = data.markdownRemark

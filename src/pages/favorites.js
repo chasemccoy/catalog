@@ -1,10 +1,9 @@
 import { Heading, Link } from 'components/Components'
-
+import { graphql } from 'gatsby'
 import Library from 'components/Library'
 import Page from 'components/Page'
 import React from 'react'
 import { capitalize } from 'utils/js'
-import styled from 'styled-components'
 
 const FavoritesPage = ({ data }) => {
   return (

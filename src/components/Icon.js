@@ -1,4 +1,3 @@
-import { colors, sizes } from 'utils/design'
 import React from 'react'
 import styled from 'styled-components'
 import sprite from '../sprite.svg'

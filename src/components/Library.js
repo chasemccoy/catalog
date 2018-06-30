@@ -1,6 +1,5 @@
 import { Column, Row, Float } from 'components/Grid'
-import { Heading, Link } from 'components/Components'
-import { colors, fontWeights, sizes } from 'utils/design'
+import { colors, fontWeights } from 'utils/design'
 
 import Card from 'components/Card'
 import Image from 'components/Image'
@@ -61,13 +60,6 @@ const SpotifyEmbed = styled.iframe`
 
 const Library = props => {
   const data = props.preview ? props.data.slice(0, 4) : props.data
-
-  const calculateWidth = mediaWidth => {
-    return mediaWidth.map(value => {
-      const width = value == 1 ? 1 : 1 - value
-      return width
-    })
-  }
 
   if (props.preview) {
     return (

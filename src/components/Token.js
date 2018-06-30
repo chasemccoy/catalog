@@ -1,5 +1,4 @@
 import Card from 'components/Card'
-import React from 'react'
 import { colors, fontWeights } from 'utils/design'
 import styled from 'styled-components'
 import { space } from 'styled-system'

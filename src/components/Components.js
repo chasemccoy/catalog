@@ -81,7 +81,8 @@ injectGlobal`
 export const Link = props => {
   if (props.to.startsWith('http')) {
     return (
-      <a href={props.to} target="_blank" {...props}>
+			// eslint-disable-next-line
+      <a href={props.to} target="_blank" rel="noopener" {...props}>
         {props.children}
       </a>
     )

@@ -1,5 +1,4 @@
-import React from 'react'
-import { colors } from '../utils/design'
+import { colors } from 'utils/design'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 

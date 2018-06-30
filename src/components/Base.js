@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'grid-styled'
 import { width, height, color, space, fontSize, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection } from 'styled-system'
-import { space as spaceArray } from 'utils/theme'
+import theme from 'utils/theme'
 import media from 'utils/media'
 
 export const P = styled.p`
@@ -43,8 +43,8 @@ const GridFlex = styled(Flex)`
 
 export const Grid = props => (
   <GridFlex
-    mx={props.gutter && [-props.gutter] || ['-8px', '-12px']}
-    mt={props.gutter && [-spaceArray[props.gutter] * 2] || ['-16px', '-24px']}
+    mx={(props.gutter && [-props.gutter]) || ['-8px', '-12px']}
+    mt={(props.gutter && [-theme.space[props.gutter] * 2]) || ['-16px', '-24px']}
     flexWrap={'wrap'}
     {...props}
   />

@@ -6,6 +6,7 @@ import Image from 'components/Image'
 import { P, Box } from 'components/Base'
 import Link from 'components/Link'
 import Divider from 'components/Divider'
+import { graphql } from "gatsby"
 
 const Title = styled.h3`
   font-size: 20px;
@@ -34,7 +35,7 @@ const BooksPage = ({ data }) => {
           <Column width={[1, 1/2, 1/3]} key={i}>
             <Link to={node.url} unstyled>
               <Box boxShadow='light' borderRadius='4px'>
-                <Image sizes={node.image.childImageSharp.sizes} />
+                <Image sizes={node.image.childImageSharp.fluid} />
               </Box>
 
               <Box height='8em' mt={3}>
@@ -62,8 +63,8 @@ export const query = graphql`
           url
           image {
             childImageSharp {
-              sizes(maxWidth: 900) {
-                ...GatsbyImageSharpSizes
+              fluid(maxWidth: 900) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
