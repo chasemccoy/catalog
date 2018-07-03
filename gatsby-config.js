@@ -3,7 +3,7 @@ const dotenv = require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: `Chase McCoy`,
-    description: `The thought stream of Chase McCoy.`,
+    description: `Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.`,
     siteUrl: `http://chasem.co/`
   },
   pathPrefix: '/',
@@ -16,6 +16,7 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-hjson`,
     `gatsby-plugin-twitter`,
+    `gatsby-plugin-sass`,
     {
       resolve: "gatsby-source-wordpress",
       options: {

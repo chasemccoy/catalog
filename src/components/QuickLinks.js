@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'components/Components'
+import Link from 'components/Link'
 import Image from 'components/Image'
-import { colors, fontWeights } from 'utils/design'
 
 const Container = styled.div`
-  background-color: ${colors.primary.gray.light};
   border-radius: 12px;
   padding: 12px 16px 8px 16px;
 `
@@ -24,10 +22,8 @@ const Header = styled.h2.attrs({
   className: 'sans',
 })`
   font-size: 14px;
-  color: ${colors.text.muted};
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: ${fontWeights.bold};
   margin-bottom: 8px;
 `
 
@@ -37,7 +33,6 @@ const Item = styled.li`
   max-width: 24rem;
   white-space: normal;
   margin: 0;
-  font-weight: ${fontWeights.medium};
   align-items: center;
   position: relative;
   padding-right: 16px;
@@ -57,7 +52,6 @@ const Item = styled.li`
     height: 80%;
     width: 2px;
     border-radius: 1px;
-    background-color: ${colors.primary.gray.medium};
   }
 
   &:last-child:after {
@@ -78,7 +72,6 @@ const Content = styled.div`
   justify-content: space-between;
 
   span {
-    color: ${colors.text.muted};
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 2px;

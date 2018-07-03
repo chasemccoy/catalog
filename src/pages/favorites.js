@@ -1,8 +1,7 @@
-import { Heading, Link } from 'components/Components'
-import { graphql } from 'gatsby'
-import Library from 'components/Library'
-import Page from 'components/Page'
 import React from 'react'
+import Link from 'components/Link'
+import { graphql } from 'gatsby'
+import Page from 'components/Page'
 import { capitalize } from 'utils/js'
 
 const FavoritesPage = ({ data }) => {
@@ -16,11 +15,11 @@ const FavoritesPage = ({ data }) => {
 
       {Object.keys(data).map((item, i) => (
         <div key={i}>
-          <Heading>
+          <h2>
             <Link to={item}>{capitalize(item)}</Link>
-          </Heading>
+          </h2>
 
-          <Library preview data={data[item].edges} section={item} />
+          {/* <Library preview data={data[item].edges} section={item} /> */}
         </div>
       ))}
     </Page>

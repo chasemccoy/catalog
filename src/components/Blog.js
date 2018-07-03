@@ -1,109 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fontWeights, sizes } from 'utils/design'
-import { Link } from 'components/Components'
-import { media } from 'utils/media'
+import Link from 'components/Link'
 
 const Container = styled.div`
-  margin: 0;
-
-  & > * + * {
-    margin-top: 12px;
-  }
-
-  ${props => props.photoset && `
-    img {
-      max-width: 145%;
-    }
-  `}
-
-  ${media.medium`
-    ${props => props.photoset && `
-      img {
-        max-width: 100%;
-      }
-    `}
-  `}
-
-  ${media.tiny`
-    img {
-      border-radius: 0;
-      margin: 0 -${sizes.content.smallPadding} !important;
-      width: calc(100% + ${sizes.content.smallPadding} * 2);
-      max-width: none;
-    }
-  `};
 `
 
 const AsideContainer = styled(Container)``
 
 const PostContainer = styled(Container)`
-  font-family: ${props => props.theme.fontFamily.body};
-  hyphens: auto;
-  color: ${props => props.theme.colors.serifText};
 `
 
 const Title = styled.h2`
-  margin-bottom: 12px;
-
-  a {
-    text-decoration: none;
-  }
-
-  span {
-    color: ${colors.primary.blue};
-    font-weight: ${fontWeights.bold};
-  }
 `
 
 const Content = styled.div`
-  &:last-of-type {
-    margin: 0;
-  }
-
-  &:before {
-    position: absolute;
-    margin-left: -24px;
-    color: ${colors.bookmark.border.inner};
-    font-weight: ${fontWeights.heavy};
-    font-size: 18px;
-    font-family: monospace;
-  }
-
   a {
-    font-weight: ${fontWeights.bold} !important;
+    text-decoration-line: underline;
   }
 
-  img {
-    border-radius: 4px;
-
-    ${media.tiny`
-      border-radius: 0;
-    `}
+  a + p:empty {
+    display: none;
   }
 `
-//
-// const Excerpt = styled.p`
-//   &:last-of-type {
-//     margin: 0;
-//   }
-// `
 
 const PostMeta = styled.div`
-  color: ${colors.text.muted};
-  font-weight: ${fontWeights.medium};
-  font-size: 12px;
-  font-family: ${props => props.theme.fontFamily.sans};
-
-  a {
-    text-decoration: none;
-  }
 `
 
 const PostDate = styled.p`
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 `
 
 const Meta = ({ date, permalink }) => (
@@ -124,7 +47,7 @@ export const Post = props => {
     <Title>
       {props.to ? (
         <Link to={`/${props.to}`}>
-          <span>#</span> {props.title}
+          {props.title}
         </Link>
       ) : (
         props.title
@@ -135,16 +58,6 @@ export const Post = props => {
   const content = props.content && (
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
   )
-
-  // const excerpt = props.excerpt &&
-  //   props.to && (
-  //     <Excerpt>
-  //       <span
-  //         dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }}
-  //       />
-  //       <Link to={`/${props.to}`}>Read more...</Link>
-  //     </Excerpt>
-  //   )
 
   const meta = props.date && <Meta date={props.date} permalink={props.to} />
 

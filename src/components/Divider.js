@@ -1,4 +1,4 @@
-import { colors } from 'utils/design'
+import theme from 'utils/theme'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 
@@ -7,11 +7,11 @@ const Divider = styled.hr`
   margin-left: auto;
   margin-right: auto;
   border: 0;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(
     to right,
     white,
-    ${colors.primary.gray.light},
+    ${theme.colors.gray[1]},
     white
   );
 `

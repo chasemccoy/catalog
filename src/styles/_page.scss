@@ -1,0 +1,17 @@
+body {
+	&.light {
+		background: #FFFEFC;
+	}
+
+	&.dark {
+		background: black;
+	}
+}
+
+.main {
+	grid-column: main;
+}
+
+.full {
+	grid-column: full;
+}

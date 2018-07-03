@@ -1,8 +1,7 @@
-import { Column, Row } from 'components/Grid'
-import Img from 'gatsby-image'
-import { Link } from 'components/Components'
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
+import Link from 'components/Link'
 import { borderRadius } from 'styled-system'
 
 const StyledImage = styled(Img)`
@@ -25,24 +24,6 @@ export const ImageLink = StyledImage.withComponent(Link)
 
 const RegularImage = StyledImage.withComponent('img')
 
-class Image extends React.Component {
-  render() {
-    if (this.props.sizes) {
-      return <StyledImage {...this.props} outerWrapperClassName="gatsby-img" />
-    } else if (this.props.src && this.props.to) {
-      return <ImageLinkContainer {...this.props} />
-    } else if (this.props.src && this.props.cover) {
-      return <ImageContainer {...this.props} />
-    } else if (this.props.src) {
-      return <RegularImage {...this.props} />
-    } else {
-      return <StyledImage {...this.props} />
-    }
-  }
-}
-
-export default Image
-
 const ShowcaseImageStyles = src => {
   return `
     background-image: url(${src});
@@ -62,48 +43,20 @@ const ImageLinkContainer = styled(ImageLink)`
       props.stretch && `height: 100%;`};
 `
 
-export const ImageShowcase = props => {
-  const first = props.children[0]
-  const second = props.children[1]
-  const third = props.children[2]
-
-  const Container = first.props.to ? ImageLinkContainer : ImageContainer
-
-  const primary = (
-    <Column width={[2 / 3]}>
-      {first.props.src && (
-        <Container to={first.props.to} src={first.props.src} />
-      )}
-    </Column>
-  )
-
-  const secondary = (
-    <Column width={[1 / 3]}>
-      <Row>
-        <Column width={[1]}>
-          {second.props.src && (
-            <Container to={second.props.to} src={second.props.src} />
-          )}
-        </Column>
-      </Row>
-
-      <Row mt={'-1px'}>
-        <Column width={[1]}>
-          {third.props.src && (
-            <Container to={third.props.to} src={third.props.src} />
-          )}
-        </Column>
-      </Row>
-    </Column>
-  )
-
-  return (
-    <Row {...props}>
-      {!props.right && primary}
-
-      {secondary}
-
-      {props.right && primary}
-    </Row>
-  )
+class Image extends React.Component {
+  render() {
+    if (this.props.sizes) {
+      return <StyledImage {...this.props} outerWrapperClassName="gatsby-img" />
+    } else if (this.props.src && this.props.to) {
+      return <ImageLinkContainer {...this.props} />
+    } else if (this.props.src && this.props.cover) {
+      return <ImageContainer {...this.props} />
+    } else if (this.props.src) {
+      return <RegularImage {...this.props} />
+    } else {
+      return <StyledImage {...this.props} />
+    }
+  }
 }
+
+export default Image
