@@ -1,32 +1,28 @@
-import { Heading } from 'components/Components'
-import List from 'components/Lists'
 import Markdown from 'components/Markdown'
 import Page from 'components/Page'
 import React from 'react'
-import { colors } from 'utils/design'
 import styled from 'styled-components'
-import { themeGet } from 'styled-system'
 import { graphql } from 'gatsby'
 import Link from 'components/Link'
+import { UnorderedList } from 'components/Lists'
 
-const PrinciplesList = styled(List)`
+const PrinciplesList = styled(UnorderedList)`
   > div {
     margin-bottom: 64px;
   }
 `
 
 const PrincipleDescription = styled.div`
-  color: ${colors.card.text};
   font-family: ${props => props.theme.fontFamily.body};
 `
 
-const PrincipleLinkHeading = styled(Heading)`
+const PrincipleLinkHeading = styled.h2`
   padding: 0 0 8px;
   margin-bottom: 8px;
 `
 
 export const Highlight = styled.span`
-  background-color: ${themeGet('colors.highlight')};
+  background: ${props => props.theme.colors.highlight};
 `
 
 const PrinciplesPage = ({ data }) => {
@@ -56,7 +52,7 @@ const PrinciplesPage = ({ data }) => {
                 <div>
                   <PrincipleLinkHeading>Related Readings</PrincipleLinkHeading>
 
-                  <List highlight={false}>
+                  <UnorderedList highlight={false}>
                     {node.links.map((link, i) => (
                       <p key={i}>
                         <li>
@@ -66,7 +62,7 @@ const PrinciplesPage = ({ data }) => {
                         </li>
                       </p>
                     ))}
-                  </List>
+                  </UnorderedList>
                 </div>
               )}
 

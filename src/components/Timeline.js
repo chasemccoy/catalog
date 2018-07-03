@@ -1,9 +1,7 @@
-import { colors, sizes } from 'utils/design'
-
-import Markdown from 'components/Markdown'
 import React from 'react'
-import { media } from 'utils/media'
 import styled from 'styled-components'
+import theme from 'utils/theme'
+import Markdown from 'components/Markdown'
 
 const TimelineContainer = styled.section`
   position: relative;
@@ -17,11 +15,11 @@ const TimelineContainer = styled.section`
       content: '';
       top: 0;
       bottom: 0;
-      width: ${sizes.timeline.lineWidth};
-      background: ${colors.primary.gray.dark};
+      width: ${theme.sizes.timeline.lineWidth};
+      background: ${props=> props.theme.colors.gray[2]};
       left: 50%;
 
-      ${media.small`left: calc(${sizes.timeline.pointWidth} / 2);`};
+      left: calc(${theme.sizes.timeline.pointWidth} / 2);
     }
   }
 
@@ -32,52 +30,48 @@ const TimelineContainer = styled.section`
 `
 
 const TimelineListItem = styled.li`
-  margin-bottom: 32px;
-  ${media.small`margin-bottom: 48px;`}
-  font-family: ${props => props.theme.fontFamily.body};
+  & + & {
+    margin-top: 48px;
+  }
 
   &:after {
     content: '';
     position: absolute;
-    left: calc(50% + ${sizes.timeline.lineWidth} / 2);
+    left: calc(50% + ${theme.sizes.timeline.lineWidth} / 2);
     top: 0;
     transform: translateX(-50%);
-    width: ${sizes.timeline.pointWidth};
-    height: ${sizes.timeline.pointWidth};
+    width: ${theme.sizes.timeline.pointWidth};
+    height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
     background: white;
-    border: ${sizes.timeline.lineWidth} solid ${colors.timeline.point};
+    border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.gray[2]};
     box-shadow: 0 0 0 5px white;
     z-index: 1;
 
-    ${media.small`
-			left: calc(${sizes.timeline.pointWidth} / 2);
-			transform: translateX(-42%);
-		`};
+		left: calc(${theme.sizes.timeline.pointWidth} / 2);
+		transform: translateX(-42%);
   }
 
   > div {
     position: relative;
-    width: calc(50% - ${sizes.timeline.linePadding});
+    width: calc(50% - ${theme.sizes.timeline.linePadding});
     top: -5px;
 
-    ${media.small`width: calc(100% - ${sizes.timeline.linePadding});`};
+    width: calc(100% - ${theme.sizes.timeline.linePadding});;
   }
 
   &:nth-child(odd) > div {
-    left: calc(50% + ${sizes.timeline.linePadding});
+    left: calc(50% + ${theme.sizes.timeline.linePadding});
 
-    ${media.small`left: ${sizes.timeline.linePadding}`};
+    left: ${theme.sizes.timeline.linePadding};
   }
 
   &:nth-child(even) > div {
     left: 0;
     text-align: right;
 
-    ${media.small`
-			left: ${sizes.timeline.linePadding};
-			text-align: left;
-		`};
+		left: ${theme.sizes.timeline.linePadding};
+		text-align: left;
   }
 
   .header {
@@ -85,8 +79,7 @@ const TimelineListItem = styled.li`
   }
 
   .title {
-    display: inline;
-    box-shadow: inset 0 -12px 0 0 ${props => props.theme.colors.highlight};
+    margin-bottom: 16px;
   }
 
   span.type {
@@ -95,7 +88,7 @@ const TimelineListItem = styled.li`
 
   span.date {
     font-weight: normal;
-    color: ${colors.text.muted};
+    color: ${props => props.theme.colors.gray[3]};
   }
 `
 
@@ -121,7 +114,7 @@ class TimelineItem extends React.Component {
 class Timeline extends React.Component {
   render() {
     return (
-      <TimelineContainer>
+      <TimelineContainer {...this.props}>
         <ul>{this.props.children}</ul>
       </TimelineContainer>
     )

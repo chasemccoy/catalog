@@ -5,20 +5,16 @@ import { Column, Row } from 'components/Grid'
 import Image from 'components/Image'
 import { P, Box } from 'components/Base'
 import Link from 'components/Link'
-import Divider from 'components/Divider'
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 
 const Title = styled.h3`
-  font-size: 20px;
-  margin-bottom: 6px;
-  font-family: ${props => props.theme.fontFamily.body};
+  font-family: ${props => props.theme.fontFamily.serif};
 `
 
 const Subtitle = styled.h4`
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-family: ${props => props.theme.fontFamily.mono};
   font-weight: normal;
-  color: ${props => props.theme.colors.text.muted};
+  color: ${props => props.theme.colors.gray[3]};
 `
 
 const BooksPage = ({ data }) => {
@@ -28,13 +24,11 @@ const BooksPage = ({ data }) => {
         A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.
       </P>
 
-      <Divider mt={6} mb={8} />
-
-      <Row alignItems='flex-end'>
+      <Row mt={6} alignItems='flex-end' className='full'>
         {data.books.edges.map(({node}, i) => (
           <Column width={[1, 1/2, 1/3]} key={i}>
             <Link to={node.url} unstyled>
-              <Box boxShadow='light' borderRadius='4px'>
+              <Box>
                 <Image sizes={node.image.childImageSharp.fluid} />
               </Box>
 

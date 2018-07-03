@@ -16,14 +16,19 @@ const Link = ({ children, to, ...other }) => {
 
   if (external) {
     return (
-      <StyledLink href={to} target={newTab && `_blank`} rel={newTab && 'noopener'} {...other}>
+      <StyledLink
+        href={to}
+        target={newTab ? `_blank` : undefined}
+        rel={newTab ? 'noopener' : undefined}
+        {...other}
+      >
         {children}
       </StyledLink>
     )
   }
 
   return (
-    <StyledGatsbyLink to={to} {...other}>
+    <StyledGatsbyLink to={to} {...other} activeClassName='selected'>
       {children}
     </StyledGatsbyLink>
   )

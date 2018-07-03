@@ -9,91 +9,54 @@ exports.onCreateNode = async ({ node, getNode, actions, store, cache }) => {
 		const slug = createFilePath({node, getNode, basePath: `posts`, trailingSlash: false})
 		createNodeField({node, name: 'slug', value: slug})
   }
-	else if (node.internal.type === `File` && node.sourceInstanceName === `data`) {
-		const slug = createFilePath({node, getNode, basePath: `images`, trailingSlash: false})
-		const slugArray = slug.split('/')
-		if (slugArray.length >= 3) {
-			createNodeField({node, name: 'parent', value: `/${slugArray[1]}`})
-		}
-	}
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  return new Promise((resolve, reject) => {
-    graphql(
-      `
-				{
-					allMarkdownRemark {
-						edges {
-							node {
-								fields {
-									slug
-								}
-							}
+  return graphql(`
+		{
+			allWordpressPost {
+				edges {
+					node {
+						id
+						title
+						date(fromNow: true)
+						slug
+						format
+						content
+						excerpt
+						categories {
+							name
 						}
 					}
 				}
-      `
-    )
-      .then(result => {
-				result.data.allMarkdownRemark.edges.map(({ node }) => {
-					createPage({
-						path: node.fields.slug,
-						component: path.resolve(`./src/templates/post.js`),
-						context: {
-							slug: node.fields.slug
-						}
-					})
-				})
-      })
-			.then(() => {
-        graphql(
-          `
-						{
-							allWordpressPost {
-						    edges {
-						      node {
-						        id
-										title
-					          date(fromNow: true)
-					          slug
-					          format
-					          content
-					          excerpt
-										categories {
-						          name
-						        }
-						      }
-						    }
-						  }
-						}
-          `
-        ).then(result => {
-					createPaginationPages({
-						createPage: createPage,
-						edges: result.data.allWordpressPost.edges,
-						component: path.resolve(`./src/templates/thoughts.js`),
-						limit: 25,
-						pathFormatter: prefixPathFormatter("/thoughts")
-					});
+			}
+		}
+	`).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
 
-					result.data.allWordpressPost.edges.map(({ node }) => {
-						createPage({
-							path: node.slug,
-							component: path.resolve(`./src/templates/wp-post.js`),
-							context: {
-								id: node.id
-							}
-						})
-					})
+		createPaginationPages({
+			createPage: createPage,
+			edges: result.data.allWordpressPost.edges,
+			component: path.resolve(`./src/templates/thoughts.js`),
+			limit: 25,
+			pathFormatter: prefixPathFormatter("/thoughts")
+		});
 
-          resolve()
-        })
-      })
-  })
-}
+		result.data.allWordpressPost.edges.map(({ node }) => {
+			createPage({
+				path: node.slug,
+				component: path.resolve(`./src/templates/post.js`),
+				context: {
+					id: node.id
+				}
+			})
+		});
+  });
+};
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
