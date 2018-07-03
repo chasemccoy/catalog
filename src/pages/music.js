@@ -13,21 +13,18 @@ const Album = styled(Link)`
 `
 
 Album.Title = styled.h3`
-  font-size: 20px;
-  margin-bottom: 6px;
-  font-family: ${props => props.theme.fontFamily.body};
+  font-family: ${props => props.theme.fontFamily.serif};
 `
 
 Album.Subtitle = styled.h4`
-  font-size: 18px;
-  margin-bottom: 12px;
   font-weight: normal;
-  color: ${props => props.theme.colors.text.muted};
+  color: ${props => props.theme.colors.gray[3]};
+    font-family: ${props => props.theme.fontFamily.mono};
 `
 
 const Track = styled(Box)`
   & + & {
-    border-top: 1px solid ${props => props.theme.colors.gray[4]};
+    border-top: 1px solid ${props => props.theme.colors.gray[1]};
   }
 `
 
@@ -38,7 +35,6 @@ Track.Image = styled(Image)`
 
 Track.Title = styled.h3`
   margin: 0;
-  font-size: 20px;
 
   ${media.tiny`
     width: 100%;
@@ -47,8 +43,9 @@ Track.Title = styled.h3`
 
 Track.Artist = styled.h4`
   margin: 0;
-  color: ${props => props.theme.colors.gray[2]};
+  color: ${props => props.theme.colors.gray[3]};
   font-weight: normal;
+  font-family: ${p => p.theme.fontFamily.mono};
 `
 
 class MusicPage extends React.Component {
@@ -65,22 +62,21 @@ class MusicPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.tracks);
     return (
       <Page title="Music" icon="music" description="A few of my favorite albums, as well as what I am listening to recently.">
         <P mb={9}>
           I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
         </P>
 
-        <Heading>Favorite Albums</Heading>
+        <Heading className='full'>Favorite Albums</Heading>
 
-        <Row mb={4}>
+        <Row mb={4} className='full'>
           {this.props.data.music.edges.map(({node}, i) => (
             <Column width={[1/2, 1/3]} key={i}>
               <Album to={node.url} unstyled>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
-                <Box height={['8em', '8em', '8em', '6em']} mt={3}>
+                <Box height={['10em', '10em', '10em', '8em']} mt={3}>
                   <Album.Title>{node.title}</Album.Title>
                   <Album.Subtitle>{node.metadata}</Album.Subtitle>
                 </Box>
@@ -90,7 +86,7 @@ class MusicPage extends React.Component {
         </Row>
 
         {this.state.tracks.length > 0 && (
-          <div>
+          <div className='full'>
             <Heading mb={2}>Recent Tracks</Heading>
 
             {this.state.tracks.map((track, i) => (
