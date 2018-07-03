@@ -26,7 +26,7 @@ function getMosaicWidths(count) {
       // If starting a new row, choose any valid size and increase the row size
       // by that width
       case 0:
-        width = [1 / 3, 1 / 2, 2 / 3, 1].sample()
+        width = [1 / 2, 1].sample()
         state = state + width
         return width
       // If row is 33% full, choose either a 1/3 or 2/3 width item; increase
@@ -69,11 +69,11 @@ const Mosaic = props => {
   const widths = getMosaicWidths(props.children.length)
 
   return (
-    <Row mx={[-16, -24]}>
+    <Row mx={[-8, -16]}>
       {props.children.map((item, index) => (
         <Column
-          pt={[16, 0]}
-          px={[16, 24]}
+          pt={[16, 32]}
+          px={[8, 16]}
           width={[1, widths[index]]}
           key={index}
         >

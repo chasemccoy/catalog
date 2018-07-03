@@ -1,7 +1,7 @@
-import { Timeline, TimelineItem } from 'components/Timeline'
-import Page from 'components/Page'
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Timeline, TimelineItem } from 'components/Timeline'
+import Page from 'components/Page'
 
 const PortfolioPage = ({ data }) => {
   return (
@@ -11,7 +11,7 @@ const PortfolioPage = ({ data }) => {
         love talking about my work/industry, so get in touch and lets talk shop.
       </h3>
 
-      <Timeline>
+      <Timeline className='full'>
         {data.portfolio.edges.map(({ node }, index) => (
           <TimelineItem
             key={index}

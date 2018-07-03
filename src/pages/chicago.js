@@ -1,4 +1,3 @@
-import { Heading } from 'components/Components'
 import Page from 'components/Page'
 import React from 'react'
 import TableOfContents from 'components/TableOfContents'
@@ -18,21 +17,21 @@ const ChicagoPage = ({ data }) => {
 
   return (
     <Page wide title="Chicago" icon="chicago" description="The best places in Chicago to chow down, work remotely, or get drunk at.">
-      <P width={[1, 1, 1, 3/4]}>
+      <P>
         I moved from a small college town in Mississippi to Chicago less than a
         year ago, in the middle of summer. And I've been in love since. There's
         so much more to see and so many more meals to eat. Here are some places
         that I am especially fond of, in no particular order.
       </P>
 
-      <TableOfContents items={uniqueCategories} />
+      <TableOfContents items={uniqueCategories} mb={7} />
 
       {uniqueCategories.map((category, index) => (
-        <Row mb={80} key={index}>
+        <Row mb={80} key={index} className='full'>
           <Column width={1}>
-            <Heading id={category} key={category}>
+            <h2 id={category} key={category}>
               {capitalize(category)}
-            </Heading>
+            </h2>
 
             <Mosaic>
               {data.chicago.edges

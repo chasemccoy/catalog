@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
-import Token from 'components/Token'
 import Divider from 'components/Divider'
-import { colors } from 'utils/design'
-import { space, themeGet } from 'styled-system'
+import { space } from 'styled-system'
 import { graphql } from 'gatsby'
+import { Box } from 'components/Base'
 
 const QuoteContent = styled.h2`
   ${space};
+  font-weight: ${p => p.theme.fontWeights.normal};
 `
 
 const Meta = styled.div`
@@ -18,40 +18,32 @@ const Meta = styled.div`
   flex-wrap: wrap;
 `
 
-const Tags = styled.div`
-  ${space};
-`
-
 const Source = styled.h3`
-  font-weight: ${themeGet('fontWeights.normal')};
-  font-family: ${themeGet('fontFamily.sans')};
-  color: ${colors.card.text};
   margin: 0;
   flex-basis: 70%;
-  font-size: 20px;
   display: flex;
   align-items: center;
   ${space};
-  font-family: ${props => props.theme.fontFamily.body};
+  font-family: ${props => props.theme.fontFamily.serif};
+  color: ${p => p.theme.colors.gray[3]};
 `
 
 const Dropcap = styled.span`
-  font-family: ${themeGet('fontFamily.serif')};
-  font-size: 70px;
+  font-size: 56px;
   line-height: 0;
-  padding-top: 0.55em;
+  padding-top: 0.5em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;
-  color: ${colors.primary.gray.dark};
+  color: ${p => p.theme.colors.gray[2]};
 `
 
 const Highlight = styled.span`
-  box-shadow: inset 0 -12px 0 0 ${themeGet('colors.highlight')};
+  ${'' /* box-shadow: inset 0 -12px 0 0 ${p => p.theme.colors.gray[0]}; */}
 `
 
 export const Quote = props => (
-  <div>
+  <div className='full'>
     <QuoteContent pb={4} mb={0}>
       <Highlight>{props.content}</Highlight>
     </QuoteContent>
@@ -61,16 +53,6 @@ export const Quote = props => (
         {<Dropcap>“</Dropcap>}
         {props.source}
       </Source>
-
-      {props.tags && (
-        <Tags mt={2}>
-          {props.tags.map((tag, j) => (
-            <Token mt={2} mr={2} py={1} px={2} key={j}>
-              {tag}
-            </Token>
-          ))}
-        </Tags>
-      )}
     </Meta>
   </div>
 )
@@ -78,10 +60,11 @@ export const Quote = props => (
 const QuotesPage = ({ data }) => {
   return (
     <Page title="Quotes" icon="quote" description="Words worth keeping in mind.">
-      <br />
+
+      <Box mb={4} />
 
       {data.quotes.edges.map(({ node }, i) => (
-        <div key={i}>
+        <>
           <Quote
             content={node.content}
             source={node.metadata}
@@ -89,7 +72,7 @@ const QuotesPage = ({ data }) => {
           />
 
           <Divider my={6} />
-        </div>
+        </>
       ))}
     </Page>
   )

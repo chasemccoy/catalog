@@ -8,7 +8,8 @@ const Heading = styled.h2`
   font-weight: ${props => props.theme.fontWeights.bold};
   margin: 0 0 24px;
   padding: 0 0 8px;
-  color: ${props => props.theme.colors.text.secondary};
+  color: ${props => props.theme.colors.gray[3]};
+  font-family: ${props => props.theme.fontFamily.sans};
 
   display: flex;
   align-items: center;

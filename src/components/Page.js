@@ -1,61 +1,73 @@
-import Icon from 'components/Icon'
 import React from 'react'
-import { media } from 'utils/media'
 import styled from 'styled-components'
-import { space } from 'styled-system'
 import Helmet from 'react-helmet'
-import Layout from 'layouts'
+import Layout from 'components/Layout'
+import Header from 'components/Header'
+import media from 'utils/media'
 
-const PageContainer = styled.div`
-  ${props => props.narrow && 'width: 75%;'} ${props =>
-      props.wide && 'width: 145%;'} ${props =>
-      props.wide &&
-      media.large`
-    width: 100%;
-	`}
-
-  ${props => props.narrow && media.medium`
-    width: 100%;
-	`}
-
-  ${space};
+const Container = styled.div`
 `
 
-const PageTitle = styled.h2`
-  margin-bottom: 32px;
+const Wrapper = styled.div.attrs({
+  id: 'wrapper'
+})`
+  max-width: ${p => p.theme.sizes.layout.maxWidth};
+  margin-left: ${p => p.theme.sizes.layout.offset};
+  display: grid;
+  grid-template-columns:
+    [full-start main-start] 1fr
+    repeat(2, 1fr) [main-end]
+    1fr [full-end];
+  padding-bottom: 80px;
+
+  ${media.medium`
+    margin-left: 0;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  `}
+`
+
+const Content = styled.main.attrs({
+  id: 'content'
+})`
+  width: 100%;
+  display: contents;
+
+  * {
+    grid-column: main;
+
+    ${media.medium`
+      grid-column: full;
+    `}
+  }
 `
 
 const Page = props => (
   <Layout>
-    <PageContainer {...props} title="">
+    <Container {...props} title=''>
       <Helmet
         title={props.title}
-        meta={[
-          {
-            name: 'description',
-            content: props.description || 'Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.'
-          },
-          {
-            name: 'og:title',
-            content: props.title || 'Chase McCoy'
-          },
-          {
-            name: 'og:description',
-            content: props.description || 'Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.'
-          }
-        ]}
-      />
+      >
+        <meta name="description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
+        <meta name="og:title" content={props.title || "Chase McCoy"} />
+        <meta name="og:description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
+      </Helmet>
 
-      {props.title && !props.untitled && (
-        <PageTitle>
-          {props.icon && <Icon large name={props.icon} />}
+      <Header />
 
-          {props.title}
-        </PageTitle>
-      )}
+      <Wrapper>
+        <Content>
+          {props.title && !props.untitled && (
+            <h2>
+              {props.title}
+            </h2>
+          )}
 
-      {props.children}
-    </PageContainer>
+          {props.children}
+        </Content>
+      </Wrapper>
+    </Container>
   </Layout>
 )
 
