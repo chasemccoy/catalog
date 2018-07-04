@@ -2,11 +2,6 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 import theme from 'utils/theme'
-import 'styles/index.scss'
-import '../fonts/fonts.css'
-
-// eslint-disable-next-line
-import svgxuse from 'svgxuse'
 
 const Layout = props => (
   <ThemeProvider theme={theme}>

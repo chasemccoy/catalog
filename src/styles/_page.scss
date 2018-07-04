@@ -9,9 +9,9 @@ body {
 }
 
 .main {
-	grid-column: main;
+	grid-column: main !important;
 }
 
 .full {
-	grid-column: full;
+	grid-column: full !important;
 }

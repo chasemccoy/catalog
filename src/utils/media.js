@@ -14,24 +14,6 @@ export const media = Object.keys(theme.namedBreakpoints).reduce(
   {}
 )
 
-const large = media.large`
-  background: red;
-`
-const medium = media.medium`
-  background: green;
-`
-const small = media.small`
-  background: blue;
-`
-const tiny = media.tiny`
-  background: yellow;
-`
-
-console.log({large});
-console.log({medium});
-console.log({small});
-console.log({tiny});
-
 export default media
 
 // Use it like this:

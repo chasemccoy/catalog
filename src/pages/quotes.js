@@ -66,7 +66,7 @@ const QuotesPage = ({ data }) => {
       <Box mb={4} />
 
       {data.quotes.edges.map(({ node }, i) => (
-        <>
+        <React.Fragment key={i}>
           <Quote
             content={node.content}
             source={node.metadata}
@@ -74,7 +74,7 @@ const QuotesPage = ({ data }) => {
           />
 
           <Divider my={6} />
-        </>
+        </React.Fragment>
       ))}
     </Page>
   )
