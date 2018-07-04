@@ -12,13 +12,13 @@ const namedBreakpoints = {
   large: breakpoints[3]
 }
 
-const colors = {
+const colors = { 
   page: {
     light: '#FFFEFC',
     dark: '#000000'
   },
   type: {
-    body: '#3D3D3C',
+    body: '#2E2E2D',
     menu: '#666666',
     menuMuted: '#CCCCCC'
   },
@@ -26,7 +26,8 @@ const colors = {
     0: '#FAF8F5',
     1: '#E4E6D3',
     2: '#CBCCBC',
-    3: '#98998D'
+    3: '#98998D',
+    4: '#72736A'
   }
 }
 

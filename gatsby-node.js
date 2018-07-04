@@ -21,7 +21,7 @@ exports.createPages = ({ actions, graphql }) => {
 					node {
 						id
 						title
-						date(fromNow: true)
+						date(formatString: "MMM D")
 						slug
 						format
 						content

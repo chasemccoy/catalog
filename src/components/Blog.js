@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
+import Icon from 'components/Icon'
 
 const Container = styled.div`
 `
@@ -8,6 +9,8 @@ const Container = styled.div`
 const AsideContainer = styled(Container)``
 
 const PostContainer = styled(Container)`
+  font-family: ${p => p.theme.fontFamily.serif};
+  hyphens: auto;
 `
 
 const Title = styled.h2`
@@ -15,7 +18,13 @@ const Title = styled.h2`
 
 const Content = styled.div`
   a {
+    transition: none;
     text-decoration-line: underline;
+    color: ${p => p.theme.colors.gray[4]};
+  }
+
+  a:hover {
+    color: currentColor;
   }
 
   a + p:empty {
@@ -24,21 +33,35 @@ const Content = styled.div`
 `
 
 const PostMeta = styled.div`
+  font-size: 14px;
+  font-family: ${p => p.theme.fontFamily.mono};
+  color: ${p => p.theme.colors.gray[3]};
+  margin-bottom: 12px;
 `
 
-const PostDate = styled.p`
+const PostMetaIcon = styled(Icon)`
+  color: ${p => p.theme.colors.gray[2]};
+  margin: -2px 8px 0 0;
 `
 
-const Meta = ({ date, permalink }) => (
+const PostDate = styled(Link)`
+  display: block;
+  margin-bottom: 8px;
+  color: ${p => p.theme.colors.gray[3]};
+  text-transform: uppercase;
+`
+
+const Meta = ({ date, permalink, aside }) => (
   <PostMeta>
     {date &&
       permalink && (
-        <PostDate>
-          <Link to={`/${permalink}`}>{date}</Link>
+        <PostDate to={`/${permalink}`}>
+          {aside && <PostMetaIcon tiny name='open-tab' />}
+          {date}
         </PostDate>
       )}
 
-    {date && !permalink && <PostDate>Posted on {date}</PostDate>}
+    {date && !permalink && `Posted on ${date}`}
   </PostMeta>
 )
 
@@ -59,13 +82,13 @@ export const Post = props => {
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  const meta = props.date && <Meta date={props.date} permalink={props.to} />
+  const meta = props.date && <Meta date={props.date} permalink={props.to} aside={props.aside} />
 
   if (props.aside) {
     return (
       <AsideContainer>
-        {content}
         {meta}
+        {content}
       </AsideContainer>
     )
   } else {

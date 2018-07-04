@@ -22,7 +22,7 @@ const typography = new Typography({
       marginBottom: rhythm(1/2),
     },
     a: {
-      WebkitTextDecorationSkip: 'unset', 
+      WebkitTextDecorationSkip: 'unset',
       color: theme.colors.type.body,
       transition: '0.3s all',
       textDecoration: 'none',
@@ -32,13 +32,16 @@ const typography = new Typography({
     'a:hover': {
       textDecorationLine: 'underline',
       textDecorationColor: theme.colors.type.body,
-      '-webkit-text-decoration-color': theme.colors.type.body
+      '-webkit-text-decoration-color': theme.colors.type.body 
     },
     img: {
       height: 'auto'
     },
     blockquote: {
       paddingLeft: '16px',
+      color: theme.colors.gray[4],
+      borderLeft: `2px solid ${theme.colors.gray[1]}`,
+      fontStyle: 'italic'
     },
     pre: {
       overflow: 'auto'

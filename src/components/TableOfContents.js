@@ -5,6 +5,7 @@ import { capitalize } from 'utils/js'
 import { space } from 'styled-system'
 
 const Container = styled.div`
+  color: ${p => p.theme.colors.type.menu};
   margin-bottom: 24px;
   ${space}
 `
@@ -14,8 +15,10 @@ const TOCItem = styled.span`
 
   a {
     text-decoration: none;
+    color: ${p => p.theme.colors.type.menu};
 
     &:hover {
+      color: ${p => p.theme.colors.type.body};
     }
   }
 
@@ -23,6 +26,7 @@ const TOCItem = styled.span`
     &:before {
       content: '/';
       margin-right: 12px;
+      color: ${p => p.theme.colors.type.menuMuted};
     }
   }
 `

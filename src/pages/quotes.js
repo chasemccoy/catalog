@@ -20,22 +20,24 @@ const Meta = styled.div`
 
 const Source = styled.h3`
   margin: 0;
+  font-weight: normal;
   flex-basis: 70%;
   display: flex;
   align-items: center;
   ${space};
-  font-family: ${props => props.theme.fontFamily.serif};
+  font-family: ${props => props.theme.fontFamily.mono};
   color: ${p => p.theme.colors.gray[3]};
 `
 
 const Dropcap = styled.span`
   font-size: 56px;
   line-height: 0;
-  padding-top: 0.5em;
+  padding-top: 0.75em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;
   color: ${p => p.theme.colors.gray[2]};
+  font-family: ${props => props.theme.fontFamily.serif};
 `
 
 const Highlight = styled.span`
@@ -49,7 +51,7 @@ export const Quote = props => (
     </QuoteContent>
 
     <Meta mt={-2}>
-      <Source mt={2}>
+      <Source>
         {<Dropcap>“</Dropcap>}
         {props.source}
       </Source>

@@ -5,11 +5,11 @@ const Heading = styled.h2`
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: ${props => props.theme.fontWeights.bold};
+  font-weight: ${props => props.theme.fontWeights.normal};
   margin: 0 0 24px;
   padding: 0 0 8px;
   color: ${props => props.theme.colors.gray[3]};
-  font-family: ${props => props.theme.fontFamily.sans};
+  font-family: ${props => props.theme.fontFamily.mono};
 
   display: flex;
   align-items: center;
