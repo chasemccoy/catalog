@@ -5,6 +5,7 @@ import { Row, Column } from 'components/Grid'
 import Header from 'components/Header'
 import Link from 'components/Link'
 import media from 'utils/media'
+import Icon from 'components/Icon'
 
 const Container = styled.div`
   display: flex;
@@ -45,10 +46,6 @@ const Lead = styled.p`
   }
 `
 
-const Symbol = styled.span`
-  font-family: LucidaGrande;
-`
-
 const Nav = styled(Header)`
   margin: 0;
   padding: 16px 0;
@@ -66,7 +63,7 @@ class IndexPage extends React.Component {
         <Container>
           <Row>
             <Column width={[1]}>
-              <Lead><Symbol>⎋</Symbol><br /><br />Chase McCoy is a designer living in Chicago who spends a lot of time thinking about how the web works. Right now, I'm building a design system at <Link to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design as it relates to ethics, tooling, art, and engineering. You can follow along here, or on <Link to='http://twitter.com/chase_mccoy'>Twitter</Link> and <Link to='http://instagram.com/chs_mc'>Instagram</Link>.</Lead>
+              <Lead><Icon name='escape' /><br /><br />Chase McCoy is a designer living in Chicago who spends a lot of time thinking about how the web works. Right now, I'm building a design system at <Link to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design as it relates to ethics, tooling, art, and engineering. You can follow along here, or on <Link to='http://twitter.com/chase_mccoy'>Twitter</Link> and <Link to='http://instagram.com/chs_mc'>Instagram</Link>.</Lead>
             </Column>
 
             <Column style={{maxWidth: '100%'}}>
