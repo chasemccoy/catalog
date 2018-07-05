@@ -26,10 +26,6 @@ const Content = styled.div`
   a:hover {
     color: currentColor;
   }
-
-  a + p:empty {
-    display: none;
-  }
 `
 
 const PostMeta = styled.div`

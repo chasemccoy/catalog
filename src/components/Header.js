@@ -24,7 +24,7 @@ const MenuItem = styled.li`
   color: ${p => p.muted ? p.theme.colors.type.menuMuted : p.theme.colors.type.menu};
 
   a {
-    color: currentColor; 
+    color: currentColor;
   }
 
   a.selected {
@@ -58,11 +58,14 @@ const Header = props => (
       }
     `}
     render={data => (
-      <Container>
+      <Container {...props}>
         <UnorderedList inline>
-          <li><Link to='/'>Chase McCoy</Link></li>
-
-          <MenuItem muted>></MenuItem>
+          {!props.short && (
+            <>
+              <li><Link to='/'>Chase McCoy</Link></li>
+              <MenuItem muted>></MenuItem>
+            </>
+          )}
 
           {data.nav.edges.map(({node}, i) => (
             <React.Fragment key={i}>

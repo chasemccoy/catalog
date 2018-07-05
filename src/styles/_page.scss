@@ -1,4 +1,6 @@
 body {
+	transition: 0.2s all;
+
 	&.light {
 		background: #FFFEFC;
 	}
