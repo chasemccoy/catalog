@@ -10,7 +10,7 @@ import { graphql } from 'gatsby'
 
 const PaginationLink = styled(Link)`
   padding: 8px 16px;
-  border-radius: 8px; 
+  border-radius: 8px;
   display: block;
   text-decoration: none;
 
@@ -42,6 +42,7 @@ const BlogPage = ({ data, pageContext }) => {
                 to={node.slug}
                 content={node.content}
                 date={node.date}
+                imagePost={node.format === 'image'}
               />
             )}
 
@@ -94,17 +95,17 @@ export const query = graphql`
       }
     }
 
-    dropmark: allDropmark(limit: 20, sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
-          title
-          description
-          link
-          date
-          preview_url
-          collection
-        }
-      }
-    }
+    # dropmark: allDropmark(limit: 20, sort: { fields: [date], order: DESC }) {
+    #   edges {
+    #     node {
+    #       title
+    #       description
+    #       link
+    #       date
+    #       preview_url
+    #       collection
+    #     }
+    #   }
+    # }
   }
 `

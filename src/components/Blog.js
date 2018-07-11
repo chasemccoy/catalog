@@ -6,7 +6,13 @@ import Icon from 'components/Icon'
 const Container = styled.div`
 `
 
-const AsideContainer = styled(Container)``
+const AsideContainer = styled(Container)`
+  ${p => p.photo && `
+    div.e-content > a + p:empty {
+      margin-bottom: -8px;
+    }
+  `}
+`
 
 const PostContainer = styled(Container)`
   font-family: ${p => p.theme.fontFamily.serif};
@@ -82,7 +88,7 @@ export const Post = props => {
 
   if (props.aside) {
     return (
-      <AsideContainer>
+      <AsideContainer photo={props.imagePost}>
         {meta}
         {content}
       </AsideContainer>

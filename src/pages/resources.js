@@ -1,35 +1,56 @@
 import React from 'react'
+import styled from 'styled-components'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Page from 'components/Page'
 import { capitalize } from 'utils/js'
+import { Grid, Box, P } from 'components/Base'
 
-const FavoritesPage = ({ data }) => {
+const Tile = styled(Link)`
+  display: block;
+  border-radius: 8px;
+  color: ${p => p.theme.colors.gray[4]};
+  background: ${p => p.theme.colors.gray[0]};
+  padding: 16px;
+  font-family: ${p => p.theme.fontFamily.mono};
+  font-weight: normal;
+  border: 1px solid ${p => p.theme.colors.gray[1]};
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`
+
+const Title = styled.h3`
+  margin: 0;
+`
+
+const ResourcesPage = ({ data }) => {
   return (
-    <Page title="Favorites" icon="heart" description='The best of the best.'>
-      <p>
+    <Page title="Resources" icon="heart" description='The best of the best.'>
+      <P mb={7}>
         Below are some things in various categories that I love. I think you can
         tell a lot about a person by paying attention to what they pay attention
         to, so here are the things that capture my attention.
-      </p>
+      </P>
 
-      {Object.keys(data).map((item, i) => (
-        <div key={i}>
-          <h2>
-            <Link to={item}>{capitalize(item)}</Link>
-          </h2>
-
-          {/* <Library preview data={data[item].edges} section={item} /> */}
-        </div>
-      ))}
+      <Grid>
+        {Object.keys(data).map((item, i) => (
+          <Box width={[1, 1/2, 1/3]} key={i}>
+            <Title>
+              <Tile to={item}>{capitalize(item)} &rarr;</Tile>
+            </Title>
+          </Box>
+        ))}
+      </Grid>
     </Page>
   )
 }
 
-export default FavoritesPage
+export default ResourcesPage
 
 export const query = graphql`
-  query FavoritesQuery {
+  query ResourcesQuery {
     chicago: allChicagoHJson(sort: { fields: [title], order: ASC }) {
       edges {
         node {
@@ -59,17 +80,15 @@ export const query = graphql`
       }
     }
 
-    # movies: allMoviesHJson(sort: {fields: [title], order: ASC}) {
-    #   edges {
-    #     node {
-    #       title
-    #       metadata
-    #       description
-    #       url
-    #       image
-    #     }
-    #   }
-    # }
+    quotes: allQuotesHJson(sort: { fields: [metadata], order: ASC }) {
+      edges {
+        node {
+          content
+          metadata
+          tags
+        }
+      }
+    }
 
     music: allMusicHJson(sort: { fields: [title], order: ASC }) {
       edges {
@@ -102,6 +121,19 @@ export const query = graphql`
                 ...GatsbyImageSharpSizes
               }
             }
+          }
+        }
+      }
+    }
+
+    code: allGithubStarredrepositories {
+      edges {
+        node {
+          name
+          url
+          description
+          owner {
+            login
           }
         }
       }

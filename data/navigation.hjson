@@ -9,35 +9,35 @@
 		"icon": "blog",
 		"url": "/thoughts"
 	},
+	{
+		"title": "Resources",
+		"icon": "heart",
+		"url": "/resources"
+	},
 	// {
-	// 	"title": "Favorites",
-	// 	"icon": "heart",
-	// 	"url": "/favorites"
-	// },
-	{
-		title: Chicago
-		url: /chicago
-	}
-	{
-		title: Books
-		url: /books
-	}
-	{
-		title: Quotes
-		url: /quotes
-	}
-	{
-		title: Music
-		url: /music
-	}
-	{
-		title: Apps
-		url: /apps
-	}
-	{
-		title: Code
-		url: /code
-	}
+	// 	title: Chicago
+	// 	url: /chicago
+	// }
+	// {
+	// 	title: Books
+	// 	url: /books
+	// }
+	// {
+	// 	title: Quotes
+	// 	url: /quotes
+	// }
+	// {
+	// 	title: Music
+	// 	url: /music
+	// }
+	// {
+	// 	title: Apps
+	// 	url: /apps
+	// }
+	// {
+	// 	title: Code
+	// 	url: /code
+	// }
 	{
 		title: Portfolio
 		icon: portfolio

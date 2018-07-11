@@ -16,7 +16,7 @@ const TimelineContainer = styled.section`
       top: 0;
       bottom: 0;
       width: ${theme.sizes.timeline.lineWidth};
-      background: ${props=> props.theme.colors.gray[2]};
+      background: ${props=> props.theme.colors.gray[1]};
       left: 50%;
 
       left: calc(${theme.sizes.timeline.pointWidth} / 2);

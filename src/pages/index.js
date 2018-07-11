@@ -23,6 +23,8 @@ const Container = styled.div`
   `}
 
   ${media.small`
+    justify-content: center;
+    padding: 48px 0;
     max-width: calc(100vw - 48px);
   `}
 
@@ -63,7 +65,12 @@ class IndexPage extends React.Component {
         <Container>
           <Row>
             <Column width={[1]}>
-              <Lead><Icon name='escape' /><br /><br />Chase McCoy is a designer living in Chicago who spends a lot of time thinking about how the web works. Right now, I'm building a design system at <Link to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design as it relates to ethics, tooling, art, and engineering. You can follow along here, or on <Link to='http://twitter.com/chase_mccoy'>Twitter</Link> and <Link to='http://instagram.com/chs_mc'>Instagram</Link>.</Lead>
+              <Lead>
+                <Icon name='escape' />
+                <br /><br />
+
+                Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. Right now, I'm building a design system at <Link to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design as it relates to ethics, tooling, art, culture, and engineering. You can follow along here, or on <Link to='http://twitter.com/chase_mccoy'>Twitter</Link> and <Link to='http://instagram.com/chs_mc'>Instagram</Link>.
+              </Lead>
             </Column>
 
             <Column style={{maxWidth: '100%'}}>

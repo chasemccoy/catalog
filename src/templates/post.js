@@ -20,7 +20,8 @@ export default ({ data }) => {
       <Post
         content={post.content}
         date={post.date}
-        aside={post.format === 'aside'}
+        aside={post.format === 'aside' || post.format === 'image'}
+        imagePost={post.format === 'image'}
         photoset={isPhotoset(post.categories)}
       />
     </Page>
