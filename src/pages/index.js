@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  max-width: calc(100vw - 240px);
+  max-width: calc(100vw - 340px);
   min-height: 100vh;
   margin: 0 auto;
   padding: 120px 0;
@@ -19,13 +19,13 @@ const Container = styled.div`
   overflow: hidden;
 
   ${media.medium`
-    max-width: calc(100vw - 120px);
+    max-width: calc(100vw - 180px);
   `}
 
   ${media.small`
     justify-content: center;
     padding: 48px 0;
-    max-width: calc(100vw - 48px);
+    max-width: calc(100vw - 80px);
   `}
 
   a {
