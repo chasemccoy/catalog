@@ -2,23 +2,23 @@ body {
 	min-height: 100vh;
 	padding-left: 16px;
 
-	&:before {
-		content: "";
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		width: 16px;
-		background: #F1592A;
-	}
-
-	@media (max-width: 1000px) {
-		padding-left: 8px;
-
-		&:before {
-			width: 8px;
-		}
-	}
+	// &:before {
+	// 	content: "";
+	// 	position: fixed;
+	// 	top: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// 	width: 16px;
+	// 	background: #F1592A;
+	// }
+	//
+	// @media (max-width: 1000px) {
+	// 	padding-left: 8px;
+	//
+	// 	&:before {
+	// 		width: 8px;
+	// 	}
+	// }
 
 	transition: 0.2s all;
 
