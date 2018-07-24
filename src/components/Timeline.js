@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from 'utils/theme'
 import Markdown from 'components/Markdown'
+import { space } from 'styled-system'
 
 const TimelineContainer = styled.section`
   position: relative;
-  margin: 56px 0;
 
   ul {
     margin: 0;
@@ -27,6 +27,8 @@ const TimelineContainer = styled.section`
     list-style-type: none;
     position: relative;
   }
+
+  ${space}
 `
 
 const TimelineListItem = styled.li`

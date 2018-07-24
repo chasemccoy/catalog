@@ -21,7 +21,7 @@ const Tile = styled(Link)`
   }
 `
 
-const Title = styled.h3`
+const Title = styled.h4`
   margin: 0;
 `
 
