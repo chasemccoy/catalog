@@ -4,7 +4,7 @@ import theme from 'utils/theme'
 const fontFamilyArray = value => value.replace(/[\"\"&]+/g, '').split(', ')
 
 const typography = new Typography({
-  baseFontSize: '16px',
+  baseFontSize: '17px',
   baseLineHeight: 1.5,
   bodyFontFamily: fontFamilyArray(theme.fontFamily.sans),
   headerFontFamily: fontFamilyArray(theme.fontFamily.serif),
@@ -32,7 +32,7 @@ const typography = new Typography({
     'a:hover': {
       textDecorationLine: 'underline',
       textDecorationColor: theme.colors.type.body,
-      '-webkit-text-decoration-color': theme.colors.type.body 
+      '-webkit-text-decoration-color': theme.colors.type.body
     },
     img: {
       height: 'auto'

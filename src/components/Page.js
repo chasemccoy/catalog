@@ -43,6 +43,17 @@ const Content = styled.main.attrs({
   }
 `
 
+const Title = styled.h2`
+  background: url('/meta/brush.svg');
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: -16%;
+  padding: 4px 24px 6px;
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-bottom: 2em;
+`
+
 const Page = props => (
   <Layout>
     <Container {...props} title=''>
@@ -59,9 +70,7 @@ const Page = props => (
       <Wrapper>
         <Content>
           {props.title && !props.untitled && (
-            <h2>
-              {props.title}
-            </h2>
+            <Title>{props.title}</Title>
           )}
 
           {props.children}
