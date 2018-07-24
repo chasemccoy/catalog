@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import sprite from '../sprite.svg'
+import { space } from 'styled-system'
 
 const StyledIcon = styled.svg`
   height: ${props => (props.large ? `32px` : `24px`)};
@@ -28,6 +29,8 @@ const StyledIcon = styled.svg`
     max-width: 14px;
     margin: 0;
   `}
+
+  ${space}
 `
 
 const Icon = props => (

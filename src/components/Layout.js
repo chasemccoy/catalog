@@ -14,7 +14,6 @@ const Layout = props => (
         <meta name="description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />
         <meta name="og:title" content="Chase McCoy" />
         <meta name="og:description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />
-        <meta name="image" content="http://chasem.co/meta/chase.jpg" />
         <meta name="twitter:site" content="@chase_mccoy" />
         <meta name="twitter:card" content="summary" />
       </Helmet>

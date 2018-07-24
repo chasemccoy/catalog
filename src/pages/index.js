@@ -66,7 +66,7 @@ class IndexPage extends React.Component {
           <Row>
             <Column width={[1]}>
               <Lead>
-                <Icon name='broken' jumbo />
+                <Icon name='broken' jumbo mb='30%' />
                 <br /><br />
 
                 Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. Right now, I'm building a design system at <Link to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design as it relates to ethics, tooling, art, culture, and engineering. You can follow along here, or on <Link to='http://twitter.com/chase_mccoy'>Twitter</Link> and <Link to='http://instagram.com/chs_mc'>Instagram</Link>.

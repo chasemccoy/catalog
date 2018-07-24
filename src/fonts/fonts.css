@@ -4,7 +4,6 @@
         url('TiemposText-Medium.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
-    font-display: optional;
 }
 
 /* @font-face {
@@ -23,7 +22,6 @@
         url('TiemposText-RegularItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
-    font-display: optional;
 }
 
 @font-face {
@@ -33,7 +31,6 @@
         url('TiemposText-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: optional;
 }
 
 @font-face {
@@ -43,7 +40,6 @@
         url('iAWriterDuospace-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
-    font-display: optional;
 }
 
 @font-face {
@@ -53,7 +49,6 @@
         url('iAWriterDuospace-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
-    font-display: optional;
 }
 
 @font-face {
@@ -63,7 +58,6 @@
         url('iAWriterDuospace-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: optional;
 }
 
 @font-face {
@@ -73,5 +67,4 @@
         url('iAWriterDuospace-RegularItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
-    font-display: optional;
 }
