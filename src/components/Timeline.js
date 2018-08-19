@@ -40,13 +40,13 @@ const TimelineListItem = styled.li`
     content: '';
     position: absolute;
     left: calc(50% + ${theme.sizes.timeline.lineWidth} / 2);
-    top: 0;
+    top: 2px;
     transform: translateX(-50%);
     width: ${theme.sizes.timeline.pointWidth};
     height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
     background: white;
-    border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.gray[2]};
+    border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.gray[3]};
     box-shadow: 0 0 0 5px white;
     z-index: 1;
 

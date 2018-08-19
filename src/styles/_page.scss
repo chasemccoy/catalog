@@ -23,11 +23,12 @@ body {
 	transition: 0.2s all;
 
 	&.light {
-		background: #FFFEFC;
+		// background: #FFFEFC;
+		background: #FFF;
 	}
 
 	&.dark {
-		background: black;
+		background: #FC625D;
 	}
 }
 

@@ -4,7 +4,8 @@ import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Page from 'components/Page'
 import { capitalize } from 'utils/js'
-import { Grid, Box, P } from 'components/Base'
+import { Grid, Box } from 'components/Base'
+import Text from 'components/Text'
 
 const Tile = styled(Link)`
   display: block;
@@ -12,7 +13,7 @@ const Tile = styled(Link)`
   color: ${p => p.theme.colors.gray[4]};
   background: ${p => p.theme.colors.gray[0]};
   padding: 16px;
-  font-family: ${p => p.theme.fontFamily.mono};
+  font-family: ${p => p.theme.fonts.mono};
   font-weight: normal;
   border: 1px solid ${p => p.theme.colors.gray[1]};
 
@@ -28,17 +29,17 @@ const Title = styled.h4`
 const ResourcesPage = ({ data }) => {
   return (
     <Page title="Resources" icon="heart" description='The best of the best.'>
-      <P mb={7}>
+      <Text.p mb={7}>
         Below are some things in various categories that I love. I think you can
         tell a lot about a person by paying attention to what they pay attention
         to, so here are the things that capture my attention.
-      </P>
+      </Text.p>
 
       <Grid>
         {Object.keys(data).map((item, i) => (
           <Box width={[1, 1/2, 1/3]} key={i}>
             <Title>
-              <Tile to={item}>{capitalize(item)} &rarr;</Tile>
+              <Tile to={`/${item}`}>{capitalize(item)} &rarr;</Tile>
             </Title>
           </Box>
         ))}

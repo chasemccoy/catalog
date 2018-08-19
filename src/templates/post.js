@@ -14,15 +14,17 @@ export default ({ data }) => {
   const post = data.wordpressPost
 
   return (
-    <Page narrow title={post.title}>
+    <Page narrow untitled>
       <Helmet title={`${post.title || post.slug} | Chase McCoy`} />
 
       <Post
+        title={post.title}
         content={post.content}
         date={post.date}
         aside={post.format === 'aside' || post.format === 'image'}
         imagePost={post.format === 'image'}
         photoset={isPhotoset(post.categories)}
+        to={post.slug}
       />
     </Page>
   )

@@ -3,26 +3,18 @@ import React from 'react'
 import styled from 'styled-components'
 import { Column, Row } from 'components/Grid'
 import Image from 'components/Image'
-import { P, Box } from 'components/Base'
+import { Box } from 'components/Base'
+import Text from 'components/Text'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
-
-const Title = styled.h3`
-  font-family: ${props => props.theme.fontFamily.serif};
-`
-
-const Subtitle = styled.h4`
-  font-family: ${props => props.theme.fontFamily.mono};
-  font-weight: normal;
-  color: ${props => props.theme.colors.gray[3]};
-`
+import Heading from 'components/Heading'
 
 const BooksPage = ({ data }) => {
   return (
     <Page title="Books" icon="book" description="A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.">
-      <P>
+      <Text.p>
         A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.
-      </P>
+      </Text.p>
 
       <Row mt={6} alignItems='flex-end' className='full'>
         {data.books.edges.map(({node}, i) => (
@@ -33,8 +25,8 @@ const BooksPage = ({ data }) => {
               </Box>
 
               <Box height='8em' mt={3}>
-                <Title>{node.title}</Title>
-                <Subtitle>{node.metadata}</Subtitle>
+                <Heading.h3>{node.title}</Heading.h3>
+                <Heading.h4 color='gray.3' fontFamily='mono' fontWeight='normal'>{node.metadata}</Heading.h4>
               </Box>
             </Link>
           </Column>

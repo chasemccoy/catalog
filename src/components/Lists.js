@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { space, display, borders, borderColor } from 'styled-system'
 
 export const UnorderedList = styled.ul`
   ${props => props.inline && `
@@ -22,4 +23,9 @@ export const UnorderedList = styled.ul`
       margin: 0;
     }
   `}
+
+  ${space}
+  ${display}
+  ${borders}
+  ${borderColor}
 `

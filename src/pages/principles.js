@@ -13,7 +13,7 @@ const PrinciplesList = styled(UnorderedList)`
 `
 
 const PrincipleDescription = styled.div`
-  font-family: ${props => props.theme.fontFamily.body};
+  ${'' /* font-family: ${props => props.theme.fonts.body}; */}
 `
 
 const PrincipleLinkHeading = styled.h2`
@@ -22,7 +22,7 @@ const PrincipleLinkHeading = styled.h2`
 `
 
 export const Highlight = styled.span`
-  background: ${props => props.theme.colors.highlight};
+  background: ${props => props.theme.colors.accent.light};
 `
 
 const PrinciplesPage = ({ data }) => {

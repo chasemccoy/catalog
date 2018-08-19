@@ -22,8 +22,8 @@ const Container = styled(Link)`
 `
 
 const Title = styled.h2`
-  margin: 12px 0;
-  font-family: ${props => props.theme.fontFamily.body};
+  margin: 12px 0 4px;
+  font-family: ${props => props.theme.fonts.body};
 
   ${props => props.small && `margin-top: 0;`}
   ${props =>props.large && `margin-top: 0;`}
@@ -73,7 +73,7 @@ const Badge = styled.div`
   letter-spacing: 2px;
   font-size: 12px;
   line-height: 1.5;
-  font-family: ${p => p.theme.fontFamily.mono};
+  font-family: ${p => p.theme.fonts.mono};
 `
 
 const Information = props => (

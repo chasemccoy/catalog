@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { UnorderedList } from 'components/Lists'
 import Link from 'components/Link'
 import media from 'utils/media'
-import { P } from 'components/Base'
+import Text from 'components/Text'
 import Divider from 'components/Divider'
 import { graphql } from 'gatsby'
 
@@ -49,7 +49,7 @@ const Container = styled.div`
   }
 
   h3 {
-    font-family: ${p => p.theme.fontFamily.mono};
+    font-family: ${p => p.theme.fonts.mono};
   }
 `
 
@@ -58,13 +58,13 @@ const StarredRepository = props => (
     <Container>
       <Link to={props.repository.url}>
         <h3>{props.repository.name}</h3>
-          <P m={0} mb={2} color="type.body">
+          <Text.p m={0} mb={2} color="type.body">
             {props.repository.description}
-          </P>
+          </Text.p>
 
-          <P color="gray.3" fontSize={14}>
+          <Text.p color="gray.3" fontSize={14}>
             {props.repository.owner.login}
-          </P>
+          </Text.p>
       </Link>
     </Container>
   </RepositoryListItem>
@@ -73,10 +73,10 @@ const StarredRepository = props => (
 const CodePage = ({ data }) => {
   return (
     <Page icon="code" title="Code" description="My favorite open source tools on the web.">
-      <P mb={6}>
+      <Text.p mb={6}>
         Some of my favorite open sourced projects (sourced from my starred
         repositories on GitHub).
-      </P>
+      </Text.p>
 
       <Divider mb={6} />
 

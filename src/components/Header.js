@@ -6,8 +6,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import media from 'utils/media'
 
 const Container = styled.header`
-  font-family: ${p => p.theme.fontFamily.mono};
-  margin: 0 0 48px ${p => p.theme.sizes.layout.offset};
+  grid-column: main;
+  max-width: ${p => p.theme.sizes.layout.maxWidth};
+  font-family: ${p => p.theme.fonts.sans};
+  margin: 0 0 64px 0;
   padding: 32px 0 24px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -15,30 +17,56 @@ const Container = styled.header`
 
   ${media.medium`
     margin-left: 0;
-    max-width: 100%;
-    padding-left: 24px;
+    grid-column: full;
   `}
 `
 
+const Title = styled.h3`
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: 0.5px;
+
+  .dark & a {
+    color: ${p => p.theme.colors.gray[2]};
+  }
+`
+
 const MenuItem = styled.li`
-  color: ${p => p.muted ? p.theme.colors.type.menuMuted : p.theme.colors.type.menu};
+  color: ${p => p.theme.colors.type.menu};
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  vertical-align: text-top;
 
   a {
     color: currentColor;
+    opacity: 0.5;
+  }
+
+  a:hover {
+    opacity: 0.75;
   }
 
   a.selected {
-    font-weight: ${p => p.theme.fontWeights.bold};
+    text-decoration: none;
+    opacity: 1.0;
+    color: ${p => p.theme.colors.type.menu};
+    border-top: 1px solid ${p => p.theme.colors.accent};
+    padding-top: ${p => p.theme.space[3] + 1}px;
   }
 
   * + & {
-    margin-left: 16px;
+    margin-left: 24px;
   }
 
   &:last-child {
     ${media.medium`
       padding-right: 24px;
     `}
+  }
+
+  .dark & {
+    color: ${p => p.theme.colors.gray[4]}
   }
 `
 
@@ -59,19 +87,13 @@ const Header = props => (
     `}
     render={data => (
       <Container {...props}>
-        <UnorderedList inline>
-          {!props.short && (
-            <>
-              <li><Link to='/'>Chase McCoy</Link></li>
-              <MenuItem muted>></MenuItem>
-            </>
-          )}
+        <Title><Link to='/'>Chase McCoy</Link></Title>
+
+        <UnorderedList inline borderTop='1px solid' borderColor='gray.1' pt={2} mt={4}>
 
           {data.nav.edges.map(({node}, i) => (
             <React.Fragment key={i}>
               <MenuItem><Link to={node.url}>{node.title}</Link></MenuItem>
-
-              {(i !== data.nav.edges.length - 1) && <MenuItem muted>/</MenuItem>}
             </React.Fragment>
           ))}
         </UnorderedList>

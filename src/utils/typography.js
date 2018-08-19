@@ -4,22 +4,20 @@ import theme from 'utils/theme'
 const fontFamilyArray = value => value.replace(/[\"\"&]+/g, '').split(', ')
 
 const typography = new Typography({
-  baseFontSize: '17px',
+  baseFontSize: '19px',
   baseLineHeight: 1.5,
-  bodyFontFamily: fontFamilyArray(theme.fontFamily.sans),
-  headerFontFamily: fontFamilyArray(theme.fontFamily.serif),
+  bodyFontFamily: fontFamilyArray(theme.fonts.sans),
+  headerFontFamily: fontFamilyArray(theme.fonts.serif),
   scaleRatio: 1.6,
   headerLineHeight: 1.5,
   bodyColor: theme.colors.type.body,
+  headerColor: theme.colors.type.header,
   headerWeight: theme.fontWeights.bold,
   bodyWeight: theme.fontWeights.normal,
   boldWeight: theme.fontWeights.bold,
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     body: {
       '-webkit-font-smoothing': 'antialiased'
-    },
-    'h1,h3,h4,h5,h6': {
-      marginBottom: rhythm(1/2),
     },
     a: {
       WebkitTextDecorationSkip: 'unset',
@@ -44,10 +42,11 @@ const typography = new Typography({
       fontStyle: 'italic'
     },
     pre: {
-      overflow: 'auto'
+      overflow: 'auto',
+      backgroundColor: theme.colors.gray[0]
     },
     code: {
-      fontFamily: theme.fontFamily.mono,
+      fontFamily: theme.fonts.mono,
       backgroundColor: theme.colors.gray[0],
       padding: '4px 8px',
       display: 'inline-block',

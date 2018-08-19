@@ -2,17 +2,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Timeline, TimelineItem } from 'components/Timeline'
 import Page from 'components/Page'
-import { P } from 'components/Base'
+import Text from 'components/Text'
 
 const PortfolioPage = ({ data }) => {
   return (
-    <Page wide title="Portfolio" icon="portfolio" description="A short history of my educational and professional career.">
-      <P>
+    <Page title="Portfolio" icon="portfolio" description="A short history of my educational and professional career.">
+      <Text.p>
         A timeline of a (brief) professional career that I am very proud of. I
         love talking about my work/industry, so get in touch and lets talk shop.
-      </P>
+      </Text.p>
 
-      <Timeline className='full' my={6}>
+      <Timeline my={6}>
         {data.portfolio.edges.map(({ node }, index) => (
           <TimelineItem
             key={index}

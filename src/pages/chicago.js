@@ -5,7 +5,7 @@ import { capitalize } from 'utils/js'
 import { Row, Column } from 'components/Grid'
 import MediaCard from 'components/MediaCard'
 import Mosaic from 'components/Mosaic'
-import { P } from 'components/Base'
+import Text from 'components/Text'
 import { graphql } from "gatsby"
 
 const ChicagoPage = ({ data }) => {
@@ -16,13 +16,13 @@ const ChicagoPage = ({ data }) => {
   )
 
   return (
-    <Page wide title="Chicago" icon="chicago" description="The best places in Chicago to chow down, work remotely, or get drunk at.">
-      <P>
+    <Page title="Chicago" icon="chicago" description="The best places in Chicago to chow down, work remotely, or get drunk at.">
+      <Text.p>
         I moved from a small college town in Mississippi to Chicago less than a
         year ago, in the middle of summer. And I've been in love since. There's
         so much more to see and so many more meals to eat. Here are some places
         that I am especially fond of, in no particular order.
-      </P>
+      </Text.p>
 
       <TableOfContents items={uniqueCategories} mb={7} />
 

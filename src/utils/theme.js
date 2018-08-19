@@ -13,14 +13,18 @@ const namedBreakpoints = {
 }
 
 const colors = {
+  accent: Object.assign('#FC625D', {
+    light: '#FFD8D6',
+    dark: '#B34642'
+  }),
   page: {
     light: '#FFFEFC',
     dark: '#000000'
   },
   type: {
-    body: '#474746',
-    menu: '#666666',
-    menuMuted: '#CCCCCC'
+    body: '#444',
+    header: '#474746',
+    menu: '#666666'
   },
   gray: {
     0: '#FAF8F5',
@@ -36,7 +40,7 @@ const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 128, 256, 512]
 const sizes = {
   layout: {
     maxWidth: '40rem',
-    offset: '20%'
+    offset: '18%'
   },
   timeline: {
     pointWidth: '12px',
@@ -54,8 +58,8 @@ const fontWeights = {
   heavy: 800,
 }
 
-const fontFamily = {
-  sans: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+const fonts = {
+  sans: "Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
   serif: "Tiempos, SF Serif, Georgia, serif",
   mono: "iA Writer Duospace, Inconsolata"
 }
@@ -67,7 +71,7 @@ const theme = {
   space,
   sizes,
   fontWeights,
-  fontFamily
+  fonts
 }
 
 export default theme

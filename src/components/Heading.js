@@ -1,27 +1,12 @@
-import styled from 'styled-components'
-import { space } from 'styled-system'
+import Text from 'components/Text'
 
-const Heading = styled.h2`
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: ${props => props.theme.fontWeights.normal};
-  margin: 0 0 24px;
-  padding: 0 0 8px;
-  color: ${props => props.theme.colors.gray[3]};
-  font-family: ${props => props.theme.fontFamily.mono};
+const Heading = Text.withComponent('h1')
 
-  display: flex;
-  align-items: center;
-
-  &:after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px dashed ${props => props.theme.colors.gray[3]};
-    margin-left: 16px;
-  }
-
-  ${space};
-`
+Heading.h1 = Heading.withComponent('h1')
+Heading.h2 = Heading.withComponent('h2')
+Heading.h3 = Heading.withComponent('h3')
+Heading.h4 = Heading.withComponent('h4')
+Heading.h5 = Heading.withComponent('h5')
+Heading.h6 = Heading.withComponent('h6')
 
 export default Heading

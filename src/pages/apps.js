@@ -4,27 +4,18 @@ import { graphql } from 'gatsby'
 import Page from 'components/Page'
 import { Column, Row } from 'components/Grid'
 import Image from 'components/Image'
-import { P } from 'components/Base'
+import Text from 'components/Text'
 import Link from 'components/Link'
-
-const Title = styled.h3`
-  font-family: ${props => props.theme.fontFamily.serif};
-`
-
-const Subtitle = styled.h4`
-  font-family: ${props => props.theme.fontFamily.mono};
-  font-weight: normal;
-  color: ${props => props.theme.colors.gray[3]};
-`
+import Heading from 'components/Heading'
 
 const AppsPage = ({ data }) => {
   return (
     <Page title="Apps" icon="app" description='A showcase of the apps that help me get shit done.'>
-      <P>
+      <Text.p>
         Tools do not maketh man, but they sure do help us get things done. Here
         are some of the tools that I rely on every day to help me do better
         work.
-      </P>
+      </Text.p>
 
       {data.apps.edges.map(({node}, i) => (
         <Link to={node.url} className='full' unstyled>
@@ -34,9 +25,11 @@ const AppsPage = ({ data }) => {
             </Column>
 
             <Column width={[1, 1/2, 2/3]}>
-              <Title>{node.title}</Title>
-              <Subtitle>{node.metadata}</Subtitle>
-              <P>{node.description}</P>
+              <Heading.h3 mb={1}>{node.title}</Heading.h3>
+
+              {node.metadata && <Heading.h4 color='gray.3' mb={4} fontFamily='mono' fontWeight='normal'>{node.metadata}</Heading.h4>}
+
+              <Text.p>{node.description}</Text.p>
             </Column>
           </Row>
         </Link>

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import Layout from 'components/Layout'
 import Header from 'components/Header'
 import media from 'utils/media'
+import Heading from 'components/Heading'
 
 const Container = styled.div`
 `
@@ -15,7 +16,7 @@ const Wrapper = styled.div.attrs({
   margin-left: ${p => p.theme.sizes.layout.offset};
   display: grid;
   grid-template-columns:
-    [full-start main-start] 1fr
+    [full-start main-start] 2fr
     repeat(2, 1fr) [main-end]
     1fr [full-end];
   padding-bottom: 80px;
@@ -23,8 +24,8 @@ const Wrapper = styled.div.attrs({
   ${media.medium`
     margin-left: 0;
     max-width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
   `}
 `
 
@@ -43,16 +44,10 @@ const Content = styled.main.attrs({
   }
 `
 
-const Title = styled.h2`
+const Title = styled(Heading.h2)`
   display: inline-block;
-  background: url('/meta/brush.svg');
-  background-repeat: no-repeat;
-  background-size: 104% 100%;
-  background-position: center;
-  padding: 4px 24px 6px;
-  margin-left: -24px;
-  margin-right: -24px;
-  margin-bottom: 2em;
+  padding-bottom: 4px;
+  box-shadow: inset 0 -6px 0 ${props => props.theme.colors.accent};
 `
 
 const Page = props => (
@@ -66,14 +61,12 @@ const Page = props => (
         <meta name="og:description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
       </Helmet>
 
-      <Header />
-
       <Wrapper>
+        <Header />
+
         <Content>
           {props.title && !props.untitled && (
-            <div>
-              <Title>{props.title}</Title>
-            </div>
+            <div><Title>{props.title}</Title></div>
           )}
 
           {props.children}

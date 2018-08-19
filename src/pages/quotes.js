@@ -25,19 +25,19 @@ const Source = styled.h3`
   display: flex;
   align-items: center;
   ${space};
-  font-family: ${props => props.theme.fontFamily.mono};
+  font-family: ${props => props.theme.fonts.mono};
   color: ${p => p.theme.colors.gray[3]};
 `
 
 const Dropcap = styled.span`
   font-size: 56px;
   line-height: 0;
-  padding-top: 0.75em;
+  padding-top: 0.6em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;
   color: ${p => p.theme.colors.gray[2]};
-  font-family: ${props => props.theme.fontFamily.serif};
+  font-family: ${props => props.theme.fonts.serif};
 `
 
 const Highlight = styled.span`

@@ -1,26 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
-import { P, Box } from 'components/Base'
+import { Box } from 'components/Base'
+import Text from 'components/Text'
 import Image from 'components/Image'
 import media from 'utils/media'
 import { Row, Column } from 'components/Grid'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import { graphql } from 'gatsby'
-
-const Album = styled(Link)`
-`
-
-Album.Title = styled.h3`
-  font-family: ${props => props.theme.fontFamily.serif};
-`
-
-Album.Subtitle = styled.h4`
-  font-weight: normal;
-  color: ${props => props.theme.colors.gray[3]};
-    font-family: ${props => props.theme.fontFamily.mono};
-`
 
 const Track = styled(Box)`
   & + & {
@@ -33,7 +21,7 @@ Track.Image = styled(Image)`
   width: 48px;
 `
 
-Track.Title = styled.h3`
+Track.Title = styled.h4`
   margin: 0;
 
   ${media.tiny`
@@ -45,7 +33,7 @@ Track.Artist = styled.h4`
   margin: 0;
   color: ${props => props.theme.colors.gray[3]};
   font-weight: normal;
-  font-family: ${p => p.theme.fontFamily.mono};
+  font-family: ${p => p.theme.fonts.mono};
 `
 
 class MusicPage extends React.Component {
@@ -64,30 +52,30 @@ class MusicPage extends React.Component {
   render() {
     return (
       <Page title="Music" icon="music" description="A few of my favorite albums, as well as what I am listening to recently.">
-        <P mb={9}>
+        <Text.p mb={9}>
           I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
-        </P>
+        </Text.p>
 
-        <Heading className='full'>Favorite Albums</Heading>
+        <Heading.h3>Favorite Albums</Heading.h3>
 
         <Row mb={4} className='full'>
           {this.props.data.music.edges.map(({node}, i) => (
             <Column width={[1/2, 1/3]} key={i}>
-              <Album to={node.url} unstyled>
+              <Link to={node.url} unstyled>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
                 <Box height={['10em', '10em', '10em', '8em']} mt={3}>
-                  <Album.Title>{node.title}</Album.Title>
-                  <Album.Subtitle>{node.metadata}</Album.Subtitle>
+                  <Heading.h3 mb={1}>{node.title}</Heading.h3>
+                  <Heading.h4 color='gray.3' fontFamily='mono' fontWeight='normal'>{node.metadata}</Heading.h4>
                 </Box>
-              </Album>
+              </Link>
             </Column>
           ))}
         </Row>
 
         {this.state.tracks.length > 0 && (
           <div className='full'>
-            <Heading mb={2}>Recent Tracks</Heading>
+            <Heading.h3>Recent Tracks</Heading.h3>
 
             {this.state.tracks.map((track, i) => (
               track.image && (

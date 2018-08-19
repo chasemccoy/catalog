@@ -1,9 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import Icon from 'components/Icon'
+// import Icon from 'components/Icon'
+import Heading from 'components/Heading'
 
 const Container = styled.div`
+  hyphens: auto;
+
+  img { width: 100%; }
+
+  div.e-content > p:empty + p > img {
+    margin-bottom: -8px;
+  }
 `
 
 const AsideContainer = styled(Container)`
@@ -12,55 +20,79 @@ const AsideContainer = styled(Container)`
       margin-bottom: -8px;
     }
   `}
+
+  ${p => p.large && `
+    font-size: 24px;
+    font-family: ${p.theme.fonts.serif};
+    line-height: 1.6;
+
+    a {
+      padding-top: 6px;
+    }
+  `}
 `
 
 const PostContainer = styled(Container)`
-  font-family: ${p => p.theme.fontFamily.serif};
-  hyphens: auto;
 `
 
-const Title = styled.h2`
+const Title = styled(Link)`
+  font-size: 32px;
+  font-family: ${p => p.theme.fonts.sans};
+  padding-bottom: 4px;
+  box-shadow: inset 0 -6px 0 ${props => props.theme.colors.accent};
+  transition: all 0.1s;
+
+  &:hover {
+    color: white;
+    background: ${props => props.theme.colors.accent};
+  }
 `
 
 const Content = styled.div`
   a {
-    transition: none;
-    text-decoration-line: underline;
-    color: ${p => p.theme.colors.gray[4]};
+    transition: all 0.1s;
+    box-shadow: inset 0 -0.4em 0 ${props => props.theme.colors.accent.light};
   }
 
   a:hover {
-    color: currentColor;
+    color: white;
+    box-shadow: none;
+    background: ${props => props.theme.colors.accent};
   }
 `
 
 const PostMeta = styled.div`
-  font-size: 14px;
-  font-family: ${p => p.theme.fontFamily.mono};
+  font-size: 13px;
+  font-family: ${p => p.theme.fonts.sans};
   color: ${p => p.theme.colors.gray[3]};
   margin-bottom: 12px;
-`
-
-const PostMetaIcon = styled(Icon)`
-  color: ${p => p.theme.colors.gray[2]};
-  margin: -2px 8px 0 0;
-`
-
-const PostDate = styled(Link)`
-  display: block;
-  margin-bottom: 8px;
-  color: ${p => p.theme.colors.gray[3]};
   text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+
+  a {
+    color: ${p => p.theme.colors.gray[3]};
+  }
 `
+
+// const PostMetaIcon = styled(Icon)`
+//   color: ${p => p.theme.colors.gray[2]};
+//   margin: -2px 8px 0 0;
+// `
+
+// const PostDate = styled(Link)`
+//   display: block;
+//   margin-bottom: 8px;
+//   color: ${p => p.theme.colors.gray[3]};
+//   text-transform: uppercase;
+//   letter-spacing: 1px;
+// `
 
 const Meta = ({ date, permalink, aside }) => (
   <PostMeta>
     {date &&
       permalink && (
-        <PostDate to={`/${permalink}`}>
-          {aside && <PostMetaIcon tiny name='open-tab' />}
-          {date}
-        </PostDate>
+        <Link to={`/${permalink}`}>{date}</Link>
       )}
 
     {date && !permalink && `Posted on ${date}`}
@@ -68,16 +100,12 @@ const Meta = ({ date, permalink, aside }) => (
 )
 
 export const Post = props => {
+  console.log(props.content.length)
+
   const title = props.title && (
-    <Title>
-      {props.to ? (
-        <Link to={`/${props.to}`}>
-          {props.title}
-        </Link>
-      ) : (
-        props.title
-      )}
-    </Title>
+    <Heading.h2>
+      <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
+    </Heading.h2>
   )
 
   const content = props.content && (
@@ -88,7 +116,7 @@ export const Post = props => {
 
   if (props.aside) {
     return (
-      <AsideContainer photo={props.imagePost}>
+      <AsideContainer photo={props.imagePost} large={props.content.length <= 500}>
         {meta}
         {content}
       </AsideContainer>
