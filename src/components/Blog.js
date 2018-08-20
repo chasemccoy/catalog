@@ -9,18 +9,14 @@ const Container = styled.div`
 
   img { width: 100%; }
 
-  div.e-content > p:empty + p > img {
-    margin-bottom: -8px;
+  blockquote {
+    font-size: 20px;
+    font-style: normal;
+    border-left: 4px solid ${p => p.theme.colors.accent};
   }
 `
 
 const AsideContainer = styled(Container)`
-  ${p => p.photo && `
-    div.e-content > a + p:empty {
-      margin-bottom: -8px;
-    }
-  `}
-
   ${p => p.large && `
     font-size: 24px;
     font-family: ${p.theme.fonts.serif};
@@ -58,6 +54,18 @@ const Content = styled.div`
     color: white;
     box-shadow: none;
     background: ${props => props.theme.colors.accent};
+  }
+
+  a[href*='chasemccoy.files.wordpress'], a[href*='instagram.com/p'] {
+  	box-shadow: none;
+
+    &:hover {
+      background: none;
+    }
+	}
+
+  & > p:last-child {
+    margin-bottom: 0;
   }
 `
 

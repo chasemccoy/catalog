@@ -7,7 +7,8 @@ export const UnorderedList = styled.ul`
     margin: 0;
     padding: 0;
     white-space: nowrap;
-
+    line-height: 1;
+    
     li {
       display: inline
       margin-bottom: 0;

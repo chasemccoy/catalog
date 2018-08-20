@@ -52,7 +52,7 @@ const MenuItem = styled.li`
     opacity: 1.0;
     color: ${p => p.theme.colors.type.menu};
     border-top: 1px solid ${p => p.theme.colors.accent};
-    padding-top: ${p => p.theme.space[3] + 1}px;
+    padding-top: ${p => p.theme.space[3] - 1}px;
   }
 
   * + & {
@@ -89,8 +89,7 @@ const Header = props => (
       <Container {...props}>
         <Title><Link to='/'>Chase McCoy</Link></Title>
 
-        <UnorderedList inline borderTop='1px solid' borderColor='gray.1' pt={2} mt={4}>
-
+        <UnorderedList inline borderTop='1px solid' borderColor='gray.1' pt={3} mt={4}>
           {data.nav.edges.map(({node}, i) => (
             <React.Fragment key={i}>
               <MenuItem><Link to={node.url}>{node.title}</Link></MenuItem>

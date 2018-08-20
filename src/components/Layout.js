@@ -16,6 +16,7 @@ const Layout = props => (
         <meta name="og:description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />
         <meta name="twitter:site" content="@chase_mccoy" />
         <meta name="twitter:card" content="summary" />
+        <link href="https://twitter.com/chase_mccoy" rel="me" />
       </Helmet>
 
       {props.children}
