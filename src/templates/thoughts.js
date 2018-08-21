@@ -30,9 +30,9 @@ const BlogPage = ({ data, pageContext }) => {
   return (
     <Page title={'Thoughts'} untitled description="What's on my mind, and links to some interesting stuff on the web.">
 
-      <Grid>
+      <>
         {posts.map(({node}, i) => (
-          <>
+          <React.Fragment key={i}>
             {i === 1 && (
               <ScrollRow mb={[60, 60, 120]}>
                 {imagePosts.map(({node}, i) => (
@@ -73,9 +73,9 @@ const BlogPage = ({ data, pageContext }) => {
                 />
               )}
             </Box>
-          </>
+          </React.Fragment>
         ))}
-      </Grid>
+      </>
 
       <Grid>
         <Box>
