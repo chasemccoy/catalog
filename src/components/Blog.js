@@ -26,6 +26,16 @@ const AsideContainer = styled(Container)`
       padding-top: 6px;
     }
   `}
+
+  ${p => p.filmstrip && `
+    img {
+      height: 300px;
+    }
+  `}
+
+  ${p => p.photo && `
+    font-size: 1rem;
+  `}
 `
 
 const PostContainer = styled(Container)`
@@ -58,6 +68,9 @@ const Content = styled.div`
 
   a[href*='chasemccoy.files.wordpress'], a[href*='instagram.com/p'] {
   	box-shadow: none;
+    display: block;
+    margin-bottom: -16px;
+    padding: 0;
 
     &:hover {
       background: none;
@@ -108,8 +121,6 @@ const Meta = ({ date, permalink, aside }) => (
 )
 
 export const Post = props => {
-  console.log(props.content.length)
-
   const title = props.title && (
     <Heading.h2>
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
@@ -124,7 +135,7 @@ export const Post = props => {
 
   if (props.aside) {
     return (
-      <AsideContainer photo={props.imagePost} large={props.content.length <= 500}>
+      <AsideContainer photo={props.imagePost} large={props.content.length <= 500} filmstrip={props.filmstrip}>
         {meta}
         {content}
       </AsideContainer>

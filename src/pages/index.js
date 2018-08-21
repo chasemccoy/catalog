@@ -4,18 +4,17 @@ import Layout from 'components/Layout'
 import { Box, Grid } from 'components/Base'
 // import Header from 'components/Header'
 import Link from 'components/Link'
-import media from 'utils/media'
-import Icon from 'components/Icon'
+// import media from 'utils/media'
+// import Icon from 'components/Icon'
 import Text from 'components/Text'
 
 const Container = styled(Grid)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: calc(100vw - 340px);
   min-height: 100vh;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 80px 16px;
   ${'' /* color: white; */}
   overflow: hidden;
   hyphens: auto;
@@ -24,16 +23,6 @@ const Container = styled(Grid)`
   p + p {
     text-indent: 3em;
   }
-
-  ${media.medium`
-    max-width: calc(100vw - 180px);
-  `}
-
-  ${media.small`
-    justify-content: center;
-    padding: 48px 0;
-    max-width: calc(100vw - 80px);
-  `}
 
   a {
     ${'' /* color: white; */}
@@ -83,7 +72,7 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Container alignItems='center'>
-          <Box width='32ch'>
+          <Box width={[1, 3/4, '30ch']}>
             <Text.p fontSize='18px' fontFamily='serif' mb={0}>
               Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and engineering.
             </Text.p>
