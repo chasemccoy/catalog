@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 // import Icon from 'components/Icon'
 import Heading from 'components/Heading'
+import media from 'utils/media'
 
 const Container = styled.div`
   hyphens: auto;
@@ -10,9 +11,26 @@ const Container = styled.div`
   img { width: 100%; }
 
   blockquote {
-    font-size: 20px;
-    font-style: normal;
-    border-left: 4px solid ${p => p.theme.colors.accent};
+    font-size: 24px;
+    border-left: none;
+    width: 150%;
+    margin-left: -25%;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    font-style: italic;
+    padding: 0;
+
+    ${media.medium`
+      width: 100%;
+      margin: 24px 0;
+      border-left 4px solid ${p => p.theme.colors.accent};
+      margin-left: 16px;
+      padding: 0 16px;
+    `}
+  }
+
+  iframe + p {
+    margin-top: 24px;
   }
 `
 
@@ -33,12 +51,28 @@ const AsideContainer = styled(Container)`
     }
   `}
 
+  ${p => p.filmstrip && media.small`
+    img {
+      height: 250px;
+    }
+  `}
+
   ${p => p.photo && `
     font-size: 1rem;
   `}
 `
 
 const PostContainer = styled(Container)`
+  img {
+    max-width: 120%;
+    width: 120%;
+    margin-left: -10%;
+
+    ${media.medium`
+      width: calc(100% + 32px);
+      margin-left: -16px;
+    `}
+  }
 `
 
 const Title = styled(Link)`
@@ -69,7 +103,7 @@ const Content = styled.div`
   a[href*='chasemccoy.files.wordpress'], a[href*='instagram.com/p'] {
   	box-shadow: none;
     display: block;
-    margin-bottom: -16px;
+    margin-bottom: -12px;
     padding: 0;
 
     &:hover {

@@ -6,7 +6,9 @@ import {
   fontWeight,
   lineHeight,
   fontFamily,
-  maxWidth
+  maxWidth,
+  borders,
+  borderColor,
 } from 'styled-system'
 
 const Text = styled.div`
@@ -17,6 +19,8 @@ const Text = styled.div`
   ${lineHeight}
   ${fontFamily}
   ${maxWidth}
+  ${borders}
+  ${borderColor}
 `
 
 Text.p = Text.withComponent('p')

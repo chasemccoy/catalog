@@ -6,6 +6,7 @@ import Page from 'components/Page'
 import { capitalize } from 'utils/js'
 import { Grid, Box } from 'components/Base'
 import Text from 'components/Text'
+import Heading from 'components/Heading'
 
 const Tile = styled(Link)`
   display: block;
@@ -22,25 +23,47 @@ const Tile = styled(Link)`
   }
 `
 
-const Title = styled.h4`
-  margin: 0;
-`
-
 const ResourcesPage = ({ data }) => {
   return (
     <Page title="Resources" icon="heart" description='The best of the best.'>
-      <Text.p mb={7}>
+      <Text.p mb={9}>
         Below are some things in various categories that I love. I think you can
         tell a lot about a person by paying attention to what they pay attention
         to, so here are the things that capture my attention.
       </Text.p>
 
+      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Books</Heading.h5>
+
+      <Text.p mb={9}>
+        Below are some things in various categories that I love. I think you can
+        tell a lot about a person by paying attention to what they pay attention
+        to, so here are the things that capture my attention.
+      </Text.p>
+
+      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Chicago</Heading.h5>
+
+      <Text.p mb={9}>
+        Below are some things in various categories that I love. I think you can
+        tell a lot about a person by paying attention to what they pay attention
+        to, so here are the things that capture my attention.
+      </Text.p>
+
+      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Music</Heading.h5>
+
+      <Text.p mb={9}>
+        Below are some things in various categories that I love. I think you can
+        tell a lot about a person by paying attention to what they pay attention
+        to, so here are the things that capture my attention.
+      </Text.p>
+
+      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Quotes</Heading.h5>
+
       <Grid>
         {Object.keys(data).map((item, i) => (
           <Box width={[1, 1/2, 1/3]} key={i}>
-            <Title>
+            <Heading.h4 m={0}>
               <Tile to={`/${item}`}>{capitalize(item)} &rarr;</Tile>
-            </Title>
+            </Heading.h4>
           </Box>
         ))}
       </Grid>

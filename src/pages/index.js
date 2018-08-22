@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from 'components/Layout'
 import { Box, Grid } from 'components/Base'
-// import Header from 'components/Header'
+import Header from 'components/Header'
 import Link from 'components/Link'
 // import media from 'utils/media'
 // import Icon from 'components/Icon'
@@ -11,25 +11,16 @@ import Text from 'components/Text'
 const Container = styled(Grid)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   min-height: 100vh;
-  margin: 0 auto;
-  padding: 80px 16px;
-  ${'' /* color: white; */}
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48px 16px;
   overflow: hidden;
   hyphens: auto;
   text-align: justify;
 
   p + p {
     text-indent: 3em;
-  }
-
-  a {
-    ${'' /* color: white; */}
-  }
-
-  a:hover {
-    ${'' /* color: rgba(255, 255, 255, 0.8); */}
   }
 `
 
@@ -72,6 +63,10 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Container alignItems='center'>
+          <Box width={[1, 3/4, '30ch']}>
+            <Header />
+          </Box>
+
           <Box width={[1, 3/4, '30ch']}>
             <Text.p fontSize='18px' fontFamily='serif' mb={0}>
               Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and engineering.

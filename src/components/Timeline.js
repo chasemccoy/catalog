@@ -16,7 +16,7 @@ const TimelineContainer = styled.section`
       top: 0;
       bottom: 0;
       width: ${theme.sizes.timeline.lineWidth};
-      background: ${props=> props.theme.colors.gray[1]};
+      background: ${props=> props.theme.colors.accent.light};
       left: 50%;
 
       left: calc(${theme.sizes.timeline.pointWidth} / 2);
@@ -46,7 +46,7 @@ const TimelineListItem = styled.li`
     height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
     background: white;
-    border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.gray[3]};
+    border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.accent};
     box-shadow: 0 0 0 5px white;
     z-index: 1;
 
@@ -78,6 +78,7 @@ const TimelineListItem = styled.li`
 
   .header {
     margin-bottom: 8px;
+    font-family: ${p => p.theme.fonts.sans}
   }
 
   .title {

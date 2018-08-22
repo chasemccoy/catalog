@@ -36,7 +36,7 @@ const BlogPage = ({ data, pageContext }) => {
             {i === 1 && (
               <ScrollRow mb={[60, 60, 120]}>
                 {imagePosts.map(({node}, i) => (
-                  <Box minWidth={324} mr={24} key={i}>
+                  <Box minWidth={[250, 250, 324]} mr={24} key={i}>
                     <Post
                       aside
                       imagePost
