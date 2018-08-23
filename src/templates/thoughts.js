@@ -34,7 +34,7 @@ const BlogPage = ({ data, pageContext }) => {
         {posts.map(({node}, i) => (
           <React.Fragment key={i}>
             {i === 1 && (
-              <ScrollRow mb={[60, 60, 120]}>
+              <ScrollRow mb={[100, 100, 120]}>
                 {imagePosts.map(({node}, i) => (
                   <Box minWidth={[250, 250, 324]} mr={24} key={i}>
                     <Post

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
-import Divider from 'components/Divider'
 import { space } from 'styled-system'
 import { graphql } from 'gatsby'
 import { Box } from 'components/Base'
@@ -9,6 +8,7 @@ import { Box } from 'components/Base'
 const QuoteContent = styled.h2`
   ${space};
   font-weight: ${p => p.theme.fontWeights.normal};
+  font-family: ${props => props.theme.fonts.sans};
 `
 
 const Meta = styled.div`
@@ -20,60 +20,54 @@ const Meta = styled.div`
 
 const Source = styled.h3`
   margin: 0;
+  font-size: 20px;
   font-weight: normal;
   flex-basis: 70%;
   display: flex;
   align-items: center;
   ${space};
-  font-family: ${props => props.theme.fonts.mono};
-  color: ${p => p.theme.colors.gray[3]};
+  ${'' /* font-family: ${props => props.theme.fonts.sans}; */}
+  color: ${p => p.theme.colors.accent};
 `
 
 const Dropcap = styled.span`
   font-size: 56px;
   line-height: 0;
-  padding-top: 0.6em;
+  padding-top: 0.66em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;
-  color: ${p => p.theme.colors.gray[2]};
+  color: ${p => p.theme.colors.accent};
   font-family: ${props => props.theme.fonts.serif};
 `
 
-const Highlight = styled.span`
-  ${'' /* box-shadow: inset 0 -12px 0 0 ${p => p.theme.colors.gray[0]}; */}
-`
-
 export const Quote = props => (
-  <div className='full'>
+  <Box mb={'104px'}>
     <QuoteContent pb={4} mb={0}>
-      <Highlight>{props.content}</Highlight>
+      {props.content}
     </QuoteContent>
 
-    <Meta mt={-2}>
+    <Meta>
       <Source>
         {<Dropcap>“</Dropcap>}
         {props.source}
       </Source>
     </Meta>
-  </div>
+  </Box>
 )
 
 const QuotesPage = ({ data }) => {
   return (
     <Page title="Quotes" icon="quote" description="Words worth keeping in mind.">
 
-      <Box mb={4} />
+      <Box mb={8} />
 
       {data.quotes.edges.map(({ node }, i) => (
         <React.Fragment key={i}>
           <Quote
             content={node.content}
             source={node.metadata}
-            tags={node.tags}
           />
-
-          <Divider my={6} />
         </React.Fragment>
       ))}
     </Page>

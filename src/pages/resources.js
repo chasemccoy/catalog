@@ -32,7 +32,7 @@ const ResourcesPage = ({ data }) => {
         to, so here are the things that capture my attention.
       </Text.p>
 
-      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Books</Heading.h5>
+      <Link to='/books'><Heading.section>Books</Heading.section></Link>
 
       <Text.p mb={9}>
         Below are some things in various categories that I love. I think you can
@@ -40,7 +40,7 @@ const ResourcesPage = ({ data }) => {
         to, so here are the things that capture my attention.
       </Text.p>
 
-      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Chicago</Heading.h5>
+      <Link to='/chicago'><Heading.section>Chicago</Heading.section></Link>
 
       <Text.p mb={9}>
         Below are some things in various categories that I love. I think you can
@@ -48,7 +48,7 @@ const ResourcesPage = ({ data }) => {
         to, so here are the things that capture my attention.
       </Text.p>
 
-      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Music</Heading.h5>
+      <Link to='/music'><Heading.section>Music</Heading.section></Link>
 
       <Text.p mb={9}>
         Below are some things in various categories that I love. I think you can
@@ -56,7 +56,7 @@ const ResourcesPage = ({ data }) => {
         to, so here are the things that capture my attention.
       </Text.p>
 
-      <Heading.h5 fontFamily='sans' borderTop='2px solid' pt='4px'>Quotes</Heading.h5>
+      <Link to='/quotes'><Heading.section>Quotes</Heading.section></Link>
 
       <Grid>
         {Object.keys(data).map((item, i) => (

@@ -5,13 +5,11 @@ import Link from 'components/Link'
 import { borderRadius } from 'styled-system'
 
 const StyledImage = styled(Img)`
-  border-radius: 4px;
   max-width: 100%;
   position: initial !important;
   margin-bottom: 0;
 
   img {
-    border-radius: 4px;
     margin-bottom: 0;
     ${borderRadius}
   }

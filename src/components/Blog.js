@@ -22,6 +22,7 @@ const Container = styled.div`
 
     ${media.medium`
       width: 100%;
+      font-size: 20px;
       margin: 24px 0;
       border-left 4px solid ${p => p.theme.colors.accent};
       margin-left: 16px;
@@ -69,7 +70,7 @@ const PostContainer = styled(Container)`
     margin-left: -10%;
 
     ${media.medium`
-      width: calc(100% + 32px);
+      width: calc(100% + 33px);
       margin-left: -16px;
     `}
   }

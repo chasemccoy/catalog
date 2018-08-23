@@ -9,4 +9,12 @@ Heading.h4 = Heading.withComponent('h4')
 Heading.h5 = Heading.withComponent('h5')
 Heading.h6 = Heading.withComponent('h6')
 
+Heading.section = Heading.withComponent('h4')
+
+Heading.section.defaultProps = {
+	fontFamily: 'sans',
+	borderTop: '2px solid',
+	pt: '8px'
+}
+
 export default Heading
