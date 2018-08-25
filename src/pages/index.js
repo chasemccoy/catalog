@@ -84,9 +84,18 @@ class IndexPage extends React.Component {
               Welcome to my internet homepage; it's nice to see you. I'm Chase, a design technologist living in Chicago by way of Mississippi. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and computer science.
             </Dropcap>
 
-            <Text.p fontSize='18px' fontFamily='serif'>
+            <Text.p fontSize='18px' fontFamily='serif' m={0}>
               This is my space to share, collect, curate, and document the things that matter to me. You can follow along here or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link>, <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>, or <Link underlined to='http://github.com/chasemccoy'>Github</Link>.
             </Text.p>
+
+            {weatherSummary
+              && weatherTemperature
+              && nowPlayingName &&
+              nowPlayingArtist && (
+                <Text.p fontSize='18px' fontFamily='serif'>
+                  {`The weather in Chicago at the moment is ${weatherSummary} at ${weatherTemperature}. Right now I'm listening to ${nowPlayingName} by ${nowPlayingArtist}. Hope you have a great day.`}
+                </Text.p>
+            )}
           </Box>
 
           {/* <Box width={[1]}>
