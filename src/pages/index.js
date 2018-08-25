@@ -14,7 +14,7 @@ const Container = styled(Grid)`
   min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  padding: 48px 16px;
+  padding: 0 8px;
   overflow: hidden;
   hyphens: auto;
   text-align: justify;
@@ -67,8 +67,8 @@ class IndexPage extends React.Component {
             <Header />
           </Box>
 
-          <Box width={[1, 3/4, '30ch']}>
-            <Text.p fontSize='18px' fontFamily='serif' mb={0}>
+          <Box width={[1, 3/4, '30ch']} mt={-8}>
+            <Text.p fontSize='18px' fontFamily='serif' mt={0}>
               Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and engineering.
             </Text.p>
 

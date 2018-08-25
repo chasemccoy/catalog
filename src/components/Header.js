@@ -18,6 +18,7 @@ const Container = styled.header`
   ${media.medium`
     margin-left: 0;
     grid-column: full;
+    padding-top: 16px;
   `}
 `
 

@@ -50,6 +50,10 @@ const AsideContainer = styled(Container)`
     img {
       height: 300px;
     }
+
+    p:empty {
+      margin-top: -40px;
+    }
   `}
 
   ${p => p.filmstrip && media.small`

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Column } from 'components/Grid'
+import { Grid, Box } from 'components/Base'
 
 // eslint-disable-next-line
 Array.prototype.sample = function() {
@@ -58,7 +58,6 @@ function getMosaicWidths(count) {
 
   // If the dangling orphan is too small, make it larger
   if (approximatelyEqual(overflow, 1 / 3)) {
-    console.log('TRUE')
     widths[widths.length - 1] = [1 / 2, 2 / 3, 1].sample()
   }
 
@@ -69,18 +68,13 @@ const Mosaic = props => {
   const widths = getMosaicWidths(props.children.length)
 
   return (
-    <Row mx={[-8, -16]}>
+    <Grid gutter={4}>
       {props.children.map((item, index) => (
-        <Column
-          pt={[16, 32]}
-          px={[8, 16]}
-          width={[1, widths[index]]}
-          key={index}
-        >
+        <Box width={[1, widths[index]]} key={index}>
           {React.cloneElement(item, { width: widths[index] })}
-        </Column>
+        </Box>
       ))}
-    </Row>
+    </Grid>
   )
 }
 
