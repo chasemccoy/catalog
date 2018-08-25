@@ -4,6 +4,21 @@ import Link from 'components/Link'
 import { UnorderedList } from 'components/Lists'
 import { StaticQuery, graphql } from 'gatsby'
 import media from 'utils/media'
+import { Box } from 'components/Base'
+import Text from 'components/Text'
+
+const date = () => {
+  const options = {
+    weekday: 'long',
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  }
+
+  const now = new Date()
+  return now.toLocaleString('en-us', options)
+}
 
 const Container = styled.header`
   grid-column: main;
@@ -88,7 +103,10 @@ const Header = props => (
     `}
     render={data => (
       <Container {...props}>
-        <Title><Link to='/'>Chase McCoy</Link></Title>
+        <Box display='flex' justifyContent='space-between' alignItems='baseline'>
+          <Title><Link to='/'>Chase McCoy</Link></Title>
+          <Text fontSize={14} color='gray.3'>{date()}</Text>
+        </Box>
 
         <UnorderedList inline borderTop='1px solid' borderColor='gray.1' pt={3} mt={4}>
           {data.nav.edges.map(({node}, i) => (

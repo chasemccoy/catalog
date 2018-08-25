@@ -11,7 +11,6 @@ import Text from 'components/Text'
 const Container = styled(Grid)`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   padding: 0 8px;
@@ -21,6 +20,19 @@ const Container = styled(Grid)`
 
   p + p {
     text-indent: 3em;
+  }
+`
+
+const Dropcap = styled(Text.p)`
+  &:first-letter {
+    float: left;
+    font-size: 55px;
+    line-height: 40px;
+    padding-top: 4px;
+    padding-right: 6px;
+    padding-left: 0px;
+    font-weight: ${p => p.theme.fontWeights.bold};
+    ${'' /* color: ${p => p.theme.colors.accent}; */}
   }
 `
 
@@ -68,12 +80,12 @@ class IndexPage extends React.Component {
           </Box>
 
           <Box width={[1, 3/4, '30ch']} mt={-8}>
-            <Text.p fontSize='18px' fontFamily='serif' mt={0}>
-              Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and engineering.
-            </Text.p>
+            <Dropcap fontSize='18px' fontFamily='serif' m={0}>
+              Welcome to my internet homepage; it's nice to see you. I'm Chase, a design technologist living in Chicago by way of Mississippi. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and computer science.
+            </Dropcap>
 
             <Text.p fontSize='18px' fontFamily='serif'>
-              You can follow along here or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link>, <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>, or <Link underlined to='http://github.com/chasemccoy'>Github</Link>.
+              This is my space to share, collect, curate, and document the things that matter to me. You can follow along here or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link>, <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>, or <Link underlined to='http://github.com/chasemccoy'>Github</Link>.
             </Text.p>
           </Box>
 

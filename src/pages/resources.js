@@ -1,27 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Page from 'components/Page'
-import { capitalize } from 'utils/js'
-import { Grid, Box } from 'components/Base'
+// import { Grid, Box } from 'components/Base'
 import Text from 'components/Text'
 import Heading from 'components/Heading'
-
-const Tile = styled(Link)`
-  display: block;
-  border-radius: 8px;
-  color: ${p => p.theme.colors.gray[4]};
-  background: ${p => p.theme.colors.gray[0]};
-  padding: 16px;
-  font-family: ${p => p.theme.fonts.mono};
-  font-weight: normal;
-  border: 1px solid ${p => p.theme.colors.gray[1]};
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`
 
 const ResourcesPage = ({ data }) => {
   return (
@@ -58,15 +41,11 @@ const ResourcesPage = ({ data }) => {
 
       <Link to='/quotes'><Heading.section>Quotes</Heading.section></Link>
 
-      <Grid>
-        {Object.keys(data).map((item, i) => (
-          <Box width={[1, 1/2, 1/3]} key={i}>
-            <Heading.h4 m={0}>
-              <Tile to={`/${item}`}>{capitalize(item)} &rarr;</Tile>
-            </Heading.h4>
-          </Box>
-        ))}
-      </Grid>
+      <Text.p mb={9}>
+        Below are some things in various categories that I love. I think you can
+        tell a lot about a person by paying attention to what they pay attention
+        to, so here are the things that capture my attention.
+      </Text.p>
     </Page>
   )
 }

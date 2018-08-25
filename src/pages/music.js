@@ -29,13 +29,6 @@ Track.Title = styled.h4`
   `}
 `
 
-Track.Artist = styled.h4`
-  margin: 0;
-  color: ${props => props.theme.colors.gray[3]};
-  font-weight: normal;
-  font-family: ${p => p.theme.fonts.mono};
-`
-
 class MusicPage extends React.Component {
   state = {
     tracks: []
@@ -56,7 +49,7 @@ class MusicPage extends React.Component {
           I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
         </Text.p>
 
-        <Heading.h3>Favorite Albums</Heading.h3>
+        <Heading.section className='full'>Favorite Albums</Heading.section>
 
         <Row mb={4} className='full'>
           {this.props.data.music.edges.map(({node}, i) => (
@@ -65,8 +58,8 @@ class MusicPage extends React.Component {
                 <Image sizes={node.image.childImageSharp.sizes} />
 
                 <Box height={['10em', '10em', '10em', '8em']} mt={3}>
-                  <Heading.h3 mb={1}>{node.title}</Heading.h3>
-                  <Heading.h4 color='gray.3' fontFamily='mono' fontWeight='normal'>{node.metadata}</Heading.h4>
+                  <Heading.h3 mb={2}>{node.title}</Heading.h3>
+                  <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal'>{node.metadata}</Heading.h4>
                 </Box>
               </Link>
             </Column>
@@ -75,16 +68,17 @@ class MusicPage extends React.Component {
 
         {this.state.tracks.length > 0 && (
           <div className='full'>
-            <Heading.h3>Recent Tracks</Heading.h3>
+            <Heading.section className='full'>Recent Tracks</Heading.section>
 
             {this.state.tracks.map((track, i) => (
               track.image && (
-                <Track py={3} display='flex' alignItems={['flex-start', 'center']} key={i}>
+                <Track py={2} display='flex' alignItems={['flex-start', 'center']} key={i}>
                   <Track.Image src={track.image} />
 
                   <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
                     <Track.Title>{track.name}</Track.Title>
-                    <Track.Artist>{track.artist}</Track.Artist>
+
+                    <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal' m={0}>{track.artist}</Heading.h4>
                   </Box>
                 </Track>
               )

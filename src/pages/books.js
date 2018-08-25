@@ -1,6 +1,5 @@
 import Page from 'components/Page'
 import React from 'react'
-import styled from 'styled-components'
 import { Column, Row } from 'components/Grid'
 import Image from 'components/Image'
 import { Box } from 'components/Base'
@@ -25,8 +24,8 @@ const BooksPage = ({ data }) => {
               </Box>
 
               <Box height='8em' mt={3}>
-                <Heading.h3>{node.title}</Heading.h3>
-                <Heading.h4 color='gray.3' fontFamily='mono' fontWeight='normal'>{node.metadata}</Heading.h4>
+                <Heading.h3 mb={2}>{node.title}</Heading.h3>
+                <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal'>{node.metadata}</Heading.h4>
               </Box>
             </Link>
           </Column>
