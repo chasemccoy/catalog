@@ -10,7 +10,7 @@ import Heading from 'components/Heading'
 
 const BooksPage = ({ data }) => {
   return (
-    <Page title="Books" icon="book" description="A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.">
+    <Page resource title="Books" icon="book" description="A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.">
       <Text.p>
         A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.
       </Text.p>

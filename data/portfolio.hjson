@@ -3,7 +3,19 @@
 		"title": "Sprout Social",
 		"type": "Work",
 		"dateRange": "June 2017 – Present",
-		"description": "Currently, I am working at [Sprout Social](http://sproutsocial.com) as a Design Developer. In this role I help the team create and manage a consistent design across the entire product. I also help bridge the gap between the design and development teams."
+		"description": "Currently, I am working on the Design Systems team at [Sprout Social](http://sproutsocial.com). My responsibilities involve building and maintaining Seeds, our design system. I also build tools to enabe our designers and developers to work together more efficiently, and help teams communicate about the impact of their work."
+	},
+	{
+		"title": "Dark Sky",
+		"type": "Work",
+		"dateRange": "April 2017",
+		"description": "The Dark Sky Company contracted me out to write some Swift code for their flagship iOS weather app. I built a new weather visualization using Core Graphics and the Dark Sky weather API."
+	},
+	{
+		"title": "B.S., Computer Science, Mississippi State Univeristy",
+		"type": "Education",
+		"dateRange": "May 2017",
+		"description": "Although I have always been a student of design, I spent my time at university gaining the perspective of an engineer. Computer Science taught me how to be a better problem solver, think in terms of state and logic, and gave me the skills to turn my designs into real products."
 	},
 	{
 		"title": "National Strategic Planning and Analysis Research Center",

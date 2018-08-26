@@ -24,5 +24,6 @@ const Text = styled.div`
 `
 
 Text.p = Text.withComponent('p')
+Text.span = Text.withComponent('span')
 
 export default Text

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import theme from 'utils/theme'
 import Markdown from 'components/Markdown'
 import { space } from 'styled-system'
+import Heading from 'components/Heading'
+import Text from 'components/Text'
 
 const TimelineContainer = styled.section`
   position: relative;
@@ -75,24 +77,11 @@ const TimelineListItem = styled.li`
 		left: ${theme.sizes.timeline.linePadding};
 		text-align: left;
   }
+`
 
-  .header {
-    margin-bottom: 8px;
-    font-family: ${p => p.theme.fonts.sans}
-  }
-
-  .title {
-    margin-bottom: 16px;
-  }
-
-  span.type {
-    padding-right: 8px;
-  }
-
-  span.date {
-    font-weight: normal;
-    color: ${props => props.theme.colors.gray[3]};
-  }
+const Meta = styled(Heading.h4)`
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `
 
 class TimelineItem extends React.Component {
@@ -100,12 +89,12 @@ class TimelineItem extends React.Component {
     return (
       <TimelineListItem>
         <div>
-          <h4 className="header">
-            <span className="type">{this.props.type}</span>
-            <span className="date">{this.props.dateRange}</span>
-          </h4>
+          <Meta pt='3px' mb={2} fontFamily='sans' fontSize='14px' >
+            <Text.span pr={2} color='accent'>{this.props.type}</Text.span>
+            <Text.span fontWeight='normal' color='gray.3'>{this.props.dateRange}</Text.span>
+          </Meta>
 
-          <h2 className="title">{this.props.title}</h2>
+          <Heading.h2 mb={4}>{this.props.title}</Heading.h2>
 
           <Markdown mt={3}>{this.props.children}</Markdown>
         </div>

@@ -5,6 +5,16 @@ import Page from 'components/Page'
 // import { Grid, Box } from 'components/Base'
 import Text from 'components/Text'
 import Heading from 'components/Heading'
+import Nav from 'components/Nav'
+
+export const ResourceNav = () => (
+  <Nav mt={4} mb={8}>
+    <Nav.Item to='/books'>Books</Nav.Item>
+    <Nav.Item to='/chicago'>Chicago</Nav.Item>
+    <Nav.Item to='/music'>Music</Nav.Item>
+    <Nav.Item to='/quotes'>Quotes</Nav.Item>
+  </Nav>
+)
 
 const ResourcesPage = ({ data }) => {
   return (

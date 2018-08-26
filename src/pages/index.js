@@ -17,9 +17,11 @@ const Container = styled(Grid)`
   overflow: hidden;
   hyphens: auto;
   text-align: justify;
+  ${'' /* min-height: 100vh;
+  justify-content: center; */}
 
   p + p {
-    text-indent: 3em;
+    text-indent: 2em;
   }
 `
 
@@ -88,14 +90,18 @@ class IndexPage extends React.Component {
               This is my space to share, collect, curate, and document the things that matter to me. You can follow along here or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link>, <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>, or <Link underlined to='http://github.com/chasemccoy'>Github</Link>.
             </Text.p>
 
-            {weatherSummary
+            <Text.p fontSize='18px' fontFamily='serif' m={0}>
+              Get in touch by <Link underlined to='mailto:desk@chasemccoy.net'>emailing me</Link> if you would like to talk shop or have a professional inquiry. I am always interested in interesting projects.
+            </Text.p>
+
+            {/* {weatherSummary
               && weatherTemperature
               && nowPlayingName &&
               nowPlayingArtist && (
                 <Text.p fontSize='18px' fontFamily='serif'>
                   {`The weather in Chicago at the moment is ${weatherSummary} at ${weatherTemperature}. Right now I'm listening to ${nowPlayingName} by ${nowPlayingArtist}. Hope you have a great day.`}
                 </Text.p>
-            )}
+            )} */}
           </Box>
 
           {/* <Box width={[1]}>

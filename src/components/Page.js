@@ -5,6 +5,7 @@ import Layout from 'components/Layout'
 import Header from 'components/Header'
 import media from 'utils/media'
 import Heading from 'components/Heading'
+import { ResourceNav } from 'pages/resources'
 
 const Container = styled.div`
 `
@@ -45,9 +46,16 @@ const Content = styled.main.attrs({
 `
 
 const Title = styled(Heading.h2)`
+  font-size: 32px;
   display: inline-block;
   padding-bottom: 4px;
   box-shadow: inset 0 -6px 0 ${props => props.theme.colors.accent};
+
+  ${p => p.flush && `
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  `}
 `
 
 const Page = props => (
@@ -66,7 +74,10 @@ const Page = props => (
 
         <Content>
           {props.title && !props.untitled && (
-            <div><Title>{props.title}</Title></div>
+            <div>
+              <Title flush={props.resource}>{props.title}</Title>
+              {props.resource && <ResourceNav /> }
+            </div>
           )}
 
           {props.children}
