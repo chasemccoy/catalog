@@ -4,7 +4,7 @@ import Layout from 'components/Layout'
 import { Box, Grid } from 'components/Base'
 import Header from 'components/Header'
 import Link from 'components/Link'
-// import media from 'utils/media'
+import media from 'utils/media'
 // import Icon from 'components/Icon'
 import Text from 'components/Text'
 
@@ -20,11 +20,15 @@ const Container = styled(Grid)`
   min-height: 100vh;
   justify-content: center;
 
+  ${media.small`
+    justify-content: flex-start;
+  `}
+
   p + p {
     text-indent: 2em;
   }
 
-  a:hover {
+  .content a:hover {
     transition: none;
     color: ${p => p.theme.colors.accent};
     text-decoration-color: ${p => p.theme.colors.accent};
@@ -82,11 +86,11 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Container alignItems='center'>
-          <Box width={[1, 3/4, '35ch']} mt={-100}>
+          <Box width={[1, 3/4, '35ch']} mt={[0, 0, -100]}>
             <Header />
           </Box>
 
-          <Box width={[1, 3/4, '35ch']} mt={-8}>
+          <Box width={[1, 3/4, '35ch']} mt={-8} className='content'>
             <Dropcap fontSize='16px' fontFamily='serif' m={0}>
               Welcome to my internet homepage; it's nice to see you. I'm Chase, a design technologist living in Chicago by way of Mississippi. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and computer science.
             </Dropcap>
