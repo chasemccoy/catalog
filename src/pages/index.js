@@ -17,11 +17,17 @@ const Container = styled(Grid)`
   overflow: hidden;
   hyphens: auto;
   text-align: justify;
-  ${'' /* min-height: 100vh;
-  justify-content: center; */}
+  min-height: 100vh;
+  justify-content: center;
 
   p + p {
     text-indent: 2em;
+  }
+
+  a:hover {
+    transition: none;
+    color: ${p => p.theme.colors.accent};
+    text-decoration-color: ${p => p.theme.colors.accent};
   }
 `
 
@@ -30,11 +36,10 @@ const Dropcap = styled(Text.p)`
     float: left;
     font-size: 55px;
     line-height: 40px;
-    padding-top: 4px;
+    padding-top: 3px;
     padding-right: 6px;
     padding-left: 0px;
     font-weight: ${p => p.theme.fontWeights.bold};
-    ${'' /* color: ${p => p.theme.colors.accent}; */}
   }
 `
 
@@ -77,20 +82,20 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Container alignItems='center'>
-          <Box width={[1, 3/4, '30ch']}>
+          <Box width={[1, 3/4, '35ch']} mt={-100}>
             <Header />
           </Box>
 
-          <Box width={[1, 3/4, '30ch']} mt={-8}>
-            <Dropcap fontSize='18px' fontFamily='serif' m={0}>
+          <Box width={[1, 3/4, '35ch']} mt={-8}>
+            <Dropcap fontSize='16px' fontFamily='serif' m={0}>
               Welcome to my internet homepage; it's nice to see you. I'm Chase, a design technologist living in Chicago by way of Mississippi. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and computer science.
             </Dropcap>
 
-            <Text.p fontSize='18px' fontFamily='serif' m={0}>
+            <Text.p fontSize='16px' fontFamily='serif' m={0}>
               This is my space to share, collect, curate, and document the things that matter to me. You can follow along here or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link>, <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>, or <Link underlined to='http://github.com/chasemccoy'>Github</Link>.
             </Text.p>
 
-            <Text.p fontSize='18px' fontFamily='serif' m={0}>
+            <Text.p fontSize='16px' fontFamily='serif' m={0}>
               Get in touch by <Link underlined to='mailto:desk@chasemccoy.net'>emailing me</Link> if you would like to talk shop or have a professional inquiry. I am always interested in interesting projects.
             </Text.p>
 
