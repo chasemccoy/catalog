@@ -4,10 +4,9 @@ import Link from 'components/Link'
 // import Icon from 'components/Icon'
 import Heading from 'components/Heading'
 import media from 'utils/media'
+import { space } from 'styled-system'
 
 const Container = styled.div`
-  hyphens: auto;
-
   img { width: 100%; }
 
   blockquote {
@@ -15,10 +14,11 @@ const Container = styled.div`
     border-left: none;
     width: 150%;
     margin-left: -25%;
-    margin-top: 48px;
-    margin-bottom: 48px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     font-style: italic;
     padding: 0;
+    font-family: ${p => p.theme.fonts.sans};
 
     ${media.medium`
       width: 100%;
@@ -49,6 +49,7 @@ const AsideContainer = styled(Container)`
   ${p => p.filmstrip && `
     img {
       height: 300px;
+      object-fit: cover;
     }
 
     p:empty {
@@ -129,6 +130,7 @@ const PostMeta = styled.div`
   text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-block;
+  ${space}
 
   a {
     color: ${p => p.theme.colors.gray[3]};
@@ -149,7 +151,7 @@ const PostMeta = styled.div`
 // `
 
 const Meta = ({ date, permalink, aside }) => (
-  <PostMeta>
+  <PostMeta mt={!aside ? 5 : 0}>
     {date &&
       permalink && (
         <Link to={`/${permalink}`}>{date}</Link>

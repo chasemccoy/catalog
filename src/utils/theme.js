@@ -22,8 +22,8 @@ const colors = {
     dark: '#000000'
   },
   type: {
-    body: '#444',
-    header: '#474746',
+    body: '#333',
+    header: '#444',
     menu: '#666666'
   },
   gray: {

@@ -14,6 +14,7 @@ const Container = styled.nav`
 const MenuItem = styled.li`
   color: ${p => p.theme.colors.type.menu};
   font-size: 13px;
+  line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 1px;
   vertical-align: text-top;
@@ -32,7 +33,7 @@ const MenuItem = styled.li`
     opacity: 1.0;
     color: ${p => p.theme.colors.type.menu};
     border-top: 1px solid ${p => p.theme.colors.accent};
-    padding-top: ${p => p.theme.space[3] - 1}px;
+    padding-top: ${p => p.theme.space[3]}px;
   }
 
   * + & {
