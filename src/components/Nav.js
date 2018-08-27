@@ -34,6 +34,10 @@ const MenuItem = styled.li`
     color: ${p => p.theme.colors.type.menu};
     border-top: 1px solid ${p => p.theme.colors.accent};
     padding-top: ${p => p.theme.space[3]}px;
+
+    ${media.small`
+      padding-top: ${p => p.theme.space[3] - 1}px;
+    `}
   }
 
   * + & {

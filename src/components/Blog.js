@@ -69,6 +69,24 @@ const AsideContainer = styled(Container)`
 `
 
 const PostContainer = styled(Container)`
+  font-family: ${p => p.theme.fonts.serif};
+  font-size: 17px;
+  ${'' /* hyphens: auto;
+  text-align: justify; */}
+  width: 90%;
+
+  ${'' /* *:not(p) {
+    margin-top: 24px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  p + p {
+    text-indent: 2em;
+  } */}
+
   img {
     max-width: 120%;
     width: 120%;
