@@ -1,325 +1,145 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Column, Row } from 'components/Grid'
-import { Link } from 'components/Components'
-import Page from 'components/Page'
-import StatCard from 'components/StatCard'
-import Markdown from 'components/Markdown'
-import Image from 'components/Image'
-import { fontWeight, themeGet } from 'styled-system'
-import { Quote } from './quotes'
-import Divider from 'components/Divider'
-import { BlogHeader } from 'components/Components'
-import Icon from 'components/Icon'
-import { Flex } from 'grid-styled'
-import { colors, fontWeights } from 'utils/design'
-import { graphql } from 'gatsby'
+import Layout from 'components/Layout'
+import { Box, Grid } from 'components/Base'
+import Header from 'components/Header'
+import Link from 'components/Link'
+import media from 'utils/media'
+// import Icon from 'components/Icon'
+import Text from 'components/Text'
 
-const PageTitle = styled.h1`
-  margin: 0;
-  font-weight: ${fontWeights.normal};
-  font-family: ${props => props.theme.fontFamily.body};
-`
+const Container = styled(Grid)`
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 8px;
+  overflow: hidden;
+  hyphens: auto;
+  text-align: justify;
+  min-height: 100vh;
+  justify-content: center;
 
-const PostLink = styled(Link)`
-  text-decoration: none;
-  display: block;
-  font-weight: ${themeGet('fontWeights.medium')};
-  margin-top: 16px;
-  font-size: 16px;
-  line-height: 1.5;
-  font-family: ${props => props.theme.fontFamily.body};
+  ${media.small`
+    justify-content: flex-start;
+  `}
 
-  & + &:before {
-    content: '';
-    margin: 16px 0;
-    background: ${colors.primary.gray.dark};
-    display: block;
-    width: 45px;
-    height: 2px;
+  p + p {
+    text-indent: 2em;
   }
 
-  &:first-child {
-    margin-top: 24px;
+  .content a:hover {
+    transition: none;
+    color: ${p => p.theme.colors.accent};
+    text-decoration-color: ${p => p.theme.colors.accent};
   }
 `
 
-const Highlight = styled.span`
-  background-color: ${themeGet('colors.highlight')};
-  ${fontWeight};
+const Dropcap = styled(Text.p)`
+  &:first-letter {
+    float: left;
+    font-size: 55px;
+    line-height: 40px;
+    padding-top: 3px;
+    padding-right: 6px;
+    padding-left: 0px;
+    font-weight: ${p => p.theme.fontWeights.bold};
+  }
 `
-
-const NoUnderlineLink = styled(Link)`
-  text-decoration: none;
-`
-
-const Content = props => (
-  <Row mx={[-16, -32]} mt={4}>
-    {props.children.map((item, i) => (
-      <Column
-        width={[1, 1/2, 1/2, item.props.width || 1 / 3]}
-        mt={64}
-        px={[16, 32]}
-        key={i}
-      >
-        {item}
-      </Column>
-    ))}
-  </Row>
-)
 
 class IndexPage extends React.Component {
-  state = {
-    weatherSummary: 'Loading...',
-    weatherTemperature: 'Loading...',
-    productivity: 'Loading...',
-    nowPlayingName: 'Loading...',
-    nowPlayingArtist: 'Loading...',
-    age: 'Loading...',
-    beerName: 'Loading...',
-    beerBrewery: 'Loading...',
-  }
+  // state = {
+  //   weatherSummary: null,
+  //   weatherTemperature: null,
+  //   nowPlayingName: null,
+  //   nowPlayingArtist: null,
+  //   beerName: null,
+  //   beerBrewery: null
+  // }
 
-  componentDidMount = () => {
-    fetch(`https://chs-stats.now.sh/weather`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ weatherSummary: result.summary })
-        this.setState({ weatherTemperature: result.temperature })
-      })
-
-    fetch(`https://chs-stats.now.sh/productivity`)
-      .then(response => response.text())
-      .then(result => {
-        this.setState({ productivity: result })
-      })
-
-    fetch(`https://chs-stats.now.sh/nowPlaying`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ nowPlayingName: result.name })
-        this.setState({ nowPlayingArtist: result.artist })
-      })
-
-    fetch(`https://chs-stats.now.sh/age`)
-      .then(response => response.text())
-      .then(result => {
-        this.setState({ age: result })
-      })
-
-    fetch(`https://chs-stats.now.sh/beer`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ beerName: result.beer })
-        this.setState({ beerBrewery: result.brewery })
-      })
-  }
+  // componentDidMount = () => {
+  //   fetch(`https://chs-stats.now.sh/weather`)
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       this.setState({ weatherSummary: result.summary })
+  //       this.setState({ weatherTemperature: result.temperature })
+  //     })
+  //
+  //   fetch(`https://chs-stats.now.sh/nowPlaying`)
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       this.setState({ nowPlayingName: result.name })
+  //       this.setState({ nowPlayingArtist: result.artist })
+  //     })
+  //
+  //   fetch(`https://chs-stats.now.sh/beer`)
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       this.setState({ beerName: result.beer })
+  //       this.setState({ beerBrewery: result.brewery })
+  //     })
+  // }
 
   render() {
-    const imagePosts = this.props.data.imagePosts.edges.map(
-      ({ node }) => node.slug
-    )
-
-    const showcasePhotos = this.props.data.images.edges.filter(({ node }) =>
-      imagePosts.some(post => parseInt(post) === node.post)
-    )
+    // const {nowPlayingName, nowPlayingArtist, beerName, beerBrewery, weatherSummary, weatherTemperature} = this.state
 
     return (
-      <Page>
-        <Row mb={7}>
-          <Column width={[1]}>
-            <PageTitle>
-              <Highlight fontWeight="bold">Chase McCoy</Highlight> is a design
-              systems developer living in Chicago who spends a lot of time
-              thinking about how the web works.
-            </PageTitle>
-          </Column>
-        </Row>
+      <Layout>
+        <Container alignItems='center'>
+          <Box width={[1, 3/4, '35ch']} mt={[0, 0, -100]}>
+            <Header />
+          </Box>
 
-        <Row mx={[-6]} mt={6}>
-          <Column width={[1, 1, 1 / 2, 1 / 3]} px={[6]}>
-            <Row mb={[8, 7]}>
-              <Column width={[1, 3 / 4, 1]}>
-                <NoUnderlineLink to="/thoughts">
-                  <BlogHeader mb={0}>
-                    <Icon small name="thought" /> Recent Thoughts
-                  </BlogHeader>
-                </NoUnderlineLink>
+          <Box width={[1, 3/4, '35ch']} mt={-8} className='content'>
+            <Dropcap fontSize='16px' fontFamily='serif' m={0}>
+              Welcome to my internet homepage; it's nice to see you. I'm Chase, a design technologist living in Chicago by way of Mississippi. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and computer science.
+            </Dropcap>
 
-                <div>
-                  {this.props.data.posts.edges.map(({ node }, i) => (
-                    <PostLink to={node.slug} key={i}>
-                      {node.title}
-                    </PostLink>
-                  ))}
-                </div>
-              </Column>
-            </Row>
+            <Text.p fontSize='16px' fontFamily='serif' m={0}>
+              This is my space to share, collect, curate, and document the things that matter to me. You can follow along here or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link>, <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>, or <Link underlined to='http://github.com/chasemccoy'>Github</Link>.
+            </Text.p>
 
-            <Flex justifyContent={['space-around']}>
-              <Link to="/chicago">
-                <Icon jumbo name="chicago" />
-              </Link>
-              <Link to="/bookmarks">
-                <Icon jumbo name="bookmark" />
-              </Link>
-              <Link to="/favorites">
-                <Icon jumbo name="heart" />
-              </Link>
-            </Flex>
-          </Column>
+            <Text.p fontSize='16px' fontFamily='serif' m={0}>
+              Get in touch by <Link underlined to='mailto:desk@chasemccoy.net'>emailing me</Link> if you would like to talk shop or have a professional inquiry. I am always interested in interesting projects. Have a great day.
+            </Text.p>
 
-          <Column width={[1, 1, 1 / 2, 2 / 3]} px={[6]} mt={[8, 8, 0]}>
-            <Row>
-              <Column width={1}>
-                <NoUnderlineLink to="/thoughts#images">
-                  <BlogHeader mb={0}>
-                    <Icon small name="image" /> Recent Images
-                  </BlogHeader>
-                </NoUnderlineLink>
-              </Column>
+            {/* {weatherSummary
+              && weatherTemperature
+              && nowPlayingName &&
+              nowPlayingArtist && (
+                <Text.p fontSize='18px' fontFamily='serif'>
+                  {`The weather in Chicago at the moment is ${weatherSummary} at ${weatherTemperature}. Right now I'm listening to ${nowPlayingName} by ${nowPlayingArtist}. Hope you have a great day.`}
+                </Text.p>
+            )} */}
+          </Box>
 
-              <Column width={[1, 1 / 3, 1 / 2, 1 / 3]}>
-                <Image
-                  src={showcasePhotos[0].node.source_url}
-                  to={`/${imagePosts[0]}`}
-                />
-              </Column>
+          {/* <Box width={[1]}>
+            <Text fontSize='18px' fontFamily='mono' maxWidth='60ch' mb='120px'>
+              <Icon name='broken' jumbo mb='20%' />
 
-              <Column width={[1 / 2, 1 / 3, 1 / 2, 1 / 3]}>
-                <Image
-                  src={showcasePhotos[1].node.source_url}
-                  to={`/${imagePosts[1]}`}
-                />
-              </Column>
+              <br />
 
-              <Column width={[1 / 2, 1 / 3, 1 / 2, 1 / 3]}>
-                <Image
-                  src={showcasePhotos[2].node.source_url}
-                  to={`/${imagePosts[2]}`}
-                />
-              </Column>
-            </Row>
+              Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. Right now, I'm building a design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design as it relates to ethics, tooling, art, culture, and engineering. You can follow along here, or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link> and <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>.
+            </Text>
+          </Box>
 
-            <Row>
-              <Column width={1}>
-                <Divider mt={6} mb={5} />
-              </Column>
-            </Row>
+          <Box width={1}>
+            <Text.p fontFamily='mono'>
+              {nowPlayingName && nowPlayingArtist ? `Listening to ${nowPlayingName} by ${nowPlayingArtist}.` : `Loading...`}
+            </Text.p>
 
-            <Row>
-              <Column width={1}>
-                <NoUnderlineLink to="/quotes">
-                  {this.props.data.quotes.edges.map(({ node }, i) => (
-                    <Quote
-                      content={node.content}
-                      source={node.metadata}
-                      key={i}
-                    />
-                  ))}
-                </NoUnderlineLink>
-              </Column>
-            </Row>
-          </Column>
-        </Row>
+            <Text.p fontFamily='mono'>
+              {beerName && beerBrewery ? `Drinking ${beerName} by ${beerBrewery}.` : `Loading...`}
+            </Text.p>
 
-        <Content>
-          <StatCard
-            title="Sprout Social"
-            color="#59CB59"
-            subtitle="Day Job"
-            description="Design Systems"
-          />
-
-          <StatCard
-            large
-            title={this.state.weatherTemperature}
-            subtitle="Weather in Chicago, IL"
-            description={this.state.weatherSummary}
-          />
-
-          <StatCard
-            title={this.state.nowPlayingName}
-            subtitle="Now Playing"
-            description={`by ${this.state.nowPlayingArtist}`}
-          />
-
-          <StatCard large title={this.state.age} subtitle="Age" />
-
-          <StatCard
-            title={this.state.beerName}
-            subtitle="Currently Drinking"
-            description={this.state.beerBrewery}
-          />
-
-          <StatCard
-            large
-            title={this.state.productivity}
-            subtitle="Productivity Score"
-          />
-
-          <StatCard subtitle="Elsewhere">
-            <Markdown>
-              If you'd like to chat, [ping me on
-              Twitter](http://twitter.com/chase_mccoy) or [shoot me an
-              email](mailto:desk@chasemccoy.net).
-            </Markdown>
-          </StatCard>
-
-          <StatCard subtitle="Colophon" width={2 / 3}>
-            <Markdown>
-              This site is built using [Gatsby](https://www.gatsbyjs.org),
-              [styled-components](https://www.styled-components.com),
-              [micro](https://github.com/zeit/micro), [now](http://now.sh), and [Netlify](https://www.netlify.com). [Karla](https://fonts.google.com/specimen/Karla) and [Merriweather](https://fonts.google.com/specimen/Merriweather) are the current typefaces.
-            </Markdown>
-          </StatCard>
-        </Content>
-      </Page>
+            <Text.p fontFamily='mono'>
+              {weatherSummary && weatherTemperature ? `${weatherSummary} and ${weatherTemperature} in Chicago, IL.` : `Loading...`}
+            </Text.p>
+          </Box> */}
+        </Container>
+      </Layout>
     )
   }
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query IndexQuery {
-    posts: allWordpressPost(limit: 4, filter: { format: { eq: "standard" } }) {
-      edges {
-        node {
-          title
-          slug
-        }
-      }
-    }
-
-    quotes: allQuotesHJson(sort: { fields: [metadata], order: ASC }, limit: 1) {
-      edges {
-        node {
-          content
-          metadata
-          tags
-        }
-      }
-    }
-
-    images: allWordpressWpMedia {
-      edges {
-        node {
-          source_url
-          post
-        }
-      }
-    }
-
-    imagePosts: allWordpressPost(
-      limit: 3
-      filter: { format: { eq: "image" } }
-    ) {
-      edges {
-        node {
-          slug
-        }
-      }
-    }
-  }
-`

@@ -1,12 +1,11 @@
-import { colors, fontWeights } from 'utils/design'
-import Card from 'components/Card'
-import Image from 'components/Image'
-import Markdown from 'components/Markdown'
 import React from 'react'
 import styled from 'styled-components'
-import { media } from 'utils/media'
+import Image from 'components/Image'
+import Markdown from 'components/Markdown'
+import media from 'utils/media'
+import Link from 'components/Link'
 
-const Container = styled(Card)`
+const Container = styled(Link)`
   p:last-child {
     margin-bottom: 0;
   }
@@ -16,7 +15,6 @@ const Container = styled(Card)`
   height: 100%;
   justify-content: space-between;
   flex-direction: ${props => (props.split ? `row` : `column`)};
-  color: ${colors.text.body} !important;
 
   ${media.tiny`
 		flex-direction: column;
@@ -24,25 +22,15 @@ const Container = styled(Card)`
 `
 
 const Title = styled.h2`
-  font-weight: ${fontWeights.bold};
-  margin: 16px 0 0 0;
-  font-family: ${props => props.theme.fontFamily.body};
+  margin: 12px 0 4px;
+  font-family: ${props => props.theme.fonts.body};
 
   ${props => props.small && `margin-top: 0;`}
-  ${props => props.medium && `font-size: 1.5em;`}
-  ${props =>props.large && `
-    font-size: 2.2rem;
-    margin-top: 0;
-  `}
-
-  ${media.tiny`
-    font-size: 1.5em;
-    margin-top: 16px;
-  `};
+  ${props =>props.large && `margin-top: 0;`}
+  ${media.tiny`margin-top: 16px;`};
 `
 
 const Description = styled.div`
-  color: ${colors.card.text};
   margin-top: 8px;
   margin-bottom: ${props => (props.bottom || props.split ? `0` : `12px`)};
 `
@@ -77,17 +65,15 @@ const InformationContainer = styled.div`
 
 const Badge = styled.div`
   background-color: white;
-  color: ${colors.text.header};
   padding: 4px 8px;
-
   position: absolute;
   bottom: 8px;
   right: 8px;
-  font-weight: ${fontWeights.heavy};
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
   line-height: 1.5;
+  font-family: ${p => p.theme.fonts.mono};
 `
 
 const Information = props => (

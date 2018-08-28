@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
-import Token from 'components/Token'
-import Divider from 'components/Divider'
-import { colors } from 'utils/design'
-import { space, themeGet } from 'styled-system'
+import { space } from 'styled-system'
 import { graphql } from 'gatsby'
+import { Box } from 'components/Base'
 
 const QuoteContent = styled.h2`
   ${space};
+  font-weight: ${p => p.theme.fontWeights.normal};
+  font-family: ${props => props.theme.fonts.sans};
 `
 
 const Meta = styled.div`
@@ -18,78 +18,56 @@ const Meta = styled.div`
   flex-wrap: wrap;
 `
 
-const Tags = styled.div`
-  ${space};
-`
-
 const Source = styled.h3`
-  font-weight: ${themeGet('fontWeights.normal')};
-  font-family: ${themeGet('fontFamily.sans')};
-  color: ${colors.card.text};
   margin: 0;
-  flex-basis: 70%;
   font-size: 20px;
+  font-weight: normal;
+  flex-basis: 70%;
   display: flex;
   align-items: center;
   ${space};
-  font-family: ${props => props.theme.fontFamily.body};
+  ${'' /* font-family: ${props => props.theme.fonts.sans}; */}
+  color: ${p => p.theme.colors.accent};
 `
 
 const Dropcap = styled.span`
-  font-family: ${themeGet('fontFamily.serif')};
-  font-size: 70px;
+  font-size: 56px;
   line-height: 0;
-  padding-top: 0.55em;
+  padding-top: 0.66em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;
-  color: ${colors.primary.gray.dark};
-`
-
-const Highlight = styled.span`
-  box-shadow: inset 0 -12px 0 0 ${themeGet('colors.highlight')};
+  color: ${p => p.theme.colors.accent};
+  font-family: ${props => props.theme.fonts.serif};
 `
 
 export const Quote = props => (
-  <div>
+  <Box mb={'104px'}>
     <QuoteContent pb={4} mb={0}>
-      <Highlight>{props.content}</Highlight>
+      {props.content}
     </QuoteContent>
 
-    <Meta mt={-2}>
-      <Source mt={2}>
+    <Meta>
+      <Source>
         {<Dropcap>“</Dropcap>}
         {props.source}
       </Source>
-
-      {props.tags && (
-        <Tags mt={2}>
-          {props.tags.map((tag, j) => (
-            <Token mt={2} mr={2} py={1} px={2} key={j}>
-              {tag}
-            </Token>
-          ))}
-        </Tags>
-      )}
     </Meta>
-  </div>
+  </Box>
 )
 
 const QuotesPage = ({ data }) => {
   return (
-    <Page title="Quotes" icon="quote" description="Words worth keeping in mind.">
-      <br />
+    <Page resource title="Quotes" icon="quote" description="Words worth keeping in mind.">
+      <Box mb={8} />
 
       {data.quotes.edges.map(({ node }, i) => (
-        <div key={i}>
+        <React.Fragment key={i}>
           <Quote
             content={node.content}
             source={node.metadata}
-            tags={node.tags}
           />
-
-          <Divider my={6} />
-        </div>
+        </React.Fragment>
       ))}
     </Page>
   )

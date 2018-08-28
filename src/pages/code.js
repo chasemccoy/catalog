@@ -1,15 +1,14 @@
 import Page from 'components/Page'
 import React from 'react'
 import styled from 'styled-components'
-import List from 'components/Lists'
+import { UnorderedList } from 'components/Lists'
 import Link from 'components/Link'
-import { media } from 'utils/media'
-import { colors } from 'utils/design'
-import { P } from 'components/Base'
+import media from 'utils/media'
+import Text from 'components/Text'
 import Divider from 'components/Divider'
 import { graphql } from 'gatsby'
 
-const TwoColumns = styled(List)`
+const TwoColumns = styled(UnorderedList)`
   display: block;
   column-count: 2;
   column-gap: 40px;
@@ -27,7 +26,7 @@ const RepositoryListItem = styled.li`
   break-inside: avoid;
 
   & + & {
-    margin-bottom: 16px;
+    margin-top: 16px;
 
     ${media.tiny`
       margin-bottom: 24px;
@@ -44,13 +43,13 @@ const Container = styled.div`
     border-radius: 8px;
 
     &:hover {
-      background: ${colors.primary.gray.light};
+      background: ${p => p.theme.colors.gray[0]};
       color: currentColor;
     }
   }
 
   h3 {
-    margin: 0 0 4px;
+    font-family: ${p => p.theme.fonts.mono};
   }
 `
 
@@ -59,18 +58,13 @@ const StarredRepository = props => (
     <Container>
       <Link to={props.repository.url}>
         <h3>{props.repository.name}</h3>
-
-        {
-          <P m={0} color="gray.1">
+          <Text.p m={0} mb={2} color="type.body">
             {props.repository.description}
-          </P>
-        }
+          </Text.p>
 
-        {
-          <P color="gray.2" fontSize={14}>
+          <Text.p color="gray.3" fontSize={14}>
             {props.repository.owner.login}
-          </P>
-        }
+          </Text.p>
       </Link>
     </Container>
   </RepositoryListItem>
@@ -79,14 +73,14 @@ const StarredRepository = props => (
 const CodePage = ({ data }) => {
   return (
     <Page icon="code" title="Code" description="My favorite open source tools on the web.">
-      <P mb={6}>
+      <Text.p mb={6}>
         Some of my favorite open sourced projects (sourced from my starred
         repositories on GitHub).
-      </P>
+      </Text.p>
 
       <Divider mb={6} />
 
-      <TwoColumns plain>
+      <TwoColumns unstyled className='full'>
         {data.starredRepositories.edges.map(({ node }, i) => (
           <StarredRepository repository={node} key={i} />
         ))}

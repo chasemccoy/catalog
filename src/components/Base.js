@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'grid-styled'
-import { width, height, color, space, fontSize, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection } from 'styled-system'
+import { width, height, color, space, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection, minWidth, minHeight } from 'styled-system'
 import theme from 'utils/theme'
 import media from 'utils/media'
-
-export const P = styled.p`
-  ${width} ${color} ${space} ${fontSize};
-`
 
 export const Span = styled.span`
   ${color};
@@ -25,6 +21,8 @@ export const Box = styled.div`
   ${flexWrap}
   ${flex}
   ${flexDirection}
+  ${minHeight}
+  ${minWidth}
 `
 
 const GridFlex = styled(Flex)`

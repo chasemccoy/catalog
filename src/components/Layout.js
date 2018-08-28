@@ -1,33 +1,27 @@
-import { sizes } from 'utils/design'
-import { media } from 'utils/media'
-import styled from 'styled-components'
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
+import Helmet from 'react-helmet'
+import theme from 'utils/theme'
 
-export const Wrapper = styled.div.attrs({
-  id: 'wrapper',
-})``
+const Layout = props => (
+  <ThemeProvider theme={theme}>
+    <>
+      <Helmet
+        titleTemplate="%s | Chase McCoy"
+        defaultTitle="Chase McCoy"
+      >
+        <body className={`${props.dark ? 'dark' : 'light'}`} />
+        <meta name="description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />
+        <meta name="og:title" content="Chase McCoy" />
+        <meta name="og:description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />
+        <meta name="twitter:site" content="@chase_mccoy" />
+        <meta name="twitter:card" content="summary" />
+        <link href="https://twitter.com/chase_mccoy" rel="me" />
+      </Helmet>
 
-export const Content = styled.div.attrs({
-  id: 'content',
-})`
-  width: calc(100% - ${sizes.sidebar.width});
-  max-width: calc(${sizes.content.maxWidth} + ${sizes.content.padding} * 2);
-  min-height: 100vh;
-  padding: 96px ${sizes.content.padding} 120px ${sizes.content.padding};
-  transform: translate3d(${sizes.sidebar.width}, 0px, 0px);
+      {props.children}
+    </>
+  </ThemeProvider>
+)
 
-  ${media.medium`
-		padding: 96px ${sizes.content.padding} 120px 96px;
-	`} ${media.small`
-		width: 100%;
-		padding: 100px ${sizes.content.smallPadding} 60px;
-		transform: none;
-
-		padding: ${props =>
-      props.flush ? `0` : `100px ${sizes.content.smallPadding} 60px`};
-	`} ${props =>
-      props.flush &&
-      `
-		max-width: 100%;
-		padding: 0;
-	`};
-`
+export default Layout

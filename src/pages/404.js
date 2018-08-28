@@ -1,15 +1,16 @@
-import Page from 'components/Page'
 import React from 'react'
-import Image from 'components/Image'
+import Layout from 'components/Layout'
+import Heading from 'components/Heading'
+import { Grid, Box } from 'components/Base'
 
 const NotFoundPage = () => (
-  <Page title="404: Not Found" description="Sorry, this page could not be found.">
-    <Image src={`meta/404/surfing-net.gif`} />
-    <Image src={`meta/404/internet-party.gif`} />
-    <Image src={`meta/404/dialup.gif`} />
-    <Image src={`meta/404/heyarnold.gif`} />
-    <Image src={`meta/404/jurassic-park.gif`} />
-  </Page>
+  <Layout dark>
+    <Grid justifyContent='center'>
+      <Box minHeight='100vh' display='flex' alignItems='center'>
+        <Heading.h1 fontSize={200} color='white' fontFamily='sans'>404</Heading.h1>
+      </Box>
+    </Grid>
+  </Layout>
 )
 
 export default NotFoundPage

@@ -1,27 +1,45 @@
-import Helmet from 'react-helmet'
+import Page from 'components/Page'
+import { Post } from 'components/Blog'
 import React from 'react'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
+const isPhotoset = categories => {
+  return categories.map(category => (
+    Object.values(category).includes('Photoset')
+  )).includes(true)
+}
+
 export default ({ data }) => {
-  const post = data.markdownRemark
+  const post = data.wordpressPost
 
   return (
-    <div>
-      <Helmet title={`${post.frontmatter.title} | Chase McCoy`} />
+    <Page narrow untitled>
+      <Helmet title={`${post.title || post.slug} | Chase McCoy`} />
 
-      <h2>{post.frontmatter.title}</h2>
-
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-    </div>
+      <Post
+        title={post.title}
+        content={post.content}
+        date={post.date}
+        aside={post.format === 'aside' || post.format === 'image'}
+        imagePost={post.format === 'image'}
+        photoset={isPhotoset(post.categories)}
+        to={post.slug}
+      />
+    </Page>
   )
 }
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
+  query WPPostQuery($id: String!) {
+    wordpressPost(id: { eq: $id }) {
+      title
+      content
+      format
+      date(formatString: "MMMM Do, YYYY")
+      slug
+      categories {
+        name
       }
     }
   }

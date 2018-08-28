@@ -1,13 +1,13 @@
-import { colors, sizes } from 'utils/design'
-
-import Markdown from 'components/Markdown'
 import React from 'react'
-import { media } from 'utils/media'
 import styled from 'styled-components'
+import theme from 'utils/theme'
+import Markdown from 'components/Markdown'
+import { space } from 'styled-system'
+import Heading from 'components/Heading'
+import Text from 'components/Text'
 
 const TimelineContainer = styled.section`
   position: relative;
-  margin: 56px 0;
 
   ul {
     margin: 0;
@@ -17,11 +17,11 @@ const TimelineContainer = styled.section`
       content: '';
       top: 0;
       bottom: 0;
-      width: ${sizes.timeline.lineWidth};
-      background: ${colors.primary.gray.dark};
+      width: ${theme.sizes.timeline.lineWidth};
+      background: ${props=> props.theme.colors.accent.light};
       left: 50%;
 
-      ${media.small`left: calc(${sizes.timeline.pointWidth} / 2);`};
+      left: calc(${theme.sizes.timeline.pointWidth} / 2);
     }
   }
 
@@ -29,74 +29,63 @@ const TimelineContainer = styled.section`
     list-style-type: none;
     position: relative;
   }
+
+  a {
+    text-decoration: underline;
+  }
+
+  ${space}
 `
 
 const TimelineListItem = styled.li`
-  margin-bottom: 32px;
-  ${media.small`margin-bottom: 48px;`}
-  font-family: ${props => props.theme.fontFamily.body};
+  & + & {
+    margin-top: 48px;
+  }
 
   &:after {
     content: '';
     position: absolute;
-    left: calc(50% + ${sizes.timeline.lineWidth} / 2);
-    top: 0;
+    left: calc(50% + ${theme.sizes.timeline.lineWidth} / 2);
+    top: 2px;
     transform: translateX(-50%);
-    width: ${sizes.timeline.pointWidth};
-    height: ${sizes.timeline.pointWidth};
+    width: ${theme.sizes.timeline.pointWidth};
+    height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
     background: white;
-    border: ${sizes.timeline.lineWidth} solid ${colors.timeline.point};
+    border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.accent};
     box-shadow: 0 0 0 5px white;
     z-index: 1;
 
-    ${media.small`
-			left: calc(${sizes.timeline.pointWidth} / 2);
-			transform: translateX(-42%);
-		`};
+		left: calc(${theme.sizes.timeline.pointWidth} / 2);
+		transform: translateX(-42%);
   }
 
   > div {
     position: relative;
-    width: calc(50% - ${sizes.timeline.linePadding});
+    width: calc(50% - ${theme.sizes.timeline.linePadding});
     top: -5px;
 
-    ${media.small`width: calc(100% - ${sizes.timeline.linePadding});`};
+    width: calc(100% - ${theme.sizes.timeline.linePadding});;
   }
 
   &:nth-child(odd) > div {
-    left: calc(50% + ${sizes.timeline.linePadding});
+    left: calc(50% + ${theme.sizes.timeline.linePadding});
 
-    ${media.small`left: ${sizes.timeline.linePadding}`};
+    left: ${theme.sizes.timeline.linePadding};
   }
 
   &:nth-child(even) > div {
     left: 0;
     text-align: right;
 
-    ${media.small`
-			left: ${sizes.timeline.linePadding};
-			text-align: left;
-		`};
+		left: ${theme.sizes.timeline.linePadding};
+		text-align: left;
   }
+`
 
-  .header {
-    margin-bottom: 8px;
-  }
-
-  .title {
-    display: inline;
-    box-shadow: inset 0 -12px 0 0 ${props => props.theme.colors.highlight};
-  }
-
-  span.type {
-    padding-right: 8px;
-  }
-
-  span.date {
-    font-weight: normal;
-    color: ${colors.text.muted};
-  }
+const Meta = styled(Heading.h4)`
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `
 
 class TimelineItem extends React.Component {
@@ -104,12 +93,12 @@ class TimelineItem extends React.Component {
     return (
       <TimelineListItem>
         <div>
-          <h4 className="header">
-            <span className="type">{this.props.type}</span>
-            <span className="date">{this.props.dateRange}</span>
-          </h4>
+          <Meta pt='3px' mb={2} fontFamily='sans' fontSize='14px' >
+            <Text.span pr={2} color='accent'>{this.props.type}</Text.span>
+            <Text.span fontWeight='normal' color='gray.3'>{this.props.dateRange}</Text.span>
+          </Meta>
 
-          <h2 className="title">{this.props.title}</h2>
+          <Heading.h2 mb={4}>{this.props.title}</Heading.h2>
 
           <Markdown mt={3}>{this.props.children}</Markdown>
         </div>
@@ -121,7 +110,7 @@ class TimelineItem extends React.Component {
 class Timeline extends React.Component {
   render() {
     return (
-      <TimelineContainer>
+      <TimelineContainer {...this.props}>
         <ul>{this.props.children}</ul>
       </TimelineContainer>
     )

@@ -1,41 +1,39 @@
-import { colors, fontWeights } from 'utils/design'
-
-import { Link } from 'components/Components'
 import React from 'react'
-import { capitalize } from 'utils/js'
 import styled from 'styled-components'
+import Link from 'components/Link'
+import { capitalize } from 'utils/js'
+import { space } from 'styled-system'
 
 const Container = styled.div`
-  color: ${colors.text.muted};
-  font-weight: ${fontWeights.medium};
+  color: ${p => p.theme.colors.type.menu};
   margin-bottom: 24px;
+  ${space}
 `
 
 const TOCItem = styled.span`
   margin-left: 12px;
 
   a {
-    color: ${colors.text.header};
     text-decoration: none;
+    color: ${p => p.theme.colors.type.menu};
 
     &:hover {
-      color: ${colors.primary.blue};
+      color: ${p => p.theme.colors.type.body};
     }
   }
 
   &:not(&:first-child) {
     &:before {
       content: '/';
-      font-weight: ${fontWeights.medium};
-      color: ${colors.primary.gray.dark};
       margin-right: 12px;
+      color: ${p => p.theme.colors.type.menuMuted};
     }
   }
 `
 
 const TableOfContents = props => {
   return (
-    <Container>
+    <Container {...props}>
       Jump to:
       {props.items.map((item, index) => (
         <TOCItem key={index}>

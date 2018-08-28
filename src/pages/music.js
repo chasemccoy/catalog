@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
-import { P, Box } from 'components/Base'
+import { Box } from 'components/Base'
+import Text from 'components/Text'
 import Image from 'components/Image'
 import media from 'utils/media'
 import { Row, Column } from 'components/Grid'
@@ -9,25 +10,9 @@ import Link from 'components/Link'
 import Heading from 'components/Heading'
 import { graphql } from 'gatsby'
 
-const Album = styled(Link)`
-`
-
-Album.Title = styled.h3`
-  font-size: 20px;
-  margin-bottom: 6px;
-  font-family: ${props => props.theme.fontFamily.body};
-`
-
-Album.Subtitle = styled.h4`
-  font-size: 18px;
-  margin-bottom: 12px;
-  font-weight: normal;
-  color: ${props => props.theme.colors.text.muted};
-`
-
 const Track = styled(Box)`
   & + & {
-    border-top: 1px solid ${props => props.theme.colors.gray[4]};
+    border-top: 1px solid ${props => props.theme.colors.gray[1]};
   }
 `
 
@@ -36,19 +21,12 @@ Track.Image = styled(Image)`
   width: 48px;
 `
 
-Track.Title = styled.h3`
+Track.Title = styled.h4`
   margin: 0;
-  font-size: 20px;
 
   ${media.tiny`
     width: 100%;
   `}
-`
-
-Track.Artist = styled.h4`
-  margin: 0;
-  color: ${props => props.theme.colors.gray[2]};
-  font-weight: normal;
 `
 
 class MusicPage extends React.Component {
@@ -65,42 +43,42 @@ class MusicPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.tracks);
     return (
-      <Page title="Music" icon="music" description="A few of my favorite albums, as well as what I am listening to recently.">
-        <P mb={9}>
+      <Page resource title="Music" icon="music" description="A few of my favorite albums, as well as what I am listening to recently.">
+        <Text.p mb={9}>
           I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
-        </P>
+        </Text.p>
 
-        <Heading>Favorite Albums</Heading>
+        <Heading.section className='full'>Favorite Albums</Heading.section>
 
-        <Row mb={4}>
+        <Row mb={4} className='full'>
           {this.props.data.music.edges.map(({node}, i) => (
             <Column width={[1/2, 1/3]} key={i}>
-              <Album to={node.url} unstyled>
+              <Link to={node.url} unstyled>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
-                <Box height={['8em', '8em', '8em', '6em']} mt={3}>
-                  <Album.Title>{node.title}</Album.Title>
-                  <Album.Subtitle>{node.metadata}</Album.Subtitle>
+                <Box height={['10em', '10em', '10em', '8em']} mt={3}>
+                  <Heading.h3 mb={2}>{node.title}</Heading.h3>
+                  <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal'>{node.metadata}</Heading.h4>
                 </Box>
-              </Album>
+              </Link>
             </Column>
           ))}
         </Row>
 
         {this.state.tracks.length > 0 && (
-          <div>
-            <Heading mb={2}>Recent Tracks</Heading>
+          <div className='full'>
+            <Heading.section className='full'>Recent Tracks</Heading.section>
 
             {this.state.tracks.map((track, i) => (
               track.image && (
-                <Track py={3} display='flex' alignItems={['flex-start', 'center']} key={i}>
+                <Track py={2} display='flex' alignItems={['flex-start', 'center']} key={i}>
                   <Track.Image src={track.image} />
 
                   <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
                     <Track.Title>{track.name}</Track.Title>
-                    <Track.Artist>{track.artist}</Track.Artist>
+
+                    <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal' m={0}>{track.artist}</Heading.h4>
                   </Box>
                 </Track>
               )

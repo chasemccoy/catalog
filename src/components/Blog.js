@@ -1,158 +1,201 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fontWeights, sizes } from 'utils/design'
-import { Link } from 'components/Components'
-import { media } from 'utils/media'
+import Link from 'components/Link'
+// import Icon from 'components/Icon'
+import Heading from 'components/Heading'
+import media from 'utils/media'
+import { space } from 'styled-system'
 
 const Container = styled.div`
-  margin: 0;
+  img { width: 100%; }
 
-  & > * + * {
-    margin-top: 12px;
+  blockquote {
+    font-size: 24px;
+    border-left: none;
+    width: 150%;
+    margin-left: -25%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-style: italic;
+    padding: 0;
+    font-family: ${p => p.theme.fonts.sans};
+
+    ${media.medium`
+      width: 100%;
+      font-size: 20px;
+      margin: 24px 0;
+      border-left 4px solid ${p => p.theme.colors.accent};
+      margin-left: 16px;
+      padding: 0 16px;
+    `}
   }
 
-  ${props => props.photoset && `
-    img {
-      max-width: 145%;
-    }
-  `}
-
-  ${media.medium`
-    ${props => props.photoset && `
-      img {
-        max-width: 100%;
-      }
-    `}
-  `}
-
-  ${media.tiny`
-    img {
-      border-radius: 0;
-      margin: 0 -${sizes.content.smallPadding} !important;
-      width: calc(100% + ${sizes.content.smallPadding} * 2);
-      max-width: none;
-    }
-  `};
+  iframe + p {
+    margin-top: 24px;
+  }
 `
 
-const AsideContainer = styled(Container)``
+const AsideContainer = styled(Container)`
+  ${p => p.large && `
+    font-size: 24px;
+    font-family: ${p.theme.fonts.serif};
+    line-height: 1.6;
+
+    a {
+      padding-top: 6px;
+    }
+  `}
+
+  ${p => p.filmstrip && `
+    img {
+      height: 300px;
+      object-fit: cover;
+    }
+
+    p:empty {
+      margin-top: -40px;
+    }
+  `}
+
+  ${p => p.filmstrip && media.small`
+    img {
+      height: 250px;
+    }
+  `}
+
+  ${p => p.photo && `
+    font-size: 1rem;
+  `}
+`
 
 const PostContainer = styled(Container)`
-  font-family: ${props => props.theme.fontFamily.body};
-  hyphens: auto;
-  color: ${props => props.theme.colors.serifText};
-`
+  font-family: ${p => p.theme.fonts.serif};
+  font-size: 17px;
+  ${'' /* hyphens: auto;
+  text-align: justify; */}
 
-const Title = styled.h2`
-  margin-bottom: 12px;
-
-  a {
-    text-decoration: none;
+  ${'' /* *:not(p) {
+    margin-top: 24px;
   }
 
-  span {
-    color: ${colors.primary.blue};
-    font-weight: ${fontWeights.bold};
+  p {
+    margin-bottom: 0;
+  }
+
+  p + p {
+    text-indent: 2em;
+  } */}
+
+  img {
+    max-width: 120%;
+    width: 120%;
+    margin-left: -10%;
+
+    ${media.medium`
+      width: calc(100% + 33px);
+      margin-left: -16px;
+    `}
+  }
+`
+
+const Title = styled(Link)`
+  font-size: 32px;
+  font-family: ${p => p.theme.fonts.sans};
+  padding-bottom: 4px;
+  box-shadow: inset 0 -6px 0 ${props => props.theme.colors.accent};
+  transition: all 0.1s;
+
+  &:hover {
+    color: white;
+    background: ${props => props.theme.colors.accent};
   }
 `
 
 const Content = styled.div`
-  &:last-of-type {
-    margin: 0;
-  }
-
-  &:before {
-    position: absolute;
-    margin-left: -24px;
-    color: ${colors.bookmark.border.inner};
-    font-weight: ${fontWeights.heavy};
-    font-size: 18px;
-    font-family: monospace;
-  }
-
   a {
-    font-weight: ${fontWeights.bold} !important;
+    transition: all 0.1s;
+    box-shadow: inset 0 -0.4em 0 ${props => props.theme.colors.accent.light};
   }
 
-  img {
-    border-radius: 4px;
+  a:hover {
+    color: white;
+    box-shadow: none;
+    background: ${props => props.theme.colors.accent};
+  }
 
-    ${media.tiny`
-      border-radius: 0;
-    `}
+  a[href*='chasemccoy.files.wordpress'], a[href*='instagram.com/p'] {
+  	box-shadow: none;
+    display: block;
+    margin-bottom: -12px;
+    padding: 0;
+
+    &:hover {
+      background: none;
+    }
+	}
+
+  & > p:last-child {
+    margin-bottom: 0;
   }
 `
-//
-// const Excerpt = styled.p`
-//   &:last-of-type {
-//     margin: 0;
-//   }
-// `
 
 const PostMeta = styled.div`
-  color: ${colors.text.muted};
-  font-weight: ${fontWeights.medium};
-  font-size: 12px;
-  font-family: ${props => props.theme.fontFamily.sans};
+  font-size: 13px;
+  font-family: ${p => p.theme.fonts.sans};
+  color: ${p => p.theme.colors.gray[3]};
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  ${space}
 
   a {
-    text-decoration: none;
+    color: ${p => p.theme.colors.gray[3]};
   }
 `
 
-const PostDate = styled.p`
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-`
+// const PostMetaIcon = styled(Icon)`
+//   color: ${p => p.theme.colors.gray[2]};
+//   margin: -2px 8px 0 0;
+// `
 
-const Meta = ({ date, permalink }) => (
-  <PostMeta>
+// const PostDate = styled(Link)`
+//   display: block;
+//   margin-bottom: 8px;
+//   color: ${p => p.theme.colors.gray[3]};
+//   text-transform: uppercase;
+//   letter-spacing: 1px;
+// `
+
+const Meta = ({ date, permalink, aside }) => (
+  <PostMeta mt={!aside ? 5 : 0}>
     {date &&
       permalink && (
-        <PostDate>
-          <Link to={`/${permalink}`}>{date}</Link>
-        </PostDate>
+        <Link to={`/${permalink}`}>{date}</Link>
       )}
 
-    {date && !permalink && <PostDate>Posted on {date}</PostDate>}
+    {date && !permalink && `Posted on ${date}`}
   </PostMeta>
 )
 
 export const Post = props => {
   const title = props.title && (
-    <Title>
-      {props.to ? (
-        <Link to={`/${props.to}`}>
-          <span>#</span> {props.title}
-        </Link>
-      ) : (
-        props.title
-      )}
-    </Title>
+    <Heading.h2>
+      <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
+    </Heading.h2>
   )
 
   const content = props.content && (
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  // const excerpt = props.excerpt &&
-  //   props.to && (
-  //     <Excerpt>
-  //       <span
-  //         dangerouslySetInnerHTML={{ __html: truncateExcerpt(props.excerpt) }}
-  //       />
-  //       <Link to={`/${props.to}`}>Read more...</Link>
-  //     </Excerpt>
-  //   )
-
-  const meta = props.date && <Meta date={props.date} permalink={props.to} />
+  const meta = props.date && <Meta date={props.date} permalink={props.to} aside={props.aside} />
 
   if (props.aside) {
     return (
-      <AsideContainer>
-        {content}
+      <AsideContainer photo={props.imagePost} large={props.content.length <= 500} filmstrip={props.filmstrip}>
         {meta}
+        {content}
       </AsideContainer>
     )
   } else {

@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import sprite from '../sprite.svg'
+import { space } from 'styled-system'
 
 const StyledIcon = styled.svg`
   height: ${props => (props.large ? `32px` : `24px`)};
   margin: ${props =>
     props.large
       ? `-5px 8px 0 0`
-      : props.small ? `-4px 6px 0 0` : `0 4px 0 0`} !important;
+      : props.small ? `-4px 6px 0 0` : `0 4px 0 0`};
   vertical-align: middle;
   max-width: ${props => (props.large ? `32px` : `24px`)};
 
@@ -22,6 +23,14 @@ const StyledIcon = styled.svg`
 		height: 48px;
 		max-width: 48px;
 	`};
+
+  ${p => p.tiny && `
+    height: 14px;
+    max-width: 14px;
+    margin: 0;
+  `}
+
+  ${space}
 `
 
 const Icon = props => (

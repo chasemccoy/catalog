@@ -1,38 +1,19 @@
-/* @font-face {
-    font-family: 'SF Serif';
-    src: url('SerifUIText-Regular.woff2') format('woff2'),
-        url('SerifUIText-Regular.woff') format('woff'),
-        url('SerifUIText-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Serif';
-    src: url('SerifUIText-Bold.woff2') format('woff2'),
-        url('SerifUIText-Bold.woff') format('woff'),
-        url('SerifUIText-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-} */
-
 @font-face {
     font-family: 'Tiempos';
-    src: url('TiemposText-Semibold.woff') format('woff'),
-        url('TiemposText-Semibold.ttf') format('truetype');
+    src: url('TiemposText-Medium.woff') format('woff'),
+        url('TiemposText-Medium.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
-    font-display: optional;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Tiempos';
     src: url('TiemposText-SemiboldItalic.woff') format('woff'),
         url('TiemposText-SemiboldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
     font-display: optional;
-}
+} */
 
 @font-face {
     font-family: 'Tiempos';
@@ -41,7 +22,6 @@
         url('TiemposText-RegularItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
-    font-display: optional;
 }
 
 @font-face {
@@ -51,5 +31,77 @@
         url('TiemposText-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: optional;
+}
+
+/* @font-face {
+    font-family: 'iA Writer Duospace';
+    src: url('iAWriterDuospace-Bold.woff2') format('woff2'),
+        url('iAWriterDuospace-Bold.woff') format('woff'),
+        url('iAWriterDuospace-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'iA Writer Duospace';
+    src: url('iAWriterDuospace-BoldItalic.woff2') format('woff2'),
+        url('iAWriterDuospace-BoldItalic.woff') format('woff'),
+        url('iAWriterDuospace-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'iA Writer Duospace';
+    src: url('iAWriterDuospace-Regular.woff2') format('woff2'),
+        url('iAWriterDuospace-Regular.woff') format('woff'),
+        url('iAWriterDuospace-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'iA Writer Duospace';
+    src: url('iAWriterDuospace-RegularItalic.woff2') format('woff2'),
+        url('iAWriterDuospace-RegularItalic.woff') format('woff'),
+        url('iAWriterDuospace-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+} */
+
+
+@font-face {
+    font-family: 'Whitney';
+    src: url('WhitneyHTF-BookItalic.woff2') format('woff2'),
+        url('WhitneyHTF-BookItalic.woff') format('woff'),
+        url('WhitneyHTF-BookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Whitney';
+    src: url('WhitneyHTF-Book.woff2') format('woff2'),
+        url('WhitneyHTF-Book.woff') format('woff'),
+        url('WhitneyHTF-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Whitney';
+    src: url('WhitneyHTF-SemiBold.woff2') format('woff2'),
+        url('WhitneyHTF-SemiBold.woff') format('woff'),
+        url('WhitneyHTF-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Whitney';
+    src: url('WhitneyHTF-SemiBoldItalic.woff2') format('woff2'),
+        url('WhitneyHTF-SemiBoldItalic.woff') format('woff'),
+        url('WhitneyHTF-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
 }

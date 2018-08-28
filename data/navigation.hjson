@@ -1,56 +1,56 @@
 [
-	{
-		"title": "Home",
-		"icon": "home",
-		"url": "/"
-	},
+	// {
+	// 	"title": "Home",
+	// 	"icon": "home",
+	// 	"url": "/"
+	// },
 	{
 		"title": "Thoughts",
 		"icon": "blog",
 		"url": "/thoughts"
 	},
 	{
-		"title": "Favorites",
+		"title": "Resources",
 		"icon": "heart",
-		"url": "/favorites"
-	},
-	{
-		"title": "Chicago",
-		"url": "/chicago"
-	},
-	{
-		"title": "Books",
 		"url": "/books"
 	},
+	// {
+	// 	title: Chicago
+	// 	url: /chicago
+	// }
+	// {
+	// 	title: Books
+	// 	url: /books
+	// }
+	// {
+	// 	title: Quotes
+	// 	url: /quotes
+	// }
+	// {
+	// 	title: Music
+	// 	url: /music
+	// }
+	// {
+	// 	title: Apps
+	// 	url: /apps
+	// }
+	// {
+	// 	title: Code
+	// 	url: /code
+	// }
 	{
-		title: Quotes
-		url: /quotes
+		title: Portfolio
+		icon: portfolio
+		url: /portfolio
 	},
-	{
-		"title": "Music",
-		"url": "/music"
-	},
-	{
-		title: Apps
-		url: /apps
-	},
-	{
-		title: Code
-		url: /code
-	}
-	{
-		"title": "Portfolio",
-		"icon": "portfolio",
-		"url": "/portfolio"
-	},
-	{
-		"title": "Bookmarks",
-		"icon": "bookmark",
-		"url": "/bookmarks"
-	},
-	{
-		"title": "Principles",
-		"icon": "brain",
-		"url": "/principles"
-	}
+	// {
+	// 	"title": "Bookmarks",
+	// 	"icon": "bookmark",
+	// 	"url": "/bookmarks"
+	// },
+	// {
+	// 	"title": "Principles",
+	// 	"icon": "brain",
+	// 	"url": "/principles"
+	// }
 ]

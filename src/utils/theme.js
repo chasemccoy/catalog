@@ -1,27 +1,53 @@
 const breakpoints = [
-  '500px', // tiny
-  '700px', // small
-  '1000px', // medium
-  '1300px' // large
+  '500px',
+  '700px',
+  '1000px',
+  '1300px'
 ]
 
+const namedBreakpoints = {
+  tiny: breakpoints[0],
+  small: breakpoints[1],
+  medium: breakpoints[2],
+  large: breakpoints[3]
+}
+
 const colors = {
-  primary: '#1DADF5',
-  serifText: '#000207',
-  blue: {
-    light: '#07C',
-    dark: '#058'
+  accent: Object.assign('#FC625D', {
+    light: '#FFD8D6',
+    dark: '#B34642'
+  }),
+  page: {
+    light: '#FFFEFC',
+    dark: '#000000'
   },
-  gray: ['#333', '#666', '#999', '#ccc', '#eee', '#f6f6f6'],
-  highlight: '#FFF67F',
-  text: {
-    primary: '#444444',
-    secondary: '#657886',
-    muted: '#9EA3A8'
+  type: {
+    body: '#333',
+    header: '#444',
+    menu: '#666666'
+  },
+  gray: {
+    0: '#FAF8F5',
+    1: '#E4E6D3',
+    2: '#CBCCBC',
+    3: '#98998D',
+    4: '#72736A'
   }
 }
 
 const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 128, 256, 512]
+
+const sizes = {
+  layout: {
+    maxWidth: '40rem',
+    offset: '18%'
+  },
+  timeline: {
+    pointWidth: '12px',
+    lineWidth: '2px',
+    linePadding: '32px',
+  }
+}
 
 const fontWeights = {
   light: 300,
@@ -32,27 +58,20 @@ const fontWeights = {
   heavy: 800,
 }
 
-const fontFamily = {
-  sans:
-    "'-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'",
-  serif: "'Karla', 'Georgia', 'serif'",
-  body: "'Tiempos', 'SF Serif', 'Georgia', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'serif'"
+const fonts = {
+  sans: "Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+  serif: "Tiempos, SF Serif, Georgia, serif",
+  mono: "OperatorMono-Book, Inconsolata, Monaco, monospace"
 }
-
-const shadows = {
-  light: '0 0 5px rgba(0, 0, 0, 0.1)'
-}
-
-const radii = [0, 2, 4, 8, 12]
 
 const theme = {
   breakpoints,
+  namedBreakpoints,
   colors,
   space,
+  sizes,
   fontWeights,
-  fontFamily,
-  radii,
-  shadows
+  fonts
 }
 
 export default theme
