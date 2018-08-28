@@ -73,7 +73,6 @@ const PostContainer = styled(Container)`
   font-size: 17px;
   ${'' /* hyphens: auto;
   text-align: justify; */}
-  width: 90%;
 
   ${'' /* *:not(p) {
     margin-top: 24px;

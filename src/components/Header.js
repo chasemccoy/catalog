@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import { UnorderedList } from 'components/Lists'
 import { StaticQuery, graphql } from 'gatsby'
 import media from 'utils/media'
 import { Box } from 'components/Base'

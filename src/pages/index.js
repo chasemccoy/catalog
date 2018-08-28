@@ -48,40 +48,40 @@ const Dropcap = styled(Text.p)`
 `
 
 class IndexPage extends React.Component {
-  state = {
-    weatherSummary: null,
-    weatherTemperature: null,
-    nowPlayingName: null,
-    nowPlayingArtist: null,
-    beerName: null,
-    beerBrewery: null
-  }
+  // state = {
+  //   weatherSummary: null,
+  //   weatherTemperature: null,
+  //   nowPlayingName: null,
+  //   nowPlayingArtist: null,
+  //   beerName: null,
+  //   beerBrewery: null
+  // }
 
-  componentDidMount = () => {
-    fetch(`https://chs-stats.now.sh/weather`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ weatherSummary: result.summary })
-        this.setState({ weatherTemperature: result.temperature })
-      })
-
-    fetch(`https://chs-stats.now.sh/nowPlaying`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ nowPlayingName: result.name })
-        this.setState({ nowPlayingArtist: result.artist })
-      })
-
-    fetch(`https://chs-stats.now.sh/beer`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ beerName: result.beer })
-        this.setState({ beerBrewery: result.brewery })
-      })
-  }
+  // componentDidMount = () => {
+  //   fetch(`https://chs-stats.now.sh/weather`)
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       this.setState({ weatherSummary: result.summary })
+  //       this.setState({ weatherTemperature: result.temperature })
+  //     })
+  //
+  //   fetch(`https://chs-stats.now.sh/nowPlaying`)
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       this.setState({ nowPlayingName: result.name })
+  //       this.setState({ nowPlayingArtist: result.artist })
+  //     })
+  //
+  //   fetch(`https://chs-stats.now.sh/beer`)
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       this.setState({ beerName: result.beer })
+  //       this.setState({ beerBrewery: result.brewery })
+  //     })
+  // }
 
   render() {
-    const {nowPlayingName, nowPlayingArtist, beerName, beerBrewery, weatherSummary, weatherTemperature} = this.state
+    // const {nowPlayingName, nowPlayingArtist, beerName, beerBrewery, weatherSummary, weatherTemperature} = this.state
 
     return (
       <Layout>
@@ -100,7 +100,7 @@ class IndexPage extends React.Component {
             </Text.p>
 
             <Text.p fontSize='16px' fontFamily='serif' m={0}>
-              Get in touch by <Link underlined to='mailto:desk@chasemccoy.net'>emailing me</Link> if you would like to talk shop or have a professional inquiry. I am always interested in interesting projects.
+              Get in touch by <Link underlined to='mailto:desk@chasemccoy.net'>emailing me</Link> if you would like to talk shop or have a professional inquiry. I am always interested in interesting projects. Have a great day.
             </Text.p>
 
             {/* {weatherSummary

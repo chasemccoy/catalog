@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 import { UnorderedList } from 'components/Lists'
 import media from 'utils/media'
-import { Box } from 'components/Base'
-import Text from 'components/Text'
 import { space } from 'styled-system'
 
 const Container = styled.nav`

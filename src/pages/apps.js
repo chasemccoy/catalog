@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Page from 'components/Page'
 import { Column, Row } from 'components/Grid'
