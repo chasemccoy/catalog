@@ -21,7 +21,7 @@
 		"title": "Pico Digital Film",
 		"type": "Work",
 		"dateRange": "January 2017 — March 2017",
-		"description": "[Louie Mantia](http://louiemantia.com) and I partnered on a fun photography app for iOS called [Pico Digital Film](http://pico.camera). Louie wanted a quick way to apply a few, well-designed filters based on popular analog films. I build the app in Swift, and it allowed you to select a film and then shoot photos _with that film already applied_. Picking the film before taking the photo forced the user to be creative directors on the fly. The app is no longer supported or available to download, but it was fun while it lasted.s"
+		"description": "[Louie Mantia](http://louiemantia.com) and I partnered on a fun photography app for iOS called [Pico Digital Film](http://pico.camera). Louie wanted a quick way to apply a few, well-designed filters based on popular analog films. I build the app in Swift, and it allowed you to select a film and then shoot photos _with that film already applied_. Picking the film before taking the photo forced the user to be creative directors on the fly. The app is no longer supported or available to download, but it was fun while it lasted."
 	},
 	{
 		"title": "National Strategic Planning and Analysis Research Center",
