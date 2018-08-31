@@ -13,7 +13,7 @@ const namedBreakpoints = {
 }
 
 const colors = {
-  accent: Object.assign('#FC625D', {
+  accent: Object.assign('tomato', {
     light: '#FFD8D6',
     dark: '#B34642'
   }),

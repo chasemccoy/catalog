@@ -52,6 +52,10 @@ const AsideContainer = styled(Container)`
       object-fit: cover;
     }
 
+    & > div > div > *:not(img) {
+      display: none;
+    }
+
     p:empty {
       margin-top: -40px;
     }
