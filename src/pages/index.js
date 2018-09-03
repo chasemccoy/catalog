@@ -8,7 +8,7 @@ import media from 'utils/media'
 // import Icon from 'components/Icon'
 import Text from 'components/Text'
 
-const Container = styled(Grid)`
+const Container = styled(Box)`
   display: flex;
   flex-direction: column;
   margin-left: auto;
