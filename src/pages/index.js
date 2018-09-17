@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from 'components/Layout'
-import { Box, Grid } from 'components/Base'
+import { Box } from 'components/Base'
 import Header from 'components/Header'
 import Link from 'components/Link'
 import media from 'utils/media'
@@ -13,7 +13,7 @@ const Container = styled(Box)`
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 8px;
+  padding: 0 16px;
   overflow: hidden;
   hyphens: auto;
   text-align: justify;
