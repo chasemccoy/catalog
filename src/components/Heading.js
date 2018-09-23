@@ -2,6 +2,10 @@ import Text from 'components/Text'
 
 const Heading = Text.withComponent('h1')
 
+Heading.defaultProps = {
+	fontFamily: 'serif'
+}
+
 Heading.h1 = Heading.withComponent('h1')
 Heading.h2 = Heading.withComponent('h2')
 Heading.h3 = Heading.withComponent('h3')

@@ -4,11 +4,11 @@ import Page from 'components/Page'
 import { space } from 'styled-system'
 import { graphql } from 'gatsby'
 import { Box } from 'components/Base'
+import Heading from 'components/Heading'
 
-const QuoteContent = styled.h2`
+const QuoteContent = styled(Heading.h2)`
   ${space};
   font-weight: ${p => p.theme.fontWeights.normal};
-  font-family: ${props => props.theme.fonts.sans};
 `
 
 const Meta = styled.div`
@@ -18,7 +18,7 @@ const Meta = styled.div`
   flex-wrap: wrap;
 `
 
-const Source = styled.h3`
+const Source = styled(Heading.h3)`
   margin: 0;
   font-size: 20px;
   font-weight: normal;
@@ -26,14 +26,14 @@ const Source = styled.h3`
   display: flex;
   align-items: center;
   ${space};
-  ${'' /* font-family: ${props => props.theme.fonts.sans}; */}
+  font-family: ${props => props.theme.fonts.sans};
   color: ${p => p.theme.colors.accent};
 `
 
 const Dropcap = styled.span`
   font-size: 56px;
   line-height: 0;
-  padding-top: 0.66em;
+  padding-top: 0.74em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;

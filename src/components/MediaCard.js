@@ -4,6 +4,7 @@ import Image from 'components/Image'
 import Markdown from 'components/Markdown'
 import media from 'utils/media'
 import Link from 'components/Link'
+import Heading from 'components/Heading'
 
 const Container = styled(Link)`
   p:last-child {
@@ -21,7 +22,7 @@ const Container = styled(Link)`
 	`};
 `
 
-const Title = styled.h2`
+const Title = styled(Heading.h2)`
   margin: 12px 0 4px;
   font-family: ${props => props.theme.fonts.body};
 

@@ -21,7 +21,7 @@ Track.Image = styled(Image)`
   width: 48px;
 `
 
-Track.Title = styled.h4`
+Track.Title = styled(Heading.h4)`
   margin: 0;
 
   ${media.tiny`

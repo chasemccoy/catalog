@@ -9,6 +9,7 @@ const Layout = props => (
       <Helmet
         titleTemplate="%s | Chase McCoy"
         defaultTitle="Chase McCoy"
+        title={props.title}
       >
         <body className={`${props.dark ? 'dark' : 'light'}`} />
         <meta name="description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />

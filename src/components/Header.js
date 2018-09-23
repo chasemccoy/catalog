@@ -6,6 +6,7 @@ import media from 'utils/media'
 import { Box } from 'components/Base'
 import Text from 'components/Text'
 import Nav from 'components/Nav'
+import Heading from 'components/Heading'
 
 const date = () => {
   const options = {
@@ -33,7 +34,7 @@ const Container = styled.header`
   `}
 `
 
-const Title = styled.h3`
+const Title = styled(Heading.h3)`
   font-size: 20px;
   margin: 0;
 

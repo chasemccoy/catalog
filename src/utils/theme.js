@@ -22,8 +22,8 @@ const colors = {
     dark: '#000000'
   },
   type: {
-    body: '#333',
-    header: '#444',
+    body: '#1e1f22',
+    header: '#1e1f22',
     menu: '#666666'
   },
   gray: {
@@ -39,7 +39,7 @@ const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 128, 256, 512]
 
 const sizes = {
   layout: {
-    maxWidth: '40rem',
+    maxWidth: '38rem',
     offset: '18%'
   },
   timeline: {

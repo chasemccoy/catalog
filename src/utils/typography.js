@@ -7,7 +7,7 @@ const typography = new Typography({
   baseFontSize: '19px',
   baseLineHeight: 1.5,
   bodyFontFamily: fontFamilyArray(theme.fonts.sans),
-  headerFontFamily: fontFamilyArray(theme.fonts.serif),
+  headerFontFamily: fontFamilyArray(theme.fonts.sans),
   scaleRatio: 1.6,
   headerLineHeight: 1.5,
   bodyColor: theme.colors.type.body,
