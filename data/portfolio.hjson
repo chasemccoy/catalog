@@ -3,7 +3,12 @@
 		"title": "Sprout Social",
 		"type": "Work",
 		"dateRange": "June 2017 – Present",
-		"description": "Currently, I am working on the Design Systems team at [Sprout Social](http://sproutsocial.com). My responsibilities involve building and maintaining Seeds, our design system. I also build tools to enabe our designers and developers to work together more efficiently, and help teams communicate about the impact of their work."
+		description:
+			'''
+			Currently, I am working on the Design Systems team at [Sprout Social](http://sproutsocial.com). My responsibilities involve building and maintaining Seeds (our design system) and Racine (our React component library).
+
+			In my role I focus on designing and building tools that enable our designers and front-end developers to work together more efficiently. A lot of this work manifests itself as collaboration with cross functional teams in order to help everyone speak the same language.
+			'''
 	},
 	{
 		"title": "B.S., Computer Science, Mississippi State Univeristy",
@@ -21,7 +26,7 @@
 		"title": "Pico Digital Film",
 		"type": "Work",
 		"dateRange": "January 2017 — March 2017",
-		"description": "[Louie Mantia](http://louiemantia.com) and I partnered on a fun photography app for iOS called [Pico Digital Film](http://pico.camera). Louie wanted a quick way to apply a few, well-designed filters based on popular analog films. I build the app in Swift, and it allowed you to select a film and then shoot photos _with that film already applied_. Picking the film before taking the photo forced the user to be creative directors on the fly. The app is no longer supported or available to download, but it was fun while it lasted."
+		"description": "[Louie Mantia](http://louiemantia.com) and I partnered on a fun photography app for iOS called [Pico Digital Film](http://pico.camera). Louie wanted a quick way to apply a few, well-designed filters based on popular analog films. I built the app in Swift, and it allowed you to select a film and then shoot photos _with that film already applied_. Picking the film before taking the photo forced the user to be creative directors on-the-fly. The app is no longer supported or available to download, but it was fun while it lasted."
 	},
 	{
 		"title": "National Strategic Planning and Analysis Research Center",
@@ -33,7 +38,7 @@
 		"title": "Cosmic Owl Studio",
 		"type": "Work",
 		"dateRange": "June 2015 – Present",
-		"description": "In the summer of 2015, a friend and I started a little design/iOS development shop called Cosmic Owl. We released 2 apps to the app store, and had many more in the works. I run Cosmic Owl by myself now, and all of my freelance work is done through Cosmic Owl LLC."
+		"description": "In the summer of 2015, a friend and I started a little design/iOS development shop called Cosmic Owl. We released a couple of apps to the app store, and had many more in the works. I run Cosmic Owl by myself now, and all of my freelance work is done through Cosmic Owl LLC."
 	},
 	{
 		"title": "Designed & developed my first website from scratch",
