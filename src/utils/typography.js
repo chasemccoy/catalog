@@ -38,8 +38,7 @@ const typography = new Typography({
     blockquote: {
       paddingLeft: '16px',
       color: theme.colors.gray[4],
-      borderLeft: `2px solid ${theme.colors.gray[1]}`,
-      fontStyle: 'italic'
+      borderLeft: `2px solid ${theme.colors.gray[1]}`
     },
     pre: {
       overflow: 'auto',

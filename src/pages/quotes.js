@@ -12,7 +12,8 @@ const QuoteContent = styled(Heading.h2)`
 `
 
 const Meta = styled.div`
-  ${space} display: flex;
+  ${space}
+  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -21,7 +22,6 @@ const Meta = styled.div`
 const Source = styled(Heading.h3)`
   margin: 0;
   font-size: 20px;
-  font-weight: normal;
   flex-basis: 70%;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ const Source = styled(Heading.h3)`
 const Dropcap = styled.span`
   font-size: 56px;
   line-height: 0;
-  padding-top: 0.74em;
+  padding-top: 0.48em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;

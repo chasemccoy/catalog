@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-// import Icon from 'components/Icon'
 import Heading from 'components/Heading'
 import media from 'utils/media'
 import { space } from 'styled-system'
@@ -10,23 +9,13 @@ const Container = styled.div`
   img { width: 100%; }
 
   blockquote {
-    font-size: 24px;
-    border-left: none;
-    width: 150%;
-    margin-left: -25%;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-style: italic;
-    padding: 0;
     font-family: ${p => p.theme.fonts.sans};
 
     ${media.medium`
       width: 100%;
-      font-size: 20px;
       margin: 24px 0;
-      border-left 4px solid ${p => p.theme.colors.accent};
-      margin-left: 16px;
-      padding: 0 16px;
+      margin-left: 8px;
+      padding: 0 8px 0 16px;
     `}
   }
 
@@ -75,27 +64,12 @@ const AsideContainer = styled(Container)`
 const PostContainer = styled(Container)`
   font-family: ${p => p.theme.fonts.serif};
   font-size: 17px;
-  ${'' /* hyphens: auto;
-  text-align: justify; */}
-
-  ${'' /* *:not(p) {
-    margin-top: 24px;
-  }
-
-  p {
-    margin-bottom: 0;
-  }
-
-  p + p {
-    text-indent: 2em;
-  } */}
 
   img {
-    max-width: 120%;
-    width: 120%;
-    margin-left: -10%;
-
     ${media.medium`
+      max-width: 120%;
+      width: 120%;
+      margin-left: -10%;
       width: calc(100% + 33px);
       margin-left: -16px;
     `}
@@ -157,19 +131,6 @@ const PostMeta = styled.div`
     color: ${p => p.theme.colors.gray[3]};
   }
 `
-
-// const PostMetaIcon = styled(Icon)`
-//   color: ${p => p.theme.colors.gray[2]};
-//   margin: -2px 8px 0 0;
-// `
-
-// const PostDate = styled(Link)`
-//   display: block;
-//   margin-bottom: 8px;
-//   color: ${p => p.theme.colors.gray[3]};
-//   text-transform: uppercase;
-//   letter-spacing: 1px;
-// `
 
 const Meta = ({ date, permalink, aside }) => (
   <PostMeta mt={!aside ? 5 : 0}>

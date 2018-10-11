@@ -74,7 +74,6 @@ const Badge = styled.div`
   letter-spacing: 2px;
   font-size: 12px;
   line-height: 1.5;
-  font-family: ${p => p.theme.fonts.mono};
 `
 
 const Information = props => (

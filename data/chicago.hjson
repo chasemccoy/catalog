@@ -96,14 +96,6 @@
     image: chicago/bangbang.jpg
   },
   {
-    title: Don Chema
-    category: food
-    metadata: 2331 N California
-    description: A family-run, tiny joint in Logan Square serving up authentic tex-mex for cheap. Get the tacos and a cold beer, and expect big portions.
-    url: http://chicagodonchema.com
-    image: chicago/donchema.jpg
-  }
-  {
     title: Lost Lake
     category: drink
     metadata: 3154 W Diversey
