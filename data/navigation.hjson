@@ -43,6 +43,10 @@
 		icon: portfolio
 		url: /portfolio
 	},
+	{
+		title: Photos
+		url: /photos
+	},
 	// {
 	// 	"title": "Bookmarks",
 	// 	"icon": "bookmark",

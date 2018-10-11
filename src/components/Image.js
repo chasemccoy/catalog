@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Link from 'components/Link'
-import { borderRadius } from 'styled-system'
+import { space, borderRadius } from 'styled-system'
 
 const StyledImage = styled(Img)`
   max-width: 100%;
-  position: initial !important;
   margin-bottom: 0;
 
   img {
@@ -14,6 +13,7 @@ const StyledImage = styled(Img)`
     ${borderRadius}
   }
 
+  ${space}
   ${borderRadius}
 `
 

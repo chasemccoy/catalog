@@ -1,6 +1,7 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { createPaginationPages, prefixPathFormatter } = require(`gatsby-pagination`);
+const fastExif = require('fast-exif');
 
 exports.onCreateNode = async ({ node, getNode, actions, store, cache }) => {
 	const { createNodeField, createNode } = actions
@@ -9,6 +10,20 @@ exports.onCreateNode = async ({ node, getNode, actions, store, cache }) => {
 		const slug = createFilePath({node, getNode, basePath: `posts`, trailingSlash: false})
 		createNodeField({node, name: 'slug', value: slug})
   }
+
+	if (node.internal.type === 'File' && node.sourceInstanceName === 'photos' && node.extension !== '') {
+		fastExif.read(node.absolutePath).then((exifData) => {
+			const date = exifData.exif.DateTimeOriginal
+			const lensMake = exifData.exif.LensMake
+			const lensModel = exifData.exif.LensModel
+
+			createNodeField({
+				node,
+				name: 'exif',
+				value: {date, lensMake, lensModel}
+			})
+		}).catch((err) => console.error(err));
+	}
 }
 
 exports.createPages = ({ actions, graphql }) => {
