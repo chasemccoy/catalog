@@ -22,6 +22,16 @@ const Container = styled.div`
   iframe + p {
     margin-top: 24px;
   }
+
+  img {
+    ${p => !p.filmstrip && media.medium`
+      max-width: 120%;
+      width: 120%;
+      margin-left: -10%;
+      width: calc(100% + 33px);
+      margin-left: -16px;
+    `}
+  }
 `
 
 const AsideContainer = styled(Container)`
@@ -64,16 +74,6 @@ const AsideContainer = styled(Container)`
 const PostContainer = styled(Container)`
   font-family: ${p => p.theme.fonts.serif};
   font-size: 17px;
-
-  img {
-    ${media.medium`
-      max-width: 120%;
-      width: 120%;
-      margin-left: -10%;
-      width: calc(100% + 33px);
-      margin-left: -16px;
-    `}
-  }
 `
 
 const Title = styled(Link)`
