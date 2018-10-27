@@ -38,7 +38,6 @@ const AsideContainer = styled(Container)`
   ${p => p.large && `
     font-size: 24px;
     font-family: ${p.theme.fonts.serif};
-    line-height: 1.6;
 
     a {
       padding-top: 6px;
@@ -73,7 +72,7 @@ const AsideContainer = styled(Container)`
 
 const PostContainer = styled(Container)`
   font-family: ${p => p.theme.fonts.serif};
-  font-size: 17px;
+  font-size: 18px;
 `
 
 const Title = styled(Link)`
@@ -92,7 +91,7 @@ const Title = styled(Link)`
 const Content = styled.div`
   a {
     transition: all 0.1s;
-    box-shadow: inset 0 -0.4em 0 ${props => props.theme.colors.accent.light};
+    box-shadow: inset 0 -0.5em 0 ${props => props.theme.colors.accent.light};
   }
 
   a:hover {

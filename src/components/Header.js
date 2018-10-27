@@ -35,7 +35,7 @@ const Container = styled.header`
 `
 
 const Title = styled(Heading.h3)`
-  font-size: 20px;
+  ${'' /* font-size: 21px; */}
   margin: 0;
 
   .dark & a {
@@ -60,7 +60,7 @@ const Header = props => (
     `}
     render={data => (
       <Container {...props}>
-        <Box display='flex' justifyContent='space-between' alignItems='baseline' mb={4}>
+        <Box display='flex' justifyContent='space-between' alignItems='baseline' mb={3}>
           <Title><Link to='/'>Chase McCoy</Link></Title>
           <Text fontSize={14} color='gray.3'>{date()}</Text>
         </Box>

@@ -9,6 +9,7 @@ import Heading from 'components/Heading'
 const QuoteContent = styled(Heading.h2)`
   ${space};
   font-weight: ${p => p.theme.fontWeights.normal};
+  line-height: 1.4;
 `
 
 const Meta = styled.div`
@@ -33,7 +34,7 @@ const Source = styled(Heading.h3)`
 const Dropcap = styled.span`
   font-size: 56px;
   line-height: 0;
-  padding-top: 0.48em;
+  padding-top: 0.58em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;

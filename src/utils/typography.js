@@ -12,7 +12,7 @@ const typography = new Typography({
   headerLineHeight: 1.5,
   bodyColor: theme.colors.type.body,
   headerColor: theme.colors.type.header,
-  headerWeight: theme.fontWeights.bold,
+  headerWeight: theme.fontWeights.semibold,
   bodyWeight: theme.fontWeights.normal,
   boldWeight: theme.fontWeights.bold,
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({

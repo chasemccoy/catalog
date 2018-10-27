@@ -60,7 +60,7 @@ const fontWeights = {
 
 const fonts = {
   sans: "Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-  serif: "Tiempos, SF Serif, Georgia, serif",
+  serif: "'Source Serif Pro', Tiempos, SF Serif, Georgia, serif",
   mono: "OperatorMono-Book, Inconsolata, Monaco, monospace"
 }
 
