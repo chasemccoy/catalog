@@ -98,7 +98,7 @@ class TimelineItem extends React.Component {
             <Text.span fontWeight='normal' color='gray.3'>{this.props.dateRange}</Text.span>
           </Meta>
 
-          <Heading.h2 mb={4}>{this.props.title}</Heading.h2>
+          <Heading.h2 mb={2}>{this.props.title}</Heading.h2>
 
           <Markdown mt={3}>{this.props.children}</Markdown>
         </div>

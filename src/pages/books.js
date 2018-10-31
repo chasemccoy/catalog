@@ -17,7 +17,7 @@ const BooksPage = ({ data }) => {
 
       <Row mt={6} alignItems='flex-end' className='full'>
         {data.books.edges.map(({node}, i) => (
-          <Column width={[1, 1/2, 1/3]} key={i}>
+          <Column width={[1/2, 1/2, 1/3]} key={i}>
             <Link to={node.url} unstyled>
               <Box>
                 <Image sizes={node.image.childImageSharp.fluid} />
