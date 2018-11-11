@@ -8,7 +8,7 @@
     "gatsby": "^2.0.23",
     "gatsby-image": "^2.0.0-beta.3",
     "gatsby-pagination": "^1.2.0",
-    "gatsby-plugin-favicon": "^3.0.0",
+    "gatsby-plugin-favicon": "^3.1.4",
     "gatsby-plugin-feed": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "^2.0.0-beta.3",
