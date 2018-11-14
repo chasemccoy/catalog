@@ -101,7 +101,8 @@ module.exports = {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: "./src/favicon.png",
-        background: '#000'
+        background: '#fff',
+        theme_color: '#fff'
       }
     },
     {
