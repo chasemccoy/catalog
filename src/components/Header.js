@@ -21,9 +21,9 @@ const date = () => {
   return now.toLocaleString('en-us', options)
 }
 
-const Container = styled.header`
+const Container = styled(Box.withComponent('header'))`
   grid-column: main;
-  max-width: ${p => p.theme.sizes.layout.maxWidth};
+  ${'' /* max-width: ${p => p.theme.sizes.layout.maxWidth}; */}
   margin: 0 0 64px 0;
   padding: 32px 0 24px;
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'grid-styled'
-import { width, height, color, space, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection, minWidth, minHeight } from 'styled-system'
+import { width, height, color, space, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection, minWidth, minHeight, maxWidth } from 'styled-system'
 import theme from 'utils/theme'
 import media from 'utils/media'
 
@@ -23,6 +23,7 @@ export const Box = styled.div`
   ${flexDirection}
   ${minHeight}
   ${minWidth}
+  ${maxWidth}
 `
 
 const GridFlex = styled(Flex)`
@@ -36,7 +37,14 @@ const GridFlex = styled(Flex)`
       padding-left: ${props => props.gutter ? `${props.theme.space[props.gutter]}px` : `8px`};
       padding-right: ${props => props.gutter ? `${props.theme.space[props.gutter]}px` : `8px`};
     `}
+
+    ${p => p.scroll && `
+      padding-top: 0;
+    `}
   }
+
+  ${height}
+  ${space}
 `
 
 export const Grid = props => (

@@ -18,7 +18,9 @@ Heading.section = Heading.withComponent('h4')
 Heading.section.defaultProps = {
 	fontFamily: 'sans',
 	borderTop: '2px solid',
-	pt: '8px'
+	pt: '6px',
+	uppercase: true,
+	fontSize: '12px'
 }
 
 export default Heading

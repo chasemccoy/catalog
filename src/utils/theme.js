@@ -39,7 +39,7 @@ const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 128, 256, 512]
 
 const sizes = {
   layout: {
-    maxWidth: '36rem',
+    maxWidth: '38rem',
     offset: '20%'
   },
   timeline: {
