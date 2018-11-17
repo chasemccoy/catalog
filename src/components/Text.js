@@ -21,6 +21,11 @@ const Text = styled.div`
   ${maxWidth}
   ${borders}
   ${borderColor}
+
+  ${p => p.uppercase && `
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  `}
 `
 
 Text.p = Text.withComponent('p')

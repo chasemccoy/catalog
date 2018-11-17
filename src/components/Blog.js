@@ -72,15 +72,19 @@ const AsideContainer = styled(Container)`
 
 const PostContainer = styled(Container)`
   font-family: ${p => p.theme.fonts.serif};
-  font-size: 18px;
   line-height: 1.45;
+
+  h3, h4, h5, h6 {
+    margin-top: 2.5em;
+  }
 `
 
 const Title = styled(Link)`
-  font-size: 32px;
+  font-size: 40px;
+  line-height: 1;
   font-family: ${p => p.theme.fonts.sans};
-  padding-bottom: 4px;
-  box-shadow: inset 0 -4px 0 ${props => props.theme.colors.accent};
+  ${'' /* padding-bottom: 4px; */}
+  ${'' /* box-shadow: inset 0 -4px 0 ${props => props.theme.colors.accent}; */}
   transition: all 0.1s;
 
   &:hover {
