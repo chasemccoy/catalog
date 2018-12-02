@@ -1,90 +1,72 @@
 import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
-import Layout from 'components/Layout'
-import Header from 'components/Header'
-import media from 'utils/media'
+import Sidebar from 'components/Sidebar'
 import Heading from 'components/Heading'
-import { ResourceNav } from 'pages/resources'
+import media from 'utils/media'
 
 const Container = styled.div`
-`
-
-const Wrapper = styled.div.attrs({
-  id: 'wrapper'
-})`
-  max-width: ${p => p.theme.sizes.layout.maxWidth};
-  margin-left: ${p => p.theme.sizes.layout.offset};
-  display: grid;
-  grid-template-columns:
-    [full-start main-start] 2fr
-    repeat(2, 1fr) [main-end]
-    1fr [full-end];
-  padding-bottom: 80px;
+  display: flex;
+  min-height: 100vh;
+  padding: ${p => p.theme.sizes.layout.containerPadding}px;
+  background: ${p => p.theme.colors.page.background};
+  color: ${p => p.theme.colors.page.text};
+  transition: all 0.2s;
 
   ${media.medium`
-    margin-left: 0;
-    max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    flex-wrap: wrap;
+    padding: 32px;
+  `}
+
+  ${media.small`
+    flex-wrap: wrap;
+    padding: 16px;
   `}
 `
 
-const Content = styled.main.attrs({
-  id: 'content'
-})`
-  width: 100%;
-  display: contents;
+const Content = styled.main`
+  max-width: ${p => p.theme.sizes.layout.contentMaxWidth}px;
+  min-width: 0;
+  margin: 0 auto;
+  flex: 1;
+  overflow: hidden;
 
-  * {
-    grid-column: main;
-
-    ${media.medium`
-      grid-column: full;
-    `}
-  }
-`
-
-const Title = styled(Heading.h2)`
-  font-size: 32px;
-  display: inline-block;
-  padding-bottom: 4px;
-  box-shadow: inset 0 -6px 0 ${props => props.theme.colors.accent};
-
-  ${p => p.flush && `
-    box-shadow: none;
-    padding: 0;
+  ${media.small`
+    flex-basis: 100%;
     margin: 0;
+    max-width: none;
+  `}
+
+  ${p => p.wide && `
+    padding-left: 80px;
+    max-width: 1300px;
+  `}
+
+  ${p => p.wide && media.small`
+    padding: 0;
   `}
 `
 
 const Page = props => (
-  <Layout>
-    <Container {...props} title=''>
-      <Helmet
-        title={props.title}
-      >
-        <meta name="description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
-        <meta name="og:title" content={props.title || "Chase McCoy"} />
-        <meta name="og:description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
-      </Helmet>
+  <React.Fragment>
+    <Helmet title={props.title}>
+      <meta name="description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
+      <meta property="og:title" content={props.title || "Chase McCoy"} />
+      <meta property="og:description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
+    </Helmet>
 
-      <Wrapper>
-        <Header />
+    <Container id='wrapper'>
+      <Sidebar />
 
-        <Content>
-          {props.title && !props.untitled && (
-            <div>
-              <Title flush={props.resource}>{props.title}</Title>
-              {props.resource && <ResourceNav /> }
-            </div>
-          )}
+      <Content wide={props.wide} id='content'>
+        {props.title && !props.untitled && (
+          <Heading.h1>{props.title}</Heading.h1>
+        )}
 
-          {props.children}
-        </Content>
-      </Wrapper>
+        {props.children}
+      </Content>
     </Container>
-  </Layout>
+  </React.Fragment>
 )
 
 export default Page

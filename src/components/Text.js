@@ -9,6 +9,9 @@ import {
   maxWidth,
   borders,
   borderColor,
+  textAlign,
+  width,
+  display
 } from 'styled-system'
 
 const Text = styled.div`
@@ -16,11 +19,19 @@ const Text = styled.div`
   ${color}
   ${fontSize}
   ${fontWeight}
-  ${lineHeight}
   ${fontFamily}
-  ${maxWidth}
+  ${lineHeight}
   ${borders}
   ${borderColor}
+  ${textAlign}
+  ${width}
+  ${maxWidth}
+  ${display}
+
+  ${p =>p.uppercase && `
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  `}
 `
 
 Text.p = Text.withComponent('p')

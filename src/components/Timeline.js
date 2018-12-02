@@ -51,9 +51,9 @@ const TimelineListItem = styled.li`
     width: ${theme.sizes.timeline.pointWidth};
     height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
-    background: white;
+    background: ${p => p.theme.colors.page.background};
     border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.accent};
-    box-shadow: 0 0 0 5px white;
+    box-shadow: 0 0 0 5px ${p => p.theme.colors.page.background};
     z-index: 1;
 
 		left: calc(${theme.sizes.timeline.pointWidth} / 2);
@@ -93,7 +93,7 @@ class TimelineItem extends React.Component {
     return (
       <TimelineListItem>
         <div>
-          <Meta pt='3px' mb={2} fontFamily='sans' fontSize='14px' >
+          <Meta pt='6px' mb={4} fontFamily='mono' fontSize='14px' >
             <Text.span pr={2} color='accent'>{this.props.type}</Text.span>
             <Text.span fontWeight='normal' color='gray.3'>{this.props.dateRange}</Text.span>
           </Meta>

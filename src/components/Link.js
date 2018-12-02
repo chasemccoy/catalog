@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import Text from 'components/Text'
 
-const StyledLink = Text.withComponent('a')
-
-const Container = styled(StyledLink)`
+const Container = styled(Text)`
   ${props => props.unstyled && `
     text-decoration: none;
   `}
@@ -15,8 +13,6 @@ const Container = styled(StyledLink)`
   `}
 `
 
-const StyledGatsbyLink = StyledLink.withComponent(GatsbyLink)
-
 const Link = ({ children, to, ...other }) => {
   const newTab = to.startsWith('http')
   const external = newTab || to.startsWith('#') || to.startsWith('mailto')
@@ -24,6 +20,7 @@ const Link = ({ children, to, ...other }) => {
   if (external) {
     return (
       <Container
+        as='a'
         href={to}
         target={newTab ? `_blank` : undefined}
         rel={newTab ? 'noopener' : undefined}
@@ -35,9 +32,9 @@ const Link = ({ children, to, ...other }) => {
   }
 
   return (
-    <StyledGatsbyLink to={to} {...other} activeClassName='selected'>
+    <Container as={GatsbyLink} to={to} {...other} activeClassName='selected'>
       {children}
-    </StyledGatsbyLink>
+    </Container>
   )
 };
 

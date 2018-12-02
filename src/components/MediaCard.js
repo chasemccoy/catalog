@@ -7,6 +7,12 @@ import Link from 'components/Link'
 import Heading from 'components/Heading'
 
 const Container = styled(Link)`
+  color: ${p => p.theme.colors.page.text};
+
+  &:hover {
+    color: ${p => p.theme.colors.type.body};
+  }
+
   p:last-child {
     margin-bottom: 0;
   }
@@ -25,15 +31,16 @@ const Container = styled(Link)`
 const Title = styled(Heading.h2)`
   margin: 12px 0 4px;
   font-family: ${props => props.theme.fonts.body};
+  line-height: 1.3;
 
-  ${props => props.small && `margin-top: 0;`}
-  ${props =>props.large && `margin-top: 0;`}
-  ${media.tiny`margin-top: 16px;`};
+  ${props => props.small && `margin-top: -2px;`}
+  ${props =>props.large && `margin-top: -2px;`}
+  ${media.tiny`margin-top: 12px;`};
 `
 
 const Description = styled.div`
-  margin-top: 8px;
   margin-bottom: ${props => (props.bottom || props.split ? `0` : `12px`)};
+  font-size: 18px;
 `
 
 const FlexImage = styled(Image)`
@@ -74,6 +81,7 @@ const Badge = styled.div`
   letter-spacing: 2px;
   font-size: 12px;
   line-height: 1.5;
+  font-family: ${p => p.theme.fonts.mono};
 `
 
 const Information = props => (
@@ -93,7 +101,7 @@ const MediaCard = props => {
   switch (props.width) {
     case 1:
       return (
-        <Container split to={props.to}>
+        <Container split to={props.to} title={props.title}>
           <FlexImage split src={`/${props.image}`} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>
@@ -102,7 +110,7 @@ const MediaCard = props => {
       )
     case 1 / 3:
       return (
-        <Container to={props.to}>
+        <Container to={props.to} title={props.title}>
           <Information small {...props} />
           <FlexImage src={`/${props.image}`} stretch cover>
             <Badge>{props.metadata}</Badge>
@@ -112,7 +120,7 @@ const MediaCard = props => {
     case 1 / 2:
     case 2 / 3:
       return (
-        <Container to={props.to}>
+        <Container to={props.to} title={props.title}>
           <FlexImage src={`/${props.image}`} stretch cover>
             <Badge>{props.metadata}</Badge>
           </FlexImage>

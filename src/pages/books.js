@@ -24,8 +24,8 @@ const BooksPage = ({ data }) => {
               </Box>
 
               <Box height='8em' mt={3}>
-                <Heading.h3 mb={2}>{node.title}</Heading.h3>
-                <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal'>{node.metadata}</Heading.h4>
+                <Heading.h3 mb={1} lineHeight={1.3} color='page.text'>{node.title}</Heading.h3>
+                <Text.p fontSize='14px' color='page.text' fontFamily='mono'><em>{node.metadata}</em></Text.p>
               </Box>
             </Link>
           </Column>

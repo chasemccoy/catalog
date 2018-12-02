@@ -16,7 +16,7 @@ const ChicagoPage = ({ data }) => {
   )
 
   return (
-    <Page resource title="Chicago" icon="chicago" description="The best places in Chicago to chow down, work remotely, or get drunk at.">
+    <Page title="Chicago" icon="chicago" description="The best places in Chicago to chow down, work remotely, or get drunk at.">
       <Text.p mb={100}>
         I moved from a small college town in Mississippi to Chicago less than a
         year ago, in the middle of summer. And I've been in love since. There's

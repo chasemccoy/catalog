@@ -4,14 +4,11 @@ import theme from 'utils/theme'
 const fontFamilyArray = value => value.replace(/[\"\"&]+/g, '').split(', ')
 
 const typography = new Typography({
-  baseFontSize: '19px',
+  baseFontSize: '20px',
   baseLineHeight: 1.5,
-  bodyFontFamily: fontFamilyArray(theme.fonts.sans),
-  headerFontFamily: fontFamilyArray(theme.fonts.sans),
+  bodyFontFamily: fontFamilyArray(theme.fonts.serif),
+  headerFontFamily: fontFamilyArray(theme.fonts.serif),
   scaleRatio: 1.6,
-  headerLineHeight: 1.5,
-  bodyColor: theme.colors.type.body,
-  headerColor: theme.colors.type.header,
   headerWeight: theme.fontWeights.semibold,
   bodyWeight: theme.fontWeights.normal,
   boldWeight: theme.fontWeights.bold,
@@ -19,26 +16,11 @@ const typography = new Typography({
     body: {
       '-webkit-font-smoothing': 'antialiased'
     },
-    a: {
-      WebkitTextDecorationSkip: 'unset',
-      color: theme.colors.type.body,
-      transition: '0.3s all',
-      textDecoration: 'none',
-      textDecorationColor: theme.colors.gray[2],
-      '-webkit-text-decoration-color': theme.colors.gray[2]
-    },
-    'a:hover': {
-      textDecorationLine: 'underline',
-      textDecorationColor: theme.colors.type.body,
-      '-webkit-text-decoration-color': theme.colors.type.body
-    },
     img: {
       height: 'auto'
     },
-    blockquote: {
-      paddingLeft: '16px',
-      color: theme.colors.gray[4],
-      borderLeft: `2px solid ${theme.colors.gray[1]}`
+    ul: {
+      marginLeft: '1rem'
     },
     pre: {
       overflow: 'auto',

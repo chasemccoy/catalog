@@ -68,7 +68,7 @@ const Mosaic = props => {
   const widths = getMosaicWidths(props.children.length)
 
   return (
-    <Grid gutter={4}>
+    <Grid gutter={12}>
       {props.children.map((item, index) => (
         <Box width={[1, widths[index]]} key={index}>
           {React.cloneElement(item, { width: widths[index] })}

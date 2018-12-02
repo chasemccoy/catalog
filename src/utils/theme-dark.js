@@ -13,15 +13,15 @@ const namedBreakpoints = {
 }
 
 const colors = {
-  accent: Object.assign('#0000FF', {
-    light: '#E9E9F5',
-    dark: '#000088'
+  accent: Object.assign('#FCCA75', {
+    light: '#FFE8BF40',
+    dark: '#DE910B'
   }),
   page: {
     light: '#FFFEFC',
     dark: '#000000',
-    background: 'white',
-    text: '#1e1f22'
+    background: '#222',
+    text: 'white'
   },
   type: {
     body: '#1e1f22',
@@ -71,7 +71,7 @@ const fonts = {
 }
 
 const theme = {
-  name: 'light',
+  name: 'dark',
   breakpoints,
   namedBreakpoints,
   colors,
