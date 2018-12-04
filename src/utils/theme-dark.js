@@ -13,9 +13,9 @@ const namedBreakpoints = {
 }
 
 const colors = {
-  accent: Object.assign('#FCCA75', {
+  accent: Object.assign('#FCBC4C', {
     light: '#FFE8BF40',
-    dark: '#DE910B'
+    dark: '#E6960B'
   }),
   page: {
     light: '#FFFEFC',
@@ -31,12 +31,13 @@ const colors = {
     linkHover: '#000088'
   },
   gray: {
-    0: '#FAF8F5',
-    1: '#E4E6D3',
-    2: '#CBCCBC',
-    3: '#98998D',
-    4: '#72736A'
-  }
+    0: '#636361',
+    1: '#8A8987',
+    2: '#BDBBB9',
+    3: '#D6D5D2',
+    4: '#E6E4E1'
+  },
+  neutral: '#8A8987'
 }
 
 const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 128, 256, 512]

@@ -14,8 +14,8 @@ const ThoughtsPage = ({ data }) => {
       <Grid gutter={32}>
         <Box width={[1, 1, 1, 1, 4.5/12]}>
           <Heading.section>Asides</Heading.section>
-          {data.asides.edges.map(({node}, i) => (
-            <React.Fragment key={i}>
+          {data.asides.edges.map(({node}) => (
+            <React.Fragment key={node.id}>
               <Box mb={48}>
                 <Post
                   aside
@@ -31,8 +31,8 @@ const ThoughtsPage = ({ data }) => {
 
         <Box width={[1, 1, 1, 1, 7.5/12]}>
           <Heading.section>Writing</Heading.section>
-          {data.posts.edges.map(({node}, i) => (
-            <React.Fragment key={i}>
+          {data.posts.edges.map(({node}) => (
+            <React.Fragment key={node.id}>
               <Box mb={[80, 80, 120]}>
                 <Post
                   title={node.title}
@@ -46,12 +46,12 @@ const ThoughtsPage = ({ data }) => {
           ))}
 
           <Heading.section>More</Heading.section>
-          {data.olderPosts.edges.map(({node}, i) => (
-            <React.Fragment key={i}>
+          {data.olderPosts.edges.map(({node}) => (
+            <React.Fragment key={node.id}>
               <Heading.h3 mb={3} fontFamily='mono'>
                 <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} /> →
               </Heading.h3>
-              <Text.p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} mb={48} />
             </React.Fragment>
           ))}
         </Box>
@@ -88,17 +88,12 @@ export const query = graphql`
           title
           date(formatString: "MMM D")
           slug
-          format
-          content
           excerpt
-          categories {
-            name
-          }
         }
       }
     }
 
-    asides: allWordpressPost(filter: {format: {eq: "aside"}}, limit: 20) {
+    asides: allWordpressPost(filter: {format: {eq: "aside"}}, limit: 25) {
       edges {
         node {
           id

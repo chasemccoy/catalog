@@ -13,7 +13,7 @@ const Button = styled(Text)`
 	background: none;
 	padding: 0;
 	white-space: nowrap;
-	text-decoration: underline;
+	text-decoration: ${p => p.unstyled ? 'none' : 'underline'};
 
 	&:hover {
 		color: ${p => p.theme.colors.accent.dark};

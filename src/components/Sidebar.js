@@ -35,18 +35,12 @@ const Header = props => <Heading.h1 fontFamily='mono' fontSize='14px' mb='4px' c
   justify-content: space-between;
 `} {...props} />
 
-const ThemeButton = styled(Text)`
-  cursor: pointer;
-  color: ${p => p.theme.colors.accent};
-  font-size: 24px;
-`
-
 const ToggleTheme = () => (
   <ThemeContext.Consumer>
     {({_, toggleTheme}) => (
-      <ThemeButton onClick={toggleTheme}>
+      <Button onClick={toggleTheme} fontSize='24px' unstyled>
         ☼
-      </ThemeButton>
+      </Button>
     )}
   </ThemeContext.Consumer>
 )
@@ -80,12 +74,12 @@ class Sidebar extends React.Component {
         this.setState({ nowPlayingArtist: result.artist })
       })
 
-    fetch(`https://chs-stats.now.sh/beer`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ beerName: result.beer })
-        this.setState({ beerBrewery: result.brewery })
-      })
+    // fetch(`https://chs-stats.now.sh/beer`)
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     this.setState({ beerName: result.beer })
+    //     this.setState({ beerBrewery: result.brewery })
+    //   })
   }
 
   toggleOpen = () => {
@@ -93,7 +87,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const {nowPlayingName, nowPlayingArtist, weatherTemperature, beerName, beerBrewery} = this.state
+    const { nowPlayingName, nowPlayingArtist, weatherTemperature } = this.state
 
     return (
       <Container {...this.props}>
@@ -130,11 +124,11 @@ class Sidebar extends React.Component {
                   {weatherTemperature} in <Link to='/chicago'>Chicago</Link>
                 </React.Fragment>
               ) : 'Loading...'}</li>
-              <li>{nowPlayingName && nowPlayingArtist ? (
+              {/* <li>{nowPlayingName && nowPlayingArtist ? (
                 <React.Fragment>
                   Drinking a {beerName} from {beerBrewery}
                 </React.Fragment>
-              ) : 'Loading...'}</li>
+              ) : 'Loading...'}</li> */}
             </UnorderedList>
 
             <Header>Writing</Header>

@@ -17,8 +17,13 @@ const CSS = createGlobalStyle`
 
   blockquote {
     padding-left: 16px;
-    color: ${p => p.theme.colors.gray[4]};
+    color: ${p => p.theme.colors.neutral};
     border-left: 4px solid ${p => p.theme.colors.accent.light};
+  }
+
+  hr {
+    background: ${p => p.theme.colors.accent.light};
+    height: 2px;
   }
 `
 
