@@ -25,6 +25,29 @@ const CSS = createGlobalStyle`
     background: ${p => p.theme.colors.accent.light};
     height: 2px;
   }
+
+  pre {
+    overflow: auto;
+    background-color: ${p => p.theme.colors.gray[0]};
+    border-radius: 6px;
+    font-size: 1em;
+
+    code {
+      padding: 8px 16px;
+    }
+  }
+
+  code {
+    font-family: ${p => p.theme.fonts.mono};
+    background-color: ${p => p.theme.colors.gray[0]};
+    padding: 4px 8px;
+    display: inline-block;
+    word-wrap: normal;
+    overflow: auto;
+    border-radius: 6px;
+    font-size: 0.75em;
+    line-height: 1.5;
+  }
 `
 
 export const ThemeContext = React.createContext({
@@ -57,6 +80,8 @@ class Layout extends React.Component {
             title={this.props.title}
           >
             <body className={`${this.props.dark ? 'dark' : 'light'}`} />
+            <meta name="application-name" content="Chase McCoy" />
+            <meta name="apple-mobile-web-app-title" content="Chase McCoy" />
             <meta name="description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />
             <meta property="og:title" content="Chase McCoy" />
             <meta property="og:description" content="Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works." />

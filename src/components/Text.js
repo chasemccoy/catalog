@@ -28,7 +28,7 @@ const Text = styled.div`
   ${maxWidth}
   ${display}
 
-  ${p =>p.uppercase && `
+  ${p => p.uppercase && `
     text-transform: uppercase;
     letter-spacing: 1px;
   `}

@@ -19,9 +19,7 @@ const BooksPage = ({ data }) => {
         {data.books.edges.map(({node}, i) => (
           <Column width={[1/2, 1/2, 1/3]} key={i}>
             <Link to={node.url} unstyled>
-              <Box>
-                <Image sizes={node.image.childImageSharp.fluid} />
-              </Box>
+              <Image fluid={node.image.childImageSharp.fluid} />
 
               <Box height='8em' mt={3}>
                 <Heading.h3 mb={1} lineHeight={1.3} color='page.text'>{node.title}</Heading.h3>

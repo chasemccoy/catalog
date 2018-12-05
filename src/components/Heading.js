@@ -24,7 +24,7 @@ Heading.section.defaultProps = {
 	pt: '6px',
 	uppercase: true,
 	fontSize: '14px',
-	mb: '20px'
+	mb: '16px'
 }
 
 export default Heading

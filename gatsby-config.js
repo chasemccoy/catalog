@@ -107,8 +107,22 @@ module.exports = {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: "./src/favicon.png",
+        appName: 'Chase McCoy',
         background: '#fff',
-        theme_color: '#fff'
+        theme_color: '#fff',
+        start_url: '/',
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: true,
+          twitter: true,
+          yandex: false,
+          windows: true
+        }
       }
     },
     {
@@ -254,5 +268,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: `${(dotenv.parsed && dotenv.parsed.GATSBY_AIRTABLE_API_KEY) || process.env.GATSBY_AIRTABLE_API_KEY}`,
+        tables: [
+          {
+            baseId: `appSWvk3gbStENadE`,
+            tableName: `Table 1`,
+            tableView: `Grid view`
+          }
+        ]
+      }
+    }
   ]
 }

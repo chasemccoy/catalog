@@ -79,19 +79,6 @@ const AsideContainer = styled(Container)`
 `
 
 const PostContainer = styled(Container)`
-  ${'' /* text-align: justify;
-  hyphens: auto; */}
-
-  ${'' /* p:first-of-type:first-letter {
-    float: left;
-    font-size: 64px;
-    line-height: 50px;
-    padding-top: 6px;
-    padding-right: 6px;
-    padding-left: 0px;
-    font-weight: ${p => p.theme.fontWeights.bold};
-  } */}
-
   h3, h4, h5, h6 {
     font-family: ${p => p.theme.fonts.mono};
     text-transform: uppercase;

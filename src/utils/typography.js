@@ -6,6 +6,8 @@ const fontFamilyArray = value => value.replace(/[\"\"&]+/g, '').split(', ')
 const typography = new Typography({
   baseFontSize: '20px',
   baseLineHeight: 1.5,
+  headerLineHeight: 1.3,
+  blockMarginBottom: 0.85,
   bodyFontFamily: fontFamilyArray(theme.fonts.serif),
   headerFontFamily: fontFamilyArray(theme.fonts.serif),
   scaleRatio: 1.6,
@@ -21,22 +23,7 @@ const typography = new Typography({
     },
     ul: {
       marginLeft: '1rem'
-    },
-    pre: {
-      overflow: 'auto',
-      backgroundColor: theme.colors.gray[0]
-    },
-    code: {
-      fontFamily: theme.fonts.mono,
-      backgroundColor: theme.colors.gray[0],
-      padding: '4px 8px',
-      display: 'inline-block',
-      wordWrap: 'normal',
-      overflow: 'auto'
-    },
-    'pre code': {
-      padding: '8px 16px'
-    },
+    }
   })
 })
 
