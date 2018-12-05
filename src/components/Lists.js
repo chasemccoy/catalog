@@ -14,11 +14,10 @@ export const UnorderedList = styled.ul`
     list-style-type: none;
     margin: 0;
     padding: 0;
-    white-space: nowrap;
     line-height: 1;
 
     li {
-      display: inline
+      display: inline-block;
       margin-bottom: 0;
     }
 

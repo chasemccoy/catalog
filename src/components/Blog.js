@@ -7,10 +7,17 @@ import { space } from 'styled-system'
 
 const Container = styled.div`
   font-family: ${p => p.theme.fonts.serif};
+
   img { width: 100%; }
 
   ${media.small`
     font-size: 18px;
+
+    img {
+      max-width: none;
+      width: calc(100% + 32px);
+      margin-left: -16px;
+    }
   `}
 
   blockquote {

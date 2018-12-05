@@ -34,8 +34,8 @@ const colors = {
     0: '#636361',
     1: '#8A8987',
     2: '#BDBBB9',
-    3: '#D6D5D2',
-    4: '#E6E4E1'
+    3: '#CCCBC8',
+    4: '#DBDAD7'
   },
   neutral: '#8A8987'
 }
