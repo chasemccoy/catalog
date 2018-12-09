@@ -28,13 +28,18 @@ const now = () => {
 }
 
 const HeaderImage = styled(Image)`
-  height: 260px;
+  height: 400px;
   width: 100%;
   object-fit: cover;
-  object-position: 100% 65%;
+  object-position: 100% 74%;
+
+  ${media.medium`
+    height: 300px;
+  `}
 
   ${media.small`
-    height: 200px;
+    height: 300px;
+    object-position: 100% 54%;
     max-width: none;
     width: calc(100% + 32px);
     margin-left: -16px;
@@ -75,52 +80,63 @@ class IndexPage extends React.Component {
 
     return (
       <Page wide>
-        {/* <HeaderImage src={portrait} /> */}
-
-        <Grid mb={16}>
-          {/* <Box width={[1, 1, 1, 2/3]}>
-            <Heading.section mb={4}>About Me</Heading.section>
-            <Text.p fontSize='28px' lineHeight={1.4} mb={0}>I'm Chase, a design technologist living in Chicago by way of Mississippi. I spend my days building the design system at Sprout Social and thinking about design in the context of ethics, tooling, art, culture, and computer science.</Text.p>
-          </Box> */}
-
-          <Box width={[1, 1, 1, 1/2]} mb={[16, 0]}>
-            <Heading.section mb='12px'>Status</Heading.section>
-            <Text.p fontSize='20px' lineHeight={1.4} fontFamily='mono' mb={0}>{props.data.status.edges[0].node.data.Content}</Text.p>
-          </Box>
-
-          <Box width={[1, 1/2, 1/2, 1/4]} mb={[16, 0]}>
-            {/* <Heading.section mb='12px'>What is this?</Heading.section>
-            <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>This site is my collection of me, who I am, the things thay I like, and what makes me the person that I am.</Text> */}
-
-            <Heading.section mb='12px'>Interests</Heading.section>
-            <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>Hypertext, design systems, internet culture, online communities, indie publishing, creative coding, digital preservationism, and a diverse & open web.</Text>
-          </Box>
-
-          <Box width={[1, 1/2, 1/2, 1/4]} mb={[16, 0]}>
+        <Grid mb={[0, 0, 0, 0, 16]}>
+          <Box width={[1, 1, 1, 1, 1.2/5]} display={['none', 'none', 'none', 'none', 'block']}>
             <Heading.section mb='12px'>Date</Heading.section>
-            {/* <Text fontSize='14px' fontFamily='mono'>today is</Text> */}
             <Text fontSize='18px' fontFamily='mono'>{date}</Text>
             <Text fontSize='14px' fontFamily='mono' color='gray.4'>{time}</Text>
           </Box>
 
-          <Box width={[1]} mb={[16, 0]}>
-            <HeaderImage src={portrait} />
+          <Box width={[1, 1, 1, 1, 3.8/5]} mb={['8px', 0]}>
+            <Heading.section mb='12px'>Introduction</Heading.section>
+
+            <Text.p fontSize='28px' lineHeight='1.4' mb={0}>Hey there <span role='img' aria-label='Waving hand emoji.'>👋</span> I'm Chase, a designer and developer living in Chicago, IL who specializes in systems thinking, design tooling, and front-end engineering for hypertext products.</Text.p>
           </Box>
 
-          <Box width={[1, 1, 1, 1, 1/4]}>
+          <Box width={[1]} mt='-6px'>
+            <HeaderImage src={portrait} />
+          </Box>
+        </Grid>
+
+        <Grid mb={[40, 40, 40, 40, 0]}>
+          <Box width={[1, 1, 1, 1, 1.2/5]} />
+
+          <Box width={[1, 1, 1, 1, 2.7/5]} mb={[32, 32, 32, '8px', 32]}>
+            <Text.p mt='-5px'>Growing up online taught me that the power of the web is its malleability. I believe that the internet can and should be a space that respects the creativity, diversity, and well-being of those who occupy it. Just like the hypertext systems that make up the web, our culture is defined by the connections we make. I design and build hypertext products for those that build connections on the web.</Text.p>
+
+            <Text.p mb={0}>Currently, I'm working as a founding member of the Design Systems team at Sprout Social. My work involves designing and building products used by Sprout employees to deliver consistently designed products to our customers. Before coming to Sprout I worked as a mobile designer & developer, creating indie apps in my spare time and building products for enterprise clients at my day job.</Text.p>
+          </Box>
+
+          <Box width={[1, 1, 1, 1, 1.1/5]}>
+            <Grid>
+              <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0, 0, '8px']}>
+                <Heading.section mb={'8px'}>Things I Like</Heading.section>
+                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>Hypertext, design systems, internet culture, online communities, indie publishing, creative coding, digital preservationism, and a diverse & open web.</Text>
+              </Box>
+
+              <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0]}>
+                <Heading.section mb='8px'>Colophon</Heading.section>
+                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>This site was built using <Link to=''>Gatsby</Link>, <Link to=''>styled-components</Link>, and <Link to=''>Netlify</Link>. Text is set in Source Serif Pro and iA Writer Duospace.</Text>
+              </Box>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid mb={24}>
+          <Box width={[1, 1, 1, 1, 1.2/5]} mb={[32, 0]}>
             <Heading.section>Writing</Heading.section>
 
             {props.data.olderPosts.edges.map(({node}) => (
               <React.Fragment key={node.id}>
                 <Heading.h3 mb='4px' fontFamily='mono' fontSize='16px' lineHeight='1.4'>
-                  <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} /> →
+                  <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} />&nbsp;→
                 </Heading.h3>
-                <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='16px' mb='-8px' lineHeight='1.4' />
+                <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='15px' mb='-8px' lineHeight='1.4' />
               </React.Fragment>
             ))}
           </Box>
 
-          <Box width={[1, 1, 1, 1, 3/4]}>
+          <Box width={[1, 1, 1, 1, 3/4]} mb={[32, 0]}>
             <Heading.section>Recent Photos</Heading.section>
 
             <Grid gutter={4}>
@@ -138,7 +154,7 @@ class IndexPage extends React.Component {
           </Box>
         </Grid>
 
-        <Grid>
+        <Grid mb={40}>
           <Box width={1}>
             {artists.length > 0 && (
               <>
