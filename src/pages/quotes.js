@@ -5,6 +5,7 @@ import { space } from 'styled-system'
 import { graphql } from 'gatsby'
 import { Box } from 'components/Base'
 import Heading from 'components/Heading'
+import Text from 'components/Text'
 
 const QuoteContent = styled(Heading.h2)`
   ${space};
@@ -20,25 +21,25 @@ const Meta = styled.div`
   flex-wrap: wrap;
 `
 
-const Source = styled(Heading.h3)`
+const Source = styled(Text.p)`
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   flex-basis: 70%;
   display: flex;
   align-items: center;
   ${space};
-  font-family: ${props => props.theme.fonts.sans};
-  color: ${p => p.theme.colors.accent};
+  font-family: ${props => props.theme.fonts.mono};
+  color: ${p => p.theme.colors.gray[4]};
 `
 
 const Dropcap = styled.span`
-  font-size: 56px;
+  font-size: 48px;
   line-height: 0;
   padding-top: 0.58em;
   margin-right: 8px;
   display: inline-block;
   vertical-align: middle;
-  color: ${p => p.theme.colors.accent};
+  color: ${p => p.theme.colors.gray[2]};
   font-family: ${props => props.theme.fonts.serif};
 `
 

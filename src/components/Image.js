@@ -6,7 +6,6 @@ import { borderRadius } from 'styled-system'
 
 const StyledImage = styled(Img)`
   max-width: 100%;
-  position: initial !important;
   margin-bottom: 0;
 
   img {
@@ -43,8 +42,8 @@ const ImageLinkContainer = styled(ImageLink)`
 
 class Image extends React.Component {
   render() {
-    if (this.props.sizes) {
-      return <StyledImage {...this.props} outerWrapperClassName="gatsby-img" />
+    if (this.props.fluid) {
+      return <StyledImage {...this.props} className='test' />
     } else if (this.props.src && this.props.to) {
       return <ImageLinkContainer {...this.props} />
     } else if (this.props.src && this.props.cover) {

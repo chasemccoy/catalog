@@ -1,6 +1,6 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
-const { createPaginationPages, prefixPathFormatter } = require(`gatsby-pagination`);
+// const { createPaginationPages, prefixPathFormatter } = require(`gatsby-pagination`);
 
 exports.onCreateNode = async ({ node, getNode, actions, store, cache }) => {
 	const { createNodeField, createNode } = actions
@@ -38,13 +38,13 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-		createPaginationPages({
-			createPage: createPage,
-			edges: result.data.allWordpressPost.edges,
-			component: path.resolve(`./src/templates/thoughts.js`),
-			limit: 25,
-			pathFormatter: prefixPathFormatter("/thoughts")
-		});
+		// createPaginationPages({
+		// 	createPage: createPage,
+		// 	edges: result.data.allWordpressPost.edges,
+		// 	component: path.resolve(`./src/templates/thoughts.js`),
+		// 	limit: 25,
+		// 	pathFormatter: prefixPathFormatter("/thoughts")
+		// });
 
 		result.data.allWordpressPost.edges.map(({ node }) => {
 			createPage({

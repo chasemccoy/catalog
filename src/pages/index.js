@@ -1,145 +1,218 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout from 'components/Layout'
-import { Box } from 'components/Base'
-import Header from 'components/Header'
+import Page from 'components/Page'
+import { Grid, Box } from 'components/Base'
+import Heading from 'components/Heading'
 import Link from 'components/Link'
 import media from 'utils/media'
-// import Icon from 'components/Icon'
 import Text from 'components/Text'
+import portrait from 'assets/portrait.jpg'
+import Image from 'components/Image'
+import { graphql } from 'gatsby'
+import { UnorderedList } from 'components/Lists'
 
-const Container = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 16px;
-  overflow: hidden;
-  hyphens: auto;
-  text-align: justify;
-  min-height: 100vh;
-  justify-content: center;
+const now = () => {
+  const now = new Date()
 
-  ${media.small`
-    justify-content: flex-start;
+  return {
+    date: now.toLocaleString('en-us', {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric'
+    }),
+    time: now.toLocaleString('en-us', {
+      hour: 'numeric',
+      minute: '2-digit'
+    })
+  }
+}
+
+const HeaderImage = styled(Image)`
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 100% 74%;
+
+  ${media.medium`
+    height: 300px;
   `}
 
-  p + p {
-    text-indent: 2em;
-  }
-
-  .content a:hover {
-    transition: none;
-    color: ${p => p.theme.colors.accent};
-    text-decoration-color: ${p => p.theme.colors.accent};
-  }
+  ${media.small`
+    height: 300px;
+    object-position: 100% 54%;
+    max-width: none;
+    width: calc(100% + 32px);
+    margin-left: -16px;
+  `}
 `
 
-const Dropcap = styled(Text.p)`
-  &:first-letter {
-    float: left;
-    font-size: 55px;
-    line-height: 40px;
-    padding-top: 6px;
-    padding-right: 6px;
-    padding-left: 0px;
-    font-weight: ${p => p.theme.fontWeights.bold};
+const ArtistList = styled(UnorderedList)`
+  li {
+    margin-right: 16px;
+    margin-bottom: 6px;
+    white-space: nowrap;
+  }
+
+  li:nth-child(even) {
+    color: ${p => p.theme.name === 'light' ? p.theme.colors.gray[4] : p.theme.colors.gray[2]};
   }
 `
 
 class IndexPage extends React.Component {
-  // state = {
-  //   weatherSummary: null,
-  //   weatherTemperature: null,
-  //   nowPlayingName: null,
-  //   nowPlayingArtist: null,
-  //   beerName: null,
-  //   beerBrewery: null
-  // }
+  state = {
+    tracks: []
+  }
 
-  // componentDidMount = () => {
-  //   fetch(`https://chs-stats.now.sh/weather`)
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       this.setState({ weatherSummary: result.summary })
-  //       this.setState({ weatherTemperature: result.temperature })
-  //     })
-  //
-  //   fetch(`https://chs-stats.now.sh/nowPlaying`)
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       this.setState({ nowPlayingName: result.name })
-  //       this.setState({ nowPlayingArtist: result.artist })
-  //     })
-  //
-  //   fetch(`https://chs-stats.now.sh/beer`)
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       this.setState({ beerName: result.beer })
-  //       this.setState({ beerBrewery: result.brewery })
-  //     })
-  // }
+  componentDidMount = () => {
+    fetch(`https://chs-stats.now.sh/recentTracks`)
+      .then(response => response.json())
+      .then(result => {
+        this.setState({ tracks: result })
+      })
+  }
 
   render() {
-    // const {nowPlayingName, nowPlayingArtist, beerName, beerBrewery, weatherSummary, weatherTemperature} = this.state
+    const props = this.props
+
+    const artists = this.state.tracks.map(track => track.artist)
+    const uniqueArtists = Array.from(new Set(artists))
+    const { date, time } = now()
 
     return (
-      <Layout>
-        <Container alignItems='center'>
-          <Box width={[1, 3/4, '35ch']} mt={[0, 0, -100]}>
-            <Header />
+      <Page wide>
+        <Grid mb={[0, 0, 0, 0, 16]}>
+          <Box width={[1, 1, 1, 1, 1.2/5]} display={['none', 'none', 'none', 'none', 'block']}>
+            <Heading.section mb='14px'>Date</Heading.section>
+            <Text fontSize='18px' fontFamily='mono'>{date}</Text>
+            <Text fontSize='14px' fontFamily='mono' color='gray.4'>{time}</Text>
           </Box>
 
-          <Box width={[1, 3/4, '35ch']} mt={-8} className='content'>
-            <Dropcap fontSize='17px' fontFamily='serif' m={0}>
-              Welcome to my internet homepage; it's nice to see you. I'm Chase, a design technologist living in Chicago by way of Mississippi. I spend my days building the design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design in the context of ethics, tooling, art, culture, and computer science.
-            </Dropcap>
+          <Box width={[1, 1, 1, 1, 3.8/5]} mb={['8px', 0]}>
+            <Heading.section mb='12px'>Introduction</Heading.section>
 
-            <Text.p fontSize='17px' fontFamily='serif' m={0}>
-              This is my space to share, collect, curate, and document the things that matter to me. You can follow along here or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link>, <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>, or <Link underlined to='http://github.com/chasemccoy'>Github</Link>.
-            </Text.p>
-
-            <Text.p fontSize='17px' fontFamily='serif' m={0}>
-              Get in touch by <Link underlined to='mailto:desk@chasemccoy.net'>emailing me</Link> if you would like to talk shop or have a professional inquiry. I am always interested in interesting projects. Have a great day.
-            </Text.p>
-
-            {/* {weatherSummary
-              && weatherTemperature
-              && nowPlayingName &&
-              nowPlayingArtist && (
-                <Text.p fontSize='18px' fontFamily='serif'>
-                  {`The weather in Chicago at the moment is ${weatherSummary} at ${weatherTemperature}. Right now I'm listening to ${nowPlayingName} by ${nowPlayingArtist}. Hope you have a great day.`}
-                </Text.p>
-            )} */}
+            <Text.p fontSize={['24px', '26px', '28px']} lineHeight='1.4' mb={0}>Hey there! <span role='img' aria-label='Waving hand emoji.'>👋</span> I'm Chase, a designer and developer based in Chicago,&nbsp;IL  specializing in systems thinking, design tooling, and front-end engineering. I spend a lot of time thinking about how the web works.</Text.p>
           </Box>
 
-          {/* <Box width={[1]}>
-            <Text fontSize='18px' fontFamily='mono' maxWidth='60ch' mb='120px'>
-              <Icon name='broken' jumbo mb='20%' />
+          <Box width={[1]} mt='-6px'>
+            <HeaderImage src={portrait} />
+          </Box>
+        </Grid>
 
-              <br />
+        <Grid mb={[16, 40, 40, 40, 0]}>
+          <Box width={[1, 1, 1, 1, 1.2/5]} />
 
-              Hi, I'm Chase. I'm a designer and engineer from Mississippi living in Chicago. Right now, I'm building a design system at <Link underlined to='http://sproutsocial.com'>Sprout Social</Link> and thinking about design as it relates to ethics, tooling, art, culture, and engineering. You can follow along here, or on <Link underlined to='http://twitter.com/chase_mccoy'>Twitter</Link> and <Link underlined to='http://instagram.com/chs_mc'>Instagram</Link>.
-            </Text>
+          <Box width={[1, 1, 1, 1, 2.7/5]} mb={[32, 32, 32, '8px', 40]}>
+            <Text.p mt='-5px'>Growing up online taught me that the power of the web is its malleability. I believe that the internet can and should be a space that respects the creativity, diversity, and well-being of those who occupy it. Like hypertext itself, our culture is defined by the connections we make. I work to design and build tools that serve those who create connections on (and with) the web.</Text.p>
+
+            <Text.p>I'm currently working as a founding member of the Design Systems team at <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and build Seeds, our design system, as well as other tools used by Sprout employees to deliver consistently designed products to our customers. Previously I worked as a mobile designer & iOS developer, creating indie apps in my spare time and building products for enterprise clients at my day job. Check out <Link to='/portfolio'>my portfolio</Link> to learn more. </Text.p>
+
+            <Text.p mb={0}>If you'd like to chat, you can <Link to='mailto:desk@chasem.co'>drop me a line</Link> or find me in a coffee shop on Chicago's west side <span role='img' aria-label='Cup of coffee emoji.'>☕️</span></Text.p>
           </Box>
 
+          <Box width={[1, 1, 1, 1, 1.1/5]}>
+            <Grid>
+              <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0, 0, '8px']}>
+                <Heading.section mb={'8px'}>Things I Like</Heading.section>
+                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>Hypertext, design systems, internet culture, online communities, indie publishing, creative coding, digital preservationism, and a diverse & open web.</Text>
+              </Box>
+
+              <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0]}>
+                <Heading.section mb='8px'>Colophon</Heading.section>
+                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>This site was built using <Link to='https://gatsbyjs.org'>Gatsby</Link>, <Link to='https://styled-components.com'>styled-components</Link>, and <Link to='https://netlify.com'>Netlify</Link>. Text is set in Source Serif Pro and iA Writer Duospace. Weather data provided by the <Link to='https://darksky.net/dev'>Dark Sky</Link> API.</Text>
+              </Box>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid mb={24}>
+          <Box width={[1, 1/2, 1, 1/2, 1.2/5]} mb={[32, 0]}>
+            <Heading.section>Writing</Heading.section>
+
+            {props.data.olderPosts.edges.map(({node}) => (
+              <React.Fragment key={node.id}>
+                <Heading.h3 mb='4px' fontFamily='mono' fontSize='16px' lineHeight='1.4'>
+                  <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} />&nbsp;→
+                </Heading.h3>
+                <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='15px' mb='-8px' lineHeight='1.4' />
+              </React.Fragment>
+            ))}
+          </Box>
+
+          <Box width={[1, 1/2, 1, 1/2, 3/4]} mb={[32, 0]}>
+            <Heading.section>Recent Photos</Heading.section>
+
+            <Grid gutter={4}>
+              {props.data.photos.edges.map(({node}) => {
+                const srcRegex = /<img.*?src=['"](.*?)['"]/
+                const src = srcRegex.exec(node.content)[1]
+
+                return (
+                  <Box width={[1/2, 1/3, 1/3, 1/4, 1/5]} key={node.id}>
+                    <Image src={src} to={node.slug} />
+                  </Box>
+                )
+              })}
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid mb={40}>
           <Box width={1}>
-            <Text.p fontFamily='mono'>
-              {nowPlayingName && nowPlayingArtist ? `Listening to ${nowPlayingName} by ${nowPlayingArtist}.` : `Loading...`}
-            </Text.p>
+            {artists.length > 0 && (
+              <>
+                <Heading.section>On Rotation</Heading.section>
 
-            <Text.p fontFamily='mono'>
-              {beerName && beerBrewery ? `Drinking ${beerName} by ${beerBrewery}.` : `Loading...`}
-            </Text.p>
-
-            <Text.p fontFamily='mono'>
-              {weatherSummary && weatherTemperature ? `${weatherSummary} and ${weatherTemperature} in Chicago, IL.` : `Loading...`}
-            </Text.p>
-          </Box> */}
-        </Container>
-      </Layout>
+                <ArtistList unstyled inline>
+                  {uniqueArtists.map((artist, i) => (
+                    artist && (
+                      <Text fontSize='14px' fontFamily='mono' as='li' key={i}>{artist}</Text>
+                    )
+                  ))}
+                </ArtistList>
+              </>
+            )}
+          </Box>
+        </Grid>
+      </Page>
     )
   }
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query IndexQuery {
+    olderPosts: allWordpressPost(filter: {format: {eq: "standard"}}, limit: 5) {
+      edges {
+        node {
+          id
+          title
+          slug
+          excerpt
+        }
+      }
+    }
+
+    photos: allWordpressPost(filter: {format: {eq: "image"}}, limit: 15) {
+      edges {
+        node {
+          id
+          slug
+          format
+          content
+        }
+      }
+    }
+
+    status: allAirtable(sort: {fields: data___Date, order: DESC}, limit: 1) {
+  	  edges {
+  	    node {
+          data {
+            Content
+            Date
+          }
+  	    }
+  	  }
+  	}
+  }
+`

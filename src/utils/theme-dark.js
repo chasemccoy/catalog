@@ -13,15 +13,15 @@ const namedBreakpoints = {
 }
 
 const colors = {
-  accent: Object.assign('#0000FF', {
-    light: '#E9E9F5',
-    dark: '#000088'
+  accent: Object.assign('#FCBC4C', {
+    light: '#FFE8BF40',
+    dark: '#E6960B'
   }),
   page: {
     light: '#FFFEFC',
     dark: '#000000',
-    background: 'white',
-    text: '#1e1f22'
+    background: '#222',
+    text: 'white'
   },
   type: {
     body: '#1e1f22',
@@ -31,13 +31,13 @@ const colors = {
     linkHover: '#000088'
   },
   gray: {
-    0: '#F5F5FA',
-    1: '#E1E1E6',
-    2: '#C8C8CC',
-    3: '#969699',
-    4: '#5A5A5C'
+    0: '#403F3E',
+    1: '#8A8987',
+    2: '#BDBBB9',
+    3: '#CCCBC8',
+    4: '#DBDAD7'
   },
-  neutral: '#646466'
+  neutral: '#8A8987'
 }
 
 const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 128, 256, 512]
@@ -66,13 +66,13 @@ const fontWeights = {
 }
 
 const fonts = {
-  sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+  sans: "Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
   serif: "Source Serif Pro, Tiempos, SF Serif, Georgia, serif",
   mono: "iA Writer Duospace, Menlo, Monaco, OperatorMono-Book, Inconsolata, monospace"
 }
 
 const theme = {
-  name: 'light',
+  name: 'dark',
   breakpoints,
   namedBreakpoints,
   colors,

@@ -21,7 +21,7 @@ export default ({ data }) => {
         title={post.title}
         content={post.content}
         date={post.date}
-        aside={post.format === 'aside' || post.format === 'image'}
+        // aside={post.format === 'aside' || post.format === 'image'}
         imagePost={post.format === 'image'}
         photoset={isPhotoset(post.categories)}
         to={post.slug}

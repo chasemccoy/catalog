@@ -1,4 +1,4 @@
-import { Box, Flex } from 'grid-styled'
+import { Box, Flex } from '@rebass/grid'
 import React from 'react'
 import styled from 'styled-components'
 

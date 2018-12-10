@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex } from 'grid-styled'
-import { width, height, color, space, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection, minWidth, minHeight, maxWidth } from 'styled-system'
-import theme from 'utils/theme'
+import { Flex } from '@rebass/grid'
+import { width, height, color, space, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection, minWidth, minHeight, maxWidth, flexBasis } from 'styled-system'
 import media from 'utils/media'
 
 export const Span = styled.span`
@@ -24,33 +23,36 @@ export const Box = styled.div`
   ${minHeight}
   ${minWidth}
   ${maxWidth}
+  ${color}
 `
 
 const GridFlex = styled(Flex)`
   & > * {
-    padding-top: ${props => props.gutter ? `${props.theme.space[props.gutter] * 2}px` : `24px`};
-    padding-left: ${props => props.gutter ? `${props.theme.space[props.gutter]}px` : `12px`};
-    padding-right: ${props => props.gutter ? `${props.theme.space[props.gutter]}px` : `12px`};
+    padding-top: ${p =>
+      p.gutter !== undefined ? `${p.gutter * 2}px` : `24px`};
+    padding-left: ${p => (p.gutter !== undefined ? `${p.gutter}px` : `12px`)};
+    padding-right: ${p => (p.gutter !== undefined ? `${p.gutter}px` : `12px`)};
 
     ${media.tiny`
-      padding-top: ${props => props.gutter ? `${props.theme.space[props.gutter] * 2}px` : `16px`};
-      padding-left: ${props => props.gutter ? `${props.theme.space[props.gutter]}px` : `8px`};
-      padding-right: ${props => props.gutter ? `${props.theme.space[props.gutter]}px` : `8px`};
-    `}
-
-    ${p => p.scroll && `
-      padding-top: 0;
-    `}
+      padding-top: ${p =>
+        p.gutter !== undefined ? `${p.gutter * 2}px` : `16px`};
+      padding-left: ${p => (p.gutter !== undefined ? `${p.gutter}px` : `8px`)};
+      padding-right: ${p => (p.gutter !== undefined ? `${p.gutter}px` : `8px`)};
+    `};
   }
 
   ${height}
-  ${space}
+  ${flex}
+  ${minWidth}
+  ${flexBasis}
 `
 
 export const Grid = props => (
   <GridFlex
-    mx={(props.gutter && [-props.gutter]) || ['-8px', '-12px']}
-    mt={(props.gutter && [-theme.space[props.gutter] * 2]) || ['-16px', '-24px']}
+    mx={props.gutter !== undefined ? `-${props.gutter}px` : ['-8px', '-12px']}
+    mt={
+      props.gutter !== undefined ? `-${props.gutter * 2}px` : ['-16px', '-24px']
+    }
     flexWrap={'wrap'}
     {...props}
   />

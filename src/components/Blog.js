@@ -6,43 +6,51 @@ import media from 'utils/media'
 import { space } from 'styled-system'
 
 const Container = styled.div`
+  font-family: ${p => p.theme.fonts.serif};
+
   img { width: 100%; }
 
-  blockquote {
-    font-family: ${p => p.theme.fonts.sans};
+  ${media.small`
+    font-size: 18px;
 
-    ${media.medium`
-      width: 100%;
-      margin: 24px 0;
-      margin-left: 8px;
-      padding: 0 8px 0 16px;
-    `}
+    img {
+      max-width: none;
+      width: calc(100% + 32px);
+      margin-left: -16px;
+    }
+  `}
+
+  blockquote {
+    margin-left: 4px;
+    margin-right: 0;
+    padding: 0 16px;
   }
 
   iframe + p {
     margin-top: 24px;
   }
-
-  img {
-    ${p => !p.filmstrip && media.medium`
-      max-width: 120%;
-      width: 120%;
-      margin-left: -10%;
-      width: calc(100% + 33px);
-      margin-left: -16px;
-    `}
-  }
 `
 
 const AsideContainer = styled(Container)`
-  ${p => p.large && `
-    font-size: 24px;
-    font-family: ${p.theme.fonts.serif};
+  font-size: 17px;
 
-    a {
-      padding-top: 6px;
+  p, blockquote, img {
+    margin-bottom: 1em;
+  }
+
+  p img:first-child:last-child {
+    max-width: 100%;
+  }
+
+  img {
+    max-width: calc(50% - 4px);
+    margin: 0;
+
+    & + img {
+      margin-left: 8px;
     }
-  `}
+  }
+
 
   ${p => p.filmstrip && `
     img {
@@ -71,36 +79,23 @@ const AsideContainer = styled(Container)`
 `
 
 const PostContainer = styled(Container)`
-  font-family: ${p => p.theme.fonts.serif};
-  font-size: 18px;
-  line-height: 1.45;
+  h3, h4, h5, h6 {
+    font-family: ${p => p.theme.fonts.mono};
+    text-transform: uppercase;
+    margin-top: 2.5em;
+  }
 `
 
 const Title = styled(Link)`
-  font-size: 32px;
-  font-family: ${p => p.theme.fonts.sans};
-  padding-bottom: 4px;
-  box-shadow: inset 0 -4px 0 ${props => props.theme.colors.accent};
-  transition: all 0.1s;
+  font-family: ${p => p.theme.fonts.mono};
+  text-decoration: none;
 
   &:hover {
-    color: white;
-    background: ${props => props.theme.colors.accent};
+    text-decoration: underline;
   }
 `
 
 const Content = styled.div`
-  a {
-    transition: all 0.1s;
-    box-shadow: inset 0 -0.5em 0 ${props => props.theme.colors.accent.light};
-  }
-
-  a:hover {
-    color: white;
-    box-shadow: none;
-    background: ${props => props.theme.colors.accent};
-  }
-
   a[href*='chasemccoy.files.wordpress'], a[href*='instagram.com/p'] {
   	box-shadow: none;
     display: block;
@@ -118,17 +113,26 @@ const Content = styled.div`
 `
 
 const PostMeta = styled.div`
-  font-size: 13px;
-  font-family: ${p => p.theme.fonts.sans};
+  font-size: 12px;
+  font-family: ${p => p.theme.fonts.mono};
   color: ${p => p.theme.colors.gray[3]};
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  display: inline-block;
+  display: block;
   ${space}
 
   a {
-    color: ${p => p.theme.colors.gray[3]};
+    color: ${p => p.theme.colors.accent};
+    text-decoration: none;
+  }
+
+  height: 10px;
+  border-bottom: 1px solid ${p => p.theme.colors.accent.light};
+
+  a {
+    background: ${p => p.theme.colors.page.background};
+    padding-right: 8px;
   }
 `
 
@@ -145,9 +149,9 @@ const Meta = ({ date, permalink, aside }) => (
 
 export const Post = props => {
   const title = props.title && (
-    <Heading.h2>
+    <Heading.h1>
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
-    </Heading.h2>
+    </Heading.h1>
   )
 
   const content = props.content && (
@@ -158,7 +162,7 @@ export const Post = props => {
 
   if (props.aside) {
     return (
-      <AsideContainer photo={props.imagePost} large={props.content.length <= 500} filmstrip={props.filmstrip}>
+      <AsideContainer photo={props.imagePost} filmstrip={props.filmstrip}>
         {meta}
         {content}
       </AsideContainer>
