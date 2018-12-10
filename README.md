@@ -1,5 +1,3 @@
-# Chase McCoy's Catalog
-
 This is my personal site/portfolio/blog/life catalog. 
 
 Built using Gatsby, styled-components, styled-system, and hosted on Neflify. 
