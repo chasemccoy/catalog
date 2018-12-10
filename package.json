@@ -1,7 +1,7 @@
 {
   "name": "catalog",
   "description": "Gatsby default starter",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "author": "Chase McCoy",
   "dependencies": {
     "@rebass/grid": "^6.0.0-5",

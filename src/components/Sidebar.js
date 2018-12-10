@@ -95,7 +95,7 @@ class Sidebar extends React.Component {
         <Text.p>Thinking about design in the context of ethics, tooling, art, culture, and computer science.</Text.p>
 
         <Header>Get in touch</Header>
-        <Text.p><Link to='https://twitter.com/chase_mccoy'>Twitter</Link>, <Link to='https://instagram.com/chs_mc'>Instagram</Link>, <Link to='https://github.com/chasemccoy'>Github</Link>, <Link to='mailto:desk@chasem.co'>Email</Link>, & <Link to='/feed.xml'>RSS</Link>.</Text.p>
+        <Text.p><Link to='https://twitter.com/chase_mccoy'>Twitter</Link>, <Link to='https://instagram.com/chs_mc'>Instagram</Link>, <Link to='https://github.com/chasemccoy'>GitHub</Link>, <Link to='mailto:desk@chasem.co'>Email</Link>, & <Link to='/feed.xml'>RSS</Link>.</Text.p>
 
         <Header>Browse</Header>
         <UnorderedList unstyled mb={32}>
