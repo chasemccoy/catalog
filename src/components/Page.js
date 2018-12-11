@@ -29,6 +29,7 @@ const Content = styled.main`
   min-width: 0;
   margin: 0 auto;
   flex: 1;
+  overflow: hidden;
 
   ${media.small`
     flex-basis: 100%;

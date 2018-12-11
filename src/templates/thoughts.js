@@ -30,7 +30,6 @@ const BlogPage = ({ data, pageContext }) => {
 
   return (
     <Page wide title={'Thoughts'} untitled description="What's on my mind, and links to some interesting stuff on the web.">
-
       <Grid gutter={32}>
         <Box width={[1, 1, 1, 4.5/12]}>
           <Heading.section>Asides</Heading.section>
