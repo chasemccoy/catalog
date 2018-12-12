@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import { Grid, Box } from 'components/Base'
@@ -6,12 +7,23 @@ import Text from 'components/Text'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import { graphql } from 'gatsby'
+import media from 'utils/media'
+
+const Container = styled(Grid)`
+  ${media.small`
+    margin: 0;
+
+    > * {
+      padding: 0;
+    }
+  `}
+`
 
 const ThoughtsPage = ({ data }) => {
   return (
     <Page wide title={'Thoughts'} untitled description="What's on my mind, and links to some interesting stuff on the web.">
 
-      <Grid gutter={32}>
+      <Container gutter={32}>
         <Box width={[1, 1, 1, 1, 4.5/12]}>
           <Heading.section>Asides</Heading.section>
 
@@ -20,7 +32,7 @@ const ThoughtsPage = ({ data }) => {
               <Box mb={48}>
                 <Post
                   aside
-                  to={node.slug}
+                  to={node.fields.fullSlug}
                   content={node.content}
                   date={node.date}
                   imagePost={node.format === 'image'}
@@ -38,7 +50,7 @@ const ThoughtsPage = ({ data }) => {
               <Box mb={[80, 80, 120]}>
                 <Post
                   title={node.title}
-                  to={node.slug}
+                  to={node.fields.fullSlug}
                   date={node.date}
                   content={node.content}
                   excerpt={node.excerpt}
@@ -53,14 +65,14 @@ const ThoughtsPage = ({ data }) => {
             {data.olderPosts.edges.map(({node}) => (
               <Box width={[1, 1/2]} key={node.id}>
                 <Heading.h3 mb='4px' fontFamily='mono' fontSize='16px' lineHeight='1.4'>
-                  <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} /> →
+                  <Link to={node.fields.fullSlug} dangerouslySetInnerHTML={{ __html: node.title }} /> →
                 </Heading.h3>
                 <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='16px' mb={['-16px', '-24px', '-32px']} lineHeight='1.4' />
               </Box>
             ))}
           </Grid>
         </Box>
-      </Grid>
+      </Container>
     </Page>
   )
 }
@@ -75,7 +87,9 @@ export const query = graphql`
           id
           title
           date(formatString: "MMM D")
-          slug
+          fields {
+            fullSlug
+          }
           format
           content
           excerpt
@@ -86,13 +100,15 @@ export const query = graphql`
       }
     }
 
-    olderPosts: allWordpressPost(filter: {format: {eq: "standard"}}, skip: 1, limit: 4) {
+    olderPosts: allWordpressPost(filter: {format: {eq: "standard"}}, skip: 1, limit: 8) {
       edges {
         node {
           id
           title
           date(formatString: "MMM D")
-          slug
+          fields {
+            fullSlug
+          }
           excerpt
         }
       }
@@ -104,7 +120,9 @@ export const query = graphql`
           id
           title
           date(formatString: "MMM D")
-          slug
+          fields {
+            fullSlug
+          }
           format
           content
           excerpt

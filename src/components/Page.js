@@ -29,7 +29,6 @@ const Content = styled.main`
   min-width: 0;
   margin: 0 auto;
   flex: 1;
-  overflow: hidden;
 
   ${media.small`
     flex-basis: 100%;
@@ -53,6 +52,7 @@ const Page = props => (
       <meta name="description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
       <meta property="og:title" content={props.title || "Chase McCoy"} />
       <meta property="og:description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
+      {props.hidden && <meta name="robots" content="noindex,nofollow" />}
     </Helmet>
 
     <Container id='wrapper'>

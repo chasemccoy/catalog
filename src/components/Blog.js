@@ -39,15 +39,20 @@ const AsideContainer = styled(Container)`
   }
 
   p img:first-child:last-child {
-    max-width: 100%;
+    max-width: none;
   }
 
   img {
     max-width: calc(50% - 4px);
-    margin: 0;
+    margin-bottom: 0;
+
+    ${media.small`
+    max-width: calc(50% + 12px);
+    `}
 
     & + img {
       margin-left: 8px;
+      margin-right: -16px;
     }
   }
 

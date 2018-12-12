@@ -25,7 +25,6 @@ const BlogPage = ({ data, pageContext }) => {
   const { nodes, prev, next } = pageContext
 
   const posts = nodes.filter(({node}) => node.format !== 'image' && node.format !== 'aside')
-  // const imagePosts = nodes.filter(({node}) => node.format === 'image')
   const asides = nodes.filter(({node}) => node.format === 'aside')
 
   return (
@@ -53,16 +52,6 @@ const BlogPage = ({ data, pageContext }) => {
           {posts.map(({node}, i) => (
             <React.Fragment key={i}>
               <Box mb={[80, 80, 120]}>
-                {/* {(node.format === 'aside') && (
-                  <Post
-                    aside
-                    to={node.slug}
-                    content={node.content}
-                    date={node.date}
-                    imagePost={node.format === 'image'}
-                  />
-                )} */}
-
                 {node.format === 'standard' && i === 0 &&  (
                   <Post
                     title={node.title}

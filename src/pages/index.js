@@ -131,7 +131,7 @@ class IndexPage extends React.Component {
             {props.data.olderPosts.edges.map(({node}) => (
               <React.Fragment key={node.id}>
                 <Heading.h3 mb='4px' fontFamily='mono' fontSize='16px' lineHeight='1.4'>
-                  <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} />&nbsp;→
+                  <Link to={node.fields.fullSlug} dangerouslySetInnerHTML={{ __html: node.title }} />&nbsp;→
                 </Heading.h3>
                 <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='15px' mb='-8px' lineHeight='1.4' />
               </React.Fragment>
@@ -148,7 +148,7 @@ class IndexPage extends React.Component {
 
                 return (
                   <Box width={[1/2, 1/3, 1/3, 1/4, 1/5]} key={node.id}>
-                    <Image src={src} to={node.slug} />
+                    <Image src={src} to={node.fields.fullSlug} />
                   </Box>
                 )
               })}
@@ -187,7 +187,9 @@ export const query = graphql`
         node {
           id
           title
-          slug
+          fields {
+            fullSlug
+          }
           excerpt
         }
       }
@@ -197,7 +199,9 @@ export const query = graphql`
       edges {
         node {
           id
-          slug
+          fields {
+            fullSlug
+          }
           format
           content
         }

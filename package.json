@@ -8,7 +8,6 @@
     "babel-plugin-styled-components": "^1.9.2",
     "gatsby": "^2.0.61",
     "gatsby-image": "^2.0.22",
-    "gatsby-pagination": "^1.2.0",
     "gatsby-plugin-favicon": "^3.1.4",
     "gatsby-plugin-feed": "next",
     "gatsby-plugin-layout": "^1.0.10",

@@ -1,14 +1,14 @@
 const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
-// const { createPaginationPages, prefixPathFormatter } = require(`gatsby-pagination`);
 
-exports.onCreateNode = async ({ node, getNode, actions, store, cache }) => {
-	const { createNodeField, createNode } = actions
+exports.onCreateNode = async ({ node, actions }) => {
+	const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
-		const slug = createFilePath({node, getNode, basePath: `posts`, trailingSlash: false})
-		createNodeField({node, name: 'slug', value: slug})
-  }
+	if (node.internal.type === 'wordpress__POST') {
+		const year = node.date.slice(0, 4)
+		const month = node.date.slice(5, 7)
+		const date = `${year}/${month}/`
+		createNodeField({node, name: 'fullSlug', value: date + node.slug})
+	}
 }
 
 exports.createPages = ({ actions, graphql }) => {
@@ -20,14 +20,9 @@ exports.createPages = ({ actions, graphql }) => {
 				edges {
 					node {
 						id
-						title
-						date(formatString: "MMM D")
 						slug
-						format
-						content
-						excerpt
-						categories {
-							name
+						fields {
+							fullSlug
 						}
 					}
 				}
@@ -38,17 +33,18 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-		// createPaginationPages({
-		// 	createPage: createPage,
-		// 	edges: result.data.allWordpressPost.edges,
-		// 	component: path.resolve(`./src/templates/thoughts.js`),
-		// 	limit: 25,
-		// 	pathFormatter: prefixPathFormatter("/thoughts")
-		// });
-
 		result.data.allWordpressPost.edges.map(({ node }) => {
 			createPage({
 				path: node.slug,
+				component: path.resolve(`./src/templates/post.js`),
+				context: {
+					id: node.id,
+					hidden: true
+				}
+			})
+
+			createPage({
+				path: node.fields.fullSlug,
 				component: path.resolve(`./src/templates/post.js`),
 				context: {
 					id: node.id

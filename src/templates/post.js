@@ -10,21 +10,20 @@ const isPhotoset = categories => {
   )).includes(true)
 }
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const post = data.wordpressPost
 
   return (
-    <Page narrow untitled>
+    <Page narrow untitled hidden={pageContext.hidden}>
       <Helmet title={`${post.title || post.slug} | Chase McCoy`} />
 
       <Post
         title={post.title}
         content={post.content}
         date={post.date}
-        // aside={post.format === 'aside' || post.format === 'image'}
         imagePost={post.format === 'image'}
         photoset={isPhotoset(post.categories)}
-        to={post.slug}
+        to={post.fields.fullSlug}
       />
     </Page>
   )
@@ -37,7 +36,9 @@ export const query = graphql`
       content
       format
       date(formatString: "MMMM Do, YYYY")
-      slug
+      fields {
+        fullSlug
+      }
       categories {
         name
       }
