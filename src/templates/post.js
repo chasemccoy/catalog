@@ -36,6 +36,7 @@ export const query = graphql`
       content
       format
       date(formatString: "MMMM Do, YYYY")
+      slug
       fields {
         fullSlug
       }
