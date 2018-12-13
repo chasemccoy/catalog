@@ -7,17 +7,16 @@ import { graphql } from 'gatsby'
 const ArchivePage = ({ data }) => {
   return (
     <Page title={'Archive'}>
-      {data.posts.edges.map(({node}, i) => (
-        <React.Fragment key={i}>
+      {data.posts.edges.map(({ node }) => (
+        <React.Fragment key={node.id}>
           {node.format !== 'image' && (
             <Box mb={[80]}>
               <Post
                 title={node.title}
-                to={node.slug}
+                to={node.fields.fullSlug}
                 date={node.date}
                 content={node.content}
                 excerpt={node.excerpt}
-                aside={node.format === 'aside' ? true : false}
               />
             </Box>
           )}
@@ -37,7 +36,9 @@ export const query = graphql`
           id
           title
           date(formatString: "MMMM Do, YYYY")
-          slug
+          fields {
+            fullSlug
+          }
           format
           content
           excerpt

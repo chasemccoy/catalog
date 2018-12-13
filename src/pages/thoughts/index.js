@@ -16,20 +16,24 @@ const Container = styled(Grid)`
     > * {
       padding: 0;
     }
-  `}
+  `};
 `
 
 const ThoughtsPage = ({ data }) => {
   return (
-    <Page wide title={'Thoughts'} untitled description="What's on my mind, and links to some interesting stuff on the web.">
-
+    <Page
+      wide
+      title={'Thoughts'}
+      untitled
+      description="What's on my mind, and links to some interesting stuff on the web."
+    >
       <Container gutter={32}>
-        <Box width={[1, 1, 1, 1, 4.5/12]}>
-          <Heading.section>Asides</Heading.section>
+        <Box width={[1, 1, 1, 1, 4.5 / 12]}>
+          <Heading.section mb={24}>Asides</Heading.section>
 
-          {data.asides.edges.map(({node}) => (
+          {data.asides.edges.map(({ node }) => (
             <React.Fragment key={node.id}>
-              <Box mb={48}>
+              <Box mb={[32, 32, 48]}>
                 <Post
                   aside
                   to={node.fields.fullSlug}
@@ -42,10 +46,10 @@ const ThoughtsPage = ({ data }) => {
           ))}
         </Box>
 
-        <Box width={[1, 1, 1, 1, 7.5/12]}>
+        <Box width={[1, 1, 1, 1, 7.5 / 12]}>
           <Heading.section>Writing</Heading.section>
 
-          {data.posts.edges.map(({node}) => (
+          {data.posts.edges.map(({ node }) => (
             <React.Fragment key={node.id}>
               <Box mb={[80, 80, 120]}>
                 <Post
@@ -62,12 +66,26 @@ const ThoughtsPage = ({ data }) => {
           <Heading.section>More</Heading.section>
 
           <Grid>
-            {data.olderPosts.edges.map(({node}) => (
-              <Box width={[1, 1/2]} key={node.id}>
-                <Heading.h3 mb='4px' fontFamily='mono' fontSize='16px' lineHeight='1.4'>
-                  <Link to={node.fields.fullSlug} dangerouslySetInnerHTML={{ __html: node.title }} /> →
+            {data.olderPosts.edges.map(({ node }) => (
+              <Box width={[1, 1 / 2]} key={node.id}>
+                <Heading.h3
+                  mb="4px"
+                  fontFamily="mono"
+                  fontSize="16px"
+                  lineHeight="1.4"
+                >
+                  <Link
+                    to={node.fields.fullSlug}
+                    dangerouslySetInnerHTML={{ __html: node.title }}
+                  />{' '}
+                  →
                 </Heading.h3>
-                <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='16px' mb={['-16px', '-24px', '-32px']} lineHeight='1.4' />
+                <Text
+                  dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                  fontSize="16px"
+                  mb={['-16px', '-24px', '-32px']}
+                  lineHeight="1.4"
+                />
               </Box>
             ))}
           </Grid>
@@ -81,7 +99,7 @@ export default ThoughtsPage
 
 export const query = graphql`
   query ThoughtsQuery {
-    posts: allWordpressPost(filter: {format: {eq: "standard"}}, limit: 1) {
+    posts: allWordpressPost(filter: { format: { eq: "standard" } }, limit: 1) {
       edges {
         node {
           id
@@ -100,7 +118,11 @@ export const query = graphql`
       }
     }
 
-    olderPosts: allWordpressPost(filter: {format: {eq: "standard"}}, skip: 1, limit: 8) {
+    olderPosts: allWordpressPost(
+      filter: { format: { eq: "standard" } }
+      skip: 1
+      limit: 8
+    ) {
       edges {
         node {
           id
@@ -114,7 +136,7 @@ export const query = graphql`
       }
     }
 
-    asides: allWordpressPost(filter: {format: {eq: "aside"}}, limit: 25) {
+    asides: allWordpressPost(filter: { format: { eq: "aside" } }, limit: 25) {
       edges {
         node {
           id

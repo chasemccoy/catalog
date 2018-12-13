@@ -5,17 +5,18 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 const isPhotoset = categories => {
-  return categories.map(category => (
-    Object.values(category).includes('Photoset')
-  )).includes(true)
+  return categories
+    .map(category => Object.values(category).includes('Photoset'))
+    .includes(true)
 }
 
 export default ({ data, pageContext }) => {
   const post = data.wordpressPost
+  const normalizedTitle = post.title.replace(/&nbsp;/g, ' ')
 
   return (
     <Page narrow untitled hidden={pageContext.hidden}>
-      <Helmet title={`${post.title || post.slug} | Chase McCoy`} />
+      <Helmet title={`${normalizedTitle || post.slug}`} />
 
       <Post
         title={post.title}
