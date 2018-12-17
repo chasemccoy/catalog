@@ -10,8 +10,10 @@ import { ThemeContext } from 'components/Layout'
 import Button from 'components/Button'
 
 const Container = styled(Box.withComponent('aside'))`
-  min-width: ${p => p.theme.sizes.layout.sidebarWidth + p.theme.sizes.layout.gutter}px;
-  max-width: ${p => p.theme.sizes.layout.sidebarWidth + p.theme.sizes.layout.gutter}px;
+  min-width: ${p =>
+    p.theme.sizes.layout.sidebarWidth + p.theme.sizes.layout.gutter}px;
+  max-width: ${p =>
+    p.theme.sizes.layout.sidebarWidth + p.theme.sizes.layout.gutter}px;
   padding-right: ${p => p.theme.sizes.layout.gutter}px;
 
   font-size: 14px;
@@ -22,23 +24,29 @@ const Container = styled(Box.withComponent('aside'))`
     max-width: 100%;
     padding: 0;
     margin-bottom: 80px;
-  `}
-
-  li {
+  `} li {
     margin: 0;
   }
 `
 
-const Header = props => <Heading.h1 fontFamily='mono' fontSize='14px' mb='4px' css={`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`} {...props} />
+const Header = props => (
+  <Heading.h1
+    fontFamily="mono"
+    fontSize="14px"
+    mb="4px"
+    css={`
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    `}
+    {...props}
+  />
+)
 
 const ToggleTheme = () => (
   <ThemeContext.Consumer>
-    {({_, toggleTheme}) => (
-      <Button onClick={toggleTheme} fontSize='24px' unstyled>
+    {({ _, toggleTheme }) => (
+      <Button onClick={toggleTheme} fontSize="24px" unstyled>
         ☼
       </Button>
     )}
@@ -58,7 +66,8 @@ class Sidebar extends React.Component {
 
   componentDidMount = () => {
     // If we're loading up the site on a larger screen, expand the sidebar by default
-    window.matchMedia('(min-width: 768px)').matches && this.setState({open: true})
+    window.matchMedia('(min-width: 768px)').matches &&
+      this.setState({ open: true })
 
     fetch(`https://chs-stats.now.sh/weather`)
       .then(response => response.json())
@@ -83,7 +92,7 @@ class Sidebar extends React.Component {
   }
 
   toggleOpen = () => {
-    this.setState({open: !this.state.open})
+    this.setState({ open: !this.state.open })
   }
 
   render() {
@@ -91,40 +100,79 @@ class Sidebar extends React.Component {
 
     return (
       <Container {...this.props}>
-        <Header fontSize='16px' mb='8px'><Link to='/' unstyled>@CHASE_MCCOY</Link> <ToggleTheme /></Header>
-        <Text.p>Thinking about design in the context of ethics, tooling, art, culture, and computer science.</Text.p>
+        <Header fontSize="16px" mb="8px" mt="-8px">
+          <Link to="/" unstyled>
+            CHASE McCOY
+          </Link>{' '}
+          <ToggleTheme />
+        </Header>
+
+        <Text.p>
+          Thinking about design in the context of ethics, tooling, art, culture,
+          and computer science.
+        </Text.p>
 
         <Header>Get in touch</Header>
-        <Text.p><Link to='https://twitter.com/chase_mccoy'>Twitter</Link>, <Link to='https://instagram.com/chs_mc'>Instagram</Link>, <Link to='https://github.com/chasemccoy'>GitHub</Link>, <Link to='mailto:desk@chasem.co'>Email</Link>, & <Link to='/feed.xml'>RSS</Link>.</Text.p>
+        <Text.p>
+          <Link to="https://twitter.com/chase_mccoy">Twitter</Link>,{' '}
+          <Link to="https://instagram.com/chs_mc">Instagram</Link>,{' '}
+          <Link to="https://github.com/chasemccoy">GitHub</Link>,{' '}
+          <Link to="mailto:desk@chasem.co">Email</Link>, &{' '}
+          <Link to="/feed.xml">RSS</Link>.
+        </Text.p>
 
         <Header>Browse</Header>
         <UnorderedList unstyled mb={32}>
-          <li><Link to='/thoughts'>/thoughts</Link></li>
+          <li>
+            <Link to="/thoughts">/thoughts</Link>
+          </li>
           <li>/resources</li>
           <UnorderedList unstyled ml={4}>
-            <li><Link to='/books'>/books</Link></li>
-            <li><Link to='/chicago'>/chicago</Link></li>
-            <li><Link to='/quotes'>/quotes</Link></li>
+            <li>
+              <Link to="/books">/books</Link>
+            </li>
+            <li>
+              <Link to="/chicago">/chicago</Link>
+            </li>
+            <li>
+              <Link to="/quotes">/quotes</Link>
+            </li>
           </UnorderedList>
-          <li><Link to='/portfolio'>/portfolio</Link></li>
+          <li>
+            <Link to="/portfolio">/portfolio</Link>
+          </li>
         </UnorderedList>
 
         {this.state.open ? (
           <React.Fragment>
             <Header>Currently</Header>
             <UnorderedList mb={32}>
-              <li>Working on ░░░░░░ at <Link to='https://sproutsocial.com'>Sprout Social</Link></li>
-              <li>{nowPlayingName && nowPlayingArtist ? (
-                <React.Fragment>
-                  Listening to {nowPlayingName} by {nowPlayingArtist} on <Link to='https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ'>Spotify</Link>
-                </React.Fragment>
-              ) : 'Loading...'}</li>
-              <li>{weatherTemperature ? (
-                <React.Fragment>
-                  {weatherTemperature} in <Link to='/chicago'>Chicago</Link>
-                </React.Fragment>
-              ) : 'Loading...'}</li>
-              {/* <li>{nowPlayingName && nowPlayingArtist ? (
+              <li>
+                Working on ░░░░░░ at{' '}
+                <Link to="https://sproutsocial.com">Sprout Social</Link>
+              </li>
+              <li>
+                {nowPlayingName && nowPlayingArtist ? (
+                  <React.Fragment>
+                    Listening to {nowPlayingName} by {nowPlayingArtist} on{' '}
+                    <Link to="https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ">
+                      Spotify
+                    </Link>
+                  </React.Fragment>
+                ) : (
+                  'Loading...'
+                )}
+              </li>
+              <li>
+                {weatherTemperature ? (
+                  <React.Fragment>
+                    {weatherTemperature} in <Link to="/chicago">Chicago</Link>
+                  </React.Fragment>
+                ) : (
+                  'Loading...'
+                )}
+              </li>
+              {/* <li>{beerName && beerBrewery ? (
                 <React.Fragment>
                   Drinking a {beerName} from {beerBrewery}
                 </React.Fragment>
@@ -133,17 +181,36 @@ class Sidebar extends React.Component {
 
             <Header>Writing</Header>
             <UnorderedList mb={3}>
-              <li><Link to='/art-from-autonomy'>Making Computers Make Art</Link></li>
-              <li><Link to='/some-prompted-thoughts-on-design'>Some prompted thoughts on design</Link></li>
-              <li><Link to='/no-reservations'>No Reservations</Link></li>
-              <li><Link to='/exploring-seattle'>Exploring Seattle</Link></li>
+              <li>
+                <Link to="/2018/09/art-from-autonomy">
+                  Making Computers Make Art
+                </Link>
+              </li>
+              <li>
+                <Link to="/2018/06/some-prompted-thoughts-on-design">
+                  Some prompted thoughts on design
+                </Link>
+              </li>
+              <li>
+                <Link to="/2018/06/no-reservations">No Reservations</Link>
+              </li>
+              <li>
+                <Link to="/2018/05/exploring-seattle">Exploring Seattle</Link>
+              </li>
             </UnorderedList>
 
-            <Link to='/thoughts' display='inline-block' mb={32}>More →</Link>
+            <Link to="/thoughts" display="inline-block" mb={32}>
+              More →
+            </Link>
 
             <Header>Quoted</Header>
-            <Text.p mb='8px'>Be regular and orderly in your life, so that you may be violent and original in your work.</Text.p>
-            <Text.p mb={32}><em>— Gustave Flaubert</em></Text.p>
+            <Text.p mb="8px">
+              Be regular and orderly in your life, so that you may be violent
+              and original in your work.
+            </Text.p>
+            <Text.p mb={32}>
+              <em>— Gustave Flaubert</em>
+            </Text.p>
 
             <Button onClick={this.toggleOpen}>- collapse</Button>
           </React.Fragment>

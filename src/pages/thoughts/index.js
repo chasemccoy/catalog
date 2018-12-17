@@ -33,7 +33,7 @@ const ThoughtsPage = ({ data }) => {
 
           {data.asides.edges.map(({ node }) => (
             <React.Fragment key={node.id}>
-              <Box mb={[32, 32, 48]}>
+              <Box mb={[40, 40, 48]}>
                 <Post
                   aside
                   to={node.fields.fullSlug}
@@ -83,7 +83,7 @@ const ThoughtsPage = ({ data }) => {
                 <Text
                   dangerouslySetInnerHTML={{ __html: node.excerpt }}
                   fontSize="16px"
-                  mb={['-16px', '-24px', '-32px']}
+                  mb={['-16px', '-24px', '-24px']}
                   lineHeight="1.4"
                 />
               </Box>

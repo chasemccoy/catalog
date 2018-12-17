@@ -26,8 +26,9 @@ const Container = styled.div`
     padding: 0 16px;
   }
 
-  iframe + p {
-    margin-top: 24px;
+  iframe {
+    margin-bottom: 0;
+    width: 100%;
   }
 `
 
