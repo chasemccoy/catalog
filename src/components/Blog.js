@@ -30,6 +30,26 @@ const Container = styled.div`
     margin-bottom: 0;
     width: 100%;
   }
+
+  .wp-block-embed {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+
+    ${media.small`
+      width: calc(100% + 32px);
+      margin-left: -16px;
+    `}
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
 `
 
 const AsideContainer = styled(Container)`

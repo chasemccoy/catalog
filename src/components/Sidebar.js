@@ -181,6 +181,11 @@ class Sidebar extends React.Component {
 
             <Header>Writing</Header>
             <UnorderedList mb={3}>
+            <li>
+                <Link to="/2018/12/xoxo-2018">
+                  XOXO 2018
+                </Link>
+              </li>
               <li>
                 <Link to="/2018/09/art-from-autonomy">
                   Making Computers Make Art

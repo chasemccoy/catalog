@@ -113,7 +113,7 @@ class IndexPage extends React.Component {
             <Grid>
               <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0, 0, '8px']}>
                 <Heading.section mb={'8px'}>Things I Like</Heading.section>
-                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>Hypertext, design systems, internet culture, online communities, indie publishing, creative coding, digital preservationism, and a diverse & open web.</Text>
+                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>Hypertext, CSS, design systems, internet culture, online communities, indie publishing, creative coding, digital preservationism, and a diverse & open web.</Text>
               </Box>
 
               <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0]}>
