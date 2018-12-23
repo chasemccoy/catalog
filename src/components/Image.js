@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 import Link from 'components/Link'
 import { borderRadius } from 'styled-system'
@@ -22,7 +22,7 @@ export const ImageLink = StyledImage.withComponent(Link)
 const RegularImage = StyledImage.withComponent('img')
 
 const ShowcaseImageStyles = src => {
-  return `
+  return css`
     background-image: url(${src});
     background-position: center;
     background-size: cover;

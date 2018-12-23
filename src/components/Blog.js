@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import media from 'utils/media'
@@ -78,7 +78,7 @@ const AsideContainer = styled(Container)`
   }
 
 
-  ${p => p.filmstrip && `
+  ${p => p.filmstrip && css`
     img {
       height: 300px;
       object-fit: cover;
@@ -99,7 +99,7 @@ const AsideContainer = styled(Container)`
     }
   `}
 
-  ${p => p.photo && `
+  ${p => p.photo && css`
     font-size: 1rem;
   `}
 `

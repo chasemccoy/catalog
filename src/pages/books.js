@@ -10,14 +10,14 @@ import Heading from 'components/Heading'
 
 const BooksPage = ({ data }) => {
   return (
-    <Page resource title="Books" icon="book" description="A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.">
-      <Text.p>
+    <Page wide title="Books" icon="book" description="A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.">
+      <Text.p width={[1, 1, 1, 0.5]}>
         A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.
       </Text.p>
 
       <Row mt={6} alignItems='flex-end' className='full'>
         {data.books.edges.map(({node}, i) => (
-          <Column width={[1/2, 1/2, 1/3]} key={i}>
+          <Column width={[1/2, 1/3, 1/2, 1/3, 1/4]} key={i}>
             <Link to={node.url} unstyled>
               <Image fluid={node.image.childImageSharp.fluid} />
 

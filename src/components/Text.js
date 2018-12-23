@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {
   space,
   color,
@@ -28,9 +28,13 @@ const Text = styled.div`
   ${maxWidth}
   ${display}
 
-  ${p => p.uppercase && `
+  ${p => p.uppercase && css`
     text-transform: uppercase;
     letter-spacing: 1px;
+  `}
+
+  ${p => p.italic && css`
+    font-style: italic;
   `}
 `
 

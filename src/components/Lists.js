@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { space, display, borders, borderColor } from 'styled-system'
 
 export const UnorderedList = styled.ul`
@@ -10,7 +10,7 @@ export const UnorderedList = styled.ul`
     margin-left: -1rem;
   }
 
-  ${props => props.inline && `
+  ${props => props.inline && css`
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -26,7 +26,7 @@ export const UnorderedList = styled.ul`
     }
   `}
 
-  ${props => props.unstyled && `
+  ${props => props.unstyled && css`
     list-style-type: none;
     margin: 0;
     padding: 0;

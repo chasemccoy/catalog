@@ -14,4 +14,9 @@
 		metadata: John Adams
 		tags: ['life', 'responsibility', 'art']
 	}
+	{
+		content: All design work seems to have three common traits: there is a message to the work, the tone of that message, and the format that the work takes. Successful design has all three elements working in co-dependence to achieve a whole greater than the sum of the individual parts.
+		metadata: Frank Chimero, The Shape of Design
+		tags: ['design']
+	}
 ]

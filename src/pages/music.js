@@ -12,7 +12,7 @@ import { graphql } from 'gatsby'
 
 const Track = styled(Box)`
   & + & {
-    border-top: 1px solid ${props => props.theme.colors.gray[1]};
+    border-top: 1px solid ${props => props.theme.colors.gray[0]};
   }
 `
 
@@ -54,12 +54,12 @@ class MusicPage extends React.Component {
         <Row mb={4} className='full'>
           {this.props.data.music.edges.map(({node}, i) => (
             <Column width={[1/2, 1/3]} key={i}>
-              <Link to={node.url} unstyled>
+              <Link to={node.url} unstyled color='page.text'>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
                 <Box height={['10em', '10em', '10em', '8em']} mt={3}>
                   <Heading.h3 mb={2}>{node.title}</Heading.h3>
-                  <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal'>{node.metadata}</Heading.h4>
+                  <Text color='gray.3' fontFamily='mono' fontSize='16px'>{node.metadata}</Text>
                 </Box>
               </Link>
             </Column>
@@ -78,7 +78,7 @@ class MusicPage extends React.Component {
                   <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
                     <Track.Title>{track.name}</Track.Title>
 
-                    <Heading.h4 color='gray.3' fontFamily='sans' fontWeight='normal' m={0}>{track.artist}</Heading.h4>
+                    <Text color='gray.3' fontFamily='mono' fontSize='16px'>{track.artist}</Text>
                   </Box>
                 </Track>
               )

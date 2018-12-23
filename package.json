@@ -33,7 +33,6 @@
     "react-typography": "^0.16.13",
     "styled-components": "^4.1.2",
     "styled-system": "^3.1.11",
-    "svgxuse": "^1.2.6",
     "system-components": "^3.0.2",
     "typography": "^0.16.17"
   },

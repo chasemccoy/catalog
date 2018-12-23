@@ -46,7 +46,7 @@ const sizes = {
   layout: {
     containerPadding: 64,
     sidebarWidth: 280,
-    contentMaxWidth: 700,
+    contentMaxWidth: 728,
     gutter: 0
   },
   timeline: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Helmet from 'react-helmet'
 import Sidebar from 'components/Sidebar'
 import Heading from 'components/Heading'
@@ -36,7 +36,7 @@ const Content = styled.main`
     max-width: none;
   `}
 
-  ${p => p.wide && `
+  ${p => p.wide && css`
     padding-left: 80px;
     max-width: 1300px;
   `}
@@ -60,7 +60,7 @@ const Page = props => (
 
       <Content wide={props.wide} id='content'>
         {props.title && !props.untitled && (
-          <Heading.h1>{props.title}</Heading.h1>
+          <Heading.h1 mt={-2}>{props.title}</Heading.h1>
         )}
 
         {props.children}

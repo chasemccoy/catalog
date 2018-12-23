@@ -1,14 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import Text from 'components/Text'
 
 const Container = styled(Text)`
-  ${props => props.unstyled && `
+  ${props => props.unstyled && css`
     text-decoration: none;
   `}
 
-  ${props => props.underlined && `
+  ${props => props.underlined && css`
     text-decoration: underline;
   `}
 `

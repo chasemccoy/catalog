@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Image from 'components/Image'
 import Markdown from 'components/Markdown'
 import media from 'utils/media'
@@ -30,45 +30,65 @@ const Container = styled(Link)`
 
 const Title = styled(Heading.h2)`
   margin: 12px 0 4px;
-  font-family: ${props => props.theme.fonts.body};
-  line-height: 1.3;
+  font-family: ${p => p.theme.fonts.body};
+  font-size: 32px;
 
-  ${props => props.small && `margin-top: -2px;`}
-  ${props =>props.large && `margin-top: -2px;`}
-  ${media.tiny`margin-top: 12px;`};
+  ${p => p.small && css`
+    font-size: 24px;
+    margin-top: -2px;
+  `}
+
+  ${p => p.large && css`
+    margin-top: -2px;
+  `}
+
+  ${media.small`
+    margin-top: 12px;
+    font-size: 26px;
+  `};
 `
 
 const Description = styled.div`
   margin-bottom: ${props => (props.bottom || props.split ? `0` : `12px`)};
-  font-size: 18px;
+  font-size: 20px;
+
+  ${p => p.small && css`
+    font-size: 17px;
+    margin-top: -2px;
+  `}
+
+  ${media.small`
+    font-size: 18px;
+  `};
 `
 
 const FlexImage = styled(Image)`
   flex-grow: 1;
   padding-bottom: 0;
-  min-height: 150px;
+  min-height: 250px;
   height: auto;
   border-radius: 0;
 
-  ${props =>
-    props.split &&
-    `
+  ${props =>props.split && css`
     width: 55%;
     margin-right: 24px;
-  `} ${props =>
-      props.split &&
-      media.tiny`
+  `} 
+  
+  ${props => props.split && media.tiny`
     width: 100%;
     margin-right: 0;
-  `} position: relative !important;
+  `} 
+  
+  position: relative !important;
 `
 
 const InformationContainer = styled.div`
-  ${props => props.split && `width: 45%;`} ${props =>
-      props.split &&
-      media.small`
+  ${props => props.split && css`width: 45%;`} 
+  ${props => props.split && media.small`
     width: 100%;
-  `} ${media.tiny`order: 2;`};
+  `} 
+  
+  ${media.tiny`order: 2;`};
 `
 
 const Badge = styled.div`
@@ -90,7 +110,7 @@ const Information = props => (
       {props.title}
     </Title>
 
-    <Description split={props.split} bottom={props.bottom}>
+    <Description split={props.split} bottom={props.bottom} small={props.small}>
       <Markdown>{props.description}</Markdown>
     </Description>
   </InformationContainer>

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import sprite from '../sprite.svg'
 import { space } from 'styled-system'
 
@@ -12,19 +12,17 @@ const StyledIcon = styled.svg`
   vertical-align: middle;
   max-width: ${props => (props.large ? `32px` : `24px`)};
 
-  ${props =>
-    props.small &&
-    `
+  ${props => props.small && css`
 		height: 20px;
 		max-width: 20px;
-	`} ${props =>
-      props.jumbo &&
-      `
+	`} 
+  
+  ${props => props.jumbo && css`
 		height: 48px;
 		max-width: 48px;
 	`};
 
-  ${p => p.tiny && `
+  ${p => p.tiny && css`
     height: 14px;
     max-width: 14px;
     margin: 0;
