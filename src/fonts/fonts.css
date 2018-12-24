@@ -1,45 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600');
 
 /* @font-face {
-    font-family: 'Tiempos';
-    src: url('TiemposText-Medium.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-} */
-
-/* @font-face {
-    font-family: 'Tiempos';
-    src: url('TiemposText-SemiboldItalic.woff') format('woff'),
-        url('TiemposText-SemiboldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: optional;
-} */
-
-/* @font-face {
-    font-family: 'Tiempos';
-    src: url('TiemposText-RegularItalic.woff2') format('woff2'),
-        url('TiemposText-RegularItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Tiempos';
-    src: url('TiemposText-Regular.woff2') format('woff2'),
-        url('TiemposText-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} */
-
-@font-face {
     font-family: 'iA Writer Duospace';
     src: url('iAWriterDuospace-Bold.woff2') format('woff2'),
         url('iAWriterDuospace-Bold.woff') format('woff'),
         url('iAWriterDuospace-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
-}
+} */
 
 /* @font-face {
     font-family: 'iA Writer Duospace';
@@ -50,7 +18,7 @@
     font-style: italic;
 } */
 
-@font-face {
+/* @font-face {
     font-family: 'iA Writer Duospace';
     src: url('iAWriterDuospace-Regular.woff2') format('woff2'),
         url('iAWriterDuospace-Regular.woff') format('woff'),
@@ -66,37 +34,40 @@
         url('iAWriterDuospace-RegularItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
-}
+} */
 
+@font-face {
+    font-family: 'iA Writer Quattro';
+    src: url('iAWriterQuattroS-Bold.woff2') format('woff2'),
+        url('iAWriterQuattroS-Bold.woff') format('woff'),
+        url('iAWriterQuattroS-Bold.eot') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 
 /* @font-face {
-    font-family: 'Whitney';
-    src: url('WhitneyHTF-BookItalic.woff2') format('woff2'),
-        url('WhitneyHTF-BookItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Whitney';
-    src: url('WhitneyHTF-Book.woff2') format('woff2'),
-        url('WhitneyHTF-Book.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Whitney';
-    src: url('WhitneyHTF-SemiBold.woff2') format('woff2'),
-        url('WhitneyHTF-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Whitney';
-    src: url('WhitneyHTF-SemiBoldItalic.woff2') format('woff2'),
-        url('WhitneyHTF-SemiBoldItalic.woff') format('woff');
-    font-weight: 600;
+    font-family: 'iA Writer Quattro';
+    src: url('iAWriterQuattroS-BoldItalic.woff2') format('woff2'),
+        url('iAWriterQuattroS-BoldItalic.woff') format('woff'),
+        url('iAWriterQuattroS-BoldItalic.eot') format('truetype');
+    font-weight: bold;
     font-style: italic;
 } */
+
+@font-face {
+    font-family: 'iA Writer Quattro';
+    src: url('iAWriterQuattroS-Regular.woff2') format('woff2'),
+        url('iAWriterQuattroS-Regular.woff') format('woff'),
+        url('iAWriterQuattroS-Regular.eot') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'iA Writer Quattro';
+    src: url('iAWriterQuattroS-Italic.woff2') format('woff2'),
+        url('iAWriterQuattroS-Italic.woff') format('woff'),
+        url('iAWriterQuattroS-Italic.eot') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}

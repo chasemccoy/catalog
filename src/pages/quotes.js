@@ -11,7 +11,7 @@ export const Quote = ({content, source, ...rest}) => (
       {content}
     </Text.p>
 
-    <Text.p m={0} fontSize={18} fontFamily='mono' color='gray.3' italic>
+    <Text.p m={0} fontSize={18} fontFamily='mono' color='gray.4' italic>
       — {source}
     </Text.p>
   </Box>

@@ -118,7 +118,7 @@ class IndexPage extends React.Component {
 
               <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0]}>
                 <Heading.section mb='8px'>Colophon</Heading.section>
-                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>This site was built using <Link to='https://gatsbyjs.org'>Gatsby</Link>, <Link to='https://styled-components.com'>styled-components</Link>, and <Link to='https://netlify.com'>Netlify</Link>. Text is set in Source Serif Pro and iA Writer Duospace. Weather data provided by the <Link to='https://darksky.net/dev'>Dark Sky</Link> API.</Text>
+                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>This site was built using <Link to='https://gatsbyjs.org'>Gatsby</Link>, <Link to='https://styled-components.com'>styled-components</Link>, and <Link to='https://netlify.com'>Netlify</Link>. Text is set in Source Serif Pro and iA Writer Quattro. Weather data provided by the <Link to='https://darksky.net/dev'>Dark Sky</Link> API.</Text>
               </Box>
             </Grid>
           </Box>

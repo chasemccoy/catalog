@@ -113,7 +113,7 @@ class Sidebar extends React.Component {
         </Text.p>
 
         <Header>Get in touch</Header>
-        <Text.p>
+        <Text.p width='95%'>
           <Link to="https://twitter.com/chase_mccoy">Twitter</Link>,{' '}
           <Link to="https://instagram.com/chs_mc">Instagram</Link>,{' '}
           <Link to="https://github.com/chasemccoy">GitHub</Link>,{' '}
