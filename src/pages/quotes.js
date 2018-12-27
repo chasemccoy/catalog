@@ -12,7 +12,7 @@ export const Quote = ({content, source, ...rest}) => (
     </Text.p>
 
     <Text.p m={0} fontSize={18} fontFamily='mono' color='gray.4' italic>
-      — {source}
+      {source}
     </Text.p>
   </Box>
 )
@@ -20,7 +20,7 @@ export const Quote = ({content, source, ...rest}) => (
 const QuotesPage = ({ data }) => {
   return (
     <Page wide title="Quotes" description="Words worth keeping in mind.">
-      <MultiColumn count={2} gap='80px' minWidth='400px' mt={48}>
+      <MultiColumn count={2} gap='64px' minColumnWidth='400px' mt={48}>
         {data.quotes.edges.map(({ node }, i) => (
           <Quote
             content={node.content}

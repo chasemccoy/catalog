@@ -10,7 +10,7 @@ const Container = styled(Link)`
   color: ${p => p.theme.colors.page.text};
 
   &:hover {
-    color: ${p => p.theme.colors.type.body};
+    color: ${p => p.theme.colors.page.text};
   }
 
   p:last-child {
@@ -93,6 +93,7 @@ const InformationContainer = styled.div`
 
 const Badge = styled.div`
   background-color: white;
+  color: ${p => p.theme.colors.type.body};
   padding: 4px 8px;
   position: absolute;
   bottom: 8px;

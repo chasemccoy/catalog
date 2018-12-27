@@ -68,7 +68,7 @@ const AsideContainer = styled(Container)`
     margin-bottom: 0;
 
     ${media.small`
-    max-width: calc(50% + 12px);
+      max-width: calc(50% + 12px);
     `}
 
     & + img {
