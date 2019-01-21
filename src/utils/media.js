@@ -6,7 +6,7 @@ export const media = Object.keys(theme.namedBreakpoints).reduce(
   (accumulator, label) => {
     accumulator[label] = (...args) => css`
       @media (max-width: ${theme.namedBreakpoints[label]}) {
-        ${css(...args)};
+        ${css(...args)}
       }
     `
     return accumulator

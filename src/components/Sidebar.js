@@ -113,6 +113,7 @@ class Sidebar extends React.Component {
         </Text.p>
 
         <Header>Get in touch</Header>
+
         <Text.p width='95%'>
           <Link to="https://twitter.com/chase_mccoy">Twitter</Link>,{' '}
           <Link to="https://instagram.com/chs_mc">Instagram</Link>,{' '}
@@ -122,6 +123,7 @@ class Sidebar extends React.Component {
         </Text.p>
 
         <Header>Browse</Header>
+
         <UnorderedList unstyled mb={32}>
           <li>
             <Link to="/thoughts">/thoughts</Link>
@@ -148,8 +150,7 @@ class Sidebar extends React.Component {
             <Header>Currently</Header>
             <UnorderedList mb={32}>
               <li>
-                Working on ░░░░░░ at{' '}
-                <Link to="https://sproutsocial.com">Sprout Social</Link>
+                Working on <Link to='https://sproutsocial.com/seeds'>Seeds</Link> at <Link to='https://sproutsocial.com'>Sprout Social</Link>
               </li>
               <li>
                 {nowPlayingName && nowPlayingArtist ? (
