@@ -15,3 +15,27 @@ export function stripTags(string) {
 
   return string.replace(/<[^>]*>/g, '')
 }
+
+export const mergePostsByDateFromData = data => {
+  let allPosts = [...data.mdxPosts.edges, ...data.posts.edges]
+
+  allPosts = allPosts.sort((a, b) => {
+    const firstDate = a.node.frontmatter ? a.node.frontmatter.rawDate : a.node.rawDate
+    const secondDate = b.node.frontmatter ? b.node.frontmatter.rawDate : b.node.rawDate
+    return new Date(secondDate) - new Date(firstDate)
+  })
+
+  return allPosts
+}
+
+export const slugify = string => {
+  return string
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+}

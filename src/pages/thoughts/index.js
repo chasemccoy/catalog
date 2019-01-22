@@ -8,6 +8,7 @@ import Link from 'components/Link'
 import Heading from 'components/Heading'
 import { graphql } from 'gatsby'
 import media from 'utils/media'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
 const Container = styled(Grid)`
   ${media.small`
@@ -58,6 +59,7 @@ const ThoughtsPage = ({ data }) => {
                   to={node.slug}
                   date={node.date}
                   content={node.content}
+                  render={node.code ? <MDXRenderer>{node.code.body}</MDXRenderer> : undefined}
                   excerpt={node.excerpt}
                 />
               </Box>
@@ -83,7 +85,7 @@ const ThoughtsPage = ({ data }) => {
                   →
                 </Heading.h3>
                 <Text
-                  dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                  dangerouslySetInnerHTML={{ __html: node.frontmatter ? node.frontmatter.excerpt : node.excerpt }}
                   fontSize="16px"
                   mb={['-16px', '-24px', '-24px']}
                   lineHeight="1.4"

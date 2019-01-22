@@ -190,7 +190,7 @@ export const Post = props => {
       <AsideContainer photo={props.imagePost}>
         {meta}
         {title}
-        {content}
+        {props.render || content}
       </AsideContainer>
     )
   } else {

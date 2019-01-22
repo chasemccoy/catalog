@@ -1,4 +1,5 @@
 const dotenv = require('dotenv').config();
+const feedConfig = require('./feed-config.js')
 
 module.exports = {
   siteMetadata: {
@@ -18,12 +19,6 @@ module.exports = {
     }
   ],
   plugins: [
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/Layout`)
-      }
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
@@ -32,6 +27,7 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-hjson`,
     `gatsby-plugin-twitter`,
+    feedConfig,
     {
       resolve: `gatsby-plugin-favicon`,
       options: {

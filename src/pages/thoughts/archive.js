@@ -3,6 +3,7 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import { Box } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
 const ArchivePage = ({ data }) => {
   return (
@@ -16,6 +17,7 @@ const ArchivePage = ({ data }) => {
                 to={node.slug}
                 date={node.date}
                 content={node.content}
+                render={node.code ? <MDXRenderer>{node.code.body}</MDXRenderer> : undefined}
                 excerpt={node.excerpt}
               />
             </Box>

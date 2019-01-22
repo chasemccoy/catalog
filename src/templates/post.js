@@ -19,7 +19,7 @@ export default ({ data, pageContext }) => {
       <Post
         title={post.title}
         content={post.content}
-        date={post.date}
+        date={post.longDate}
         imagePost={post.format === 'image'}
         to={post.slug}
         tags={post.tags}
