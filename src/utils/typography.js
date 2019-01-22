@@ -1,7 +1,7 @@
 import Typography from 'typography'
 import theme from 'utils/theme'
 
-const fontFamilyArray = value => value.replace(/[\"\"&]+/g, '').split(', ')
+const fontFamilyArray = value => value.replace(/[""&]+/g, '').split(', ')
 
 const typography = new Typography({
   baseFontSize: '20px',

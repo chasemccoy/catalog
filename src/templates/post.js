@@ -23,7 +23,7 @@ export default ({ data, pageContext }) => {
         content={post.content}
         date={post.date}
         imagePost={post.format === 'image'}
-        photoset={isPhotoset(post.categories)}
+        photoset={post.categories && isPhotoset(post.categories)}
         to={post.fields.fullSlug}
       />
     </Page>
