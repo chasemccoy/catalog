@@ -55,6 +55,10 @@ const Container = styled.div`
 const AsideContainer = styled(Container)`
   font-size: 17px;
 
+  ${media.small`
+    font-size: 16px;
+  `}
+
   p, blockquote, img {
     margin-bottom: 1em;
   }

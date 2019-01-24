@@ -30,7 +30,6 @@ const CSS = createGlobalStyle`
     overflow: auto;
     background-color: ${p => p.theme.colors.gray[0]};
     border-radius: 6px;
-    font-size: 1em;
 
     code {
       padding: 8px 16px;
@@ -88,6 +87,8 @@ class Layout extends React.Component {
             <meta name="twitter:site" content="@chase_mccoy" />
             <meta name="twitter:card" content="summary" />
             <link href="https://twitter.com/chase_mccoy" rel="me" />
+            <link rel="webmention" href="https://webmention.io/chasem.co/webmention" />
+            <link rel="pingback" href="https://webmention.io/chasem.co/xmlrpc" />
           </Helmet>
 
           <CSS />

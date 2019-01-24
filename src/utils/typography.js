@@ -23,6 +23,13 @@ const typography = new Typography({
     },
     ul: {
       marginLeft: '1rem'
+    },
+    pre: {
+      fontSize: '1em'
+    },
+    code: {
+      fontSize: '0.75em',
+      lineHeight: 1.5
     }
   })
 })
