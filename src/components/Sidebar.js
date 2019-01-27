@@ -129,17 +129,19 @@ class Sidebar extends React.Component {
             <Link to="/thoughts">/thoughts</Link>
           </li>
           <li>/resources</li>
-          <UnorderedList unstyled ml={4}>
-            <li>
-              <Link to="/books">/books</Link>
-            </li>
-            <li>
-              <Link to="/chicago">/chicago</Link>
-            </li>
-            <li>
-              <Link to="/quotes">/quotes</Link>
-            </li>
-          </UnorderedList>
+          <li>
+            <UnorderedList unstyled ml={4}>
+              <li>
+                <Link to="/books">/books</Link>
+              </li>
+              <li>
+                <Link to="/chicago">/chicago</Link>
+              </li>
+              <li>
+                <Link to="/quotes">/quotes</Link>
+              </li>
+            </UnorderedList>
+          </li>
           <li>
             <Link to="/portfolio">/portfolio</Link>
           </li>

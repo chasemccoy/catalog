@@ -30,6 +30,10 @@ const typography = new Typography({
     code: {
       fontSize: '0.75em',
       lineHeight: 1.5
+    },
+    a: {
+      textDecorationSkip: 'unset',
+      '-webkit-text-decoration-skip': 'unset'
     }
   })
 })

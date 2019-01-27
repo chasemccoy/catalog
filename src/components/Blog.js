@@ -54,6 +54,7 @@ const Container = styled.div`
 
 const AsideContainer = styled(Container)`
   font-size: 17px;
+  line-height: 1.4;
 
   ${media.small`
     font-size: 16px;

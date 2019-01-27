@@ -6,7 +6,6 @@ import darkTheme from 'utils/theme-dark'
 
 const CSS = createGlobalStyle`
   a {
-    text-decoration-skip: unset;
     color: ${p => p.theme.colors.accent};
     text-decoration: underline;
   }
