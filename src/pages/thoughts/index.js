@@ -27,7 +27,7 @@ const ThoughtsPage = ({ data }) => {
       untitled
       description="What's on my mind, and links to some interesting stuff on the web."
     >
-      <Container gutter={32}>
+      <Container gutter={24}>
         <Box width={[1, 1, 1, 1, 4.5 / 12]}>
           <Heading.section mb={24}>Asides</Heading.section>
 
