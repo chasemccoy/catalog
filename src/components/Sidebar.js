@@ -8,6 +8,7 @@ import Heading from 'components/Heading'
 import { UnorderedList } from 'components/Lists'
 import { ThemeContext } from 'components/Layout'
 import Button from 'components/Button'
+import 'isomorphic-fetch'
 
 const Container = styled(Box.withComponent('aside'))`
   min-width: ${p =>

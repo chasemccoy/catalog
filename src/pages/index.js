@@ -10,6 +10,7 @@ import portrait from 'assets/portrait.jpg'
 import Image from 'components/Image'
 import { graphql } from 'gatsby'
 import { UnorderedList } from 'components/Lists'
+import 'isomorphic-fetch'
 
 const now = () => {
   const now = new Date()
