@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600');
+/**********************/
+/* iA Writer Duospace */
+/**********************/
 
 /* @font-face {
     font-family: 'iA Writer Duospace';
@@ -36,6 +38,10 @@
     font-style: italic;
 } */
 
+/*********************/
+/* iA Writer Quattro */
+/*********************/
+
 @font-face {
     font-family: 'iA Writer Quattro';
     src: url('iAWriterQuattroS-Bold.woff2') format('woff2'),
@@ -70,4 +76,52 @@
         url('iAWriterQuattroS-Italic.eot') format('truetype');
     font-weight: normal;
     font-style: italic;
+}
+
+/********************/
+/* SOURCE SERIF PRO */
+/********************/
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('source-serif/WOFF2/TTF/SourceSerifPro-Regular.ttf.woff2') format('woff2'),
+         url('source-serif/WOFF/OTF/SourceSerifPro-Regular.otf.woff') format('woff'),
+         url('source-serif/OTF/SourceSerifPro-Regular.otf') format('opentype'),
+         url('source-serif/TTF/SourceSerifPro-Regular.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('source-serif/WOFF2/TTF/SourceSerifPro-It.ttf.woff2') format('woff2'),
+         url('source-serif/WOFF/OTF/SourceSerifPro-It.otf.woff') format('woff'),
+         url('source-serif/OTF/SourceSerifPro-It.otf') format('opentype'),
+         url('source-serif/TTF/SourceSerifPro-It.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('source-serif/WOFF2/TTF/SourceSerifPro-Semibold.ttf.woff2') format('woff2'),
+         url('source-serif/WOFF/OTF/SourceSerifPro-Semibold.otf.woff') format('woff'),
+         url('source-serif/OTF/SourceSerifPro-Semibold.otf') format('opentype'),
+         url('source-serif/TTF/SourceSerifPro-Semibold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 600;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('source-serif/WOFF2/TTF/SourceSerifPro-SemiboldIt.ttf.woff2') format('woff2'),
+         url('source-serif/WOFF/OTF/SourceSerifPro-SemiboldIt.otf.woff') format('woff'),
+         url('source-serif/OTF/SourceSerifPro-SemiboldIt.otf') format('opentype'),
+         url('source-serif/TTF/SourceSerifPro-SemiboldIt.ttf') format('truetype');
 }
