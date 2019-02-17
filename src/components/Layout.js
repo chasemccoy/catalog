@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import Helmet from 'react-helmet'
 import theme from 'utils/theme'
 import darkTheme from 'utils/theme-dark'
+import { CSSReset } from '@chasemccoy/kit'
 
 const CSS = createGlobalStyle`
   a {
@@ -31,20 +32,18 @@ const CSS = createGlobalStyle`
     border-radius: 6px;
 
     code {
-      padding: 8px 16px;
+      padding: 8px 12px;
     }
   }
 
   code {
-    font-family: ${p => p.theme.fonts.mono};
+    font-family: ${p => p.theme.fonts.code};
     background-color: ${p => p.theme.colors.gray[0]};
     padding: 4px 8px;
     display: inline-block;
     word-wrap: normal;
     overflow: auto;
     border-radius: 6px;
-    font-size: 0.75em;
-    line-height: 1.5;
   }
 `
 
@@ -90,6 +89,7 @@ class Layout extends React.Component {
             <link rel="pingback" href="https://webmention.io/chasem.co/xmlrpc" />
           </Helmet>
 
+          <CSSReset /> 
           <CSS />
 
           <ThemeContext.Provider value={this.state}>

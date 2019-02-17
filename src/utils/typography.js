@@ -4,6 +4,7 @@ import theme from 'utils/theme'
 const fontFamilyArray = value => value.replace(/[""&]+/g, '').split(', ')
 
 const typography = new Typography({
+  includeNormalize: false,
   baseFontSize: '20px',
   baseLineHeight: 1.5,
   headerLineHeight: 1.3,
