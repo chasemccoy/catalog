@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import theme from 'utils/theme'
 import darkTheme from 'utils/theme-dark'
 import { CSSReset } from '@chasemccoy/kit'
+import Typography from 'utils/typography'
 
 const CSS = createGlobalStyle`
   a {
@@ -90,6 +91,7 @@ class Layout extends React.Component {
           </Helmet>
 
           <CSSReset /> 
+          <Typography />
           <CSS />
 
           <ThemeContext.Provider value={this.state}>

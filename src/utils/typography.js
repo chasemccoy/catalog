@@ -1,3 +1,4 @@
+import { createGlobalStyle } from 'styled-components'
 import Typography from 'typography'
 import theme from 'utils/theme'
 
@@ -39,4 +40,8 @@ const typography = new Typography({
   })
 })
 
-export default typography
+const TypographyStyles = createGlobalStyle`
+  ${typography.toString()}
+`
+
+export default TypographyStyles
