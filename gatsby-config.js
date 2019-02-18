@@ -2,9 +2,11 @@ const dotenv = require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `Chase McCoy`,
-    description: `Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works.`,
-    siteUrl: `http://chasem.co/`
+    title: 'Chase McCoy',
+    titleTemplate: '%s | Chase McCoy',
+    description: 'Chase McCoy is a designer and developer based in Chicago, IL specializing in systems thinking, design tooling, and front-end engineering.',
+    siteUrl: 'http://chasem.co/',
+    twitterUsername: "@chase_mccoy",
   },
   pathPrefix: '/',
   plugins: [

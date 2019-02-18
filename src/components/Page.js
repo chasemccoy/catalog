@@ -1,9 +1,9 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Helmet from 'react-helmet'
 import Sidebar from 'components/Sidebar'
 import Heading from 'components/Heading'
 import media from 'utils/media'
+import Metadata from 'components/Metadata'
 
 const Container = styled.div`
   display: flex;
@@ -48,12 +48,13 @@ const Content = styled.main`
 
 const Page = props => (
   <React.Fragment>
-    <Helmet title={props.title}>
-      <meta name="description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
-      <meta property="og:title" content={props.title || "Chase McCoy"} />
-      <meta property="og:description" content={props.description || "Chase McCoy is a design systems developer living in Chicago that spends a lot of time thinking about how the web works."} />
+    <Metadata 
+      title={props.title} 
+      description={props.description} 
+      article={props.article}
+    >
       {props.hidden && <meta name="robots" content="noindex,nofollow" />}
-    </Helmet>
+    </Metadata>
 
     <Container id='wrapper'>
       <Sidebar />

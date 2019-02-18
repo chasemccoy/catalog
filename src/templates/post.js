@@ -1,7 +1,6 @@
 import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 const isPhotoset = categories => {
@@ -15,9 +14,7 @@ export default ({ data, pageContext }) => {
   const normalizedTitle = post.title.replace(/&nbsp;/g, ' ')
 
   return (
-    <Page narrow untitled hidden={pageContext.hidden}>
-      <Helmet title={`${normalizedTitle || post.slug}`} />
-
+    <Page title={`${normalizedTitle || post.slug}`} narrow untitled hidden={pageContext.hidden} article={true}>
       <Post
         title={post.title}
         content={post.content}
