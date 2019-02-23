@@ -1,68 +1,67 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
-const Metadata = ({ title, description, image, pathname, article, children }) => (
-  <StaticQuery query={query} render={props => {
-      const { defaultTitle, defaultDescription, titleTemplate, twitterUsername, siteUrl } = props.site.siteMetadata
+const Metadata = ({ title, description, image, pathname, article, children }) => {
+  const data = useStaticQuery(query) 
 
-      const seo = {
-        title: title,
-        description: description || defaultDescription,
-        url: `${siteUrl}${pathname || '/'}`,
-      }
+  const { defaultTitle, defaultDescription, titleTemplate, twitterUsername, siteUrl } = data
 
-      return (
-        <React.Fragment>
-          <Helmet 
-            title={seo.title} 
-            titleTemplate={titleTemplate} 
-            defaultTitle={defaultTitle}
-          >
-            <meta name="description" content={seo.description} />
+  const seo = {
+    title: title,
+    description: description || defaultDescription,
+    url: `${siteUrl}${pathname || '/'}`,
+  }
 
-            {seo.url && <meta property="og:url" content={seo.url} />}
+  return (
+    <React.Fragment>
+      <Helmet 
+        title={seo.title} 
+        titleTemplate={titleTemplate} 
+        defaultTitle={defaultTitle}
+      >
+        <meta name="description" content={seo.description} />
 
-            {(article ? true : null) && (
-              <meta property="og:type" content="article" />
-            )}
+        {seo.url && <meta property="og:url" content={seo.url} />}
 
-            {seo.title && <meta property="og:title" content={seo.title} />}
+        {(article ? true : null) && (
+          <meta property="og:type" content="article" />
+        )}
 
-            {seo.description && (
-              <meta property="og:description" content={seo.description} />
-            )}
+        {seo.title && <meta property="og:title" content={seo.title} />}
 
-            <meta name="twitter:card" content="summary" />
+        {seo.description && (
+          <meta property="og:description" content={seo.description} />
+        )}
 
-            {twitterUsername && (
-              <meta name="twitter:creator" content={twitterUsername} />
-            )}
+        <meta name="twitter:card" content="summary" />
 
-            {twitterUsername && (
-              <meta name="twitter:site" content={twitterUsername} />
-            )}
+        {twitterUsername && (
+          <meta name="twitter:creator" content={twitterUsername} />
+        )}
 
-            {seo.title && <meta name="twitter:title" content={seo.title} />}
+        {twitterUsername && (
+          <meta name="twitter:site" content={twitterUsername} />
+        )}
 
-            {seo.description && (
-              <meta name="twitter:description" content={seo.description} />
-            )}
+        {seo.title && <meta name="twitter:title" content={seo.title} />}
 
-            <meta name="application-name" content="Chase McCoy" />
-            <meta name="apple-mobile-web-app-title" content="Chase McCoy" />
+        {seo.description && (
+          <meta name="twitter:description" content={seo.description} />
+        )}
 
-            <link rel="pingback" href="https://webmention.io/chasem.co/xmlrpc" />
-            <link href="https://twitter.com/chase_mccoy" rel="me" />
-            <link rel="webmention" href="https://webmention.io/chasem.co/webmention" />
+        <meta name="application-name" content="Chase McCoy" />
+        <meta name="apple-mobile-web-app-title" content="Chase McCoy" />
 
-            {children}
-          </Helmet>
-        </React.Fragment>
-      )
-    }} 
-  />
-)
+        <link rel="pingback" href="https://webmention.io/chasem.co/xmlrpc" />
+        <link href="https://twitter.com/chase_mccoy" rel="me" />
+        <link rel="webmention" href="https://webmention.io/chasem.co/webmention" />
+
+        {children}
+      </Helmet>
+    </React.Fragment>
+  )
+}
 
 Metadata.defaultProps = {
   title: null,
