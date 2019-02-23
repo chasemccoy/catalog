@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 const Metadata = ({ title, description, image, pathname, article, children }) => {
   const data = useStaticQuery(query) 
 
-  const { defaultDescription, twitterUsername, siteUrl } = data
+  const { defaultTitle, defaultDescription, titleTemplate, twitterUsername, siteUrl } = data.site.siteMetadata
 
   const seo = {
     title: title,
@@ -17,8 +17,8 @@ const Metadata = ({ title, description, image, pathname, article, children }) =>
     <React.Fragment>
       <Helmet 
         title={seo.title} 
-        titleTemplate='%s | Chase McCoy'
-        defaultTitle='Chase McCoy'
+        titleTemplate={titleTemplate} 
+        defaultTitle={defaultTitle}
       >
         <meta name="description" content={seo.description} />
 
