@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "author": "Chase McCoy",
   "dependencies": {
-    "@chasemccoy/kit": "^0.5.2",
+    "@chasemccoy/kit": "^0.5.3",
     "@rebass/grid": "^6.0.0-5",
     "babel-plugin-styled-components": "^1.9.2",
     "gatsby": "^2.0.61",
@@ -33,7 +33,7 @@
     "react-markdown": "^3.1.0",
     "react-typography": "^0.16.13",
     "styled-components": "^4.1.2",
-    "styled-system": "^3.1.11",
+    "styled-system": "^4.0.0",
     "system-components": "^3.0.2",
     "typography": "^0.16.18"
   },
