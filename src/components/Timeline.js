@@ -63,7 +63,7 @@ const TimelineListItem = styled.li`
   > div {
     position: relative;
     width: calc(50% - ${theme.sizes.timeline.linePadding});
-    top: -5px;
+    top: -6.5px;
 
     width: calc(100% - ${theme.sizes.timeline.linePadding});;
   }

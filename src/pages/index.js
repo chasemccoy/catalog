@@ -105,7 +105,7 @@ class IndexPage extends React.Component {
           <Box width={[1, 1, 1, 1, 2.7/5]} mb={[32, 32, 32, '8px', 40]}>
             <Text.p mt='-5px'>Growing up online taught me that the power of the web is its malleability. I believe that the internet can and should be a space that respects the creativity, diversity, and well-being of those who occupy it. Like hypertext itself, our culture is defined by the connections we make. I work to design and build tools that serve those who create connections on (and with) the web.</Text.p>
 
-            <Text.p>I'm currently working as a founding member of the Design Systems team at <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and build Seeds, our design system, as well as other tools used by Sprout employees to deliver consistently designed products to our customers. Previously I worked as a mobile designer & iOS developer, creating indie apps in my spare time and building products for enterprise clients at my day job. Check out <Link to='/portfolio'>my portfolio</Link> to learn more. </Text.p>
+            <Text.p>I'm currently working as a founding member of the Design Systems team at <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and build <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, our design system, as well as other tools used by Sprout employees to deliver consistently designed products to our customers. Previously I worked as a mobile designer & iOS developer, creating indie apps in my spare time and building products for enterprise clients at my day job. Check out <Link to='/portfolio'>my portfolio</Link> to learn more. </Text.p>
 
             <Text.p mb={0}>If you'd like to chat, you can <Link to='mailto:desk@chasem.co'>drop me a line</Link> or find me in a coffee shop on Chicago's west side <span role='img' aria-label='Cup of coffee emoji.'>☕️</span></Text.p>
           </Box>
@@ -119,7 +119,7 @@ class IndexPage extends React.Component {
 
               <Box width={[1, 1/2, 1/2, 1/2, 1]} mb={[16, 0]}>
                 <Heading.section mb='8px'>Colophon</Heading.section>
-                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>This site was built using <Link to='https://gatsbyjs.org'>Gatsby</Link>, <Link to='https://styled-components.com'>styled-components</Link>, and <Link to='https://netlify.com'>Netlify</Link>. Text is set in Source Serif Pro and iA Writer Quattro. Weather data provided by the <Link to='https://darksky.net/dev'>Dark Sky</Link> API.</Text>
+                <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>This site was built using <Link to='https://gatsbyjs.org'>Gatsby</Link>, <Link to='https://styled-components.com'>styled-components</Link>, and <Link to='https://netlify.com'>Netlify</Link>. Text is set in Source Serif Pro and iA Writer Quattro. Weather data provided by the <Link to='https://darksky.net/dev'>Dark Sky API</Link>.</Text>
               </Box>
             </Grid>
           </Box>

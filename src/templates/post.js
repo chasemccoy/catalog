@@ -2,6 +2,7 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 const isPhotoset = categories => {
   return categories
@@ -13,8 +14,16 @@ export default ({ data, pageContext }) => {
   const post = data.wordpressPost
   const normalizedTitle = post.title.replace(/&nbsp;/g, ' ')
 
+  console.log(data)
+
   return (
     <Page title={`${normalizedTitle || post.slug}`} narrow untitled hidden={pageContext.hidden} article={true}>
+      {pageContext.hidden && (
+        <Helmet>
+          <link rel='canonical' href={`/${post.fields.fullSlug}`} />
+        </Helmet>
+      )}
+      
       <Post
         title={post.title}
         content={post.content}
