@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "author": "Chase McCoy",
   "dependencies": {
-    "@chasemccoy/kit": "^0.5.3",
+    "@chasemccoy/kit": "^0.6.0",
     "@rebass/grid": "^6.0.0-5",
     "babel-plugin-styled-components": "^1.9.2",
     "gatsby": "^2.1.17",
