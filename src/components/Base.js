@@ -1,30 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from '@rebass/grid'
-import { width, height, color, space, boxShadow, borderRadius, display, justifyContent, alignItems, flexWrap, flex, flexDirection, minWidth, minHeight, maxWidth, flexBasis } from 'styled-system'
+import { height, flex, minWidth, flexBasis } from 'styled-system'
 import media from 'utils/media'
-
-export const Span = styled.span`
-  ${color};
-`
-
-export const Box = styled.div`
-  ${space}
-  ${width}
-  ${height}
-  ${boxShadow}
-  ${borderRadius}
-  ${display}
-  ${justifyContent}
-  ${alignItems}
-  ${flexWrap}
-  ${flex}
-  ${flexDirection}
-  ${minHeight}
-  ${minWidth}
-  ${maxWidth}
-  ${color}
-`
 
 const GridFlex = styled(Flex)`
   & > * {

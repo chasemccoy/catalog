@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { UnorderedList } from 'components/Lists'
 import Link from 'components/Link'
 import media from 'utils/media'
-import Text from 'components/Text'
+import { Text } from '@chasemccoy/kit'
 import Divider from 'components/Divider'
 import { graphql } from 'gatsby'
 

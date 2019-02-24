@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from 'components/Page'
 import { Post } from 'components/Blog'
-import { Box } from 'components/Base'
+import { Box } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
 
 const ArchivePage = ({ data }) => {

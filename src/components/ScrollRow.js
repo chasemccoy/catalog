@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box } from 'components/Base'
+import { Box } from '@chasemccoy/kit'
 
 const ScrollRow = styled(Box)`
   display: flex;

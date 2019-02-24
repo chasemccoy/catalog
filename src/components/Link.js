@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
-import Text from 'components/Text'
+import { Text } from '@chasemccoy/kit'
 
 const Container = styled(Text)`
   ${props => props.unstyled && css`

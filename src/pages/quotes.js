@@ -1,8 +1,7 @@
 import React from 'react'
 import Page from 'components/Page'
 import { graphql } from 'gatsby'
-import { Box } from 'components/Base'
-import Text from 'components/Text'
+import { Box, Text } from '@chasemccoy/kit'
 import MultiColumn from 'components/MultiColumn'
 
 export const Quote = ({content, source, ...rest}) => (

@@ -4,7 +4,7 @@ import theme from 'utils/theme'
 import Markdown from 'components/Markdown'
 import { space } from 'styled-system'
 import Heading from 'components/Heading'
-import Text from 'components/Text'
+import { Text } from '@chasemccoy/kit'
 
 const TimelineContainer = styled.section`
   position: relative;

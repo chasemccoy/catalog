@@ -1,5 +1,6 @@
 import React from 'react'
-import { Grid, Box } from 'components/Base'
+import { Grid } from 'components/Base'
+import { Box } from '@chasemccoy/kit'
 
 // eslint-disable-next-line
 Array.prototype.sample = function() {

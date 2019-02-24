@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Page from 'components/Page'
 import { Column, Row } from 'components/Grid'
 import Image from 'components/Image'
-import Text from 'components/Text'
+import { Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 

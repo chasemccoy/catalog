@@ -4,7 +4,7 @@ import { capitalize } from 'utils/js'
 import { Row, Column } from 'components/Grid'
 import MediaCard from 'components/MediaCard'
 import Mosaic from 'components/Mosaic'
-import Text from 'components/Text'
+import { Text } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
 import Heading from 'components/Heading'
 

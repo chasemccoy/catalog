@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 import Page from 'components/Page'
 import { Post } from 'components/Blog'
-import { Grid, Box } from 'components/Base'
+import { Grid } from 'components/Base'
+import { Box } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
 
 const PaginationLink = styled(Link)`

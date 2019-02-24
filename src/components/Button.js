@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Text from 'components/Text'
+import { Text } from '@chasemccoy/kit'
 
 const Button = styled(Text)`
 	display: inline-block;
