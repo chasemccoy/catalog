@@ -6,7 +6,7 @@ exports.onCreateNode = async ({ node, actions }) => {
 	if (node.internal.type === 'wordpress__POST') {
 		const year = node.date.slice(0, 4)
 		const month = node.date.slice(5, 7)
-		const date = `${year}/${month}/`
+		const date = `/${year}/${month}/`
 		createNodeField({node, name: 'fullSlug', value: date + node.slug})
 	}
 }

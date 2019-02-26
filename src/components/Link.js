@@ -15,9 +15,9 @@ const Container = styled(Text)`
 
 const Link = ({ children, to, ...other }) => {
   const newTab = to.startsWith('http')
-  const external = newTab || to.startsWith('#') || to.startsWith('mailto')
+  const internal = /^\/(?!\/)/.test(to)
 
-  if (external) {
+  if (!internal) {
     return (
       <Container
         as='a'

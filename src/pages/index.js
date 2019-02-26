@@ -29,18 +29,29 @@ const now = () => {
 }
 
 const HeaderImage = styled(Image)`
-  height: 350px;
+  height: 500px;
   width: 100%;
   object-fit: cover;
   object-position: 100% 74%;
+  mask-image: url("/mask.svg");
+  mask-type: luminance;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100%;
+
+  ${media.large`
+    height: 375px;
+    mask-size: 100% 100%;
+  `}
 
   ${media.medium`
-    height: 300px;
+    mask-image: url("/mask-small.svg");
+    height: 275px;
+    object-position: initial;
   `}
 
   ${media.small`
-    height: 300px;
-    object-position: 100% 54%;
+    object-position: initial;
     max-width: none;
     width: calc(100% + 32px);
     margin-left: -16px;
@@ -78,6 +89,8 @@ class IndexPage extends React.Component {
     const artists = this.state.tracks.map(track => track.artist)
     const uniqueArtists = Array.from(new Set(artists))
     const { date, time } = now()
+
+    console.log(props.data.olderPosts.edges)
 
     return (
       <Page wide>
