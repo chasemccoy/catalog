@@ -32,7 +32,7 @@ const HeaderImage = styled(Image)`
   height: 500px;
   width: 100%;
   object-fit: cover;
-  object-position: 100% 74%;
+  ${'' /* object-position: 100% 74%; */}
   mask-image: url("/mask.svg");
   mask-type: luminance;
   mask-repeat: no-repeat;
@@ -40,7 +40,7 @@ const HeaderImage = styled(Image)`
   mask-size: 100%;
 
   ${media.large`
-    height: 375px;
+    height: 300px;
     mask-size: 100% 100%;
   `}
 
@@ -51,6 +51,7 @@ const HeaderImage = styled(Image)`
   `}
 
   ${media.small`
+    height: 410px;
     object-position: initial;
     max-width: none;
     width: calc(100% + 32px);
