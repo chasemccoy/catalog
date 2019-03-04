@@ -172,7 +172,7 @@ const Meta = ({ date, permalink, aside }) => (
   <PostMeta mt={!aside ? 5 : 0}>
     {date &&
       permalink && (
-        <Link to={`/${permalink}`}>{date}</Link>
+        <Link to={permalink}>{date}</Link>
       )}
 
     {date && !permalink && `Posted on ${date}`}
