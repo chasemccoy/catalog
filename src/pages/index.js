@@ -222,16 +222,5 @@ export const query = graphql`
         }
       }
     }
-
-    status: allAirtable(sort: {fields: data___Date, order: DESC}, limit: 1) {
-  	  edges {
-  	    node {
-          data {
-            Content
-            Date
-          }
-  	    }
-  	  }
-  	}
   }
 `

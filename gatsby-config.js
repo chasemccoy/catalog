@@ -268,19 +268,6 @@ module.exports = {
           }`,
         ],
       },
-    },
-    {
-      resolve: `gatsby-source-airtable`,
-      options: {
-        apiKey: `${(dotenv.parsed && dotenv.parsed.GATSBY_AIRTABLE_API_KEY) || process.env.GATSBY_AIRTABLE_API_KEY}`,
-        tables: [
-          {
-            baseId: `appSWvk3gbStENadE`,
-            tableName: `Table 1`,
-            tableView: `Grid view`
-          }
-        ]
-      }
     }
   ]
 }

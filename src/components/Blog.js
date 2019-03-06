@@ -4,6 +4,7 @@ import Link from 'components/Link'
 import Heading from 'components/Heading'
 import media from 'utils/media'
 import { space } from 'styled-system'
+import { Box, Text } from '@chasemccoy/kit'
 
 const Container = styled.div`
   font-family: ${p => p.theme.fonts.serif};
@@ -179,6 +180,20 @@ const Meta = ({ date, permalink, aside }) => (
   </PostMeta>
 )
 
+const Tags = ({ tags: postTags, title }) => {
+  const tags = postTags.map(tag => tag.name)
+
+  return (
+    <Box mt={title ? '-16px' : 0} mb='24px'>
+      {tags.map((tag, i) => (
+        <Box as='span' display='inline-block' bg='gray.0' py='4px' px='8px' mb='12px' borderRadius='4px' color='gray.4' mr='12px' key={i}>
+          <Text uppercase fontFamily='mono' fontSize='12px'>{tag}</Text>
+        </Box>
+      ))}
+    </Box>
+  )
+}
+
 export const Post = props => {
   const title = props.title && (
     <Heading.h1>
@@ -192,6 +207,8 @@ export const Post = props => {
 
   const meta = props.date && <Meta date={props.date} permalink={props.to} aside={props.aside} />
 
+  const tags = props.tags && <Tags tags={props.tags} title={props.title} />
+
   if (props.aside) {
     return (
       <AsideContainer photo={props.imagePost} filmstrip={props.filmstrip}>
@@ -203,6 +220,7 @@ export const Post = props => {
     return (
       <PostContainer photoset={props.photoset}>
         {title}
+        {tags}
         {content}
         {meta}
       </PostContainer>

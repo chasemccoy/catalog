@@ -14,8 +14,6 @@ export default ({ data, pageContext }) => {
   const post = data.wordpressPost
   const normalizedTitle = post.title.replace(/&nbsp;/g, ' ')
 
-  console.log(data)
-
   return (
     <Page title={`${normalizedTitle || post.slug}`} narrow untitled hidden={pageContext.hidden} article={true}>
       {pageContext.hidden && (
@@ -31,6 +29,7 @@ export default ({ data, pageContext }) => {
         imagePost={post.format === 'image'}
         photoset={post.categories && isPhotoset(post.categories)}
         to={post.fields.fullSlug}
+        tags={post.tags}
       />
     </Page>
   )
@@ -48,6 +47,9 @@ export const query = graphql`
         fullSlug
       }
       categories {
+        name
+      }
+      tags {
         name
       }
     }
