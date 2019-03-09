@@ -1,6 +1,6 @@
 exports.createBlogNode = (
   {title, tagNodes, ...post},
-  { createNodeId, createContentDigest, createNode }
+  { parent, createNodeId, createContentDigest, createNode, createParentChildLink }
 ) => {
   const postData = {
     ...post,
@@ -9,19 +9,19 @@ exports.createBlogNode = (
 
   const digest = createContentDigest(postData)
 
-  createNode(
-    {
-      ...postData,
-      id: createNodeId(`blog-${digest}`),
-      parent: null,
-      children: [],
-      internal: {
-        type: 'Blog',
-        content: JSON.stringify(postData),
-        contentDigest: digest,
-        tagNodes: tagNodes
-      }
-    },
-    { name: 'gatsby-adapter-blog' }
-  )
+  const node = {
+    ...postData,
+    id: createNodeId(`blog-${digest}`),
+    parent: undefined,
+    source___NODE: parent ? parent.id : undefined,
+    children: [],
+    internal: {
+      type: 'Blog',
+      content: JSON.stringify(postData),
+      contentDigest: digest,
+      tagNodes: tagNodes
+    }
+  }
+
+  createNode(node, { name: 'gatsby-adapter-blog' })
 }

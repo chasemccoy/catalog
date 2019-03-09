@@ -19,6 +19,7 @@ export default ({ data, pageContext }) => {
       <Post
         title={post.title}
         content={post.content}
+        code={post.source ? post.source.code.body : undefined}
         date={post.longDate}
         imagePost={post.format === 'image'}
         to={post.slug}
@@ -38,6 +39,11 @@ export const query = graphql`
       slug
       shortSlug
       tags
+      source {
+        code {
+          body
+        }
+      }
     }
   }
 `

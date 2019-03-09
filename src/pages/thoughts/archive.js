@@ -17,6 +17,7 @@ const ArchivePage = ({ data }) => {
                 to={node.slug}
                 date={node.date}
                 content={node.content}
+                code={node.source ? node.source.code.body : undefined}
                 render={node.code ? <MDXRenderer>{node.code.body}</MDXRenderer> : undefined}
                 excerpt={node.excerpt}
               />
@@ -41,6 +42,11 @@ export const query = graphql`
         format
         content
         excerpt
+        source {
+          code {
+            body
+          }
+        }
       }
     }
   }

@@ -5,6 +5,7 @@ import Heading from 'components/Heading'
 import media from 'utils/media'
 import { space } from 'styled-system'
 import { Box, Text } from '@chasemccoy/kit'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
 const Container = styled.div`
   font-family: ${p => p.theme.fonts.serif};
@@ -198,7 +199,7 @@ export const Post = props => {
       <PostContainer>
         {title}
         {tags}
-        {content}
+        {props.code ? <MDXRenderer>{props.code}</MDXRenderer> : content}
         {meta}
       </PostContainer>
     )
