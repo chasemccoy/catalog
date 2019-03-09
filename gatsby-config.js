@@ -5,7 +5,7 @@ module.exports = {
     title: 'Chase McCoy',
     titleTemplate: '%s | Chase McCoy',
     description: 'Chase McCoy is a designer and developer based in Chicago, IL specializing in systems thinking, design tooling, and front-end engineering.',
-    siteUrl: 'http://chasem.co/',
+    siteUrl: 'https://chasem.co/',
     twitterUsername: "@chase_mccoy",
   },
   pathPrefix: '/',
@@ -51,6 +51,7 @@ module.exports = {
               title
               description
               siteUrl
+              site_url: siteUrl
             }
           }
         }`,
@@ -87,7 +88,7 @@ module.exports = {
                 }
               }
             `,
-            output: '/feed.xml',
+            output: '/feed.xml'
           },
         ],
       },
