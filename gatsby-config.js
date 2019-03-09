@@ -63,7 +63,7 @@ module.exports = {
                 return Object.assign(
                   {},
                   {
-                    title: node.title === "" ? " " : node.title,
+                    title: node.title || " ",
                     description: node.content,
                     url: siteUrl + node.slug,
                     guid: siteUrl + node.slug,
