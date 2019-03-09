@@ -180,9 +180,7 @@ const Meta = ({ date, permalink, aside }) => (
   </PostMeta>
 )
 
-const Tags = ({ tags: postTags, title }) => {
-  const tags = postTags.map(tag => tag.name)
-
+const Tags = ({ tags, title }) => {
   return (
     <Box mt={title ? '-16px' : 0} mb='24px'>
       {tags.map((tag, i) => (
@@ -218,7 +216,7 @@ export const Post = props => {
     )
   } else {
     return (
-      <PostContainer photoset={props.photoset}>
+      <PostContainer>
         {title}
         {tags}
         {content}

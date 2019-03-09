@@ -4,10 +4,10 @@
   "version": "3.0.0",
   "author": "Chase McCoy",
   "dependencies": {
-    "@chasemccoy/kit": "^0.6.0",
+    "@chasemccoy/kit": "^0.6.1",
     "@rebass/grid": "^6.0.0-5",
     "babel-plugin-styled-components": "^1.9.2",
-    "gatsby": "^2.1.23",
+    "gatsby": "^2.2.0-alpha.6",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-favicon": "^3.1.4",
     "gatsby-plugin-feed": "next",
@@ -43,7 +43,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "start": "gatsby develop",
+    "start": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

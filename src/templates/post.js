@@ -4,21 +4,15 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-const isPhotoset = categories => {
-  return categories
-    .map(category => Object.values(category).includes('Photoset'))
-    .includes(true)
-}
-
 export default ({ data, pageContext }) => {
-  const post = data.wordpressPost
-  const normalizedTitle = post.title.replace(/&nbsp;/g, ' ')
+  const post = data.blog
+  const normalizedTitle = post.title ? post.title.replace(/&nbsp;/g, ' ') : post.shortSlug
 
   return (
-    <Page title={`${normalizedTitle || post.slug}`} narrow untitled hidden={pageContext.hidden} article={true}>
+    <Page title={normalizedTitle} narrow untitled hidden={pageContext.hidden} article={true}>
       {pageContext.hidden && (
         <Helmet>
-          <link rel='canonical' href={`/${post.fields.fullSlug}`} />
+          <link rel='canonical' href={`/${post.slug}`} />
         </Helmet>
       )}
       
@@ -27,8 +21,7 @@ export default ({ data, pageContext }) => {
         content={post.content}
         date={post.date}
         imagePost={post.format === 'image'}
-        photoset={post.categories && isPhotoset(post.categories)}
-        to={post.fields.fullSlug}
+        to={post.slug}
         tags={post.tags}
       />
     </Page>
@@ -36,22 +29,15 @@ export default ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query WPPostQuery($id: String!) {
-    wordpressPost(id: { eq: $id }) {
+  query PostQuery($id: String!) {
+    blog(id: { eq: $id }) {
       title
       content
       format
       date(formatString: "MMMM Do, YYYY")
       slug
-      fields {
-        fullSlug
-      }
-      categories {
-        name
-      }
-      tags {
-        name
-      }
+      shortSlug
+      tags
     }
   }
 `

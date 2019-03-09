@@ -31,12 +31,12 @@ const ThoughtsPage = ({ data }) => {
         <Box width={[1, 1, 1, 1, 4.5 / 12]}>
           <Heading.section mb={24}>Asides</Heading.section>
 
-          {data.asides.edges.map(({ node }) => (
+          {data.asides.nodes.map(node => (
             <React.Fragment key={node.id}>
               <Box mb={[40, 40, 48]}>
                 <Post
                   aside
-                  to={node.fields.fullSlug}
+                  to={node.slug}
                   content={node.content}
                   date={node.date}
                   imagePost={node.format === 'image'}
@@ -49,12 +49,12 @@ const ThoughtsPage = ({ data }) => {
         <Box width={[1, 1, 1, 1, 7.5 / 12]}>
           <Heading.section>Writing</Heading.section>
 
-          {data.posts.edges.map(({ node }) => (
+          {data.posts.nodes.map(node => (
             <React.Fragment key={node.id}>
               <Box mb={[80, 80, 120]}>
                 <Post
                   title={node.title}
-                  to={node.fields.fullSlug}
+                  to={node.slug}
                   date={node.date}
                   content={node.content}
                   excerpt={node.excerpt}
@@ -66,7 +66,7 @@ const ThoughtsPage = ({ data }) => {
           <Heading.section>More</Heading.section>
 
           <Grid>
-            {data.olderPosts.edges.map(({ node }) => (
+            {data.olderPosts.nodes.map(node => (
               <Box width={[1, 1 / 2]} key={node.id}>
                 <Heading.h3
                   mb="4px"
@@ -75,7 +75,7 @@ const ThoughtsPage = ({ data }) => {
                   lineHeight="1.4"
                 >
                   <Link
-                    to={node.fields.fullSlug}
+                    to={node.slug}
                     dangerouslySetInnerHTML={{ __html: node.title }}
                   />{' '}
                   →
@@ -99,59 +99,41 @@ export default ThoughtsPage
 
 export const query = graphql`
   query ThoughtsQuery {
-    posts: allWordpressPost(filter: { format: { eq: "standard" } }, limit: 1) {
-      edges {
-        node {
-          id
-          title
-          date(formatString: "MMM D")
-          fields {
-            fullSlug
-          }
-          format
-          content
-          excerpt
-          categories {
-            name
-          }
-        }
+    posts: allBlog(filter: { format: { eq: "standard" } }, limit: 1) {
+      nodes {
+        id
+        title
+        date(formatString: "MMM D")
+        slug
+        format
+        content
+        excerpt
       }
     }
 
-    olderPosts: allWordpressPost(
+    olderPosts: allBlog(
       filter: { format: { eq: "standard" } }
       skip: 1
       limit: 8
     ) {
-      edges {
-        node {
-          id
-          title
-          date(formatString: "MMM D")
-          fields {
-            fullSlug
-          }
-          excerpt
-        }
+      nodes {
+        id
+        title
+        date(formatString: "MMM D")
+        slug
+        excerpt
       }
     }
 
-    asides: allWordpressPost(filter: { format: { eq: "aside" } }, limit: 25) {
-      edges {
-        node {
-          id
-          title
-          date(formatString: "MMM D")
-          fields {
-            fullSlug
-          }
-          format
-          content
-          excerpt
-          categories {
-            name
-          }
-        }
+    asides: allBlog(filter: { format: { eq: "aside" } }, limit: 25) {
+      nodes {
+        id
+        title
+        date(formatString: "MMM D")
+        slug
+        format
+        content
+        excerpt
       }
     }
   }

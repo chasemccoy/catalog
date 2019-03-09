@@ -41,13 +41,6 @@ module.exports = {
         excludedRoutes: ["/*/*/comments", "/*/*/feedback", "/*/*/pages", "/*/*/users", "/jetpack", "/oembed"],
       }
     },
-    // {
-    //   resolve: `gatsby-source-dropmark`,
-    //   options: {
-    //     collection_id: '512099',
-    //     collections: ['512099', '514514', '515373', '510239', '514799', '518050', '523405', '535889', '520863']
-    //   }
-    // },
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -58,24 +51,23 @@ module.exports = {
               title
               description
               siteUrl
-              site_url: siteUrl
             }
           }
         }`,
         feeds: [
           {
-            serialize: ({query: {site, allWordpressPost}}) => {
-              return allWordpressPost.edges.map(edge => {
+            serialize: ({query: {site, allBlog}}) => {
+              return allBlog.nodes.map(node => {
                 const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, '')
 
                 return Object.assign(
                   {},
                   {
-                    title: edge.node.title === "" ? " " : edge.node.title,
-                    description: edge.node.content,
-                    url: siteUrl + edge.node.fields.fullSlug,
-                    guid: siteUrl + edge.node.fields.fullSlug,
-                    date: edge.node.date,
+                    title: node.title === "" ? " " : node.title,
+                    description: node.content,
+                    url: siteUrl + node.slug,
+                    guid: siteUrl + node.slug,
+                    date: node.date,
                     author: 'Chase McCoy'
                   },
                 );
@@ -83,18 +75,14 @@ module.exports = {
             },
             query: `
               {
-                allWordpressPost {
-                  edges {
-                    node {
-                      title
-                      slug
-                      fields {
-                        fullSlug
-                      }
-                      content
-                      excerpt
-                      date(formatString: "MMMM DD, YYYY, h:mm A")
-                    }
+                allBlog {
+                  nodes {
+                    title
+                    slug
+                    slug
+                    content
+                    excerpt
+                    date(formatString: "MMMM DD, YYYY, h:mm A")
                   }
                 }
               }

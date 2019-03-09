@@ -143,10 +143,10 @@ class IndexPage extends React.Component {
           <Box width={[1, 1/2, 1, 1/2, 1.2/5]} mb={[32, 0]}>
             <Heading.section>Writing</Heading.section>
 
-            {props.data.olderPosts.edges.map(({node}) => (
-              <React.Fragment key={node.id}>
+            {props.data.olderPosts.nodes.map(node => (
+              <React.Fragment key={node.id}> 
                 <Heading.h3 mb='4px' fontFamily='mono' fontSize='16px' lineHeight='1.4'>
-                  <Link to={node.fields.fullSlug} dangerouslySetInnerHTML={{ __html: node.title }} />&nbsp;→
+                  <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} />&nbsp;→
                 </Heading.h3>
                 <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='15px' mb='-8px' lineHeight='1.4' />
               </React.Fragment>
@@ -157,13 +157,13 @@ class IndexPage extends React.Component {
             <Heading.section>Recent Photos</Heading.section>
 
             <Grid gutter={4}>
-              {props.data.photos.edges.map(({node}) => {
+              {props.data.photos.nodes.map(node => {
                 const srcRegex = /<img.*?src=['"](.*?)['"]/
                 const src = srcRegex.exec(node.content)[1]
 
                 return (
                   <Box width={[1/2, 1/3, 1/3, 1/4, 1/5]} key={node.id}>
-                    <Image src={src} to={node.fields.fullSlug} />
+                    <Image src={src} to={node.slug} />
                   </Box>
                 )
               })}
@@ -197,29 +197,21 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
-    olderPosts: allWordpressPost(filter: {format: {eq: "standard"}}, limit: 5) {
-      edges {
-        node {
-          id
-          title
-          fields {
-            fullSlug
-          }
-          excerpt
-        }
+    olderPosts: allBlog(filter: {format: {eq: "standard"}}, limit: 5) {
+      nodes {
+        id
+        title
+        slug
+        excerpt
       }
     }
 
-    photos: allWordpressPost(filter: {format: {eq: "image"}}, limit: 15) {
-      edges {
-        node {
-          id
-          fields {
-            fullSlug
-          }
-          format
-          content
-        }
+    photos: allBlog(filter: {format: {eq: "image"}}, limit: 15) {
+      nodes {
+        id
+        slug
+        format
+        content
       }
     }
   }
