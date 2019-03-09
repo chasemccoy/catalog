@@ -32,7 +32,7 @@ export default ArchivePage
 
 export const query = graphql`
   query ArchiveQuery {
-    posts: allBlog {
+    posts: allBlog(sort: {fields: date, order: DESC}) {
       nodes {
         id
         title

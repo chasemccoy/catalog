@@ -198,7 +198,11 @@ export default Index
 
 export const query = graphql`
   query IndexQuery {
-    olderPosts: allBlog(filter: {format: {eq: "standard"}}, limit: 5) {
+    olderPosts: allBlog(
+      sort: {fields: date, order: DESC},
+      filter: {format: {eq: "standard"}}, 
+      limit: 5,
+    ) {
       nodes {
         id
         title

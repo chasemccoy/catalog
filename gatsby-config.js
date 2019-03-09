@@ -27,6 +27,14 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-hjson`,
     `gatsby-plugin-twitter`,
+    "gatsby-mdx",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/posts/`
+      }
+    },
     feedConfig,
     {
       resolve: `gatsby-plugin-favicon`,

@@ -103,7 +103,11 @@ export default ThoughtsPage
 
 export const query = graphql`
   query ThoughtsQuery {
-    posts: allBlog(filter: { format: { eq: "standard" } }, limit: 1) {
+    posts: allBlog(
+      sort: {fields: date, order: DESC},
+      filter: { format: { eq: "standard" } }, 
+      limit: 1
+    ) {
       nodes {
         id
         title
@@ -116,6 +120,7 @@ export const query = graphql`
     }
 
     olderPosts: allBlog(
+      sort: {fields: date, order: DESC},
       filter: { format: { eq: "standard" } }
       skip: 1
       limit: 8
@@ -129,7 +134,11 @@ export const query = graphql`
       }
     }
 
-    asides: allBlog(filter: { format: { eq: "aside" } }, limit: 25) {
+    asides: allBlog(
+      sort: {fields: date, order: DESC},
+      filter: { format: { eq: "aside" } }, 
+      limit: 25
+    ) {
       nodes {
         id
         title
