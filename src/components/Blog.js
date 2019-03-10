@@ -84,28 +84,6 @@ const AsideContainer = styled(Container)`
     }
   }
 
-
-  ${p => p.filmstrip && css`
-    img {
-      height: 300px;
-      object-fit: cover;
-    }
-
-    & > div > div > *:not(img) {
-      display: none;
-    }
-
-    p:empty {
-      margin-top: -40px;
-    }
-  `}
-
-  ${p => p.filmstrip && media.small`
-    img {
-      height: 250px;
-    }
-  `}
-
   ${p => p.photo && css`
     font-size: 1rem;
   `}
@@ -194,7 +172,7 @@ const Tags = ({ tags, title }) => {
 
 export const Post = props => {
   const title = props.title && (
-    <Heading.h1>
+    <Heading.h1 fontSize={props.aside ? '24px' : undefined} mb={props.aside ? '12px' : undefined}>
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
     </Heading.h1>
   )
@@ -209,8 +187,9 @@ export const Post = props => {
 
   if (props.aside) {
     return (
-      <AsideContainer photo={props.imagePost} filmstrip={props.filmstrip}>
+      <AsideContainer photo={props.imagePost}>
         {meta}
+        {title}
         {content}
       </AsideContainer>
     )

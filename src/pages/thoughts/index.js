@@ -36,6 +36,7 @@ const ThoughtsPage = ({ data }) => {
               <Box mb={[40, 40, 48]}>
                 <Post
                   aside
+                  title={node.title}
                   to={node.slug}
                   content={node.content}
                   date={node.date}
