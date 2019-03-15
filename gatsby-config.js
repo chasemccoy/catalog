@@ -257,6 +257,19 @@ module.exports = {
           }`,
         ],
       },
+    },
+    {
+      resolve: 'gatsby-source-airtable',
+      options: {
+        apiKey: `${(dotenv.parsed && dotenv.parsed.GATSBY_AIRTABLE_API_KEY) || process.env.GATSBY_AIRTABLE_API_KEY}`,
+        tables: [
+          {
+            baseId: 'appMswq6MXWZxhBiX',
+            tableName: 'Table 1',
+            queryName: 'blogroll'
+          }
+        ]
+      }
     }
   ]
 }

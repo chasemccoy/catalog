@@ -5,6 +5,9 @@ import Heading from 'components/Heading'
 import media from 'utils/media'
 import Metadata from 'components/Metadata'
 
+const GUTTER_LARGE = '80px'
+const GUTTER_SMALL = '40px'
+
 const Container = styled.div`
   display: flex;
   min-height: 100vh;
@@ -25,19 +28,29 @@ const Container = styled.div`
 `
 
 const Content = styled.main`
-  max-width: ${p => p.theme.sizes.layout.contentMaxWidth}px;
+  max-width: calc(${p => p.theme.sizes.layout.contentMaxWidth}px + ${GUTTER_LARGE} + ${GUTTER_LARGE});
   min-width: 0;
   margin: 0 auto;
   flex: 1;
+  padding-right: ${GUTTER_LARGE};
+  padding-left: ${GUTTER_LARGE};
+
+  ${media.medium`
+    max-width: calc(${p => p.theme.sizes.layout.contentMaxWidth}px + ${GUTTER_SMALL} + ${GUTTER_SMALL});
+    padding-right: ${GUTTER_SMALL};
+    padding-left: ${GUTTER_SMALL};
+  `}
 
   ${media.small`
+    padding: 0;
     flex-basis: 100%;
     margin: 0;
     max-width: none;
   `}
 
   ${p => p.wide && css`
-    padding-left: 80px;
+    padding-left: ${GUTTER_LARGE};
+    padding-right: 0;
     max-width: 1300px;
   `}
 
