@@ -102,7 +102,7 @@ const Sidebar = () => {
       </Header>
 
       <Text.p>
-        Designer and developer specializing in systems thinking, design tooling and front-end engineering.
+        Designer and developer specializing in systems thinking, design tooling, and front-end engineering.
       </Text.p>
 
       <Header>Get in touch</Header>
@@ -210,7 +210,7 @@ const Sidebar = () => {
 
           <Header>Latest Tweet</Header>
 
-          <Text.p mb={2}>
+          <Text.p mb={2} css={`white-space: pre-line;`}>
             {tweet || 'Loading...'}
           </Text.p>
 
