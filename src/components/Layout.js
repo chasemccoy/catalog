@@ -5,6 +5,7 @@ import darkTheme from 'utils/theme-dark'
 import { CSSReset } from '@chasemccoy/kit'
 import TypographyStyles from 'utils/typography'
 import Metadata from 'components/Metadata'
+import SyntaxTheme from 'components/SyntaxTheme'
 
 const GlobalStyles = createGlobalStyle`
   a {
@@ -78,6 +79,7 @@ class Layout extends React.Component {
           <CSSReset /> 
           <TypographyStyles />
           <GlobalStyles />
+          <SyntaxTheme />
 
           <ThemeContext.Provider value={this.state}>
             {this.props.children}

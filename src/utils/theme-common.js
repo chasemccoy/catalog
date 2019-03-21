@@ -41,7 +41,7 @@ const fonts = {
   sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
   serif: "Source Serif Pro, Tiempos, SF Serif, Georgia, serif",
   mono: "iA Writer Quattro, Menlo, Monaco, OperatorMono-Book, Inconsolata, monospace",
-  code: "Menlo, Monaco, OperatorMono-Book, Inconsolata, monospace",
+  code: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace`,
   system: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
   "Droid Sans", "Helvetica Neue", sans-serif`
