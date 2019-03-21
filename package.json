@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "author": "Chase McCoy",
   "dependencies": {
-    "@chasemccoy/kit": "^0.6.1",
+    "@chasemccoy/kit": "^0.6.2",
     "@mdx-js/mdx": "^0.20.3",
     "@mdx-js/tag": "^0.20.3",
     "@rebass/grid": "^6.0.0-5",

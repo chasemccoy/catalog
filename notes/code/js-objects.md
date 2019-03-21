@@ -24,32 +24,3 @@ color: Object.assign('gray', {
 ```
 
 Now you can access the default value with `color` instead of `color.default`. [Thanks to Max Stoiber for this tip](https://twitter.com/mxstbr/status/998975061636866048).
-
-```jsx
-componentDidMount = () => {document.addEventListener('mousedown', this.handleClickOutside, false)}
-```
-
-
-```jsx
-componentDidMount = () => {document(thing)}
-```
-
-```jsx
-componentDidMount = () => {document()}
-```
-
-```jsx
-componentDidMount = () => {document}
-```
-
-```jsx
-componentDidMount = () => document
-```
-
-```jsx
-componentDidMount = () => {}
-```
-
-```jsx
-componentDidMount
-```
