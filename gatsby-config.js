@@ -13,6 +13,9 @@ module.exports = {
     {
       resolve: require.resolve(`./themes/blog`)
     },
+    {
+      resolve: require.resolve(`./themes/notes`)
+    }
   ],
   plugins: [
     {

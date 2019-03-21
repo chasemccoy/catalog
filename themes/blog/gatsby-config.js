@@ -15,7 +15,14 @@ module.exports = {
           wpcom_user: "chasem000@gmail.com",
           wpcom_pass: `${(dotenv.parsed && dotenv.parsed.WP_PASSWORD) || process.env.WP_PASSWORD}`,
         },
-        excludedRoutes: ["/*/*/comments", "/*/*/feedback", "/*/*/pages", "/*/*/users", "/jetpack", "/oembed"],
+        concurrentRequests: 20,
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/media",
+          "**/tags",
+          "**/taxonomies"
+        ]
       }
     },
     {

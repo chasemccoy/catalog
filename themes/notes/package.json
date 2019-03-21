@@ -1,0 +1,12 @@
+{
+  "name": "gatsby-theme-notes",
+  "version": "0.0.1",
+  "author": "Chase McCoy",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "react"
+  ]
+}

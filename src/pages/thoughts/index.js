@@ -16,7 +16,7 @@ const Container = styled(Grid)`
     > * {
       padding: 0;
     }
-  `};
+  `}
 `
 
 const ThoughtsPage = ({ data }) => {

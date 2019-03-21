@@ -38,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   code {
+    font-feature-settings: normal;
     font-family: ${p => p.theme.fonts.code};
     background-color: ${p => p.theme.colors.gray[0]};
     padding: 4px 8px;

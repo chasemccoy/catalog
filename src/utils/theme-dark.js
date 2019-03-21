@@ -26,7 +26,7 @@ const colors = {
     linkHover: '#000088'
   },
   gray: {
-    0: '#403F3E',
+    0: '#2A2A2A',
     1: '#8A8987',
     2: '#BDBBB9',
     3: '#CCCBC8',

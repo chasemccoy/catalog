@@ -76,7 +76,6 @@ exports.createPages = ({ actions, graphql }) => {
 				nodes {
 					id
 					slug
-					shortSlug
 				}
 			}
 		}
@@ -87,21 +86,12 @@ exports.createPages = ({ actions, graphql }) => {
 
 		result.data.allBlog.nodes.map(node => {
 			createPage({
-				path: node.shortSlug,
-				component: path.resolve(`./src/templates/post.js`),
-				context: {
-					id: node.id,
-					hidden: true
-				}
-			})
-
-			createPage({
 				path: node.slug,
 				component: path.resolve(`./src/templates/post.js`),
 				context: {
 					id: node.id
 				}
 			})
-		});
-  });
-};
+		})
+  })
+}

@@ -121,6 +121,9 @@ const Sidebar = () => {
         <li>
           <Link to="/thoughts">/thoughts</Link>
         </li>
+        {/* <li>
+          <Link to="/notes">/notes</Link>
+        </li> */}
         <li>/resources</li>
         <li>
           <UnorderedList unstyled ml={4}>
