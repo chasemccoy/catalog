@@ -44,6 +44,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${p => p.theme.colors.gray[0]};
     padding: 4px 8px;
     display: inline-block;
+    vertical-align: middle;
     word-wrap: normal;
     overflow: auto;
     border-radius: 6px;
