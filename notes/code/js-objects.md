@@ -6,7 +6,7 @@ title: Javascript Objects
 
 If you wanna have values with variants in an object you usually do this, which is annoying:
 
-```js
+```jsx
 color: {
   default: '#FC625D',
   light: '#FFBAB8',
