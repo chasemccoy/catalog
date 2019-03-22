@@ -15,6 +15,8 @@ const Container = styled.div`
   background: ${p => p.theme.colors.page.background};
   color: ${p => p.theme.colors.page.text};
   transition: all 0.2s;
+  z-index: 0;
+  position: relative;
 
   ${media.medium`
     flex-wrap: wrap;

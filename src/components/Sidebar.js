@@ -93,15 +93,65 @@ const Sidebar = () => {
 
   return (
     <Container>
-      <Header fontSize="16px" mb="8px" mt="-8px">
-        <Link to="/" unstyled>
+      <Header fontSize="16px" mb="16px" mt="-8px">
+        <Link to="/" unstyled color='white' css={`
+          background: ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark};
+          box-shadow: ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark} -994px -1000px 0 1008px;
+
+          &:hover {
+            color: white;
+          }
+
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            background: transparent;
+            border: 1px solid ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark};
+            top: -36px;
+            left: -36px;
+            right: -20px;
+            bottom: -14px;
+            z-index: -1;
+            background-image: linear-gradient(135deg, ${props => props.theme.colors.accent} 12.50%, transparent 12.50%, transparent 50%, ${props => props.theme.colors.accent} 50%, ${props => props.theme.colors.accent} 62.50%, transparent 62.50%, transparent 100%);
+            background-size: 5.66px 5.66px;
+
+            ${media.medium`
+              top: -24px;
+              left: -24px;
+              right: -18px;
+              bottom: -12px;
+            `}
+
+            ${media.small`
+              top: -8px;
+              left: -8px;
+              right: -18px;
+              bottom: -12px;
+            `}
+          }
+        `}>
           CHASE McCOY
         </Link>
 
         <ToggleTheme />
       </Header>
 
-      <Text.p>
+      <Text.p css={`
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          background: ${props => props.theme.colors.gray[0]};
+          top: -56px;
+          left: -16px;
+          right: -16px;
+          bottom: -12px;
+          z-index: -2;
+        }
+      `}>
         Designer and developer specializing in systems thinking, design tooling, and front-end engineering.
       </Text.p>
 
