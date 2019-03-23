@@ -24,7 +24,9 @@ const Container = styled(Box.withComponent('aside'))`
     max-width: 100%;
     padding: 0;
     margin-bottom: 80px;
-  `} li {
+  `} 
+  
+  li {
     margin: 0;
   }
 `
@@ -38,10 +40,41 @@ const Header = props => (
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     `}
     {...props}
   />
 )
+
+const Mark = styled.svg`
+  position: absolute;
+  z-index: 1;
+  left: -28px;
+
+  ${media.small`
+    left: 140px;
+  `}
+
+  .inner {
+    transform-origin: 50% 50%;
+    animation: rotate-counterClockwise 16s linear infinite;
+  }
+
+  .outer {
+    transform-origin: 50% 50%;
+    animation: rotate-clockwise 8s linear infinite;
+  }
+
+  @keyframes rotate-counterClockwise {
+    0%  { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }	
+  }
+
+  @keyframes rotate-clockwise {
+    0%  { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }	
+  }
+`
 
 const ToggleTheme = () => (
   <ThemeContext.Consumer>
@@ -94,7 +127,37 @@ const Sidebar = () => {
   return (
     <Container>
       <Header fontSize="16px" mb="16px" mt="-8px">
-        <Link to="/" unstyled color='white' css={`
+        <Mark xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <g fill="none" fill-rule="evenodd">
+            <g fill="#FFF" className="inner">
+              <circle cx="8" cy="4" r="1" />
+              <circle cx="11" cy="5" r="1" />
+              <circle cx="12" cy="8" r="1" />
+              <circle cx="11" cy="11" r="1" />
+              <circle cx="8" cy="12" r="1" />
+              <circle cx="5" cy="11" r="1" />
+              <circle cx="4" cy="8" r="1" />
+              <circle cx="5" cy="5" r="1" />
+            </g>
+
+            <g fill="#FFF" className="outer">
+              <circle cx="13" cy="3" r="1"/>
+              <circle cx="15" cy="6.2" r="1"/>
+              <circle cx="15" cy="9.8" r="1"/>
+              <circle cx="13" cy="13" r="1"/>
+              <circle cx="9.8" cy="15" r="1"/>
+              <circle cx="6.2" cy="15" r="1"/>
+              <circle cx="3" cy="13" r="1"/>
+              <circle cx="1" cy="9.8" r="1"/>
+              <circle cx="1" cy="6.2" r="1"/>
+              <circle cx="3" cy="3" r="1"/>
+              <circle cx="6.2" cy="1" r="1"/>
+              <circle cx="9.8" cy="1" r="1"/>
+            </g>
+          </g>
+        </Mark>
+
+        <Link to="/" pr={[48, 48, 0]} unstyled color='white' css={`
           background: ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark};
           box-shadow: ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark} -994px -1000px 0 1008px;
 
