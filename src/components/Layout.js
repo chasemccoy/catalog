@@ -31,10 +31,10 @@ const GlobalStyles = createGlobalStyle`
   pre {
     overflow: auto;
     background-color: ${p => p.theme.colors.gray[0]};
-    border-radius: 6px;
+    border-radius: 8px;
 
     code {
-      padding: 8px 12px;
+      padding: 12px 16px;
     }
   }
 
@@ -42,12 +42,12 @@ const GlobalStyles = createGlobalStyle`
     font-feature-settings: normal;
     font-family: ${p => p.theme.fonts.code};
     background-color: ${p => p.theme.colors.gray[0]};
-    padding: 4px 8px;
+    padding: 2px 4px;
     display: inline-block;
     vertical-align: middle;
     word-wrap: normal;
     overflow: auto;
-    border-radius: 6px;
+    border-radius: 4px;
   }
 `
 

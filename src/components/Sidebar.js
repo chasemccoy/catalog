@@ -57,7 +57,7 @@ const Mark = styled.svg`
 
   .inner {
     transform-origin: 50% 50%;
-    animation: rotate-counterClockwise 16s linear infinite;
+    animation: rotate-counterClockwise 14s linear infinite;
   }
 
   .outer {
@@ -126,7 +126,7 @@ const Sidebar = () => {
 
   return (
     <Container>
-      <Header fontSize="16px" mb="16px" mt="-8px">
+      <Header fontSize="16px" mb="20px" mt="-8px">
         <Mark xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
           <g fill="none" fill-rule="evenodd">
             <g fill="#FFF" className="inner">
@@ -171,27 +171,27 @@ const Sidebar = () => {
             content: "";
             position: absolute;
             background: transparent;
-            border: 1px solid ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark};
+            // border: 1px solid ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark};
             top: -36px;
             left: -36px;
-            right: -20px;
-            bottom: -14px;
+            right: -24px;
+            bottom: -18px;
             z-index: -1;
             background-image: linear-gradient(135deg, ${props => props.theme.colors.accent} 12.50%, transparent 12.50%, transparent 50%, ${props => props.theme.colors.accent} 50%, ${props => props.theme.colors.accent} 62.50%, transparent 62.50%, transparent 100%);
             background-size: 5.66px 5.66px;
 
             ${media.medium`
-              top: -24px;
+              top: -22px;
               left: -24px;
-              right: -18px;
-              bottom: -12px;
+              right: -22px;
+              bottom: -14px;
             `}
 
             ${media.small`
-              top: -8px;
+              top: -6px;
               left: -8px;
-              right: -18px;
-              bottom: -12px;
+              right: -22px;
+              bottom: -14px;
             `}
           }
         `}>
@@ -209,7 +209,7 @@ const Sidebar = () => {
           position: absolute;
           background: ${props => props.theme.colors.gray[0]};
           top: -56px;
-          left: -16px;
+          left: -100px;
           right: -16px;
           bottom: -12px;
           z-index: -2;
