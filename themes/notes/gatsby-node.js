@@ -20,11 +20,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   
   const result = await graphql(`
     {
-      allMdx {
+      allMdx(sort: {fields: frontmatter___title, order: ASC}) {
         nodes {
           id
           tableOfContents
@@ -49,7 +49,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   if (result.errors) {
     console.log(result.errors)
-    throw new Error(`Could not query articles`, result.errors)
+    throw new Error(`Could not query notes`, result.errors)
   }
 
   const { allMdx } = result.data

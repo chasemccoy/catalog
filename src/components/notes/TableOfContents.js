@@ -40,6 +40,7 @@ const renderList = item => {
 
 const Container = styled(Box)`
   display: none;
+  margin-bottom: 8px;
 
   ul {
     list-style-type: none;

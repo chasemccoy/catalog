@@ -34,7 +34,7 @@ Sidebar.Notes = ({ data }) => (
     <Heading.section>Notes</Heading.section>
 
     {data.map(note => (
-      <Box mb='8px' key={note.id}>
+      <Box key={note.id}>
         <Link 
           fontFamily='mono' 
           fontSize='16px' 
