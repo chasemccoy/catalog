@@ -27,6 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allMdx {
         nodes {
           id
+          tableOfContents
           frontmatter {
             title
           }

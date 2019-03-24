@@ -20,6 +20,9 @@ const typography = new Typography({
     body: {
       '-webkit-font-smoothing': 'antialiased'
     },
+    'h1,h2,h3,h4,h5,h6': {
+      marginTop: rhythm(1.25),
+    },
     img: {
       height: 'auto'
     },

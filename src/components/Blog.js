@@ -172,7 +172,7 @@ const Tags = ({ tags, title }) => {
 
 export const Post = props => {
   const title = props.title && (
-    <Heading.h1 fontSize={props.aside ? '24px' : undefined} mb={props.aside ? '12px' : undefined}>
+    <Heading.h1 fontSize={props.aside ? '24px' : undefined} mb={props.aside ? '12px' : undefined} mt={0}>
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
     </Heading.h1>
   )
