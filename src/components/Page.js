@@ -17,6 +17,7 @@ const Container = styled.div`
   transition: all 0.2s;
   z-index: 0;
   position: relative;
+  overflow: hidden;
 
   &:before {
     content: "";

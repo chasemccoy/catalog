@@ -9,20 +9,18 @@ import Sidebar from 'components/notes/Sidebar'
 const Note = ({ data: { mdx }, pageContext: { notes, categories } }) => (
   <MDX.Provider>
     <Page title={mdx.frontmatter.title} untitled wide>
-      <Grid>
-        {categories && (
-          <Box width={[1, 1/3, 1, 1/3, 0.8/5]}>
-            <Sidebar data={categories} />
-          </Box>
-        )}
+      <Grid gutter={32}>
+        <Box width={[1, 1, 1, 1/3, 1.2/5]}>
+          {categories && (
+            <Box mb={32}>
+              <Sidebar data={categories} />
+            </Box>
+          )}
 
-        {notes && (
-          <Box width={[1, 2/3, 1, 2/3, 1.2/5]}>
-            <Sidebar.Notes data={notes} />
-          </Box>
-        )}
+          {notes && <Sidebar.Notes data={notes} />}
+        </Box>
 
-        <Box width={[1, 1, 1, 1, 3/5]}>
+        <Box width={[1, 1, 1, 2/3, 3/5]}> 
           <Heading.section>{mdx.frontmatter.title}</Heading.section>
 
           <Text fontFamily='system' fontSize='17px'>
