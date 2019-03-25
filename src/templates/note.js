@@ -23,7 +23,15 @@ const Note = ({ data: { mdx }, pageContext: { notes, categories } }) => (
         <Box width={[1, 1, 1, 2/3, 3/5]}> 
           <Heading.section>{mdx.frontmatter.title}</Heading.section>
 
-          <Text fontFamily='system' fontSize='17px'>
+          <Text 
+            fontFamily='system' 
+            fontSize='17px' 
+            css={`
+              h2, h3, h4, h5, h6 {
+                font-family: ${p => p.theme.fonts.mono};
+              }
+            `}
+          >
             <MDX.Renderer>
               {mdx.code.body}
             </MDX.Renderer>

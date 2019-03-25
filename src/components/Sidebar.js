@@ -7,6 +7,7 @@ import Heading from 'components/Heading'
 import { UnorderedList } from 'components/Lists'
 import { ThemeContext } from 'components/Layout'
 import Button from 'components/Button'
+import LogoBase from 'components/Logo'
 import 'isomorphic-fetch'
 
 const Container = styled(Box.withComponent('aside'))`
@@ -47,7 +48,7 @@ const Header = props => (
   />
 )
 
-const Mark = styled.svg`
+const Logo = styled(LogoBase)`
   position: absolute;
   z-index: 1;
   left: -40px;
@@ -55,44 +56,6 @@ const Mark = styled.svg`
   ${media.medium`
     left: 132px;
   `}
-
-  transform-origin: 50% 50%;
-  animation: rotate-counterClockwise 16s linear infinite;
-
-  .circle {
-    transform-origin: 7.25px 4.75px;
-    animation: rotate-counterClockwise 8s linear infinite;
-  }
-
-  .square {
-    transform-origin: 11.75px 9.5px;
-    animation: rotate-counterClockwise 10s linear infinite;
-  }
-
-  .triangle {
-    transform-origin: 4.5px 10.5px;
-    animation: rotate-clockwise 10s linear infinite;
-  }
-
-  ${'' /* .inner {
-    transform-origin: 50% 50%;
-    animation: rotate-counterClockwise 14s linear infinite;
-  }
-
-  .outer {
-    transform-origin: 50% 50%;
-    animation: rotate-clockwise 8s linear infinite;
-  } */}
-
-  @keyframes rotate-counterClockwise {
-    0%  { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }	
-  }
-
-  @keyframes rotate-clockwise {
-    0%  { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }	
-  }
 `
 
 const ToggleTheme = () => (
@@ -146,15 +109,7 @@ const Sidebar = () => {
   return (
     <Container>
       <Header fontSize="16px" mb="20px" mt="-8px">
-        <Mark xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
-          <g fill="none" fill-rule="evenodd">
-            <circle className="circle" cx="7.25" cy="4.75" r="1.75" fill="#FFF"/>
-            
-            <path fill="#FFF" className="triangle" d="M3,8.30059245 C3,8.22087037 3.03166947,8.14441351 3.08804149,8.08804149 C3.20543014,7.97065284 3.39575475,7.97065284 3.51314341,8.08804149 L6.91195851,11.4868566 C6.96833053,11.5432286 7,11.6196855 7,11.6994076 C7,11.8654202 6.86542018,12 6.69940755,12 L3.30059245,12 C3.13457982,12 3,11.8654202 3,11.6994076 L3,8.30059245 L3,8.30059245 Z"/>
-
-            <path fill="#FFF" className="square" fill-rule="evenodd" d="M10.5,7.5 L13,7.5 C13.2761424,7.5 13.5,7.72385763 13.5,8 L13.5,10.5 C13.5,10.7761424 13.2761424,11 13,11 L10.5,11 C10.2238576,11 10,10.7761424 10,10.5 L10,8 C10,7.72385763 10.2238576,7.5 10.5,7.5 Z" />
-          </g>
-        </Mark>
+        <Logo />
 
         <Link to="/" pr={[48, 48, 48, 0]} unstyled color='white' css={`
           background: ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark};
@@ -232,9 +187,9 @@ const Sidebar = () => {
         <li>
           <Link to="/thoughts">/thoughts</Link>
         </li>
-        {/* <li>
+        <li>
           <Link to="/notes">/notes</Link>
-        </li> */}
+        </li>
         <li>/resources</li>
         <li>
           <UnorderedList unstyled ml={4}>
