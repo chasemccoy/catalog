@@ -4,11 +4,50 @@ title: Concerts
 
 Live shows that I've had the pleasure to see, in chronological order. 
 
+## 2007
+
+**The Fray & Mutemath** @ Humphrey Coliseum  
+January 30 — Starkville, MS  
+Couldn't find a setlist, but I did find [this recount of the show from The Reflector](http://www.reflector-online.com/article_9d1f448e-3fb3-5c8e-a65a-e66e7d9ff0af.html).
+
+## 2010
+
+**Big Head Todd and the Monsters** @ Minglewood Hall  
+June 2 — Memphis, TN  
+
+## 2011
+
+**The Avett Brother & Band of Horses** @ Tuscaloosa Amphitheater  
+April 1 — Tuscaloosa, AL  
+[Setlist](https://www.setlist.fm/setlist/the-avett-brothers/2011/tuscaloosa-amphitheater-tuscaloosa-al-3bd24858.html)
+
+**The Avett Brothers** @ Bulldog Bash  
+October 12 — Starkville, MS  
+
+## 2012
+
+**Coldplay with Wolf Gang & Robyn** @ Philips Arena  
+July 2 — Atlanta, GA  
+[Setlist](https://www.setlist.fm/setlist/coldplay/2012/philips-arena-atlanta-ga-13df698d.html)
+
+## 2013
+
+**The Black Crowes** @ Bulldog Bash  
+October 4 — Starkville, MS  
+[Setlist](https://www.setlist.fm/setlist/the-black-crowes/2013/mississippi-state-university-starkville-ms-73c7d645.html)
+
+**Fun. & Hunter Hunted** @ Humphrey Coliseum  
+October 9 — Starkville, MS
+
 ## 2015
 
 **Jack White** @ Humphrey Coliseum  
 January 27 — Starkville, MS  
 [Setlist](https://www.setlist.fm/setlist/jack-white/2015/humphrey-coliseum-mississippi-state-university-starkville-ms-6bcaee7a.html)
+
+**Beck** @ Mud Island Amphitheatre  
+May 16 — Memphis, TN  
+[Setlist](https://www.setlist.fm/setlist/beck/2015/mud-island-amphitheater-memphis-tn-5bc85f54.html)
 
 ## 2017
 
@@ -49,14 +88,6 @@ June
 
 ## To be organized
 
-- The Fray
-- Big Head Todd and the Monsters
-- Avett Bros., Band of Horses
-- Daughtry, Theory of a Deadman, Cavo
-- Black Crowes
-- Coldplay, Wolfgang
-- FUN, Hunter Hunted
-- Beck
 - Mumford and Sons
 - Coldplay, Alessia Cara
 - Alabama Shakes
