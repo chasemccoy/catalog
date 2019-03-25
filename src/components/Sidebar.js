@@ -178,7 +178,7 @@ const Sidebar = () => {
         <Link to="https://instagram.com/chs_mc">Instagram</Link>,{' '}
         <Link to="https://github.com/chasemccoy">GitHub</Link>,{' '}
         <Link to="mailto:desk@chasem.co">Email</Link>, &{' '}
-        <Link to="/feed.xml">RSS</Link>.
+        <Link external to="/feed.xml">RSS</Link>.
       </Text.p>
 
       <Header>Browse</Header>

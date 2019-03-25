@@ -13,9 +13,9 @@ const Container = styled(Text)`
   `}
 `
 
-const Link = ({ children, to, ...other }) => {
+const Link = ({ children, to, external, ...other }) => {
   const newTab = to.startsWith('http')
-  const internal = /^\/(?!\/)/.test(to)
+  const internal = /^\/(?!\/)/.test(to) && !external
 
   if (!internal) {
     return (
