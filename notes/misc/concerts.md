@@ -49,7 +49,25 @@ January 27 — Starkville, MS
 May 16 — Memphis, TN  
 [Setlist](https://www.setlist.fm/setlist/beck/2015/mud-island-amphitheater-memphis-tn-5bc85f54.html)
 
+## 2016
+
+**Mumford & Sons** @ Bridgestone Arena  
+April 15 — Nashville, TN  
+[Setlist](https://www.setlist.fm/setlist/mumford-and-sons/2016/bridgestone-arena-nashville-tn-23f184df.html)  
+Appearance by John Oates
+
+**Coldplay with Alessia Cara** @ Scottrade Center  
+July 21 — St. Louis, MO  
+[Setlist](https://www.setlist.fm/setlist/coldplay/2016/scottrade-center-st-louis-mo-7bff0e40.html)
+
 ## 2017
+
+**Alabama Shakes** @ MSU Amphitheater  
+April 26 — Starkville, MS  
+
+**Passion Pit** @ Petrillo Music Shell  
+July 8 — Chicago, IL  
+[Setlist](https://www.setlist.fm/setlist/passion-pit/2017/petrillo-music-shell-chicago-il-3be47420.html)
 
 **Foster the People** @ Vic Theatre  
 August 2 — Chicago, IL  
@@ -66,7 +84,7 @@ November 7 — Chicago, IL
 ## 2018
 
 **Radiohead** @ United Center  
-July 6 — Chicago, IL
+July 6 — Chicago, IL  
 [Setlist](https://www.setlist.fm/setlist/radiohead/2018/united-center-chicago-il-7bea6a40.html)
 
 **Death Cab for Cutie** @ Auditorium Theatre  
@@ -79,17 +97,8 @@ October 25 — Chicago, IL
 
 ## 2019
 
-**Foals**  
-April
+**Foals** @ Riviera Theatre  
+April 27 — Chicago, IL
 
 **Anderson .Paak**  
-June
-
-
-## To be organized
-
-- Mumford and Sons
-- Coldplay, Alessia Cara
-- Alabama Shakes
-- Passion Pit
-- Young the Giant, Cold War Kids
+June 4 — Chicago, IL
