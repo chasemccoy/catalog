@@ -1,8 +1,6 @@
 const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem');
-
+const { createFilePath } = require('gatsby-source-filesystem')
 const notesPath = '/notes'
-
 const Note = path.resolve(`./src/templates/note.js`)
 const Notes = path.resolve(`./src/templates/notes.js`)
 
@@ -27,6 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allMdx(sort: {fields: frontmatter___title, order: ASC}) {
         nodes {
           id
+          excerpt(pruneLength: 200)
           tableOfContents
           frontmatter {
             title
@@ -40,6 +39,8 @@ exports.createPages = async ({ graphql, actions }) => {
               base
               relativePath
               sourceInstanceName
+              modifiedDate: modifiedTime
+              modifiedString: modifiedTime(fromNow: true)
             }
           }
         }
@@ -83,7 +84,8 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { 
         id: node.id,
         notes: groupedNotes[dir],
-        categories: groupedNotes
+        categories: groupedNotes,
+        category: dir
       },
       component: Note
     })
@@ -94,7 +96,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: path.join(notesPath, key),
       context: {
         notes: value,
-        categories: groupedNotes
+        categories: groupedNotes,
+        category: key
       },
       component: Notes
     })

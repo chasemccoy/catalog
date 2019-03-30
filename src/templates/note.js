@@ -5,8 +5,9 @@ import Page from 'components/Page'
 import { Box, Grid, Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
 import Sidebar from 'components/notes/Sidebar'
+import Breadcrumbs from 'components/notes/Breadcrumbs'
 
-const Note = ({ data: { mdx }, pageContext: { notes, categories } }) => (
+const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) => (
   <MDX.Provider>
     <Page title={mdx.frontmatter.title} untitled wide>
       <Grid gutter={32}>
@@ -21,7 +22,9 @@ const Note = ({ data: { mdx }, pageContext: { notes, categories } }) => (
         </Box>
 
         <Box width={[1, 1, 1, 2/3, 3/5]}> 
-          <Heading.section>{mdx.frontmatter.title}</Heading.section>
+          <Heading.section>
+            <Breadcrumbs mb={32} category={category} title={mdx.frontmatter.title} />
+          </Heading.section>
 
           <Text 
             fontFamily='system' 
