@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import { capitalize } from 'utils/js'
+import { capitalize } from 'utils'
 import { space } from 'styled-system'
 
 const Container = styled.div`

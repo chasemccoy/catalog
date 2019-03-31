@@ -32,7 +32,6 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-hjson`,
     `gatsby-plugin-twitter`,
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-favicon`,
       options: {

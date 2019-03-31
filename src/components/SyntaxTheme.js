@@ -1,153 +1,166 @@
 import { createGlobalStyle } from 'styled-components'
 
 const SyntaxTheme = createGlobalStyle`
-  code[class*="language-"] {
-    font-size: 0.9em;
-  }
-
-  code[class*="language-"],
-  pre[class*="language-"] {
-    color: #ABB2BF;
-    background: none;
+  code[class*='language-'],
+  pre[class*='language-'] {
     text-align: left;
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    tab-size: 4;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
     hyphens: none;
   }
-  
-  pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-  code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-    text-shadow: none;
-    background: #383e49;
-  }
-  
-  pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-  code[class*="language-"]::selection, code[class*="language-"] ::selection {
-    text-shadow: none;
-    background: #9aa2b1;
-  }
-  
-  @media print {
-    code[class*="language-"],
-    pre[class*="language-"] {
-      text-shadow: none;
-    }
+
+  .token.tag {
+    color: #fa7692;
   }
 
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    background: #2A2A2A;
+  .token.important,
+  .token.atrule,
+  .token.keyword {
+    color: #c3a2ff;
   }
 
-  
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata {
-    color: #5C6370;
+    color: #7f96cf;
   }
-  
-  .token.punctuation {
-    color: #abb2bf;
+
+  .token.attr-name {
+    color: #c3a2ff;
   }
-  
-  .token.selector,
-  .token.tag {
-    color: #e06c75;
+
+  .token.selector {
+    color: #ffc777;
   }
-  
-  .token.property,
-  .token.boolean,
-  .token.number,
+
   .token.constant,
-  .token.symbol,
-  .token.attr-name,
-  .token.deleted {
-    color: #d19a66;
+  .token.unit {
+    color: #ff959c;
+  }
+
+  .token.punctuation {
+    color: #9fc8ff;
   }
   
+  .token.tag .token.punctuation,
+  .token.operator,
+  .token.op,
+  .token.module {
+    color: #89DDFF;
+  }
+
+  .token.nil {
+    color: #9b9fb0;
+  }
+
+  .token.arrow {
+    color: #c49dff;
+  }
+
+  .token.parameter {
+    color: #fface4;
+  }
+
+  .token.flow {
+    color: #89DDFF;
+    font-style: italic;
+  }
+
+  .token.spread {
+    font-weight: bold;
+    color: #ff7e99;
+    text-shadow: 0px 1px 6px;
+  }
+
+  .namespace {
+    opacity: 0.7;
+  }
+
+  .token.number,
+  .token.boolean,
+  .token.symbol,
+  .token.deleted {
+    color: #ff9d74;
+  }
+
   .token.string,
-  .token.char,
+  .token.value,
+  .language-css .token.string,
+  .token.url,
   .token.attr-value,
+  .token.char,
   .token.builtin,
   .token.inserted {
-    color: #98c379;
+    color: #C3E88D;
   }
-  
-  .token.operator,
+
+  .token.punctuation.quote {
+    color: #89DDFF;
+  }
+
   .token.entity,
-  .token.url,
-  .language-css .token.string,
   .style .token.string {
-    color: #56b6c2;
+    color: #ecd6ba;
+    text-shadow: 0 1px 3px transparentize(#ecd6ba, 0.5);
   }
-  
-  .token.atrule,
-  .token.keyword {
-    color: #c678dd;
+
+  .token.function,
+  .token.property {
+    color: #82AAFF;
   }
-  
-  .token.function {
-    color: #61afef;
+
+  .token.method,
+  .language-css .token.function {
+    color: #25c8e5;
   }
-  
-  .token.regex,
-  .token.important,
+
   .token.variable {
-    color: #c678dd;
+    color: #ffad92;
   }
-  
-  .token.important,
+
+  .token.dom,
+  .token.class-name {
+    color: #ffc777;
+  }
+
+  .token.property.definition {
+    color: #77e0c6;
+  }
+
+  .token.property.access {
+    color: #89DDFF;
+  }
+
+  .token.regex {
+    color: #88ecff;
+  }
+
   .token.bold {
     font-weight: bold;
   }
-  
   .token.italic {
     font-style: italic;
   }
-  
+
   .token.entity {
     cursor: help;
   }
-  
-  pre.line-numbers {
-    position: relative;
-    padding-left: 3.8em;
-    counter-reset: linenumber;
+
+  .token.attr-value {
+    color: rgb(195, 232, 141);
   }
-  
-  pre.line-numbers > code {
-    position: relative;
-  }
-  
-  .line-numbers .line-numbers-rows {
-    position: absolute;
-    pointer-events: none;
-    top: 0;
-    font-size: 100%;
-    left: -3.8em;
-    width: 3em;
-    letter-spacing: -1px;
-    border-right: 0;
-    user-select: none;
-  
-  }
-  
-  .line-numbers-rows > span {
-    pointer-events: none;
-    display: block;
-    counter-increment: linenumber;
-  }
-  
-  .line-numbers-rows > span:before {
-    content: counter(linenumber);
-    color: #5C6370;
-    display: block;
-    padding-right: 0.8em;
-    text-align: right;
+
+  .token.punctuation {
+    color: rgb(137, 221, 255);
   }
 `
 

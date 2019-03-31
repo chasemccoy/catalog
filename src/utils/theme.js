@@ -16,14 +16,16 @@ const colors = {
     light: '#FFFEFC',
     dark: '#000000',
     background: 'white',
-    text: '#1e1f22'
+    text: '#1e1f22',
+    code: 'rgb(33, 33, 57)'
   },
   type: {
     body: '#1e1f22',
     header: '#1e1f22',
     menu: '#666666',
     link: '#0000FF',
-    linkHover: '#000088'
+    linkHover: '#000088',
+    code: '#c6dbf4'
   },
   gray: {
     0: '#F5F5FA',

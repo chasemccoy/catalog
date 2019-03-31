@@ -5,6 +5,14 @@ tags:
   - webdev
 ---
 
+## Conditional properties
+
+```js
+const obj = {
+  ...condition && { prop: value }
+}
+```
+
 ## Default values
 
 If you wanna have values with variants in an object you usually do this, which is annoying:

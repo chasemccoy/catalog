@@ -3,7 +3,7 @@ import { Box } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import TableOfContents from 'components/notes/TableOfContents'
-import { capitalize } from 'utils/js'
+import { capitalize } from 'utils'
 
 const Sidebar = ({ data }) => (
   <>

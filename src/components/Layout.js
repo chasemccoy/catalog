@@ -8,6 +8,10 @@ import Metadata from 'components/Metadata'
 import SyntaxTheme from 'components/SyntaxTheme'
 
 const GlobalStyles = createGlobalStyle`
+  body {
+    background: ${props => props.theme.colors.page.background};
+  }
+
   a {
     color: ${p => p.theme.colors.accent};
     text-decoration: underline;
@@ -34,8 +38,15 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 8px;
 
     code {
+      font-size: 15px;
       padding: 12px 16px;
     }
+  }
+
+  pre[class*='language-'],
+  code[class*='language-'] {
+    background-color: ${p => p.theme.colors.page.code};
+    color: ${p => p.theme.colors.type.code};
   }
 
   code {

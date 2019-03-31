@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Container = styled.svg`
   transform-origin: 50% 50%;
-  animation: rotate-counterClockwise 16s linear infinite;
+  animation: rotate-counterClockwise 14s linear infinite;
 
   .square {
     transform-origin: 11.75px 9.5px;
@@ -31,7 +31,7 @@ const Logo = props => {
 
   return (
     <Container xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 16 16" {...rest}>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <circle className="circle" cx="7.25" cy="4.75" r="1.75" fill={color}/>
         
         <path fill={color} className="triangle" d="M3,8.30059245 C3,8.22087037 3.03166947,8.14441351 3.08804149,8.08804149 C3.20543014,7.97065284 3.39575475,7.97065284 3.51314341,8.08804149 L6.91195851,11.4868566 C6.96833053,11.5432286 7,11.6196855 7,11.6994076 C7,11.8654202 6.86542018,12 6.69940755,12 L3.30059245,12 C3.13457982,12 3,11.8654202 3,11.6994076 L3,8.30059245 L3,8.30059245 Z"/>

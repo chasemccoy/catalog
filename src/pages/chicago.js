@@ -1,6 +1,6 @@
 import Page from 'components/Page'
 import React from 'react'
-import { capitalize } from 'utils/js'
+import { capitalize } from 'utils'
 import { Row, Column } from 'components/Grid'
 import MediaCard from 'components/MediaCard'
 import Mosaic from 'components/Mosaic'
