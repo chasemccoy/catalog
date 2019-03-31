@@ -9,13 +9,14 @@ const styles = {
 }
 
 const Link = props => <LinkBase {...styles} {...props} />
-const Divider = props => <Text.span color='gray.3' fontWeight='normal' {...styles} {...props}>/</Text.span>
+const Divider = props => <Text.span {...styles} {...props}>/</Text.span>
 
 const Breadcrumbs = ({ category, title, ...rest }) => (
-  <Box display='flex' alignItems='center' {...rest}>
+  <Box display='flex' alignItems='center' whiteSpace {...rest}>
     <Link to='/notes'>notes</Link>
     {category && <Divider />}
-    {category && <Link to={`/notes/${category}`}>{category}</Link>}
+    {category && !title && category}
+    {category && title && <Link to={`/notes/${category}`}>{category}</Link>}
     {category && title && <Divider />}
     {category && title && title}
   </Box>

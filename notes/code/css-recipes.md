@@ -1,5 +1,9 @@
 ---
 title: CSS Recipes
+tags: 
+  - css
+  - webdev
+  - howto
 ---
 
 ## Accordions

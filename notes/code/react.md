@@ -1,5 +1,9 @@
 ---
 title: React Patterns
+tags: 
+  - react
+  - js
+  - webdev
 ---
 
 ## Detecting outside clicks

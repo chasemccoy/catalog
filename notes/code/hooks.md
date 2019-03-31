@@ -1,5 +1,8 @@
 ---
 title: React Hooks
+tags: 
+  - react
+  - js
 ---
 
 ## `useStaticQuery & useSiteMetadata`

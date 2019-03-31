@@ -29,6 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
           tableOfContents
           frontmatter {
             title
+            tags
           }
           fields {
             slug
@@ -39,8 +40,6 @@ exports.createPages = async ({ graphql, actions }) => {
               base
               relativePath
               sourceInstanceName
-              modifiedDate: modifiedTime
-              modifiedString: modifiedTime(fromNow: true)
             }
           }
         }

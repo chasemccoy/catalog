@@ -21,19 +21,19 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
 
       <Box width={[1, 1, 1, 2/3, 3/5]}> 
         <Heading.section>
-          <Breadcrumbs mb={32} category={category} title='Recently edited' />
+          <Breadcrumbs mb={32} category={category} />
         </Heading.section>
         
         <Grid>
-          {notes.sort((a, b) => {
-            return new Date(b.parent.modifiedDate) - new Date(a.parent.modifiedDate)
-          }).map(note => (
+          {notes.map(note => (
             <Box width={[1, 1/2, 1, 1/2]} key={note.id}>
-              <Link unstyled fontFamily='mono' fontWeight='bold' to={note.fields.slug}>{note.frontmatter.title}</Link>
+              <Link unstyled fontFamily='mono' fontWeight='bold' fontSize='22px' to={note.fields.slug}>{note.frontmatter.title}</Link>
 
-              <Text color='gray.4'fontFamily='mono' fontSize='14px' mb='4px'>
-                edited {note.parent.modifiedString}
-              </Text>
+              {note.frontmatter.tags && (
+                <Text color='gray.4'fontFamily='mono' fontSize='14px' mb='4px'>
+                  tagged: {note.frontmatter.tags.join(', ')}
+                </Text>
+              )}
               
               <Text.p fontFamily='system' fontSize='16px' mb='8px'>
                 {note.excerpt}

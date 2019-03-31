@@ -23,8 +23,14 @@ const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) =
 
         <Box width={[1, 1, 1, 2/3, 3/5]}> 
           <Heading.section>
-            <Breadcrumbs mb={32} category={category} title={mdx.frontmatter.title} />
+            <Breadcrumbs mb={16} category={category} title={mdx.frontmatter.title} />
           </Heading.section>
+
+          {mdx.frontmatter.tags && (
+            <Text color='gray.4'fontFamily='mono' fontSize='14px' mb={32}>
+              tagged: {mdx.frontmatter.tags.join(', ')}
+            </Text>
+          )}
 
           <Text 
             fontFamily='system' 
@@ -53,6 +59,7 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
+        tags
       }
       code {
         body

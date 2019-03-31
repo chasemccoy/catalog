@@ -1,5 +1,8 @@
 ---
 title: Javascript Objects
+tags:
+  - js
+  - webdev
 ---
 
 ## Default values
