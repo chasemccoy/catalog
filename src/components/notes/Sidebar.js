@@ -5,8 +5,8 @@ import Heading from 'components/Heading'
 import TableOfContents from 'components/notes/TableOfContents'
 import { capitalize } from 'utils'
 
-const Sidebar = ({ data }) => (
-  <>
+const Sidebar = ({ data, ...rest }) => (
+  <Box {...rest}>
     <Heading.section>Categories</Heading.section>
     
     {Object.entries(data).map(([key, value], i) => (
@@ -26,11 +26,11 @@ const Sidebar = ({ data }) => (
         </Link>
       </Box>
     ))}
-  </>
+  </Box>
 )
 
-Sidebar.Notes = ({ data }) => (
-  <>
+Sidebar.Notes = ({ data, ...rest }) => (
+  <Box {...rest}>
     <Heading.section>Notes</Heading.section>
 
     {data.map(note => (
@@ -51,7 +51,7 @@ Sidebar.Notes = ({ data }) => (
         <TableOfContents data={note.tableOfContents} />
       </Box>
     ))}
-  </>
+  </Box>
 )
 
 export default Sidebar

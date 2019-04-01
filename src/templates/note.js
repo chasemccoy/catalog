@@ -2,26 +2,22 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/mdx/MDX'
 import Page from 'components/Page'
-import { Box, Grid, Text } from '@chasemccoy/kit'
+import { Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
 import Sidebar from 'components/notes/Sidebar'
 import Breadcrumbs from 'components/notes/Breadcrumbs'
+import Layout from 'components/notes/Layout'
 
 const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) => (
   <MDX.Provider>
     <Page title={mdx.frontmatter.title} untitled wide>
-      <Grid gutter={32}>
-        <Box width={[1, 1, 1, 1/3, 1.2/5]}>
-          {categories && (
-            <Box mb={32}>
-              <Sidebar data={categories} />
-            </Box>
-          )}
-
+      <Layout>
+        <Layout.Sidebar>
+          {categories && <Sidebar mb={32} data={categories} />}
           {notes && <Sidebar.Notes data={notes} />}
-        </Box>
+        </Layout.Sidebar>
 
-        <Box width={[1, 1, 1, 2/3, 3/5]}> 
+        <Layout.Content>
           <Heading.section>
             <Breadcrumbs mb={16} category={category} title={mdx.frontmatter.title} />
           </Heading.section>
@@ -45,8 +41,8 @@ const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) =
               {mdx.code.body}
             </MDX.Renderer>
           </Text>
-        </Box>
-      </Grid>
+        </Layout.Content>
+      </Layout>
     </Page>
   </MDX.Provider>
 )

@@ -44,7 +44,7 @@ const Container = styled(Box)`
 
   ul {
     list-style-type: none;
-    margin: 2px 0 0 4px;
+    margin: 4px 0 0 4px;
     padding: 0 0 0 16px;
     border-left: 1px solid ${props => props.theme.colors.accent.light};
   }
@@ -55,6 +55,10 @@ const Container = styled(Box)`
 
   li {
     margin: 0;
+  }
+
+  li + li {
+    margin-top: 4px;
   }
 
   .selected + &  {

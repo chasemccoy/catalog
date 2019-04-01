@@ -5,21 +5,17 @@ import Heading from 'components/Heading'
 import Link from 'components/Link'
 import Sidebar from 'components/notes/Sidebar'
 import Breadcrumbs from 'components/notes/Breadcrumbs'
+import Layout from 'components/notes/Layout'
 
 const Notes = ({ pageContext: { notes, categories, category } }) => (
   <Page title='Notes' wide untitled>
-    <Grid gutter={32}>
-      <Box width={[1, 1, 1, 1/3, 1.2/5]}>
-        {categories && (
-          <Box mb={32}>
-            <Sidebar data={categories} />
-          </Box>
-        )}
-
+    <Layout>
+      <Layout.Sidebar>
+        {categories && <Sidebar mb={32} data={categories} />}
         {notes && <Sidebar.Notes data={notes} />}
-      </Box>
+      </Layout.Sidebar>
 
-      <Box width={[1, 1, 1, 2/3, 3/5]}> 
+      <Layout.Content>
         <Heading.section>
           <Breadcrumbs mb={32} category={category} />
         </Heading.section>
@@ -41,8 +37,8 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
             </Box>
           ))}
         </Grid>
-      </Box>
-    </Grid>
+      </Layout.Content>
+    </Layout>
   </Page>
 )
 
