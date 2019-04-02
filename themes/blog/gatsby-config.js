@@ -22,7 +22,21 @@ module.exports = {
           "**/media",
           "**/tags",
           "**/taxonomies"
-        ]
+        ],
+        normalizer: ({ entities }) => {
+          // WordPress gives us back dates in UTC, so let's convert them to 
+          // America/Chicago time (+6 hour offset)
+          entities.map(entity => {
+            if (entity.date) {
+              const adjustedDate = entity.date.replace("Z", "+0600")
+              entity.date = adjustedDate
+            }
+
+            return entity
+          })
+
+          return entities
+        }
       }
     },
     {
