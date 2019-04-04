@@ -139,7 +139,7 @@ const Index = props => {
 
           {props.data.olderPosts.nodes.map(node => (
             <React.Fragment key={node.id}> 
-              <Heading.h3 mb='4px' fontFamily='mono' fontSize='16px' lineHeight='1.4'>
+              <Heading.h3 mb='4px' mt={0} fontFamily='mono' fontSize='16px' lineHeight='1.4'>
                 <Link to={node.slug} dangerouslySetInnerHTML={{ __html: node.title }} />&nbsp;→
               </Heading.h3>
               <Text dangerouslySetInnerHTML={{ __html: node.excerpt }} fontSize='15px' mb='-8px' lineHeight='1.4' />
