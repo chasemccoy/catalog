@@ -48,6 +48,8 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "prebuild": "touch .cache && rm -r .cache",
+    "prestart": "yarn run prebuild",
     "build": "gatsby build",
     "start": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
