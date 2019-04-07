@@ -29,11 +29,12 @@ const Sidebar = ({ data, ...rest }) => (
   </Box>
 )
 
-Sidebar.Notes = ({ data, ...rest }) => (
+Sidebar.Notes = ({ data, category, ...rest }) => (
   <Box {...rest}>
     <Heading.section>Notes</Heading.section>
 
-    {data.map(note => (
+    {data.filter(note => !note.fields.isLandingPage)
+    .map(note => (
       <Box key={note.id}>
         <Link 
           fontFamily='mono' 

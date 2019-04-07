@@ -11,15 +11,21 @@ const styles = {
 const Link = props => <LinkBase {...styles} {...props} />
 const Divider = props => <Text.span {...styles} {...props}>/</Text.span>
 
-const Breadcrumbs = ({ category, title, ...rest }) => (
-  <Box display='flex' alignItems='center' whiteSpace {...rest}>
-    <Link to='/notes'>notes</Link>
-    {category && <Divider />}
-    {category && !title && category}
-    {category && title && <Link to={`/notes/${category}`}>{category}</Link>}
-    {category && title && <Divider />}
-    {category && title && title}
-  </Box>
-)
+const Breadcrumbs = ({ category, title, ...rest }) => {
+  const isLandingPage = category && title && (category.toLowerCase() === title.toLowerCase())
+
+  return (
+    <Box display='flex' alignItems='center' whiteSpace {...rest}>
+      {!category && 'Notes'}
+      {category && <Link to='/notes'>notes</Link>}
+      {category && <Divider />}
+      {category && !title && category}
+      {category && title && isLandingPage && category}
+      {category && title && !isLandingPage && <Link to={`/notes/${category}`}>{category}</Link>}
+      {category && title && !isLandingPage && <Divider />}
+      {category && !isLandingPage && title}
+    </Box>
+  )
+}
 
 export default Breadcrumbs

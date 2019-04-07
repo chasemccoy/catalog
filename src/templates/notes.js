@@ -21,7 +21,8 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
         </Heading.section>
         
         <Grid>
-          {notes.map(note => (
+          {notes.filter(note => !note.fields.isLandingPage)
+          .map(note => (
             <Box width={[1, 1/2, 1, 1/2]} key={note.id}>
               <Link unstyled fontFamily='mono' fontWeight='bold' fontSize='22px' to={note.fields.slug}>{note.frontmatter.title}</Link>
 

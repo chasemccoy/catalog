@@ -8,12 +8,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 	
   if (node.internal.type === "Mdx") {
-    const value = createFilePath({ node, getNode })
+    const parentNode = getNode(node.parent)
+    const filePath = createFilePath({ node, getNode })
+
     createNodeField({
       name: "slug",
       node,
-      value: `${notesPath}${value}`
+      value: `${notesPath}${filePath}`
     })
+
+    if (parentNode && parentNode.name) {
+      createNodeField({
+        name: "isLandingPage",
+        node,
+        value: parentNode.name === 'index' ? true : false
+      })
+    }
   }
 }
 
@@ -33,6 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           fields {
             slug
+            isLandingPage
           }
           parent {
             ... on File {
@@ -90,18 +101,25 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // Create an index page for each category at /notes/category-name
   Object.entries(groupedNotes).map(([key, value]) => {
-    createPage({
-      path: path.join(notesPath, key),
-      context: {
-        notes: value,
-        categories: groupedNotes,
-        category: key
-      },
-      component: Notes
-    })
+    const pagePath = path.join(notesPath, key, '/')
+    const pageAlreadyExists = notes.find(node => node.fields.slug === pagePath)
+
+    if (!pageAlreadyExists) {
+      createPage({
+        path: pagePath,
+        context: {
+          notes: value,
+          categories: groupedNotes,
+          category: key
+        },
+        component: Notes
+      })
+    }
   })
 
+  // Create the root /notes page 
   createPage({
     path: notesPath,
     context: {
