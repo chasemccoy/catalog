@@ -86,7 +86,10 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={this.state.theme}>
         <>
-          <Metadata title={this.props.title} description={this.props.description} />
+          <Metadata 
+            title={this.props.title} 
+            description={this.props.description} 
+          />
 
           <CSSReset /> 
           <TypographyStyles />

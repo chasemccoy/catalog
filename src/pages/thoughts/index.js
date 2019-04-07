@@ -71,6 +71,7 @@ const ThoughtsPage = ({ data }) => {
               <Box width={[1, 1 / 2]} key={node.id}>
                 <Heading.h3
                   mb="4px"
+                  mt={0}
                   fontFamily="mono"
                   fontSize="16px"
                   lineHeight="1.4"

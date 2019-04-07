@@ -40,11 +40,10 @@ const renderList = item => {
 
 const Container = styled(Box)`
   display: none;
-  margin-bottom: 8px;
 
   ul {
     list-style-type: none;
-    margin: 4px 0 0 4px;
+    margin: 8px 0 8px 4px;
     padding: 0 0 0 16px;
     border-left: 1px solid ${props => props.theme.colors.accent.light};
   }
