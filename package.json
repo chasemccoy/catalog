@@ -36,10 +36,8 @@
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
     "react-markdown": "^3.1.0",
-    "react-typography": "^0.16.13",
     "styled-components": "^4.1.2",
     "styled-system": "^4.0.0",
-    "system-components": "^3.0.2",
     "typography": "^0.16.18"
   },
   "keywords": [
