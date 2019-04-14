@@ -6,6 +6,7 @@ import { CSSReset } from '@chasemccoy/kit'
 import TypographyStyles from 'utils/typography'
 import Metadata from 'components/Metadata'
 import SyntaxTheme from 'components/SyntaxTheme'
+import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -36,6 +37,12 @@ const GlobalStyles = createGlobalStyle`
     overflow: auto;
     background-color: ${p => p.theme.colors.gray[0]};
     border-radius: 8px;
+
+    ${media.small`
+      border-radius: 0;
+      width: calc(100% + 32px);
+      margin-left: -16px;
+    `}
 
     code {
       font-size: 15px;

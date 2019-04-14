@@ -29,7 +29,7 @@ const now = () => {
 }
 
 const HeaderImage = styled(Image)`
-  height: 500px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   mask-image: url("/mask.svg");
@@ -39,19 +39,17 @@ const HeaderImage = styled(Image)`
   mask-size: 100%;
 
   ${media.large`
-    height: 300px;
+    height: 100%;
     mask-size: 100% 100%;
   `}
 
   ${media.medium`
     mask-image: url("/mask-small.svg");
-    height: 275px;
-    object-position: initial;
+    height: 350px;
   `}
 
   ${media.small`
     height: 410px;
-    object-position: initial;
     max-width: none;
     width: calc(100% + 32px);
     margin-left: -16px;
