@@ -111,7 +111,7 @@ const Index = props => {
         <Box width={[1, 1, 1, 1, 1.2/5]} />
 
         <Box width={[1, 1, 1, 1, 2.7/5]} mb={[32, 32, 32, '8px', 40]}>
-          <Text.p mt='-5px'>Growing up online taught me that the power of the web is its malleability. I believe that the internet can and should be a space that respects the creativity, diversity, and well-being of those who occupy it. Like hypertext itself, our culture is defined by the connections we make. I work to design and build tools that serve those who create connections on (and with) the web.</Text.p>
+          <Text.p mt='-5px'>I hate the internet and I love the internet. I believe that it can and should be a space that respects the creativity, diversity, and well-being of those who occupy it. Like hypertext itself, our culture is defined by the connections we make. I work to design and build tools that serve those who create connections on (and with) the web.</Text.p>
 
           <Text.p>I’m currently working as a founding member of the Design Systems team at <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and build <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, our design system, as well as other tools used by Sprout employees to deliver consistently designed products to our customers. Previously I worked as a mobile designer & iOS developer, creating indie apps in my spare time and building products for enterprise clients at my day job. Check out <Link to='/portfolio'>my portfolio</Link> to learn more.</Text.p>
 

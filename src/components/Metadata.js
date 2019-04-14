@@ -55,6 +55,7 @@ const Metadata = ({ title, description, image, pathname, article, children }) =>
 
         <link rel="pingback" href="https://webmention.io/chasem.co/xmlrpc" />
         <link href="https://twitter.com/chase_mccoy" rel="me" />
+        <link href="https://github.com/chasemccoy" rel="me" />
         <link rel="webmention" href="https://webmention.io/chasem.co/webmention" />
 
         {children}
