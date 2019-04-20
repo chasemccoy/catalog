@@ -1,5 +1,5 @@
 import React from 'react'
-import { MDXProvider } from '@mdx-js/tag'
+import { MDXProvider } from '@mdx-js/react'
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 import Pre from 'components/mdx/Pre'
 import Link from 'components/Link'
