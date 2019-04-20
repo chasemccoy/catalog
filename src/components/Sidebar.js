@@ -51,7 +51,7 @@ const Header = props => (
 const Logo = styled(LogoBase)`
   position: absolute;
   z-index: 1;
-  left: -40px;
+  left: -36px;
 
   ${media.medium`
     left: 132px;
@@ -171,7 +171,7 @@ const Sidebar = () => {
         Designer and developer specializing in systems thinking, design tooling, and front-end engineering.
       </Text.p>
 
-      <Header>Get in touch</Header>
+      <Header>Stay in touch</Header>
 
       <Text.p width='95%'>
         <Link to="https://twitter.com/chase_mccoy">Twitter</Link>,{' '}
