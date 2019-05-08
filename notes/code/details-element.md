@@ -7,7 +7,7 @@ tags:
 
 Details can be used to build accessible dialogs and dropdown menus. In this example I am using the custom elements that Github built; you can find them on Github at [`details-dialog-element`](https://github.com/github/details-dialog-element) and [`details-menu-element`](https://github.com/github/details-menu-element).
 
-<Text.p fontWeight='bold' mb={0}>Related reading:</Text.p>
+<P fontWeight='bold' mb={0}>Related reading:</P>
 
 - https://github.com/muan/details-on-details
 - https://css-tricks.com/using-details-for-menus-and-dialogs-is-an-interesting-idea/

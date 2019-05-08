@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
-import TableOfContents from 'components/notes/TableOfContents'
+import TableOfContents from './TableOfContents'
 import { capitalize } from 'utils'
 
 const Sidebar = ({ data, ...rest }) => (

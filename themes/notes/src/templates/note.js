@@ -4,9 +4,9 @@ import MDX from 'components/mdx/MDX'
 import Page from 'components/Page'
 import { Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
-import Sidebar from 'components/notes/Sidebar'
-import Breadcrumbs from 'components/notes/Breadcrumbs'
-import Layout from 'components/notes/Layout'
+import Sidebar from '../components/notes/Sidebar'
+import Breadcrumbs from '../components/notes/Breadcrumbs'
+import Layout from '../components/notes/Layout'
 
 const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) => (
   <MDX.Provider>

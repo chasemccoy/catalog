@@ -1,8 +1,8 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const notesPath = '/notes'
-const Note = path.resolve(`./src/templates/note.js`)
-const Notes = path.resolve(`./src/templates/notes.js`)
+const Note = require.resolve(`./src/templates/note.js`)
+const Notes = require.resolve(`./src/templates/notes.js`)
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
