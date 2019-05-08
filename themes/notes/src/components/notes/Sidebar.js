@@ -9,7 +9,7 @@ const Sidebar = ({ data, ...rest }) => (
   <Box {...rest}>
     <Heading.section>Categories</Heading.section>
     
-    {Object.entries(data).map(([key, value], i) => (
+    {Object.entries(data).sort().map(([key, value], i) => (
       <Box key={i}>
         <Link 
           fontFamily='mono' 

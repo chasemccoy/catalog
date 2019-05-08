@@ -69,7 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
     node => node.parent.sourceInstanceName === 'notes'
   )
 
-  const groupedNotes = notes.reduce((acc, node) => {
+  let groupedNotes = notes.reduce((acc, node) => {
     const { dir } = path.parse(node.parent.relativePath)
 
     if (!dir) {
@@ -100,6 +100,12 @@ exports.createPages = async ({ graphql, actions }) => {
       component: Note
     })
   })
+
+  // Sort the note categories into alphabetical order
+  groupedNotes = Object.keys(groupedNotes).sort().reduce((a, c) => {
+    a[c] = groupedNotes[c]
+    return a
+  }, {})
 
   // Create an index page for each category at /notes/category-name
   Object.entries(groupedNotes).map(([key, value]) => {
