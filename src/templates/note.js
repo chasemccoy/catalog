@@ -19,11 +19,11 @@ const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) =
 
         <Layout.Content>
           <Heading.section>
-            <Breadcrumbs mb={16} category={category} title={mdx.frontmatter.title} />
+            <Breadcrumbs mb={mdx.frontmatter.tags ? 16 : 32} category={category} title={mdx.frontmatter.title} />
           </Heading.section>
 
           {mdx.frontmatter.tags && (
-            <Text color='gray.4'fontFamily='mono' fontSize='14px' mb={32}>
+            <Text color='gray.4' fontFamily='mono' fontSize='14px' mb={32}>
               tagged: {mdx.frontmatter.tags.join(', ')}
             </Text>
           )}

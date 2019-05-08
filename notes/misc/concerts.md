@@ -98,7 +98,8 @@ October 25 — Chicago, IL
 ## 2019
 
 **Foals** @ Riviera Theatre  
-April 27 — Chicago, IL
+April 27 — Chicago, IL  
+[Setlist](https://www.setlist.fm/setlist/foals/2019/riviera-theatre-chicago-il-63934aeb.html)
 
 **Anderson .Paak**  
 June 4 — Chicago, IL

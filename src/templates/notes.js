@@ -27,7 +27,7 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
               <Link unstyled fontFamily='mono' fontWeight='bold' fontSize='22px' to={note.fields.slug}>{note.frontmatter.title}</Link>
 
               {note.frontmatter.tags && (
-                <Text color='gray.4'fontFamily='mono' fontSize='14px' mb='4px'>
+                <Text color='gray.4' fontFamily='mono' fontSize='14px' mb='4px'>
                   tagged: {note.frontmatter.tags.join(', ')}
                 </Text>
               )}
