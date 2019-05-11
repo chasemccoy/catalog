@@ -67,6 +67,10 @@ const GlobalStyles = createGlobalStyle`
     overflow: auto;
     border-radius: 4px;
   }
+
+  .gatsby-resp-image-wrapper {
+    margin: 0 !important;
+  }
 `
 
 export const ThemeContext = React.createContext({

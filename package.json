@@ -22,6 +22,7 @@
     "gatsby-plugin-twitter": "^2.0.13",
     "gatsby-remark-autolink-headers": "^2.0.16",
     "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^3.0.11",
     "gatsby-source-airtable": "^2.0.5",
     "gatsby-source-filesystem": "^2.0.27",
     "gatsby-source-wordpress": "^3.0.48",

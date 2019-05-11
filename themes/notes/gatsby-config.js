@@ -6,6 +6,14 @@ module.exports = {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1500,
+              sizeByPixelDensity: true,
+              linkImagesToOriginal: true
+            }
+          },
+          {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
               icon: false

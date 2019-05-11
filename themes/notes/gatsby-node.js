@@ -10,6 +10,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === "Mdx") {
     const parentNode = getNode(node.parent)
     const filePath = createFilePath({ node, getNode })
+    const { dir } = path.parse(parentNode.relativePath)
+    const isLandingPage = parentNode.name === 'index' && dir.split('/').length === 1
 
     createNodeField({
       name: "slug",
@@ -21,7 +23,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         name: "isLandingPage",
         node,
-        value: parentNode.name === 'index' ? true : false
+        value: isLandingPage
       })
     }
   }
@@ -71,15 +73,16 @@ exports.createPages = async ({ graphql, actions }) => {
 
   let groupedNotes = notes.reduce((acc, node) => {
     const { dir } = path.parse(node.parent.relativePath)
+    const category = dir.split('/')[0]
 
-    if (!dir) {
+    if (!category) {
       return acc
     }
 
-    acc[dir] = acc[dir] || []
+    acc[category] = acc[category] || []
 
-    acc[dir].push({
-      pagePath: path.join(notesPath, dir),
+    acc[category].push({
+      pagePath: path.join(notesPath, category),
       ...node
     })
 
@@ -88,6 +91,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   notes.forEach(node => {
     const { dir } = path.parse(node.parent.relativePath)
+    const category = dir.split('/')[0]
 
     createPage({
       path: node.fields.slug,
@@ -95,7 +99,7 @@ exports.createPages = async ({ graphql, actions }) => {
         id: node.id,
         notes: groupedNotes[dir],
         categories: groupedNotes,
-        category: dir
+        category: category
       },
       component: Note
     })
