@@ -173,11 +173,17 @@ const Sidebar = () => {
 
       <Header>Stay in touch</Header>
 
+      <Box id="hcard-Chase-McCoy" className='h-card vcard' display='none'>
+          <a rel="me" className="p-name u-url" href="https://chasem.co/">Chase McCoy</a>
+          <img className="u-photo" src="https://github.com/chasemccoy.png" alt="" />
+          <a rel="me" className="u-email" href="mailto:hi@chasem.co">hi@chasem.co</a>
+        </Box>
+
       <Text.p width='95%'>
         <Link to="https://twitter.com/chase_mccoy">Twitter</Link>,{' '}
         <Link to="https://instagram.com/chs_mc">Instagram</Link>,{' '}
         <Link to="https://github.com/chasemccoy">GitHub</Link>,{' '}
-        <Link to="mailto:desk@chasem.co">Email</Link>, &{' '}
+        <Link to="mailto:hi@chasem.co">Email</Link>, &{' '}
         <Link external to="/feed.xml">RSS</Link>.
       </Text.p>
 
