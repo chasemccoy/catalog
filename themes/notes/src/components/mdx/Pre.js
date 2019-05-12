@@ -1,6 +1,6 @@
 import React from 'react'
 import { preToCodeBlock } from 'mdx-utils'
-import HighlightedCode from 'components/mdx/HighlightedCode'
+import HighlightedCode from './HighlightedCode'
 // import CodeSandbox from 'components/racine/CodeSandbox'
 
 const Pre = preProps => {

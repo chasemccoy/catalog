@@ -1,10 +1,11 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
-import Pre from 'components/mdx/Pre'
+import Pre from './Pre'
 import Link from 'components/Link'
 import { Box, Grid, Text } from '@chasemccoy/kit';
 import Heading from 'components/Heading';
+import Image from 'components/Image';
 
 const LinkAdapter = ({ href, ...rest }) => (
   <Link to={href} {...rest} />
@@ -17,7 +18,8 @@ const Provider = props => {
     Box: Box,
     Grid: Grid,
     Text: Text,
-    Heading: Heading
+    Heading: Heading,
+    Image: Image
   }
 
   const newProps = {components, ...props}

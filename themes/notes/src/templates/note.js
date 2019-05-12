@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import MDX from 'components/mdx/MDX'
+import MDX from '../components/mdx/MDX'
 import Page from 'components/Page'
 import { Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
