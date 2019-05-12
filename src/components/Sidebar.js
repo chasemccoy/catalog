@@ -4,6 +4,7 @@ import Link from 'components/Link'
 import { Box, Text } from '@chasemccoy/kit'
 import media from 'utils/media'
 import Heading from 'components/Heading'
+import HCard from 'components/hCard'
 import { UnorderedList } from 'components/Lists'
 import { ThemeContext } from 'components/Layout'
 import Button from 'components/Button'
@@ -173,11 +174,7 @@ const Sidebar = () => {
 
       <Header>Stay in touch</Header>
 
-      <Box id="hcard-Chase-McCoy" className='h-card vcard' display='none'>
-          <a rel="me" className="p-name u-url" href="https://chasem.co/">Chase McCoy</a>
-          <img className="u-photo" src="https://github.com/chasemccoy.png" alt="" />
-          <a rel="me" className="u-email" href="mailto:hi@chasem.co">hi@chasem.co</a>
-        </Box>
+      <HCard />
 
       <Text.p width='95%'>
         <Link to="https://twitter.com/chase_mccoy">Twitter</Link>,{' '}
