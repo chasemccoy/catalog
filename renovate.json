@@ -2,6 +2,7 @@
   "extends": [
     "config:js-app", 
     ":prHourlyLimitNone", 
-    ":prConcurrentLimitNone"
+    ":prConcurrentLimitNone",
+    "group:allNonMajor"
   ]
 }
