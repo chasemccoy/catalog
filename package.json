@@ -57,6 +57,6 @@
   "devDependencies": {
     "dotenv": "8.0.0",
     "gatsby-source-github": "0.0.2",
-    "prettier": "1.17.0"
+    "prettier": "1.17.1"
   }
 }
