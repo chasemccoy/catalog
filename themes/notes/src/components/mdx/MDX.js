@@ -15,11 +15,12 @@ const Provider = props => {
   const components = {
     pre: Pre,
     a: LinkAdapter,
-    Box: Box,
-    Grid: Grid,
-    Text: Text,
-    Heading: Heading,
-    Image: Image
+    P: Text.p,
+    Box,
+    Grid,
+    Text,
+    Heading,
+    Image
   }
 
   const newProps = {components, ...props}
