@@ -5,7 +5,7 @@ exports.sourceNodes = ({ actions: { createTypes } }) => {
   const typeDefs = `
     type Blog implements Node {
       title: String
-      date: Date!
+      date: Date! @dateformat
 			content: String!
 			format: String
 			slug: String!
