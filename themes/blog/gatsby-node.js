@@ -12,6 +12,7 @@ exports.sourceNodes = ({ actions: { createTypes } }) => {
 			shortSlug: String
 			excerpt: String
 			tags: [String]
+			year: String
     }
   `;
 
@@ -60,7 +61,8 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
 			slug: fullSlug,
 			shortSlug: node.slug,
 			tagNodes: node.tags___NODE,
-			excerpt: node.excerpt
+			excerpt: node.excerpt,
+			year: year
 		};
 	
 		createBlogNode(postData, { createContentDigest, createNodeId, createNode });
