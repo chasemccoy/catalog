@@ -12,7 +12,7 @@ const namedBreakpoints = {
   large: breakpoints[3]
 }
 
-const space = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64]
+const space = [0, 4, 8, 12, 16, 24, 32, 40]
 
 const sizes = {
   layout: {
