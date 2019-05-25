@@ -33,3 +33,15 @@ Thanks to [this tweet from Cassie Evans](https://twitter.com/cassiecodes/status/
   flex: 0 0 auto;
 }
 ```
+
+## Responsive tiled layout with CSS Grid and no media queries
+
+This is great for making grid layouts of even-sized tiles where each tile never gets narrower than the specified min-width. Stolen from [this tweet by @thekitze](https://twitter.com/thekitze/status/1131821007629692929).
+
+```js
+const autoGrid = (minColumnWidth = 250, gap = 0) => css`
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(${minColumnWidth}px, 1fr));
+ grid-gap: ${gap};
+`
+```
