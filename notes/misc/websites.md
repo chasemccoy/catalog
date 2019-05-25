@@ -1,0 +1,25 @@
+---
+title: Websites
+---
+
+What are they? Why are they? What makes them so special? That's what I am trying to answer here. 
+
+## [Laurel Schwulst: My website is a shifting house next to a river of knowledge](https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/)
+
+This whole article on The Creative Independent is awesome. 
+
+> My favorite aspect of websites is their duality: they’re both subject and object at once. In other words, a website creator becomes both author and architect simultaneously. There are endless possibilities as to what a website could be. What kind of room is a website? Or is a website more like a house? A boat? A cloud? A garden? A puddle? Whatever it is, there’s potential for a self-reflexive feedback loop: when you put energy into a website, in turn the website helps form your own identity.
+
+<br />  
+
+> Artists excel at creating worlds. They do this first for themselves and then, when they share their work, for others. Of course, world-building means creating everything—not only making things inside the world and also the surrounding world itself—the language, style, rules, and architecture.    
+>  
+> This is why websites are so important. They allow the author to create not only works (the “objects”) but also the world (the rooms, the arrangement of rooms, the architecture!). Ideally, the two would inform each other in a virtuous, self-perfecting loop. This can be incredibly nurturing to an artist’s practice.
+
+Laurel calls out these metaphors for describing what a website can be:
+- **Website as room**
+- **Website as shelf**
+- **Website as plant**
+- **Website as garden**
+- **Website as puddle**
+- **Website as thrown rock that’s now falling deep into the ocean**
