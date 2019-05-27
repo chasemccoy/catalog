@@ -9,7 +9,7 @@
     "@mdx-js/react": "1.0.20",
     "@rebass/grid": "6.0.0",
     "babel-plugin-styled-components": "1.10.0",
-    "gatsby": "2.7.1",
+    "gatsby": "2.7.3",
     "gatsby-image": "2.1.1",
     "gatsby-mdx": "0.6.3",
     "gatsby-plugin-favicon": "3.1.6",
@@ -22,7 +22,7 @@
     "gatsby-plugin-twitter": "2.0.13",
     "gatsby-remark-autolink-headers": "2.0.16",
     "gatsby-remark-external-links": "0.0.4",
-    "gatsby-remark-images": "3.0.12",
+    "gatsby-remark-images": "3.0.13",
     "gatsby-source-airtable": "2.0.8",
     "gatsby-source-filesystem": "2.0.37",
     "gatsby-source-wordpress": "3.0.62",
@@ -38,7 +38,7 @@
     "react-helmet": "5.2.1",
     "react-markdown": "4.0.8",
     "styled-components": "4.2.0",
-    "styled-system": "4.2.2",
+    "styled-system": "4.2.3",
     "typography": "0.16.19"
   },
   "keywords": [
