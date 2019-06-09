@@ -106,13 +106,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `principles`,
-        path: `${__dirname}/data/principles.hjson`,
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `templates`,
         path: `${__dirname}/data/_templates.hjson`,
       }
