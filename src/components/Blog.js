@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import media from 'utils/media'
@@ -7,13 +7,9 @@ import { space } from 'styled-system'
 import { Box, Text } from '@chasemccoy/kit'
 
 const Container = styled.div`
-  font-family: ${p => p.theme.fonts.serif};
-
   img { width: 100%; }
 
   ${media.small`
-    font-size: 18px;
-
     img {
       max-width: none;
       width: calc(100% + 32px);
@@ -54,13 +50,6 @@ const Container = styled.div`
 `
 
 const AsideContainer = styled(Container)`
-  font-size: 17px;
-  line-height: 1.4;
-
-  ${media.small`
-    font-size: 16px;
-  `}
-
   p, blockquote, img {
     margin-bottom: 1em;
   }
@@ -83,22 +72,16 @@ const AsideContainer = styled(Container)`
       margin-right: -16px;
     }
   }
-
-  ${p => p.photo && css`
-    font-size: 1rem;
-  `}
 `
 
 const PostContainer = styled(Container)`
   h3, h4, h5, h6 {
-    font-family: ${p => p.theme.fonts.mono};
     text-transform: uppercase;
     margin-top: 2.5em;
   }
 `
 
 const Title = styled(Link)`
-  font-family: ${p => p.theme.fonts.mono};
   text-decoration: none;
 
   &:hover {
@@ -125,7 +108,6 @@ const Content = styled.div`
 
 const PostMeta = styled.div`
   font-size: 12px;
-  font-family: ${p => p.theme.fonts.mono};
   color: ${p => p.theme.colors.gray[3]};
   margin-bottom: 16px;
   text-transform: uppercase;
@@ -160,10 +142,10 @@ const Meta = ({ date, permalink, aside }) => (
 
 const Tags = ({ tags, title }) => {
   return (
-    <Box mt={title ? '-16px' : 0} mb='24px'>
+    <Box mb='24px'>
       {tags.map((tag, i) => (
         <Box as='span' display='inline-block' bg='gray.0' py='4px' px='8px' mb='12px' borderRadius='4px' color='gray.4' mr='12px' key={i}>
-          <Text uppercase fontFamily='mono' fontSize='12px'>{tag}</Text>
+          <Text uppercase fontSize='12px'>{tag}</Text>
         </Box>
       ))}
     </Box>
@@ -172,7 +154,7 @@ const Tags = ({ tags, title }) => {
 
 export const Post = props => {
   const title = props.title && (
-    <Heading.h1 fontSize={props.aside ? '24px' : undefined} mb={props.aside ? '12px' : undefined} mt={0}>
+    <Heading.h1 mt={0}>
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
     </Heading.h1>
   )

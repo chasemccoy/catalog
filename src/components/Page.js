@@ -19,23 +19,6 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 16px;
-    background-image: linear-gradient(135deg, ${props => props.theme.colors.accent} 12.50%, transparent 12.50%, transparent 50%, ${props => props.theme.colors.accent} 50%, ${props => props.theme.colors.accent} 62.50%, transparent 62.50%, transparent 100%);
-    background-size: 5.66px 5.66px;
-
-    ${media.medium`
-      right: 0;
-      width: 100%;
-      height: 8px;
-    `}
-  }
-
   ${media.medium`
     flex-wrap: wrap;
     padding: 32px;
@@ -54,7 +37,6 @@ const Content = styled.main`
   flex: 1;
   padding-right: ${GUTTER_LARGE};
   padding-left: ${GUTTER_LARGE};
-  margin-top: -10px;
 
   ${media.medium`
     max-width: calc(${p => p.theme.sizes.layout.contentMaxWidth}px + ${GUTTER_SMALL} + ${GUTTER_SMALL});
@@ -86,10 +68,8 @@ const Page = props => (
       title={props.title} 
       description={props.description} 
       article={props.article}
-    >
-      {props.hidden && <meta name="robots" content="noindex,nofollow" />}
-    </Metadata>
-
+    />
+    
     <Container id='wrapper'>
       <Sidebar />
 

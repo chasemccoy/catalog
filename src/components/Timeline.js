@@ -93,12 +93,12 @@ class TimelineItem extends React.Component {
     return (
       <TimelineListItem>
         <div>
-          <Meta pt='6px' mb={4} fontFamily='mono' fontSize='14px' >
+          <Meta pt='6px' mb={2} fontSize='14px' >
             <Text.span pr={2} color='accent'>{this.props.type}</Text.span>
             <Text.span fontWeight='normal' color='gray.3'>{this.props.dateRange}</Text.span>
           </Meta>
 
-          <Heading.h2 mb={2}>{this.props.title}</Heading.h2>
+          <Heading.h2 mt={0} mb={2}>{this.props.title}</Heading.h2>
 
           <Markdown mt={3}>{this.props.children}</Markdown>
         </div>

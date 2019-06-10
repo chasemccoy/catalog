@@ -8,7 +8,6 @@ import HCard from 'components/hCard'
 import { UnorderedList } from 'components/Lists'
 import { ThemeContext } from 'components/Layout'
 import Button from 'components/Button'
-import LogoBase from 'components/Logo'
 import 'isomorphic-fetch'
 
 const Container = styled(Box.withComponent('aside'))`
@@ -48,16 +47,6 @@ const Header = props => (
     {...props}
   />
 )
-
-const Logo = styled(LogoBase)`
-  position: absolute;
-  z-index: 1;
-  left: -36px;
-
-  ${media.medium`
-    left: 132px;
-  `}
-`
 
 const ToggleTheme = () => (
   <ThemeContext.Consumer>
@@ -109,66 +98,15 @@ const Sidebar = () => {
 
   return (
     <Container>
-      <Header fontSize="16px" mb="20px" mt="-8px">
-        <Logo />
-
-        <Link to="/" pr={[48, 48, 48, 0]} unstyled color='white' css={`
-          background: ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark};
-          box-shadow: ${props => props.theme.name === 'light' ? props.theme.colors.accent : props.theme.colors.accent.dark} -994px -1000px 0 1008px;
-
-          &:hover {
-            color: white;
-          }
-
-          position: relative;
-
-          &:after {
-            content: "";
-            position: absolute;
-            background: transparent;
-            top: -36px;
-            left: -36px;
-            right: -24px;
-            bottom: -18px;
-            z-index: -1;
-            background-image: linear-gradient(135deg, ${props => props.theme.colors.accent} 12.50%, transparent 12.50%, transparent 50%, ${props => props.theme.colors.accent} 50%, ${props => props.theme.colors.accent} 62.50%, transparent 62.50%, transparent 100%);
-            background-size: 5.66px 5.66px;
-
-            ${media.medium`
-              top: -22px;
-              left: -24px;
-              right: -22px;
-              bottom: -14px;
-            `}
-
-            ${media.small`
-              top: -6px;
-              left: -8px;
-              right: -22px;
-              bottom: -14px;
-            `}
-          }
-        `}>
-          CHASE McCOY
+      <Header fontSize="16px" mt="-8px">
+        <Link to="/" pr={[48, 48, 48, 0]} unstyled fontWeight='bold'>
+          Chase McCoy
         </Link>
 
         <ToggleTheme />
       </Header>
 
-      <Text.p css={`
-        position: relative;
-
-        &:after {
-          content: "";
-          position: absolute;
-          background: ${props => props.theme.colors.gray[0]};
-          top: -56px;
-          left: -100px;
-          right: -16px;
-          bottom: -12px;
-          z-index: -2;
-        }
-      `}>
+      <Text.p>
         Designer and developer specializing in systems thinking, design tooling, and front-end engineering.
       </Text.p>
 

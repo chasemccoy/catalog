@@ -24,7 +24,7 @@ const Metadata = ({ title, description, image, pathname, article, children }) =>
 
         {seo.url && <meta property="og:url" content={seo.url} />}
 
-        {(article ? true : null) && (
+        {article && (
           <meta property="og:type" content="article" />
         )}
 

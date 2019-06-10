@@ -18,7 +18,7 @@ const sizes = {
   layout: {
     containerPadding: 48,
     sidebarWidth: 280,
-    contentMaxWidth: 728,
+    contentMaxWidth: 500,
     gutter: 0
   },
   timeline: {
@@ -38,10 +38,12 @@ const fontWeights = {
 }
 
 const fonts = {
-  sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-  serif: "Source Serif Pro, Tiempos, SF Serif, Georgia, serif",
-  mono: "iA Writer Quattro, Menlo, Monaco, OperatorMono-Book, Inconsolata, monospace",
+  get sans() { return this.system },
+  get serif() { return this.system },
+  get mono() { return this.system },
+
   code: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace`,
+
   system: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
   "Droid Sans", "Helvetica Neue", sans-serif`
