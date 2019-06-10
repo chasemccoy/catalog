@@ -31,7 +31,9 @@ const Container = styled.div`
 `
 
 const Content = styled.main`
-  max-width: calc(${p => p.theme.sizes.layout.contentMaxWidth}px + ${GUTTER_LARGE} + ${GUTTER_LARGE});
+  max-width: calc(${p =>
+    p.theme.sizes.layout
+      .contentMaxWidth}px + ${GUTTER_LARGE} + ${GUTTER_LARGE});
   min-width: 0;
   margin: 0 auto;
   flex: 1;
@@ -39,7 +41,9 @@ const Content = styled.main`
   padding-left: ${GUTTER_LARGE};
 
   ${media.medium`
-    max-width: calc(${p => p.theme.sizes.layout.contentMaxWidth}px + ${GUTTER_SMALL} + ${GUTTER_SMALL});
+    max-width: calc(${p =>
+      p.theme.sizes.layout
+        .contentMaxWidth}px + ${GUTTER_SMALL} + ${GUTTER_SMALL});
     padding-right: ${GUTTER_SMALL};
     padding-left: ${GUTTER_SMALL};
   `}
@@ -51,25 +55,29 @@ const Content = styled.main`
     max-width: none;
   `}
 
-  ${p => p.wide && css`
-    padding-left: ${GUTTER_LARGE};
-    padding-right: 0;
-    max-width: 1300px;
-  `}
+  ${p =>
+    p.wide &&
+    css`
+      padding-left: ${GUTTER_LARGE};
+      padding-right: 0;
+      max-width: 1300px;
+    `}
 
-  ${p => p.wide && media.small`
+  ${p =>
+    p.wide &&
+    media.small`
     padding: 0;
   `}
 `
 
 const Page = props => (
   <React.Fragment>
-    <Metadata 
-      title={props.title} 
-      description={props.description} 
+    <Metadata
+      title={props.title}
+      description={props.description}
       article={props.article}
     />
-    
+
     <Container id='wrapper'>
       <Sidebar />
 

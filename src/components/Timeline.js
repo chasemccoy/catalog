@@ -18,7 +18,7 @@ const TimelineContainer = styled.section`
       top: 0;
       bottom: 0;
       width: ${theme.sizes.timeline.lineWidth};
-      background: ${props=> props.theme.colors.accent.light};
+      background: ${props => props.theme.colors.accent.light};
       left: 50%;
 
       left: calc(${theme.sizes.timeline.pointWidth} / 2);
@@ -52,12 +52,13 @@ const TimelineListItem = styled.li`
     height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
     background: ${p => p.theme.colors.page.background};
-    border: ${theme.sizes.timeline.lineWidth} solid ${props => props.theme.colors.accent};
+    border: ${theme.sizes.timeline.lineWidth} solid
+      ${props => props.theme.colors.accent};
     box-shadow: 0 0 0 5px ${p => p.theme.colors.page.background};
     z-index: 1;
 
-		left: calc(${theme.sizes.timeline.pointWidth} / 2);
-		transform: translateX(-42%);
+    left: calc(${theme.sizes.timeline.pointWidth} / 2);
+    transform: translateX(-42%);
   }
 
   > div {
@@ -65,7 +66,7 @@ const TimelineListItem = styled.li`
     width: calc(50% - ${theme.sizes.timeline.linePadding});
     top: -6.5px;
 
-    width: calc(100% - ${theme.sizes.timeline.linePadding});;
+    width: calc(100% - ${theme.sizes.timeline.linePadding});
   }
 
   &:nth-child(odd) > div {
@@ -78,8 +79,8 @@ const TimelineListItem = styled.li`
     left: 0;
     text-align: right;
 
-		left: ${theme.sizes.timeline.linePadding};
-		text-align: left;
+    left: ${theme.sizes.timeline.linePadding};
+    text-align: left;
   }
 `
 
@@ -93,12 +94,18 @@ class TimelineItem extends React.Component {
     return (
       <TimelineListItem>
         <div>
-          <Meta pt='6px' mb={2} fontSize='14px' >
-            <Text.span pr={2} color='accent'>{this.props.type}</Text.span>
-            <Text.span fontWeight='normal' color='gray.3'>{this.props.dateRange}</Text.span>
+          <Meta pt='6px' mb={2} fontSize='14px'>
+            <Text.span pr={2} color='accent'>
+              {this.props.type}
+            </Text.span>
+            <Text.span fontWeight='normal' color='gray.3'>
+              {this.props.dateRange}
+            </Text.span>
           </Meta>
 
-          <Heading.h2 mt={0} mb={2}>{this.props.title}</Heading.h2>
+          <Heading.h2 mt={0} mb={2}>
+            {this.props.title}
+          </Heading.h2>
 
           <Markdown mt={3}>{this.props.children}</Markdown>
         </div>

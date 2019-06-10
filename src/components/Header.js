@@ -13,7 +13,7 @@ const date = () => {
     month: 'numeric',
     day: 'numeric',
     hour: 'numeric',
-    minute: '2-digit'
+    minute: '2-digit',
   }
 
   const now = new Date()
@@ -59,14 +59,25 @@ const Header = props => (
     `}
     render={data => (
       <Container {...props}>
-        <Box display='flex' justifyContent='space-between' alignItems='baseline' mb={3}>
-          <Title><Link to='/'>Chase McCoy</Link></Title>
-          <Text fontSize={14} color='gray.3'>{date()}</Text>
+        <Box
+          display='flex'
+          justifyContent='space-between'
+          alignItems='baseline'
+          mb={3}
+        >
+          <Title>
+            <Link to='/'>Chase McCoy</Link>
+          </Title>
+          <Text fontSize={14} color='gray.3'>
+            {date()}
+          </Text>
         </Box>
 
         <Nav>
-          {data.nav.edges.map(({node}, i) => (
-            <Nav.Item to={node.url} key={i}>{node.title}</Nav.Item>
+          {data.nav.edges.map(({ node }, i) => (
+            <Nav.Item to={node.url} key={i}>
+              {node.title}
+            </Nav.Item>
           ))}
         </Nav>
       </Container>

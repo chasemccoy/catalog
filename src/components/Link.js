@@ -4,13 +4,17 @@ import { Link as GatsbyLink } from 'gatsby'
 import { Text } from '@chasemccoy/kit'
 
 const Container = styled(Text)`
-  ${props => props.unstyled && css`
-    text-decoration: none;
-  `}
+  ${props =>
+    props.unstyled &&
+    css`
+      text-decoration: none;
+    `}
 
-  ${props => props.underlined && css`
-    text-decoration: underline;
-  `}
+  ${props =>
+    props.underlined &&
+    css`
+      text-decoration: underline;
+    `}
 `
 
 const Link = ({ children, to, external, ...other }) => {
@@ -36,6 +40,6 @@ const Link = ({ children, to, external, ...other }) => {
       {children}
     </Container>
   )
-};
+}
 
-export default Link;
+export default Link

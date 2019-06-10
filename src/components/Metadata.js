@@ -2,10 +2,23 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const Metadata = ({ title, description, image, pathname, article, children }) => {
-  const data = useStaticQuery(query) 
+const Metadata = ({
+  title,
+  description,
+  image,
+  pathname,
+  article,
+  children,
+}) => {
+  const data = useStaticQuery(query)
 
-  const { defaultTitle, defaultDescription, titleTemplate, twitterUsername, siteUrl } = data.site.siteMetadata
+  const {
+    defaultTitle,
+    defaultDescription,
+    titleTemplate,
+    twitterUsername,
+    siteUrl,
+  } = data.site.siteMetadata
 
   const seo = {
     title: title,
@@ -15,49 +28,53 @@ const Metadata = ({ title, description, image, pathname, article, children }) =>
 
   return (
     <React.Fragment>
-      <Helmet 
-        title={seo.title} 
-        titleTemplate={titleTemplate} 
+      <Helmet
+        title={seo.title}
+        titleTemplate={titleTemplate}
         defaultTitle={defaultTitle}
       >
-        <meta name="description" content={seo.description} />
+        <meta name='description' content={seo.description} />
 
-        {seo.url && <meta property="og:url" content={seo.url} />}
+        {seo.url && <meta property='og:url' content={seo.url} />}
 
-        {article && (
-          <meta property="og:type" content="article" />
-        )}
+        {article && <meta property='og:type' content='article' />}
 
-        <meta property="og:title" content={seo.title || defaultTitle} />
+        <meta property='og:title' content={seo.title || defaultTitle} />
 
         {seo.description && (
-          <meta property="og:description" content={seo.description} />
+          <meta property='og:description' content={seo.description} />
         )}
 
-        <meta name="twitter:card" content="summary" />
+        <meta name='twitter:card' content='summary' />
 
         {twitterUsername && (
-          <meta name="twitter:creator" content={twitterUsername} />
+          <meta name='twitter:creator' content={twitterUsername} />
         )}
 
         {twitterUsername && (
-          <meta name="twitter:site" content={twitterUsername} />
+          <meta name='twitter:site' content={twitterUsername} />
         )}
 
-        {seo.title && <meta name="twitter:title" content={seo.title} />}
+        {seo.title && <meta name='twitter:title' content={seo.title} />}
 
         {seo.description && (
-          <meta name="twitter:description" content={seo.description} />
+          <meta name='twitter:description' content={seo.description} />
         )}
 
-        <meta name="application-name" content="Chase McCoy" />
-        <meta name="apple-mobile-web-app-title" content="Chase McCoy" />
+        <meta name='application-name' content='Chase McCoy' />
+        <meta name='apple-mobile-web-app-title' content='Chase McCoy' />
 
-        <link rel="pingback" href="https://webmention.io/chasem.co/xmlrpc" />
-        <link href="https://twitter.com/chase_mccoy" rel="me" />
-        <link href="https://github.com/chasemccoy" rel="me" />
-        <link rel="webmention" href="https://webmention.io/chasem.co/webmention" />
-        <link rel="authorization_endpoint" href="https://indieauth.com/auth"></link>
+        <link rel='pingback' href='https://webmention.io/chasem.co/xmlrpc' />
+        <link href='https://twitter.com/chase_mccoy' rel='me' />
+        <link href='https://github.com/chasemccoy' rel='me' />
+        <link
+          rel='webmention'
+          href='https://webmention.io/chasem.co/webmention'
+        />
+        <link
+          rel='authorization_endpoint'
+          href='https://indieauth.com/auth'
+        ></link>
 
         {children}
       </Helmet>

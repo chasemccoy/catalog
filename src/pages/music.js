@@ -30,7 +30,7 @@ Track.Title = styled(Heading.h4)`
 
 class MusicPage extends React.Component {
   state = {
-    tracks: []
+    tracks: [],
   }
 
   componentDidMount = () => {
@@ -43,22 +43,31 @@ class MusicPage extends React.Component {
 
   render() {
     return (
-      <Page resource title="Music" icon="music" description="A few of my favorite albums, as well as what I am listening to recently.">
+      <Page
+        resource
+        title='Music'
+        icon='music'
+        description='A few of my favorite albums, as well as what I am listening to recently.'
+      >
         <Text.p mb={9}>
-          I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
+          I am listening to music about 95% of the time I am awake. Here are a
+          few albums I really like, as well as a list of some songs I have been
+          listening to recently.
         </Text.p>
 
         <Heading.section className='full'>Favorite Albums</Heading.section>
 
         <Row mb={4} className='full'>
-          {this.props.data.music.edges.map(({node}, i) => (
-            <Column width={[1/2, 1/3]} key={i}>
+          {this.props.data.music.edges.map(({ node }, i) => (
+            <Column width={[1 / 2, 1 / 3]} key={i}>
               <Link to={node.url} unstyled color='page.text'>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
                 <Box height={['10em', '10em', '10em', '8em']} mt={3}>
                   <Heading.h3 mb={2}>{node.title}</Heading.h3>
-                  <Text color='gray.3' fontFamily='mono' fontSize='16px'>{node.metadata}</Text>
+                  <Text color='gray.3' fontFamily='mono' fontSize='16px'>
+                    {node.metadata}
+                  </Text>
                 </Box>
               </Link>
             </Column>
@@ -69,19 +78,34 @@ class MusicPage extends React.Component {
           <div className='full'>
             <Heading.section className='full'>Recent Tracks</Heading.section>
 
-            {this.state.tracks.map((track, i) => (
-              track.image && (
-                <Track py={2} display='flex' alignItems={['flex-start', 'center']} key={i}>
-                  <Track.Image src={track.image} />
+            {this.state.tracks.map(
+              (track, i) =>
+                track.image && (
+                  <Track
+                    py={2}
+                    display='flex'
+                    alignItems={['flex-start', 'center']}
+                    key={i}
+                  >
+                    <Track.Image src={track.image} />
 
-                  <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
-                    <Track.Title>{track.name}</Track.Title>
+                    <Box
+                      display='flex'
+                      justifyContent='space-between'
+                      alignItems='center'
+                      flex='1'
+                      flexWrap='wrap'
+                      ml={4}
+                    >
+                      <Track.Title>{track.name}</Track.Title>
 
-                    <Text color='gray.3' fontFamily='mono' fontSize='16px'>{track.artist}</Text>
-                  </Box>
-                </Track>
-              )
-            ))}
+                      <Text color='gray.3' fontFamily='mono' fontSize='16px'>
+                        {track.artist}
+                      </Text>
+                    </Box>
+                  </Track>
+                )
+            )}
           </div>
         )}
       </Page>

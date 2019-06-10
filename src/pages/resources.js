@@ -17,30 +17,16 @@ export const ResourceNav = () => (
 
 const ResourcesPage = ({ data }) => {
   return (
-    <Page title="Resources" icon="heart" description='The best of the best.'>
+    <Page title='Resources' icon='heart' description='The best of the best.'>
       <Text.p mb={9}>
         Below are some things in various categories that I love. I think you can
         tell a lot about a person by paying attention to what they pay attention
         to, so here are the things that capture my attention.
       </Text.p>
 
-      <Link to='/books'><Heading.section>Books</Heading.section></Link>
-
-      <Text.p mb={9}>
-        Below are some things in various categories that I love. I think you can
-        tell a lot about a person by paying attention to what they pay attention
-        to, so here are the things that capture my attention.
-      </Text.p>
-
-      <Link to='/chicago'><Heading.section>Chicago</Heading.section></Link>
-
-      <Text.p mb={9}>
-        Below are some things in various categories that I love. I think you can
-        tell a lot about a person by paying attention to what they pay attention
-        to, so here are the things that capture my attention.
-      </Text.p>
-
-      <Link to='/music'><Heading.section>Music</Heading.section></Link>
+      <Link to='/books'>
+        <Heading.section>Books</Heading.section>
+      </Link>
 
       <Text.p mb={9}>
         Below are some things in various categories that I love. I think you can
@@ -48,7 +34,29 @@ const ResourcesPage = ({ data }) => {
         to, so here are the things that capture my attention.
       </Text.p>
 
-      <Link to='/quotes'><Heading.section>Quotes</Heading.section></Link>
+      <Link to='/chicago'>
+        <Heading.section>Chicago</Heading.section>
+      </Link>
+
+      <Text.p mb={9}>
+        Below are some things in various categories that I love. I think you can
+        tell a lot about a person by paying attention to what they pay attention
+        to, so here are the things that capture my attention.
+      </Text.p>
+
+      <Link to='/music'>
+        <Heading.section>Music</Heading.section>
+      </Link>
+
+      <Text.p mb={9}>
+        Below are some things in various categories that I love. I think you can
+        tell a lot about a person by paying attention to what they pay attention
+        to, so here are the things that capture my attention.
+      </Text.p>
+
+      <Link to='/quotes'>
+        <Heading.section>Quotes</Heading.section>
+      </Link>
 
       <Text.p mb={9}>
         Below are some things in various categories that I love. I think you can

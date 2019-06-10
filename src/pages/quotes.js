@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Box, Text } from '@chasemccoy/kit'
 import MultiColumn from 'components/MultiColumn'
 
-export const Quote = ({content, source, ...rest}) => (
+export const Quote = ({ content, source, ...rest }) => (
   <Box {...rest}>
     <Text.p fontSize={22} lineHeight={1.4} mb={3}>
       {content}
@@ -18,7 +18,7 @@ export const Quote = ({content, source, ...rest}) => (
 
 const QuotesPage = ({ data }) => {
   return (
-    <Page wide title="Quotes" description="Words worth keeping in mind.">
+    <Page wide title='Quotes' description='Words worth keeping in mind.'>
       <MultiColumn count={2} gap='64px' minColumnWidth='400px' mt={48}>
         {data.quotes.edges.map(({ node }, i) => (
           <Quote

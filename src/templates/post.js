@@ -5,7 +5,9 @@ import { graphql } from 'gatsby'
 
 export default ({ data, pageContext }) => {
   const post = data.blog
-  const normalizedTitle = post.title ? post.title.replace(/&nbsp;/g, ' ') : post.shortSlug
+  const normalizedTitle = post.title
+    ? post.title.replace(/&nbsp;/g, ' ')
+    : post.shortSlug
 
   return (
     <Page title={normalizedTitle} narrow untitled article>

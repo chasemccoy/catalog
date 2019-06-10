@@ -51,7 +51,7 @@
     "prestart": "yarn run prebuild",
     "build": "gatsby build",
     "start": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "format": "prettier --write src/**/*.{js,jsx}",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

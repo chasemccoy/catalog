@@ -75,7 +75,7 @@ const GlobalStyles = createGlobalStyle`
 
 export const ThemeContext = React.createContext({
   theme: theme,
-  toggleTheme: () => {}
+  toggleTheme: () => {},
 })
 
 class Layout extends React.Component {
@@ -83,13 +83,13 @@ class Layout extends React.Component {
     super(props)
 
     this.toggleTheme = () => {
-      console.log('TOGGLE');
-      this.setState({theme: this.state.theme === theme ? darkTheme : theme})
+      console.log('TOGGLE')
+      this.setState({ theme: this.state.theme === theme ? darkTheme : theme })
     }
 
     this.state = {
       theme: theme,
-      toggleTheme: this.toggleTheme
+      toggleTheme: this.toggleTheme,
     }
   }
 
@@ -97,12 +97,12 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={this.state.theme}>
         <>
-          <Metadata 
-            title={this.props.title} 
-            description={this.props.description} 
+          <Metadata
+            title={this.props.title}
+            description={this.props.description}
           />
 
-          <CSSReset /> 
+          <CSSReset />
           <TypographyStyles />
           <GlobalStyles />
           <SyntaxTheme />

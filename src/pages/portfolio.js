@@ -6,7 +6,11 @@ import { Text } from '@chasemccoy/kit'
 
 const PortfolioPage = ({ data }) => {
   return (
-    <Page title="Portfolio" icon="portfolio" description="A short history of my educational and professional career.">
+    <Page
+      title='Portfolio'
+      icon='portfolio'
+      description='A short history of my educational and professional career.'
+    >
       <Text.p>
         A timeline of a (brief) professional career that I am very proud of. I
         love talking about my work/industry, so get in touch and lets talk shop.

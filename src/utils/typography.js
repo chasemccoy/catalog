@@ -18,29 +18,29 @@ const typography = new Typography({
   boldWeight: theme.fontWeights.bold,
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     body: {
-      '-webkit-font-smoothing': 'antialiased'
+      '-webkit-font-smoothing': 'antialiased',
     },
     'h1,h2,h3,h4,h5,h6': {
       marginTop: rhythm(1.25),
     },
     img: {
-      height: 'auto'
+      height: 'auto',
     },
     ul: {
-      marginLeft: '1rem'
+      marginLeft: '1rem',
     },
     pre: {
-      fontSize: '1em'
+      fontSize: '1em',
     },
     code: {
       fontSize: '0.75em',
-      lineHeight: 1.6
+      lineHeight: 1.6,
     },
     a: {
       textDecorationSkip: 'unset',
-      '-webkit-text-decoration-skip': 'unset'
-    }
-  })
+      '-webkit-text-decoration-skip': 'unset',
+    },
+  }),
 })
 
 const TypographyStyles = createGlobalStyle`

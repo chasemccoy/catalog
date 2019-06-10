@@ -8,12 +8,7 @@ const Divider = styled.hr`
   margin-right: auto;
   border: 0;
   height: 1px;
-  background: linear-gradient(
-    to right,
-    white,
-    ${theme.colors.gray[1]},
-    white
-  );
+  background: linear-gradient(to right, white, ${theme.colors.gray[1]}, white);
 `
 
 export default Divider
