@@ -1,73 +1,49 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Sidebar from 'components/Sidebar'
 import Heading from 'components/Heading'
 import media from 'utils/media'
 import Metadata from 'components/Metadata'
-
-const GUTTER_LARGE = '80px'
-const GUTTER_SMALL = '40px'
+import Header from 'components/Header'
 
 const Container = styled.div`
   display: flex;
-  min-height: 100vh;
-  padding: ${p => p.theme.sizes.layout.containerPadding}px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: ${p => p.theme.sizes.layout.maxWidth}px;
+  padding: 40px 0;
   background: ${p => p.theme.colors.page.background};
   color: ${p => p.theme.colors.page.text};
-  transition: all 0.2s;
-  z-index: 0;
-  position: relative;
-  overflow: hidden;
+  margin: 0 auto;
 
   ${media.medium`
-    flex-wrap: wrap;
     padding: 32px;
   `}
 
   ${media.small`
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 16px;
   `}
 `
 
-const Content = styled.main`
-  max-width: calc(${p =>
-    p.theme.sizes.layout
-      .contentMaxWidth}px + ${GUTTER_LARGE} + ${GUTTER_LARGE});
-  min-width: 0;
-  margin: 0 auto;
-  flex: 1;
-  padding-right: ${GUTTER_LARGE};
-  padding-left: ${GUTTER_LARGE};
+const HeaderContainer = styled.header`
+  flex: 1 100%;
+  margin-bottom: 32px;
+`
 
-  ${media.medium`
-    max-width: calc(${p =>
-      p.theme.sizes.layout
-        .contentMaxWidth}px + ${GUTTER_SMALL} + ${GUTTER_SMALL});
-    padding-right: ${GUTTER_SMALL};
-    padding-left: ${GUTTER_SMALL};
-  `}
+const SidebarContainer = styled.aside`
+  margin-right: 40px;
+  flex: 1;
 
   ${media.small`
-    padding: 0;
-    flex-basis: 100%;
-    margin: 0;
-    max-width: none;
+    flex: 1 100%;
+    margin-right: 0;
   `}
+`
 
-  ${p =>
-    p.wide &&
-    css`
-      padding-left: ${GUTTER_LARGE};
-      padding-right: 0;
-      max-width: 1300px;
-    `}
-
-  ${p =>
-    p.wide &&
-    media.small`
-    padding: 0;
-  `}
+const Content = styled.main`
+  flex: 2;
+  min-width: 0;
 `
 
 const Page = props => (
@@ -79,11 +55,17 @@ const Page = props => (
     />
 
     <Container id='wrapper'>
-      <Sidebar />
+      <HeaderContainer>
+        <Header />
+      </HeaderContainer>
 
-      <Content wide={props.wide} id='content'>
+      <SidebarContainer>
+        <Sidebar />
+      </SidebarContainer>
+
+      <Content id='content'>
         {props.title && !props.untitled && (
-          <Heading.h1 mt={-2}>{props.title}</Heading.h1>
+          <Heading.h1 mt={0}>{props.title}</Heading.h1>
         )}
 
         {props.children}

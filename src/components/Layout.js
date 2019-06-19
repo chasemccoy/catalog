@@ -14,8 +14,23 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${p => p.theme.colors.accent};
+    color: ${p => p.theme.colors.type.body};
     text-decoration: underline;
+    transition: all .2s;
+  }
+
+  p a {
+    color: ${p => p.theme.colors.type.body};
+    text-decoration: none;
+    transition: all .2s;
+    border-bottom: 2px solid #FFE999;
+    box-shadow: 0px -6px 0px #FFE999 inset;
+
+    &:hover {
+      background: #FFC700;
+      border-bottom-color: #FFC700;
+      box-shadow: 0px -6px 0px #FFC700 inset;
+    }
   }
 
   a:hover {
@@ -45,7 +60,6 @@ const GlobalStyles = createGlobalStyle`
     `}
 
     code {
-      font-size: 15px;
       padding: 12px 16px;
     }
   }

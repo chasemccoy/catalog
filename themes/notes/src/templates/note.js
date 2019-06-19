@@ -8,9 +8,12 @@ import Sidebar from '../components/notes/Sidebar'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 
-const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) => (
+const Note = ({
+  data: { mdx },
+  pageContext: { notes, categories, category },
+}) => (
   <MDX.Provider>
-    <Page title={mdx.frontmatter.title} untitled wide>
+    <Page title={mdx.frontmatter.title} untitled>
       <Layout>
         <Layout.Sidebar>
           {categories && <Sidebar mb={32} data={categories} />}
@@ -19,7 +22,11 @@ const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) =
 
         <Layout.Content>
           <Heading.section>
-            <Breadcrumbs mb={mdx.frontmatter.tags ? 16 : 32} category={category} title={mdx.frontmatter.title} />
+            <Breadcrumbs
+              mb={mdx.frontmatter.tags ? 16 : 32}
+              category={category}
+              title={mdx.frontmatter.title}
+            />
           </Heading.section>
 
           {mdx.frontmatter.tags && (
@@ -28,18 +35,20 @@ const Note = ({ data: { mdx }, pageContext: { notes, categories, category } }) =
             </Text>
           )}
 
-          <Text 
-            fontFamily='system' 
-            fontSize='17px' 
+          <Text
+            fontFamily='system'
+            fontSize='17px'
             css={`
-              h2, h3, h4, h5, h6 {
+              h2,
+              h3,
+              h4,
+              h5,
+              h6 {
                 font-family: ${p => p.theme.fonts.mono};
               }
             `}
           >
-            <MDX.Renderer>
-              {mdx.code.body}
-            </MDX.Renderer>
+            <MDX.Renderer>{mdx.code.body}</MDX.Renderer>
           </Text>
         </Layout.Content>
       </Layout>

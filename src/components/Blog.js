@@ -79,19 +79,21 @@ const AsideContainer = styled(Container)`
 `
 
 const PostContainer = styled(Container)`
+  h2,
   h3,
   h4,
   h5,
   h6 {
-    text-transform: uppercase;
-    margin-top: 2.5em;
+    margin-top: 2em;
   }
 `
 
 const Title = styled(Link)`
+  color: ${p => p.theme.colors.type.header};
   text-decoration: none;
 
   &:hover {
+    color: ${p => p.theme.colors.type.header};
     text-decoration: underline;
   }
 `
@@ -138,9 +140,8 @@ const PostMeta = styled.div`
 `
 
 const Meta = ({ date, permalink, aside }) => (
-  <PostMeta mt={!aside ? 5 : 0}>
+  <PostMeta>
     {date && permalink && <Link to={permalink}>{date}</Link>}
-
     {date && !permalink && `Posted on ${date}`}
   </PostMeta>
 )
@@ -155,13 +156,13 @@ const Tags = ({ tags, title }) => {
           bg='gray.0'
           py='4px'
           px='8px'
-          mb='12px'
+          mb='8px'
           borderRadius='4px'
           color='gray.4'
-          mr='12px'
+          mr='8px'
           key={i}
         >
-          <Text uppercase fontSize='12px'>
+          <Text uppercase fontSize='10px'>
             {tag}
           </Text>
         </Box>
@@ -198,10 +199,10 @@ export const Post = props => {
   } else {
     return (
       <PostContainer>
+        {meta}
         {title}
         {tags}
         {content}
-        {meta}
       </PostContainer>
     )
   }

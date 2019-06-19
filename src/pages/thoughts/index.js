@@ -16,7 +16,6 @@ const ThoughtsPage = ({ data }) => {
           <React.Fragment key={node.id}>
             <Box mb={[40, 40, 48]}>
               <Post
-                aside
                 title={node.title}
                 to={node.slug}
                 content={node.content}
@@ -34,7 +33,7 @@ export default ThoughtsPage
 
 export const query = graphql`
   query ThoughtsQuery {
-    posts: allBlog(filter: {format: {nin: ["image"]}}, limit: 50) {
+    posts: allBlog(filter: { format: { nin: ["image"] } }, limit: 50) {
       nodes {
         id
         title

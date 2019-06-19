@@ -10,15 +10,8 @@ import { ThemeContext } from 'components/Layout'
 import Button from 'components/Button'
 import 'isomorphic-fetch'
 
-const Container = styled(Box.withComponent('aside'))`
-  min-width: ${p =>
-    p.theme.sizes.layout.sidebarWidth + p.theme.sizes.layout.gutter}px;
-  max-width: ${p =>
-    p.theme.sizes.layout.sidebarWidth + p.theme.sizes.layout.gutter}px;
-  padding-right: ${p => p.theme.sizes.layout.gutter}px;
-
+const Container = styled(Box)`
   font-size: 14px;
-  font-family: ${p => p.theme.fonts.mono};
 
   ${media.small`
     min-width: 100%;
@@ -104,7 +97,7 @@ const Sidebar = () => {
 
   return (
     <Container>
-      <Header fontSize='16px' mt='-8px'>
+      {/* <Header fontSize='16px' mt='-8px'>
         <Link to='/' pr={[48, 48, 48, 0]} unstyled fontWeight='bold'>
           Chase McCoy
         </Link>
@@ -246,7 +239,7 @@ const Sidebar = () => {
         </React.Fragment>
       ) : (
         <Button onClick={() => setOpen(!open)}>+ expand</Button>
-      )}
+      )} */}
     </Container>
   )
 }

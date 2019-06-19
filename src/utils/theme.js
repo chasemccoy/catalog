@@ -13,8 +13,6 @@ const colors = {
     dark: '#000088',
   }),
   page: {
-    light: '#FFFEFC',
-    dark: '#000000',
     background: 'white',
     text: '#1e1f22',
     code: 'rgb(33, 33, 57)',
@@ -34,7 +32,6 @@ const colors = {
     3: '#969699',
     4: '#5A5A5C',
   },
-  neutral: '#646466',
 }
 
 const theme = {

@@ -1,4 +1,4 @@
-const breakpoints = ['576px', '768px', '1000px', '1300px']
+const breakpoints = ['500px', '600px', '1000px', '1300px']
 
 const namedBreakpoints = {
   tiny: breakpoints[0],
@@ -11,10 +11,8 @@ const space = [0, 4, 8, 12, 16, 24, 32, 40]
 
 const sizes = {
   layout: {
-    containerPadding: 48,
     sidebarWidth: 280,
-    contentMaxWidth: 500,
-    gutter: 0,
+    maxWidth: 800,
   },
   timeline: {
     pointWidth: '12px',

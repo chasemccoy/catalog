@@ -6,24 +6,25 @@ const Notes = require.resolve(`./src/templates/notes.js`)
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-	
-  if (node.internal.type === "Mdx") {
+
+  if (node.internal.type === 'Mdx') {
     const parentNode = getNode(node.parent)
     const filePath = createFilePath({ node, getNode })
     const { dir } = path.parse(parentNode.relativePath)
-    const isLandingPage = parentNode.name === 'index' && dir.split('/').length === 1
+    const isLandingPage =
+      parentNode.name === 'index' && dir.split('/').length === 1
 
     createNodeField({
-      name: "slug",
+      name: 'slug',
       node,
-      value: `${notesPath}${filePath}`
+      value: `${notesPath}${filePath}`,
     })
 
     if (parentNode && parentNode.name) {
       createNodeField({
-        name: "isLandingPage",
+        name: 'isLandingPage',
         node,
-        value: isLandingPage
+        value: isLandingPage,
       })
     }
   }
@@ -31,13 +32,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  
+
   const result = await graphql(`
     {
-      allMdx(sort: {fields: frontmatter___title, order: ASC}) {
+      allMdx(sort: { fields: frontmatter___title, order: ASC }) {
         nodes {
           id
-          excerpt(pruneLength: 200)
+          excerpt(pruneLength: 150)
           tableOfContents
           frontmatter {
             title
@@ -83,7 +84,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     acc[category].push({
       pagePath: path.join(notesPath, category),
-      ...node
+      ...node,
     })
 
     return acc
@@ -95,21 +96,23 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: node.fields.slug,
-      context: { 
+      context: {
         id: node.id,
         notes: groupedNotes[dir],
         categories: groupedNotes,
-        category: category
+        category: category,
       },
-      component: Note
+      component: Note,
     })
   })
 
   // Sort the note categories into alphabetical order
-  groupedNotes = Object.keys(groupedNotes).sort().reduce((a, c) => {
-    a[c] = groupedNotes[c]
-    return a
-  }, {})
+  groupedNotes = Object.keys(groupedNotes)
+    .sort()
+    .reduce((a, c) => {
+      a[c] = groupedNotes[c]
+      return a
+    }, {})
 
   // Create an index page for each category at /notes/category-name
   Object.entries(groupedNotes).map(([key, value]) => {
@@ -122,20 +125,20 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           notes: value,
           categories: groupedNotes,
-          category: key
+          category: key,
         },
-        component: Notes
+        component: Notes,
       })
     }
   })
 
-  // Create the root /notes page 
+  // Create the root /notes page
   createPage({
     path: notesPath,
     context: {
       notes: notes,
-      categories: groupedNotes
+      categories: groupedNotes,
     },
-    component: Notes
+    component: Notes,
   })
 }
