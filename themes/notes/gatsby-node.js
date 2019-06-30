@@ -10,14 +10,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === 'Mdx') {
     const parentNode = getNode(node.parent)
     const filePath = createFilePath({ node, getNode })
-    const { dir } = path.parse(parentNode.relativePath)
+    const { dir, name } = path.parse(parentNode.relativePath)
     const isLandingPage =
       parentNode.name === 'index' && dir.split('/').length === 1
 
     createNodeField({
       name: 'slug',
       node,
-      value: `${notesPath}${filePath}`,
+      value: `${notesPath}/${name}`,
     })
 
     if (parentNode && parentNode.name) {
@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allMdx(sort: { fields: frontmatter___title, order: ASC }) {
         nodes {
           id
-          excerpt(pruneLength: 150)
+          excerpt(pruneLength: 120)
           tableOfContents
           frontmatter {
             title
@@ -90,6 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
     return acc
   }, {})
 
+  // Create each note page at /notes/:slug
   notes.forEach(node => {
     const { dir } = path.parse(node.parent.relativePath)
     const category = dir.split('/')[0]

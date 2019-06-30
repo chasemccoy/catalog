@@ -4,10 +4,14 @@ import { space, display, borders, borderColor } from 'styled-system'
 export const UnorderedList = styled.ul`
   list-style-type: none;
 
+  > li {
+    margin-left: 1em;
+  }
+
   > li:before {
     content: "–";
-    position: absolute;
-    margin-left: -1rem;
+    margin-left: -1em;
+    margin-right: 0.5em;
   }
 
   ${props =>

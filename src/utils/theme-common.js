@@ -12,7 +12,7 @@ const space = [0, 4, 8, 12, 16, 24, 32, 40]
 const sizes = {
   layout: {
     sidebarWidth: 280,
-    maxWidth: 800,
+    maxWidth: 760,
   },
   timeline: {
     pointWidth: '12px',

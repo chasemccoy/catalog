@@ -33,7 +33,7 @@ const HeaderContainer = styled.header`
 
 const SidebarContainer = styled.aside`
   margin-right: 40px;
-  flex: 1;
+  flex: 0.8;
 
   ${media.small`
     flex: 1 100%;

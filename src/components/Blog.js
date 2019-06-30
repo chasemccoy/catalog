@@ -5,8 +5,20 @@ import Heading from 'components/Heading'
 import media from 'utils/media'
 import { space } from 'styled-system'
 import { Box, Text } from '@chasemccoy/kit'
+import Tags from 'components/Tags'
+import { checkPropTypes } from 'prop-types'
 
 const Container = styled.div`
+  &:after {
+    content: '';
+    display: block;
+    margin-top: 48px;
+    margin-left: calc(50% - 5em);
+    height: 8px;
+    background: ${props => props.theme.colors.gray[0]};
+    max-width: 10em;
+  }
+
   img {
     width: 100%;
   }
@@ -18,12 +30,6 @@ const Container = styled.div`
       margin-left: -16px;
     }
   `}
-
-  blockquote {
-    margin-left: 4px;
-    margin-right: 0;
-    padding: 0 16px;
-  }
 
   iframe {
     margin-bottom: 0;
@@ -94,7 +100,7 @@ const Title = styled(Link)`
 
   &:hover {
     color: ${p => p.theme.colors.type.header};
-    text-decoration: underline;
+    box-shadow: 0px -0.5em 0px #ffe999 inset;
   }
 `
 
@@ -116,64 +122,45 @@ const Content = styled.div`
   }
 `
 
-const PostMeta = styled.div`
-  font-size: 12px;
+const PostMeta = styled(Box)`
+  font-size: 13px;
+  line-height: 1;
   color: ${p => p.theme.colors.gray[3]};
-  margin-bottom: 16px;
+  ${'' /* margin-bottom: 8px; */}
   text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  ${space}
+  letter-spacing: 0.5px;
 
   a {
-    color: ${p => p.theme.colors.accent};
+    color: ${p => p.theme.colors.gray[3]};
     text-decoration: none;
-  }
-
-  height: 10px;
-  border-bottom: 1px solid ${p => p.theme.colors.accent.light};
-
-  a {
-    background: ${p => p.theme.colors.page.background};
-    padding-right: 8px;
   }
 `
 
-const Meta = ({ date, permalink, aside }) => (
-  <PostMeta>
-    {date && permalink && <Link to={permalink}>{date}</Link>}
-    {date && !permalink && `Posted on ${date}`}
+const Date = ({ date, permalink, ...props }) => (
+  <PostMeta as='span' {...props}>
+    <Link to={permalink}>{date}</Link>
   </PostMeta>
 )
 
-const Tags = ({ tags, title }) => {
-  return (
-    <Box mb='24px'>
-      {tags.map((tag, i) => (
-        <Box
-          as='span'
-          display='inline-block'
-          bg='gray.0'
-          py='4px'
-          px='8px'
-          mb='8px'
-          borderRadius='4px'
-          color='gray.4'
-          mr='8px'
-          key={i}
-        >
-          <Text uppercase fontSize='10px'>
-            {tag}
-          </Text>
-        </Box>
-      ))}
-    </Box>
-  )
-}
+const Metadata = ({ date, permalink, tags, ...props }) => (
+  <Box display='flex' alignItems='center' {...props}>
+    <Date
+      date={date}
+      permalink={permalink}
+      borderRight={tags ? '1px solid' : 'none'}
+      borderColor='gray.1'
+      pr='8px'
+      mr='8px'
+      flex='0 0 auto'
+    />
+
+    {tags && <Tags display='inline' items={tags} />}
+  </Box>
+)
 
 export const Post = props => {
   const title = props.title && (
-    <Heading.h1 mt={0}>
+    <Heading.h1 mt={0} mb='12px'>
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
     </Heading.h1>
   )
@@ -182,16 +169,23 @@ export const Post = props => {
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  const meta = props.date && (
-    <Meta date={props.date} permalink={props.to} aside={props.aside} />
-  )
+  const date = props.date && <Date date={props.date} permalink={props.to} />
 
-  const tags = props.tags && <Tags tags={props.tags} title={props.title} />
+  const tags = props.tags && <Tags mb='32px' items={props.tags} />
+
+  const metadata = props.date && (
+    <Metadata
+      date={props.date}
+      permalink={props.to}
+      tags={props.tags}
+      mb={props.tags ? '32px' : '12px'}
+    />
+  )
 
   if (props.aside) {
     return (
       <AsideContainer photo={props.imagePost}>
-        {meta}
+        {metadata}
         {title}
         {content}
       </AsideContainer>
@@ -199,9 +193,9 @@ export const Post = props => {
   } else {
     return (
       <PostContainer>
-        {meta}
+        {metadata}
         {title}
-        {tags}
+        {/* {tags} */}
         {content}
       </PostContainer>
     )

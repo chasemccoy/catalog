@@ -9,7 +9,7 @@ const Container = styled(Box)`
   border-radius: 8px;
   overflow: hidden;
   font-weight: bold;
-  color: #db9102;
+  color: ${p => p.theme.colors.accent};
 
   ${media.small`
     flex: 1 100%;
@@ -18,7 +18,7 @@ const Container = styled(Box)`
 `
 
 const Stripe = styled(Box)`
-  flex: 1;
+  flex: 0.8;
   margin-right: 40px;
 
   background: linear-gradient(

@@ -37,7 +37,6 @@ const Note = ({
 
           <Text
             fontFamily='system'
-            fontSize='17px'
             css={`
               h2,
               h3,

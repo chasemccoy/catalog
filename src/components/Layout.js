@@ -10,6 +10,7 @@ import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
   body {
+    line-height: inherit;
     background: ${props => props.theme.colors.page.background};
   }
 
@@ -17,30 +18,42 @@ const GlobalStyles = createGlobalStyle`
     color: ${p => p.theme.colors.type.body};
     text-decoration: underline;
     transition: all .2s;
+
+    &:hover {
+      color: ${p => p.theme.colors.accent};
+    }
   }
 
   p a {
     color: ${p => p.theme.colors.type.body};
     text-decoration: none;
     transition: all .2s;
-    border-bottom: 2px solid #FFE999;
-    box-shadow: 0px -6px 0px #FFE999 inset;
+    border-bottom: 1px solid #FFE999;
+    box-shadow: 0px -0.5em 0px #FFE999 inset;
 
     &:hover {
-      background: #FFC700;
-      border-bottom-color: #FFC700;
-      box-shadow: 0px -6px 0px #FFC700 inset;
+      color: ${p => p.theme.colors.type.body};
+      background: #FFD233;
+      border-bottom-color: #FFD233;
+      box-shadow: 0px -8px 0px #FFD233 inset;
     }
   }
 
-  a:hover {
-    color: ${p => p.theme.colors.accent.dark};
+  code a {
+    border: none;
+    box-shadow: none;
+    text-decoration: underline;
   }
 
   blockquote {
-    padding-left: 16px;
-    color: ${p => p.theme.colors.neutral};
-    border-left: 4px solid ${p => p.theme.colors.accent.light};
+    border-left: 4px solid #FFD233;
+    border-radius: 0 12px 12px 0;
+    overflow: hidden;
+    margin-left: 0;
+    margin-right: 8px;
+    padding: 12px 16px;
+    background ${p => p.theme.colors.accent.light};
+    background: #FFFBEB;
   }
 
   hr {
