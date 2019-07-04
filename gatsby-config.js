@@ -9,15 +9,13 @@ module.exports = {
     twitterUsername: "@chase_mccoy",
   },
   pathPrefix: '/',
-  __experimentalThemes: [
+  plugins: [
     {
       resolve: require.resolve(`./themes/blog`)
     },
     {
       resolve: require.resolve(`./themes/notes`)
-    }
-  ],
-  plugins: [
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
