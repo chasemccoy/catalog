@@ -5,7 +5,6 @@ import Link from 'components/Link'
 import { borderRadius } from 'styled-system'
 
 const StyledImage = styled(Img)`
-  max-width: 100%;
   margin-bottom: 0;
 
   img {

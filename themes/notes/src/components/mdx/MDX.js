@@ -7,6 +7,8 @@ import { Box, Grid, Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
 import Image from 'components/Image'
 import { UnorderedList } from 'components/Lists'
+import Float from './Float'
+import Quote from './Quote'
 
 const LinkAdapter = ({ href, ...rest }) => <Link to={href} {...rest} />
 
@@ -21,6 +23,8 @@ const Provider = props => {
     Text,
     Heading,
     Image,
+    Float,
+    Quote,
   }
 
   const newProps = { components, ...props }

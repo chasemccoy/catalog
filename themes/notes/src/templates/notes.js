@@ -11,8 +11,8 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
   <Page title='Notes' untitled>
     <Layout>
       <Layout.Sidebar>
-        {categories && <Sidebar mb={32} data={categories} />}
-        {notes && <Sidebar.Notes data={notes} />}
+        {categories && <Sidebar data={categories} />}
+        {/* {notes && <Sidebar.Notes data={notes} />} */}
       </Layout.Sidebar>
 
       <Layout.Content>

@@ -37,7 +37,7 @@ const GradientBox = styled(Box)`
 `
 
 const NoteCard = ({ title, tags, description, to, ...rest }) => (
-  <Card unstyled to={to} minHeight='300px' {...rest}>
+  <Card unstyled to={to} minHeight={['none', '300px']} {...rest}>
     <GradientBox
       display='flex'
       flexDirection='column'

@@ -12,7 +12,7 @@ const typography = new Typography({
   blockMarginBottom: 0.85,
   bodyFontFamily: fontFamilyArray(theme.fonts.serif),
   headerFontFamily: fontFamilyArray(theme.fonts.serif),
-  scaleRatio: 1.6,
+  scaleRatio: 2,
   headerWeight: theme.fontWeights.heavy,
   bodyWeight: theme.fontWeights.normal,
   boldWeight: theme.fontWeights.bold,
@@ -21,7 +21,7 @@ const typography = new Typography({
       '-webkit-font-smoothing': 'antialiased',
     },
     'h1,h2,h3,h4,h5,h6': {
-      marginTop: rhythm(1.25),
+      marginTop: rhythm(1.5),
     },
     img: {
       height: 'auto',

@@ -7,6 +7,7 @@ import Heading from 'components/Heading'
 import Sidebar from '../components/notes/Sidebar'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
+import Tags from 'components/Tags'
 
 const Note = ({
   data: { mdx },
@@ -29,10 +30,14 @@ const Note = ({
             />
           </Heading.section>
 
-          {mdx.frontmatter.tags && (
-            <Text color='gray.4' fontFamily='mono' fontSize='14px' mb={32}>
-              tagged: {mdx.frontmatter.tags.join(', ')}
+          {mdx.frontmatter.title && (
+            <Text as='h1' mb={12}>
+              {mdx.frontmatter.title}
             </Text>
+          )}
+
+          {mdx.frontmatter.tags && (
+            <Tags items={mdx.frontmatter.tags} mb={32} />
           )}
 
           <Text

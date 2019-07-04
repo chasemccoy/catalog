@@ -56,6 +56,33 @@ const GlobalStyles = createGlobalStyle`
     background: #FFFBEB;
   }
 
+  h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid ${p => p.theme.colors.gray[1]};
+  }
+
+  article {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 2em;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    ${media.small`
+      img {
+        max-width: none;
+        width: calc(100% + 32px);
+        margin-left: -16px;
+      }
+    `}
+  }
+
   hr {
     background: ${p => p.theme.colors.accent.light};
     height: 2px;
@@ -97,6 +124,16 @@ const GlobalStyles = createGlobalStyle`
 
   .gatsby-resp-image-wrapper {
     margin: 0 !important;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+      content: " ";
+      display: table;
+  }
+
+  .clearfix:after {
+      clear: both;
   }
 `
 

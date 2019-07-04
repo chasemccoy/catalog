@@ -8,7 +8,7 @@ import { Box, Text } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
 import { checkPropTypes } from 'prop-types'
 
-const Container = styled.div`
+const Container = styled.article`
   &:after {
     content: '';
     display: block;
@@ -18,18 +18,6 @@ const Container = styled.div`
     background: ${props => props.theme.colors.gray[0]};
     max-width: 10em;
   }
-
-  img {
-    width: 100%;
-  }
-
-  ${media.small`
-    img {
-      max-width: none;
-      width: calc(100% + 32px);
-      margin-left: -16px;
-    }
-  `}
 
   iframe {
     margin-bottom: 0;
@@ -84,16 +72,6 @@ const AsideContainer = styled(Container)`
   }
 `
 
-const PostContainer = styled(Container)`
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 2em;
-  }
-`
-
 const Title = styled(Link)`
   color: ${p => p.theme.colors.type.header};
   text-decoration: none;
@@ -108,17 +86,13 @@ const Content = styled.div`
   a[href*='chasemccoy.files.wordpress'],
   a[href*='instagram.com/p'] {
     box-shadow: none;
+    border: none;
     display: block;
-    margin-bottom: -12px;
     padding: 0;
 
     &:hover {
       background: none;
     }
-  }
-
-  & > p:last-child {
-    margin-bottom: 0;
   }
 `
 
@@ -126,7 +100,6 @@ const PostMeta = styled(Box)`
   font-size: 13px;
   line-height: 1;
   color: ${p => p.theme.colors.gray[3]};
-  ${'' /* margin-bottom: 8px; */}
   text-transform: uppercase;
   letter-spacing: 0.5px;
 
@@ -192,12 +165,12 @@ export const Post = props => {
     )
   } else {
     return (
-      <PostContainer>
+      <Container>
         {metadata}
         {title}
         {/* {tags} */}
         {content}
-      </PostContainer>
+      </Container>
     )
   }
 }

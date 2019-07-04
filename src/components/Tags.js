@@ -17,7 +17,7 @@ const Tag = styled(props => <Box as='span' {...props} />)`
 `
 
 const Tags = ({ items, ...props }) => (
-  <Text fontSize='12px' mt='-8px' {...props}>
+  <Text fontSize='10px' mt='-8px' {...props}>
     {items.map((item, i) => (
       <Tag mt='8px' key={i}>
         {item}
