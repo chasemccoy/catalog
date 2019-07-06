@@ -18,6 +18,7 @@ export default ({ data, pageContext }) => {
         imagePost={post.format === 'image'}
         to={post.slug}
         tags={post.tags}
+        isMdx={post.isMdx}
       />
     </Page>
   )
@@ -33,6 +34,7 @@ export const query = graphql`
       slug
       shortSlug
       tags
+      isMdx
     }
   }
 `

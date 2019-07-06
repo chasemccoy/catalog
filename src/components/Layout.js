@@ -7,6 +7,7 @@ import TypographyStyles from 'utils/typography'
 import Metadata from 'components/Metadata'
 import SyntaxTheme from 'components/SyntaxTheme'
 import media from 'utils/media'
+import MDX from 'components/MDX'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -139,7 +140,7 @@ const GlobalStyles = createGlobalStyle`
 
 export const ThemeContext = React.createContext({
   theme: theme,
-  toggleTheme: () => {},
+  toggleTheme: () => {}
 })
 
 class Layout extends React.Component {
@@ -153,14 +154,14 @@ class Layout extends React.Component {
 
     this.state = {
       theme: theme,
-      toggleTheme: this.toggleTheme,
+      toggleTheme: this.toggleTheme
     }
   }
 
   render() {
     return (
       <ThemeProvider theme={this.state.theme}>
-        <>
+        <MDX.Provider>
           <Metadata
             title={this.props.title}
             description={this.props.description}
@@ -174,7 +175,7 @@ class Layout extends React.Component {
           <ThemeContext.Provider value={this.state}>
             {this.props.children}
           </ThemeContext.Provider>
-        </>
+        </MDX.Provider>
       </ThemeProvider>
     )
   }

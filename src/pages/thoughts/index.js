@@ -20,6 +20,7 @@ const ThoughtsPage = ({ data }) => {
                 to={node.slug}
                 content={node.content}
                 date={node.date}
+                isMdx={node.isMdx}
               />
             </Box>
           </React.Fragment>
@@ -33,7 +34,11 @@ export default ThoughtsPage
 
 export const query = graphql`
   query ThoughtsQuery {
-    posts: allBlog(filter: { format: { nin: ["image"] } }, limit: 50) {
+    posts: allBlog(
+      filter: { format: { nin: ["image"] } }
+      sort: { fields: date, order: DESC }
+      limit: 50
+    ) {
       nodes {
         id
         title
@@ -41,6 +46,7 @@ export const query = graphql`
         slug
         content
         excerpt
+        isMdx
       }
     }
   }

@@ -7,6 +7,7 @@ import { space } from 'styled-system'
 import { Box, Text } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
 import { checkPropTypes } from 'prop-types'
+import MDX from 'components/MDX'
 
 const Container = styled.article`
   &:after {
@@ -168,8 +169,13 @@ export const Post = props => {
       <Container>
         {metadata}
         {title}
-        {/* {tags} */}
-        {content}
+        {props.isMdx ? (
+          <Content>
+            <MDX.Renderer>{props.content}</MDX.Renderer>
+          </Content>
+        ) : (
+          content
+        )}
       </Container>
     )
   }

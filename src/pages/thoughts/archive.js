@@ -23,8 +23,10 @@ const LongPost = ({ title, slug, date, content, excerpt }) => (
 )
 
 const ArchivePage = ({ data }) => {
-  const groups = data.posts.group.sort((a, b) => parseInt(b.year) - parseInt(a.year))
-  
+  const groups = data.posts.group.sort(
+    (a, b) => parseInt(b.year) - parseInt(a.year)
+  )
+
   return (
     <Page title='Archive' untitled>
       {groups.map(group => (
@@ -40,8 +42,7 @@ const ArchivePage = ({ data }) => {
                   <ShortPost {...node} />
                 </Box>
               )
-            }
-            else {
+            } else {
               return (
                 <Box mb={48} key={node.id}>
                   <LongPost {...node} />
@@ -76,7 +77,10 @@ export default ArchivePage
 
 export const query = graphql`
   query ArchiveQuery {
-    posts: allBlog(filter: {format: {nin: ["image"]}}) {
+    posts: allBlog(
+      filter: { format: { nin: ["image"] } }
+      sort: { fields: date, order: DESC }
+    ) {
       group(field: year) {
         year: fieldValue
         nodes {

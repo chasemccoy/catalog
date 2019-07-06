@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import MDX from '../components/mdx/MDX'
+import MDX from 'components/MDX'
 import Page from 'components/Page'
 import { Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
@@ -11,7 +11,7 @@ import Tags from 'components/Tags'
 
 const Note = ({
   data: { mdx },
-  pageContext: { notes, categories, category },
+  pageContext: { notes, categories, category }
 }) => (
   <MDX.Provider>
     <Page title={mdx.frontmatter.title} untitled>
@@ -52,7 +52,7 @@ const Note = ({
               }
             `}
           >
-            <MDX.Renderer>{mdx.code.body}</MDX.Renderer>
+            <MDX.Renderer>{mdx.body}</MDX.Renderer>
           </Text>
         </Layout.Content>
       </Layout>
@@ -70,9 +70,7 @@ export const pageQuery = graphql`
         title
         tags
       }
-      code {
-        body
-      }
+      body
     }
   }
 `
