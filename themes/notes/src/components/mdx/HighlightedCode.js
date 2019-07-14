@@ -25,11 +25,7 @@ const PreWithLineNumbers = styled.pre`
     font-size: 14px;
     line-height: 1.5;
     padding-right: 12px;
-    border-right: 1px solid
-      ${props =>
-        props.theme.name === 'light'
-          ? props.theme.colors.gray[4]
-          : props.theme.colors.gray[1]};
+    border-right: 1px solid ${props => props.theme.colors.gray[4]};
   }
 `
 

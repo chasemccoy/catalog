@@ -35,7 +35,6 @@ export const UnorderedList = styled.ul`
   ${props =>
     props.unstyled &&
     css`
-      list-style-type: none;
       margin: 0;
       padding: 0;
 

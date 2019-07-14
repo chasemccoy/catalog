@@ -25,6 +25,7 @@
     "gatsby-remark-images": "3.0.14",
     "gatsby-source-airtable": "2.0.8",
     "gatsby-source-filesystem": "2.0.38",
+    "gatsby-source-github": "^0.0.2",
     "gatsby-source-wordpress": "3.0.64",
     "gatsby-transformer-hjson": "2.1.8",
     "gatsby-transformer-json": "2.1.11",
@@ -55,8 +56,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "dotenv": "8.0.0",
-    "gatsby-source-github": "0.0.2",
     "husky": "2.4.0",
     "lint-staged": "8.2.0",
     "prettier": "1.18.2"

@@ -17,7 +17,7 @@ const Container = styled(Text)`
     `}
 `
 
-const Link = ({ children, to, external, ...other }) => {
+const Link = ({ children, to, external, ...rest }) => {
   const newTab = to.startsWith('http')
   const internal = /^\/(?!\/)/.test(to) && !external
 
@@ -28,7 +28,7 @@ const Link = ({ children, to, external, ...other }) => {
         href={to}
         target={newTab ? `_blank` : undefined}
         rel={newTab ? 'noopener' : undefined}
-        {...other}
+        {...rest}
       >
         {children}
       </Container>
@@ -36,7 +36,7 @@ const Link = ({ children, to, external, ...other }) => {
   }
 
   return (
-    <Container as={GatsbyLink} to={to} {...other} activeClassName='selected'>
+    <Container as={GatsbyLink} to={to} {...rest} activeClassName='selected'>
       {children}
     </Container>
   )

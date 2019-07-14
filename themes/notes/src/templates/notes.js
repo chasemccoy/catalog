@@ -1,9 +1,8 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Grid } from '@chasemccoy/kit'
-import Heading from 'components/Heading'
+import { Grid, Heading } from '@chasemccoy/kit'
 import Sidebar from '../components/notes/Sidebar'
-import Breadcrumbs from '../components/notes/Breadcrumbs'
+// import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 import NoteCard from '../components/notes/NoteCard'
 
@@ -16,9 +15,7 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
       </Layout.Sidebar>
 
       <Layout.Content>
-        <Heading.section>
-          <Breadcrumbs mb={32} category={category} />
-        </Heading.section>
+        <Heading.h2>Notes</Heading.h2>
 
         <Grid>
           {notes

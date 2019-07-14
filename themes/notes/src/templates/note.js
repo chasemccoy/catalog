@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
-import { Text } from '@chasemccoy/kit'
-import Heading from 'components/Heading'
+import { Text, Heading } from '@chasemccoy/kit'
 import Sidebar from '../components/notes/Sidebar'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
@@ -16,24 +15,16 @@ const Note = ({
   <MDX.Provider>
     <Page title={mdx.frontmatter.title} untitled>
       <Layout>
-        <Layout.Sidebar>
+        {/* <Layout.Sidebar>
           {categories && <Sidebar mb={32} data={categories} />}
           {notes && <Sidebar.Notes data={notes} />}
-        </Layout.Sidebar>
+        </Layout.Sidebar> */}
 
         <Layout.Content>
-          <Heading.section>
-            <Breadcrumbs
-              mb={mdx.frontmatter.tags ? 16 : 32}
-              category={category}
-              title={mdx.frontmatter.title}
-            />
-          </Heading.section>
+          <Breadcrumbs category={category} title={mdx.frontmatter.title} />
 
           {mdx.frontmatter.title && (
-            <Text as='h1' mb={12}>
-              {mdx.frontmatter.title}
-            </Text>
+            <Heading.h1 mb={12}>{mdx.frontmatter.title}</Heading.h1>
           )}
 
           {mdx.frontmatter.tags && (

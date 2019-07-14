@@ -19,12 +19,12 @@ const now = () => {
     date: now.toLocaleString('en-us', {
       weekday: 'long',
       month: 'long',
-      day: 'numeric',
+      day: 'numeric'
     }),
     time: now.toLocaleString('en-us', {
       hour: 'numeric',
-      minute: '2-digit',
-    }),
+      minute: '2-digit'
+    })
   }
 }
 
@@ -95,20 +95,7 @@ const Index = props => {
   return (
     <Page wide>
       <Grid mb={[0, 0, 0, 0, 16]}>
-        <Box
-          width={[1, 1, 1, 1, 1.2 / 5]}
-          display={['none', 'none', 'none', 'none', 'block']}
-        >
-          <Heading.section mb='14px'>Date</Heading.section>
-          <Text fontSize='18px' fontFamily='mono'>
-            {date}
-          </Text>
-          <Text fontSize='14px' fontFamily='mono' color='gray.4'>
-            {time}
-          </Text>
-        </Box>
-
-        <Box width={[1, 1, 1, 1, 3.8 / 5]} mb={['8px', 0]}>
+        <Box width={1} mb={['8px', 0]}>
           <Heading.section mb='12px'>Introduction</Heading.section>
 
           <Text.p fontSize={['24px', '26px', '28px']} lineHeight='1.4' mb={0}>
@@ -128,9 +115,7 @@ const Index = props => {
       </Grid>
 
       <Grid mb={[16, 40, 40, 40, 0]}>
-        <Box width={[1, 1, 1, 1, 1.2 / 5]} />
-
-        <Box width={[1, 1, 1, 1, 2.7 / 5]} mb={[32, 32, 32, '8px', 40]}>
+        <Box width={[1, 1, 1, 1, 2 / 3]} mb={[32, 32, 32, '8px', 40]}>
           <Text.p mt='-5px'>
             I hate the internet and I love the internet. I believe that it can
             and should be a space that respects the creativity, diversity, and
@@ -163,7 +148,7 @@ const Index = props => {
           </Text.p>
         </Box>
 
-        <Box width={[1, 1, 1, 1, 1.1 / 5]}>
+        <Box width={[1, 1, 1, 1, 1 / 3]}>
           <Grid>
             <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
               <Heading.section mb={'8px'}>Things I Like</Heading.section>
@@ -192,7 +177,7 @@ const Index = props => {
       </Grid>
 
       <Grid mb={24}>
-        <Box width={[2 / 3, 1 / 2, 1, 1 / 2, 1.2 / 5]} mb={[32, 0]}>
+        <Box width={[2 / 3, 1 / 2, 1, 1 / 2, 2 / 3]} mb={[32, 0]}>
           <Heading.section>Writing</Heading.section>
 
           {props.data.olderPosts.nodes.map(node => (
@@ -220,7 +205,7 @@ const Index = props => {
           ))}
         </Box>
 
-        <Box width={[1 / 3, 1 / 2, 1, 1 / 2, 0.8 / 5]} mb={[32, 0]}>
+        <Box width={[1 / 3, 1 / 2, 1, 1 / 2, 1 / 3]} mb={[32, 0]}>
           <Heading.section>Blogroll</Heading.section>
 
           {blogroll.map((node, i) => (
@@ -232,7 +217,7 @@ const Index = props => {
           ))}
         </Box>
 
-        <Box width={[1, 1, 1, 1, 3 / 5]} mb={[32, 0]}>
+        <Box width={[1]} mb={[32, 0]}>
           <Heading.section>Recent Photos</Heading.section>
 
           <Grid gutter={4}>

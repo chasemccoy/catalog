@@ -30,10 +30,6 @@ const TimelineContainer = styled.section`
     position: relative;
   }
 
-  a {
-    text-decoration: underline;
-  }
-
   ${space}
 `
 

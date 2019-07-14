@@ -11,35 +11,35 @@ import Button from 'components/Button'
 import 'isomorphic-fetch'
 
 const Container = styled(Box)`
-  font-size: 14px;
+  border-right: 1px solid ${p => p.theme.colors.gray[0]};
+  height: 100%;
+  min-height: 100vh;
+  padding: 64px 0;
 
-  ${media.small`
-    min-width: 100%;
-    max-width: 100%;
-    padding: 0;
-    margin-bottom: 80px;
+  ${media.medium`
+    padding: 80px 0 40px;
   `}
 
+  ${media.small`
+    border-right: none;
+    border-bottom: 1px solid ${p => p.theme.colors.gray[0]};
+    min-height: 0;
+    height: auto;
+    padding: 0 16px 16px;
+  `}
+  
   li {
     margin: 0;
   }
 `
 
-const Header = props => (
-  <Heading.h1
-    fontFamily='mono'
-    fontSize='14px'
-    mb='4px'
-    mt={0}
-    css={`
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    `}
-    {...props}
-  />
-)
+const NavLink = styled(Link)`
+  color: ${p => p.theme.colors.gray[2]};
+
+  &.selected {
+    color: #ffc700;
+  }
+`
 
 const ToggleTheme = () => (
   <ThemeContext.Consumer>
@@ -56,7 +56,7 @@ const getWeatherData = async set => {
   const result = await response.json()
   set({
     summary: result.summary,
-    temperature: result.temperature,
+    temperature: result.temperature
   })
 }
 
@@ -65,7 +65,7 @@ const getNowPlayingData = async set => {
   const result = await response.json()
   set({
     name: result.name,
-    artist: result.artist,
+    artist: result.artist
   })
 }
 
@@ -97,6 +97,59 @@ const Sidebar = () => {
 
   return (
     <Container>
+      <Box bg='#FFC700' height='64px' mr={[0, 0, '-4px']} mb={16} />
+
+      <Box px={[0, 0, '8px', '4px']}>
+        <Box mb={16}>
+          <Heading.h1
+            fontSize='14px'
+            lineHeight='1.2'
+            mt={0}
+            mb='12px'
+            css={`
+              letter-spacing: 0.5px;
+            `}
+          >
+            CHASE McCOY
+          </Heading.h1>
+        </Box>
+
+        <Text
+          as='nav'
+          fontSize='12px'
+          fontWeight='semibold'
+          css={`
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          `}
+        >
+          <UnorderedList
+            unstyled
+            css={`
+              li + li {
+                margin-top: 8px;
+              }
+            `}
+          >
+            <li>
+              <NavLink to='/thoughts' unstyled>
+                thoughts
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/notes' unstyled>
+                notes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/portfolio' unstyled>
+                portfolio
+              </NavLink>
+            </li>
+          </UnorderedList>
+        </Text>
+      </Box>
+
       {/* <Header fontSize='16px' mt='-8px'>
         <Link to='/' pr={[48, 48, 48, 0]} unstyled fontWeight='bold'>
           Chase McCoy

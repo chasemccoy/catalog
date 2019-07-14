@@ -11,18 +11,12 @@ const Container = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: ${p => p.theme.sizes.layout.maxWidth}px;
-  padding: 40px 0;
   background: ${p => p.theme.colors.page.background};
   color: ${p => p.theme.colors.page.text};
   margin: 0 auto;
 
-  ${media.medium`
-    padding: 32px;
-  `}
-
   ${media.small`
     flex-direction: column;
-    padding: 16px;
   `}
 `
 
@@ -32,8 +26,8 @@ const HeaderContainer = styled.header`
 `
 
 const SidebarContainer = styled.aside`
-  margin-right: 40px;
-  flex: 0.8;
+  margin-right: 48px;
+  flex: 0.5;
 
   ${media.small`
     flex: 1 100%;
@@ -44,6 +38,7 @@ const SidebarContainer = styled.aside`
 const Content = styled.main`
   flex: 2;
   min-width: 0;
+  padding: 64px 16px;
 `
 
 const Page = props => (
@@ -55,9 +50,9 @@ const Page = props => (
     />
 
     <Container id='wrapper'>
-      <HeaderContainer>
+      {/* <HeaderContainer>
         <Header />
-      </HeaderContainer>
+      </HeaderContainer> */}
 
       <SidebarContainer>
         <Sidebar />
