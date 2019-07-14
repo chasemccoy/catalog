@@ -7,7 +7,7 @@ import { capitalize } from 'utils'
 
 const Sidebar = ({ data, ...rest }) => (
   <Box {...rest}>
-    <Heading.h2 mt={0}>Categories</Heading.h2>
+    {/* <Heading.h2 mt={0}>Categories</Heading.h2> */}
 
     {Object.entries(data)
       .sort()

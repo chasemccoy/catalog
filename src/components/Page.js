@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Box, Text } from '@chasemccoy/kit'
 import Sidebar from 'components/Sidebar'
 import Heading from 'components/Heading'
 import media from 'utils/media'
 import Metadata from 'components/Metadata'
-import Header from 'components/Header'
 
-const Container = styled.div`
+const Container = styled(Box)`
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   max-width: ${p => p.theme.sizes.layout.maxWidth}px;
-  background: ${p => p.theme.colors.page.background};
   color: ${p => p.theme.colors.page.text};
   margin: 0 auto;
 
@@ -21,27 +19,26 @@ const Container = styled.div`
 `
 
 const HeaderContainer = styled.header`
-  flex: 1 100%;
-  margin-bottom: 32px;
+  display: flex;
+  background: #f9f9f9;
 `
 
-const SidebarContainer = styled.aside`
-  margin-right: 48px;
+const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
+  margin-right: 40px;
   flex: 0.5;
 
   ${media.small`
-    flex: 1 100%;
+    flex: initial;
     margin-right: 0;
   `}
 `
 
-const Content = styled.main`
+const Content = styled(Box).attrs({ as: 'main', px: 16 })`
   flex: 2;
   min-width: 0;
-  padding: 64px 16px;
 `
 
-const Page = props => (
+const Page = ({ header, ...props }) => (
   <React.Fragment>
     <Metadata
       title={props.title}
@@ -49,16 +46,19 @@ const Page = props => (
       article={props.article}
     />
 
-    <Container id='wrapper'>
-      {/* <HeaderContainer>
-        <Header />
-      </HeaderContainer> */}
+    <HeaderContainer>
+      {React.cloneElement(header || <DefaultHeader />, {
+        title: props.title,
+        description: props.description
+      })}
+    </HeaderContainer>
 
+    <Container>
       <SidebarContainer>
         <Sidebar />
       </SidebarContainer>
 
-      <Content id='content'>
+      <Content py={24}>
         {props.title && !props.untitled && (
           <Heading.h1 mt={0}>{props.title}</Heading.h1>
         )}
@@ -67,6 +67,62 @@ const Page = props => (
       </Content>
     </Container>
   </React.Fragment>
+)
+
+Page.Header = ({ title, description, children, ...rest }) => {
+  const Title = props =>
+    title ? <Heading.h1 {...props}>{title}</Heading.h1> : null
+
+  const Description = props =>
+    description ? (
+      <Text color='gray.3' {...props}>
+        {description}
+      </Text>
+    ) : null
+
+  return (
+    <Container {...rest}>
+      <SidebarContainer
+        as='div'
+        display='flex'
+        flexDirection='column'
+        justifyContent='flex-end'
+      >
+        <Box
+          bg='#FFC700'
+          height='100%'
+          width='100%'
+          minWidth='40px'
+          minHeight='16px'
+        />
+      </SidebarContainer>
+
+      <Content
+        as='div'
+        pt={[8, 16, 24, 40]}
+        pb={16}
+        display='flex'
+        justifyContent='flex-end'
+        flexDirection='column'
+      >
+        {children &&
+          (typeof children === 'function'
+            ? children(Title, Description, title)
+            : children)}
+      </Content>
+    </Container>
+  )
+}
+
+const DefaultHeader = props => (
+  <Page.Header {...props}>
+    {(Title, Description) => (
+      <React.Fragment>
+        <Title mt={0} />
+        <Description />
+      </React.Fragment>
+    )}
+  </Page.Header>
 )
 
 export default Page

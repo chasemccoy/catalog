@@ -90,7 +90,7 @@ class TimelineItem extends React.Component {
     return (
       <TimelineListItem>
         <div>
-          <Meta pt='6px' mb={2} fontSize='14px'>
+          <Meta pt='6px' mt={0} mb={2} fontSize='14px'>
             <Text.span pr={2} color='accent'>
               {this.props.type}
             </Text.span>

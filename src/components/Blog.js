@@ -167,8 +167,12 @@ export const Post = props => {
   } else {
     return (
       <Container>
-        {metadata}
-        {title}
+        {!props.untitled && (
+          <React.Fragment>
+            {metadata}
+            {title}
+          </React.Fragment>
+        )}
         {props.isMdx ? (
           <Content>
             <MDX.Renderer>{props.content}</MDX.Renderer>
@@ -180,3 +184,17 @@ export const Post = props => {
     )
   }
 }
+
+Post.Header = ({ title, to, date, tags }) => (
+  <React.Fragment>
+    <Date date={date} permalink={to} mb={40} />
+
+    {title && (
+      <Heading.h1 mt={0}>
+        <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />
+      </Heading.h1>
+    )}
+
+    {tags && <Tags items={tags} />}
+  </React.Fragment>
+)

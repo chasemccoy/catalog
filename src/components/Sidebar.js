@@ -14,20 +14,16 @@ const Container = styled(Box)`
   border-right: 1px solid ${p => p.theme.colors.gray[0]};
   height: 100%;
   min-height: 100vh;
-  padding: 64px 0;
-
-  ${media.medium`
-    padding: 80px 0 40px;
-  `}
+  padding: 24px 0;
 
   ${media.small`
     border-right: none;
     border-bottom: 1px solid ${p => p.theme.colors.gray[0]};
     min-height: 0;
     height: auto;
-    padding: 0 16px 16px;
+    padding: 16px;
   `}
-  
+
   li {
     margin: 0;
   }
@@ -97,8 +93,6 @@ const Sidebar = () => {
 
   return (
     <Container>
-      <Box bg='#FFC700' height='64px' mr={[0, 0, '-4px']} mb={16} />
-
       <Box px={[0, 0, '8px', '4px']}>
         <Box mb={16}>
           <Heading.h1
@@ -144,6 +138,16 @@ const Sidebar = () => {
             <li>
               <NavLink to='/portfolio' unstyled>
                 portfolio
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/quotes' unstyled>
+                quotes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/music' unstyled>
+                music
               </NavLink>
             </li>
           </UnorderedList>

@@ -30,7 +30,7 @@ Track.Title = styled(Heading.h4)`
 
 class MusicPage extends React.Component {
   state = {
-    tracks: [],
+    tracks: []
   }
 
   componentDidMount = () => {
@@ -44,17 +44,10 @@ class MusicPage extends React.Component {
   render() {
     return (
       <Page
-        resource
         title='Music'
-        icon='music'
-        description='A few of my favorite albums, as well as what I am listening to recently.'
+        untitled
+        description='I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.'
       >
-        <Text.p mb={9}>
-          I am listening to music about 95% of the time I am awake. Here are a
-          few albums I really like, as well as a list of some songs I have been
-          listening to recently.
-        </Text.p>
-
         <Heading.section className='full'>Favorite Albums</Heading.section>
 
         <Row mb={4} className='full'>

@@ -1,22 +1,34 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Grid, Heading } from '@chasemccoy/kit'
+import { Grid, Heading, Text } from '@chasemccoy/kit'
 import Sidebar from '../components/notes/Sidebar'
-// import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 import NoteCard from '../components/notes/NoteCard'
 
+const Header = props => (
+  <Page.Header {...props}>
+    {(Title, Description) => (
+      <React.Fragment>
+        <Title mt={0} />
+        <Description />
+      </React.Fragment>
+    )}
+  </Page.Header>
+)
+
 const Notes = ({ pageContext: { notes, categories, category } }) => (
-  <Page title='Notes' untitled>
+  <Page
+    title='Notes'
+    description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
+    untitled
+    header={<Header />}
+  >
     <Layout>
       <Layout.Sidebar>
         {categories && <Sidebar data={categories} />}
-        {/* {notes && <Sidebar.Notes data={notes} />} */}
       </Layout.Sidebar>
 
       <Layout.Content>
-        <Heading.h2>Notes</Heading.h2>
-
         <Grid>
           {notes
             .filter(note => !note.fields.isLandingPage)

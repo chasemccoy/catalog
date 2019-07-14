@@ -10,6 +10,7 @@ const ThoughtsPage = ({ data }) => {
       title='Thoughts'
       untitled
       description="What's on my mind, and links to some interesting stuff on the web."
+      header={<Page.Header />}
     >
       <Box>
         {data.posts.nodes.map(node => (

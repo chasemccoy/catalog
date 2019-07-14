@@ -3,34 +3,37 @@ import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
 import { Text, Heading } from '@chasemccoy/kit'
-import Sidebar from '../components/notes/Sidebar'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 import Tags from 'components/Tags'
+
+const Header = ({ category, tags, ...rest }) => (
+  <Page.Header {...rest}>
+    {(Title, _, title) => (
+      <React.Fragment>
+        <Breadcrumbs category={category} title={title} />
+
+        <Title mb={tags ? 16 : 0} />
+
+        {tags && <Tags items={tags} />}
+      </React.Fragment>
+    )}
+  </Page.Header>
+)
 
 const Note = ({
   data: { mdx },
   pageContext: { notes, categories, category }
 }) => (
   <MDX.Provider>
-    <Page title={mdx.frontmatter.title} untitled>
+    <Page
+      title={mdx.frontmatter.title}
+      description={mdx.excerpt}
+      untitled
+      header={<Header category={category} tags={mdx.frontmatter.tags} />}
+    >
       <Layout>
-        {/* <Layout.Sidebar>
-          {categories && <Sidebar mb={32} data={categories} />}
-          {notes && <Sidebar.Notes data={notes} />}
-        </Layout.Sidebar> */}
-
         <Layout.Content>
-          <Breadcrumbs category={category} title={mdx.frontmatter.title} />
-
-          {mdx.frontmatter.title && (
-            <Heading.h1 mb={12}>{mdx.frontmatter.title}</Heading.h1>
-          )}
-
-          {mdx.frontmatter.tags && (
-            <Tags items={mdx.frontmatter.tags} mb={32} />
-          )}
-
           <Text
             fontFamily='system'
             css={`
@@ -57,6 +60,7 @@ export const pageQuery = graphql`
   query NoteQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
+      excerpt
       frontmatter {
         title
         tags

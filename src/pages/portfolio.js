@@ -8,15 +8,10 @@ const PortfolioPage = ({ data }) => {
   return (
     <Page
       title='Portfolio'
-      icon='portfolio'
-      description='A short history of my educational and professional career.'
+      untitled
+      description='A timeline of a (brief) professional career that I am very proud of. I love talking about my work/industry, so get in touch and lets talk shop.'
     >
-      <Text.p>
-        A timeline of a (brief) professional career that I am very proud of. I
-        love talking about my work/industry, so get in touch and lets talk shop.
-      </Text.p>
-
-      <Timeline my={6}>
+      <Timeline mb={32}>
         {data.portfolio.edges.map(({ node }, index) => (
           <TimelineItem
             key={index}

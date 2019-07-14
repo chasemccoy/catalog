@@ -10,8 +10,23 @@ export default ({ data, pageContext }) => {
     : post.shortSlug
 
   return (
-    <Page title={normalizedTitle} narrow untitled article>
+    <Page
+      title={normalizedTitle}
+      untitled
+      article
+      header={
+        <Page.Header>
+          <Post.Header
+            title={post.title}
+            to={post.slug}
+            date={post.date}
+            tags={post.tags}
+          />
+        </Page.Header>
+      }
+    >
       <Post
+        untitled
         title={post.title}
         content={post.content}
         date={post.date}
