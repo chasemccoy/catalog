@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
 
 const NotesLayout = props => <Box width={1}>{props.children}</Box>
 

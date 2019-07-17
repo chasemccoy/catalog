@@ -3,10 +3,8 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import media from 'utils/media'
-import { space } from 'styled-system'
-import { Box, Text } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
-import { checkPropTypes } from 'prop-types'
 import MDX from 'components/MDX'
 
 const Container = styled.article`
@@ -143,9 +141,9 @@ export const Post = props => {
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  const date = props.date && <Date date={props.date} permalink={props.to} />
+  // const date = props.date && <Date date={props.date} permalink={props.to} />
 
-  const tags = props.tags && <Tags mb='32px' items={props.tags} />
+  // const tags = props.tags && <Tags mb='32px' items={props.tags} />
 
   const metadata = props.date && (
     <Metadata
@@ -190,7 +188,7 @@ Post.Header = ({ title, to, date, tags }) => (
     <Date date={date} permalink={to} mb={40} />
 
     {title && (
-      <Heading.h1 mt={0}>
+      <Heading.h1 mt={0} mb={!tags && 0}>
         <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />
       </Heading.h1>
     )}

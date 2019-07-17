@@ -4,21 +4,20 @@ const namedBreakpoints = {
   tiny: breakpoints[0],
   small: breakpoints[1],
   medium: breakpoints[2],
-  large: breakpoints[3],
+  large: breakpoints[3]
 }
 
 const space = [0, 4, 8, 12, 16, 24, 32, 40]
 
 const sizes = {
   layout: {
-    sidebarWidth: 280,
-    maxWidth: 760,
+    maxWidth: 720
   },
   timeline: {
     pointWidth: '12px',
     lineWidth: '2px',
-    linePadding: '32px',
-  },
+    linePadding: '32px'
+  }
 }
 
 const fontWeights = {
@@ -27,7 +26,7 @@ const fontWeights = {
   medium: 500,
   semibold: 600,
   bold: 700,
-  heavy: 800,
+  heavy: 800
 }
 
 const fonts = {
@@ -45,7 +44,7 @@ const fonts = {
 
   system: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-  "Droid Sans", "Helvetica Neue", sans-serif`,
+  "Droid Sans", "Helvetica Neue", sans-serif`
 }
 
 const theme = {
@@ -54,7 +53,7 @@ const theme = {
   space,
   sizes,
   fontWeights,
-  fonts,
+  fonts
 }
 
 export default theme

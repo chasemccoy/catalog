@@ -2,18 +2,20 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
-import { Text, Heading } from '@chasemccoy/kit'
+import { Text } from '@chasemccoy/kit'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 import Tags from 'components/Tags'
 
 const Header = ({ category, tags, ...rest }) => (
   <Page.Header {...rest}>
-    {(Title, _, title) => (
+    {(Title, Description, title) => (
       <React.Fragment>
         <Breadcrumbs category={category} title={title} />
 
-        <Title mb={tags ? 16 : 0} />
+        <Title mb={tags || Description ? 16 : 0} />
+
+        <Description mb={tags ? 16 : 0} />
 
         {tags && <Tags items={tags} />}
       </React.Fragment>

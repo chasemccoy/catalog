@@ -9,6 +9,7 @@ import Image from 'components/Image'
 import { UnorderedList } from 'components/Lists'
 import Float from 'notes/src/components/mdx/Float'
 import Quote from 'notes/src/components/mdx/Quote'
+import Bookmark from 'notes/src/components/notes/Bookmark'
 
 const LinkAdapter = ({ href, ...rest }) => <Link to={href} {...rest} />
 
@@ -24,7 +25,8 @@ const Provider = props => {
     Heading,
     Image,
     Float,
-    Quote
+    Quote,
+    Bookmark
   }
 
   const newProps = { components, ...props }

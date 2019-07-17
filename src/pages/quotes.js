@@ -10,7 +10,7 @@ export const Quote = ({ content, source, ...rest }) => (
       {content}
     </Text.p>
 
-    <Text.p m={0} fontSize={18} fontFamily='mono' color='gray.4' italic>
+    <Text.p m={0} fontSize={18} fontFamily='mono' color='gray.3'>
       {source}
     </Text.p>
   </Box>
@@ -28,7 +28,7 @@ const QuotesPage = ({ data }) => {
             pb={24}
             css={`
               &:not(:last-child) {
-                border-bottom: 2px solid ${p => p.theme.colors.gray[0]};
+                border-bottom: 1px solid ${p => p.theme.colors.gray[1]};
               }
 
               &:last-child {

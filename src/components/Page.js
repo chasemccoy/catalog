@@ -24,8 +24,12 @@ const HeaderContainer = styled.header`
 `
 
 const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
-  margin-right: 40px;
+  margin-right: 24px;
   flex: 0.5;
+
+  ${media.medium`
+    margin-right: 16px;
+  `}
 
   ${media.small`
     flex: initial;
@@ -74,7 +78,7 @@ Page.Header = ({ title, description, children, ...rest }) => {
     title ? <Heading.h1 {...props}>{title}</Heading.h1> : null
 
   const Description = props =>
-    description ? (
+    description && !description.endsWith('…') ? (
       <Text color='gray.3' {...props}>
         {description}
       </Text>
@@ -99,7 +103,7 @@ Page.Header = ({ title, description, children, ...rest }) => {
 
       <Content
         as='div'
-        pt={[8, 16, 24, 40]}
+        pt={[24, 24, 32, 40]}
         pb={16}
         display='flex'
         justifyContent='flex-end'
@@ -118,7 +122,7 @@ const DefaultHeader = props => (
   <Page.Header {...props}>
     {(Title, Description) => (
       <React.Fragment>
-        <Title mt={0} />
+        <Title mt={0} mb={16} />
         <Description />
       </React.Fragment>
     )}

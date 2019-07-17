@@ -25,4 +25,6 @@ function copy(text) {
 }
 ```
 
-Hats off to Tom Critchlow for [the idea of making bespoke bookmarklets to assist with blogging/note-taking](https://tomcritchlow.com/2019/06/19/bookmarklets-static-sites/).
+Hats off to Tom Critchlow for the idea of making bespoke bookmarklets to assist with blogging/note-taking:
+
+<Bookmark url='https://tomcritchlow.com/2019/06/19/bookmarklets-static-sites/' />

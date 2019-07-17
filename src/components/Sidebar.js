@@ -6,15 +6,24 @@ import media from 'utils/media'
 import Heading from 'components/Heading'
 import HCard from 'components/hCard'
 import { UnorderedList } from 'components/Lists'
-import { ThemeContext } from 'components/Layout'
-import Button from 'components/Button'
+// import { ThemeContext } from 'components/Layout'
 import 'isomorphic-fetch'
 
 const Container = styled(Box)`
-  border-right: 1px solid ${p => p.theme.colors.gray[0]};
+  border-right: 1px solid ${p => p.theme.colors.gray[1]};
   height: 100%;
   min-height: 100vh;
   padding: 24px 0;
+  font-size: 12px;
+  color: ${p => p.theme.colors.gray[3]};
+
+  a {
+    color: ${p => p.theme.colors.gray[3]};
+  }
+
+  a:hover {
+    color: ${p => p.theme.colors.accent};
+  }
 
   ${media.small`
     border-right: none;
@@ -23,29 +32,23 @@ const Container = styled(Box)`
     height: auto;
     padding: 16px;
   `}
-
-  li {
-    margin: 0;
-  }
 `
 
 const NavLink = styled(Link)`
-  color: ${p => p.theme.colors.gray[2]};
-
   &.selected {
     color: #ffc700;
   }
 `
 
-const ToggleTheme = () => (
-  <ThemeContext.Consumer>
-    {({ _, toggleTheme }) => (
-      <Button onClick={toggleTheme} fontSize='24px' unstyled>
-        ☼
-      </Button>
-    )}
-  </ThemeContext.Consumer>
-)
+// const ToggleTheme = () => (
+//   <ThemeContext.Consumer>
+//     {({ _, toggleTheme }) => (
+//       <Button onClick={toggleTheme} fontSize='24px' unstyled>
+//         ☼
+//       </Button>
+//     )}
+//   </ThemeContext.Consumer>
+// )
 
 const getWeatherData = async set => {
   const response = await fetch('https://chs-stats.now.sh/weather')
@@ -65,21 +68,21 @@ const getNowPlayingData = async set => {
   })
 }
 
-const getTwitterData = async set => {
-  const response = await fetch('https://chs-stats.now.sh/latestTweet')
-  const result = await response.text()
-  set(result)
-}
+// const getTwitterData = async set => {
+//   const response = await fetch('https://chs-stats.now.sh/latestTweet')
+//   const result = await response.text()
+//   set(result)
+// }
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(false)
+  // const [open, setOpen] = useState(false)
   const [weather, setWeather] = useState(null)
   const [nowPlaying, setNowPlaying] = useState(null)
-  const [tweet, setTweet] = useState(null)
+  // const [tweet, setTweet] = useState(null)
 
-  useEffect(() => {
-    window.matchMedia('(min-width: 768px)').matches && setOpen(true)
-  }, [])
+  // useEffect(() => {
+  //   window.matchMedia('(min-width: 768px)').matches && setOpen(true)
+  // }, [])
 
   useEffect(() => {
     getWeatherData(setWeather)
@@ -87,72 +90,111 @@ const Sidebar = () => {
   useEffect(() => {
     getNowPlayingData(setNowPlaying)
   }, [])
-  useEffect(() => {
-    getTwitterData(setTweet)
-  }, [])
+  // useEffect(() => {
+  //   getTwitterData(setTweet)
+  // }, [])
 
   return (
-    <Container>
-      <Box px={[0, 0, '8px', '4px']}>
-        <Box mb={16}>
-          <Heading.h1
-            fontSize='14px'
-            lineHeight='1.2'
-            mt={0}
-            mb='12px'
-            css={`
-              letter-spacing: 0.5px;
-            `}
-          >
-            CHASE McCOY
-          </Heading.h1>
-        </Box>
+    <Container px={[0, 0, '8px', 0]}>
+      <HCard />
 
-        <Text
-          as='nav'
-          fontSize='12px'
-          fontWeight='semibold'
+      <Box mb={16}>
+        <Heading.h2
+          fontSize='14px'
+          color='type.body'
+          lineHeight='1.2'
+          m={0}
           css={`
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
           `}
         >
-          <UnorderedList
-            unstyled
-            css={`
-              li + li {
-                margin-top: 8px;
-              }
-            `}
-          >
-            <li>
-              <NavLink to='/thoughts' unstyled>
-                thoughts
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/notes' unstyled>
-                notes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/portfolio' unstyled>
-                portfolio
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/quotes' unstyled>
-                quotes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/music' unstyled>
-                music
-              </NavLink>
-            </li>
-          </UnorderedList>
-        </Text>
+          CHASE McCOY
+        </Heading.h2>
       </Box>
+
+      <Text
+        as='nav'
+        mb={24}
+        fontWeight='semibold'
+        css={`
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        `}
+      >
+        <UnorderedList
+          unstyled
+          css={`
+            li + li {
+              margin-top: 8px;
+            }
+          `}
+        >
+          <li>
+            <NavLink to='/thoughts' unstyled>
+              thoughts
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/notes' unstyled>
+              notes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/portfolio' unstyled>
+              portfolio
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/quotes' unstyled>
+              quotes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/music' unstyled>
+              music
+            </NavLink>
+          </li>
+        </UnorderedList>
+      </Text>
+
+      {/* <Header>Currently</Header> */}
+
+      <UnorderedList
+        mb={32}
+        pr='4px'
+        unstyled
+        css={`
+          li + li {
+            margin-top: 12px;
+          }
+        `}
+      >
+        <Box as='li' mb={8}>
+          Working on <Link to='https://sproutsocial.com/seeds'>Seeds</Link> at{' '}
+          <Link to='https://sproutsocial.com'>Sprout Social</Link>
+        </Box>
+        <Box as='li' mb={8}>
+          {nowPlaying ? (
+            <React.Fragment>
+              Listening to {nowPlaying.name} by {nowPlaying.artist} on{' '}
+              <Link to='https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ'>
+                Spotify
+              </Link>
+            </React.Fragment>
+          ) : (
+            'Loading...'
+          )}
+        </Box>
+        <Box as='li'>
+          {weather ? (
+            <React.Fragment>
+              {weather.temperature} in <Link to='/chicago'>Chicago</Link>
+            </React.Fragment>
+          ) : (
+            'Loading...'
+          )}
+        </Box>
+      </UnorderedList>
 
       {/* <Header fontSize='16px' mt='-8px'>
         <Link to='/' pr={[48, 48, 48, 0]} unstyled fontWeight='bold'>

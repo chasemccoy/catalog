@@ -1,6 +1,6 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Grid, Heading, Text } from '@chasemccoy/kit'
+import { Grid } from '@chasemccoy/kit'
 import Sidebar from '../components/notes/Sidebar'
 import Layout from '../components/notes/Layout'
 import NoteCard from '../components/notes/NoteCard'
@@ -38,7 +38,7 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
                 tags={note.frontmatter.tags}
                 description={note.excerpt}
                 to={note.fields.slug}
-                width={[1, 1 / 2, 1, 1 / 2]}
+                width={[1, 1 / 2]}
                 key={note.id}
               />
             ))}

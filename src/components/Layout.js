@@ -57,11 +57,6 @@ const GlobalStyles = createGlobalStyle`
     background: #FFFBEB;
   }
 
-  h2 {
-    padding-bottom: 6px;
-    border-bottom: 2px solid ${p => p.theme.colors.gray[0]};
-  }
-
   article {
     h2,
     h3,
@@ -69,6 +64,15 @@ const GlobalStyles = createGlobalStyle`
     h5,
     h6 {
       margin-top: 2em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h2 {
+      padding-bottom: 6px;
+      border-bottom: 1px solid ${p => p.theme.colors.gray[1]};
     }
 
     img {

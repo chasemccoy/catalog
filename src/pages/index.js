@@ -12,21 +12,21 @@ import { graphql } from 'gatsby'
 import { UnorderedList } from 'components/Lists'
 import 'isomorphic-fetch'
 
-const now = () => {
-  const now = new Date()
+// const now = () => {
+//   const now = new Date()
 
-  return {
-    date: now.toLocaleString('en-us', {
-      weekday: 'long',
-      month: 'long',
-      day: 'numeric'
-    }),
-    time: now.toLocaleString('en-us', {
-      hour: 'numeric',
-      minute: '2-digit'
-    })
-  }
-}
+//   return {
+//     date: now.toLocaleString('en-us', {
+//       weekday: 'long',
+//       month: 'long',
+//       day: 'numeric'
+//     }),
+//     time: now.toLocaleString('en-us', {
+//       hour: 'numeric',
+//       minute: '2-digit'
+//     })
+//   }
+// }
 
 const HeaderImage = styled(Image)`
   height: 100%;
@@ -86,7 +86,7 @@ const Index = props => {
 
   const artists = tracks.map(track => track.artist)
   const uniqueArtists = Array.from(new Set(artists))
-  const { date, time } = now()
+  // const { date, time } = now()
 
   const blogroll = props.data.blogroll.nodes.sort((a, b) =>
     a.data.title.localeCompare(b.data.title)

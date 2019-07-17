@@ -48,16 +48,18 @@ class MusicPage extends React.Component {
         untitled
         description='I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.'
       >
-        <Heading.section className='full'>Favorite Albums</Heading.section>
+        <Heading.section>Favorite Albums</Heading.section>
 
-        <Row mb={4} className='full'>
+        <Row mb={40}>
           {this.props.data.music.edges.map(({ node }, i) => (
             <Column width={[1 / 2, 1 / 3]} key={i}>
               <Link to={node.url} unstyled color='page.text'>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
-                <Box height={['10em', '10em', '10em', '8em']} mt={3}>
-                  <Heading.h3 mb={2}>{node.title}</Heading.h3>
+                <Box height={['8em', '8em', '8em', '6em']} mt={3}>
+                  <Heading.h3 mt={0} mb='4px'>
+                    {node.title}
+                  </Heading.h3>
                   <Text color='gray.3' fontFamily='mono' fontSize='16px'>
                     {node.metadata}
                   </Text>

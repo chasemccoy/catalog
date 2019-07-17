@@ -6,9 +6,9 @@ import Link from 'components/Link'
 import { graphql } from 'gatsby'
 
 const ShortPost = ({ slug, title }) => (
-  <Heading.h2 mb={0} mt={0}>
-    <Link to={slug} dangerouslySetInnerHTML={{ __html: title }} />
-  </Heading.h2>
+  <Heading.h3 fontSize='24px' m={0}>
+    <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
+  </Heading.h3>
 )
 
 const LongPost = ({ title, slug, date, content, excerpt }) => (
@@ -32,7 +32,7 @@ const ArchivePage = ({ data }) => {
       {groups.map(group => (
         <Box key={group.year}>
           <Box bg='gray.1'>
-            <Heading.h2>{group.year}</Heading.h2>
+            <Heading.h2 mt={0}>{group.year}</Heading.h2>
           </Box>
 
           {group.nodes.map(node => {

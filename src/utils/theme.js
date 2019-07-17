@@ -11,12 +11,12 @@ const colors = {
   accent: Object.assign('#DB9102', {
     // #0000FF
     light: '#FFF4CB', // #E9E9F5
-    dark: '#000088',
+    dark: '#000088'
   }),
   page: {
     background: 'white',
     text: '#1e1f22',
-    code: 'rgb(33, 33, 57)',
+    code: 'rgb(33, 33, 57)'
   },
   type: {
     body: '#1e1f22',
@@ -24,15 +24,15 @@ const colors = {
     menu: '#666666',
     link: '#0000FF',
     linkHover: '#000088',
-    code: '#c6dbf4',
+    code: '#c6dbf4'
   },
   gray: {
-    0: '#F5F5FA',
-    1: '#E1E1E6',
-    2: '#C8C8CC',
-    3: '#969699',
-    4: '#5A5A5C',
-  },
+    0: '#F9F9F9',
+    1: '#EBEBEB',
+    2: '#D6D6D6',
+    3: '#A6A6A6',
+    4: '#616161'
+  }
 }
 
 const theme = {
@@ -43,7 +43,7 @@ const theme = {
   space,
   sizes,
   fontWeights,
-  fonts,
+  fonts
 }
 
 export default theme

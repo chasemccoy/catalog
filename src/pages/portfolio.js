@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Timeline, TimelineItem } from 'components/Timeline'
 import Page from 'components/Page'
-import { Text } from '@chasemccoy/kit'
 
 const PortfolioPage = ({ data }) => {
   return (

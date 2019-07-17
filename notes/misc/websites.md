@@ -1,10 +1,11 @@
 ---
 title: Websites
+excerpt: What are they? Why are they? What makes them so special? That's what I am trying to answer here.
 ---
 
-What are they? Why are they? What makes them so special? That's what I am trying to answer here. 
+## Laurel Schwulst: My website is a shifting house next to a river of knowledge
 
-## [Laurel Schwulst: My website is a shifting house next to a river of knowledge](https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/)
+<Bookmark url='https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/' />
 
 This whole article on The Creative Independent is awesome. 
 
