@@ -11,7 +11,7 @@ const space = [0, 4, 8, 12, 16, 24, 32, 40]
 
 const sizes = {
   layout: {
-    maxWidth: 720
+    maxWidth: 912
   },
   timeline: {
     pointWidth: '12px',

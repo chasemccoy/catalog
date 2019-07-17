@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import TableOfContents from './TableOfContents'
@@ -7,20 +7,26 @@ import { capitalize } from 'utils'
 
 const Sidebar = ({ data, ...rest }) => (
   <Box {...rest}>
-    {/* <Heading.h2 mt={0}>Categories</Heading.h2> */}
+    <Text
+      fontWeight='semibold'
+      mb={8}
+      pb={8}
+      borderBottom='1px solid'
+      borderColor='gray.1'
+    >
+      Categories
+    </Text>
 
     {Object.entries(data)
       .sort()
       .map(([key, value], i) => (
-        <Box key={i}>
+        <Box mb={8} key={i}>
           <Link
-            fontFamily='mono'
-            fontSize='16px'
             to={value[0].pagePath}
             partiallyActive
             css={`
               &.selected {
-                color: ${props => props.theme.colors.page.text};
+                color: ${props => props.theme.colors.accent};
               }
             `}
           >

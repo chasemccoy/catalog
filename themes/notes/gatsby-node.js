@@ -13,18 +13,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const { dir, name } = path.parse(parentNode.relativePath)
     const isLandingPage =
       parentNode.name === 'index' && dir.split('/').length === 1
+    const actualName = name === 'index' ? dir.split('/')[1] : name
 
     createNodeField({
       name: 'slug',
       node,
-      value: `${notesPath}/${name}`,
+      value: `${notesPath}/${actualName}`
     })
 
     if (parentNode && parentNode.name) {
       createNodeField({
         name: 'isLandingPage',
         node,
-        value: isLandingPage,
+        value: isLandingPage
       })
     }
   }
@@ -84,7 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     acc[category].push({
       pagePath: path.join(notesPath, category),
-      ...node,
+      ...node
     })
 
     return acc
@@ -99,11 +100,11 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       context: {
         id: node.id,
-        notes: groupedNotes[dir],
+        notes: groupedNotes[category],
         categories: groupedNotes,
-        category: category,
+        category: category
       },
-      component: Note,
+      component: Note
     })
   })
 
@@ -118,6 +119,8 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create an index page for each category at /notes/category-name
   Object.entries(groupedNotes).map(([key, value]) => {
     const pagePath = path.join(notesPath, key, '/')
+    // If we include an index.md it means we want to use a custom landing page,
+    // so don't create an automatic one
     const pageAlreadyExists = notes.find(node => node.fields.slug === pagePath)
 
     if (!pageAlreadyExists) {
@@ -126,9 +129,9 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           notes: value,
           categories: groupedNotes,
-          category: key,
+          category: key
         },
-        component: Notes,
+        component: Notes
       })
     }
   })
@@ -138,8 +141,8 @@ exports.createPages = async ({ graphql, actions }) => {
     path: notesPath,
     context: {
       notes: notes,
-      categories: groupedNotes,
+      categories: groupedNotes
     },
-    component: Notes,
+    component: Notes
   })
 }

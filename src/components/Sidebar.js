@@ -95,7 +95,7 @@ const Sidebar = () => {
   // }, [])
 
   return (
-    <Container px={[0, 0, '8px', 0]}>
+    <Container pl={[0, 0, '8px', 0]} pr={[0, 0, '8px']}>
       <HCard />
 
       <Box mb={16}>
@@ -160,7 +160,7 @@ const Sidebar = () => {
       {/* <Header>Currently</Header> */}
 
       <UnorderedList
-        mb={32}
+        mb={8}
         pr='4px'
         unstyled
         css={`

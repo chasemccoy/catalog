@@ -22,12 +22,9 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
     description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
     untitled
     header={<Header />}
+    sidebar={categories ? <Sidebar data={categories} /> : null}
   >
     <Layout>
-      <Layout.Sidebar>
-        {categories && <Sidebar data={categories} />}
-      </Layout.Sidebar>
-
       <Layout.Content>
         <Grid>
           {notes

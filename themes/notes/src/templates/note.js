@@ -2,10 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
-import { Text } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 import Tags from 'components/Tags'
+import Link from 'components/Link'
 
 const Header = ({ category, tags, ...rest }) => (
   <Page.Header {...rest}>
@@ -23,6 +24,26 @@ const Header = ({ category, tags, ...rest }) => (
   </Page.Header>
 )
 
+const Sidebar = ({ notes }) => (
+  <Box>
+    <Text
+      fontWeight='semibold'
+      mb={8}
+      pb={8}
+      borderBottom='1px solid'
+      borderColor='gray.1'
+    >
+      More in this category
+    </Text>
+
+    {notes.map(note => (
+      <Box key={note.id} mb={8}>
+        <Link to={note.fields.slug}>{note.frontmatter.title}</Link>
+      </Box>
+    ))}
+  </Box>
+)
+
 const Note = ({
   data: { mdx },
   pageContext: { notes, categories, category }
@@ -33,6 +54,7 @@ const Note = ({
       description={mdx.excerpt}
       untitled
       header={<Header category={category} tags={mdx.frontmatter.tags} />}
+      sidebar={notes ? <Sidebar notes={notes} /> : null}
     >
       <Layout>
         <Layout.Content>

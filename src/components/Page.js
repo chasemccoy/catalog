@@ -25,9 +25,10 @@ const HeaderContainer = styled.header`
 
 const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
   margin-right: 24px;
-  flex: 0.5;
+  ${'' /* flex: 0.4; */}
 
   ${media.medium`
+    flex: 0.6;
     margin-right: 16px;
   `}
 
@@ -38,11 +39,18 @@ const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
 `
 
 const Content = styled(Box).attrs({ as: 'main', px: 16 })`
+  display: flex;
+  flex-wrap: nowrap;
   flex: 2;
   min-width: 0;
+
+  ${media.medium`
+    flex-wrap: wrap;
+    flex-direction: column;
+  `}
 `
 
-const Page = ({ header, ...props }) => (
+const Page = ({ header, sidebar, ...props }) => (
   <React.Fragment>
     <Metadata
       title={props.title}
@@ -58,16 +66,25 @@ const Page = ({ header, ...props }) => (
     </HeaderContainer>
 
     <Container>
-      <SidebarContainer>
+      <SidebarContainer flex='0.4'>
         <Sidebar />
       </SidebarContainer>
 
       <Content py={24}>
-        {props.title && !props.untitled && (
-          <Heading.h1 mt={0}>{props.title}</Heading.h1>
-        )}
+        <Box minWidth='0' maxWidth='100%' flex='1'>
+          {props.children}
+        </Box>
 
-        {props.children}
+        <SidebarContainer
+          flex='0.3'
+          ml={[0, 0, 0, 24]}
+          minWidth={['100%', '100%', '100%', '8rem']}
+          maxWidth='100%'
+        >
+          <Text fontSize='13px' lineHeight='1.3'>
+            {sidebar}
+          </Text>
+        </SidebarContainer>
       </Content>
     </Container>
   </React.Fragment>
@@ -79,7 +96,7 @@ Page.Header = ({ title, description, children, ...rest }) => {
 
   const Description = props =>
     description && !description.endsWith('…') ? (
-      <Text color='gray.3' {...props}>
+      <Text color='gray.3' width={[1, 1, 1, 3 / 4]} {...props}>
         {description}
       </Text>
     ) : null
@@ -88,6 +105,7 @@ Page.Header = ({ title, description, children, ...rest }) => {
     <Container {...rest}>
       <SidebarContainer
         as='div'
+        flex='0.4'
         display='flex'
         flexDirection='column'
         justifyContent='flex-end'
@@ -97,13 +115,13 @@ Page.Header = ({ title, description, children, ...rest }) => {
           height='100%'
           width='100%'
           minWidth='40px'
-          minHeight='16px'
+          minHeight='40px'
         />
       </SidebarContainer>
 
       <Content
         as='div'
-        pt={[24, 24, 32, 40]}
+        pt={children ? [24, 24, 32, 40] : 0}
         pb={16}
         display='flex'
         justifyContent='flex-end'
