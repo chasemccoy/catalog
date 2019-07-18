@@ -48,13 +48,12 @@ const GlobalStyles = createGlobalStyle`
 
   blockquote {
     border-left: 4px solid #FFD233;
-    border-radius: 0 12px 12px 0;
     overflow: hidden;
     margin-left: 0;
     margin-right: 8px;
     padding: 12px 16px;
-    background ${p => p.theme.colors.accent.light};
-    background: #FFFBEB;
+    background: linear-gradient(to right, ${p =>
+      p.theme.colors.gray[0]} 33%, white 100%);
   }
 
   article {
@@ -89,13 +88,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   hr {
-    background: ${p => p.theme.colors.accent.light};
-    height: 2px;
+    background: ${p => p.theme.colors.gray[0]};
+    height: 4px;
   }
 
   pre {
     overflow: auto;
-    background-color: ${p => p.theme.colors.gray[0]};
+    background-color: ${p => p.theme.colors.gray[0]} !important;
     border-radius: 8px;
     border: 1px solid ${p => p.theme.colors.gray[1]};
 
@@ -107,6 +106,7 @@ const GlobalStyles = createGlobalStyle`
 
     code {
       padding: 12px 16px;
+      border: none;
     }
   }
 
@@ -122,6 +122,7 @@ const GlobalStyles = createGlobalStyle`
     font-feature-settings: normal;
     font-family: ${p => p.theme.fonts.code};
     background-color: ${p => p.theme.colors.gray[0]};
+    border: 1px solid ${p => p.theme.colors.gray[1]};
     padding: 2px 4px;
     display: inline-block;
     vertical-align: middle;

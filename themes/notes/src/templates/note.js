@@ -32,6 +32,7 @@ const Sidebar = ({ notes }) => (
       <Box key={note.id} mb={8}>
         <Link
           to={note.fields.slug}
+          color='gray.4'
           css={`
             &.selected {
               color: ${props => props.theme.colors.accent};

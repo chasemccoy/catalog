@@ -16,6 +16,7 @@ const Sidebar = ({ data, ...rest }) => (
         <Box mb={8} key={i}>
           <Link
             to={value[0].pagePath}
+            color='gray.4'
             partiallyActive
             css={`
               &.selected {
