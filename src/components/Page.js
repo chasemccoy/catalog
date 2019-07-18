@@ -94,12 +94,16 @@ Page.Header = ({ title, description, children, ...rest }) => {
   const Title = props =>
     title ? <Heading.h1 {...props}>{title}</Heading.h1> : null
 
-  const Description = props =>
-    description && !description.endsWith('…') ? (
+  let Description = null
+  const isCustomDescription = description && !description.endsWith('…')
+
+  if (isCustomDescription) {
+    Description = props => (
       <Text color='gray.3' width={[1, 1, 1, 3 / 4]} {...props}>
         {description}
       </Text>
-    ) : null
+    )
+  }
 
   return (
     <Container {...rest}>
@@ -115,14 +119,29 @@ Page.Header = ({ title, description, children, ...rest }) => {
           height='100%'
           width='100%'
           minWidth='40px'
-          minHeight='40px'
-        />
+          minHeight={['24px', '24px', '64px']}
+        >
+          <Heading.h2
+            fontSize='14px'
+            color='type.body'
+            lineHeight='1.2'
+            m={0}
+            px={16}
+            py={8}
+            css={`
+              letter-spacing: 0.5px;
+            `}
+            display={['block', 'block', 'none']}
+          >
+            CHASE McCOY
+          </Heading.h2>
+        </Box>
       </SidebarContainer>
 
       <Content
         as='div'
         pt={children ? [24, 24, 32, 40] : 0}
-        pb={16}
+        pb={children ? 16 : 0}
         display='flex'
         justifyContent='flex-end'
         flexDirection='column'
@@ -145,6 +164,17 @@ const DefaultHeader = props => (
       </React.Fragment>
     )}
   </Page.Header>
+)
+
+Page.SidebarHeader = props => (
+  <Text
+    fontWeight='semibold'
+    mb={8}
+    pb='4px'
+    borderBottom='1px solid'
+    borderColor='gray.1'
+    {...props}
+  />
 )
 
 export default Page

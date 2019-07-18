@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Highlight, { Prism } from 'prism-react-renderer'
+import theme from 'prism-react-renderer/themes/github'
 
 const PreWithLineNumbers = styled.pre`
   position: relative;
@@ -13,10 +14,7 @@ const PreWithLineNumbers = styled.pre`
     top: 12px;
     left: 8px;
     bottom: 16px;
-    color: ${props =>
-      props.theme.name === 'light'
-        ? props.theme.colors.gray[3]
-        : props.theme.colors.gray[1]};
+    color: ${props => props.theme.colors.gray[3]};
     opacity: 0.5;
     white-space: pre-line;
     overflow: hidden;
@@ -25,13 +23,18 @@ const PreWithLineNumbers = styled.pre`
     font-size: 14px;
     line-height: 1.5;
     padding-right: 12px;
-    border-right: 1px solid ${props => props.theme.colors.gray[4]};
+    border-right: 1px solid ${props => props.theme.colors.gray[2]};
   }
 `
 
 const HighlightedCode = ({ codeString, language, ...props }) => {
   return (
-    <Highlight Prism={Prism} code={codeString} language={language}>
+    <Highlight
+      Prism={Prism}
+      code={codeString}
+      language={language}
+      theme={theme}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <PreWithLineNumbers className={className} style={style}>
           <code className={`language-${language}`}>

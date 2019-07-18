@@ -1,21 +1,14 @@
 import React from 'react'
-import { Box, Text } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import TableOfContents from './TableOfContents'
 import { capitalize } from 'utils'
+import Page from 'components/Page'
 
 const Sidebar = ({ data, ...rest }) => (
   <Box {...rest}>
-    <Text
-      fontWeight='semibold'
-      mb={8}
-      pb={8}
-      borderBottom='1px solid'
-      borderColor='gray.1'
-    >
-      Categories
-    </Text>
+    <Page.SidebarHeader>Categories</Page.SidebarHeader>
 
     {Object.entries(data)
       .sort()

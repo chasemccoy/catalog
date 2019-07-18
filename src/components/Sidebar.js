@@ -6,7 +6,6 @@ import media from 'utils/media'
 import Heading from 'components/Heading'
 import HCard from 'components/hCard'
 import { UnorderedList } from 'components/Lists'
-// import { ThemeContext } from 'components/Layout'
 import 'isomorphic-fetch'
 
 const Container = styled(Box)`
@@ -15,6 +14,7 @@ const Container = styled(Box)`
   min-height: 100vh;
   padding: 24px 0;
   font-size: 12px;
+  line-height: 1.3;
   color: ${p => p.theme.colors.gray[3]};
 
   a {
@@ -98,19 +98,19 @@ const Sidebar = () => {
     <Container pl={[0, 0, '8px', 0]} pr={[0, 0, '8px']}>
       <HCard />
 
-      <Box mb={16}>
-        <Heading.h2
-          fontSize='14px'
-          color='type.body'
-          lineHeight='1.2'
-          m={0}
-          css={`
-            letter-spacing: 0.5px;
-          `}
-        >
-          CHASE McCOY
-        </Heading.h2>
-      </Box>
+      <Heading.h2
+        fontSize='14px'
+        color='type.body'
+        lineHeight='1.2'
+        mt={0}
+        mb={16}
+        display={['none', 'none', 'block']}
+        css={`
+          letter-spacing: 0.5px;
+        `}
+      >
+        CHASE McCOY
+      </Heading.h2>
 
       <Text
         as='nav'
@@ -130,34 +130,36 @@ const Sidebar = () => {
           `}
         >
           <li>
-            <NavLink to='/thoughts' unstyled>
+            <NavLink to='/thoughts' unstyled partiallyActive>
               thoughts
             </NavLink>
           </li>
           <li>
-            <NavLink to='/notes' unstyled>
+            <NavLink to='/notes' unstyled partiallyActive>
               notes
             </NavLink>
           </li>
           <li>
-            <NavLink to='/portfolio' unstyled>
+            <NavLink to='/portfolio' unstyled partiallyActive>
               portfolio
             </NavLink>
           </li>
           <li>
-            <NavLink to='/quotes' unstyled>
+            <NavLink to='/quotes' unstyled partiallyActive>
               quotes
             </NavLink>
           </li>
           <li>
-            <NavLink to='/music' unstyled>
+            <NavLink to='/music' unstyled partiallyActive>
               music
             </NavLink>
           </li>
         </UnorderedList>
       </Text>
 
-      {/* <Header>Currently</Header> */}
+      {/* <Page.SidebarHeader>
+        Currently
+      </Page.SidebarHeader> */}
 
       <UnorderedList
         mb={8}

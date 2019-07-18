@@ -16,7 +16,7 @@ const Header = ({ category, tags, ...rest }) => (
 
         <Title mb={tags || Description ? 16 : 0} />
 
-        <Description mb={tags ? 16 : 0} />
+        {Description && <Description mb={tags ? 16 : 0} />}
 
         {tags && <Tags items={tags} />}
       </React.Fragment>
@@ -26,19 +26,20 @@ const Header = ({ category, tags, ...rest }) => (
 
 const Sidebar = ({ notes }) => (
   <Box>
-    <Text
-      fontWeight='semibold'
-      mb={8}
-      pb={8}
-      borderBottom='1px solid'
-      borderColor='gray.1'
-    >
-      More in this category
-    </Text>
+    <Page.SidebarHeader>More in this category</Page.SidebarHeader>
 
     {notes.map(note => (
       <Box key={note.id} mb={8}>
-        <Link to={note.fields.slug}>{note.frontmatter.title}</Link>
+        <Link
+          to={note.fields.slug}
+          css={`
+            &.selected {
+              color: ${props => props.theme.colors.accent};
+            }
+          `}
+        >
+          {note.frontmatter.title}
+        </Link>
       </Box>
     ))}
   </Box>
