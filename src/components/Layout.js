@@ -71,7 +71,7 @@ const GlobalStyles = createGlobalStyle`
 
     h2 {
       padding-bottom: 6px;
-      border-bottom: 1px solid ${p => p.theme.colors.gray[1]};
+      border-bottom: 3px solid ${p => p.theme.colors.gray[0]};
     }
 
     img {
@@ -94,9 +94,9 @@ const GlobalStyles = createGlobalStyle`
 
   pre {
     overflow: auto;
-    background-color: ${p => p.theme.colors.gray[0]} !important;
+    background-color: #FBFBFB !important;
     border-radius: 8px;
-    border: 1px solid ${p => p.theme.colors.gray[1]};
+    border: .5px solid ${p => p.theme.colors.gray[1]};
 
     ${media.small`
       border-radius: 0;
@@ -110,19 +110,11 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  ${
-    '' /* pre[class*='language-'],
-  code[class*='language-'] {
-    background-color: ${p => p.theme.colors.page.code};
-    color: ${p => p.theme.colors.type.code};
-  } */
-  }
-
   code {
     font-feature-settings: normal;
     font-family: ${p => p.theme.fonts.code};
-    background-color: ${p => p.theme.colors.gray[0]};
-    border: 1px solid ${p => p.theme.colors.gray[1]};
+    background-color: #FBFBFB;
+    border: .5px solid ${p => p.theme.colors.gray[1]};
     padding: 2px 4px;
     display: inline-block;
     vertical-align: middle;

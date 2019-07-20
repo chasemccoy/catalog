@@ -1,8 +1,29 @@
 import React from 'react'
 import Page from 'components/Page'
 import { Post } from 'components/Blog'
-import { Box } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
+import Link from 'components/Link'
+import { UnorderedList } from 'components/Lists'
+
+const Sidebar = ({ posts, ...props }) => (
+  <React.Fragment>
+    <Page.SidebarHeader mb={12}>Recently</Page.SidebarHeader>
+
+    <UnorderedList>
+      {posts.map(post => (
+        <Box as='li' key={post.id}>
+          <Link
+            unstyled
+            to={post.slug}
+            dangerouslySetInnerHTML={{ __html: post.title }}
+            fontWeight='bold'
+          />
+        </Box>
+      ))}
+    </UnorderedList>
+  </React.Fragment>
+)
 
 const ThoughtsPage = ({ data }) => {
   return (
@@ -11,6 +32,7 @@ const ThoughtsPage = ({ data }) => {
       untitled
       description="What's on my mind, and links to some interesting stuff on the web."
       header={<Page.Header />}
+      sidebar={<Sidebar posts={data.olderPosts.nodes} />}
     >
       <Box>
         {data.posts.nodes.map(node => (
@@ -22,6 +44,7 @@ const ThoughtsPage = ({ data }) => {
                 content={node.content}
                 date={node.date}
                 isMdx={node.isMdx}
+                tags={node.tags}
               />
             </Box>
           </React.Fragment>
@@ -43,11 +66,20 @@ export const query = graphql`
       nodes {
         id
         title
-        date(formatString: "MMM D")
+        date(formatString: "MMMM Do")
         slug
         content
         excerpt
+        tags
         isMdx
+      }
+    }
+
+    olderPosts: allBlog(filter: { format: { eq: "standard" } }, limit: 8) {
+      nodes {
+        id
+        title
+        slug
       }
     }
   }

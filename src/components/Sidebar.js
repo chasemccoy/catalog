@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
 import { Box, Text } from '@chasemccoy/kit'
+import Page from 'components/Page'
 import media from 'utils/media'
 import Heading from 'components/Heading'
 import HCard from 'components/hCard'
@@ -19,10 +20,18 @@ const Container = styled(Box)`
 
   a {
     color: ${p => p.theme.colors.gray[3]};
+
+    &.site-title {
+      color: ${p => p.theme.colors.type.body};
+    }
   }
 
   a:hover {
     color: ${p => p.theme.colors.accent};
+
+    &.site-title {
+      color: ${p => p.theme.colors.type.body};
+    }
   }
 
   ${media.small`
@@ -100,7 +109,6 @@ const Sidebar = () => {
 
       <Heading.h2
         fontSize='14px'
-        color='type.body'
         lineHeight='1.2'
         mt={0}
         mb={16}
@@ -109,7 +117,9 @@ const Sidebar = () => {
           letter-spacing: 0.5px;
         `}
       >
-        CHASE McCOY
+        <Link className='site-title' unstyled to='/'>
+          CHASE McCOY
+        </Link>
       </Heading.h2>
 
       <Text
@@ -157,9 +167,24 @@ const Sidebar = () => {
         </UnorderedList>
       </Text>
 
-      {/* <Page.SidebarHeader>
+      <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.4'>
+        Stay in touch
+      </Page.SidebarHeader>
+
+      <Text mb={24}>
+        <Link to='https://twitter.com/chase_mccoy'>Twitter</Link>,{' '}
+        <Link to='https://instagram.com/chs_mc'>Instagram</Link>,{' '}
+        <Link to='https://github.com/chasemccoy'>GitHub</Link>,{' '}
+        <Link to='mailto:hi@chasem.co'>Email</Link>, &{' '}
+        <Link external to='/feed.xml'>
+          RSS
+        </Link>
+        .
+      </Text>
+
+      <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.4'>
         Currently
-      </Page.SidebarHeader> */}
+      </Page.SidebarHeader>
 
       <UnorderedList
         mb={8}

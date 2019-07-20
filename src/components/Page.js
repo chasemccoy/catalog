@@ -25,7 +25,6 @@ const HeaderContainer = styled.header`
 
 const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
   margin-right: 24px;
-  ${'' /* flex: 0.4; */}
 
   ${media.medium`
     flex: 0.6;
@@ -66,7 +65,7 @@ const Page = ({ header, sidebar, ...props }) => (
     </HeaderContainer>
 
     <Container>
-      <SidebarContainer flex='0.4'>
+      <SidebarContainer flex='0.35'>
         <Sidebar />
       </SidebarContainer>
 
@@ -77,7 +76,7 @@ const Page = ({ header, sidebar, ...props }) => (
 
         <SidebarContainer
           flex='0.3'
-          ml={[0, 0, 0, 24]}
+          ml={[0, 0, 0, 40]}
           minWidth={['100%', '100%', '100%', '8rem']}
           maxWidth='100%'
         >
@@ -92,7 +91,11 @@ const Page = ({ header, sidebar, ...props }) => (
 
 Page.Header = ({ title, description, children, ...rest }) => {
   const Title = props =>
-    title ? <Heading.h1 {...props}>{title}</Heading.h1> : null
+    title ? (
+      <Heading.h1 mb={16} {...props}>
+        {title}
+      </Heading.h1>
+    ) : null
 
   let Description = null
   const isCustomDescription = description && !description.endsWith('…')
@@ -109,7 +112,7 @@ Page.Header = ({ title, description, children, ...rest }) => {
     <Container {...rest}>
       <SidebarContainer
         as='div'
-        flex='0.4'
+        flex='0.35'
         display='flex'
         flexDirection='column'
         justifyContent='flex-end'
@@ -119,7 +122,7 @@ Page.Header = ({ title, description, children, ...rest }) => {
           height='100%'
           width='100%'
           minWidth='40px'
-          minHeight={['24px', '24px', '64px']}
+          minHeight={['24px', '24px', '40px']}
         >
           <Heading.h2
             fontSize='14px'
@@ -168,7 +171,7 @@ const DefaultHeader = props => (
 
 Page.SidebarHeader = props => (
   <Text
-    fontWeight='semibold'
+    fontWeight='bold'
     mb={8}
     pb='4px'
     borderBottom='1px solid'

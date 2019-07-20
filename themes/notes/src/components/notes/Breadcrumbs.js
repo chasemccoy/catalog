@@ -24,7 +24,7 @@ const Breadcrumbs = ({ category, title, ...rest }) => {
       {!category && 'Notes'}
       {category && <Link to='/notes'>notes</Link>}
       {category && <Divider />}
-      {category && !title && category}
+      {/* {category && !title && <Text.span {...styles}>{category}</Text.span>} */}
       {category && title && isLandingPage && category}
       {category && title && !isLandingPage && (
         <Link to={`/notes/${category}`}>{category}</Link>

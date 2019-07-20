@@ -132,25 +132,28 @@ const Metadata = ({ date, permalink, tags, ...props }) => (
 
 export const Post = props => {
   const title = props.title && (
-    <Heading.h1 mt={0} mb='12px'>
+    <Heading.h2
+      fontSize='1.8rem'
+      mt={0}
+      mb={8}
+      css={`
+        border: none;
+      `}
+    >
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
-    </Heading.h1>
+    </Heading.h2>
   )
 
   const content = props.content && (
     <Content dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  // const date = props.date && <Date date={props.date} permalink={props.to} />
-
-  // const tags = props.tags && <Tags mb='32px' items={props.tags} />
-
   const metadata = props.date && (
     <Metadata
       date={props.date}
       permalink={props.to}
       tags={props.tags}
-      mb={props.tags ? '32px' : '12px'}
+      mb={20}
     />
   )
 
@@ -167,8 +170,8 @@ export const Post = props => {
       <Container>
         {!props.untitled && (
           <React.Fragment>
-            {metadata}
             {title}
+            {metadata}
           </React.Fragment>
         )}
         {props.isMdx ? (

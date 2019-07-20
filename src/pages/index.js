@@ -93,7 +93,7 @@ const Index = props => {
   )
 
   return (
-    <Page wide>
+    <Page header={<Page.Header />}>
       <Grid mb={[0, 0, 0, 0, 16]}>
         <Box width={1} mb={['8px', 0]}>
           <Heading.section mb='12px'>Introduction</Heading.section>
