@@ -11,7 +11,7 @@ const Header = ({ category, ...props }) => (
   <Page.Header {...props}>
     {(Title, Description) => (
       <React.Fragment>
-        {category && <Breadcrumbs />}
+        {category && <Breadcrumbs category={category} />}
 
         <Title mt={category ? undefined : 0} />
         <Description />

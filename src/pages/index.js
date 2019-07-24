@@ -29,7 +29,7 @@ import 'isomorphic-fetch'
 // }
 
 const HeaderImage = styled(Image)`
-  height: 100%;
+  ${'' /* height: 100%;
   width: 100%;
   object-fit: cover;
   mask-image: url("/mask.svg");
@@ -53,7 +53,7 @@ const HeaderImage = styled(Image)`
     max-width: none;
     width: calc(100% + 32px);
     margin-left: -16px;
-  `}
+  `} */}
 `
 
 const ArtistList = styled(UnorderedList)`
@@ -96,7 +96,7 @@ const Index = props => {
     <Page header={<Page.Header />}>
       <Grid mb={[0, 0, 0, 0, 16]}>
         <Box width={1} mb={['8px', 0]}>
-          <Heading.section mb='12px'>Introduction</Heading.section>
+          {/* <Heading.section mb='12px'>Introduction</Heading.section> */}
 
           <Text.p fontSize={['24px', '26px', '28px']} lineHeight='1.4' mb={0}>
             Hey there!{' '}
@@ -109,7 +109,7 @@ const Index = props => {
           </Text.p>
         </Box>
 
-        <Box width={[1]} mt='-6px'>
+        <Box width={[1]} mb={16}>
           <HeaderImage src={portrait} />
         </Box>
       </Grid>

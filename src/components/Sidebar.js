@@ -45,7 +45,7 @@ const Container = styled(Box)`
 
 const NavLink = styled(Link)`
   &.selected {
-    color: #ffc700;
+    color: ${p => p.theme.colors.type.body};
   }
 `
 
@@ -125,7 +125,7 @@ const Sidebar = () => {
       <Text
         as='nav'
         mb={24}
-        fontWeight='semibold'
+        fontWeight='bold'
         css={`
           text-transform: uppercase;
           letter-spacing: 1px;

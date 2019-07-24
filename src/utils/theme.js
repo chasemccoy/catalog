@@ -10,7 +10,8 @@ const fonts = common.fonts
 const colors = {
   accent: Object.assign('#DB9102', {
     light: '#FFF4CB',
-    dark: '#000088'
+    pop: '#FFD233',
+    soft: '#FFE999'
   }),
   page: {
     background: 'white',
@@ -30,7 +31,8 @@ const colors = {
     1: '#EBEBEB',
     2: '#D6D6D6',
     3: '#A6A6A6',
-    4: '#616161'
+    4: '#616161',
+    5: '#414141'
   }
 }
 

@@ -20,7 +20,7 @@ const Container = styled(Box)`
 
 const HeaderContainer = styled.header`
   display: flex;
-  background: #f9f9f9;
+  background: ${p => p.theme.colors.gray[0]};
 `
 
 const SidebarContainer = styled(Box).attrs({ as: 'aside' })`

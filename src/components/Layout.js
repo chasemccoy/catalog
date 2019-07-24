@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: ${p => p.theme.colors.type.body};
     text-decoration: underline;
-    transition: all .2s;
+    transition: all .15s;
 
     &:hover {
       color: ${p => p.theme.colors.accent};
@@ -29,14 +29,14 @@ const GlobalStyles = createGlobalStyle`
     color: ${p => p.theme.colors.type.body};
     text-decoration: none;
     transition: all .2s;
-    border-bottom: 1px solid #FFE999;
-    box-shadow: 0px -0.5em 0px #FFE999 inset;
+    border-bottom: 1px solid ${p => p.theme.colors.accent.soft};
+    box-shadow: 0px -0.5em 0px ${p => p.theme.colors.accent.soft} inset;
 
-    &:hover {
+    &:hover, &:focus {
       color: ${p => p.theme.colors.type.body};
-      background: #FFD233;
-      border-bottom-color: #FFD233;
-      box-shadow: 0px -8px 0px #FFD233 inset;
+      background: ${p => p.theme.colors.accent.soft};
+      border-bottom-color: ${p => p.theme.colors.accent.soft};
+      box-shadow: 0px -8px 0px ${p => p.theme.colors.accent.soft} inset;
     }
   }
 
@@ -47,13 +47,23 @@ const GlobalStyles = createGlobalStyle`
   }
 
   blockquote {
-    border-left: 4px solid #FFD233;
-    overflow: hidden;
-    margin-left: 0;
-    margin-right: 8px;
-    padding: 12px 16px;
-    background: linear-gradient(to right, ${p =>
-      p.theme.colors.gray[0]} 33%, white 100%);
+    position: relative;
+    margin-left: .5em;
+    padding: 4px .5em 4px 1.2em;
+    font-size: 16px;
+    line-height: 1.4;
+    color: ${p => p.theme.colors.gray[5]};
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      background: ${p => p.theme.colors.accent.pop};
+      border-radius: 3px;
+      height: 100%;
+    }
   }
 
   article {

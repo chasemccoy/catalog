@@ -21,7 +21,8 @@ const typography = new Typography({
       '-webkit-font-smoothing': 'antialiased'
     },
     'h1,h2,h3,h4,h5,h6': {
-      marginTop: rhythm(1.5)
+      marginTop: rhythm(1.5),
+      marginBottom: '0.6em'
     },
     img: {
       height: 'auto'
