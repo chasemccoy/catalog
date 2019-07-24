@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 import Tags from 'components/Tags'
 import Link from 'components/Link'
+import NoteSidebar from '../components/notes/Sidebar'
 
 const Header = ({ category, tags, ...rest }) => (
   <Page.Header {...rest}>
@@ -24,8 +25,22 @@ const Header = ({ category, tags, ...rest }) => (
   </Page.Header>
 )
 
-const Sidebar = ({ notes }) => (
+const Sidebar = ({ notes, categories, tableOfContents }) => (
   <Box>
+    {tableOfContents && tableOfContents.items && (
+      <Box mb={24}>
+        <Page.SidebarHeader>On this page</Page.SidebarHeader>
+
+        {tableOfContents.items.map((item, i) => (
+          <Box key={i} mb={8}>
+            <Link to={item.url} color='gray.4'>
+              {item.title}
+            </Link>
+          </Box>
+        ))}
+      </Box>
+    )}
+
     <Page.SidebarHeader>More in this category</Page.SidebarHeader>
 
     {notes.map(note => (
@@ -43,6 +58,8 @@ const Sidebar = ({ notes }) => (
         </Link>
       </Box>
     ))}
+
+    <NoteSidebar mt={24} data={categories} />
   </Box>
 )
 
@@ -56,7 +73,15 @@ const Note = ({
       description={mdx.excerpt}
       untitled
       header={<Header category={category} tags={mdx.frontmatter.tags} />}
-      sidebar={notes ? <Sidebar notes={notes} /> : null}
+      sidebar={
+        notes ? (
+          <Sidebar
+            notes={notes}
+            categories={categories}
+            tableOfContents={mdx.tableOfContents}
+          />
+        ) : null
+      }
     >
       <Layout>
         <Layout.Content>
@@ -92,6 +117,7 @@ export const pageQuery = graphql`
         tags
       }
       body
+      tableOfContents
     }
   }
 `
