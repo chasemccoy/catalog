@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from 'components/Page'
 import { Post } from 'components/Blog'
-import { Box, Text } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
 import Link from 'components/Link'
 import { UnorderedList } from 'components/Lists'

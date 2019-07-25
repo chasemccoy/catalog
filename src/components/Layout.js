@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import theme from 'utils/theme'
-import darkTheme from 'utils/theme-dark'
 import { CSSReset } from '@chasemccoy/kit'
 import TypographyStyles from 'utils/typography'
 import Metadata from 'components/Metadata'
 // import SyntaxTheme from 'components/SyntaxTheme'
 import media from 'utils/media'
 import MDX from 'components/MDX'
+import 'isomorphic-fetch'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -148,47 +148,56 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export const ThemeContext = React.createContext({
-  theme: theme,
-  toggleTheme: () => {}
+const getWeatherData = async set => {
+  const response = await fetch('https://chs-stats.now.sh/weather')
+  const result = await response.json()
+  set({
+    summary: result.summary,
+    temperature: result.temperature
+  })
+}
+
+const getNowPlayingData = async set => {
+  const response = await fetch('https://chs-stats.now.sh/nowPlaying')
+  const result = await response.json()
+  set({
+    name: result.name,
+    artist: result.artist
+  })
+}
+
+export const DataContext = React.createContext({
+  weather: null,
+  nowPlaying: null
 })
 
-class Layout extends React.Component {
-  constructor(props) {
-    super(props)
+const Layout = props => {
+  const [weather, setWeather] = useState(null)
+  const [nowPlaying, setNowPlaying] = useState(null)
 
-    this.toggleTheme = () => {
-      console.log('TOGGLE')
-      this.setState({ theme: this.state.theme === theme ? darkTheme : theme })
-    }
+  useEffect(() => {
+    getWeatherData(setWeather)
+  }, [])
 
-    this.state = {
-      theme: theme,
-      toggleTheme: this.toggleTheme
-    }
-  }
+  useEffect(() => {
+    getNowPlayingData(setNowPlaying)
+  }, [])
 
-  render() {
-    return (
-      <ThemeProvider theme={this.state.theme}>
-        <MDX.Provider>
-          <Metadata
-            title={this.props.title}
-            description={this.props.description}
-          />
+  return (
+    <ThemeProvider theme={theme}>
+      <MDX.Provider>
+        <Metadata title={props.title} description={props.description} />
 
-          <CSSReset />
-          <TypographyStyles />
-          <GlobalStyles />
-          {/* <SyntaxTheme /> */}
+        <CSSReset />
+        <TypographyStyles />
+        <GlobalStyles />
 
-          <ThemeContext.Provider value={this.state}>
-            {this.props.children}
-          </ThemeContext.Provider>
-        </MDX.Provider>
-      </ThemeProvider>
-    )
-  }
+        <DataContext.Provider value={{ weather, nowPlaying }}>
+          {props.children}
+        </DataContext.Provider>
+      </MDX.Provider>
+    </ThemeProvider>
+  )
 }
 
 export default Layout

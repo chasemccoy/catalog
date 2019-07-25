@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
 import { Box, Text } from '@chasemccoy/kit'
@@ -7,6 +7,7 @@ import media from 'utils/media'
 import Heading from 'components/Heading'
 import HCard from 'components/hCard'
 import { UnorderedList } from 'components/Lists'
+import { DataContext } from 'components/Layout'
 import 'isomorphic-fetch'
 
 const Container = styled(Box)`
@@ -49,59 +50,8 @@ const NavLink = styled(Link)`
   }
 `
 
-// const ToggleTheme = () => (
-//   <ThemeContext.Consumer>
-//     {({ _, toggleTheme }) => (
-//       <Button onClick={toggleTheme} fontSize='24px' unstyled>
-//         ☼
-//       </Button>
-//     )}
-//   </ThemeContext.Consumer>
-// )
-
-const getWeatherData = async set => {
-  const response = await fetch('https://chs-stats.now.sh/weather')
-  const result = await response.json()
-  set({
-    summary: result.summary,
-    temperature: result.temperature
-  })
-}
-
-const getNowPlayingData = async set => {
-  const response = await fetch('https://chs-stats.now.sh/nowPlaying')
-  const result = await response.json()
-  set({
-    name: result.name,
-    artist: result.artist
-  })
-}
-
-// const getTwitterData = async set => {
-//   const response = await fetch('https://chs-stats.now.sh/latestTweet')
-//   const result = await response.text()
-//   set(result)
-// }
-
-const Sidebar = () => {
-  // const [open, setOpen] = useState(false)
-  const [weather, setWeather] = useState(null)
-  const [nowPlaying, setNowPlaying] = useState(null)
-  // const [tweet, setTweet] = useState(null)
-
-  // useEffect(() => {
-  //   window.matchMedia('(min-width: 768px)').matches && setOpen(true)
-  // }, [])
-
-  useEffect(() => {
-    getWeatherData(setWeather)
-  }, [])
-  useEffect(() => {
-    getNowPlayingData(setNowPlaying)
-  }, [])
-  // useEffect(() => {
-  //   getTwitterData(setTweet)
-  // }, [])
+const Sidebar = props => {
+  const data = useContext(DataContext)
 
   return (
     <Container pl={[0, 0, '8px', 0]} pr={[0, 0, '8px']}>
@@ -201,9 +151,9 @@ const Sidebar = () => {
           <Link to='https://sproutsocial.com'>Sprout Social</Link>
         </Box>
         <Box as='li' mb={8}>
-          {nowPlaying ? (
+          {data.nowPlaying ? (
             <React.Fragment>
-              Listening to {nowPlaying.name} by {nowPlaying.artist} on{' '}
+              Listening to {data.nowPlaying.name} by {data.nowPlaying.artist} on{' '}
               <Link to='https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ'>
                 Spotify
               </Link>
@@ -213,9 +163,9 @@ const Sidebar = () => {
           )}
         </Box>
         <Box as='li'>
-          {weather ? (
+          {data.weather ? (
             <React.Fragment>
-              {weather.temperature} in <Link to='/chicago'>Chicago</Link>
+              {data.weather.temperature} in <Link to='/chicago'>Chicago</Link>
             </React.Fragment>
           ) : (
             'Loading...'

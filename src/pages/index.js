@@ -5,7 +5,6 @@ import { Grid } from 'components/Base'
 import { Box, Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
 import Link from 'components/Link'
-import media from 'utils/media'
 import portrait from 'assets/portrait.jpg'
 import Image from 'components/Image'
 import { graphql } from 'gatsby'
@@ -29,6 +28,8 @@ import 'isomorphic-fetch'
 // }
 
 const HeaderImage = styled(Image)`
+  object-fit: cover;
+  height: 300px;
   ${'' /* height: 100%;
   width: 100%;
   object-fit: cover;
@@ -94,11 +95,15 @@ const Index = props => {
 
   return (
     <Page header={<Page.Header />}>
-      <Grid mb={[0, 0, 0, 0, 16]}>
+      <Grid mb={16}>
         <Box width={1} mb={['8px', 0]}>
-          {/* <Heading.section mb='12px'>Introduction</Heading.section> */}
-
-          <Text.p fontSize={['24px', '26px', '28px']} lineHeight='1.4' mb={0}>
+          <Text.p
+            fontSize={['24px', '26px', '28px']}
+            lineHeight='1.4'
+            mb={0}
+            fontWeight='bold'
+            mt='-6px'
+          >
             Hey there!{' '}
             <span role='img' aria-label='Waving hand emoji.'>
               👋
@@ -226,7 +231,7 @@ const Index = props => {
               const src = srcRegex.exec(node.content)[1]
 
               return (
-                <Box width={[1 / 2, 1 / 3, 1 / 3, 1 / 4, 1 / 4]} key={node.id}>
+                <Box width={[1 / 2, 1 / 3]} key={node.id}>
                   <Image src={src} to={node.slug} />
                 </Box>
               )
@@ -272,7 +277,7 @@ export const query = graphql`
       }
     }
 
-    photos: allBlog(filter: { format: { eq: "image" } }, limit: 12) {
+    photos: allBlog(filter: { format: { eq: "image" } }, limit: 9) {
       nodes {
         id
         slug
