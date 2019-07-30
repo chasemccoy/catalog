@@ -72,14 +72,7 @@ const Page = ({ header, sidebar, ...props }) => (
       </SidebarContainer>
 
       <Content py={24}>
-        <Box
-          minWidth='0'
-          maxWidth='100%'
-          flex='1'
-          css={`
-            z-index: 1;
-          `}
-        >
+        <Box minWidth='0' maxWidth='100%' flex='1' zIndex={1}>
           {props.children}
         </Box>
 

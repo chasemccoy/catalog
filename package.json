@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "author": "Chase McCoy",
   "dependencies": {
-    "@chasemccoy/kit": "0.6.4",
+    "@chasemccoy/kit": "^0.7.0",
     "@mdx-js/mdx": "1.0.20",
     "@mdx-js/react": "1.0.20",
     "@microlink/react": "^4.0.1",
