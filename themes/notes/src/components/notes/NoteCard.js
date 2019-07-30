@@ -13,6 +13,11 @@ const Card = styled(Link)`
 const GradientBox = styled(Box)`
   position: relative;
   overflow: hidden;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: ${p => p.theme.colors.accent.soft};
+  }
 
   &:after {
     content: '';
@@ -27,17 +32,11 @@ const GradientBox = styled(Box)`
       #fffbeb88 60%,
       #fffbeb 95%
     );
-    ${'' /* transition: opacity 0.2s;
-    opacity: 1; */}
   }
-
-  ${'' /* &:hover:after {
-    opacity: 0;
-  } */}
 `
 
 const NoteCard = ({ title, tags, description, to, ...rest }) => (
-  <Card unstyled to={to} minHeight={['none', '300px']} {...rest}>
+  <Card unstyled to={to} minHeight={['none', '280px']} {...rest}>
     <GradientBox
       display='flex'
       flexDirection='column'
@@ -46,7 +45,8 @@ const NoteCard = ({ title, tags, description, to, ...rest }) => (
       p='16px 24px 24px'
       borderRadius='12px'
       height='100%'
-      border='1px solid #FFF4CB'
+      border='1px solid'
+      borderColor='accent.light'
     >
       <Box mb='16px'>
         <Text fontWeight='heavy' fontSize='24px' lineHeight='1.4' mb='8px'>

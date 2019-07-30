@@ -1,6 +1,5 @@
 const path = require('path')
 const { createBlogNode } = require('./createBlogNode')
-const { slugify } = require('../../src/utils')
 
 exports.sourceNodes = ({ actions: { createTypes }, schema }) => {
   createTypes(
@@ -120,6 +119,8 @@ exports.onCreateNode = async ({
   if (node.internal.type === 'Mdx') {
     const fileNode = getNode(node.parent)
     const source = fileNode.sourceInstanceName
+    const fileSlug =
+      fileNode.name === 'index' ? fileNode.relativeDirectory : fileNode.name
 
     if (source === 'posts') {
       const year = node.frontmatter.date.slice(0, 4)
@@ -130,11 +131,12 @@ exports.onCreateNode = async ({
         parent: node.id,
         title: node.frontmatter.title,
         date: node.frontmatter.date,
-        slug: date + slugify(node.frontmatter.title),
+        slug: date + fileSlug,
         tags: node.frontmatter.tags,
         excerpt: node.frontmatter.excerpt,
         year: year,
-        isMdx: true
+        isMdx: true,
+        format: 'standard'
       }
 
       createBlogNode(postData, {

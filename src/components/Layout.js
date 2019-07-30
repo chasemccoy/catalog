@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  p a {
+  p a, article ul a {
     color: ${p => p.theme.colors.type.body};
     text-decoration: none;
     transition: all .2s;

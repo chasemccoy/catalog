@@ -40,6 +40,12 @@ const typography = new Typography({
     'pre code': {
       lineHeight: 1.5,
       fontSize: '14px'
+    },
+    '.gatsby-resp-image-figcaption': {
+      marginTop: '8px',
+      marginBottom: '8px',
+      color: theme.colors.gray[4],
+      ...adjustFontSizeTo('13px')
     }
   })
 })

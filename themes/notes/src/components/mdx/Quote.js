@@ -24,6 +24,10 @@ const QuoteContainer = styled(Box)`
         border-bottom: none;
       `}
     border-radius: ${p => (p.hasSource ? '12px 12px 0 0' : '12px')};
+
+    &:before {
+      display: none;
+    }
   }
 
   figcaption {

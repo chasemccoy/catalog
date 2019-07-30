@@ -42,6 +42,19 @@ const Container = styled.article`
       border: 0;
     }
   }
+
+  a[href*='chasemccoy.files.wordpress'],
+  a[href*='instagram.com/p'],
+  a[href*='/static/'] {
+    box-shadow: none;
+    border: none;
+    display: block;
+    padding: 0;
+
+    &:hover {
+      background: none;
+    }
+  }
 `
 
 const AsideContainer = styled(Container)`
@@ -81,20 +94,6 @@ const Title = styled(Link)`
   }
 `
 
-const Content = styled.div`
-  a[href*='chasemccoy.files.wordpress'],
-  a[href*='instagram.com/p'] {
-    box-shadow: none;
-    border: none;
-    display: block;
-    padding: 0;
-
-    &:hover {
-      background: none;
-    }
-  }
-`
-
 const PostMeta = styled(Box)`
   font-size: 13px;
   line-height: 1;
@@ -109,7 +108,7 @@ const PostMeta = styled(Box)`
 `
 
 const Date = ({ date, permalink, ...props }) => (
-  <PostMeta as='span' {...props}>
+  <PostMeta {...props}>
     <Link to={permalink}>{date}</Link>
   </PostMeta>
 )
@@ -145,7 +144,7 @@ export const Post = props => {
   )
 
   const content = props.content && (
-    <Content dangerouslySetInnerHTML={{ __html: props.content }} />
+    <div dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
   const metadata = props.date && (
@@ -174,13 +173,7 @@ export const Post = props => {
             {metadata}
           </React.Fragment>
         )}
-        {props.isMdx ? (
-          <Content>
-            <MDX.Renderer>{props.content}</MDX.Renderer>
-          </Content>
-        ) : (
-          content
-        )}
+        {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
       </Container>
     )
   }

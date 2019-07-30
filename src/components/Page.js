@@ -6,6 +6,8 @@ import Heading from 'components/Heading'
 import media from 'utils/media'
 import Metadata from 'components/Metadata'
 
+const FLEX_SIDEBAR = '0.35'
+
 const Container = styled(Box)`
   display: flex;
   width: 100%;
@@ -65,12 +67,19 @@ const Page = ({ header, sidebar, ...props }) => (
     </HeaderContainer>
 
     <Container>
-      <SidebarContainer flex='0.35'>
+      <SidebarContainer flex={FLEX_SIDEBAR}>
         <Sidebar />
       </SidebarContainer>
 
       <Content py={24}>
-        <Box minWidth='0' maxWidth='100%' flex='1'>
+        <Box
+          minWidth='0'
+          maxWidth='100%'
+          flex='1'
+          css={`
+            z-index: 1;
+          `}
+        >
           {props.children}
         </Box>
 
@@ -98,11 +107,12 @@ Page.Header = ({ title, description, children, ...rest }) => {
     ) : null
 
   let Description = null
-  const isCustomDescription = description && !description.endsWith('…')
+  const isCustomDescription =
+    description && !description.endsWith('…') && description.length > 120
 
   if (isCustomDescription) {
     Description = props => (
-      <Text color='gray.3' width={[1, 1, 1, 3 / 4]} {...props}>
+      <Text color='gray.4' {...props}>
         {description}
       </Text>
     )
@@ -112,13 +122,13 @@ Page.Header = ({ title, description, children, ...rest }) => {
     <Container {...rest}>
       <SidebarContainer
         as='div'
-        flex='0.35'
+        flex={FLEX_SIDEBAR}
         display='flex'
         flexDirection='column'
         justifyContent='flex-end'
       >
         <Box
-          bg='#FFC700'
+          bg='accent.pop'
           height='100%'
           width='100%'
           minWidth='40px'
@@ -145,14 +155,20 @@ Page.Header = ({ title, description, children, ...rest }) => {
         as='div'
         pt={children ? [24, 24, 32, 40] : 0}
         pb={children ? 16 : 0}
-        display='flex'
-        justifyContent='flex-end'
-        flexDirection='column'
       >
-        {children &&
-          (typeof children === 'function'
-            ? children(Title, Description, title)
-            : children)}
+        <Box minWidth='0' maxWidth='100%' flex='1'>
+          {children &&
+            (typeof children === 'function'
+              ? children(Title, Description, title)
+              : children)}
+        </Box>
+
+        <SidebarContainer
+          flex='0.3'
+          ml={[0, 0, 0, 40]}
+          minWidth={['100%', '100%', '100%', '8rem']}
+          maxWidth='100%'
+        />
       </Content>
     </Container>
   )

@@ -3,6 +3,10 @@ title: Websites
 excerpt: What are they? Why are they? What makes them so special? That's what I am trying to answer here.
 ---
 
+## An idea for a website
+
+[A clever little website](https://anideafora.website) that generates endless ideas for websites.
+
 ## Laurel Schwulst: My website is a shifting house next to a river of knowledge
 
 <Bookmark url='https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/' />
