@@ -45,7 +45,8 @@ const typography = new Typography({
       marginTop: '8px',
       marginBottom: '8px',
       color: theme.colors.gray[4],
-      ...adjustFontSizeTo('13px')
+      ...adjustFontSizeTo('13px'),
+      lineHeight: '1.4'
     }
   })
 })

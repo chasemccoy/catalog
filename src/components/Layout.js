@@ -139,12 +139,12 @@ const GlobalStyles = createGlobalStyle`
 
   .clearfix:before,
   .clearfix:after {
-      content: " ";
-      display: table;
+    content: " ";
+    display: table;
   }
 
   .clearfix:after {
-      clear: both;
+    clear: both;
   }
 `
 
