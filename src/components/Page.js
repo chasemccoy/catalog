@@ -40,7 +40,7 @@ const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
   `}
 `
 
-const Content = styled(Box).attrs({ as: 'main', px: 16 })`
+const Content = styled(Box).attrs({ as: 'main' })`
   display: flex;
   flex-wrap: nowrap;
   flex: 2;
@@ -73,7 +73,13 @@ const Page = ({ header, sidebar, children, bg, wide, ...props }) => (
         <Sidebar />
       </SidebarContainer>
 
-      <Content bg={bg} py={24} ml={wide ? '-1px' : 0} pt={wide ? 0 : 24}>
+      <Content
+        bg={bg}
+        pt={24}
+        ml={wide ? '-1px' : 0}
+        pt={wide ? 0 : 24}
+        px={wide ? 0 : 16}
+      >
         <Box minWidth='0' maxWidth='100%' flex='1' zIndex={1}>
           {children}
         </Box>
@@ -156,6 +162,7 @@ Page.Header = ({ title, description, children, wide, ...rest }) => {
         as='div'
         pt={children ? [24, 24, 32, 40] : 0}
         pb={children ? 16 : 0}
+        px={wide ? 0 : 16}
       >
         <Box minWidth='0' maxWidth='100%' flex='1'>
           {children &&

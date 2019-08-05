@@ -12,14 +12,33 @@ import { graphql } from 'gatsby'
 import { UnorderedList } from 'components/Lists'
 import 'isomorphic-fetch'
 import AsciiLogo from 'components/AsciiLogo'
+import media from 'utils/media'
+
+const Container = styled(Box)`
+  a {
+    ${'' /* box-shadow: none; */}
+    text-decoration: underline dashed;
+
+    &:hover {
+      color: ${p => p.theme.colors.type.body};
+      ${'' /* box-shadow: none; */}
+      ${'' /* background-color: transparent; */}
+    }
+  }
+`
 
 const Portrait = styled(Box)`
   background-image: url(${portraitBW});
   background-blend-mode: luminosity;
-  height: 250px;
+  height: 200px;
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+
+  ${media.small`
+    height: 125px;
+    background-position: 50% 75%;
+  `}
 `
 
 const ArtistList = styled(UnorderedList)`
@@ -43,12 +62,13 @@ const getTracks = async set => {
   set(result)
 }
 
-const Intro = () => (
+const Intro = props => (
   <Text.p
     fontSize={['20px', '22px', '24px']}
     lineHeight='1.4'
-    mb={16}
+    mb={0}
     fontWeight='bold'
+    {...props}
   >
     Hey there!{' '}
     <span role='img' aria-label='Waving hand emoji.'>
@@ -60,8 +80,8 @@ const Intro = () => (
   </Text.p>
 )
 
-const Bio = () => (
-  <Grid>
+const Bio = props => (
+  <Grid {...props}>
     <Box width={[1, 1, 1, 1, 2 / 3]}>
       <Text.p mt='-5px'>
         I hate the internet and I love the internet. I believe that it can and
@@ -96,7 +116,13 @@ const Bio = () => (
       <Grid>
         <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
           <Heading.section mb={'8px'}>Things I Like</Heading.section>
-          <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>
+          <Text
+            as='p'
+            mb={0}
+            fontSize='14px'
+            fontFamily='mono'
+            lineHeight='1.4'
+          >
             Hypertext, CSS, semantic HTML, design systems, internet culture,
             online communities, indie publishing, creative coding, digital
             preservationism, and a diverse & open web.
@@ -105,7 +131,13 @@ const Bio = () => (
 
         <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
           <Heading.section mb='8px'>Colophon</Heading.section>
-          <Text fontSize='14px' fontFamily='mono' lineHeight='1.4'>
+          <Text
+            as='p'
+            mb={0}
+            fontSize='14px'
+            fontFamily='mono'
+            lineHeight='1.4'
+          >
             This site was built using{' '}
             <Link to='https://gatsbyjs.org'>Gatsby</Link>,{' '}
             <Link to='https://styled-components.com'>styled-components</Link>,
@@ -119,8 +151,8 @@ const Bio = () => (
   </Grid>
 )
 
-const Promo = ({ olderPosts, blogroll, photos }) => (
-  <Grid mb={24}>
+const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
+  <Grid {...rest}>
     <Box width={[2 / 3, 1 / 2, 1, 1 / 2, 2 / 3]} mb={[32, 0]}>
       <Heading.section>Writing</Heading.section>
 
@@ -185,15 +217,14 @@ const Promo = ({ olderPosts, blogroll, photos }) => (
   </Grid>
 )
 
-const Header = () => (
-  <Page.Header wide>
+const Header = props => (
+  <Page.Header {...props}>
     <Portrait
       overflow='hidden'
       bg='accent.pop'
       mb={-16}
       mt={[-24, -24, -40]}
-      mr={-16}
-      ml={-17}
+      ml='-1px'
     />
   </Page.Header>
 )
@@ -213,64 +244,53 @@ const Index = props => {
   )
 
   return (
-    <Page wide bg='accent.pop' header={<Header />}>
-      {/* <Portrait
-        overflow='hidden'
-        bg='accent.pop'
-        mx={-16}
-      /> */}
+    <Page wide header={<Header />}>
+      <Container>
+        <Box py={16} px={[16, 16, 32]} bg='accent.pop'>
+          <AsciiLogo />
 
-      <Box py={16} px={[0, 0, 0, 16]} bg='accent.pop' borderRadius='12px'>
-        <AsciiLogo />
+          <Box mt={8}>
+            <Intro mb={24} />
+            <Bio mb={24} />
+            <Promo
+              olderPosts={props.data.olderPosts}
+              blogroll={blogroll}
+              photos={props.data.photos}
+            />
+          </Box>
 
-        {/* <Portrait
-          border='3px solid'
-          borderRadius='8px'
-          overflow='hidden'
-          bg='accent.pop'
-        /> */}
-
-        <Box mt={8} px={[0, 0, 8, 16]}>
-          <Intro />
-          <Bio />
-          {/* <Promo 
-            olderPosts={props.data.olderPosts} 
-            blogroll={blogroll} 
-            photos={props.data.photos} 
-          /> */}
+          {/* <Box
+            mt={24}
+            p={[0, 0, 8, 16]}
+            bg='white'
+            border='3px solid'
+            borderRadius='8px'
+          >
+            <Box py={40} />
+          </Box> */}
         </Box>
 
-        <Box
-          mt={24}
-          p={[0, 0, 8, 16]}
-          bg='white'
-          border='3px solid'
-          borderRadius='8px'
-        >
-          <Box py={40} />
-        </Box>
-      </Box>
+        {/* <Grid mb={40}>
+          <Box width={1}>
+            {artists.length > 0 && (
+              <>
+                <Heading.section>On Rotation</Heading.section>
 
-      {/* <Grid mb={40}>
-        <Box width={1}>
-          {artists.length > 0 && (
-            <>
-              <Heading.section>On Rotation</Heading.section>
-
-              <ArtistList unstyled inline>
-                {uniqueArtists.map(
-                  (artist, i) =>
-                    artist && (
-                      <Text fontSize='14px' fontFamily='mono' as='li' key={i}>
-                        {artist}
-                      </Text>
-                    )
-                )}
-              </ArtistList>
-            </>
-          )}
-        </Box>
-      </Grid> */}
+                <ArtistList unstyled inline>
+                  {uniqueArtists.map(
+                    (artist, i) =>
+                      artist && (
+                        <Text fontSize='14px' fontFamily='mono' as='li' key={i}>
+                          {artist}
+                        </Text>
+                      )
+                  )}
+                </ArtistList>
+              </>
+            )}
+          </Box>
+        </Grid> */}
+      </Container>
     </Page>
   )
 }

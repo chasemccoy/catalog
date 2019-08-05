@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: inherit;
     background: ${props => props.theme.colors.page.background};
+    overflow: hidden;
   }
 
   a {
@@ -20,23 +21,28 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: underline;
     transition: all .15s;
 
-    &:hover {
+    &:hover, &:focus {
       color: ${p => p.theme.colors.accent};
     }
   }
 
-  p a, article ul a {
+  p a, article ul a, article ol a {
     color: ${p => p.theme.colors.type.body};
-    text-decoration: none;
-    transition: all .2s;
-    border-bottom: 1px solid ${p => p.theme.colors.accent.soft};
-    box-shadow: 0px -0.5em 0px ${p => p.theme.colors.accent.soft} inset;
+    text-decoration: underline dashed;
+    transition: all .15s;
+    ${'' /* border-bottom: 4px solid ${p => p.theme.colors.accent.soft}; */}
+    box-shadow: 0px -2px 0px ${p =>
+      p.theme.colors.accent.soft} inset, 0px 2px 0px ${p =>
+  p.theme.colors.accent.soft};
 
     &:hover, &:focus {
       color: ${p => p.theme.colors.type.body};
       background: ${p => p.theme.colors.accent.soft};
-      border-bottom-color: ${p => p.theme.colors.accent.soft};
-      box-shadow: 0px -8px 0px ${p => p.theme.colors.accent.soft} inset;
+      ${'' /* text-decoration: underline; */}
+      ${
+        '' /* border-bottom-color: ${p => p.theme.colors.accent.soft};
+      box-shadow: 0px -8px 0px ${p => p.theme.colors.accent.soft} inset; */
+      }
     }
   }
 
