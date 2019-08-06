@@ -16,13 +16,10 @@ import media from 'utils/media'
 
 const Container = styled(Box)`
   a {
-    ${'' /* box-shadow: none; */}
     text-decoration: underline dashed;
 
     &:hover {
       color: ${p => p.theme.colors.type.body};
-      ${'' /* box-shadow: none; */}
-      ${'' /* background-color: transparent; */}
     }
   }
 `
@@ -30,14 +27,13 @@ const Container = styled(Box)`
 const Portrait = styled(Box)`
   background-image: url(${portraitBW});
   background-blend-mode: luminosity;
-  height: 200px;
+  height: 250px;
   background-size: cover;
-  background-position: bottom;
+  background-position: 50% 75%;
   background-repeat: no-repeat;
 
   ${media.small`
-    height: 125px;
-    background-position: 50% 75%;
+    height: 200px;
   `}
 `
 
@@ -62,9 +58,19 @@ const getTracks = async set => {
   set(result)
 }
 
+const BorderedBox = props => (
+  <Box
+    p={[8, 16]}
+    bg='white'
+    border='3px solid'
+    borderRadius='8px'
+    {...props}
+  />
+)
+
 const Intro = props => (
   <Text.p
-    fontSize={['20px', '22px', '24px']}
+    fontSize={['22px', '24px', '26px']}
     lineHeight='1.4'
     mb={0}
     fontWeight='bold'
@@ -83,7 +89,7 @@ const Intro = props => (
 const Bio = props => (
   <Grid {...props}>
     <Box width={[1, 1, 1, 1, 2 / 3]}>
-      <Text.p mt='-5px'>
+      <Text.p fontSize='18px'>
         I hate the internet and I love the internet. I believe that it can and
         should be a space that respects the creativity, diversity, and
         well-being of those who occupy it. Like hypertext itself, our culture is
@@ -91,7 +97,7 @@ const Bio = props => (
         that serve those who create connections on (and with) the web.
       </Text.p>
 
-      <Text.p>
+      <Text.p fontSize='18px'>
         I’m currently working as a founding member of the Design Systems team at{' '}
         <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and
         build <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, our design
@@ -102,7 +108,7 @@ const Bio = props => (
         <Link to='/portfolio'>my portfolio</Link> to learn more.
       </Text.p>
 
-      <Text.p mb={0}>
+      <Text.p fontSize='18px' mb={0}>
         If you’d like to chat, you can{' '}
         <Link to='mailto:desk@chasem.co'>drop me a line</Link> or find me in a
         coffee shop on Chicago’s west side{' '}
@@ -113,40 +119,34 @@ const Bio = props => (
     </Box>
 
     <Box width={[1, 1, 1, 1, 1 / 3]}>
-      <Grid>
-        <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
-          <Heading.section mb={'8px'}>Things I Like</Heading.section>
-          <Text
-            as='p'
-            mb={0}
-            fontSize='14px'
-            fontFamily='mono'
-            lineHeight='1.4'
-          >
-            Hypertext, CSS, semantic HTML, design systems, internet culture,
-            online communities, indie publishing, creative coding, digital
-            preservationism, and a diverse & open web.
-          </Text>
-        </Box>
+      <BorderedBox height='100%'>
+        <Grid>
+          <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
+            <Heading.h4 mt={0} mb={'8px'}>
+              Things I Like
+            </Heading.h4>
+            <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
+              Hypertext, CSS, semantic HTML, design systems, internet culture,
+              online communities, indie publishing, creative coding, digital
+              preservationism, and a diverse & open web.
+            </Text>
+          </Box>
 
-        <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
-          <Heading.section mb='8px'>Colophon</Heading.section>
-          <Text
-            as='p'
-            mb={0}
-            fontSize='14px'
-            fontFamily='mono'
-            lineHeight='1.4'
-          >
-            This site was built using{' '}
-            <Link to='https://gatsbyjs.org'>Gatsby</Link>,{' '}
-            <Link to='https://styled-components.com'>styled-components</Link>,
-            and <Link to='https://netlify.com'>Netlify</Link>. Text is set in
-            Source Serif Pro and iA Writer Quattro. Weather data provided by the{' '}
-            <Link to='https://darksky.net/dev'>Dark Sky API</Link>.
-          </Text>
-        </Box>
-      </Grid>
+          <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
+            <Heading.h4 mt={0} mb='8px'>
+              Colophon
+            </Heading.h4>
+            <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
+              This site was built using{' '}
+              <Link to='https://gatsbyjs.org'>Gatsby</Link>,{' '}
+              <Link to='https://styled-components.com'>styled-components</Link>,
+              and <Link to='https://netlify.com'>Netlify</Link>. Text is set in
+              Source Serif Pro and iA Writer Quattro. Weather data provided by
+              the <Link to='https://darksky.net/dev'>Dark Sky API</Link>.
+            </Text>
+          </Box>
+        </Grid>
+      </BorderedBox>
     </Box>
   </Grid>
 )
@@ -162,7 +162,7 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
             mb='4px'
             mt={0}
             fontFamily='mono'
-            fontSize='16px'
+            fontSize='17px'
             lineHeight='1.4'
           >
             <Link
@@ -173,7 +173,7 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
           </Heading.h3>
           <Text
             dangerouslySetInnerHTML={{ __html: node.excerpt }}
-            fontSize='15px'
+            fontSize='16px'
             mb='12px'
             lineHeight='1.4'
             css={`
@@ -189,30 +189,34 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
     <Box width={[1 / 3, 1 / 2, 1, 1 / 2, 1 / 3]} mb={[32, 0]}>
       <Heading.section>Blogroll</Heading.section>
 
-      {blogroll.map((node, i) => (
-        <Box key={i}>
-          <Link to={node.data.url} fontSize='16px'>
-            {node.data.title}
-          </Link>
-        </Box>
-      ))}
+      <UnorderedList unstyled>
+        {blogroll.map((node, i) => (
+          <Box as='li' key={i}>
+            <Link to={node.data.url} fontSize='17px' lineHeight='1.6'>
+              {node.data.title}
+            </Link>
+          </Box>
+        ))}
+      </UnorderedList>
     </Box>
 
     <Box width={[1]} mb={[32, 0]}>
-      <Heading.section>Recent Photos</Heading.section>
+      <BorderedBox m={[-8, -16]}>
+        <Heading.h4 mt={0}>Recent Photos</Heading.h4>
 
-      <Grid gutter={4}>
-        {photos.nodes.map(node => {
-          const srcRegex = /<img.*?src=['"](.*?)['"]/
-          const src = srcRegex.exec(node.content)[1]
+        <Grid gutter={8}>
+          {photos.nodes.map(node => {
+            const srcRegex = /<img.*?src=['"](.*?)['"]/
+            const src = srcRegex.exec(node.content)[1]
 
-          return (
-            <Box width={[1 / 2, 1 / 3, 1 / 4]} key={node.id}>
-              <Image src={src} to={node.slug} />
-            </Box>
-          )
-        })}
-      </Grid>
+            return (
+              <Box width={[1 / 2, 1 / 3, 1 / 4]} key={node.id}>
+                <Image borderRadius='6px' src={src} to={node.slug} />
+              </Box>
+            )
+          })}
+        </Grid>
+      </BorderedBox>
     </Box>
   </Grid>
 )
@@ -251,23 +255,26 @@ const Index = props => {
 
           <Box mt={8}>
             <Intro mb={24} />
-            <Bio mb={24} />
+            <Box
+              borderBottom='2px dashed'
+              borderColor='accent'
+              mx={-32}
+              mb={24}
+            />
+            <Bio mb={32} />
+            <Box
+              borderBottom='2px dashed'
+              borderColor='accent'
+              mx={-32}
+              mb={32}
+            />
             <Promo
               olderPosts={props.data.olderPosts}
               blogroll={blogroll}
               photos={props.data.photos}
+              mb={24}
             />
           </Box>
-
-          {/* <Box
-            mt={24}
-            p={[0, 0, 8, 16]}
-            bg='white'
-            border='3px solid'
-            borderRadius='8px'
-          >
-            <Box py={40} />
-          </Box> */}
         </Box>
 
         {/* <Grid mb={40}>
