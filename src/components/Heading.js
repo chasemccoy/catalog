@@ -3,10 +3,6 @@ import { Text } from '@chasemccoy/kit'
 
 const Heading = Text.withComponent('h1')
 
-Heading.defaultProps = {
-  fontFamily: 'serif',
-}
-
 Heading.h1 = Heading.withComponent('h1')
 Heading.h2 = Heading.withComponent('h2')
 Heading.h3 = Heading.withComponent('h3')
@@ -22,13 +18,10 @@ Heading.section = styled(Heading.withComponent('h4'))`
 `
 
 Heading.section.defaultProps = {
-  fontFamily: 'mono',
-  borderTop: '2px solid',
-  pt: '6px',
-  uppercase: true,
-  fontSize: '14px',
-  mb: '16px',
-  mt: 0,
+  borderBottom: '2px solid',
+  pb: '2px',
+  mb: 16,
+  mt: 0
 }
 
 export default Heading

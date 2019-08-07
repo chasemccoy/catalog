@@ -9,7 +9,7 @@ const fonts = common.fonts
 
 const colors = {
   accent: Object.assign('#DB9102', {
-    light: '#FFF4CB',
+    light: '#FFFAE5',
     pop: '#FFCD3F',
     soft: '#FFE999'
   }),

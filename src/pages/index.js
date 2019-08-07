@@ -37,6 +37,20 @@ const Portrait = styled(Box)`
   `}
 `
 
+const GradientBox = styled(Box)`
+  background: linear-gradient(
+    to bottom,
+    ${p => p.theme.colors.accent.light} 24px,
+    ${p => p.theme.colors.accent.soft} 24px,
+    ${p => p.theme.colors.accent.soft} 48px,
+    #ffda73 48px,
+    #ffda73 72px,
+    ${p => p.theme.colors.accent.pop} 72px,
+    ${p => p.theme.colors.accent.pop}
+  );
+  padding-top: 72px;
+`
+
 const ArtistList = styled(UnorderedList)`
   li {
     margin-right: 16px;
@@ -64,6 +78,7 @@ const BorderedBox = props => (
     bg='white'
     border='3px solid'
     borderRadius='8px'
+    // boxShadow='8px 6px 0 black'
     {...props}
   />
 )
@@ -119,41 +134,39 @@ const Bio = props => (
     </Box>
 
     <Box width={[1, 1, 1, 1, 1 / 3]}>
-      <BorderedBox height='100%'>
-        <Grid>
-          <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
-            <Heading.h4 mt={0} mb={'8px'}>
-              Things I Like
-            </Heading.h4>
-            <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
-              Hypertext, CSS, semantic HTML, design systems, internet culture,
-              online communities, indie publishing, creative coding, digital
-              preservationism, and a diverse & open web.
-            </Text>
-          </Box>
+      {/* <BorderedBox height='100%'> */}
+      <Grid>
+        <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
+          <Heading.section mt={0} mb={8}>
+            Things I Like
+          </Heading.section>
+          <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
+            Hypertext, CSS, semantic HTML, design systems, internet culture,
+            online communities, indie publishing, creative coding, digital
+            preservationism, and a diverse & open web.
+          </Text>
+        </Box>
 
-          <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
-            <Heading.h4 mt={0} mb='8px'>
-              Colophon
-            </Heading.h4>
-            <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
-              This site was built using{' '}
-              <Link to='https://gatsbyjs.org'>Gatsby</Link>,{' '}
-              <Link to='https://styled-components.com'>styled-components</Link>,
-              and <Link to='https://netlify.com'>Netlify</Link>. Text is set in
-              Source Serif Pro and iA Writer Quattro. Weather data provided by
-              the <Link to='https://darksky.net/dev'>Dark Sky API</Link>.
-            </Text>
-          </Box>
-        </Grid>
-      </BorderedBox>
+        <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
+          <Heading.section mb={8}>Colophon</Heading.section>
+          <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
+            This site was built using{' '}
+            <Link to='https://gatsbyjs.org'>Gatsby</Link>,{' '}
+            <Link to='https://styled-components.com'>styled-components</Link>,
+            and <Link to='https://netlify.com'>Netlify</Link>. Text is set in
+            Source Serif Pro and iA Writer Quattro. Weather data provided by the{' '}
+            <Link to='https://darksky.net/dev'>Dark Sky API</Link>.
+          </Text>
+        </Box>
+      </Grid>
+      {/* </BorderedBox> */}
     </Box>
   </Grid>
 )
 
 const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
   <Grid {...rest}>
-    <Box width={[2 / 3, 1 / 2, 1, 1 / 2, 2 / 3]} mb={[32, 0]}>
+    <Box width={[1, 1 / 2, 1, 1 / 2, 2 / 3]} mb={[16, 32, 0]}>
       <Heading.section>Writing</Heading.section>
 
       {olderPosts.nodes.map(node => (
@@ -186,7 +199,7 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
       ))}
     </Box>
 
-    <Box width={[1 / 3, 1 / 2, 1, 1 / 2, 1 / 3]} mb={[32, 0]}>
+    <Box width={[1, 1 / 2, 1, 1 / 2, 1 / 3]} mb={[16, 32, 0]}>
       <Heading.section>Blogroll</Heading.section>
 
       <UnorderedList unstyled>
@@ -200,23 +213,23 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
       </UnorderedList>
     </Box>
 
-    <Box width={[1]} mb={[32, 0]}>
-      <BorderedBox m={[-8, -16]}>
-        <Heading.h4 mt={0}>Recent Photos</Heading.h4>
+    <Box width={1}>
+      {/* <BorderedBox m={[-8, -16]}> */}
+      <Heading.section>Recent Photos</Heading.section>
 
-        <Grid gutter={8}>
-          {photos.nodes.map(node => {
-            const srcRegex = /<img.*?src=['"](.*?)['"]/
-            const src = srcRegex.exec(node.content)[1]
+      <Grid gutter={8}>
+        {photos.nodes.map(node => {
+          const srcRegex = /<img.*?src=['"](.*?)['"]/
+          const src = srcRegex.exec(node.content)[1]
 
-            return (
-              <Box width={[1 / 2, 1 / 3, 1 / 4]} key={node.id}>
-                <Image borderRadius='6px' src={src} to={node.slug} />
-              </Box>
-            )
-          })}
-        </Grid>
-      </BorderedBox>
+          return (
+            <Box width={[1 / 2, 1 / 3, 1 / 3, 1 / 4]} key={node.id}>
+              <Image borderRadius='6px' src={src} to={node.slug} />
+            </Box>
+          )
+        })}
+      </Grid>
+      {/* </BorderedBox> */}
     </Box>
   </Grid>
 )
@@ -250,32 +263,25 @@ const Index = props => {
   return (
     <Page wide header={<Header />}>
       <Container>
-        <Box py={16} px={[16, 16, 32]} bg='accent.pop'>
+        <Box pt={16} px={[16, 16, 32]} bg='accent.pop'>
           <AsciiLogo />
-
-          <Box mt={8}>
-            <Intro mb={24} />
-            <Box
-              borderBottom='2px dashed'
-              borderColor='accent'
-              mx={-32}
-              mb={24}
-            />
-            <Bio mb={32} />
-            <Box
-              borderBottom='2px dashed'
-              borderColor='accent'
-              mx={-32}
-              mb={32}
-            />
-            <Promo
-              olderPosts={props.data.olderPosts}
-              blogroll={blogroll}
-              photos={props.data.photos}
-              mb={24}
-            />
-          </Box>
+          <Intro mt={16} mb={24} />
+          <Box borderBottom='2px dashed' borderColor='accent' mx={-32} />
         </Box>
+
+        <Box py={24} px={[16, 16, 32]}>
+          <Bio />
+        </Box>
+
+        <GradientBox pb={24} px={[16, 16, 32]} bg='accent.pop'>
+          <Box borderTop='2px dashed' borderColor='accent' mx={-32} mb={24} />
+
+          <Promo
+            olderPosts={props.data.olderPosts}
+            blogroll={blogroll}
+            photos={props.data.photos}
+          />
+        </GradientBox>
 
         {/* <Grid mb={40}>
           <Box width={1}>

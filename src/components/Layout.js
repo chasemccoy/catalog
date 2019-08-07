@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     color: ${p => p.theme.colors.type.body};
-    text-decoration: underline;
+    text-decoration: underline dashed;
     transition: all .15s;
 
     &:hover, &:focus {
@@ -30,17 +30,11 @@ const GlobalStyles = createGlobalStyle`
     color: ${p => p.theme.colors.type.body};
     text-decoration: underline dashed;
     transition: all .15s;
-    ${'' /* border-bottom: 4px solid ${p => p.theme.colors.accent.soft}; */}
-    box-shadow: 0px -4px 0px ${p => p.theme.colors.accent.soft} inset;
+    box-shadow: 0px -5px 0px ${p => p.theme.colors.accent.soft} inset;
 
     &:hover, &:focus {
       color: ${p => p.theme.colors.type.body};
       background: ${p => p.theme.colors.accent.soft};
-      ${'' /* text-decoration: underline; */}
-      ${
-        '' /* border-bottom-color: ${p => p.theme.colors.accent.soft};
-      box-shadow: 0px -8px 0px ${p => p.theme.colors.accent.soft} inset; */
-      }
     }
   }
 
