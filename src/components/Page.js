@@ -75,7 +75,6 @@ const Page = ({ header, sidebar, children, bg, wide, ...props }) => (
 
       <Content
         bg={bg}
-        pt={24}
         ml={wide ? '-1px' : 0}
         pt={wide ? 0 : 24}
         px={wide ? 0 : 16}

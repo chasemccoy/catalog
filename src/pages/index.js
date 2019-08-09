@@ -13,6 +13,8 @@ import { UnorderedList } from 'components/Lists'
 import 'isomorphic-fetch'
 import AsciiLogo from 'components/AsciiLogo'
 import media from 'utils/media'
+import ScrollRow from 'components/ScrollRow'
+import TabCard from 'components/TabCard'
 
 const Container = styled(Box)`
   a {
@@ -276,6 +278,33 @@ const Index = props => {
         <GradientBox pb={24} px={[16, 16, 32]} bg='accent.pop'>
           <Box borderTop='2px dashed' borderColor='accent' mx={-32} mb={24} />
 
+          <Heading.section mb={0}>Writing</Heading.section>
+
+          <ScrollRow py={12} my={16} px={8} mx={-8}>
+            {props.data.olderPosts.nodes.map(node => (
+              <TabCard
+                to={node.slug}
+                title={node.title}
+                description={node.excerpt}
+                tab={node.date}
+                mr={[16, 16, 16, 24]}
+                key={node.id}
+              />
+            ))}
+          </ScrollRow>
+
+          {/* <Grid gutter={8} my={40}>
+            <ContentCard width={1/3} title='Some title of something here' description='How our team of three built a component library that designers and engineers love using.' />
+
+            <ContentCard width={1/3} title='Some title of something here' description='How our team of three built a component library that designers and engineers love using.' />
+
+            <ContentCard width={1/3} title='Some title of something here' description='How our team of three built a component library that designers and engineers love using.' />
+
+            {props.data.olderPosts.nodes.map(node => (
+              <ContentCard width={1/3} title={node.title} description={node.excerpt} key={node.id} />
+            ))}
+          </Grid> */}
+
           <Promo
             olderPosts={props.data.olderPosts}
             blogroll={blogroll}
@@ -312,12 +341,13 @@ export default Index
 
 export const query = graphql`
   query IndexQuery {
-    olderPosts: allBlog(filter: { format: { eq: "standard" } }, limit: 5) {
+    olderPosts: allBlog(filter: { format: { eq: "standard" } }, limit: 10) {
       nodes {
         id
         title
         slug
         excerpt
+        date(formatString: "MMMM Do")
       }
     }
 
