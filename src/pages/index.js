@@ -168,7 +168,7 @@ const Bio = props => (
 
 const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
   <Grid {...rest}>
-    <Box width={[1, 1 / 2, 1, 1 / 2, 2 / 3]} mb={[16, 32, 0]}>
+    {/* <Box width={[1, 1 / 2, 1, 1 / 2, 2 / 3]} mb={[16, 32, 0]}>
       <Heading.section>Writing</Heading.section>
 
       {olderPosts.nodes.map(node => (
@@ -199,7 +199,7 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
           />
         </React.Fragment>
       ))}
-    </Box>
+    </Box> */}
 
     <Box width={[1, 1 / 2, 1, 1 / 2, 1 / 3]} mb={[16, 32, 0]}>
       <Heading.section>Blogroll</Heading.section>
@@ -287,8 +287,8 @@ const Index = props => {
                 title={node.title}
                 description={node.excerpt}
                 tab={node.date}
-                mr={[16, 16, 16, 24]}
                 key={node.id}
+                minWidth='250px'
               />
             ))}
           </ScrollRow>

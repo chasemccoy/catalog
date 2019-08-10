@@ -144,6 +144,16 @@ const GlobalStyles = createGlobalStyle`
   .clearfix:after {
     clear: both;
   }
+
+  twitter-widget {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  twitter-widget::shadow .EmbeddedTweet {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 `
 
 const getWeatherData = async set => {

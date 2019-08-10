@@ -1,5 +1,5 @@
 ---
-title: <details>
+title: The details element
 tags: 
   - html
   - webdev

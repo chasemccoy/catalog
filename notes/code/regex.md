@@ -1,8 +1,9 @@
 ---
 title: Regex Recipes
+excerpt: I’ve always been terrible at regex (shouldn't have goofed off so much in Formal Languages). Here are some common snippets that come in handy.
 ---
 
-**Regex to get URLs from the `src` attribute of an HTML `<img>` tag in a string**
+### Get URLs from the src attribute of an HTML image tag
 
 ```js
 const srcRegex = /<img.*?src=['"](.*?)['"]/
@@ -12,8 +13,14 @@ const src = srcRegex.exec(string)[1]
 // src = "http://link-to-image.com/image.png"
 ```
 
-**Test whether a URL is internal or not**
+### Test whether a URL is internal or not
 
 ```js
 const internal = /^\/(?!\/)/.test(url)
+```
+
+### Strip HTML tags out of a string
+
+```js
+const stripHTML = string => string.replace(/<[^>]+>/g, '')
 ```

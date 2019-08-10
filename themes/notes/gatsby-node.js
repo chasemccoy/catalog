@@ -21,6 +21,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: `${notesPath}/${actualName}`
     })
 
+    createNodeField({
+      name: 'category',
+      node,
+      value: `${dir.split('/')[0]}`
+    })
+
     if (parentNode && parentNode.name) {
       createNodeField({
         name: 'isLandingPage',
@@ -48,6 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
           fields {
             slug
             isLandingPage
+            category
           }
           parent {
             ... on File {

@@ -16,6 +16,8 @@ const stripTags = string => {
   return string.replace(/<[^>]*>/g, '')
 }
 
+const stripHTML = string => string.replace(/<[^>]+>/g, '')
+
 const slugify = string => {
   return string
     .toString()
@@ -33,5 +35,6 @@ module.exports = {
   lowercase,
   truncateExcerpt,
   stripTags,
+  stripHTML,
   slugify
 }
