@@ -42,6 +42,8 @@ Thanks to [this tweet from Cassie Evans](https://twitter.com/cassiecodes/status/
 }
 ```
 
+<Bookmark url='https://www.chenhuijing.com/blog/flexbox-and-padding' />
+
 ## Responsive tiled layout with CSS Grid and no media queries
 
 This is great for making grid layouts of even-sized tiles where each tile never gets narrower than the specified min-width. Stolen from [this tweet by @thekitze](https://twitter.com/thekitze/status/1131821007629692929).

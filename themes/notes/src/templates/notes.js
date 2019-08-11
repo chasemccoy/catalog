@@ -3,7 +3,6 @@ import Page from 'components/Page'
 import { Grid, Box } from '@chasemccoy/kit'
 import Sidebar from '../components/notes/Sidebar'
 import Layout from '../components/notes/Layout'
-import NoteCard from '../components/notes/NoteCard'
 import TabCard from 'components/TabCard'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import { capitalize } from 'utils'
@@ -31,21 +30,6 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
   >
     <Layout>
       <Layout.Content>
-        {/* <Grid>
-          {notes
-            .filter(note => !note.fields.isLandingPage)
-            .map(note => (
-              <NoteCard
-                title={note.frontmatter.title}
-                tags={note.frontmatter.tags}
-                description={note.excerpt}
-                to={note.fields.slug}
-                width={[1, 1 / 2]}
-                key={note.id}
-              />
-            ))}
-        </Grid> */}
-
         <Grid mb={40} overflow='visible'>
           {notes
             .filter(note => !note.fields.isLandingPage)

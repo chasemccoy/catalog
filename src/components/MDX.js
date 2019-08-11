@@ -11,6 +11,7 @@ import Float from 'notes/src/components/mdx/Float'
 import Quote from 'notes/src/components/mdx/Quote'
 import Bookmark from 'notes/src/components/notes/Bookmark'
 import Wide from 'notes/src/components/mdx/Wide'
+import Callout from 'notes/src/components/mdx/Callout'
 
 const LinkAdapter = ({ href, ...rest }) => <Link to={href} {...rest} />
 
@@ -29,7 +30,8 @@ const Provider = props => {
     Float,
     Quote,
     Bookmark,
-    Wide
+    Wide,
+    Callout
   }
 
   const newProps = { components, ...props }
