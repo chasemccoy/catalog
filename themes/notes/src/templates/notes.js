@@ -54,7 +54,7 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
                 <TabCard
                   light
                   title={note.frontmatter.title}
-                  // tags={note.frontmatter.tags}
+                  tags={note.frontmatter.tags}
                   description={note.excerpt}
                   to={note.fields.slug}
                   tab={note.fields.category}

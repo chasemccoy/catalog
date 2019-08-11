@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
   p a, article ul a, article ol a {
     color: ${p => p.theme.colors.type.body};
     text-decoration: underline dashed;
+    text-decoration-color: ${p => p.theme.colors.accent};
     transition: all .15s;
     box-shadow: 0px -5px 0px ${p => p.theme.colors.accent.soft} inset;
 
@@ -36,6 +37,10 @@ const GlobalStyles = createGlobalStyle`
       color: ${p => p.theme.colors.type.body};
       background: ${p => p.theme.colors.accent.soft};
     }
+  }
+
+  iframe {
+    border-radius: 8px;
   }
 
   code a {
@@ -84,6 +89,8 @@ const GlobalStyles = createGlobalStyle`
 
     img {
       width: 100%;
+      border-radius: 8px;
+      box-shadow: ${p => p.theme.colors.gray[1]} 0 0 16px 0px;
     }
 
     ${media.small`
@@ -133,6 +140,16 @@ const GlobalStyles = createGlobalStyle`
 
   .gatsby-resp-image-wrapper {
     margin: 0 !important;
+    border-radius: 8px;
+    box-shadow: ${p => p.theme.colors.gray[1]} 0 0 16px 0px;
+  }
+
+  .gatsby-resp-image-figcaption {
+    margin: 8px 0;
+    color: ${p => p.theme.colors.gray[4]};
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 550px;
   }
 
   .clearfix:before,

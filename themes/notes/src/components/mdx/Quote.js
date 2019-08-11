@@ -3,7 +3,32 @@ import styled, { css } from 'styled-components'
 import { Box } from '@chasemccoy/kit'
 
 const QuoteContainer = styled(Box)`
+  border: 1px solid ${p => p.theme.colors.accent.medium};
+  background: ${p => p.theme.colors.accent.light};
   border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  padding: 12px 16px 12px 16px;
+
+  blockquote {
+    position: static;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.4;
+    color: ${p => p.theme.colors.type.body};
+
+    &:before {
+      content: none;
+      top: 16px;
+      bottom: 16px;
+      left: 16px;
+      height: auto;
+      background: ${p => p.theme.colors.accent};
+    }
+  }
+
+  ${'' /* border-radius: 12px;
   overflow: hidden;
   position: relative;
   background: #FFFBEB;
@@ -28,15 +53,17 @@ const QuoteContainer = styled(Box)`
     &:before {
       display: none;
     }
-  }
+  } */}
 
   figcaption {
-    background: #FFD233;
-    padding: 8px 24px;
-    font-weight: ${p => p.theme.fontWeights.bold};
+    background: ${p => p.theme.colors.accent.light};
+    padding: 8px 0 0;
+    margin: 16px 0 0;
+    font-weight: ${p => p.theme.fontWeights.heavy};
+    border-top: 2px dashed ${p => p.theme.colors.accent.medium};
   }
 
-  &:before {
+  ${'' /* &:before {
     content: "“";
     font-size: 120px;
     line-height: 1;
@@ -60,7 +87,7 @@ const QuoteContainer = styled(Box)`
     z-index: -1;
     font-family: Georgia, serif;
     font-weight: ${p => p.theme.fontWeights.bold};
-  }
+  } */}
 `
 
 const Quote = ({ source, children, ...rest }) => (

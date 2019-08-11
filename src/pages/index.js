@@ -18,8 +18,6 @@ import TabCard from 'components/TabCard'
 
 const Container = styled(Box)`
   a {
-    text-decoration: underline dashed;
-
     &:hover {
       color: ${p => p.theme.colors.type.body};
     }

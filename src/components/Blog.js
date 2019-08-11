@@ -181,7 +181,7 @@ export const Post = props => {
 
 Post.Header = ({ title, to, date, tags }) => (
   <React.Fragment>
-    <Date date={date} permalink={to} mb={40} />
+    <Date date={date} permalink={to} mb={title || tags ? 40 : 0} />
 
     {title && (
       <Heading.h1 mt={0} mb={!tags && 0}>

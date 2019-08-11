@@ -4,6 +4,7 @@ import { Box, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import media from 'utils/media'
 import ScrollRow from 'components/ScrollRow'
+import Tags from 'components/Tags'
 import { stripHTML } from 'utils'
 
 const HoverLink = styled(Link)`
@@ -54,7 +55,27 @@ const HoverLink = styled(Link)`
   }
 `
 
-const TabCard = ({ title, description, tab, to, light, ...rest }) => (
+const GradientBox = styled(Box)`
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      to bottom,
+      #fffae500 40%,
+      ${p => (p.light ? '#FFFAE588' : '#ffda7388')} 60%,
+      ${p => (p.light ? '#FFFAE5' : '#ffda73')} 95%
+    );
+  }
+`
+
+const TabCard = ({ title, description, tab, tags, to, light, ...rest }) => (
   <HoverLink to={to} light={light} {...rest}>
     <Box
       display='flex'
@@ -84,26 +105,31 @@ const TabCard = ({ title, description, tab, to, light, ...rest }) => (
         </Text>
       </Box>
 
-      <Box
+      <GradientBox
         flex={1}
         bg={light ? 'accent.light' : 'accent.medium'}
         borderRadius='0 8px 8px 8px'
         p={16}
         width={1}
+        light={light}
       >
         <Text
           as='h3'
           mt={0}
-          mb={8}
+          mb={0}
+          fontSize='24px'
           dangerouslySetInnerHTML={{ __html: title }}
         />
+
+        {tags && <Tags items={tags} mt={0} />}
+
         <Text
-          fontSize='14px'
+          fontSize='15px'
           lineHeight='1.4'
-          my={0}
+          mt={24}
           dangerouslySetInnerHTML={{ __html: stripHTML(description) }}
         />
-      </Box>
+      </GradientBox>
     </Box>
   </HoverLink>
 )
