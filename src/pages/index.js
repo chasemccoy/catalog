@@ -49,6 +49,11 @@ const GradientBox = styled(Box)`
     ${p => p.theme.colors.accent.pop}
   );
   padding-top: 72px;
+
+  h4 {
+    border-bottom: 1px dashed;
+    border-color: ${p => p.theme.colors.accent};
+  }
 `
 
 const ArtistList = styled(UnorderedList)`
@@ -166,40 +171,7 @@ const Bio = props => (
 
 const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
   <Grid {...rest}>
-    {/* <Box width={[1, 1 / 2, 1, 1 / 2, 2 / 3]} mb={[16, 32, 0]}>
-      <Heading.section>Writing</Heading.section>
-
-      {olderPosts.nodes.map(node => (
-        <React.Fragment key={node.id}>
-          <Heading.h3
-            mb='4px'
-            mt={0}
-            fontFamily='mono'
-            fontSize='17px'
-            lineHeight='1.4'
-          >
-            <Link
-              to={node.slug}
-              dangerouslySetInnerHTML={{ __html: node.title }}
-            />
-            &nbsp;→
-          </Heading.h3>
-          <Text
-            dangerouslySetInnerHTML={{ __html: node.excerpt }}
-            fontSize='16px'
-            mb='12px'
-            lineHeight='1.4'
-            css={`
-              p {
-                margin: 0;
-              }
-            `}
-          />
-        </React.Fragment>
-      ))}
-    </Box> */}
-
-    <Box width={[1, 1 / 2, 1, 1 / 2, 1 / 3]} mb={[16, 32, 0]}>
+    <Box width={[1, 1 / 2, 1, 1 / 2, 1 / 4]} mb={[16, 32, 0]}>
       <Heading.section>Blogroll</Heading.section>
 
       <UnorderedList unstyled>
@@ -213,9 +185,8 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
       </UnorderedList>
     </Box>
 
-    <Box width={1}>
-      {/* <BorderedBox m={[-8, -16]}> */}
-      <Heading.section>Recent Photos</Heading.section>
+    <Box width={[1, 1 / 2, 1, 1 / 2, 3 / 4]}>
+      <Heading.section mb={16}>Recent Photos</Heading.section>
 
       <Grid gutter={8}>
         {photos.nodes.map(node => {
@@ -223,13 +194,12 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
           const src = srcRegex.exec(node.content)[1]
 
           return (
-            <Box width={[1 / 2, 1 / 3, 1 / 3, 1 / 4]} key={node.id}>
+            <Box width={[1 / 2, 1 / 3, 1 / 3]} key={node.id}>
               <Image borderRadius='6px' src={src} to={node.slug} />
             </Box>
           )
         })}
       </Grid>
-      {/* </BorderedBox> */}
     </Box>
   </Grid>
 )
@@ -291,18 +261,6 @@ const Index = props => {
             ))}
           </ScrollRow>
 
-          {/* <Grid gutter={8} my={40}>
-            <ContentCard width={1/3} title='Some title of something here' description='How our team of three built a component library that designers and engineers love using.' />
-
-            <ContentCard width={1/3} title='Some title of something here' description='How our team of three built a component library that designers and engineers love using.' />
-
-            <ContentCard width={1/3} title='Some title of something here' description='How our team of three built a component library that designers and engineers love using.' />
-
-            {props.data.olderPosts.nodes.map(node => (
-              <ContentCard width={1/3} title={node.title} description={node.excerpt} key={node.id} />
-            ))}
-          </Grid> */}
-
           <Promo
             olderPosts={props.data.olderPosts}
             blogroll={blogroll}
@@ -349,7 +307,7 @@ export const query = graphql`
       }
     }
 
-    photos: allBlog(filter: { format: { eq: "image" } }, limit: 12) {
+    photos: allBlog(filter: { format: { eq: "image" } }, limit: 9) {
       nodes {
         id
         slug

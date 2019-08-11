@@ -18,9 +18,12 @@ Heading.section = styled(Heading.withComponent('h4'))`
 `
 
 Heading.section.defaultProps = {
-  borderBottom: '2px solid',
-  pb: '2px',
-  mb: 16,
+  borderBottom: '1px solid',
+  borderColor: 'gray.1',
+  pb: '4px',
+  fontWeight: 'bold',
+  fontSize: '14px',
+  mb: 8,
   mt: 0
 }
 

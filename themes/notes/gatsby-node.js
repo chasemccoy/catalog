@@ -76,8 +76,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const { allMdx } = result.data
 
+  const isProduction = process.env.NODE_ENV === 'production'
+
   const notes = allMdx.nodes.filter(
-    node => node.parent.sourceInstanceName === 'notes'
+    node =>
+      node.parent.sourceInstanceName === 'notes' &&
+      (isProduction ? !node.frontmatter.private === true : true)
   )
 
   let groupedNotes = notes.reduce((acc, node) => {

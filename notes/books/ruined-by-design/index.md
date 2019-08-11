@@ -3,6 +3,7 @@ title: Ruined by Design by Mike Monteiro
 tags: 
  - design
  - ethics
+private: true
 ---
 
 <Bookmark url='https://ruinedby.design/' />
