@@ -171,7 +171,7 @@ const Bio = props => (
 
 const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
   <Grid {...rest}>
-    <Box width={[1, 1 / 2, 1, 1 / 2, 1 / 4]} mb={[16, 32, 0]}>
+    <Box width={[1, 1 / 3, 1 / 3, 1 / 4]} mb={[16, 32, 0]}>
       <Heading.section>Blogroll</Heading.section>
 
       <UnorderedList unstyled>
@@ -185,7 +185,7 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
       </UnorderedList>
     </Box>
 
-    <Box width={[1, 1 / 2, 1, 1 / 2, 3 / 4]}>
+    <Box width={[1, 2 / 3, 2 / 3, 3 / 4]}>
       <Heading.section mb={16}>Recent Photos</Heading.section>
 
       <Grid gutter={8}>
@@ -194,7 +194,7 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
           const src = srcRegex.exec(node.content)[1]
 
           return (
-            <Box width={[1 / 2, 1 / 3, 1 / 3]} key={node.id}>
+            <Box width={[1 / 2, 1 / 3, 1 / 2, 1 / 3]} key={node.id}>
               <Image borderRadius='6px' src={src} to={node.slug} />
             </Box>
           )

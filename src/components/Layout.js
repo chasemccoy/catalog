@@ -41,6 +41,10 @@ const GlobalStyles = createGlobalStyle`
 
   iframe {
     border-radius: 8px;
+
+    ${media.small`
+      border-radius: 0;
+    `}
   }
 
   code a {
@@ -98,6 +102,7 @@ const GlobalStyles = createGlobalStyle`
         max-width: none;
         width: calc(100% + 32px);
         margin-left: -16px;
+        border-radius: 0;
       }
     `}
   }
@@ -142,6 +147,13 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 !important;
     border-radius: 8px;
     box-shadow: ${p => p.theme.colors.gray[1]} 0 0 16px 0px;
+
+    ${media.small`
+      max-width: none;
+      width: calc(100% + 32px);
+      margin-left: -16px !important;
+      border-radius: 0;
+    `}
   }
 
   .gatsby-resp-image-figcaption {

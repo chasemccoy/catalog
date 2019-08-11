@@ -50,6 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
           frontmatter {
             title
             tags
+            private
           }
           fields {
             slug
@@ -78,11 +79,20 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const isProduction = process.env.NODE_ENV === 'production'
 
-  const notes = allMdx.nodes.filter(
-    node =>
-      node.parent.sourceInstanceName === 'notes' &&
-      (isProduction ? !node.frontmatter.private === true : true)
-  )
+  const notes = allMdx.nodes.filter(node => {
+    const noteIsPrivate = node.frontmatter.private === true
+    // Make sure these MDX nodes are actually notes
+    if (node.parent.sourceInstanceName === 'notes') {
+      // If this is a prod build, don't show private notes
+      if (isProduction) {
+        return !noteIsPrivate
+      }
+
+      return true
+    }
+
+    return false
+  })
 
   let groupedNotes = notes.reduce((acc, node) => {
     const { dir } = path.parse(node.parent.relativePath)
