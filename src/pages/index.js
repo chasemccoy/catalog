@@ -93,16 +93,12 @@ const Intro = props => (
     fontSize={['22px', '24px', '26px']}
     lineHeight='1.4'
     mb={0}
-    fontWeight='bold'
+    fontWeight='heavy'
     {...props}
   >
-    Hey there!{' '}
-    <span role='img' aria-label='Waving hand emoji.'>
-      👋
-    </span>{' '}
-    I’m Chase, a designer and developer based in Chicago,&nbsp;IL specializing
-    in systems thinking, design tooling, and front-end engineering. I spend a
-    lot of time thinking about how the web works.
+    Hey there! I’m Chase, a designer and developer based in Chicago,&nbsp;IL
+    specializing in systems thinking, design tooling, and front-end engineering.
+    I spend a lot of time thinking about how the web works.
   </Text.p>
 )
 
@@ -139,8 +135,7 @@ const Bio = props => (
     </Box>
 
     <Box width={[1, 1, 1, 1, 1 / 3]}>
-      {/* <BorderedBox height='100%'> */}
-      <Grid>
+      <Grid mt={[16, -24]}>
         <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
           <Heading.section mt={0} mb={8}>
             Things I Like
@@ -164,7 +159,6 @@ const Bio = props => (
           </Text>
         </Box>
       </Grid>
-      {/* </BorderedBox> */}
     </Box>
   </Grid>
 )
@@ -248,7 +242,7 @@ const Index = props => {
 
           <Heading.section mb={0}>Writing</Heading.section>
 
-          <ScrollRow py={12} my={16} px={8} mx={-8}>
+          <ScrollRow py={12} mt={8} mb={16} px={8} mx={-8}>
             {props.data.olderPosts.nodes.map(node => (
               <TabCard
                 to={node.slug}

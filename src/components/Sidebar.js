@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import { Box, Text } from '@chasemccoy/kit'
+import { Grid, Box, Text } from '@chasemccoy/kit'
 import Page from 'components/Page'
 import media from 'utils/media'
 import Heading from 'components/Heading'
@@ -11,16 +11,16 @@ import { DataContext } from 'components/Layout'
 import 'isomorphic-fetch'
 
 const Container = styled(Box)`
-  border-right: 1px solid ${p => p.theme.colors.gray[1]};
+  border-right: 1px dashed ${p => p.theme.colors.gray[1]};
   height: 100%;
   min-height: 100vh;
   padding: 24px 0;
   font-size: 12px;
   line-height: 1.3;
-  color: ${p => p.theme.colors.gray[3]};
+  color: ${p => p.theme.colors.gray[4]};
 
   a {
-    color: ${p => p.theme.colors.gray[3]};
+    color: ${p => p.theme.colors.gray[4]};
 
     &.site-title {
       color: ${p => p.theme.colors.type.body};
@@ -45,10 +45,111 @@ const Container = styled(Box)`
 `
 
 const NavLink = styled(Link)`
+  color: ${p => p.theme.colors.gray[3]} !important;
+
   &.selected {
     color: ${p => p.theme.colors.type.body};
   }
 `
+
+const Nav = ({ ...rest }) => (
+  <Box {...rest}>
+    <Text
+      as='nav'
+      fontWeight='bold'
+      css={`
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      `}
+    >
+      <UnorderedList
+        unstyled
+        css={`
+          li + li {
+            margin-top: 8px;
+          }
+        `}
+      >
+        <li>
+          <NavLink to='/thoughts' unstyled partiallyActive>
+            thoughts
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/notes' unstyled partiallyActive>
+            notes
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/portfolio' unstyled partiallyActive>
+            portfolio
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/quotes' unstyled partiallyActive>
+            quotes
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/music' unstyled partiallyActive>
+            music
+          </NavLink>
+        </li>
+      </UnorderedList>
+    </Text>
+  </Box>
+)
+
+const Overflow = ({ data, ...rest }) => (
+  <Box {...rest}>
+    <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.5'>
+      Stay in touch
+    </Page.SidebarHeader>
+
+    <Text mb={16}>
+      <Link to='https://twitter.com/chase_mccoy'>Twitter</Link>,{' '}
+      <Link to='https://instagram.com/chs_mc'>Instagram</Link>,{' '}
+      <Link to='https://github.com/chasemccoy'>GitHub</Link>,{' '}
+      <Link to='mailto:hi@chasem.co'>Email</Link>, &{' '}
+      <Link external to='/feed.xml'>
+        RSS
+      </Link>
+      .
+    </Text>
+
+    <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.5'>
+      Currently
+    </Page.SidebarHeader>
+
+    <UnorderedList mb={0} pr={4}>
+      <Box as='li' mb={8}>
+        Working on <Link to='https://sproutsocial.com/seeds'>Seeds</Link> at{' '}
+        <Link to='https://sproutsocial.com'>Sprout Social</Link>
+      </Box>
+      <Box as='li' mb={8}>
+        {data.nowPlaying ? (
+          <React.Fragment>
+            Listening to {data.nowPlaying.name} by {data.nowPlaying.artist} on{' '}
+            <Link to='https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ'>
+              Spotify
+            </Link>
+          </React.Fragment>
+        ) : (
+          'Loading...'
+        )}
+      </Box>
+      <Box as='li'>
+        {data.weather ? (
+          <React.Fragment>
+            {data.weather.temperature} in <Link to='/chicago'>Chicago</Link>
+          </React.Fragment>
+        ) : (
+          'Loading...'
+        )}
+      </Box>
+    </UnorderedList>
+  </Box>
+)
 
 const Sidebar = props => {
   const data = useContext(DataContext)
@@ -72,106 +173,10 @@ const Sidebar = props => {
         </Link>
       </Heading.h2>
 
-      <Text
-        as='nav'
-        mb={24}
-        fontWeight='bold'
-        css={`
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        `}
-      >
-        <UnorderedList
-          unstyled
-          css={`
-            li + li {
-              margin-top: 8px;
-            }
-          `}
-        >
-          <li>
-            <NavLink to='/thoughts' unstyled partiallyActive>
-              thoughts
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/notes' unstyled partiallyActive>
-              notes
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/portfolio' unstyled partiallyActive>
-              portfolio
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/quotes' unstyled partiallyActive>
-              quotes
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/music' unstyled partiallyActive>
-              music
-            </NavLink>
-          </li>
-        </UnorderedList>
-      </Text>
-
-      <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.4'>
-        Stay in touch
-      </Page.SidebarHeader>
-
-      <Text mb={24}>
-        <Link to='https://twitter.com/chase_mccoy'>Twitter</Link>,{' '}
-        <Link to='https://instagram.com/chs_mc'>Instagram</Link>,{' '}
-        <Link to='https://github.com/chasemccoy'>GitHub</Link>,{' '}
-        <Link to='mailto:hi@chasem.co'>Email</Link>, &{' '}
-        <Link external to='/feed.xml'>
-          RSS
-        </Link>
-        .
-      </Text>
-
-      <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.4'>
-        Currently
-      </Page.SidebarHeader>
-
-      <UnorderedList
-        mb={8}
-        pr='4px'
-        unstyled
-        css={`
-          li + li {
-            margin-top: 12px;
-          }
-        `}
-      >
-        <Box as='li' mb={8}>
-          Working on <Link to='https://sproutsocial.com/seeds'>Seeds</Link> at{' '}
-          <Link to='https://sproutsocial.com'>Sprout Social</Link>
-        </Box>
-        <Box as='li' mb={8}>
-          {data.nowPlaying ? (
-            <React.Fragment>
-              Listening to {data.nowPlaying.name} by {data.nowPlaying.artist} on{' '}
-              <Link to='https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ'>
-                Spotify
-              </Link>
-            </React.Fragment>
-          ) : (
-            'Loading...'
-          )}
-        </Box>
-        <Box as='li'>
-          {data.weather ? (
-            <React.Fragment>
-              {data.weather.temperature} in <Link to='/chicago'>Chicago</Link>
-            </React.Fragment>
-          ) : (
-            'Loading...'
-          )}
-        </Box>
-      </UnorderedList>
+      <Grid>
+        <Nav width={[1 / 3, 1 / 4, 1 / 4, 1]} />
+        <Overflow width={[2 / 3, 3 / 4, 3 / 4, 1]} data={data} />
+      </Grid>
 
       {/* <Header fontSize='16px' mt='-8px'>
         <Link to='/' pr={[48, 48, 48, 0]} unstyled fontWeight='bold'>

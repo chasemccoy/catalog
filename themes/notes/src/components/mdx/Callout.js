@@ -7,6 +7,7 @@ const Callout = ({ children, ...rest }) => (
     border='1px dashed'
     borderColor='gray.2'
     borderRadius='12px'
+    mx={-8}
     p={8}
     {...rest}
   >

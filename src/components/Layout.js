@@ -88,7 +88,7 @@ const GlobalStyles = createGlobalStyle`
 
     h2 {
       padding-bottom: 6px;
-      border-bottom: 3px solid ${p => p.theme.colors.gray[0]};
+      border-bottom: 4px solid ${p => p.theme.colors.gray[0]};
     }
 
     img {

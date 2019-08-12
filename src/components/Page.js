@@ -133,6 +133,11 @@ Page.Header = ({ title, description, children, wide, ...rest }) => {
       >
         <Box
           bg={wide ? 'transparent' : 'accent.pop'}
+          border={wide ? 'none' : ['none', 'none', '1px dashed']}
+          borderBottom={
+            wide ? 'none' : ['1px dashed', '1px dashed', '1px dashed']
+          }
+          borderColor={['accent', 'accent', 'accent']}
           height='100%'
           width='100%'
           minWidth='40px'

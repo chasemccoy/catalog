@@ -20,7 +20,7 @@ Heading.section = styled(Heading.withComponent('h4'))`
 Heading.section.defaultProps = {
   borderBottom: '1px solid',
   borderColor: 'gray.1',
-  pb: '4px',
+  pb: '2px',
   fontWeight: 'bold',
   fontSize: '14px',
   mb: 8,

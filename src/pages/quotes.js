@@ -6,7 +6,7 @@ import MultiColumn from 'components/MultiColumn'
 
 export const Quote = ({ content, source, ...rest }) => (
   <Box {...rest}>
-    <Text.p fontSize={22} lineHeight={1.4} mb={3}>
+    <Text.p fontSize={22} lineHeight={1.3} mb={8}>
       {content}
     </Text.p>
 
@@ -28,7 +28,7 @@ const QuotesPage = ({ data }) => {
             pb={24}
             css={`
               &:not(:last-child) {
-                border-bottom: 1px solid ${p => p.theme.colors.gray[1]};
+                border-bottom: 4px solid ${p => p.theme.colors.gray[0]};
               }
 
               &:last-child {

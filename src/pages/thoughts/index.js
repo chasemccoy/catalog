@@ -14,8 +14,9 @@ const Sidebar = ({ posts, ...props }) => (
       {posts.map(post => (
         <Box as='li' key={post.id}>
           <Link
-            unstyled
+            // unstyled
             to={post.slug}
+            color='gray.4'
             dangerouslySetInnerHTML={{ __html: post.title + '&nbsp;→' }}
           />
         </Box>

@@ -30,17 +30,25 @@ const HoverLink = styled(Link)`
     }
 
     :nth-child(odd) {
-      transform: translate(0, -8px) rotate(-0.5deg);
+      transform: rotate(-0.5deg);
     }
 
     :nth-child(even) {
-      transform: translate(0, -8px) rotate(0.5deg);
+      transform: rotate(0.5deg);
     }
 
     &:hover,
     &:focus {
       z-index: 1;
       margin-right: 94px;
+
+      :nth-child(odd) {
+        transform: translate(0, -8px) rotate(1deg);
+      }
+
+      :nth-child(even) {
+        transform: translate(0, -8px) rotate(1deg);
+      }
     }
 
     ${media.small`

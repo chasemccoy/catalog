@@ -1,27 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
-import { Box, Text } from '@chasemccoy/kit'
+import { Grid, Box, Text } from '@chasemccoy/kit'
 import Image from 'components/Image'
 import media from 'utils/media'
-import { Row, Column } from 'components/Grid'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import { graphql } from 'gatsby'
 
 const Track = styled(Box)`
+  padding: 8px 0;
+
   & + & {
-    border-top: 1px solid ${props => props.theme.colors.gray[0]};
+    border-top: 4px solid ${props => props.theme.colors.gray[0]};
   }
 `
 
 Track.Image = styled(Image)`
-  height: 48px;
-  width: 48px;
+  height: 56px;
+  width: 56px;
 `
 
 Track.Title = styled(Heading.h4)`
   margin: 0;
+  flex: 60%;
 
   ${media.tiny`
     width: 100%;
@@ -48,11 +50,11 @@ class MusicPage extends React.Component {
         untitled
         description='I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.'
       >
-        <Heading.section>Favorite Albums</Heading.section>
+        {/* <Heading.section mb={24}>Favorite Albums</Heading.section> */}
 
-        <Row mb={40}>
+        {/* <Grid mb={40}>
           {this.props.data.music.edges.map(({ node }, i) => (
-            <Column width={[1 / 2, 1 / 3]} key={i}>
+            <Box width={[1 / 2, 1 / 3]} key={i}>
               <Link to={node.url} unstyled color='page.text'>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
@@ -65,19 +67,18 @@ class MusicPage extends React.Component {
                   </Text>
                 </Box>
               </Link>
-            </Column>
+            </Box>
           ))}
-        </Row>
+        </Grid> */}
 
         {this.state.tracks.length > 0 && (
-          <div className='full'>
-            <Heading.section className='full'>Recent Tracks</Heading.section>
+          <Box>
+            <Heading.section mb={16}>Recent Tracks</Heading.section>
 
             {this.state.tracks.map(
               (track, i) =>
                 track.image && (
                   <Track
-                    py={2}
                     display='flex'
                     alignItems={['flex-start', 'center']}
                     key={i}
@@ -90,7 +91,7 @@ class MusicPage extends React.Component {
                       alignItems='center'
                       flex='1'
                       flexWrap='wrap'
-                      ml={4}
+                      ml={16}
                     >
                       <Track.Title>{track.name}</Track.Title>
 
@@ -101,7 +102,7 @@ class MusicPage extends React.Component {
                   </Track>
                 )
             )}
-          </div>
+          </Box>
         )}
       </Page>
     )
