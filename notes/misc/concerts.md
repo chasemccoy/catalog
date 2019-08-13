@@ -101,5 +101,6 @@ October 25 — Chicago, IL
 April 27 — Chicago, IL  
 [Setlist](https://www.setlist.fm/setlist/foals/2019/riviera-theatre-chicago-il-63934aeb.html)
 
-**Anderson .Paak**  
-June 4 — Chicago, IL
+**Anderson .Paak with Thundercat & Noname** @ Huntington Bank Pavilion at Northerly Island  
+June 4 — Chicago, IL    
+[Setlist](https://www.setlist.fm/setlist/anderson-paak/2019/huntington-bank-pavilion-at-northerly-island-chicago-il-7b919e80.html)
