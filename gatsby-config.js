@@ -151,44 +151,44 @@ module.exports = {
         path: `${__dirname}/data/art/art.hjson`
       }
     },
-    {
-      resolve: 'gatsby-source-github',
-      options: {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`
-        },
-        queries: [
-          `{
-            user(login: "chasemccoy") {
-              starredRepositories(first: 100, orderBy: {field: STARRED_AT, direction: DESC}) {
-                edges {
-                  node {
-                  	name
-                    url
-                    description
-                    repositoryTopics(last: 5) {
-                      edges {
-                        node {
-                          id
-                          topic {
-                            id
-                            name
-                          }
-                        }
-                      }
-                    }
-                    owner {
-                    	id
-                      login
-                    }
-                  }
-                }
-              }
-            }
-          }`
-        ]
-      }
-    },
+    // {
+    //   resolve: 'gatsby-source-github',
+    //   options: {
+    //     headers: {
+    //       Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`
+    //     },
+    //     queries: [
+    //       `{
+    //         user(login: "chasemccoy") {
+    //           starredRepositories(first: 100, orderBy: {field: STARRED_AT, direction: DESC}) {
+    //             edges {
+    //               node {
+    //               	name
+    //                 url
+    //                 description
+    //                 repositoryTopics(last: 5) {
+    //                   edges {
+    //                     node {
+    //                       id
+    //                       topic {
+    //                         id
+    //                         name
+    //                       }
+    //                     }
+    //                   }
+    //                 }
+    //                 owner {
+    //                 	id
+    //                   login
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }`
+    //     ]
+    //   }
+    // },
     {
       resolve: 'gatsby-source-airtable',
       options: {
