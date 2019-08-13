@@ -58,13 +58,13 @@ const StarredRepository = props => (
     <Container>
       <Link to={props.repository.url}>
         <h3>{props.repository.name}</h3>
-          <Text.p m={0} mb={2} color="type.body">
-            {props.repository.description}
-          </Text.p>
+        <Text.p m={0} mb={2} color='type.body'>
+          {props.repository.description}
+        </Text.p>
 
-          <Text.p color="gray.3" fontSize={14}>
-            {props.repository.owner.login}
-          </Text.p>
+        <Text.p color='gray.3' fontSize={14}>
+          {props.repository.owner.login}
+        </Text.p>
       </Link>
     </Container>
   </RepositoryListItem>
@@ -72,7 +72,11 @@ const StarredRepository = props => (
 
 const CodePage = ({ data }) => {
   return (
-    <Page icon="code" title="Code" description="My favorite open source tools on the web.">
+    <Page
+      icon='code'
+      title='Code'
+      description='My favorite open source tools on the web.'
+    >
       <Text.p mb={6}>
         Some of my favorite open sourced projects (sourced from my starred
         repositories on GitHub).
@@ -91,19 +95,19 @@ const CodePage = ({ data }) => {
 
 export default CodePage
 
-export const query = graphql`
-  query CodeQuery {
-    starredRepositories: allGithubStarredrepositories {
-      edges {
-        node {
-          name
-          url
-          description
-          owner {
-            login
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query CodeQuery {
+//     starredRepositories: allGithubStarredrepositories {
+//       edges {
+//         node {
+//           name
+//           url
+//           description
+//           owner {
+//             login
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

@@ -25,15 +25,22 @@ const PaginationLink = styled(Link)`
 const BlogPage = ({ data, pageContext }) => {
   const { nodes, prev, next } = pageContext
 
-  const posts = nodes.filter(({node}) => node.format !== 'image' && node.format !== 'aside')
-  const asides = nodes.filter(({node}) => node.format === 'aside')
+  const posts = nodes.filter(
+    ({ node }) => node.format !== 'image' && node.format !== 'aside'
+  )
+  const asides = nodes.filter(({ node }) => node.format === 'aside')
 
   return (
-    <Page wide title={'Thoughts'} untitled description="What's on my mind, and links to some interesting stuff on the web.">
+    <Page
+      wide
+      title={'Thoughts'}
+      untitled
+      description="What's on my mind, and links to some interesting stuff on the web."
+    >
       <Grid gutter={32}>
-        <Box width={[1, 1, 1, 4.5/12]}>
+        <Box width={[1, 1, 1, 4.5 / 12]}>
           <Heading.section>Asides</Heading.section>
-          {asides.map(({node}, i) => (
+          {asides.map(({ node }, i) => (
             <React.Fragment key={i}>
               <Box mb={40}>
                 <Post
@@ -48,12 +55,12 @@ const BlogPage = ({ data, pageContext }) => {
           ))}
         </Box>
 
-        <Box width={[1, 1, 1, 7.5/12]}>
+        <Box width={[1, 1, 1, 7.5 / 12]}>
           <Heading.section>Writing</Heading.section>
-          {posts.map(({node}, i) => (
+          {posts.map(({ node }, i) => (
             <React.Fragment key={i}>
               <Box mb={[80, 80, 120]}>
-                {node.format === 'standard' && i === 0 &&  (
+                {node.format === 'standard' && i === 0 && (
                   <Post
                     title={node.title}
                     to={node.slug}

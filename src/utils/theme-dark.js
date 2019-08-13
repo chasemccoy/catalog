@@ -10,31 +10,28 @@ const fonts = common.fonts
 const colors = {
   accent: Object.assign('#FCBC4C', {
     light: '#FFE8BF40',
-    dark: '#E6960B'
+    dark: '#E6960B',
   }),
   page: {
-    light: '#FFFEFC',
-    dark: '#000000',
     background: '#222',
     text: '#DDD',
-    code: '#2A2A2A'
+    code: '#2A2A2A',
   },
   type: {
-    body: '#1e1f22',
-    header: '#1e1f22',
+    body: '#DDD',
+    header: '#DDD',
     menu: '#666666',
     link: '#0000FF',
     linkHover: '#000088',
-    code: '#DBDAD7'
+    code: '#DBDAD7',
   },
   gray: {
     0: '#2A2A2A',
     1: '#8A8987',
     2: '#BDBBB9',
     3: '#CCCBC8',
-    4: '#DBDAD7'
+    4: '#DBDAD7',
   },
-  neutral: '#8A8987'
 }
 
 const theme = {
@@ -45,7 +42,7 @@ const theme = {
   space,
   sizes,
   fontWeights,
-  fonts
+  fonts,
 }
 
 export default theme

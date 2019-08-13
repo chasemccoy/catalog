@@ -6,14 +6,14 @@ const fontFamilyArray = value => value.replace(/[""&]+/g, '').split(', ')
 
 const typography = new Typography({
   includeNormalize: false,
-  baseFontSize: '20px',
-  baseLineHeight: 1.5,
+  baseFontSize: '17px',
+  baseLineHeight: 1.45,
   headerLineHeight: 1.3,
   blockMarginBottom: 0.85,
-  bodyFontFamily: fontFamilyArray(theme.fonts.serif),
-  headerFontFamily: fontFamilyArray(theme.fonts.serif),
-  scaleRatio: 1.6,
-  headerWeight: theme.fontWeights.semibold,
+  bodyFontFamily: fontFamilyArray(theme.fonts.sans),
+  headerFontFamily: fontFamilyArray(theme.fonts.sans),
+  scaleRatio: 1.8,
+  headerWeight: theme.fontWeights.heavy,
   bodyWeight: theme.fontWeights.normal,
   boldWeight: theme.fontWeights.bold,
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
@@ -21,13 +21,14 @@ const typography = new Typography({
       '-webkit-font-smoothing': 'antialiased'
     },
     'h1,h2,h3,h4,h5,h6': {
-      marginTop: rhythm(1.25),
+      marginTop: rhythm(1.5),
+      marginBottom: '0.6em'
     },
     img: {
       height: 'auto'
     },
     ul: {
-      marginLeft: '1rem'
+      marginLeft: '0'
     },
     pre: {
       fontSize: '1em'
@@ -36,9 +37,9 @@ const typography = new Typography({
       fontSize: '0.75em',
       lineHeight: 1.6
     },
-    a: {
-      textDecorationSkip: 'unset',
-      '-webkit-text-decoration-skip': 'unset'
+    'pre code': {
+      lineHeight: 1.5,
+      fontSize: '14px'
     }
   })
 })

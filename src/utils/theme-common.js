@@ -1,9 +1,4 @@
-const breakpoints = [
-  '576px',
-  '768px',
-  '1000px',
-  '1300px'
-]
+const breakpoints = ['500px', '600px', '1000px', '1300px']
 
 const namedBreakpoints = {
   tiny: breakpoints[0],
@@ -12,19 +7,16 @@ const namedBreakpoints = {
   large: breakpoints[3]
 }
 
-const space = [0, 4, 8, 12, 16, 24, 32, 40]
+const space = [0, 1, 2, 3, 4, 5, 6, 7]
 
 const sizes = {
   layout: {
-    containerPadding: 48,
-    sidebarWidth: 280,
-    contentMaxWidth: 728,
-    gutter: 0
+    maxWidth: 952
   },
   timeline: {
     pointWidth: '12px',
     lineWidth: '2px',
-    linePadding: '32px',
+    linePadding: '32px'
   }
 }
 
@@ -34,13 +26,20 @@ const fontWeights = {
   medium: 500,
   semibold: 600,
   bold: 700,
-  heavy: 800,
+  heavy: 800
 }
 
 const fonts = {
-  sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-  serif: "Source Serif Pro, Tiempos, SF Serif, Georgia, serif",
-  mono: "iA Writer Quattro, Menlo, Monaco, OperatorMono-Book, Inconsolata, monospace",
+  get sans() {
+    return this.system
+  },
+  get serif() {
+    return this.system
+  },
+  get mono() {
+    return this.system
+  },
+
   code: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace`,
   system: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",

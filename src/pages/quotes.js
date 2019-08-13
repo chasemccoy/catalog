@@ -4,13 +4,13 @@ import { graphql } from 'gatsby'
 import { Box, Text } from '@chasemccoy/kit'
 import MultiColumn from 'components/MultiColumn'
 
-export const Quote = ({content, source, ...rest}) => (
+export const Quote = ({ content, source, ...rest }) => (
   <Box {...rest}>
-    <Text.p fontSize={22} lineHeight={1.4} mb={3}>
+    <Text.p fontSize={22} lineHeight={1.3} mb={8}>
       {content}
     </Text.p>
 
-    <Text.p m={0} fontSize={18} fontFamily='mono' color='gray.4' italic>
+    <Text.p m={0} fontSize={18} fontFamily='mono' color='gray.3'>
       {source}
     </Text.p>
   </Box>
@@ -18,17 +18,17 @@ export const Quote = ({content, source, ...rest}) => (
 
 const QuotesPage = ({ data }) => {
   return (
-    <Page wide title="Quotes" description="Words worth keeping in mind.">
-      <MultiColumn count={2} gap='64px' minColumnWidth='400px' mt={48}>
+    <Page title='Quotes' untitled description='Words worth keeping in mind.'>
+      <MultiColumn count={2} gap='64px' minColumnWidth='400px'>
         {data.quotes.edges.map(({ node }, i) => (
           <Quote
             content={node.content}
             source={node.metadata}
-            mb={32}
-            pb={32}
+            mb={24}
+            pb={24}
             css={`
               &:not(:last-child) {
-                border-bottom: 2px solid ${p => p.theme.colors.gray[0]};
+                border-bottom: 4px solid ${p => p.theme.colors.gray[0]};
               }
 
               &:last-child {

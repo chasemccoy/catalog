@@ -4,24 +4,26 @@ import Page from 'components/Page'
 import { Box, Text } from '@chasemccoy/kit'
 import Image from 'components/Image'
 import media from 'utils/media'
-import { Row, Column } from 'components/Grid'
-import Link from 'components/Link'
+// import Link from 'components/Link'
 import Heading from 'components/Heading'
 import { graphql } from 'gatsby'
 
 const Track = styled(Box)`
+  padding: 8px 0;
+
   & + & {
-    border-top: 1px solid ${props => props.theme.colors.gray[0]};
+    border-top: 4px solid ${props => props.theme.colors.gray[0]};
   }
 `
 
 Track.Image = styled(Image)`
-  height: 48px;
-  width: 48px;
+  height: 56px;
+  width: 56px;
 `
 
 Track.Title = styled(Heading.h4)`
   margin: 0;
+  flex: 60%;
 
   ${media.tiny`
     width: 100%;
@@ -43,46 +45,64 @@ class MusicPage extends React.Component {
 
   render() {
     return (
-      <Page resource title="Music" icon="music" description="A few of my favorite albums, as well as what I am listening to recently.">
-        <Text.p mb={9}>
-          I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.
-        </Text.p>
+      <Page
+        title='Music'
+        untitled
+        description='I am listening to music about 95% of the time I am awake. Here are a few albums I really like, as well as a list of some songs I have been listening to recently.'
+      >
+        {/* <Heading.section mb={24}>Favorite Albums</Heading.section> */}
 
-        <Heading.section className='full'>Favorite Albums</Heading.section>
-
-        <Row mb={4} className='full'>
-          {this.props.data.music.edges.map(({node}, i) => (
-            <Column width={[1/2, 1/3]} key={i}>
+        {/* <Grid mb={40}>
+          {this.props.data.music.edges.map(({ node }, i) => (
+            <Box width={[1 / 2, 1 / 3]} key={i}>
               <Link to={node.url} unstyled color='page.text'>
                 <Image sizes={node.image.childImageSharp.sizes} />
 
-                <Box height={['10em', '10em', '10em', '8em']} mt={3}>
-                  <Heading.h3 mb={2}>{node.title}</Heading.h3>
-                  <Text color='gray.3' fontFamily='mono' fontSize='16px'>{node.metadata}</Text>
+                <Box height={['8em', '8em', '8em', '6em']} mt={3}>
+                  <Heading.h3 mt={0} mb='4px'>
+                    {node.title}
+                  </Heading.h3>
+                  <Text color='gray.3' fontFamily='mono' fontSize='16px'>
+                    {node.metadata}
+                  </Text>
                 </Box>
               </Link>
-            </Column>
+            </Box>
           ))}
-        </Row>
+        </Grid> */}
+
+        <Heading.section mb={16}>Recent Tracks</Heading.section>
 
         {this.state.tracks.length > 0 && (
-          <div className='full'>
-            <Heading.section className='full'>Recent Tracks</Heading.section>
+          <Box>
+            {this.state.tracks.map(
+              (track, i) =>
+                track.image && (
+                  <Track
+                    display='flex'
+                    alignItems={['flex-start', 'center']}
+                    key={i}
+                  >
+                    <Track.Image src={track.image} />
 
-            {this.state.tracks.map((track, i) => (
-              track.image && (
-                <Track py={2} display='flex' alignItems={['flex-start', 'center']} key={i}>
-                  <Track.Image src={track.image} />
+                    <Box
+                      display='flex'
+                      justifyContent='space-between'
+                      alignItems='center'
+                      flex='1'
+                      flexWrap='wrap'
+                      ml={16}
+                    >
+                      <Track.Title>{track.name}</Track.Title>
 
-                  <Box display='flex' justifyContent='space-between' alignItems='center' flex='1' flexWrap='wrap' ml={4}>
-                    <Track.Title>{track.name}</Track.Title>
-
-                    <Text color='gray.3' fontFamily='mono' fontSize='16px'>{track.artist}</Text>
-                  </Box>
-                </Track>
-              )
-            ))}
-          </div>
+                      <Text color='gray.3' fontFamily='mono' fontSize='16px'>
+                        {track.artist}
+                      </Text>
+                    </Box>
+                  </Track>
+                )
+            )}
+          </Box>
         )}
       </Page>
     )

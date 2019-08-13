@@ -1,88 +1,8 @@
-/**********************/
-/* iA Writer Duospace */
-/**********************/
-
-/* @font-face {
-    font-family: 'iA Writer Duospace';
-    src: url('iAWriterDuospace-Bold.woff2') format('woff2'),
-        url('iAWriterDuospace-Bold.woff') format('woff'),
-        url('iAWriterDuospace-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-} */
-
-/* @font-face {
-    font-family: 'iA Writer Duospace';
-    src: url('iAWriterDuospace-BoldItalic.woff2') format('woff2'),
-        url('iAWriterDuospace-BoldItalic.woff') format('woff'),
-        url('iAWriterDuospace-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-} */
-
-/* @font-face {
-    font-family: 'iA Writer Duospace';
-    src: url('iAWriterDuospace-Regular.woff2') format('woff2'),
-        url('iAWriterDuospace-Regular.woff') format('woff'),
-        url('iAWriterDuospace-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'iA Writer Duospace';
-    src: url('iAWriterDuospace-RegularItalic.woff2') format('woff2'),
-        url('iAWriterDuospace-RegularItalic.woff') format('woff'),
-        url('iAWriterDuospace-RegularItalic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-} */
-
-/*********************/
-/* iA Writer Quattro */
-/*********************/
-
-@font-face {
-    font-family: 'iA Writer Quattro';
-    src: url('iAWriterQuattroS-Bold.woff2') format('woff2'),
-        url('iAWriterQuattroS-Bold.woff') format('woff'),
-        url('iAWriterQuattroS-Bold.eot') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-/* @font-face {
-    font-family: 'iA Writer Quattro';
-    src: url('iAWriterQuattroS-BoldItalic.woff2') format('woff2'),
-        url('iAWriterQuattroS-BoldItalic.woff') format('woff'),
-        url('iAWriterQuattroS-BoldItalic.eot') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-} */
-
-@font-face {
-    font-family: 'iA Writer Quattro';
-    src: url('iAWriterQuattroS-Regular.woff2') format('woff2'),
-        url('iAWriterQuattroS-Regular.woff') format('woff'),
-        url('iAWriterQuattroS-Regular.eot') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'iA Writer Quattro';
-    src: url('iAWriterQuattroS-Italic.woff2') format('woff2'),
-        url('iAWriterQuattroS-Italic.woff') format('woff'),
-        url('iAWriterQuattroS-Italic.eot') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-
 /********************/
 /* SOURCE SERIF PRO */
 /********************/
 
-@font-face{
+/* @font-face{
     font-family: 'Source Serif Pro';
     font-weight: 400;
     font-style: normal;
@@ -124,4 +44,4 @@
          url('source-serif/WOFF/OTF/SourceSerifPro-SemiboldIt.otf.woff') format('woff'),
          url('source-serif/OTF/SourceSerifPro-SemiboldIt.otf') format('opentype'),
          url('source-serif/TTF/SourceSerifPro-SemiboldIt.ttf') format('truetype');
-}
+} */

@@ -1,17 +1,40 @@
-export function capitalize(string) {
+const capitalize = string => {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function lowercase(string) {
+const lowercase = string => {
   return string.charAt(0).toLowerCase() + string.slice(1)
 }
 
-export function truncateExcerpt(string) {
+const truncateExcerpt = string => {
   return stripTags(string).slice(0, -11)
 }
 
-export function stripTags(string) {
+const stripTags = string => {
   if (string === null || string === '') return false
 
   return string.replace(/<[^>]*>/g, '')
+}
+
+const stripHTML = string => string.replace(/<[^>]+>/g, '')
+
+const slugify = string => {
+  return string
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '')
+}
+
+module.exports = {
+  capitalize,
+  lowercase,
+  truncateExcerpt,
+  stripTags,
+  stripHTML,
+  slugify
 }

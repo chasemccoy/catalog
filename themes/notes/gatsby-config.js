@@ -1,16 +1,16 @@
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-mdx',
+      resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1500,
-              sizeByPixelDensity: true,
-              linkImagesToOriginal: true
+              maxWidth: 1000,
+              linkImagesToOriginal: true,
+              showCaptions: ['title']
             }
           },
           {
@@ -18,6 +18,9 @@ module.exports = {
             options: {
               icon: false
             }
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files'
           }
         ]
       }

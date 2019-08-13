@@ -1,30 +1,21 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import media from 'utils/media'
-import { space } from 'styled-system'
-import { Box, Text } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
+import Tags from 'components/Tags'
+import MDX from 'components/MDX'
 
-const Container = styled.div`
-  font-family: ${p => p.theme.fonts.serif};
-
-  img { width: 100%; }
-
-  ${media.small`
-    font-size: 18px;
-
-    img {
-      max-width: none;
-      width: calc(100% + 32px);
-      margin-left: -16px;
-    }
-  `}
-
-  blockquote {
-    margin-left: 4px;
-    margin-right: 0;
-    padding: 0 16px;
+const Container = styled.article`
+  &:after {
+    content: '';
+    display: block;
+    margin-top: 48px;
+    margin-left: calc(50% - 5em);
+    height: 8px;
+    background: ${props => props.theme.colors.gray[0]};
+    max-width: 10em;
   }
 
   iframe {
@@ -51,17 +42,25 @@ const Container = styled.div`
       border: 0;
     }
   }
+
+  a[href*='chasemccoy.files.wordpress'],
+  a[href*='instagram.com/p'],
+  a[href*='/static/'] {
+    box-shadow: none;
+    border: none;
+    display: block;
+    padding: 0;
+
+    &:hover {
+      background: none;
+    }
+  }
 `
 
 const AsideContainer = styled(Container)`
-  font-size: 17px;
-  line-height: 1.4;
-
-  ${media.small`
-    font-size: 16px;
-  `}
-
-  p, blockquote, img {
+  p,
+  blockquote,
+  img {
     margin-bottom: 1em;
   }
 
@@ -83,124 +82,113 @@ const AsideContainer = styled(Container)`
       margin-right: -16px;
     }
   }
-
-  ${p => p.photo && css`
-    font-size: 1rem;
-  `}
-`
-
-const PostContainer = styled(Container)`
-  h3, h4, h5, h6 {
-    font-family: ${p => p.theme.fonts.mono};
-    text-transform: uppercase;
-    margin-top: 2.5em;
-  }
 `
 
 const Title = styled(Link)`
-  font-family: ${p => p.theme.fonts.mono};
+  color: ${p => p.theme.colors.type.header};
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    color: ${p => p.theme.colors.type.header};
+    box-shadow: 0px -0.5em 0px #ffe999 inset;
   }
 `
 
-const Content = styled.div`
-  a[href*='chasemccoy.files.wordpress'], a[href*='instagram.com/p'] {
-  	box-shadow: none;
-    display: block;
-    margin-bottom: -12px;
-    padding: 0;
-
-    &:hover {
-      background: none;
-    }
-	}
-
-  & > p:last-child {
-    margin-bottom: 0;
-  }
-`
-
-const PostMeta = styled.div`
-  font-size: 12px;
-  font-family: ${p => p.theme.fonts.mono};
+const PostMeta = styled(Box)`
+  font-size: 13px;
+  line-height: 1;
   color: ${p => p.theme.colors.gray[3]};
-  margin-bottom: 16px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  ${space}
+  letter-spacing: 0.5px;
 
   a {
-    color: ${p => p.theme.colors.accent};
+    color: ${p => p.theme.colors.gray[3]};
     text-decoration: none;
   }
-
-  height: 10px;
-  border-bottom: 1px solid ${p => p.theme.colors.accent.light};
-
-  a {
-    background: ${p => p.theme.colors.page.background};
-    padding-right: 8px;
-  }
 `
 
-const Meta = ({ date, permalink, aside }) => (
-  <PostMeta mt={!aside ? 5 : 0}>
-    {date &&
-      permalink && (
-        <Link to={permalink}>{date}</Link>
-      )}
-
-    {date && !permalink && `Posted on ${date}`}
+const Date = ({ date, permalink, ...props }) => (
+  <PostMeta {...props}>
+    <Link to={permalink}>{date}</Link>
   </PostMeta>
 )
 
-const Tags = ({ tags, title }) => {
-  return (
-    <Box mt={title ? '-16px' : 0} mb='24px'>
-      {tags.map((tag, i) => (
-        <Box as='span' display='inline-block' bg='gray.0' py='4px' px='8px' mb='12px' borderRadius='4px' color='gray.4' mr='12px' key={i}>
-          <Text uppercase fontFamily='mono' fontSize='12px'>{tag}</Text>
-        </Box>
-      ))}
-    </Box>
-  )
-}
+const Metadata = ({ date, permalink, tags, ...props }) => (
+  <Box display='flex' alignItems='center' {...props}>
+    <Date
+      date={date}
+      permalink={permalink}
+      borderRight={tags ? '1px solid' : 'none'}
+      borderColor='gray.1'
+      pr='8px'
+      mr='8px'
+      flex='0 0 auto'
+    />
+
+    {tags && <Tags display='inline' items={tags} />}
+  </Box>
+)
 
 export const Post = props => {
   const title = props.title && (
-    <Heading.h1 fontSize={props.aside ? '24px' : undefined} mb={props.aside ? '12px' : undefined} mt={0}>
+    <Heading.h2
+      fontSize='1.8rem'
+      mt={0}
+      mb={8}
+      css={`
+        border: none;
+      `}
+    >
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
-    </Heading.h1>
+    </Heading.h2>
   )
 
   const content = props.content && (
-    <Content dangerouslySetInnerHTML={{ __html: props.content }} />
+    <div dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  const meta = props.date && <Meta date={props.date} permalink={props.to} aside={props.aside} />
-
-  const tags = props.tags && <Tags tags={props.tags} title={props.title} />
+  const metadata = props.date && (
+    <Metadata
+      date={props.date}
+      permalink={props.to}
+      tags={props.tags}
+      mb={20}
+    />
+  )
 
   if (props.aside) {
     return (
       <AsideContainer photo={props.imagePost}>
-        {meta}
+        {metadata}
         {title}
         {content}
       </AsideContainer>
     )
   } else {
     return (
-      <PostContainer>
-        {title}
-        {tags}
-        {content}
-        {meta}
-      </PostContainer>
+      <Container>
+        {!props.untitled && (
+          <React.Fragment>
+            {title}
+            {metadata}
+          </React.Fragment>
+        )}
+        {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
+      </Container>
     )
   }
 }
+
+Post.Header = ({ title, to, date, tags }) => (
+  <React.Fragment>
+    <Date date={date} permalink={to} mb={title || tags ? 40 : 0} />
+
+    {title && (
+      <Heading.h1 mt={0} mb={!tags && 0}>
+        <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />
+      </Heading.h1>
+    )}
+
+    {tags && <Tags items={tags} />}
+  </React.Fragment>
+)

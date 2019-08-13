@@ -28,7 +28,7 @@ const MenuItem = styled.li`
 
   a.selected {
     text-decoration: none;
-    opacity: 1.0;
+    opacity: 1;
     color: ${p => p.theme.colors.type.menu};
     border-top: 1px solid ${p => p.theme.colors.accent};
     padding-top: ${p => p.theme.space[3]}px;
@@ -49,10 +49,10 @@ const MenuItem = styled.li`
   }
 
   .dark & {
-    color: ${p => p.theme.colors.gray[4]}
+    color: ${p => p.theme.colors.gray[4]};
   }
 `
-const Item = ({to, children, ...rest}) => (
+const Item = ({ to, children, ...rest }) => (
   <MenuItem {...rest}>
     <Link to={to}>{children}</Link>
   </MenuItem>

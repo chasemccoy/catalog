@@ -3,10 +3,6 @@ import { Text } from '@chasemccoy/kit'
 
 const Heading = Text.withComponent('h1')
 
-Heading.defaultProps = {
-	fontFamily: 'serif'
-}
-
 Heading.h1 = Heading.withComponent('h1')
 Heading.h2 = Heading.withComponent('h2')
 Heading.h3 = Heading.withComponent('h3')
@@ -15,17 +11,20 @@ Heading.h5 = Heading.withComponent('h5')
 Heading.h6 = Heading.withComponent('h6')
 
 Heading.section = styled(Heading.withComponent('h4'))`
-	color: ${p => p.theme.name === 'light' ? p.theme.colors.page.text : p.theme.colors.accent.dark};
+  color: ${p =>
+    p.theme.name === 'light'
+      ? p.theme.colors.page.text
+      : p.theme.colors.accent.dark};
 `
 
 Heading.section.defaultProps = {
-	fontFamily: 'mono',
-	borderTop: '2px solid',
-	pt: '6px',
-	uppercase: true,
-	fontSize: '14px',
-	mb: '16px',
-	mt: 0
+  borderBottom: '1px solid',
+  borderColor: 'gray.1',
+  pb: '2px',
+  fontWeight: 'bold',
+  fontSize: '14px',
+  mb: 8,
+  mt: 0
 }
 
 export default Heading

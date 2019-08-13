@@ -12,7 +12,7 @@ export const Row = props => (
 )
 
 export const Column = props => (
-  <Box px={['8px', '12px']} pt={['16px', '24px']} flex="0 1 auto" {...props} />
+  <Box px={['8px', '12px']} pt={['16px', '24px']} flex='0 1 auto' {...props} />
 )
 
 export const Float = styled(Box)`

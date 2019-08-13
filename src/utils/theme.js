@@ -8,13 +8,14 @@ const fontWeights = common.fontWeights
 const fonts = common.fonts
 
 const colors = {
-  accent: Object.assign('#0000FF', {
-    light: '#E9E9F5',
-    dark: '#000088'
+  accent: Object.assign('#DB9102', {
+    light: '#FFFAE5',
+    soft: '#FFE999',
+    medium: '#ffda73',
+    pop: '#FFCD3F',
+    dark: '#b3821c'
   }),
   page: {
-    light: '#FFFEFC',
-    dark: '#000000',
     background: 'white',
     text: '#1e1f22',
     code: 'rgb(33, 33, 57)'
@@ -28,13 +29,13 @@ const colors = {
     code: '#c6dbf4'
   },
   gray: {
-    0: '#F5F5FA',
-    1: '#E1E1E6',
-    2: '#C8C8CC',
-    3: '#969699',
-    4: '#5A5A5C'
-  },
-  neutral: '#646466'
+    0: '#F9F9F9',
+    1: '#EBEBEB',
+    2: '#D6D6D6',
+    3: '#A6A6A6',
+    4: '#616161',
+    5: '#414141'
+  }
 }
 
 const theme = {

@@ -1,42 +1,51 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Box, Grid, Text } from '@chasemccoy/kit'
-import Heading from 'components/Heading'
-import Link from 'components/Link'
+import { Grid, Box } from '@chasemccoy/kit'
 import Sidebar from '../components/notes/Sidebar'
-import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
+import TabCard from 'components/TabCard'
+import Breadcrumbs from '../components/notes/Breadcrumbs'
+import { capitalize } from 'utils'
+
+const Header = ({ category, ...props }) => (
+  <Page.Header {...props}>
+    {(Title, Description) => (
+      <React.Fragment>
+        {category && <Breadcrumbs category={category} />}
+
+        <Title mt={category ? undefined : 0} />
+        <Description />
+      </React.Fragment>
+    )}
+  </Page.Header>
+)
 
 const Notes = ({ pageContext: { notes, categories, category } }) => (
-  <Page title='Notes' wide untitled>
+  <Page
+    title={category ? capitalize(category) : 'Notes'}
+    description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
+    untitled
+    header={<Header category={category} />}
+    sidebar={categories ? <Sidebar data={categories} /> : null}
+  >
     <Layout>
-      <Layout.Sidebar>
-        {categories && <Sidebar mb={32} data={categories} />}
-        {notes && <Sidebar.Notes data={notes} />}
-      </Layout.Sidebar>
-
       <Layout.Content>
-        <Heading.section>
-          <Breadcrumbs mb={32} category={category} />
-        </Heading.section>
-        
-        <Grid>
-          {notes.filter(note => !note.fields.isLandingPage)
-          .map(note => (
-            <Box width={[1, 1/2, 1, 1/2]} key={note.id}>
-              <Link unstyled fontFamily='mono' fontWeight='bold' fontSize='22px' to={note.fields.slug}>{note.frontmatter.title}</Link>
-
-              {note.frontmatter.tags && (
-                <Text color='gray.4' fontFamily='mono' fontSize='14px' mb='4px'>
-                  tagged: {note.frontmatter.tags.join(', ')}
-                </Text>
-              )}
-              
-              <Text.p fontFamily='system' fontSize='16px' mb='8px'>
-                {note.excerpt}
-              </Text.p>
-            </Box>
-          ))}
+        <Grid mb={40} overflow='visible'>
+          {notes
+            .filter(note => !note.fields.isLandingPage)
+            .map(note => (
+              <Box width={[1, 1 / 2]} key={note.id}>
+                <TabCard
+                  light
+                  title={note.frontmatter.title}
+                  tags={note.frontmatter.tags}
+                  description={note.excerpt}
+                  to={note.fields.slug}
+                  tab={note.fields.category}
+                  height='250px'
+                />
+              </Box>
+            ))}
         </Grid>
       </Layout.Content>
     </Layout>
