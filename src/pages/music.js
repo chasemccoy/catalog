@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
-import { Grid, Box, Text } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Image from 'components/Image'
 import media from 'utils/media'
-import Link from 'components/Link'
+// import Link from 'components/Link'
 import Heading from 'components/Heading'
 import { graphql } from 'gatsby'
 
@@ -71,10 +71,10 @@ class MusicPage extends React.Component {
           ))}
         </Grid> */}
 
+        <Heading.section mb={16}>Recent Tracks</Heading.section>
+
         {this.state.tracks.length > 0 && (
           <Box>
-            <Heading.section mb={16}>Recent Tracks</Heading.section>
-
             {this.state.tracks.map(
               (track, i) =>
                 track.image && (

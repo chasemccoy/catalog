@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Box, Text } from '@chasemccoy/kit'
 
 const Callout = ({ children, ...rest }) => (

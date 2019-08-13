@@ -102,7 +102,7 @@ const Nav = ({ ...rest }) => (
 
 const Overflow = ({ data, ...rest }) => (
   <Box {...rest}>
-    <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.5'>
+    <Page.SidebarHeader mr={12} borderWidth={0} mb={2} color='gray.5'>
       Stay in touch
     </Page.SidebarHeader>
 
@@ -117,7 +117,7 @@ const Overflow = ({ data, ...rest }) => (
       .
     </Text>
 
-    <Page.SidebarHeader mr={12} borderWidth={0} mb='4px' color='gray.5'>
+    <Page.SidebarHeader mr={12} borderWidth={0} mb={2} color='gray.5'>
       Currently
     </Page.SidebarHeader>
 

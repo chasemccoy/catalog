@@ -39,7 +39,7 @@ const Portrait = styled(Box)`
 
 const GradientBox = styled(Box)`
   background: linear-gradient(
-    to bottom,
+    ${p => (p.flipped ? 'to top' : 'to bottom')},
     ${p => p.theme.colors.accent.light} 24px,
     ${p => p.theme.colors.accent.soft} 24px,
     ${p => p.theme.colors.accent.soft} 48px,
@@ -48,7 +48,7 @@ const GradientBox = styled(Box)`
     ${p => p.theme.colors.accent.pop} 72px,
     ${p => p.theme.colors.accent.pop}
   );
-  padding-top: 72px;
+  padding-${p => (p.flipped ? 'bottom' : 'top')}: 72px;
 
   h4 {
     border-bottom: 1px dashed;
@@ -64,10 +64,7 @@ const ArtistList = styled(UnorderedList)`
   }
 
   li:nth-child(even) {
-    color: ${p =>
-      p.theme.name === 'light'
-        ? p.theme.colors.gray[4]
-        : p.theme.colors.gray[2]};
+    opacity: 0.6;
   }
 `
 
@@ -77,16 +74,16 @@ const getTracks = async set => {
   set(result)
 }
 
-const BorderedBox = props => (
-  <Box
-    p={[8, 16]}
-    bg='white'
-    border='3px solid'
-    borderRadius='8px'
-    // boxShadow='8px 6px 0 black'
-    {...props}
-  />
-)
+// const BorderedBox = props => (
+//   <Box
+//     p={[8, 16]}
+//     bg='white'
+//     border='3px solid'
+//     borderRadius='8px'
+//     // boxShadow='8px 6px 0 black'
+//     {...props}
+//   />
+// )
 
 const Intro = props => (
   <Text.p
@@ -138,7 +135,7 @@ const Bio = props => (
       <Grid mt={[16, -24]}>
         <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
           <Heading.section mt={0} mb={8}>
-            Things I Like
+            Interests
           </Heading.section>
           <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
             Hypertext, CSS, semantic HTML, design systems, internet culture,
@@ -152,9 +149,9 @@ const Bio = props => (
           <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
             This site was built using{' '}
             <Link to='https://gatsbyjs.org'>Gatsby</Link>,{' '}
-            <Link to='https://styled-components.com'>styled-components</Link>,
-            and <Link to='https://netlify.com'>Netlify</Link>. Text is set in
-            Source Serif Pro and iA Writer Quattro. Weather data provided by the{' '}
+            <Link to='https://styled-components.com'>Styled Components</Link>,
+            and <Link to='https://netlify.com'>Netlify</Link>. Weather data
+            provided by the{' '}
             <Link to='https://darksky.net/dev'>Dark Sky API</Link>.
           </Text>
         </Box>
@@ -227,11 +224,11 @@ const Index = props => {
   return (
     <Page wide header={<Header />}>
       <Container>
-        <Box pt={16} px={[16, 16, 32]} bg='accent.pop'>
+        <GradientBox flipped pt={16} px={[16, 16, 32]} bg='accent.pop'>
           <AsciiLogo />
           <Intro mt={16} mb={24} />
           <Box borderBottom='2px dashed' borderColor='accent' mx={-32} />
-        </Box>
+        </GradientBox>
 
         <Box py={24} px={[16, 16, 32]}>
           <Bio />
@@ -260,28 +257,28 @@ const Index = props => {
             blogroll={blogroll}
             photos={props.data.photos}
           />
+
+          {/* <Grid mt={8}>
+            <Box width={1}>
+              {artists.length > 0 && (
+                <>
+                  <Heading.section>On rotation</Heading.section>
+
+                  <ArtistList unstyled inline>
+                    {uniqueArtists.map(
+                      (artist, i) =>
+                        artist && (
+                          <Text fontSize='14px' fontFamily='mono' as='li' key={i}>
+                            {artist}
+                          </Text>
+                        )
+                    )}
+                  </ArtistList>
+                </>
+              )}
+            </Box>
+          </Grid> */}
         </GradientBox>
-
-        {/* <Grid mb={40}>
-          <Box width={1}>
-            {artists.length > 0 && (
-              <>
-                <Heading.section>On Rotation</Heading.section>
-
-                <ArtistList unstyled inline>
-                  {uniqueArtists.map(
-                    (artist, i) =>
-                      artist && (
-                        <Text fontSize='14px' fontFamily='mono' as='li' key={i}>
-                          {artist}
-                        </Text>
-                      )
-                  )}
-                </ArtistList>
-              </>
-            )}
-          </Box>
-        </Grid> */}
       </Container>
     </Page>
   )
