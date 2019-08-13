@@ -69,94 +69,94 @@ const ResourcesPage = ({ data }) => {
 
 export default ResourcesPage
 
-export const query = graphql`
-  query ResourcesQuery {
-    chicago: allChicagoHJson(sort: { fields: [title], order: ASC }) {
-      edges {
-        node {
-          title
-          description
-          url
-          image
-        }
-      }
-    }
+// export const query = graphql`
+//   query ResourcesQuery {
+//     chicago: allChicagoHJson(sort: { fields: [title], order: ASC }) {
+//       edges {
+//         node {
+//           title
+//           description
+//           url
+//           image
+//         }
+//       }
+//     }
 
-    books: allBooksHJson(sort: { fields: [title], order: ASC }) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image {
-            childImageSharp {
-              sizes(maxWidth: 900) {
-                ...GatsbyImageSharpSizes
-              }
-            }
-          }
-        }
-      }
-    }
+//     books: allBooksHJson(sort: { fields: [title], order: ASC }) {
+//       edges {
+//         node {
+//           title
+//           metadata
+//           description
+//           url
+//           image {
+//             childImageSharp {
+//               sizes(maxWidth: 900) {
+//                 ...GatsbyImageSharpSizes
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
 
-    quotes: allQuotesHJson(sort: { fields: [metadata], order: ASC }) {
-      edges {
-        node {
-          content
-          metadata
-          tags
-        }
-      }
-    }
+//     quotes: allQuotesHJson(sort: { fields: [metadata], order: ASC }) {
+//       edges {
+//         node {
+//           content
+//           metadata
+//           tags
+//         }
+//       }
+//     }
 
-    music: allMusicHJson(sort: { fields: [title], order: ASC }) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image {
-            childImageSharp {
-              sizes(maxWidth: 900) {
-                ...GatsbyImageSharpSizes
-              }
-            }
-          }
-        }
-      }
-    }
+//     music: allMusicHJson(sort: { fields: [title], order: ASC }) {
+//       edges {
+//         node {
+//           title
+//           metadata
+//           description
+//           url
+//           image {
+//             childImageSharp {
+//               sizes(maxWidth: 900) {
+//                 ...GatsbyImageSharpSizes
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
 
-    apps: allAppsHJson(sort: { fields: [title], order: ASC }) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image {
-            childImageSharp {
-              sizes(maxWidth: 900, toFormat: PNG) {
-                ...GatsbyImageSharpSizes
-              }
-            }
-          }
-        }
-      }
-    }
+//     apps: allAppsHJson(sort: { fields: [title], order: ASC }) {
+//       edges {
+//         node {
+//           title
+//           metadata
+//           description
+//           url
+//           image {
+//             childImageSharp {
+//               sizes(maxWidth: 900, toFormat: PNG) {
+//                 ...GatsbyImageSharpSizes
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
 
-    code: allGithubStarredrepositories {
-      edges {
-        node {
-          name
-          url
-          description
-          owner {
-            login
-          }
-        }
-      }
-    }
-  }
-`
+//     code: allGithubStarredrepositories {
+//       edges {
+//         node {
+//           name
+//           url
+//           description
+//           owner {
+//             login
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

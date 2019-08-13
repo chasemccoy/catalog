@@ -95,19 +95,19 @@ const CodePage = ({ data }) => {
 
 export default CodePage
 
-export const query = graphql`
-  query CodeQuery {
-    starredRepositories: allGithubStarredrepositories {
-      edges {
-        node {
-          name
-          url
-          description
-          owner {
-            login
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query CodeQuery {
+//     starredRepositories: allGithubStarredrepositories {
+//       edges {
+//         node {
+//           name
+//           url
+//           description
+//           owner {
+//             login
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

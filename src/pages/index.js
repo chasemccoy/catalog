@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
 import { Grid } from 'components/Base'
@@ -56,23 +56,23 @@ const GradientBox = styled(Box)`
   }
 `
 
-const ArtistList = styled(UnorderedList)`
-  li {
-    margin-right: 16px;
-    margin-bottom: 6px;
-    white-space: nowrap;
-  }
+// const ArtistList = styled(UnorderedList)`
+//   li {
+//     margin-right: 16px;
+//     margin-bottom: 6px;
+//     white-space: nowrap;
+//   }
 
-  li:nth-child(even) {
-    opacity: 0.6;
-  }
-`
+//   li:nth-child(even) {
+//     opacity: 0.6;
+//   }
+// `
 
-const getTracks = async set => {
-  const response = await fetch('https://chs-stats.now.sh/recentTracks')
-  const result = await response.json()
-  set(result)
-}
+// const getTracks = async set => {
+//   const response = await fetch('https://chs-stats.now.sh/recentTracks')
+//   const result = await response.json()
+//   set(result)
+// }
 
 // const BorderedBox = props => (
 //   <Box
@@ -208,14 +208,14 @@ const Header = props => (
 )
 
 const Index = props => {
-  const [tracks, setTracks] = useState([])
+  // const [tracks, setTracks] = useState([])
 
-  useEffect(() => {
-    getTracks(setTracks)
-  }, [])
+  // useEffect(() => {
+  //   getTracks(setTracks)
+  // }, [])
 
-  const artists = tracks.map(track => track.artist)
-  const uniqueArtists = Array.from(new Set(artists))
+  // const artists = tracks.map(track => track.artist)
+  // const uniqueArtists = Array.from(new Set(artists))
 
   const blogroll = props.data.blogroll.nodes.sort((a, b) =>
     a.data.title.localeCompare(b.data.title)

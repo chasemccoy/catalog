@@ -48,7 +48,7 @@ const NavLink = styled(Link)`
   color: ${p => p.theme.colors.gray[3]} !important;
 
   &.selected {
-    color: ${p => p.theme.colors.type.body};
+    color: ${p => p.theme.colors.type.body} !important;
   }
 `
 
@@ -86,12 +86,17 @@ const Nav = ({ ...rest }) => (
           </NavLink>
         </li>
         <li>
-          <NavLink to='/quotes' unstyled partiallyActive>
+          <NavLink to='/books' unstyled>
+            books
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/quotes' unstyled>
             quotes
           </NavLink>
         </li>
         <li>
-          <NavLink to='/music' unstyled partiallyActive>
+          <NavLink to='/music' unstyled>
             music
           </NavLink>
         </li>
