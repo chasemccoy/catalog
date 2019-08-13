@@ -146,7 +146,7 @@ const Overflow = ({ data, ...rest }) => (
       <Box as='li'>
         {data.weather ? (
           <React.Fragment>
-            {data.weather.temperature} in <Link to='/chicago'>Chicago</Link>
+            {data.weather.temperature} in Chicago
           </React.Fragment>
         ) : (
           'Loading...'
