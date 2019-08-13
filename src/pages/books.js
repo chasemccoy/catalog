@@ -21,7 +21,7 @@ const BooksPage = ({ data }) => {
               <Image fluid={node.image.childImageSharp.fluid} />
 
               <Box height='8em'>
-                <Heading.h3 mb={1} lineHeight={1.3} color='page.text'>
+                <Heading.h3 my={8} lineHeight={1.3} color='page.text'>
                   {node.title}
                 </Heading.h3>
                 <Text.p fontSize='16px' color='gray.4' fontFamily='mono'>

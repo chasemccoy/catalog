@@ -110,8 +110,7 @@ Page.Header = ({ title, description, children, wide, ...rest }) => {
     ) : null
 
   let Description = null
-  const isCustomDescription =
-    description && !description.endsWith('…') && description.length > 120
+  const isCustomDescription = description && !description.endsWith('…')
 
   if (isCustomDescription) {
     Description = props => (
