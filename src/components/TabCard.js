@@ -121,22 +121,26 @@ const TabCard = ({ title, description, tab, tags, to, light, ...rest }) => (
         width={1}
         light={light}
       >
-        <Text
-          as='h3'
-          mt={0}
-          mb={0}
-          fontSize='24px'
-          dangerouslySetInnerHTML={{ __html: title }}
-        />
+        {title && (
+          <Text
+            as='h3'
+            mt={0}
+            mb={0}
+            fontSize='24px'
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+        )}
 
         {tags && <Tags items={tags} mt={0} />}
 
-        <Text
-          fontSize='15px'
-          lineHeight='1.4'
-          mt={24}
-          dangerouslySetInnerHTML={{ __html: stripHTML(description) }}
-        />
+        {description && (
+          <Text
+            fontSize='15px'
+            lineHeight='1.4'
+            mt={24}
+            dangerouslySetInnerHTML={{ __html: stripHTML(description) }}
+          />
+        )}
       </GradientBox>
     </Box>
   </HoverLink>
