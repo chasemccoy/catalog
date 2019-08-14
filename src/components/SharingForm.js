@@ -127,6 +127,7 @@ const SharingForm = ({
                 autoComplete='username'
                 value={username}
                 onInput={onUpdate}
+                required
               />
             </li>
             <li>
@@ -138,6 +139,7 @@ const SharingForm = ({
                 autoComplete='current-password'
                 value={token}
                 onInput={onUpdate}
+                required
               />
             </li>
           </UnorderedList>

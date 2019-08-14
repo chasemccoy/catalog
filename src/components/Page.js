@@ -191,7 +191,7 @@ const DefaultHeader = props => (
   <Page.Header {...props}>
     {(Title, Description) => (
       <React.Fragment>
-        <Title mt={0} mb={16} />
+        <Title mt={0} mb={Description ? 16 : 0} />
         {Description && <Description />}
       </React.Fragment>
     )}
