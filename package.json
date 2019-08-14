@@ -59,7 +59,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "husky": "2.4.0",
+    "husky": "3.0.3",
     "lint-staged": "8.2.0",
     "prettier": "1.18.2"
   },
