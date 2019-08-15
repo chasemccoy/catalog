@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import Page from 'components/Page'
 import SharingForm from 'components/SharingForm'
 import slugify from 'slugify'
@@ -8,8 +8,13 @@ const SHARING_ENDPOINT =
     ? '/api/share'
     : 'http://localhost:8888/.netlify/functions/share'
 
+const reducer = (state, newState) => ({
+  ...state,
+  ...newState
+})
+
 const SharePage = ({ location }) => {
-  const [data, setData] = useState({})
+  const [data, setData] = useReducer(reducer, {})
   const [isLoading, setIsLoading] = useState(false)
   const [status, setStatus] = useState(undefined)
 
@@ -19,7 +24,12 @@ const SharePage = ({ location }) => {
 
     for (let param of queryParams) {
       const [key, value] = param
-      initialValues[key] = value
+
+      if (key === 'body' && value !== '') {
+        initialValues[key] = `> ${value}`
+      } else {
+        initialValues[key] = value
+      }
     }
 
     if (initialValues.title) {
@@ -54,11 +64,7 @@ const SharePage = ({ location }) => {
 
   const update = e => {
     const { name, value } = e.target
-
-    setData({
-      ...data,
-      [name]: value
-    })
+    setData({ [name]: value })
   }
 
   const post = () => {

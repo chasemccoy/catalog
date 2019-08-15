@@ -9,21 +9,6 @@ const API_FILE_TARGET =
 
 const BRANCH = process.env.NODE_ENV === 'production' ? 'master' : 'testing'
 
-// Helper function to clean strings for frontmatter
-const sanitize = str => {
-  // replace endash and emdash with hyphens
-  str = str.replace(/–/g, '-')
-  str = str.replace(/—/g, '-')
-
-  // replace double quotes and apostrophes
-  str = str.replace(/"/g, "'")
-  str = str.replace(/“/g, "'")
-  str = str.replace(/”/g, "'")
-  str = str.replace(/’/g, "'")
-
-  return str.trim()
-}
-
 // generate the frontmatter string
 const getFrontmatter = yaml => {
   let fm = []
@@ -56,13 +41,13 @@ const getFileContent = data => {
   const { year, month, day } = getCurrentDate()
 
   const frontMatter = getFrontmatter({
-    title: title !== '' ? `${sanitize(title)}` : undefined,
+    title: title !== '' ? title : undefined,
     date: `${year}-${month}-${day}`
   })
 
   let content = frontMatter
   if (body) {
-    content += '\n\n' + sanitize(body)
+    content += '\n\n' + body
   }
 
   return unescape(encodeURIComponent(content))

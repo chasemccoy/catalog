@@ -145,9 +145,7 @@ const Overflow = ({ data, ...rest }) => (
       </Box>
       <Box as='li'>
         {data.weather ? (
-          <React.Fragment>
-            {data.weather.temperature} in Chicago
-          </React.Fragment>
+          <React.Fragment>{data.weather.temperature} in Chicago</React.Fragment>
         ) : (
           'Loading...'
         )}
@@ -179,8 +177,8 @@ const Sidebar = props => {
       </Heading.h2>
 
       <Grid>
-        <Nav width={[1 / 3, 1 / 4, 1 / 4, 1]} />
-        <Overflow width={[2 / 3, 3 / 4, 3 / 4, 1]} data={data} />
+        <Nav width={[1 / 3, 1 / 4, 1, 1]} />
+        <Overflow width={[2 / 3, 3 / 4, 1, 1]} data={data} />
       </Grid>
 
       {/* <Header fontSize='16px' mt='-8px'>

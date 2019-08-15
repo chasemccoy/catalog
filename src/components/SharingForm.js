@@ -49,13 +49,13 @@ const Form = styled.form`
 `
 
 const SharingForm = ({
-  isLoading,
-  title,
-  url,
-  body,
-  slug,
-  username,
-  token,
+  isLoading = false,
+  title = '',
+  url = '',
+  body = '',
+  slug = '',
+  username = '',
+  token = '',
   onUpdate,
   onSubmit,
   ...rest
@@ -70,45 +70,44 @@ const SharingForm = ({
       <div>
         <UnorderedList unstyled>
           <li>
-            <label for='sharing-title'>Title</label>
+            <label htmlFor='sharing-title'>Title</label>
             <input
               type='text'
               id='sharing-title'
               name='title'
               value={title}
-              onInput={onUpdate}
+              onChange={onUpdate}
             />
           </li>
           <li>
-            <label for='sharing-url'>URL</label>
+            <label htmlFor='sharing-url'>URL</label>
             <input
               type='url'
               id='sharing-url'
               name='url'
               value={url}
-              onInput={onUpdate}
+              onChange={onUpdate}
               required
             />
           </li>
           <li>
-            <label for='sharing-body'>Content</label>
+            <label htmlFor='sharing-body'>Content</label>
             <textarea
               id='sharing-body'
-              maxlength='300'
               name='body'
-              rows='10'
+              rows='8'
               value={body}
-              onInput={onUpdate}
+              onChange={onUpdate}
             />
           </li>
           <li>
-            <label for='sharing-slug'>Slug</label>
+            <label htmlFor='sharing-slug'>Slug</label>
             <input
               type='text'
               id='sharing-slug'
               name='slug'
               value={slug}
-              onInput={onUpdate}
+              onChange={onUpdate}
               required
             />
           </li>
@@ -119,26 +118,26 @@ const SharingForm = ({
 
           <UnorderedList unstyled mt={16}>
             <li>
-              <label for='sharing-username'>User Name</label>
+              <label htmlFor='sharing-username'>User Name</label>
               <input
                 type='text'
                 id='sharing-username'
                 name='username'
                 autoComplete='username'
                 value={username}
-                onInput={onUpdate}
+                onChange={onUpdate}
                 required
               />
             </li>
             <li>
-              <label for='sharing-token'>Access Token</label>
+              <label htmlFor='sharing-token'>Access Token</label>
               <input
                 type='password'
                 id='sharing-token'
                 name='token'
                 autoComplete='current-password'
                 value={token}
-                onInput={onUpdate}
+                onChange={onUpdate}
                 required
               />
             </li>
@@ -146,15 +145,15 @@ const SharingForm = ({
         </details>
 
         <div style={{ visibility: 'hidden' }} aria-hidden='true'>
-          <label className='form__label' for='sharing-hp'>
+          <label className='form__label' htmlFor='sharing-hp'>
             Don’t fill this out if you're human:
           </label>
           <input
             type='text'
             name='_honeyp0t'
             id='sharing-hp'
-            tabindex='-1'
-            value=''
+            tabIndex='-1'
+            defaultValue=''
           />
         </div>
       </div>
