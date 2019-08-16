@@ -28,3 +28,7 @@ function copy(text) {
 Hats off to Tom Critchlow for the idea of making bespoke bookmarklets to assist with blogging/note-taking:
 
 <Bookmark url='https://tomcritchlow.com/2019/06/19/bookmarklets-static-sites/' />
+
+Also to Max Böck for taking it a step further and having a bookmarklet pre-fill a custom form that submits to a serverless function:
+
+<Bookmark url='https://mxb.dev/blog/indieweb-link-sharing/' />

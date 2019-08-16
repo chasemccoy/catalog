@@ -69,7 +69,7 @@ const postFile = async params => {
   const url = API_FILE_TARGET + fileName
 
   const payload = {
-    message: `new post: ${fileName}`,
+    message: `Add ${fileName}`,
     content: Buffer.from(fileContent).toString('base64'),
     branch: BRANCH,
     committer: {

@@ -12,6 +12,19 @@ Use the `<details>` element
 
 <Bookmark url='https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/' />
 
+## Checkboxes
+
+Instead of trying to get the styling right for IE 11, just add custom styles for browsers that support it well. You can do that by checking for support for the `-webkit-appearance` property:
+
+```css
+@supports(-webkit-appearance: none) {
+  input[type="checkbox"] {
+    /* style up your checkbox for browsers that can handle it */
+  }
+}
+```
+
+Of course, [this idea comes from the great Jen Simmons](https://twitter.com/jensimmons/status/1162106783642595328). 
 
 ## Dropdown menus
 
@@ -24,6 +37,10 @@ You can also use the `<details>` element:
 <Bookmark url='https://css-tricks.com/using-details-for-menus-and-dialogs-is-an-interesting-idea/' />
 
 Read more about this on [the `<details>` page](/notes/details-element).
+
+## Grid
+
+<blockquote className="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">starting to prefer css grid over flexbox for a lot of situations, gap specifically is really nice for avoiding arbitrary margins in situations like this where the child shouldn&#39;t care about positioning <a href="https://t.co/fmTZfCpJxz">pic.twitter.com/fmTZfCpJxz</a></p>&mdash; TJ Holowaychuk 🙃 (@tjholowaychuk) <a href="https://twitter.com/tjholowaychuk/status/1150741110886735872?ref_src=twsrc%5Etfw">July 15, 2019</a></blockquote>
 
 ## Horizontal scrolling sections
 
@@ -46,7 +63,7 @@ Thanks to [this tweet from Cassie Evans](https://twitter.com/cassiecodes/status/
 
 ## Responsive tiled layout with CSS Grid and no media queries
 
-This is great for making grid layouts of even-sized tiles where each tile never gets narrower than the specified min-width. Stolen from [this tweet by @thekitze](https://twitter.com/thekitze/status/1131821007629692929).
+This is great for making grid layouts of even-sized tiles where each tile never gets narrower than the specified min-width. But this *does not* work if you want to have items of varying widths. Stolen from [this tweet by @thekitze](https://twitter.com/thekitze/status/1131821007629692929).
 
 ```js
 const autoGrid = (minColumnWidth = 250, gap = 0) => css`
