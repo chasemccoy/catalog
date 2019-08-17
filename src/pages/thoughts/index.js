@@ -75,7 +75,11 @@ export const query = graphql`
       }
     }
 
-    olderPosts: allBlog(filter: { format: { eq: "standard" } }, limit: 8) {
+    olderPosts: allBlog(
+      filter: { format: { eq: "standard" } }, 
+      sort: { fields: date, order: DESC },
+      limit: 8
+    ) {
       nodes {
         id
         title

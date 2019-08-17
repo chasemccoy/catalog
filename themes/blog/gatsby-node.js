@@ -136,7 +136,7 @@ exports.onCreateNode = async ({
         excerpt: node.frontmatter.excerpt,
         year: year,
         isMdx: true,
-        format: 'standard'
+        format: node.frontmatter.title ? 'standard' : 'aside'
       }
 
       createBlogNode(postData, {

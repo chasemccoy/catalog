@@ -156,6 +156,14 @@ const GlobalStyles = createGlobalStyle`
     `}
   }
 
+  .gatsby-resp-image-background-image {
+    border-radius: 8px;
+
+    ${media.small`
+      border-radius: 0;
+    `}
+  }
+
   .gatsby-resp-image-figcaption {
     margin: 8px 0;
     color: ${p => p.theme.colors.gray[4]};

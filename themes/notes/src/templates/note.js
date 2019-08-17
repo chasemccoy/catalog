@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
-import { Box, Text } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
 import Breadcrumbs from '../components/notes/Breadcrumbs'
 import Layout from '../components/notes/Layout'
 import Tags from 'components/Tags'
@@ -84,21 +84,8 @@ const Note = ({
       }
     >
       <Layout>
-        <Layout.Content>
-          <Text
-            fontFamily='system'
-            css={`
-              h2,
-              h3,
-              h4,
-              h5,
-              h6 {
-                font-family: ${p => p.theme.fonts.mono};
-              }
-            `}
-          >
-            <MDX.Renderer>{mdx.body}</MDX.Renderer>
-          </Text>
+        <Layout.Content mb={[0, 0, 0, 80]}>
+          <MDX.Renderer>{mdx.body}</MDX.Renderer>
         </Layout.Content>
       </Layout>
     </Page>

@@ -6,6 +6,7 @@ import media from 'utils/media'
 import ScrollRow from 'components/ScrollRow'
 import Tags from 'components/Tags'
 import { stripHTML } from 'utils'
+import { rgba } from 'polished'
 
 const HoverLink = styled(Link)`
   display: block;
@@ -76,9 +77,8 @@ const GradientBox = styled(Box)`
     left: 0;
     background: linear-gradient(
       to bottom,
-      #fffae500 40%,
-      ${p => (p.light ? '#FFFAE588' : '#ffda7388')} 60%,
-      ${p => (p.light ? '#FFFAE5' : '#ffda73')} 95%
+      ${p => (p.light ? rgba(p.theme.colors.accent.light, 0) : rgba(p.theme.colors.accent.medium, 0))} 25%,
+      ${p => (p.light ? p.theme.colors.accent.light : p.theme.colors.accent.medium)} 98%
     );
   }
 `

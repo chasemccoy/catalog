@@ -288,7 +288,11 @@ export default Index
 
 export const query = graphql`
   query IndexQuery {
-    olderPosts: allBlog(filter: { format: { eq: "standard" } }, limit: 10) {
+    olderPosts: allBlog(
+      filter: { format: { eq: "standard" } },
+      sort: { fields: date, order: DESC },
+      limit: 10
+    ) {
       nodes {
         id
         title
