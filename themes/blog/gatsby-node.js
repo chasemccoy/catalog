@@ -22,7 +22,7 @@ exports.sourceNodes = ({ actions: { createTypes }, schema }) => {
         isMdx: { type: 'Boolean' },
         content: {
           type: 'String',
-          resolve: async (source, args, context, info) => {
+          resolve(source, args, context, info) {
             const { content } = source
             if (content) {
               return content
@@ -33,10 +33,9 @@ exports.sourceNodes = ({ actions: { createTypes }, schema }) => {
               id: source.parent
             })
             const resolver = type.getFields()['body'].resolve
-            const result = await resolver(mdxNode, args, context, {
+            return resolver(mdxNode, args, context, {
               fieldName: 'body'
             })
-            return result
           }
         },
         tags: {
