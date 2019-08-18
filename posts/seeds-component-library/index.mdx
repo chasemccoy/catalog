@@ -76,18 +76,20 @@ And, of course, the inclusion of React components means we make content more int
 
 MDX even allows us to customize how native Markdown elements are rendered. For instance, authors can write a regular Markdown code block, like this:
 
-    ```jsx live 
-      <Box 
-        display='flex' 
-        alignItems='center' 
-        justifyContent='center' 
-        bg='neutral.100' 
-        color='neutral.1000' 
-        p={600}
-      > 
-        This content will be centered within the box. 
-      </Box> 
-    ```
+``````
+```jsx live 
+  <Box 
+    display='flex' 
+    alignItems='center' 
+    justifyContent='center' 
+    bg='neutral.100' 
+    color='neutral.1000' 
+    p={600}
+  > 
+    This content will be centered within the box. 
+  </Box> 
+```
+``````
 
 and we can output an interactive, editable code block in our design system that looks like this:
 

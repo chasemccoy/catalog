@@ -24,10 +24,12 @@ const Container = styled(Box)`
 const HeaderContainer = styled.header`
   display: flex;
   background: ${p => p.theme.colors.gray[0]};
+  border-bottom: 1px dashed ${p => p.theme.colors.gray[1]};
 `
 
 const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
   margin-right: ${p => (p.wide ? 0 : '24px')};
+  margin-bottom: -1px;
 
   ${media.medium`
     flex: 0.5;

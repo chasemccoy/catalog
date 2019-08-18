@@ -47,6 +47,10 @@ const Container = styled(Box)`
 const NavLink = styled(Link)`
   color: ${p => p.theme.colors.gray[3]} !important;
 
+  &:hover {
+    color: ${p => p.theme.colors.accent} !important;
+  }
+
   &.selected {
     color: ${p => p.theme.colors.type.body} !important;
   }
@@ -111,18 +115,29 @@ const Overflow = ({ data, ...rest }) => (
       Stay in touch
     </Page.SidebarHeader>
 
-    <Text mb={16}>
-      <Link to='https://twitter.com/chase_mccoy'>Twitter</Link>,{' '}
-      <Link to='https://instagram.com/chs_mc'>Instagram</Link>,{' '}
-      <Link to='https://github.com/chasemccoy'>GitHub</Link>,{' '}
-      <Link to='mailto:hi@chasem.co'>Email</Link>, &{' '}
-      <Link external to='/feed.xml'>
-        RSS
-      </Link>
-      .
-    </Text>
+    <UnorderedList mb={24} pr={4}>
+      <Box as='li' mb={4}>
+        <Link to='https://twitter.com/chase_mccoy'>Twitter</Link>
+      </Box>
 
-    <Page.SidebarHeader mr={12} borderWidth={0} mb={2} color='gray.5'>
+      <Box as='li' mb={4}>
+        <Link to='https://instagram.com/chs_mc'>Instagram</Link>
+      </Box>
+
+      <Box as='li' mb={4}>
+        <Link to='https://github.com/chasemccoy'>GitHub</Link>
+      </Box>
+
+      <Box as='li' mb={4}>
+        <Link to='mailto:hi@chasem.co'>Email</Link>
+      </Box>
+
+      <Box as='li' mb={4}>
+        <Link external to='/feed.xml'>RSS</Link>
+      </Box>
+    </UnorderedList>
+
+    <Page.SidebarHeader mr={12} borderWidth={0}mb={2} color='gray.5'>
       Currently
     </Page.SidebarHeader>
 

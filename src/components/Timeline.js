@@ -18,7 +18,7 @@ const TimelineContainer = styled.section`
       top: 0;
       bottom: 0;
       width: ${theme.sizes.timeline.lineWidth};
-      background: ${props => props.theme.colors.accent.light};
+      background: ${props => props.theme.colors.accent.soft};
       left: 50%;
 
       left: calc(${theme.sizes.timeline.pointWidth} / 2);
@@ -80,26 +80,22 @@ const TimelineListItem = styled.li`
   }
 `
 
-const Meta = styled(Heading.h4)`
-  text-transform: uppercase;
-  letter-spacing: 1px;
-`
-
 class TimelineItem extends React.Component {
   render() {
     return (
       <TimelineListItem>
         <div>
-          <Meta pt='6px' mt={0} mb={2} fontSize='14px'>
-            <Text.span pr={2} color='accent'>
+          <Heading.h4 pt={4} mt={0} mb={8} fontSize='14px'>
+            <Text.span pr={8} color='accent' css={`text-transform: uppercase; letter-spacing: 1px;`}>
               {this.props.type}
             </Text.span>
-            <Text.span fontWeight='normal' color='gray.3'>
+
+            <Text.span fontWeight='normal' color='gray.4'>
               {this.props.dateRange}
             </Text.span>
-          </Meta>
+          </Heading.h4>
 
-          <Heading.h2 mt={0} mb={2}>
+          <Heading.h2 mt={0} mb={8}>
             {this.props.title}
           </Heading.h2>
 

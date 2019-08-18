@@ -223,7 +223,7 @@ const Index = props => {
 
   return (
     <Page wide header={<Header />}>
-      <Container>
+      <Container my={-1}>
         <GradientBox flipped pt={16} px={[16, 16, 32]} bg='accent.pop'>
           <AsciiLogo />
           <Intro mt={16} mb={24} />

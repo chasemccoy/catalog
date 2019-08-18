@@ -2,7 +2,7 @@
 	{
 		"title": "Design Systems at Sprout Social",
 		"type": "Work",
-		"dateRange": "June 2017 – Present",
+		"dateRange": "June 2017 → Present",
 		description:
 			'''
 			I am currently working on the Design Systems team at [Sprout Social](http://sproutsocial.com). My primary responsibilities are building and maintaining [Seeds](http://sproutsocial.com/seeds) (our design system) and Racine (our React component library).
@@ -25,19 +25,19 @@
 	{
 		"title": "Pico Digital Film",
 		"type": "Work",
-		"dateRange": "January 2017 — March 2017",
+		"dateRange": "January 2017 → March 2017",
 		"description": "[Louie Mantia](http://louiemantia.com) and I partnered on a fun photography app for iOS called [Pico Digital Film](http://pico.camera). Louie wanted a quick way to apply a few, well-designed filters based on popular analog films. I built the app in Swift, and it allowed you to select a film and then shoot photos _with that film already applied_. Picking the film before taking the photo forced the user to be creative directors on-the-fly. The app is no longer supported or available to download, but it was fun while it lasted."
 	},
 	{
 		"title": "National Strategic Planning and Analysis Research Center",
 		"type": "Work",
-		"dateRange": "March 2016 – May 2017",
+		"dateRange": "March 2016 → May 2017",
 		"description": "I worked as an iOS and web designer/developer (although I often found myself pushing my boundaries and learning new things) at [NSPARC](https://www.nsparc.msstate.edu). I worked with a fantastic team of developers, and I tried my best to enable them to make the best stuff possible through effective design. NSPARC makes iOS, Android, and web applications for many clients such as the Mississippi Department of Employment Security, Department of Child Protection Services, and Department of Human Services."
 	},
 	{
 		"title": "Cosmic Owl Studio",
 		"type": "Work",
-		"dateRange": "June 2015 – Present",
+		"dateRange": "June 2015 → Present",
 		"description": "In the summer of 2015, a friend and I started a little design/iOS development shop called Cosmic Owl. We released a couple of apps to the app store, and had many more in the works. I run Cosmic Owl by myself now, and all of my freelance work is done through Cosmic Owl LLC."
 	},
 	{

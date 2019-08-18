@@ -42,7 +42,8 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
                   description={note.excerpt}
                   to={note.fields.slug}
                   tab={note.fields.category}
-                  height='250px'
+                  minHeight='250px'
+                  height='100%'
                 />
               </Box>
             ))}

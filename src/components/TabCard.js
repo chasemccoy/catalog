@@ -9,7 +9,8 @@ import { stripHTML } from 'utils'
 import { rgba } from 'polished'
 
 const HoverLink = styled(Link)`
-  display: block;
+  display: flex;
+  flex-direction: column;
   transition: all 0.2s;
   position: relative;
   filter: drop-shadow(
@@ -67,6 +68,7 @@ const HoverLink = styled(Link)`
 const GradientBox = styled(Box)`
   position: relative;
   overflow: hidden;
+  hyphens: auto;
 
   &:after {
     content: '';
@@ -78,7 +80,7 @@ const GradientBox = styled(Box)`
     background: linear-gradient(
       to bottom,
       ${p => (p.light ? rgba(p.theme.colors.accent.light, 0) : rgba(p.theme.colors.accent.medium, 0))} 25%,
-      ${p => (p.light ? p.theme.colors.accent.light : p.theme.colors.accent.medium)} 98%
+      ${p => (p.light ? rgba(p.theme.colors.accent.light, .8) : rgba(p.theme.colors.accent.medium, .75))} 98%
     );
   }
 `
@@ -120,24 +122,35 @@ const TabCard = ({ title, description, tab, tags, to, light, ...rest }) => (
         p={16}
         width={1}
         light={light}
+        display='flex'
+        flexDirection='column'
+        justifyContent='space-between'
       >
-        {title && (
-          <Text
-            as='h3'
-            mt={0}
-            mb={0}
-            fontSize='24px'
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
-        )}
+        <Box>
+          {title && (
+            <Text
+              as='h3'
+              mt={0}
+              mb={0}
+              fontSize='24px'
+              dangerouslySetInnerHTML={{ __html: title }}
+              css={`
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;  
+                overflow: hidden;
+              `}
+            />
+          )}
 
-        {tags && <Tags items={tags} mt={0} />}
+          {tags && <Tags items={tags} mt={0} />}
+        </Box>
 
         {description && (
           <Text
-            fontSize='15px'
+            fontSize='16px'
             lineHeight='1.4'
-            mt={24}
+            mt={16}
             dangerouslySetInnerHTML={{ __html: stripHTML(description) }}
           />
         )}

@@ -14,7 +14,7 @@ const BooksPage = ({ data }) => {
       title='Books'
       description='A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.'
     >
-      <Row mt={6} alignItems='flex-end' className='full'>
+      <Row alignItems='flex-end' className='full'>
         {data.books.edges.map(({ node }, i) => (
           <Column width={[1 / 2, 1 / 2, 1 / 3]} key={i}>
             <Link to={node.url} unstyled>
@@ -24,8 +24,8 @@ const BooksPage = ({ data }) => {
                 <Heading.h3 my={8} lineHeight={1.3} color='page.text'>
                   {node.title}
                 </Heading.h3>
-                <Text.p fontSize='16px' color='gray.4' fontFamily='mono'>
-                  <em>{node.metadata}</em>
+                <Text.p fontSize='16px' color='gray.4'>
+                  {node.metadata}
                 </Text.p>
               </Box>
             </Link>
