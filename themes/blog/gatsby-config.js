@@ -128,7 +128,8 @@ module.exports = {
                 }
               }
             `,
-            output: '/feed.xml'
+            output: '/feed.xml',
+            title: 'Chase McCoy'
           }
         ]
       }
