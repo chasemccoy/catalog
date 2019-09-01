@@ -8,6 +8,7 @@ const API_FILE_TARGET =
   'https://api.github.com/repos/chasemccoy/catalog/contents/posts/'
 
 const BRANCH = process.env.NODE_ENV === 'production' ? 'master' : 'testing'
+console.log(BRANCH)
 
 // generate the frontmatter string
 const getFrontmatter = yaml => {
