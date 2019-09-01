@@ -7,6 +7,7 @@ const SHARING_ENDPOINT =
   process.env.NODE_ENV === 'production'
     ? '/api/share'
     : 'http://localhost:8888/.netlify/functions/share'
+console.log(SHARING_ENDPOINT)
 
 const reducer = (state, newState) => ({
   ...state,
