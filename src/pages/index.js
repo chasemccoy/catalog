@@ -5,7 +5,6 @@ import { Grid } from 'components/Base'
 import { Box, Text } from '@chasemccoy/kit'
 import Heading from 'components/Heading'
 import Link from 'components/Link'
-// import portrait from 'assets/portrait.jpg'
 import portraitBW from 'assets/portrait-bw.png'
 import Image from 'components/Image'
 import { graphql } from 'gatsby'
@@ -26,7 +25,7 @@ const Container = styled(Box)`
 
 const Portrait = styled(Box)`
   background-image: url(${portraitBW});
-  background-blend-mode: luminosity;
+  mix-blend-mode: luminosity;
   height: 250px;
   background-size: cover;
   background-position: 50% 75%;
@@ -197,13 +196,15 @@ const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
 
 const Header = props => (
   <Page.Header {...props}>
-    <Portrait
+    <Box
       overflow='hidden'
-      bg='accent.pop'
       mb={-16}
       mt={[-24, -24, -40]}
       ml='-1px'
-    />
+      bg='accent.pop'
+    >
+      <Portrait className='no-invert' />
+    </Box>
   </Page.Header>
 )
 
@@ -289,8 +290,8 @@ export default Index
 export const query = graphql`
   query IndexQuery {
     olderPosts: allBlog(
-      filter: { format: { eq: "standard" } },
-      sort: { fields: date, order: DESC },
+      filter: { format: { eq: "standard" } }
+      sort: { fields: date, order: DESC }
       limit: 10
     ) {
       nodes {

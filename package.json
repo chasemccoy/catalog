@@ -27,6 +27,7 @@
     "gatsby-remark-copy-linked-files": "2.1.9",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "3.1.16",
+    "gatsby-remark-smartypants": "^2.1.6",
     "gatsby-source-airtable": "2.0.8",
     "gatsby-source-filesystem": "2.1.14",
     "gatsby-source-wordpress": "3.1.21",

@@ -114,7 +114,7 @@ const SharingForm = ({
         </UnorderedList>
 
         <details>
-          <summary>⚙️ Config</summary>
+          <summary><span role='img' aria-label='Config'>⚙️</span> Config</summary>
 
           <UnorderedList unstyled mt={16}>
             <li>

@@ -1,6 +1,3 @@
-// import 'isomorphic-fetch'
-// import slugify from 'slugify'
-// import { DateTime } from 'luxon'
 const slugify = require('slugify')
 require('isomorphic-fetch')
 
