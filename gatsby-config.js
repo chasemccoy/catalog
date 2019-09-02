@@ -6,10 +6,13 @@ module.exports = {
     titleTemplate: '%s | Chase McCoy',
     description:
       'Chase McCoy is a designer and developer based in Chicago, IL specializing in systems thinking, design tooling, and front-end engineering.',
-    siteUrl: 'https://chasem.co/',
-    twitterUsername: '@chase_mccoy'
+    siteUrl: 'https://chasem.co',
+    social: {
+      twitter: '@chase_mccoy',
+      github: '@chasemccoy',
+      instagram: '@chs_mc'
+    }
   },
-  pathPrefix: '/',
   plugins: [
     {
       resolve: require.resolve(`./themes/blog`)
@@ -37,7 +40,7 @@ module.exports = {
         logo: './src/favicon.png',
         appName: 'Chase McCoy',
         background: '#fff',
-        theme_color: '#fff',
+        theme_color: '#FFCD3F',
         start_url: '/',
         icons: {
           android: true,
@@ -151,44 +154,6 @@ module.exports = {
         path: `${__dirname}/data/art/art.hjson`
       }
     },
-    // {
-    //   resolve: 'gatsby-source-github',
-    //   options: {
-    //     headers: {
-    //       Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`
-    //     },
-    //     queries: [
-    //       `{
-    //         user(login: "chasemccoy") {
-    //           starredRepositories(first: 100, orderBy: {field: STARRED_AT, direction: DESC}) {
-    //             edges {
-    //               node {
-    //               	name
-    //                 url
-    //                 description
-    //                 repositoryTopics(last: 5) {
-    //                   edges {
-    //                     node {
-    //                       id
-    //                       topic {
-    //                         id
-    //                         name
-    //                       }
-    //                     }
-    //                   }
-    //                 }
-    //                 owner {
-    //                 	id
-    //                   login
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }`
-    //     ]
-    //   }
-    // },
     {
       resolve: 'gatsby-source-airtable',
       options: {

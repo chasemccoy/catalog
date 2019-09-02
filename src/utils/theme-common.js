@@ -26,7 +26,8 @@ const fontWeights = {
   medium: 500,
   semibold: 600,
   bold: 700,
-  heavy: 800
+  extrabold: 800,
+  heavy: 900
 }
 
 const fonts = {

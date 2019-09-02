@@ -103,7 +103,7 @@ module.exports = {
           {
             serialize: ({ query: { site, allBlog } }) => {
               return allBlog.nodes.map(node => {
-                const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, '')
+                const siteUrl = site.siteMetadata.siteUrl
 
                 return Object.assign(
                   {},

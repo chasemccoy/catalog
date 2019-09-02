@@ -1,14 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
+import { Location } from '@reach/router'
 
 const Metadata = ({
   title,
   description,
-  image,
-  pathname,
+  image = '/site-image.jpg',
   article,
-  children,
+  children
 }) => {
   const data = useStaticQuery(query)
 
@@ -16,78 +16,84 @@ const Metadata = ({
     defaultTitle,
     defaultDescription,
     titleTemplate,
-    twitterUsername,
-    siteUrl,
+    social,
+    siteUrl
   } = data.site.siteMetadata
 
   const seo = {
     title: title,
     description: description || defaultDescription,
-    url: `${siteUrl}${pathname || '/'}`,
+    url: siteUrl,
+    image: siteUrl + image
   }
 
   return (
-    <React.Fragment>
-      <Helmet
-        title={seo.title}
-        titleTemplate={titleTemplate}
-        defaultTitle={defaultTitle}
-      >
-        <meta name='description' content={seo.description} />
+    <Location>
+      {({ location: { pathname } }) => (
+        <Helmet
+          title={seo.title}
+          titleTemplate={titleTemplate}
+          defaultTitle={defaultTitle}
+        >
+          <meta name='description' content={seo.description} />
 
-        {seo.url && <meta property='og:url' content={seo.url} />}
+          {article && <meta property='og:type' content='article' />}
 
-        {article && <meta property='og:type' content='article' />}
+          <meta property='og:title' content={seo.title || defaultTitle} />
 
-        <meta property='og:title' content={seo.title || defaultTitle} />
+          {seo.url && pathname && (
+            <meta property='og:url' content={seo.url + pathname.replace(/\/$/, "")} />
+          )}
 
-        {seo.description && (
-          <meta property='og:description' content={seo.description} />
-        )}
+          {seo.description && (
+            <meta property='og:description' content={seo.description} />
+          )}
 
-        <meta name='twitter:card' content='summary' />
+          {image && <meta property='og:image' content={seo.image} />}
 
-        {twitterUsername && (
-          <meta name='twitter:creator' content={twitterUsername} />
-        )}
+          <meta name='twitter:card' content='summary' />
 
-        {twitterUsername && (
-          <meta name='twitter:site' content={twitterUsername} />
-        )}
+          {social && social.twitter && (
+            <meta name='twitter:creator' content={social.twitter} />
+          )}
 
-        {seo.title && <meta name='twitter:title' content={seo.title} />}
+          {social && social.twitter && (
+            <meta name='twitter:site' content={social.twitter} />
+          )}
 
-        {seo.description && (
-          <meta name='twitter:description' content={seo.description} />
-        )}
+          {seo.title && <meta name='twitter:title' content={seo.title} />}
 
-        <meta name='application-name' content='Chase McCoy' />
-        <meta name='apple-mobile-web-app-title' content='Chase McCoy' />
+          {seo.description && (
+            <meta name='twitter:description' content={seo.description} />
+          )}
 
-        <link rel='pingback' href='https://webmention.io/chasem.co/xmlrpc' />
-        <link href='https://twitter.com/chase_mccoy' rel='me' />
-        <link href='https://github.com/chasemccoy' rel='me' />
-        <link
-          rel='webmention'
-          href='https://webmention.io/chasem.co/webmention'
-        />
-        <link
-          rel='authorization_endpoint'
-          href='https://indieauth.com/auth'
-        ></link>
+          <meta name='application-name' content='Chase McCoy' />
+          <meta name='apple-mobile-web-app-title' content='Chase McCoy' />
 
-        {children}
-      </Helmet>
-    </React.Fragment>
+          <link rel='pingback' href='https://webmention.io/chasem.co/xmlrpc' />
+          <link href='https://twitter.com/chase_mccoy' rel='me' />
+          <link href='https://github.com/chasemccoy' rel='me' />
+          <link
+            rel='webmention'
+            href='https://webmention.io/chasem.co/webmention'
+          />
+          <link
+            rel='authorization_endpoint'
+            href='https://indieauth.com/auth'
+          ></link>
+
+          {children}
+        </Helmet>
+      )}
+    </Location>
   )
 }
 
 Metadata.defaultProps = {
   title: null,
   description: null,
-  image: null,
   pathname: null,
-  article: false,
+  article: false
 }
 
 export default Metadata
@@ -100,7 +106,9 @@ const query = graphql`
         titleTemplate
         defaultDescription: description
         siteUrl
-        twitterUsername
+        social {
+          twitter
+        }
       }
     }
   }
