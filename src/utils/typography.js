@@ -35,7 +35,7 @@ const typography = new Typography({
     },
     code: {
       fontSize: '0.75em',
-      lineHeight: 1.6
+      lineHeight: 1.5
     },
     'pre code': {
       lineHeight: 1.5,
