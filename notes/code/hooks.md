@@ -34,3 +34,45 @@ This ideas was stolen from this article:
 
 I really like [this idea of wrapping up common queries in a Gatsby site into custom hooks](https://blog.scottspence.me/gatsby-custom-react-hook-for-site-metadata) that can be used to access things like your site's metadata. 
 
+## useTextContent
+
+In JavaScript, you can use the `textContent` property of a node to get the text representation of the node and all of its descendent nodes. This isn't possible with a tree of React components, but you can fake it using a ref:
+
+```jsx
+const node = useRef(null)
+const [textContent, setTextContent] = useState(null)
+
+useEffect(() => {
+  setTextContent(node.current.textContent)
+}, [node])
+
+return (
+  <div ref={node}>This is text with a <a href='/'>link inside it</a>.</div>
+)
+```
+
+In the code above, `textContent` is equal to the string `This is text with a link inside it.` This pattern could be very easily wrapped up into a custom hook:
+
+```jsx
+const useTextContent = initial => {
+  const [textContent, setTextContent] = useState(initial)
+  
+  const ref = useCallback(node => {
+    if (node !== null) {
+      setTextContent(node.textContent);
+    }
+  }, []);
+  
+  ref.current = textContent
+  return ref
+}
+
+const textContainer = useTextContent(null)
+
+return (
+  <div>
+    <SomeComponent ref={textContainer}>This is text with a <a href='/'>link inside it</a>.</SomeComponent>
+    {textContainer.current}
+  </div>
+) 
+```

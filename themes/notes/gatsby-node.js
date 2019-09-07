@@ -24,7 +24,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: 'category',
       node,
-      value: `${dir.split('/')[0]}`
+      value: `${dir ? dir.split('/')[0] : 'uncategorized'}`
     })
 
     if (parentNode && parentNode.name) {

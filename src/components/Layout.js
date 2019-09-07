@@ -127,6 +127,7 @@ const GlobalStyles = createGlobalStyle`
     code {
       padding: 12px 16px;
       border: none;
+      display: block;
     }
   }
 
@@ -135,12 +136,12 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${p => p.theme.fonts.code};
     background-color: #FBFBFB;
     border: .5px solid ${p => p.theme.colors.gray[1]};
-    padding: 2px 4px;
-    display: inline-block;
+    padding: .1em .3em .2em;
     vertical-align: middle;
     word-wrap: normal;
     overflow: auto;
     border-radius: 4px;
+    box-decoration-break: clone;
   }
 
   .gatsby-resp-image-wrapper {

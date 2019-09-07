@@ -134,7 +134,7 @@ export const Post = props => {
     <Heading.h2
       fontSize='1.8rem'
       mt={0}
-      mb={8}
+      mb={2}
       css={`
         border: none;
       `}

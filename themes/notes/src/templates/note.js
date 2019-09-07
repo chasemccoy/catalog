@@ -41,23 +41,27 @@ const Sidebar = ({ notes, categories, tableOfContents }) => (
       </Box>
     )}
 
-    <Page.SidebarHeader>More in this category</Page.SidebarHeader>
+    {notes && (
+      <React.Fragment>
+        <Page.SidebarHeader>More in this category</Page.SidebarHeader>
 
-    {notes.map(note => (
-      <Box key={note.id} mb={8}>
-        <Link
-          to={note.fields.slug}
-          color='gray.4'
-          css={`
-            &.selected {
-              color: ${props => props.theme.colors.accent};
-            }
-          `}
-        >
-          {note.frontmatter.title}
-        </Link>
-      </Box>
-    ))}
+        {notes.map(note => (
+          <Box key={note.id} mb={8}>
+            <Link
+              to={note.fields.slug}
+              color='gray.4'
+              css={`
+                &.selected {
+                  color: ${props => props.theme.colors.accent};
+                }
+              `}
+            >
+              {note.frontmatter.title}
+            </Link>
+          </Box>
+        ))}
+      </React.Fragment>
+    )}
 
     <NoteSidebar mt={24} data={categories} />
   </Box>
@@ -74,13 +78,11 @@ const Note = ({
       untitled
       header={<Header category={category} tags={mdx.frontmatter.tags} />}
       sidebar={
-        notes ? (
-          <Sidebar
-            notes={notes}
-            categories={categories}
-            tableOfContents={mdx.tableOfContents}
-          />
-        ) : null
+        <Sidebar
+          notes={notes}
+          categories={categories}
+          tableOfContents={mdx.tableOfContents}
+        />
       }
     >
       <Layout>

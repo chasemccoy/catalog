@@ -21,16 +21,13 @@ const Breadcrumbs = ({ category, title, ...rest }) => {
 
   return (
     <Box display='flex' alignItems='center' whiteSpace {...rest}>
-      {!category && 'Notes'}
-      {category && <Link to='/notes'>notes</Link>}
-      {category && <Divider />}
-      {/* {category && !title && <Text.span {...styles}>{category}</Text.span>} */}
+      <Link to='/notes'>notes</Link>
+      <Divider />
       {category && title && isLandingPage && category}
       {category && title && !isLandingPage && (
         <Link to={`/notes/${category}`}>{category}</Link>
       )}
       {category && title && !isLandingPage && <Divider />}
-      {/* {category && !isLandingPage && title} */}
     </Box>
   )
 }
