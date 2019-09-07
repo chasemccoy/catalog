@@ -60,6 +60,7 @@ const Page = ({ header, sidebar, children, bg, wide, ...props }) => (
       title={props.title}
       description={props.description}
       article={props.article}
+      page
     />
 
     <HeaderContainer>
