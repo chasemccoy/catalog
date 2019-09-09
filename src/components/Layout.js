@@ -82,7 +82,7 @@ const GlobalStyles = createGlobalStyle`
       margin-top: 2em;
 
       &:first-child {
-        margin-top: 0;
+        margin-top: -4px;
       }
     }
 

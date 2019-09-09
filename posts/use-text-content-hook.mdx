@@ -53,12 +53,35 @@ return (
   You can see this hook in action in <Link to='https://codepen.io/chasemccoy/pen/WNeXLQW'>this example I've created on CodePen</Link>.
 </Callout>
 
-One of my favorite uses for this hook is to ensure that React components have accessible title attributes without requiring the consumer of the component to pass an explicit value for the title. For instance, imagine a Button component:
+One of my favorite uses for this hook is to ensure that React components have accessible title attributes without requiring the consumer of the component to pass an explicit value for the title. For instance, imagine a Card component:
 
 ```jsx
-<Button>
-  <Icon name='plus' /> Add item
-</Button>
+<Card
+  title={someReactNode} 
+  href="/details"
+/>
 ```
 
-Normally, we might use the string within the button for accessibility labels, but in this case the children of the button is not a pure string (it contains other components). If we used our new hook to read the `textContent` of the button, however, we can grab just the text to use for our labels. 
+that renders this structure: 
+
+```jsx
+<div>
+  <h3>{props.title}</h3>
+  <a href={props.href}>View more</a>
+</div>
+```
+
+The contents of the anchor tag here isn't enough to be fully accessible (view more of what?), but we could fix that by using the `textContent` of the card title:
+
+```jsx
+const textContainer = useTextContent(null)
+
+return (
+  <div>
+    <h3 ref={textContainer}>{props.title}</h3>
+    <a href={props.href} title={`View more info about ${textContainer.current}`}>View more</a>
+  </div>
+) 
+```
+
+Now, users relying on a screen reader get an alternate title that describes _what_ they will be viewing more of if they choose to follow this link. And even better, the consumers of the component don't have to worry about passing a string specifically for this purpose. 
