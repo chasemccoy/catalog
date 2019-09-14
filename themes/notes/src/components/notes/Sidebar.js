@@ -24,7 +24,7 @@ const Sidebar = ({ data, ...rest }) => (
               }
             `}
           >
-            {capitalize(key)}
+            {capitalize(key).replace('-', ' ')}
           </Link>
         </Box>
       ))}

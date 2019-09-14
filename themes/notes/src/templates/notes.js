@@ -20,37 +20,41 @@ const Header = ({ category, ...props }) => (
   </Page.Header>
 )
 
-const Notes = ({ pageContext: { notes, categories, category } }) => (
-  <Page
-    title={category ? capitalize(category) : 'Notes'}
-    description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
-    untitled
-    header={<Header category={category} />}
-    sidebar={categories ? <Sidebar data={categories} /> : null}
-  >
-    <Layout>
-      <Layout.Content>
-        <Grid mb={40} overflow='visible'>
-          {notes
-            .filter(note => !note.fields.isLandingPage)
-            .map(note => (
-              <Box width={[1, 1 / 2]} key={note.id}>
-                <TabCard
-                  light
-                  title={note.frontmatter.title}
-                  tags={note.frontmatter.tags}
-                  description={note.excerpt}
-                  to={note.fields.slug}
-                  tab={note.fields.category}
-                  minHeight='250px'
-                  height='100%'
-                />
-              </Box>
-            ))}
-        </Grid>
-      </Layout.Content>
-    </Layout>
-  </Page>
-)
+const Notes = ({ pageContext: { notes, categories, category } }) => {
+  const title = capitalize(category).replace('-', ' ')
+  
+  return (
+    <Page
+      title={category ? title : 'Notes'}
+      description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
+      untitled
+      header={<Header category={category} />}
+      sidebar={categories ? <Sidebar data={categories} /> : null}
+    >
+      <Layout>
+        <Layout.Content>
+          <Grid mb={40} overflow='visible'>
+            {notes
+              .filter(note => !note.fields.isLandingPage)
+              .map(note => (
+                <Box width={[1, 1 / 2]} key={note.id}>
+                  <TabCard
+                    light
+                    title={note.frontmatter.title}
+                    tags={note.frontmatter.tags}
+                    description={note.excerpt}
+                    to={note.fields.slug}
+                    tab={note.fields.category}
+                    minHeight='250px'
+                    height='100%'
+                  />
+                </Box>
+              ))}
+          </Grid>
+        </Layout.Content>
+      </Layout>
+    </Page>
+  )
+}
 
 export default Notes
