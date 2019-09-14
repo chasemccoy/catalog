@@ -23,7 +23,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: 'category',
       node,
-      value: `${dir ? dir.split('/')[0] : 'uncategorized'}`
+      value: `${dir ? dir.split('/')[0].replace('-', ' ') : 'uncategorized'}`
     })
 
     if (parentNode && parentNode.name) {
@@ -94,8 +94,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   let groupedNotes = notes.reduce((acc, node) => {
-    const { dir } = path.parse(node.parent.relativePath)
-    const category = dir.split('/')[0]
+    const category = node.fields.category
 
     if (!category) {
       return acc
@@ -104,7 +103,7 @@ exports.createPages = async ({ graphql, actions }) => {
     acc[category] = acc[category] || []
 
     acc[category].push({
-      pagePath: path.join(notesPath, category),
+      pagePath: path.join(notesPath, category.replace(' ', '-')),
       ...node
     })
 
@@ -113,16 +112,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create each note page at /notes/:slug
   notes.forEach(node => {
-    const { dir } = path.parse(node.parent.relativePath)
-    const category = dir.split('/')[0]
-
     createPage({
       path: node.fields.slug,
       context: {
         id: node.id,
-        notes: groupedNotes[category],
+        notes: groupedNotes[node.fields.category],
         categories: groupedNotes,
-        category: category
+        category: node.fields.category
       },
       component: Note
     })
@@ -138,7 +134,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create an index page for each category at /notes/category-name
   Object.entries(groupedNotes).map(([key, value]) => {
-    const pagePath = path.join(notesPath, key)
+    const pagePath = path.join(notesPath, key.replace(' ', '-'))
     // If we include an index.md it means we want to use a custom landing page,
     // so don't create an automatic one
     const pageAlreadyExists = notes.find(node => node.fields.slug === pagePath)
