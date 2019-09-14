@@ -11,9 +11,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const parentNode = getNode(node.parent)
     const filePath = createFilePath({ node, getNode })
     const { dir, name } = path.parse(parentNode.relativePath)
-    const isLandingPage =
-      parentNode.name === 'index' && dir.split('/').length === 1
-    const actualName = name === 'index' ? dir.split('/')[1] : name
+    const isLandingPage = name === 'index' && parentNode.relativePath.split('/').length === 1
+    const actualName = name === 'index' ? parentNode.relativePath.split('/')[0] : name
 
     createNodeField({
       name: 'slug',
@@ -139,7 +138,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create an index page for each category at /notes/category-name
   Object.entries(groupedNotes).map(([key, value]) => {
-    const pagePath = path.join(notesPath, key, '/')
+    const pagePath = path.join(notesPath, key)
     // If we include an index.md it means we want to use a custom landing page,
     // so don't create an automatic one
     const pageAlreadyExists = notes.find(node => node.fields.slug === pagePath)

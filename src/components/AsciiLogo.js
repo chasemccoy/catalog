@@ -67,16 +67,23 @@ const AsciiLogo = () => {
     b2.reveal(1500)
   }, [])
 
+  const aria = {
+    role: 'img',
+    'aria-label': 'Chase McCoy'
+  }
+
   return (
     <React.Fragment>
       <SmallAsciiArt
         ref={smallAscii}
         dangerouslySetInnerHTML={{ __html: asciiSmall }}
+        {...aria}
       />
 
       <LargeAsciiArt
         ref={largeAscii}
         dangerouslySetInnerHTML={{ __html: asciiLarge }}
+        {...aria}
       />
     </React.Fragment>
   )
