@@ -22,6 +22,10 @@ const GlobalStyles = createGlobalStyle`
       pre {
         filter: invert(4%);
       }
+
+      article img {
+        box-shadow: none;
+      }
     }
   }
 
@@ -38,6 +42,7 @@ const GlobalStyles = createGlobalStyle`
 
     &:hover, &:focus {
       color: ${p => p.theme.colors.accent};
+      outline: none;
     }
   }
 

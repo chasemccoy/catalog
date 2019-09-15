@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Link from 'components/Link'
 import { borderRadius } from 'styled-system'
 
-const StyledImage = styled(Img).attrs({className: 'no-invert'})`
+const StyledImage = styled(Img)`
   margin-bottom: 0;
 
   img {
@@ -44,7 +44,7 @@ class Image extends React.Component {
     if (this.props.fluid) {
       return <StyledImage {...this.props} />
     } else if (this.props.src && this.props.to) {
-      return <ImageLinkContainer {...this.props} />
+      return <ImageLinkContainer className='no-invert' {...this.props} />
     } else if (this.props.src && this.props.cover) {
       return <ImageContainer {...this.props} />
     } else if (this.props.src) {

@@ -11,8 +11,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const parentNode = getNode(node.parent)
     const filePath = createFilePath({ node, getNode })
     const { dir, name } = path.parse(parentNode.relativePath)
-    const isLandingPage = name === 'index' && parentNode.relativePath.split('/').length === 1
+    const isLandingPage = name === 'index' && parentNode.relativePath.split('/').length === 2
     const actualName = name === 'index' ? parentNode.relativePath.split('/')[0] : name
+
+    const category = dir ? dir.split('/')[0].replace('-', ' ') : 'uncategorized'
 
     createNodeField({
       name: 'slug',
@@ -23,16 +25,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: 'category',
       node,
-      value: `${dir ? dir.split('/')[0].replace('-', ' ') : 'uncategorized'}`
+      value: category
     })
 
-    if (parentNode && parentNode.name) {
-      createNodeField({
-        name: 'isLandingPage',
-        node,
-        value: isLandingPage
-      })
-    }
+    createNodeField({
+      name: 'isLandingPage',
+      node,
+      value: isLandingPage
+    })
   }
 }
 

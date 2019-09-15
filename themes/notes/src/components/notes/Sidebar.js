@@ -40,7 +40,6 @@ Sidebar.Notes = ({ data, category, ...rest }) => (
       .map(note => (
         <Box key={note.id}>
           <Link
-            fontFamily='mono'
             fontSize='16px'
             to={note.fields.slug}
             css={`

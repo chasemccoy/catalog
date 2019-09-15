@@ -15,17 +15,13 @@ const Divider = props => (
   </Text.span>
 )
 
-const Breadcrumbs = ({ category, title, ...rest }) => {
-  const isLandingPage =
-    category && title && category.toLowerCase() === title.toLowerCase()
-
+const Breadcrumbs = ({ category, title, isLandingPage, ...rest }) => {  
   return (
     <Box display='flex' alignItems='center' whiteSpace {...rest}>
       <Link to='/notes'>notes</Link>
       <Divider />
-      {category && title && isLandingPage && category}
       {category && title && !isLandingPage && (
-        <Link to={`/notes/${category}`}>{category}</Link>
+        <Link to={`/notes/${category.replace(' ', '-')}`}>{category}</Link>
       )}
       {category && title && !isLandingPage && <Divider />}
     </Box>

@@ -9,11 +9,11 @@ import Tags from 'components/Tags'
 import Link from 'components/Link'
 import NoteSidebar from '../components/notes/Sidebar'
 
-const Header = ({ category, tags, ...rest }) => (
+const Header = ({ category, tags, isLandingPage, ...rest }) => (
   <Page.Header {...rest}>
     {(Title, Description, title) => (
       <React.Fragment>
-        <Breadcrumbs category={category} title={title} />
+        <Breadcrumbs category={category} title={title} isLandingPage={isLandingPage} />
 
         <Title mb={tags || Description ? 16 : 0} />
 
@@ -76,7 +76,7 @@ const Note = ({
       title={mdx.frontmatter.title}
       description={mdx.excerpt}
       untitled
-      header={<Header category={category} tags={mdx.frontmatter.tags} />}
+      header={<Header category={category} tags={mdx.frontmatter.tags} isLandingPage={mdx.fields.isLandingPage} />}
       sidebar={
         <Sidebar
           notes={notes}
@@ -104,6 +104,9 @@ export const pageQuery = graphql`
       frontmatter {
         title
         tags
+      }
+      fields {
+        isLandingPage
       }
       body
       tableOfContents
