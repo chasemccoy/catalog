@@ -46,6 +46,10 @@ const query = graphql`
           category: { eq: "design systems" }
           isLandingPage: { eq: false }
         }
+      },
+      sort: {
+        fields: frontmatter___title, 
+        order: ASC
       }
     ) {
       nodes {

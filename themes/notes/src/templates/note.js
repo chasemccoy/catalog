@@ -45,7 +45,7 @@ const Sidebar = ({ notes, categories, tableOfContents }) => (
       <React.Fragment>
         <Page.SidebarHeader>More in this category</Page.SidebarHeader>
 
-        {notes.map(note => (
+        {notes.map(note => !note.fields.isLandingPage && (
           <Box key={note.id} mb={8}>
             <Link
               to={note.fields.slug}
