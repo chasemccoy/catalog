@@ -13,10 +13,10 @@ const GlobalStyles = createGlobalStyle`
     background: white;
 
     @media (prefers-color-scheme: dark) {
-      filter: invert(90%);
+      filter: invert(90%) hue-rotate(25deg);
 
-      img, .no-invert {
-        filter: invert(100%);
+      img, .no-invert, .microlink_card__media_image, .twitter-tweet-rendered {
+        filter: invert(100%) hue-rotate(-25deg);
       }
 
       pre {
