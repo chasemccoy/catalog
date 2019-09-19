@@ -7,7 +7,7 @@ import { capitalize } from 'utils'
 import Page from 'components/Page'
 
 const Sidebar = ({ data, ...rest }) => (
-  <Box {...rest}>
+  <Box mb={32} {...rest}>
     <Page.SidebarHeader>Categories</Page.SidebarHeader>
 
     {Object.entries(data)

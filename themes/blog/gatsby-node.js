@@ -47,9 +47,9 @@ exports.sourceNodes = ({ actions: { createTypes }, schema }) => {
 
             let tags = null
 
-            if (source.internal.tagNodes) {
+            if (source.tagNodes) {
               const nodes = context.nodeModel.getNodesByIds({
-                ids: source.internal.tagNodes
+                ids: source.tagNodes
               })
 
               tags = nodes.map(node => node.name)

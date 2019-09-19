@@ -11,13 +11,13 @@ exports.createBlogNode = (
 
   const node = {
     ...postData,
+    tagNodes,
     id: createNodeId(`blog-${digest}`),
     children: [],
     internal: {
       type: 'Blog',
       content: JSON.stringify(postData),
-      contentDigest: digest,
-      tagNodes
+      contentDigest: digest
     }
   }
 
