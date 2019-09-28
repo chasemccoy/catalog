@@ -4,6 +4,18 @@ excerpt: Often times, the source of truth in a system lies with the engineers, n
 modified: 2019-09-14
 ---
 
+## Linting for product correctness
+
+Inspired by [this tweet thread by Rafael Mendiola](https://twitter.com/GroundControl/status/1176512381519912961), where he describes the idea of creating custom ESLint pliugin to enforce rules that help developers adhere to a design system.
+
+It cuminates in an example `eslint-plugin-design-system`:
+
+<Bookmark url='https://github.com/dslounge/eslint-plugin-design-system/' /> 
+
+And here's a good article on how to write custom ESLint plugins:
+
+<Bookmark url='https://flexport.engineering/writing-custom-lint-rules-for-your-picky-developers-67732afa1803' />
+
 ## Splash zones
 
 In this case, a "splash zone" refers to the parts of a system affected by a change to the system. If I edit a component, what other components are affected?
