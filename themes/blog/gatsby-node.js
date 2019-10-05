@@ -122,6 +122,10 @@ exports.onCreateNode = async ({
       fileNode.name === 'index' ? fileNode.relativeDirectory : fileNode.name
 
     if (source === 'posts') {
+      if (!node.frontmatter.date) {
+        return
+      }
+      
       const year = node.frontmatter.date.slice(0, 4)
       const month = node.frontmatter.date.slice(5, 7)
       const date = `/${year}/${month}/`

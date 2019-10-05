@@ -14,6 +14,7 @@ import AsciiLogo from 'components/AsciiLogo'
 import media from 'utils/media'
 import ScrollRow from 'components/ScrollRow'
 import TabCard from 'components/TabCard'
+import WavyBorder from 'components/WavyBorder'
 
 const Container = styled(Box)`
   a {
@@ -37,7 +38,7 @@ const Portrait = styled(Box)`
 `
 
 const GradientBox = styled(Box)`
-  background: linear-gradient(
+  ${'' /* background: linear-gradient(
     ${p => (p.flipped ? 'to top' : 'to bottom')},
     ${p => p.theme.colors.accent.light} 24px,
     ${p => p.theme.colors.accent.soft} 24px,
@@ -47,7 +48,7 @@ const GradientBox = styled(Box)`
     ${p => p.theme.colors.accent.pop} 72px,
     ${p => p.theme.colors.accent.pop}
   );
-  padding-${p => (p.flipped ? 'bottom' : 'top')}: 72px;
+  padding-${p => (p.flipped ? 'bottom' : 'top')}: 72px; */}
 
   h4 {
     border-bottom: 1px dashed;
@@ -100,7 +101,7 @@ const Intro = props => (
 
 const Bio = props => (
   <Grid {...props}>
-    <Box width={[1, 1, 1, 1, 2 / 3]}>
+    <Box width={[1, 1, 1, 1, 2 / 3]} zIndex={1}>
       <Text.p fontSize='18px'>
         I hate the internet and I love the internet. I believe that it can and
         should be a space that respects the creativity, diversity, and
@@ -130,7 +131,7 @@ const Bio = props => (
       </Text.p>
     </Box>
 
-    <Box width={[1, 1, 1, 1, 1 / 3]}>
+    <Box width={[1, 1, 1, 1, 1 / 3]} zIndex={1}>
       <Grid mt={[16, -24]}>
         <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
           <Heading.section mt={0} mb={8}>
@@ -154,6 +155,10 @@ const Bio = props => (
             <Link to='https://darksky.net/dev'>Dark Sky API</Link>.
           </Text>
         </Box>
+
+        {/* <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
+          <Tree />
+        </Box> */}
       </Grid>
     </Box>
   </Grid>
@@ -225,15 +230,19 @@ const Index = props => {
   return (
     <Page wide header={<Header />}>
       <Container my={-1}>
-        <GradientBox flipped pt={16} px={[16, 16, 32]} bg='accent.pop'>
+        <GradientBox pt={16} px={[16, 16, 32]} bg='accent.pop'>
           <AsciiLogo />
           <Intro mt={16} mb={24} />
           <Box borderBottom='2px dashed' borderColor='accent' mx={-32} />
         </GradientBox>
 
-        <Box py={24} px={[16, 16, 32]}>
+        <WavyBorder mb={-48} />
+
+        <Box pb={8} px={[16, 16, 32]}>
           <Bio />
         </Box>
+
+        <WavyBorder mt={-24} flipped />
 
         <GradientBox pb={24} px={[16, 16, 32]} bg='accent.pop'>
           <Box borderTop='2px dashed' borderColor='accent' mx={-32} mb={24} />

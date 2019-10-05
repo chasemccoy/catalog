@@ -28,3 +28,7 @@ Laurel calls out these metaphors for describing what a website can be:
 - **Website as garden**
 - **Website as puddle**
 - **Website as thrown rock that’s now falling deep into the ocean**
+
+## Foundations
+
+- [Frank Chimero: The Web's Grain](https://frankchimero.com/writing/the-webs-grain/)
