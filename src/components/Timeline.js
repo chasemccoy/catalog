@@ -18,7 +18,8 @@ const TimelineContainer = styled.section`
       top: 0;
       bottom: 0;
       width: ${theme.sizes.timeline.lineWidth};
-      background: ${props => props.theme.colors.accent.soft};
+      background: ${props => props.theme.colors.gray[1]};
+      opacity: 0.75;
       left: 50%;
 
       left: calc(${theme.sizes.timeline.pointWidth} / 2);
@@ -42,14 +43,14 @@ const TimelineListItem = styled.li`
     content: '';
     position: absolute;
     left: calc(50% + ${theme.sizes.timeline.lineWidth} / 2);
-    top: 2px;
+    top: 0px;
     transform: translateX(-50%);
     width: ${theme.sizes.timeline.pointWidth};
     height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
     background: ${p => p.theme.colors.page.background};
     border: ${theme.sizes.timeline.lineWidth} solid
-      ${props => props.theme.colors.accent};
+      ${props => props.theme.colors.accent.pop};
     box-shadow: 0 0 0 5px ${p => p.theme.colors.page.background};
     z-index: 1;
 
@@ -86,7 +87,15 @@ class TimelineItem extends React.Component {
       <TimelineListItem>
         <div>
           <Heading.h4 pt={4} mt={0} mb={8} fontSize='14px'>
-            <Text.span pr={8} color='accent' css={`text-transform: uppercase; letter-spacing: 1px;`}>
+            <Text.span
+              pr={8}
+              color='accent'
+              fontWeight='bold'
+              css={`
+                text-transform: uppercase;
+                letter-spacing: 1px;
+              `}
+            >
               {this.props.type}
             </Text.span>
 
