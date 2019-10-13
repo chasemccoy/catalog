@@ -2,7 +2,7 @@
 title: Javascript Objects
 tags:
   - js
-  - webdev
+  - web dev
 modified: 2019-09-14
 ---
 

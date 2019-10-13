@@ -3,7 +3,7 @@ title: React Patterns
 tags: 
   - react
   - js
-  - webdev
+  - web dev
 ---
 
 ## Detecting outside clicks

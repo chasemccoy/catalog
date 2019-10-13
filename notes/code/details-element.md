@@ -2,7 +2,7 @@
 title: The details element
 tags: 
   - html
-  - webdev
+  - web dev
 ---
 
 Details can be used to build accessible dialogs and dropdown menus. In this example I am using the custom elements that Github built; you can find them on Github at [`details-dialog-element`](https://github.com/github/details-dialog-element) and [`details-menu-element`](https://github.com/github/details-menu-element).

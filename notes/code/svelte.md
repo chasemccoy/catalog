@@ -2,7 +2,7 @@
 title: Svelte
 excerpt: I spent a little bit of time diving into Svelte and walking through the official tutorial. Here are some things that stood out to me. 
 tags: 
-  - webdev
+  - web dev
   - js
 ---
 
