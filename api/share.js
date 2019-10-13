@@ -1,3 +1,4 @@
+require('dotenv').config()
 const slugify = require('slugify')
 require('isomorphic-fetch')
 
