@@ -4,27 +4,30 @@ import { UnorderedList } from 'components/Lists'
 import { Grid, Box, Text } from '@chasemccoy/kit'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const Note = ({
-  id,
-  frontmatter,
-  fields,
-  tableOfContents,
-  excerpt,
-  ...rest
-}) => (
-  <Box bg='gray.0' border='0.5px solid' borderColor='gray.1' borderRadius='12px' p={24} mb={24} key={id}>
+const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
+  <Box
+    bg='gray.0'
+    border='0.5px solid'
+    borderColor='gray.1'
+    borderRadius='12px'
+    p={24}
+    mb={24}
+    key={id}
+  >
     <Text as='h2' mb={2}>
-      <Link unstyled to={fields.slug}>
-        {frontmatter.title} →
+      <Link unstyled to={slug}>
+        {title} →
       </Link>
     </Text>
 
     <Grid overflow='visible'>
-      <Box width={[1, 1, 3/5]}>
-        <Text as='p' m={0} fontSize='15px'>{excerpt}</Text>
+      <Box width={[1, 1, 3 / 5]}>
+        <Text as='p' m={0} fontSize='15px'>
+          {excerpt}
+        </Text>
       </Box>
 
-      <Box width={[1, 1, 2/5]}>
+      <Box width={[1, 1, 2 / 5]}>
         <UnorderedList
           m={0}
           css={`
@@ -35,7 +38,7 @@ const Note = ({
         >
           {tableOfContents.items.map((item, i) => (
             <Box as='li' m={0} key={i}>
-              <Link fontSize='15px' fontWeight='bold' to={fields.slug + item.url}>
+              <Link fontSize='15px' fontWeight='bold' to={slug + item.url}>
                 {item.title}
               </Link>
             </Box>
@@ -64,23 +67,16 @@ export default DesignSystems
 
 const query = graphql`
   query DesignSystemsNotes {
-    notes: allMdx(
+    notes: allNote(
       filter: {
-        fields: {
-          category: { eq: "design systems" }
-          isLandingPage: { eq: false }
-        }
+        category: { eq: "design systems" }
+        isLandingPage: { eq: false }
       }
-      sort: { fields: frontmatter___title, order: ASC }
+      sort: { fields: title, order: ASC }
     ) {
       nodes {
-        frontmatter {
-          title
-          tags
-        }
-        fields {
-          slug
-        }
+        title
+        slug
         id
         tableOfContents
         excerpt

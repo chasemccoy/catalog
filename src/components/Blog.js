@@ -130,6 +130,8 @@ const Metadata = ({ date, permalink, tags, ...props }) => (
 )
 
 export const Post = props => {
+  const tags = props.tags && props.tags.map(tag => tag.name)
+
   const title = props.title && (
     <Heading.h2
       fontSize='1.8rem'
@@ -147,12 +149,7 @@ export const Post = props => {
   )
 
   const metadata = props.date && (
-    <Metadata
-      date={props.date}
-      permalink={props.to}
-      tags={props.tags}
-      mb={20}
-    />
+    <Metadata date={props.date} permalink={props.to} tags={tags} mb={20} />
   )
 
   if (props.aside) {
@@ -178,16 +175,20 @@ export const Post = props => {
   }
 }
 
-Post.Header = ({ title, to, date, tags }) => (
-  <React.Fragment>
-    <Date date={date} permalink={to} mb={title || tags ? 40 : 0} />
+Post.Header = ({ title, to, date, tags: tagObjects }) => {
+  const tags = tagObjects && tagObjects.map(tag => tag.name)
 
-    {title && (
-      <Heading.h1 mt={0} mb={!tags && 0}>
-        <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />
-      </Heading.h1>
-    )}
+  return (
+    <React.Fragment>
+      <Date date={date} permalink={to} mb={title || tags ? 40 : 0} />
 
-    {tags && <Tags items={tags} />}
-  </React.Fragment>
-)
+      {title && (
+        <Heading.h1 mt={0} mb={!tags && 0}>
+          <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />
+        </Heading.h1>
+      )}
+
+      {tags && <Tags items={tags} />}
+    </React.Fragment>
+  )
+}

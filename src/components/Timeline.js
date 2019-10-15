@@ -125,4 +125,6 @@ class Timeline extends React.Component {
   }
 }
 
+Timeline.Item = TimelineItem
+
 export { Timeline, TimelineItem }

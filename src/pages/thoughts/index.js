@@ -70,14 +70,16 @@ export const query = graphql`
         slug
         content
         excerpt
-        tags
+        tags {
+          name
+        }
         isMdx
       }
     }
 
     olderPosts: allBlog(
-      filter: { format: { eq: "standard" } }, 
-      sort: { fields: date, order: DESC },
+      filter: { format: { eq: "standard" } }
+      sort: { fields: date, order: DESC }
       limit: 8
     ) {
       nodes {

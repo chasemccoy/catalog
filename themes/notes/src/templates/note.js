@@ -13,7 +13,11 @@ const Header = ({ category, tags, isLandingPage, ...rest }) => (
   <Page.Header {...rest}>
     {(Title, Description, title) => (
       <React.Fragment>
-        <Breadcrumbs category={category} title={title} isLandingPage={isLandingPage} />
+        <Breadcrumbs
+          category={category}
+          title={title}
+          isLandingPage={isLandingPage}
+        />
 
         <Title mb={tags || Description ? 16 : 0} />
 
@@ -45,21 +49,24 @@ const Sidebar = ({ notes, categories, tableOfContents }) => (
       <React.Fragment>
         <Page.SidebarHeader>More in this category</Page.SidebarHeader>
 
-        {notes.map(note => !note.fields.isLandingPage && (
-          <Box key={note.id} mb={8}>
-            <Link
-              to={note.fields.slug}
-              color='gray.4'
-              css={`
-                &.selected {
-                  color: ${props => props.theme.colors.accent};
-                }
-              `}
-            >
-              {note.frontmatter.title}
-            </Link>
-          </Box>
-        ))}
+        {notes.map(
+          note =>
+            !note.isLandingPage && (
+              <Box key={note.id} mb={8}>
+                <Link
+                  to={note.slug}
+                  color='gray.4'
+                  css={`
+                    &.selected {
+                      color: ${props => props.theme.colors.accent};
+                    }
+                  `}
+                >
+                  {note.title}
+                </Link>
+              </Box>
+            )
+        )}
       </React.Fragment>
     )}
 
@@ -68,47 +75,55 @@ const Sidebar = ({ notes, categories, tableOfContents }) => (
 )
 
 const Note = ({
-  data: { mdx },
+  data: { note },
   pageContext: { notes, categories, category }
-}) => (
-  <MDX.Provider>
-    <Page
-      title={mdx.frontmatter.title}
-      description={mdx.excerpt}
-      untitled
-      header={<Header category={category} tags={mdx.frontmatter.tags} isLandingPage={mdx.fields.isLandingPage} />}
-      sidebar={
-        <Sidebar
-          notes={notes}
-          categories={categories}
-          tableOfContents={mdx.tableOfContents}
-        />
-      }
-    >
-      <Layout>
-        <Layout.Content mb={[0, 0, 0, 80]}>
-          <MDX.Renderer>{mdx.body}</MDX.Renderer>
-        </Layout.Content>
-      </Layout>
-    </Page>
-  </MDX.Provider>
-)
+}) => {
+  const tags = note.tags && note.tags.map(tag => tag.name)
+
+  return (
+    <MDX.Provider>
+      <Page
+        title={note.title}
+        description={note.excerpt}
+        untitled
+        header={
+          <Header
+            category={category}
+            tags={tags}
+            isLandingPage={note.isLandingPage}
+          />
+        }
+        sidebar={
+          <Sidebar
+            notes={notes}
+            categories={categories}
+            tableOfContents={note.tableOfContents}
+          />
+        }
+      >
+        <Layout>
+          <Layout.Content mb={[0, 0, 0, 80]}>
+            <MDX.Renderer>{note.content}</MDX.Renderer>
+          </Layout.Content>
+        </Layout>
+      </Page>
+    </MDX.Provider>
+  )
+}
 
 export default Note
 
 export const pageQuery = graphql`
   query NoteQuery($id: String) {
-    mdx(id: { eq: $id }) {
+    note(id: { eq: $id }) {
       id
       excerpt
-      frontmatter {
-        title
-        tags
+      title
+      tags {
+        name
       }
-      fields {
-        isLandingPage
-      }
-      body
+      isLandingPage
+      content
       tableOfContents
     }
   }

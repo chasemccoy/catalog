@@ -31,21 +31,25 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
       <Layout.Content>
         <Grid mb={40} overflow='visible'>
           {notes
-            .filter(note => !note.fields.isLandingPage)
-            .map(note => (
-              <Box width={[1, 1 / 2]} key={note.id}>
-                <TabCard
-                  light
-                  title={note.frontmatter.title}
-                  tags={note.frontmatter.tags}
-                  description={note.excerpt}
-                  to={note.fields.slug}
-                  tab={note.fields.category}
-                  minHeight='250px'
-                  height='100%'
-                />
-              </Box>
-            ))}
+            .filter(note => !note.isLandingPage)
+            .map(note => {
+              const tags = note.tags && note.tags.map(tag => tag.name)
+
+              return (
+                <Box width={[1, 1 / 2]} key={note.id}>
+                  <TabCard
+                    light
+                    title={note.title}
+                    tags={tags}
+                    description={note.excerpt}
+                    to={note.slug}
+                    tab={note.category}
+                    minHeight='250px'
+                    height='100%'
+                  />
+                </Box>
+              )
+            })}
         </Grid>
       </Layout.Content>
     </Layout>
