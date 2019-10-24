@@ -1,4 +1,4 @@
-const breakpoints = ['500px', '600px', '1000px', '1300px']
+const breakpoints = ['550px', '600px', '800px', '1300px']
 
 const namedBreakpoints = {
   tiny: breakpoints[0],
@@ -69,7 +69,7 @@ const colors = {
     code: '#c6dbf4'
   },
   gray: {
-    0: '#F9F9F9',
+    0: '#F8F9FA',
     1: '#EBEBEB',
     2: '#D6D6D6',
     3: '#A6A6A6',

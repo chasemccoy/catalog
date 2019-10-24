@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
     @media (prefers-color-scheme: dark) {
       filter: invert(90%) hue-rotate(25deg);
 
-      img, .no-invert, .microlink_card__media_image, .twitter-tweet-rendered {
+      img:not(.invert), .no-invert, .microlink_card__media_image, .twitter-tweet-rendered {
         filter: invert(100%) hue-rotate(-25deg);
       }
 
