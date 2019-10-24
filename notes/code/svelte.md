@@ -4,6 +4,7 @@ excerpt: I spent a little bit of time diving into Svelte and walking through the
 tags: 
   - web dev
   - js
+modified: 2019-10-22
 ---
 
 Here's how [Svelte][svelte] describes iteself:
@@ -107,3 +108,9 @@ Instead of assigning values and updating state based on events, you can just do 
 Which I love. React should add this. 
 
 [svelte]: https://svelte.dev
+
+## Styles
+
+Here's a good write-up on some of the features Svelte has around writing styles for component:
+
+<Bookmark url='https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/' />
