@@ -114,7 +114,7 @@ const Date = ({ date, permalink, ...props }) => (
 )
 
 const Metadata = ({ date, permalink, tags, ...props }) => (
-  <Box display='flex' alignItems='center' {...props}>
+  <Box display='flex' alignItems='center' className='meta' {...props}>
     <Date
       date={date}
       permalink={permalink}

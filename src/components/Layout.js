@@ -104,6 +104,16 @@ const GlobalStyles = createGlobalStyle`
       &:first-child {
         margin-top: -4px;
       }
+
+      a {
+        text-decoration: none;
+      }
+    }
+    
+    .meta + h2,
+    .meta + h3,
+    .meta + h4 {
+      margin-top: 0;
     }
 
     h2 {
