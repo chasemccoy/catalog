@@ -35,7 +35,7 @@ const getCurrentDate = () => {
 
 // generate the new md file content
 const getFileContent = data => {
-  const { title, url, body } = data
+  const { title, body } = data
   const { year, month, day } = getCurrentDate()
 
   const frontMatter = getFrontmatter({
@@ -84,8 +84,6 @@ const postFile = async params => {
     },
     body: JSON.stringify(payload)
   }
-
-  console.log(`hitting github's api at ${url} with token ${token}`)
 
   return await fetch(url, options)
 }
