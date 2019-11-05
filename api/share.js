@@ -5,8 +5,7 @@ require('isomorphic-fetch')
 const API_FILE_TARGET =
   'https://api.github.com/repos/chasemccoy/catalog/contents/posts/'
 
-const BRANCH = process.env.NODE_ENV === 'production' ? 'master' : 'testing'
-console.log(BRANCH)
+const BRANCH = 'master'
 
 // generate the frontmatter string
 const getFrontmatter = yaml => {
@@ -49,7 +48,7 @@ const getFileContent = data => {
     content += '\n\n' + body
   }
 
-  return unescape(encodeURIComponent(content))
+  return content
 }
 
 // generate the new md file name
@@ -85,6 +84,8 @@ const postFile = async params => {
     },
     body: JSON.stringify(payload)
   }
+
+  console.log(`hitting github's api at ${url} with token ${token}`)
 
   return await fetch(url, options)
 }
