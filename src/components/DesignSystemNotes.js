@@ -27,24 +27,26 @@ const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
         </Text>
       </Box>
 
-      <Box width={[1, 1, 2 / 5]}>
-        <UnorderedList
-          m={0}
-          css={`
-            li + li {
-              margin-top: 4px;
-            }
-          `}
-        >
-          {tableOfContents.items.map((item, i) => (
-            <Box as='li' m={0} key={i}>
-              <Link fontSize='15px' fontWeight='bold' to={slug + item.url}>
-                {item.title}
-              </Link>
-            </Box>
-          ))}
-        </UnorderedList>
-      </Box>
+      {tableOfContents.items && (
+        <Box width={[1, 1, 2 / 5]}>
+          <UnorderedList
+            m={0}
+            css={`
+              li + li {
+                margin-top: 4px;
+              }
+            `}
+          >
+            {tableOfContents.items.map((item, i) => (
+              <Box as='li' m={0} key={i}>
+                <Link fontSize='15px' fontWeight='bold' to={slug + item.url}>
+                  {item.title}
+                </Link>
+              </Box>
+            ))}
+          </UnorderedList>
+        </Box>
+      )}
     </Grid>
   </Box>
 )
