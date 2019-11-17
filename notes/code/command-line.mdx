@@ -16,3 +16,9 @@ osascript -e 'try' -e 'the clipboard as "HTML"' -e 'end try'|perl -ne 'print chr
 ```sh
 pandoc --from=html-native_divs-native_spans --to=gfm
 ```
+
+## Get a list of git commits from every repo over the last 7 days
+
+```sh
+find ~/Repositories -name .git -maxdepth 2 -execdir git log --author="Chase McCoy" --format="- %s" --since=-7days --reverse --no-merges --all \; | pbcopy
+```

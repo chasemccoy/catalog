@@ -1,11 +1,10 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Grid, Box } from '@chasemccoy/kit'
-import Sidebar from '../components/notes/Sidebar'
-import Layout from '../components/notes/Layout'
-import TabCard from 'components/TabCard'
-import Breadcrumbs from '../components/notes/Breadcrumbs'
+import Sidebar from '../components/Sidebar'
+import Layout from '../components/Layout'
+import Breadcrumbs from '../components/Breadcrumbs'
 import { capitalize } from 'utils'
+import NotesList from 'components/notes/List'
 
 const Header = ({ category, ...props }) => (
   <Page.Header {...props}>
@@ -29,28 +28,7 @@ const Notes = ({ pageContext: { notes, categories, category } }) => (
   >
     <Layout>
       <Layout.Content>
-        <Grid mb={40} overflow='visible'>
-          {notes
-            .filter(note => !note.isLandingPage)
-            .map(note => {
-              const tags = note.tags && note.tags.map(tag => tag.name)
-
-              return (
-                <Box width={[1, 1 / 2]} key={note.id}>
-                  <TabCard
-                    light
-                    title={note.title}
-                    tags={tags}
-                    description={note.excerpt}
-                    to={note.slug}
-                    tab={note.category}
-                    minHeight='250px'
-                    height='100%'
-                  />
-                </Box>
-              )
-            })}
-        </Grid>
+        <NotesList notes={notes.filter(note => !note.isLandingPage)} />
       </Layout.Content>
     </Layout>
   </Page>

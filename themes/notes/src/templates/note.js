@@ -3,11 +3,11 @@ import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
 import { Box } from '@chasemccoy/kit'
-import Breadcrumbs from '../components/notes/Breadcrumbs'
-import Layout from '../components/notes/Layout'
+import Breadcrumbs from '../components/Breadcrumbs'
+import Layout from '../components/Layout'
 import Tags from 'components/Tags'
 import Link from 'components/Link'
-import NoteSidebar from '../components/notes/Sidebar'
+import NoteSidebar from '../components/Sidebar'
 
 const Header = ({ category, tags, isLandingPage, ...rest }) => (
   <Page.Header {...rest}>
@@ -29,7 +29,7 @@ const Header = ({ category, tags, isLandingPage, ...rest }) => (
   </Page.Header>
 )
 
-const Sidebar = ({ notes, categories, tableOfContents }) => (
+const Sidebar = ({ notes, category, categories, tableOfContents }) => (
   <Box>
     {tableOfContents && tableOfContents.items && (
       <Box mb={24}>
@@ -47,7 +47,7 @@ const Sidebar = ({ notes, categories, tableOfContents }) => (
 
     {notes && (
       <React.Fragment>
-        <Page.SidebarHeader>More in this category</Page.SidebarHeader>
+        <Page.SidebarHeader>More in {category}</Page.SidebarHeader>
 
         {notes.map(
           note =>
@@ -96,6 +96,7 @@ const Note = ({
         sidebar={
           <Sidebar
             notes={notes}
+            category={category}
             categories={categories}
             tableOfContents={note.tableOfContents}
           />

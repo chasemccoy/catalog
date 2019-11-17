@@ -5,11 +5,11 @@ import Link from 'components/Link'
 
 const renderItem = (item, key) => (
   <li key={key}>
-    <Link 
+    <Link
       unstyled
       to={item.url}
       display='block'
-      fontFamily='mono' 
+      fontFamily='mono'
       fontSize='15px'
     >
       {item.title}
@@ -32,8 +32,7 @@ const renderList = item => {
         })}
       </ul>
     )
-  }
-  else {
+  } else {
     return null
   }
 }
@@ -60,15 +59,11 @@ const Container = styled(Box)`
     margin-top: 4px;
   }
 
-  .selected + &  {
+  .selected + & {
     display: block;
   }
 `
 
-const TableOfContents = ({ data }) => (
-  <Container>
-    {renderList(data)}
-  </Container>
-)
+const TableOfContents = ({ data }) => <Container>{renderList(data)}</Container>
 
 export default TableOfContents

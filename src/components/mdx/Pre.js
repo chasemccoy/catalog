@@ -1,16 +1,16 @@
 import React from 'react'
 import { preToCodeBlock } from 'mdx-utils'
-import HighlightedCode from './HighlightedCode'
+import HighlightedCode from 'components/HighlightedCode'
 // import CodeSandbox from 'components/racine/CodeSandbox'
 
 const Pre = preProps => {
   const props = preToCodeBlock(preProps)
-  
+
   if (props) {
     if (props.live) {
       // return (
-      //   <CodeSandbox 
-      //     inline={props.stateful ? false : true} 
+      //   <CodeSandbox
+      //     inline={props.stateful ? false : true}
       //     static={props.static ? true : false}
       //   >
       //     {props.codeString}

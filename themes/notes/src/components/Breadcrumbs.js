@@ -15,7 +15,7 @@ const Divider = props => (
   </Text.span>
 )
 
-const Breadcrumbs = ({ category, title, isLandingPage, ...rest }) => {  
+const Breadcrumbs = ({ category, title, isLandingPage, ...rest }) => {
   return (
     <Box display='flex' alignItems='center' whiteSpace {...rest}>
       <Link to='/notes'>notes</Link>

@@ -7,11 +7,13 @@ const NotesLayout = props => <Box width={1}>{props.children}</Box>
 NotesLayout.Sidebar = props => <Box width={1}>{props.children}</Box>
 
 const Content = styled(Box)`
-  p a, ul a, ol a {
+  p a,
+  ul a,
+  ol a {
     position: relative;
 
     &:after {
-      content: attr(href) " →";
+      content: attr(href) ' →';
       position: absolute;
       left: 50%;
       transform: translate(-50%, -8px);
@@ -34,13 +36,14 @@ const Content = styled(Box)`
       font-weight: normal;
     }
 
-    &:hover:after, &:focus:after {
+    &:hover:after,
+    &:focus:after {
       opacity: 1;
     }
   }
 `
 
-NotesLayout.Content = ({ children, ...rest}) => (
+NotesLayout.Content = ({ children, ...rest }) => (
   <Content as='article' width={1} {...rest}>
     {children}
   </Content>

@@ -16,14 +16,20 @@ const Tag = styled(props => <Box as='span' {...props} />)`
   letter-spacing: 1px;
 `
 
-const Tags = ({ items, ...props }) => (
-  <Text fontSize='10px' mt='-8px' {...props}>
-    {items.map((item, i) => (
-      <Tag mt='8px' key={i}>
-        {item}
-      </Tag>
-    ))}
-  </Text>
-)
+const Tags = ({ items, ...props }) => {
+  if (!items) {
+    return null
+  }
+
+  return (
+    <Text fontSize='10px' mt='-8px' {...props}>
+      {items.map((item, i) => (
+        <Tag mt='8px' key={i}>
+          {item}
+        </Tag>
+      ))}
+    </Text>
+  )
+}
 
 export default Tags
