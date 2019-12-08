@@ -1,6 +1,18 @@
 const path = require('path')
 const { createBlogNode } = require('./createBlogNode')
 
+const formatTitle = title => {
+  let words = title.replace('&nbsp;', '').split(' ')
+
+  if (words.length > 1) {
+    words[words.length - 2] += '&nbsp;' + words[words.length - 1]
+    words.pop()
+    return words.join(' ')
+  }
+
+  return title
+}
+
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
   const { buildObjectType } = schema
@@ -95,7 +107,7 @@ exports.onCreateNode = ({
 
     const postData = {
       parent: node.id,
-      title: node.title,
+      title: formatTitle(node.title),
       date: node.date,
       content: node.content,
       format: node.format,
@@ -127,7 +139,7 @@ exports.onCreateNode = ({
 
       const postData = {
         parent: node.id,
-        title: node.frontmatter.title,
+        title: formatTitle(node.frontmatter.title),
         date: node.frontmatter.date,
         slug: date + fileSlug,
         tags: node.frontmatter.tags,
