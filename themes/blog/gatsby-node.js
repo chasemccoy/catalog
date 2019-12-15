@@ -2,7 +2,7 @@ const path = require('path')
 const { createBlogNode } = require('./createBlogNode')
 
 const formatTitle = title => {
-  let words = title.replace('&nbsp;', '').split(' ')
+  let words = title.replace('&nbsp;', ' ').split(' ')
 
   if (words.length > 1) {
     words[words.length - 2] += '&nbsp;' + words[words.length - 1]
@@ -167,6 +167,9 @@ exports.createPages = ({ actions, graphql }) => {
         nodes {
           id
           slug
+          tags {
+            id
+          }
         }
       }
     }
@@ -176,11 +179,14 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     result.data.allBlog.nodes.map(node => {
+      const tags = node.tags ? node.tags.map(tag => tag.id) : []
+
       createPage({
         path: node.slug,
         component: path.resolve(`./src/templates/post.js`),
         context: {
-          id: node.id
+          id: node.id,
+          tags
         }
       })
     })
