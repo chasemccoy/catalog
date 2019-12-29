@@ -10,6 +10,7 @@ import { UnorderedList } from 'components/Lists'
 import Float from 'components/mdx/Float'
 import Quote from 'components/mdx/Quote'
 import Bookmark from 'notes/src/components/Bookmark'
+import Tweet from 'notes/src/components/Tweet'
 import Wide from 'components/Wide'
 import Callout from 'components/mdx/Callout'
 import Tags from 'components/Tags'
@@ -31,6 +32,7 @@ const Provider = props => {
     Float,
     Quote,
     Bookmark,
+    Tweet,
     Wide,
     Callout,
     Tags
