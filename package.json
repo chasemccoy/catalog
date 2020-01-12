@@ -67,7 +67,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "husky": "3.0.8",
+    "husky": "4.0.7",
     "lint-staged": "9.4.1",
     "netlify-cli": "2.20.2",
     "prettier": "1.18.2"
