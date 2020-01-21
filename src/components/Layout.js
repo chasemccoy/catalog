@@ -13,6 +13,10 @@ const GlobalStyles = createGlobalStyle`
     background: ${props => props.theme.colors.accent.pop};
     padding: 8px;
 
+    ${media.small`
+      padding: 8px 0;
+    `}
+
     ${
       '' /* @media (prefers-color-scheme: dark) {
       filter: invert(90%) hue-rotate(25deg);

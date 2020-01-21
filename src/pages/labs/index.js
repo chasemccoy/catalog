@@ -188,7 +188,7 @@ const Pico = () => (
               pre-processed with that film.
             </Text.p>
 
-            <Text.p color='inherit' fontSize='0.9em'>
+            <Text.p color='inherit' fontSize='0.9em' mb='3em'>
               Pico is no longer available for sale, and the domain for the
               website has expired. However, you can still{' '}
               <Link
@@ -207,18 +207,9 @@ const Pico = () => (
               when it launched back in 2017.
             </Text.p>
 
-            <Text.p color='inherit' fontSize='0.9em' mb='3em'>
-              My favorite detail from this project were the 3D modeled film
-              boxes for each of the in-app presets (courtesy of{' '}
-              <Link color='inherit' to='https://twitter.com/PolygonSandwich'>
-                Patrick Letourneau
-              </Link>
-              ):
-            </Text.p>
-
             <Grid mb={40}>
               {[1, 2, 3, 4].map(index => (
-                <Box width={1 / 4}>
+                <Box width={[1 / 2, 1 / 2, 1 / 4]}>
                   <Image src={picoBoxes[index]} />
                 </Box>
               ))}
@@ -230,11 +221,11 @@ const Pico = () => (
           <Image
             src={pico}
             pl={[0, 0, 0, 120]}
-            pr={[16, 24, 40, 0]}
             pt={[0, 0, 40]}
             css={css`
               object-fit: cover;
               object-position: left center;
+              min-height: 100%;
             `}
           />
         </Box>
