@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { space, display, borders, borderColor } from 'styled-system'
+import { space, display, borders, borderColor, fontSize } from 'styled-system'
 
 export const UnorderedList = styled.ul`
   list-style-type: none;
@@ -27,6 +27,10 @@ export const UnorderedList = styled.ul`
         margin-bottom: 0;
       }
 
+      li:first-child {
+        margin-left: 0;
+      }
+
       li:before {
         display: none;
       }
@@ -51,4 +55,5 @@ export const UnorderedList = styled.ul`
   ${display}
   ${borders}
   ${borderColor}
+  ${fontSize}
 `

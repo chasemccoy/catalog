@@ -1,47 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Box } from '@chasemccoy/kit'
-import media from 'utils/media'
+import Page from 'components/NewPage'
+import Link from 'components/Link'
+import Logo from 'components/Logo'
 
-const Container = styled(Box)`
-  display: flex;
-  background: #ffc700;
-  border-radius: 8px;
-  overflow: hidden;
-  font-weight: bold;
-  color: ${p => p.theme.colors.accent};
+const Header = () => (
+  <Box bg='gray.0' borderBottom='1px solid' borderColor='gray.1'>
+    <Page.Wrapper>
+      <Box display='flex' alignItems='center' justifyContent='space-between'>
+        <Logo />
 
-  ${media.small`
-    flex: 1 100%;
-    margin-right: 0;
-  `}
-`
-
-const Stripe = styled(Box)`
-  flex: 0.8;
-  margin-right: 40px;
-
-  background: linear-gradient(
-    to right,
-    #fff4cb 25%,
-    #ffe999 25% 50%,
-    #ffdd65 50% 75%,
-    #ffd233 75% 100%
-  );
-
-  ${media.small`
-    margin-right: 16px;
-  `}
-`
-
-const Header = props => (
-  <Container {...props}>
-    <Stripe />
-
-    <Box flex='2' py='2px'>
-      CHASE McCOY
-    </Box>
-  </Container>
+        <Link unstyled to='#menu' fontSize='0.8em' color='gray.4'>
+          Menu
+        </Link>
+      </Box>
+    </Page.Wrapper>
+  </Box>
 )
 
 export default Header

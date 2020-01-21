@@ -1,37 +1,43 @@
-import Page from 'components/Page'
+import Page from 'components/NewPage'
 import React from 'react'
-import { Column, Row } from 'components/Grid'
 import Image from 'components/Image'
-import { Box, Text } from '@chasemccoy/kit'
+import { Box, Text, Grid } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Heading from 'components/Heading'
+import Wide from 'components/Wide'
 
 const BooksPage = ({ data }) => {
   return (
     <Page
-      untitled
       title='Books'
       description='A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.'
     >
-      <Row alignItems='flex-end' className='full'>
-        {data.books.edges.map(({ node }, i) => (
-          <Column width={[1 / 2, 1 / 2, 1 / 3]} key={i}>
-            <Link to={node.url} unstyled>
-              <Image fluid={node.image.childImageSharp.fluid} />
+      <Wide>
+        <Grid>
+          {data.books.edges.map(({ node }, i) => (
+            <Box
+              width={[1 / 2, 1 / 2, 1 / 3, 1 / 4]}
+              display='flex'
+              alignItems='flex-end'
+              key={i}
+            >
+              <Link to={node.url} unstyled width='100%'>
+                <Image fluid={node.image.childImageSharp.fluid} />
 
-              <Box height='8em'>
-                <Heading.h3 my={8} lineHeight={1.3} color='page.text'>
-                  {node.title}
-                </Heading.h3>
-                <Text.p fontSize='16px' color='gray.4'>
-                  {node.metadata}
-                </Text.p>
-              </Box>
-            </Link>
-          </Column>
-        ))}
-      </Row>
+                <Box height='8em'>
+                  <Heading.h3 my={8} lineHeight={1.3} color='page.text'>
+                    {node.title}
+                  </Heading.h3>
+                  <Text.p fontSize='16px' color='gray.4'>
+                    {node.metadata}
+                  </Text.p>
+                </Box>
+              </Link>
+            </Box>
+          ))}
+        </Grid>
+      </Wide>
     </Page>
   )
 }

@@ -6,8 +6,8 @@
   "dependencies": {
     "@babel/core": "7.6.2",
     "@chasemccoy/kit": "0.7.6",
-    "@mdx-js/mdx": "1.5.1",
-    "@mdx-js/react": "1.5.1",
+    "@mdx-js/mdx": "1.5.3",
+    "@mdx-js/react": "1.5.3",
     "@microlink/react": "4.5.1",
     "@rebass/grid": "6.1.0",
     "airtable": "0.7.2",
@@ -19,9 +19,10 @@
     "gatsby-plugin-favicon": "3.1.6",
     "gatsby-plugin-feed": "2.3.15",
     "gatsby-plugin-layout": "1.1.10",
-    "gatsby-plugin-mdx": "1.0.51",
+    "gatsby-plugin-mdx": "1.0.67",
     "gatsby-plugin-page-creator": "2.1.23",
     "gatsby-plugin-react-helmet": "3.1.10",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "2.2.27",
     "gatsby-plugin-styled-components": "3.1.8",
     "gatsby-plugin-twitter": "2.1.9",
@@ -69,7 +70,7 @@
   "devDependencies": {
     "husky": "3.0.8",
     "lint-staged": "9.4.1",
-    "netlify-cli": "2.20.2",
+    "netlify-cli": "2.30.0",
     "prettier": "1.18.2"
   },
   "husky": {

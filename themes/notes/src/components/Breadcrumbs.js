@@ -15,7 +15,10 @@ const Divider = props => (
   </Text.span>
 )
 
-const Breadcrumbs = ({ category, title, isLandingPage, ...rest }) => {
+const Breadcrumbs = ({ category, title, ...rest }) => {
+  const isLandingPage =
+    category && category.toLowerCase() === title.toLowerCase()
+
   return (
     <Box display='flex' alignItems='center' whiteSpace {...rest}>
       <Link to='/notes'>notes</Link>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from 'components/Page'
+import Page from 'components/NewPage'
 import { graphql } from 'gatsby'
 import { Box, Text } from '@chasemccoy/kit'
 import MultiColumn from 'components/MultiColumn'
@@ -18,7 +18,7 @@ export const Quote = ({ content, source, ...rest }) => (
 
 const QuotesPage = ({ data }) => {
   return (
-    <Page title='Quotes' untitled description='Words worth keeping in mind.'>
+    <Page title='Quotes' description='Words worth keeping in mind.'>
       <MultiColumn count={2} gap='64px' minColumnWidth='400px'>
         {data.quotes.edges.map(({ node }, i) => (
           <Quote

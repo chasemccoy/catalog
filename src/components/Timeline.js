@@ -48,10 +48,10 @@ const TimelineListItem = styled.li`
     width: ${theme.sizes.timeline.pointWidth};
     height: ${theme.sizes.timeline.pointWidth};
     border-radius: 50%;
-    background: ${p => p.theme.colors.page.background};
+    background: white;
     border: ${theme.sizes.timeline.lineWidth} solid
       ${props => props.theme.colors.accent.pop};
-    box-shadow: 0 0 0 5px ${p => p.theme.colors.page.background};
+    box-shadow: 0 0 0 5px white;
     z-index: 1;
 
     left: calc(${theme.sizes.timeline.pointWidth} / 2);

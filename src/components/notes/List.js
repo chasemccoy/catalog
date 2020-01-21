@@ -15,32 +15,34 @@ const NoteList = ({ notes, ...rest }) => {
       `}
       {...rest}
     >
-      {notes.map(note => {
-        const tags = note.tags && note.tags.map(tag => tag.name)
+      <tbody>
+        {notes.map(note => {
+          const tags = note.tags && note.tags.map(tag => tag.name)
 
-        return (
-          <tr>
-            <td>
-              <Text fontWeight='bold' mb={4}>
-                <Link to={note.slug} unstyled>
-                  {note.title}
-                </Link>
-              </Text>
-              <Text fontSize='13px' color='gray.4'>
-                → {capitalize(note.category)}
-              </Text>
-            </td>
-            <td>
-              {note.excerpt && (
-                <Text mb={12} fontSize='15px'>
-                  {note.excerpt}
+          return (
+            <tr key={note.id}>
+              <td>
+                <Text as='h4' fontSize='1.1rem' mt={0} mb={4}>
+                  <Link to={note.slug} unstyled>
+                    {note.title}
+                  </Link>
                 </Text>
-              )}
-              <Tags mt={0} items={tags} />
-            </td>
-          </tr>
-        )
-      })}
+                <Text fontSize='0.75em' color='gray.4'>
+                  → {capitalize(note.category)}
+                </Text>
+              </td>
+              <td>
+                {note.excerpt && (
+                  <Text mb={8} fontSize='0.9em' lineHeight='1.4'>
+                    {note.excerpt}
+                  </Text>
+                )}
+                <Tags mt={0} items={tags} />
+              </td>
+            </tr>
+          )
+        })}
+      </tbody>
     </Table>
   )
 }

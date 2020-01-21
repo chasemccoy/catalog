@@ -1,13 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Timeline, TimelineItem } from 'components/Timeline'
-import Page from 'components/Page'
+import Page from 'components/NewPage'
 
 const PortfolioPage = ({ data }) => {
   return (
     <Page
       title='Portfolio'
-      untitled
       description='A timeline of a (brief) professional career that I am very proud of. I love talking about my work/industry, so get in touch and lets talk shop.'
     >
       <Timeline mb={32}>

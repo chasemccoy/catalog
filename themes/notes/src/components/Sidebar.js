@@ -1,10 +1,9 @@
 import React from 'react'
 import { Box } from '@chasemccoy/kit'
 import Link from 'components/Link'
-import Heading from 'components/Heading'
 import TableOfContents from './TableOfContents'
 import { capitalize } from 'utils'
-import Page from 'components/Page'
+import Page from 'components/NewPage'
 
 const Sidebar = ({ data, ...rest }) => (
   <Box mb={32} {...rest}>
@@ -13,8 +12,9 @@ const Sidebar = ({ data, ...rest }) => (
     {Object.entries(data)
       .sort()
       .map(([key, value], i) => (
-        <Box mb={8} key={i}>
+        <Box mb={4} key={i}>
           <Link
+            unstyled
             to={value[0].pagePath}
             color='gray.4'
             partiallyActive
@@ -33,13 +33,14 @@ const Sidebar = ({ data, ...rest }) => (
 
 Sidebar.Notes = ({ data, category, ...rest }) => (
   <Box {...rest}>
-    <Heading.h2>Notes</Heading.h2>
+    <Page.SidebarHeader>Notes</Page.SidebarHeader>
 
     {data
       .filter(note => !note.fields.isLandingPage)
       .map(note => (
-        <Box key={note.id}>
+        <Box mb={4} key={note.id}>
           <Link
+            unstyled
             fontSize='16px'
             to={note.fields.slug}
             css={`

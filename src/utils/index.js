@@ -12,7 +12,6 @@ const truncateExcerpt = string => {
 
 const stripTags = string => {
   if (string === null || string === '') return false
-
   return string.replace(/<[^>]*>/g, '')
 }
 

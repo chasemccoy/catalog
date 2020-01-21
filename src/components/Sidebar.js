@@ -133,11 +133,13 @@ const Overflow = ({ data, ...rest }) => (
       </Box>
 
       <Box as='li' mb={4}>
-        <Link external to='/feed.xml'>RSS</Link>
+        <Link external to='/feed.xml'>
+          RSS
+        </Link>
       </Box>
     </UnorderedList>
 
-    <Page.SidebarHeader mr={12} borderWidth={0}mb={2} color='gray.5'>
+    <Page.SidebarHeader mr={12} borderWidth={0} mb={2} color='gray.5'>
       Currently
     </Page.SidebarHeader>
 
@@ -195,6 +197,8 @@ const Sidebar = props => {
         <Nav width={[1 / 3, 1 / 4, 1, 1]} />
         <Overflow width={[2 / 3, 3 / 4, 1, 1]} data={data} />
       </Grid>
+
+      <Link to='#footer'>Footer</Link>
 
       {/* <Header fontSize='16px' mt='-8px'>
         <Link to='/' pr={[48, 48, 48, 0]} unstyled fontWeight='bold'>

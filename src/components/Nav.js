@@ -1,71 +1,58 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import { UnorderedList } from 'components/Lists'
-import media from 'utils/media'
-import { space } from 'styled-system'
+// import media from 'utils/media'
 
-const Container = styled.nav`
-  ${space}
-`
+const Nav = styled.nav`
+  font-size: 0.8rem;
+  ${'' /* font-family: ${p => p.theme.fonts.serif}; */}
+  --space: 24px;
+  margin-bottom: 4px;
 
-const MenuItem = styled.li`
-  color: ${p => p.theme.colors.type.menu};
-  font-size: 13px;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  vertical-align: text-top;
-
-  a {
-    color: currentColor;
-    opacity: 0.5;
+  ul {
+    list-style-type: none;
+    margin: 0;
   }
 
-  a:hover {
-    opacity: 0.75;
+  li {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  li + li {
+    margin-top: 4px;
+    margin-left: var(--space);
+
+    ${'' /* &:before {
+      content: "/";
+      margin-right: var(--space);
+    } */}
+  }
+
+  a {
+    text-decoration: none;
   }
 
   a.selected {
-    text-decoration: none;
-    opacity: 1;
-    color: ${p => p.theme.colors.type.menu};
-    border-top: 1px solid ${p => p.theme.colors.accent};
-    padding-top: ${p => p.theme.space[3]}px;
-
-    ${media.small`
-      padding-top: ${p => p.theme.space[3] - 1}px;
-    `}
-  }
-
-  * + & {
-    margin-left: 24px;
-  }
-
-  &:last-child {
-    ${media.medium`
-      padding-right: 24px;
-    `}
-  }
-
-  .dark & {
-    color: ${p => p.theme.colors.gray[4]};
+    ${'' /* color: ${p => p.theme.colors.accent}; */}
+    text-decoration: underline;
   }
 `
-const Item = ({ to, children, ...rest }) => (
-  <MenuItem {...rest}>
-    <Link to={to}>{children}</Link>
-  </MenuItem>
+
+const Item = ({ to, children }) => (
+  <li>
+    <Link partiallyActive to={to}>
+      {children}
+    </Link>
+  </li>
 )
 
-const Nav = props => (
-  <Container {...props}>
-    <UnorderedList inline borderTop='1px solid' borderColor='gray.1' pt={3}>
-      {props.children}
-    </UnorderedList>
-  </Container>
+export default () => (
+  <Nav>
+    <ul>
+      <Item to='/labs/thoughts'>Thoughts</Item>
+      <Item to='/notes'>Notes</Item>
+      <Item to='/books'>Books</Item>
+    </ul>
+  </Nav>
 )
-
-Nav.Item = Item
-
-export default Nav

@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 import Link from 'components/Link'
-import { borderRadius } from 'styled-system'
+import { borderRadius, space } from 'styled-system'
 
 const StyledImage = styled(Img)`
   margin-bottom: 0;
@@ -13,6 +13,7 @@ const StyledImage = styled(Img)`
   }
 
   ${borderRadius}
+  ${space}
 `
 
 export const ImageDiv = StyledImage.withComponent('div')
