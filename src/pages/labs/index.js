@@ -50,7 +50,7 @@ const Seeds = () => (
       <Grid gutter='0'>
         <Box
           width={[1, 1, 1 / 2, 1 / 2, 495]}
-          borderBottom={['1px solid', '_', 'none']}
+          borderBottom={['1px solid', null, 'none']}
           borderColor='gray.1'
           display='flex'
           justifyContent='center'
@@ -61,6 +61,7 @@ const Seeds = () => (
             css={`
               align-self: center;
             `}
+            px={[12, 12, 0]}
           />
         </Box>
 
@@ -171,7 +172,7 @@ const Pico = () => (
     <Wide pt={40}>
       <Grid>
         <Box width={[2 / 3, 1 / 2]} display='flex' alignItems='center'>
-          <Box pr={[16, 16, 64]} pl={[16, 16, 16, 0]}>
+          <Box pr={[16]} pl={[16, 16, 16, 0]}>
             <Image width={64} src={picoLogo} />
 
             <Heading.h2 fontSize='1.8em' mt={80} color='inherit'>
@@ -207,10 +208,10 @@ const Pico = () => (
               when it launched back in 2017.
             </Text.p>
 
-            <Grid mb={40}>
-              {[1, 2, 3, 4].map(index => (
-                <Box width={[1 / 2, 1 / 2, 1 / 4]}>
-                  <Image src={picoBoxes[index]} />
+            <Grid mb={40} maxWidth={[180, 180, 220, 'none']}>
+              {[1, 2, 3, 4].map(i => (
+                <Box width={[1 / 2, 1 / 2, 1 / 2, 1 / 4]} minWidth={75} key={i}>
+                  <Image src={picoBoxes[i]} />
                 </Box>
               ))}
             </Grid>
@@ -235,7 +236,11 @@ const Pico = () => (
 )
 
 const Portrait = () => (
-  <Box bg='accent.pop'>
+  <Box
+    bg='accent.pop'
+    width={['calc(100% + 32px)', null, 1]}
+    ml={[-16, -16, 0]}
+  >
     <Image
       src={portrait}
       css={css`
@@ -260,8 +265,6 @@ const IndexPage = ({ data }) => {
         <Link to='https://sproutsocial.com/seeds'>Seeds design system</Link>.
       </Text.p>
 
-      {/* <Text as='h1' mt={0}>Chase McCoy</Text> */}
-
       <Text.p mb='1.25em'>
         My work focuses on building thoughtful, intuitive, and delightful
         interactions for the web, with a devotion to process, transparency, and
@@ -269,13 +272,14 @@ const IndexPage = ({ data }) => {
       </Text.p>
 
       <Wide>
-        <Grid mb='1em'>
-          <Box width={2 / 3}>
+        <Grid overflow='visible' mb='1em'>
+          <Box width={[1, 1, 2 / 3]}>
             <Portrait />
           </Box>
-          <Box flex={1}>
-            <Box bg='accent.pop' size='100%'></Box>
-            <Heading.h2 mt={0}>Test</Heading.h2>
+          <Box flex={[1, 1, 1]}>
+            <Box height='100%' bg='accent.pop' p={16}>
+              test
+            </Box>
           </Box>
         </Grid>
 
@@ -315,12 +319,17 @@ const IndexPage = ({ data }) => {
             <MultiColumn count={2} gap='24px' minColumnWidth='12em'>
               {posts.nodes.map(post => (
                 <Box mb={16} key={post.id}>
-                  <Text fontSize='1em' lineHeight='1.3' fontFamily='serif'>
+                  <Text
+                    fontSize='1em'
+                    lineHeight='1.3'
+                    fontFamily='serif'
+                    mb={4}
+                  >
                     <Link
                       unstyled
                       to={post.slug}
                       dangerouslySetInnerHTML={{
-                        __html: post.title + '&nbsp;→'
+                        __html: post.title
                       }}
                     />
                   </Text>
@@ -346,13 +355,12 @@ const IndexPage = ({ data }) => {
         transparency, and sharing what I learn.
       </Text.p> */}
 
-      <CurveTextScroll mt={[0, -40, -80, -140]} mb={[0, 0, 0, -100]}>
+      <CurveTextScroll mt={[0, -40, -80, -120]} mb={[0, 0, 0, -80]}>
         If you'd like to work together, please get in touch!
       </CurveTextScroll>
 
       <Page.Breakout
         bg='#fdfaee'
-        mt={[0, 0, 0, -40]}
         mb='2em'
         borderTop='1px solid'
         borderBottom='1px solid'

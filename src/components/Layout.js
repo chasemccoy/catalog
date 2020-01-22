@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
 
     ${media.small`
       padding: 8px 0;
+      font-size: 17px;
     `}
 
     ${
