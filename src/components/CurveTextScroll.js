@@ -5,8 +5,10 @@ import { space } from 'styled-system'
 import media from 'utils/media'
 
 const SVG = styled.svg`
-  font-size: 24px;
+  font-size: 28px;
   margin-top: -64px;
+  ${'' /* font-family: ${p => p.theme.fonts.serif}; */}
+  letter-spacing: 0.5em;
 
   ${media.medium`
     font-size: 48px;

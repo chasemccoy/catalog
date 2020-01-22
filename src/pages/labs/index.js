@@ -189,7 +189,7 @@ const Pico = () => (
               pre-processed with that film.
             </Text.p>
 
-            <Text.p color='inherit' fontSize='0.9em' mb='3em'>
+            <Text.p color='inherit' fontSize='0.9em' mb='4em'>
               Pico is no longer available for sale, and the domain for the
               website has expired. However, you can still{' '}
               <Link
@@ -355,9 +355,22 @@ const IndexPage = ({ data }) => {
         transparency, and sharing what I learn.
       </Text.p> */}
 
-      <CurveTextScroll mt={[0, -40, -80, -120]} mb={[0, 0, 0, -80]}>
-        If you'd like to work together, please get in touch!
+      <CurveTextScroll mt={[0, -40, -80, -120]}>
+        ~ keep the web weird ~
       </CurveTextScroll>
+
+      <Page.Breakout
+        borderTop='1px solid'
+        borderColor='gray.1'
+        display='flex'
+        justifyContent='center'
+        py='1em'
+        color='gray.4'
+      >
+        <Text as='h1' fontSize='1em' m={0} id='#portfolio'>
+          Selected projects
+        </Text>
+      </Page.Breakout>
 
       <Page.Breakout
         bg='#fdfaee'
@@ -378,6 +391,14 @@ const IndexPage = ({ data }) => {
           <Pico />
         </Page.Wrapper>
       </Page.Breakout>
+
+      <Heading.h2 fontSize='1.8em'>What’s next?</Heading.h2>
+
+      <Text.p mb='1.25em'>
+        My work focuses on building thoughtful, intuitive, and delightful
+        interactions for the web, with a devotion to process, transparency, and
+        sharing what I learn.
+      </Text.p>
     </Page>
   )
 }

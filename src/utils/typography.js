@@ -7,7 +7,7 @@ const fontFamilyArray = value => value.replace(/[""&]+/g, '').split(', ')
 const typography = new Typography({
   includeNormalize: false,
   baseFontSize: '18px',
-  baseLineHeight: 1.5,
+  baseLineHeight: 1.45,
   headerLineHeight: 1.1,
   blockMarginBottom: 0.75,
   bodyFontFamily: fontFamilyArray(theme.fonts.sans),
