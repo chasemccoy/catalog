@@ -20,6 +20,10 @@ import { UnorderedList } from 'components/Lists'
 import Code from 'assets/code-icon.svg'
 import Phone from 'assets/phone-icon.svg'
 import Desktop from 'assets/desktop-icon.svg'
+import Calendar from 'assets/calendar-icon.svg'
+import Sprout from 'assets/sprout.png'
+import SproutClassic from 'assets/sprout-classic.png'
+import SproutLeaf from 'assets/sprout-leaf.svg'
 
 const picoBoxes = {
   1: picoBox1,
@@ -73,17 +77,17 @@ const Seeds = () => (
           mb={[24, 24, 0]}
         >
           <Box pl={[0, 0, 16, 40]}>
-            <Badge icon={Desktop} mt={48}>
-              GATSBY, REACT, STORYBOOK
+            <Badge icon={Calendar} mt={48}>
+              2018 — PRESENT
             </Badge>
 
             <Heading.h2 mt={24}>
-              Seeds, Sprout Social's design system and component library
+              Seeds, Sprout Social’s design system and component library
             </Heading.h2>
 
             <Text.p fontSize='0.9em'>
               The Design Systems team leads the development of the React
-              component library driving all of Sprout's products, as well as the
+              component library driving all of Sprout’s products, as well as the
               website documenting our entire design system.
             </Text.p>
 
@@ -121,17 +125,21 @@ const Seeds = () => (
 
 const Nectar = props => (
   <Box {...props}>
-    <Badge icon={Desktop}>REACT, STYLED COMPONENTS</Badge>
+    {/* <Badge icon={Calendar}>2019</Badge> */}
 
-    <Heading.h2 fontSize='1.8em' mt={64} mb={24}>
+    <Box width='40px'>
+      <SproutLeaf />
+    </Box>
+
+    <Heading.h2 fontSize='1.8em' mt={32} mb={24}>
       Redesigning the Sprout Social web app
     </Heading.h2>
 
-    <Wide mb={32}>
+    {/* <Wide mb={32}>
       <Grid>
-        <Box width={[1, 1 / 2]}>
+        <Box width={[3 / 4]}>
           <Image
-            src='https://miro.medium.com/max/6720/1*JJlCaZP2LGbFsDtxu83YjQ.png'
+            src={SproutClassic}
             css={css`
               object-fit: cover;
               object-position: left center;
@@ -139,9 +147,9 @@ const Nectar = props => (
           />
         </Box>
 
-        <Box width={[1, 1 / 2]}>
+        <Box width={[3 / 4]}>
           <Image
-            src='https://miro.medium.com/max/6720/1*JJlCaZP2LGbFsDtxu83YjQ.png'
+            src={Sprout}
             css={css`
               object-fit: cover;
               object-position: left center;
@@ -149,20 +157,63 @@ const Nectar = props => (
           />
         </Box>
       </Grid>
-    </Wide>
+    </Wide> */}
 
     <Text.p>
-      My work focuses on building thoughtful, intuitive, and delightful
-      interactions for the web, with a devotion to process. My work focuses on
-      building thoughtful, intuitive, and delightful interactions for the web,
-      with a devotion to process. My work focuses on building thoughtful,
-      intuitive, and delightful interactions for the web, with a devotion to
-      process.
+      In 2019, Sprout set out to redesign our entire user interface from the
+      ground up for the first time in almost a decade. The legacy Sprout web
+      application had become a mess of conflicting styles, patterns, and
+      experiences.
     </Text.p>
 
+    <Wide>
+      <Grid mt='2em' mb='1em'>
+        <Box width={[3 / 4]}>
+          <Link to={SproutClassic}>
+            <Image src={SproutClassic} />
+          </Link>
+        </Box>
+
+        <Box width={[1 / 4]} display='flex' alignItems='flex-end'>
+          <Text fontSize='0.8em' color='gray.4'>
+            Sprout's legacy UI on the left, compared to the new UI below. Click
+            the images for the full-size version.
+          </Text>
+        </Box>
+      </Grid>
+    </Wide>
+    {/* 
     <Text.p>
-      My work focuses on building thoughtful, intuitive, and delightful
-      interactions for the web, with a devotion to process.
+      We leveraged our design system and component library,{' '}
+      <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, to tackle this
+      project.
+    </Text.p> */}
+
+    <Wide mb='2em'>
+      <Image src={Sprout} />
+    </Wide>
+
+    {/* <Wide>
+      <Text.p>
+        <Image src={SproutClassic} />
+      </Text.p>
+    </Wide> */}
+
+    <Text.p>
+      We leveraged our design system and component library,{' '}
+      <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, to tackle this
+      project.
+    </Text.p>
+
+    {/* <Wide>
+      <Text.p>
+        <Image src={Sprout} />
+      </Text.p>
+    </Wide> */}
+
+    <Text.p>
+      The new interface is more consistent, accessible, and responsive than ever
+      before.
     </Text.p>
   </Box>
 )
@@ -260,15 +311,28 @@ const IndexPage = ({ data }) => {
   return (
     <Page untitled>
       <Text.p fontSize='1.5em' mb='1em' lineHeight='1.4'>
-        <b>Chase McCoy</b> is a designer and developer based in Chicago, working
-        at Sprout Social on the{' '}
-        <Link to='https://sproutsocial.com/seeds'>Seeds design system</Link>.
+        <b>Chase McCoy</b> is a senior design technologist based in Chicago
+        leading the team behind{' '}
+        <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, Sprout Social’s
+        design system.
       </Text.p>
 
-      <Text.p mb='1.25em'>
-        My work focuses on building thoughtful, intuitive, and delightful
-        interactions for the web, with a devotion to process, transparency, and
-        sharing what I learn.
+      <Text.p>
+        I hate the internet and I love the internet. I believe that it can and
+        should be a space that respects the creativity, diversity, and
+        well-being of those who occupy it. Like hypertext itself, our culture is
+        defined by the connections we make. I work to design and build tools
+        that serve those who create connections on (and with) the web.
+      </Text.p>
+
+      <Text.p>
+        I’m currently working as a founding member of the Design Systems team at{' '}
+        <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and
+        build <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, our design
+        system, as well as other tools used by Sprout employees to deliver
+        consistently designed products to our customers. Previously I worked as
+        a mobile designer & iOS developer, creating indie apps in my spare time
+        and building products for enterprise clients at my day job.
       </Text.p>
 
       <Wide>
@@ -278,7 +342,15 @@ const IndexPage = ({ data }) => {
           </Box>
           <Box flex={[1, 1, 1]}>
             <Box height='100%' bg='accent.pop' p={16}>
-              test
+              <Heading.h2 mt={0} fontSize='1em' fontWeight='bold'>
+                Focusing on —
+              </Heading.h2>
+
+              <Text as='p' mb={0} fontSize='0.8em'>
+                Hypertext, CSS, semantic HTML, design systems, internet culture,
+                online communities, indie publishing, creative coding, digital
+                preservationism, and a diverse & open&nbsp;web.
+              </Text>
             </Box>
           </Box>
         </Grid>
@@ -333,7 +405,7 @@ const IndexPage = ({ data }) => {
                       }}
                     />
                   </Text>
-                  <Text fontSize='0.75em'>{post.excerpt}</Text>
+                  <Text fontSize='0.8em'>{post.excerpt}</Text>
                 </Box>
               ))}
             </MultiColumn>
@@ -359,7 +431,7 @@ const IndexPage = ({ data }) => {
         ~ keep the web weird ~
       </CurveTextScroll>
 
-      <Page.Breakout
+      {/* <Page.Breakout
         borderTop='1px solid'
         borderColor='gray.1'
         display='flex'
@@ -370,7 +442,7 @@ const IndexPage = ({ data }) => {
         <Text as='h1' fontSize='1em' m={0} id='#portfolio'>
           Selected projects
         </Text>
-      </Page.Breakout>
+      </Page.Breakout> */}
 
       <Page.Breakout
         bg='#fdfaee'
@@ -392,13 +464,20 @@ const IndexPage = ({ data }) => {
         </Page.Wrapper>
       </Page.Breakout>
 
-      <Heading.h2 fontSize='1.8em'>What’s next?</Heading.h2>
+      <Box py={80}>
+        <Heading.h2 fontSize='1.6em' mt={0}>
+          Stay in touch
+        </Heading.h2>
 
-      <Text.p mb='1.25em'>
-        My work focuses on building thoughtful, intuitive, and delightful
-        interactions for the web, with a devotion to process, transparency, and
-        sharing what I learn.
-      </Text.p>
+        <Text.p mb={0}>
+          If you’d like to chat, you can{' '}
+          <Link to='mailto:hi@chasem.co'>drop me a line</Link> or find me in a
+          coffee shop on Chicago’s west side{' '}
+          <span role='img' aria-label='Cup of coffee emoji.'>
+            ☕️
+          </span>
+        </Text.p>
+      </Box>
     </Page>
   )
 }

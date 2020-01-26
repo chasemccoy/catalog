@@ -24,10 +24,12 @@ const Wrapper = styled(Box)`
 
   display: grid;
   grid-gap: ${p => (p.flush ? 0 : '24px')} 24px;
-  grid-template-columns: 1fr ${p => p.theme.sizes.sidebarWidth} minmax(
+  grid-template-columns:
+    1fr ${p => p.theme.sizes.sidebarWidth} minmax(
       0,
       ${p => p.theme.sizes.contentWidth}
-    ) 1fr;
+    )
+    1fr;
   grid-template-areas:
     'logo .       header .'
     '.    sidebar main   .';
@@ -120,7 +122,7 @@ const Page = ({
           </Wrapper>
 
           <Box as={article ? 'article' : 'div'}>
-            <Wrapper mb={24}>
+            <Wrapper>
               {!untitled && (
                 <ArticleHeader>{header || <Header />}</ArticleHeader>
               )}
