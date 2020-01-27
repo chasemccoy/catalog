@@ -127,7 +127,7 @@ const Page = ({
                 <ArticleHeader>{header || <Header />}</ArticleHeader>
               )}
 
-              <Box mt={untitled ? 32 : 0}>{children}</Box>
+              <Box mt={untitled ? [0, 0, 0, 32] : 0}>{children}</Box>
 
               {aside && (
                 <Box as='aside' mt={untitled ? 48 : 0}>

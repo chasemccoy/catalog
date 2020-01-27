@@ -24,6 +24,7 @@ import Calendar from 'assets/calendar-icon.svg'
 import Sprout from 'assets/sprout.png'
 import SproutClassic from 'assets/sprout-classic.png'
 import SproutLeaf from 'assets/sprout-leaf.svg'
+import media from 'utils/media'
 
 const picoBoxes = {
   1: picoBox1,
@@ -31,6 +32,21 @@ const picoBoxes = {
   3: picoBox3,
   4: picoBox4
 }
+
+const fullWidthImage = {
+  width: ['calc(100% + 32px)', null, 1],
+  ml: [-16, -16, 0]
+}
+
+const nectarImageCSS = css`
+  border-radius: 8px;
+  border: 1px solid ${p => p.theme.colors.gray[1]};
+
+  ${media.small`
+    border: none;
+    border-radius: 0;
+  `}
+`
 
 const Badge = ({ icon: Icon, children, ...rest }) => (
   <Box display='inline-flex' alignItems='center' {...rest}>
@@ -167,17 +183,18 @@ const Nectar = props => (
     </Text.p>
 
     <Wide>
-      <Grid mt='2em' mb='1em'>
-        <Box width={[3 / 4]}>
-          <Link to={SproutClassic}>
-            <Image src={SproutClassic} />
-          </Link>
+      <Grid mt='2em' mb='1em' overflow='visible' {...fullWidthImage}>
+        <Box width={[1, 1, 1, 3 / 4]}>
+          <a href={SproutClassic}>
+            <Image src={SproutClassic} css={nectarImageCSS} />
+          </a>
         </Box>
 
-        <Box width={[1 / 4]} display='flex' alignItems='flex-end'>
-          <Text fontSize='0.8em' color='gray.4'>
-            Sprout's legacy UI on the left, compared to the new UI below. Click
-            the images for the full-size version.
+        <Box width={[1, 1, 1, 1 / 4]} display='flex' alignItems='flex-end'>
+          <Text fontSize='0.8em' color='gray.4' px={[16, null, 0]}>
+            Sprout's legacy UI compared to the new UI. You can see how the
+            “bones” of the app are largely the same. Click the images for the
+            full-size version.
           </Text>
         </Box>
       </Grid>
@@ -190,7 +207,11 @@ const Nectar = props => (
     </Text.p> */}
 
     <Wide mb='2em'>
-      <Image src={Sprout} />
+      <Box {...fullWidthImage}>
+        <a href={Sprout}>
+          <Image src={Sprout} css={nectarImageCSS} />
+        </a>
+      </Box>
     </Wide>
 
     {/* <Wide>
@@ -286,12 +307,8 @@ const Pico = () => (
   </div>
 )
 
-const Portrait = () => (
-  <Box
-    bg='accent.pop'
-    width={['calc(100% + 32px)', null, 1]}
-    ml={[-16, -16, 0]}
-  >
+const Portrait = props => (
+  <Box bg='accent.pop' {...props}>
     <Image
       src={portrait}
       css={css`
@@ -336,13 +353,13 @@ const IndexPage = ({ data }) => {
       </Text.p>
 
       <Wide>
-        <Grid overflow='visible' mb='1em'>
+        <Grid gutter='0' overflow='visible' mb='1em' {...fullWidthImage}>
           <Box width={[1, 1, 2 / 3]}>
-            <Portrait />
+            <Portrait mr={[0, 0, 12]} />
           </Box>
           <Box flex={[1, 1, 1]}>
-            <Box height='100%' bg='accent.pop' p={16}>
-              <Heading.h2 mt={0} fontSize='1em' fontWeight='bold'>
+            <Box height='100%' bg='accent.pop' p={16} ml={[0, 0, 12]}>
+              <Heading.h2 mt={0} fontSize='1.1em' fontWeight='bold'>
                 Focusing on —
               </Heading.h2>
 
