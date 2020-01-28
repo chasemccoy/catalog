@@ -327,7 +327,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Page untitled>
-      <Text.p fontSize='1.5em' mb='1em' lineHeight='1.4'>
+      <Text.p fontSize='1.5em' lineHeight='1.4'>
         <b>Chase McCoy</b> is a senior design technologist based in Chicago
         leading the team behind{' '}
         <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, Sprout Social’s

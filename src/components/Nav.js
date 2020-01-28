@@ -53,6 +53,7 @@ export default () => (
       <Item to='/labs/thoughts'>Thoughts</Item>
       <Item to='/notes'>Notes</Item>
       <Item to='/books'>Books</Item>
+      <Item to='/quotes'>Quotes</Item>
     </ul>
   </Nav>
 )
