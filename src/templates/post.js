@@ -7,7 +7,7 @@ import Link from 'components/Link'
 import Tags from 'components/Tags'
 
 const Sidebar = ({ items, tags, date }) => {
-  if (!items || items.length === 0) return null
+  const hasRelatedItems = items && items.length !== 0
 
   return (
     <React.Fragment>
@@ -23,18 +23,22 @@ const Sidebar = ({ items, tags, date }) => {
         </Box>
       )}
 
-      <Page.SidebarHeader>Related</Page.SidebarHeader>
+      {hasRelatedItems && (
+        <React.Fragment>
+          <Page.SidebarHeader>Related</Page.SidebarHeader>
 
-      {items.map((item, i) => (
-        <Box key={i} mb={8}>
-          <Link
-            unstyled
-            to={item.slug}
-            color='gray.4'
-            dangerouslySetInnerHTML={{ __html: item.title }}
-          />
-        </Box>
-      ))}
+          {items.map((item, i) => (
+            <Box key={i} mb={8}>
+              <Link
+                unstyled
+                to={item.slug}
+                color='gray.4'
+                dangerouslySetInnerHTML={{ __html: item.title }}
+              />
+            </Box>
+          ))}
+        </React.Fragment>
+      )}
     </React.Fragment>
   )
 }

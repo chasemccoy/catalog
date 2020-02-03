@@ -8,7 +8,7 @@ const SVG = styled.svg`
   font-size: 28px;
   margin-top: -64px;
   ${'' /* font-family: ${p => p.theme.fonts.serif}; */}
-  letter-spacing: 0.5em;
+  letter-spacing: 0.2em;
 
   ${media.medium`
     font-size: 48px;
@@ -30,11 +30,9 @@ const CurveTextScroll = ({ children, ...rest }) => {
     const path = textContainer.querySelector(textPath.getAttribute('href'))
     const pathLength = path.getTotalLength()
 
-    console.log(pathLength)
-
     const updateTextPathOffset = () => {
       const rect = textContainer.getBoundingClientRect()
-      const scrollPercent = rect.y / window.innerHeight
+      const scrollPercent = (rect.y - 200) / window.innerHeight
       textPath.setAttribute('startOffset', scrollPercent * 2 * pathLength)
     }
 

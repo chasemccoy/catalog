@@ -1,12 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Link from 'components/Link'
 // import media from 'utils/media'
 
-const Nav = styled.nav`
+const Nav = styled.nav(
+  p => css`
   font-size: 0.8rem;
-  ${'' /* font-family: ${p => p.theme.fonts.serif}; */}
-  --space: 24px;
+  --space: ${p.vertical ? '8px' : '24px'};
   margin-bottom: 4px;
 
   ul {
@@ -15,18 +15,20 @@ const Nav = styled.nav`
   }
 
   li {
-    display: inline-block;
+    display: ${p.vertical ? 'block' : 'inline-block'};
     margin-bottom: 0;
   }
 
   li + li {
     margin-top: 4px;
-    margin-left: var(--space);
+    margin-${p.vertical ? 'top' : 'left'}: var(--space);
 
-    ${'' /* &:before {
+    ${
+      '' /* &:before {
       content: "/";
       margin-right: var(--space);
-    } */}
+    } */
+    }
   }
 
   a {
@@ -38,6 +40,7 @@ const Nav = styled.nav`
     text-decoration: underline;
   }
 `
+)
 
 const Item = ({ to, children }) => (
   <li>
@@ -47,8 +50,8 @@ const Item = ({ to, children }) => (
   </li>
 )
 
-export default () => (
-  <Nav>
+export default ({ direction = 'horizontal' }) => (
+  <Nav vertical={direction === 'vertical'}>
     <ul>
       <Item to='/labs/thoughts'>Thoughts</Item>
       <Item to='/notes'>Notes</Item>

@@ -80,6 +80,10 @@ const colors = {
   }
 }
 
+const shadows = {
+  retro: '6px 6px black'
+}
+
 const theme = {
   name: 'light',
   breakpoints,
@@ -88,7 +92,8 @@ const theme = {
   space,
   sizes,
   fontWeights,
-  fonts
+  fonts,
+  shadows
 }
 
 export default theme

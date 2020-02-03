@@ -17,9 +17,9 @@ import picoBox3 from 'assets/pico-box-3.png'
 import picoBox4 from 'assets/pico-box-4.png'
 import MultiColumn from 'components/MultiColumn'
 import { UnorderedList } from 'components/Lists'
-import Code from 'assets/code-icon.svg'
-import Phone from 'assets/phone-icon.svg'
-import Desktop from 'assets/desktop-icon.svg'
+// import Code from 'assets/code-icon.svg'
+// import Phone from 'assets/phone-icon.svg'
+// import Desktop from 'assets/desktop-icon.svg'
 import Calendar from 'assets/calendar-icon.svg'
 import Sprout from 'assets/sprout.png'
 import SproutClassic from 'assets/sprout-classic.png'
@@ -358,8 +358,14 @@ const IndexPage = ({ data }) => {
             <Portrait mr={[0, 0, 12]} />
           </Box>
           <Box flex={[1, 1, 1]}>
-            <Box height='100%' bg='accent.pop' p={16} ml={[0, 0, 12]}>
-              <Heading.h2 mt={0} fontSize='1.1em' fontWeight='bold'>
+            <Box
+              height='100%'
+              bg='accent.pop'
+              boxShadow={['none', null, 'retro']}
+              p={16}
+              ml={[0, 0, 12]}
+            >
+              <Heading.h2 mt={0} fontSize='1.1em'>
                 Focusing on —
               </Heading.h2>
 
