@@ -35,28 +35,6 @@ module.exports = {
     `gatsby-transformer-hjson`,
     `gatsby-plugin-twitter`,
     {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: './src/favicon.png',
-        appName: 'Chase McCoy',
-        background: '#fff',
-        theme_color: '#FFCD3F',
-        start_url: '/',
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: true,
-          twitter: true,
-          yandex: false,
-          windows: true
-        }
-      }
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
@@ -170,6 +148,18 @@ module.exports = {
             queryName: 'readingList'
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Chase McCoy`,
+        short_name: `chasem.co`,
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#FFC700',
+        display: 'standalone',
+        icon: 'src/favicon.png'
       }
     }
   ]
