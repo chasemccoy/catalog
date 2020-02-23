@@ -31,7 +31,7 @@ const Wrapper = styled(Box)`
     )
     1fr;
   grid-template-areas:
-    'logo .       header .'
+    '.    logo    header .'
     '.    sidebar main   .';
 
   > * {
@@ -70,7 +70,7 @@ const Wrapper = styled(Box)`
 
 Wrapper.defaultProps = {
   px: 16,
-  py: 8
+  pt: 8
 }
 
 const ArticleHeader = styled.header`
@@ -112,9 +112,9 @@ const Page = ({
 
       <main>
         <PageContainer>
-          <Wrapper flush>
+          <Wrapper flush mt={8}>
             <div class='logo'>
-              <Logo />
+              <Logo mb={[4, null, 0]} />
             </div>
             <header>
               <Nav />

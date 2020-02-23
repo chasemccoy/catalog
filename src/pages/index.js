@@ -1,108 +1,340 @@
 import React from 'react'
-import styled from 'styled-components'
-import Page from 'components/Page'
-import { Grid } from 'components/Base'
-import { Box, Text } from '@chasemccoy/kit'
-import Heading from 'components/Heading'
-import Link from 'components/Link'
-import portraitBW from 'assets/portrait-bw.png'
-import Image from 'components/Image'
+import { css } from 'styled-components'
 import { graphql } from 'gatsby'
+import Page from 'components/NewPage'
+import { Box, Text, Heading, Grid } from '@chasemccoy/kit'
+import Link from 'components/Link'
+import CurveTextScroll from 'components/CurveTextScroll'
+import Wide from 'components/Wide'
+import Image from 'components/Image'
+import portrait from 'assets/portrait.jpg'
+import componentGrid from 'assets/component-grid.png'
+import pico from 'assets/pico.jpg'
+import picoLogo from 'assets/pico-logo.png'
+import picoBox1 from 'assets/pico-box-1.png'
+import picoBox2 from 'assets/pico-box-2.png'
+import picoBox3 from 'assets/pico-box-3.png'
+import picoBox4 from 'assets/pico-box-4.png'
+import MultiColumn from 'components/MultiColumn'
 import { UnorderedList } from 'components/Lists'
-import 'isomorphic-fetch'
-import AsciiLogo from 'components/AsciiLogo'
+// import Code from 'assets/code-icon.svg'
+// import Phone from 'assets/phone-icon.svg'
+// import Desktop from 'assets/desktop-icon.svg'
+import Calendar from 'assets/calendar-icon.svg'
+import Sprout from 'assets/sprout.png'
+import SproutClassic from 'assets/sprout-classic.png'
+import SproutLeaf from 'assets/sprout-leaf.svg'
 import media from 'utils/media'
-import ScrollRow from 'components/ScrollRow'
-import TabCard from 'components/TabCard'
-import WavyBorder from 'components/WavyBorder'
 
-const Container = styled(Box)`
-  a {
-    &:hover {
-      color: ${p => p.theme.colors.type.body};
-    }
-  }
-`
+const picoBoxes = {
+  1: picoBox1,
+  2: picoBox2,
+  3: picoBox3,
+  4: picoBox4
+}
 
-const Portrait = styled(Box)`
-  background-image: url(${portraitBW});
-  mix-blend-mode: luminosity;
-  height: 250px;
-  background-size: cover;
-  background-position: 50% 75%;
-  background-repeat: no-repeat;
+const fullWidthImage = {
+  width: ['calc(100% + 32px)', null, 1],
+  ml: [-16, -16, 0]
+}
+
+const nectarImageCSS = css`
+  border-radius: 8px;
+  border: 1px solid ${p => p.theme.colors.gray[1]};
 
   ${media.small`
-    height: 200px;
+    border: none;
+    border-radius: 0;
   `}
 `
 
-const GradientBox = styled(Box)`
-  ${'' /* background: linear-gradient(
-    ${p => (p.flipped ? 'to top' : 'to bottom')},
-    ${p => p.theme.colors.accent.light} 24px,
-    ${p => p.theme.colors.accent.soft} 24px,
-    ${p => p.theme.colors.accent.soft} 48px,
-    #ffda73 48px,
-    #ffda73 72px,
-    ${p => p.theme.colors.accent.pop} 72px,
-    ${p => p.theme.colors.accent.pop}
-  );
-  padding-${p => (p.flipped ? 'bottom' : 'top')}: 72px; */}
-
-  h4 {
-    border-bottom: 1px dashed;
-    border-color: ${p => p.theme.colors.accent};
-  }
-`
-
-// const ArtistList = styled(UnorderedList)`
-//   li {
-//     margin-right: 16px;
-//     margin-bottom: 6px;
-//     white-space: nowrap;
-//   }
-
-//   li:nth-child(even) {
-//     opacity: 0.6;
-//   }
-// `
-
-// const getTracks = async set => {
-//   const response = await fetch('https://chs-stats.now.sh/recentTracks')
-//   const result = await response.json()
-//   set(result)
-// }
-
-// const BorderedBox = props => (
-//   <Box
-//     p={[8, 16]}
-//     bg='white'
-//     border='3px solid'
-//     borderRadius='8px'
-//     // boxShadow='8px 6px 0 black'
-//     {...props}
-//   />
-// )
-
-const Intro = props => (
-  <Text.p
-    fontSize={['22px', '24px', '26px']}
-    lineHeight='1.4'
-    mb={0}
-    fontWeight='heavy'
-    {...props}
-  >
-    Hey there! I’m Chase, a designer and developer based in Chicago,&nbsp;IL
-    specializing in systems thinking, design tooling, and front-end engineering.
-    I spend a lot of time thinking about how the web works.
-  </Text.p>
+const Badge = ({ icon: Icon, children, ...rest }) => (
+  <Box display='inline-flex' alignItems='center' color='gray.5' {...rest}>
+    <Icon />
+    <Text
+      ml={12}
+      fontSize='0.75em'
+      fontWeight='semibold'
+      css={`
+        letter-spacing: 1px;
+      `}
+    >
+      {children}
+    </Text>
+  </Box>
 )
 
-const Bio = props => (
-  <Grid {...props}>
-    <Box width={[1, 1, 1, 1, 2 / 3]} zIndex={1}>
-      <Text.p fontSize='18px'>
+const Seeds = () => (
+  <div>
+    <Wide>
+      <Grid gutter='0'>
+        <Box
+          width={[1, 1, 1 / 2, 1 / 2, 495]}
+          borderBottom={['1px solid', null, 'none']}
+          borderColor='gray.1'
+          display='flex'
+          justifyContent='center'
+        >
+          <Image
+            maxWidth='495px'
+            src={componentGrid}
+            css={`
+              align-self: center;
+            `}
+            px={[12, 12, 0]}
+          />
+        </Box>
+
+        <Box
+          flex={1}
+          display='flex'
+          alignItems='center'
+          px={12}
+          mb={[24, 24, 0]}
+        >
+          <Box pl={[0, 0, 16, 40]}>
+            <Badge icon={Calendar} mt={48}>
+              2018 — PRESENT
+            </Badge>
+
+            <Heading.h2 mt={24}>
+              Seeds, Sprout Social’s design system and component library
+            </Heading.h2>
+
+            <Text.p fontSize='0.9em'>
+              The Design Systems team leads the development of the React
+              component library driving all of Sprout’s products, as well as the
+              website documenting our entire design system.
+            </Text.p>
+
+            <UnorderedList fontSize='0.9em' mb={[40, 40, 40, 0]}>
+              <li>
+                <Link to='https://seeds.sproutsocial.com'>Check out Seeds</Link>
+                , and browse through{' '}
+                <Link to='https://seeds.sproutsocial.com/components'>
+                  our component documentation
+                </Link>
+                .
+              </li>
+              <li>
+                Read my article on{' '}
+                <Link to='/2019/07/seeds-component-library'>
+                  how we created a component library that our developers love
+                  using
+                </Link>
+                .
+              </li>
+              <li>
+                Check out{' '}
+                <Link to='/notes/design-systems'>
+                  my notes on design systems
+                </Link>
+                .
+              </li>
+            </UnorderedList>
+          </Box>
+        </Box>
+      </Grid>
+    </Wide>
+  </div>
+)
+
+const Nectar = props => (
+  <Box {...props}>
+    {/* <Badge icon={Calendar}>2019</Badge> */}
+
+    <Box width='40px'>
+      <SproutLeaf />
+    </Box>
+
+    <Heading.h2 fontSize='1.8em' mt={32} mb={24}>
+      Redesigning the Sprout Social web app
+    </Heading.h2>
+
+    {/* <Wide mb={32}>
+      <Grid>
+        <Box width={[3 / 4]}>
+          <Image
+            src={SproutClassic}
+            css={css`
+              object-fit: cover;
+              object-position: left center;
+            `}
+          />
+        </Box>
+
+        <Box width={[3 / 4]}>
+          <Image
+            src={Sprout}
+            css={css`
+              object-fit: cover;
+              object-position: left center;
+            `}
+          />
+        </Box>
+      </Grid>
+    </Wide> */}
+
+    <Text.p>
+      In 2019, Sprout set out to redesign our entire user interface from the
+      ground up for the first time in almost a decade. The legacy Sprout web
+      application had become a mess of conflicting styles, patterns, and
+      experiences.
+    </Text.p>
+
+    <Wide>
+      <Grid mt='2em' mb='1em' overflow='visible' {...fullWidthImage}>
+        <Box width={[1, 1, 1, 3 / 4]}>
+          <a href={SproutClassic}>
+            <Image src={SproutClassic} css={nectarImageCSS} />
+          </a>
+        </Box>
+
+        <Box width={[1, 1, 1, 1 / 4]} display='flex' alignItems='flex-end'>
+          <Text fontSize='0.8em' color='gray.4' px={[16, null, 0]}>
+            Sprout's legacy UI compared to the new UI. You can see how the
+            “bones” of the app are largely the same. Click the images for the
+            full-size version.
+          </Text>
+        </Box>
+      </Grid>
+    </Wide>
+    {/* 
+    <Text.p>
+      We leveraged our design system and component library,{' '}
+      <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, to tackle this
+      project.
+    </Text.p> */}
+
+    <Wide mb='2em'>
+      <Box {...fullWidthImage}>
+        <a href={Sprout}>
+          <Image src={Sprout} css={nectarImageCSS} />
+        </a>
+      </Box>
+    </Wide>
+
+    {/* <Wide>
+      <Text.p>
+        <Image src={SproutClassic} />
+      </Text.p>
+    </Wide> */}
+
+    <Text.p>
+      We leveraged our design system and component library,{' '}
+      <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, to tackle this
+      project.
+    </Text.p>
+
+    {/* <Wide>
+      <Text.p>
+        <Image src={Sprout} />
+      </Text.p>
+    </Wide> */}
+
+    <Text.p>
+      The new interface is more consistent, accessible, and responsive than ever
+      before.
+    </Text.p>
+  </Box>
+)
+
+const Pico = () => (
+  <div>
+    <Wide pt={40}>
+      <Grid>
+        <Box width={[2 / 3, 1 / 2]} display='flex' alignItems='center'>
+          <Box pr={[16]} pl={[16, 16, 16, 0]}>
+            <Image width={64} src={picoLogo} />
+
+            <Heading.h2 fontSize='1.8em' mt={80} color='inherit'>
+              Pico Digital Film
+            </Heading.h2>
+
+            <Text.p color='inherit' fontSize='0.9em'>
+              A fun little camera app for iOS designed by{' '}
+              <Link color='inherit' to='http://louiemantia.com'>
+                Louie Mantia
+              </Link>{' '}
+              and built using Swift by yours truly. Pico Cam allowed you to pick
+              from one of a few carefully crafted films, and shoot photos
+              pre-processed with that film.
+            </Text.p>
+
+            <Text.p color='inherit' fontSize='0.9em' mb='4em'>
+              Pico is no longer available for sale, and the domain for the
+              website has expired. However, you can still{' '}
+              <Link
+                color='inherit'
+                to='https://web.archive.org/web/20190620065334/http://pico.camera/'
+              >
+                check out the site on the Internet Archive
+              </Link>
+              . Louie also{' '}
+              <Link
+                color='inherit'
+                to='https://medium.com/@mantia/pico-digital-film-5ad232977394'
+              >
+                wrote about the history of the project
+              </Link>{' '}
+              when it launched back in 2017.
+            </Text.p>
+
+            <Grid mb={40} maxWidth={[180, 180, 220, 'none']}>
+              {[1, 2, 3, 4].map(i => (
+                <Box width={[1 / 2, 1 / 2, 1 / 2, 1 / 4]} minWidth={75} key={i}>
+                  <Image src={picoBoxes[i]} />
+                </Box>
+              ))}
+            </Grid>
+          </Box>
+        </Box>
+
+        <Box width={[1 / 3, 1 / 2]}>
+          <Image
+            src={pico}
+            pl={[0, 0, 0, 120]}
+            pt={[0, 0, 40]}
+            css={css`
+              object-fit: cover;
+              object-position: left center;
+              min-height: 100%;
+            `}
+          />
+        </Box>
+      </Grid>
+    </Wide>
+  </div>
+)
+
+const Portrait = props => (
+  <Box bg='accent.pop' {...props}>
+    <Image
+      src={portrait}
+      css={css`
+        height: 200px;
+        width: 100%;
+        mix-blend-mode: luminosity;
+        object-fit: cover;
+        object-position: center bottom;
+      `}
+    />
+  </Box>
+)
+
+const IndexPage = ({ data }) => {
+  const { posts } = data
+
+  return (
+    <Page untitled>
+      <Text.p fontSize='1.5em' lineHeight='1.4'>
+        <b>Chase McCoy</b> is a senior design technologist based in Chicago
+        leading the team behind{' '}
+        <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, Sprout Social’s
+        design system.
+      </Text.p>
+
+      <Text.p>
         I hate the internet and I love the internet. I believe that it can and
         should be a space that respects the creativity, diversity, and
         well-being of those who occupy it. Like hypertext itself, our culture is
@@ -110,223 +342,190 @@ const Bio = props => (
         that serve those who create connections on (and with) the web.
       </Text.p>
 
-      <Text.p fontSize='18px'>
+      <Text.p>
         I’m currently working as a founding member of the Design Systems team at{' '}
         <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and
-        build <Link to='https://sproutsocial.com/seeds'>Seeds</Link>, our design
+        build <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, our design
         system, as well as other tools used by Sprout employees to deliver
         consistently designed products to our customers. Previously I worked as
         a mobile designer & iOS developer, creating indie apps in my spare time
-        and building products for enterprise clients at my day job. Check out{' '}
-        <Link to='/portfolio'>my portfolio</Link> to learn more.
+        and building products for enterprise clients at my day job.
       </Text.p>
 
-      <Text.p fontSize='18px' mb={0}>
-        If you’d like to chat, you can{' '}
-        <Link to='mailto:desk@chasem.co'>drop me a line</Link> or find me in a
-        coffee shop on Chicago’s west side{' '}
-        <span role='img' aria-label='Cup of coffee emoji.'>
-          ☕️
-        </span>
-      </Text.p>
-    </Box>
-
-    <Box width={[1, 1, 1, 1, 1 / 3]} zIndex={1}>
-      <Grid mt={[16, -24]}>
-        <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0, 0, '8px']}>
-          <Heading.section mt={0} mb={8}>
-            Interests
-          </Heading.section>
-          <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
-            Hypertext, CSS, semantic HTML, design systems, internet culture,
-            online communities, indie publishing, creative coding, digital
-            preservationism, and a diverse & open web.
-          </Text>
-        </Box>
-
-        <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
-          <Heading.section mb={8}>Colophon</Heading.section>
-          <Text as='p' mb={0} fontSize='15px' lineHeight='1.4'>
-            This site was built using{' '}
-            <Link to='https://gatsbyjs.org'>Gatsby</Link>,{' '}
-            <Link to='https://styled-components.com'>Styled Components</Link>,
-            and <Link to='https://netlify.com'>Netlify</Link>. Weather data
-            provided by the{' '}
-            <Link to='https://darksky.net/dev'>Dark Sky API</Link>.
-          </Text>
-        </Box>
-
-        {/* <Box width={[1, 1 / 2, 1 / 2, 1 / 2, 1]} mb={[16, 0]}>
-          <Tree />
-        </Box> */}
-      </Grid>
-    </Box>
-  </Grid>
-)
-
-const Promo = ({ olderPosts, blogroll, photos, ...rest }) => (
-  <Grid {...rest}>
-    <Box width={[1, 1 / 3, 1 / 3, 1 / 4]} mb={[16, 32, 0]}>
-      <Heading.section>Blogroll</Heading.section>
-
-      <UnorderedList unstyled>
-        {blogroll.map((node, i) => (
-          <Box as='li' key={i}>
-            <Link to={node.data.url} fontSize='17px' lineHeight='1.6'>
-              {node.data.title}
-            </Link>
+      <Wide>
+        <Grid gutter='0' overflow='visible' mb='1em' {...fullWidthImage}>
+          <Box width={[1, 1, 2 / 3]}>
+            <Portrait mr={[0, 0, 12]} />
           </Box>
-        ))}
-      </UnorderedList>
-    </Box>
+          <Box flex={[1, 1, 1]}>
+            <Box height='100%' bg='accent.pop' p={16} ml={[0, 0, 12]}>
+              <Heading.h2 mt={0} fontSize='1.1em'>
+                Focusing on —
+              </Heading.h2>
 
-    <Box width={[1, 2 / 3, 2 / 3, 3 / 4]}>
-      <Heading.section mb={16}>Recent Photos</Heading.section>
-
-      <Grid gutter={8}>
-        {photos.nodes.map(node => {
-          const srcRegex = /<img.*?src=['"](.*?)['"]/
-          const src = srcRegex.exec(node.content)[1]
-
-          return (
-            <Box width={[1 / 2, 1 / 3, 1 / 2, 1 / 3]} key={node.id}>
-              <Image borderRadius='6px' src={src} to={node.slug} />
+              <Text as='p' mb={0} fontSize='0.8em'>
+                Hypertext, CSS, semantic HTML, design systems, internet culture,
+                online communities, indie publishing, creative coding, digital
+                preservationism, and a diverse & open&nbsp;web.
+              </Text>
             </Box>
-          )
-        })}
-      </Grid>
-    </Box>
-  </Grid>
-)
+          </Box>
+        </Grid>
 
-const Header = props => (
-  <Page.Header {...props}>
-    <Box
-      overflow='hidden'
-      mb={-16}
-      mt={[-24, -24, -40]}
-      ml='-1px'
-      bg='accent.pop'
-    >
-      <Portrait className='no-invert' />
-    </Box>
-  </Page.Header>
-)
+        <Grid>
+          <Box
+            width={['auto', 'auto', 'sidebarWidthWithGutter']}
+            order={[2, 2, 1]}
+          >
+            <Box
+              display='inline-block'
+              borderRadius='50%'
+              bg='accent.pop'
+              mt={[0, -40, 80]}
+              mb={8}
+              css={css`
+                transform: rotate(-9deg);
 
-const Index = props => {
-  // const [tracks, setTracks] = useState([])
-
-  // useEffect(() => {
-  //   getTracks(setTracks)
-  // }, [])
-
-  // const artists = tracks.map(track => track.artist)
-  // const uniqueArtists = Array.from(new Set(artists))
-
-  const blogroll = props.data.blogroll.nodes.sort((a, b) =>
-    a.data.title.localeCompare(b.data.title)
-  )
-
-  return (
-    <Page wide header={<Header />}>
-      <Container my={-1}>
-        <GradientBox pt={16} px={[16, 16, 32]} bg='accent.pop'>
-          <AsciiLogo />
-          <Intro mt={16} mb={24} />
-          <Box borderBottom='2px dashed' borderColor='accent' mx={-32} />
-        </GradientBox>
-
-        <WavyBorder mb={-48} />
-
-        <Box pb={8} px={[16, 16, 32]}>
-          <Bio />
-        </Box>
-
-        <WavyBorder mt={-24} flipped />
-
-        <GradientBox pb={24} px={[16, 16, 32]} bg='accent.pop'>
-          <Box borderTop='2px dashed' borderColor='accent' mx={-32} mb={24} />
-
-          <Heading.section mb={0}>Writing</Heading.section>
-
-          <ScrollRow py={12} mt={8} mb={16} px={8} mx={-8}>
-            {props.data.olderPosts.nodes.map(node => (
-              <TabCard
-                to={node.slug}
-                title={node.title}
-                description={node.excerpt}
-                tab={node.date}
-                key={node.id}
-                minWidth='250px'
-              />
-            ))}
-          </ScrollRow>
-
-          <Promo
-            olderPosts={props.data.olderPosts}
-            blogroll={blogroll}
-            photos={props.data.photos}
-          />
-
-          {/* <Grid mt={8}>
-            <Box width={1}>
-              {artists.length > 0 && (
-                <>
-                  <Heading.section>On rotation</Heading.section>
-
-                  <ArtistList unstyled inline>
-                    {uniqueArtists.map(
-                      (artist, i) =>
-                        artist && (
-                          <Text fontSize='14px' fontFamily='mono' as='li' key={i}>
-                            {artist}
-                          </Text>
-                        )
-                    )}
-                  </ArtistList>
-                </>
-              )}
+                a:hover {
+                  color: inherit;
+                  text-decoration: underline;
+                }
+              `}
+            >
+              <Text fontWeight='bold' fontSize='1.2em' textAlign='center'>
+                <Link
+                  unstyled
+                  to='/thoughts'
+                  py='35%'
+                  px={24}
+                  css={`
+                    display: block;
+                  `}
+                >
+                  Blog&nbsp;→
+                </Link>
+              </Text>
             </Box>
-          </Grid> */}
-        </GradientBox>
-      </Container>
+          </Box>
+
+          <Box flex={['100%', '100%', 1]} order={[1, 1, 2]} zIndex={1}>
+            <Page.SidebarHeader
+              fontFamily='sans'
+              pb={4}
+              mb={16}
+              fontSize='1.2em'
+            >
+              Recent thoughts
+            </Page.SidebarHeader>
+
+            <MultiColumn count={2} gap='24px' minColumnWidth='12em'>
+              {posts.nodes.map(post => (
+                <Box mb={16} key={post.id}>
+                  <Text
+                    fontSize='1em'
+                    lineHeight='1.3'
+                    fontFamily='serif'
+                    mb={4}
+                  >
+                    <Link
+                      unstyled
+                      to={post.slug}
+                      dangerouslySetInnerHTML={{
+                        __html: post.title
+                      }}
+                    />
+                  </Text>
+                  <Text fontSize='0.8em'>{post.excerpt}</Text>
+                </Box>
+              ))}
+            </MultiColumn>
+          </Box>
+        </Grid>
+      </Wide>
+
+      {/* <Text.p>
+        My work focuses on building thoughtful, intuitive, and delightful
+        interactions for the web, with a devotion to process, transparency, and
+        sharing what I learn.
+      </Text.p>
+
+      <Text.p>
+        My work focuses on building thoughtful, intuitive, and delightful
+        interactions for the web, with a devotion to process, transparency, and
+        sharing what I learn. My work focuses on building thoughtful, intuitive,
+        and delightful interactions for the web, with a devotion to process,
+        transparency, and sharing what I learn.
+      </Text.p> */}
+
+      <CurveTextScroll mt={[0, -40]} mb={-40}>
+        ~ keep the web weird ~
+      </CurveTextScroll>
+
+      {/* <Page.Breakout
+        borderTop='1px solid'
+        borderColor='gray.1'
+        display='flex'
+        justifyContent='center'
+        py='1em'
+        color='gray.4'
+      >
+        <Text as='h1' fontSize='1em' m={0} id='#portfolio'>
+          Selected projects
+        </Text>
+      </Page.Breakout> */}
+
+      <Page.Breakout
+        bg='#fdfaee'
+        mb='2em'
+        borderTop='1px solid'
+        borderBottom='1px solid'
+        borderColor='rgba(0, 0, 0, 0.08)'
+      >
+        <Page.Wrapper py={0} flush>
+          <Seeds />
+        </Page.Wrapper>
+      </Page.Breakout>
+
+      <Nectar my={64} />
+
+      <Page.Breakout bg='#0f0f0f' color='white' mt={64}>
+        <Page.Wrapper py={0} px={0} flush>
+          <Pico />
+        </Page.Wrapper>
+      </Page.Breakout>
+
+      {/* <Box py={80}>
+        <Heading.h2 fontSize='1.6em' mt={0}>
+          Stay in touch
+        </Heading.h2>
+
+        <Text.p mb={0}>
+          If you’d like to chat, you can{' '}
+          <Link to='mailto:hi@chasem.co'>drop me a line</Link> or find me in a
+          coffee shop on Chicago’s west side{' '}
+          <span role='img' aria-label='Cup of coffee emoji.'>
+            ☕️
+          </span>
+        </Text.p>
+      </Box> */}
     </Page>
   )
 }
 
-export default Index
+export default IndexPage
 
 export const query = graphql`
-  query IndexQuery {
-    olderPosts: allBlog(
+  query NewIndexQuery {
+    posts: allBlog(
       filter: { format: { eq: "standard" } }
       sort: { fields: date, order: DESC }
-      limit: 10
+      limit: 8
     ) {
       nodes {
         id
         title
         slug
         excerpt
-        date(formatString: "MMMM Do")
-      }
-    }
-
-    photos: allBlog(filter: { format: { eq: "image" } }, limit: 9) {
-      nodes {
-        id
-        slug
-        format
-        content
-      }
-    }
-
-    blogroll: allAirtable(filter: { queryName: { eq: "blogroll" } }) {
-      nodes {
-        data {
-          title: Title
-          url: URL
-        }
       }
     }
   }

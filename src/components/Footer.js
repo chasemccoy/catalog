@@ -28,9 +28,7 @@ const Container = styled.footer(
   `
 )
 
-const Section = props => (
-  <Box border='2px solid' boxShadow='retro' p={24} {...props} />
-)
+const Section = props => <Box {...props} />
 
 const Heading = props => (
   <Text

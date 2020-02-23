@@ -71,17 +71,13 @@ const colors = {
     code: '#c6dbf4'
   },
   gray: {
-    0: '#F8F9FA',
-    1: '#EBEBEB',
-    2: '#D6D6D6',
-    3: '#A6A6A6',
-    4: '#616161',
-    5: '#414141'
+    0: '#faf9f8',
+    1: '#eeedea',
+    2: '#e2e1db',
+    3: '#a5a08d',
+    4: '#726c59',
+    5: '#423f34'
   }
-}
-
-const shadows = {
-  retro: '6px 6px black'
 }
 
 const theme = {
@@ -92,8 +88,7 @@ const theme = {
   space,
   sizes,
   fontWeights,
-  fonts,
-  shadows
+  fonts
 }
 
 export default theme
