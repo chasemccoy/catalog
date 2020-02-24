@@ -3,9 +3,6 @@ import styled from 'styled-components'
 import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Footer from 'components/Footer'
-// import SiteHeader from 'components/Header'
-// import Tags from 'components/Tags'
-// import Breadcrumbs from 'notes/src/components/Breadcrumbs'
 import Logo from 'components/Logo'
 import media from 'utils/media'
 import Nav from 'components/Nav'
@@ -69,8 +66,7 @@ const Wrapper = styled(Box)`
 `
 
 Wrapper.defaultProps = {
-  px: 16,
-  pt: 8
+  px: 16
 }
 
 const ArticleHeader = styled.header`
@@ -85,8 +81,6 @@ const ArticleHeader = styled.header`
     top: -8px;
     bottom: 0;
     z-index: -1;
-    ${'' /* background: #fdfaee; */}
-    ${'' /* border-bottom: 1px solid rgba(0, 0, 0, 0.04); */}
   }
 `
 
@@ -112,7 +106,7 @@ const Page = ({
 
       <main>
         <PageContainer>
-          <Wrapper flush mt={8}>
+          <Wrapper flush mt={16}>
             <div class='logo'>
               <Logo mb={[4, null, 0]} />
             </div>

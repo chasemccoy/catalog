@@ -22,21 +22,19 @@ const Nav = styled.nav(
   li + li {
     margin-top: 4px;
     margin-${p.vertical ? 'top' : 'left'}: var(--space);
-
-    ${
-      '' /* &:before {
-      content: "/";
-      margin-right: var(--space);
-    } */
-    }
   }
 
   a {
     text-decoration: none;
+    color: ${p.theme.colors.gray[5]};
+  }
+
+  a:hover {
+    color: ${p.theme.colors.gray[5]};
+    text-decoration: underline;
   }
 
   a.selected {
-    ${'' /* color: ${p => p.theme.colors.accent}; */}
     text-decoration: underline;
   }
 `
@@ -44,7 +42,7 @@ const Nav = styled.nav(
 
 const Item = ({ to, children }) => (
   <li>
-    <Link partiallyActive to={to}>
+    <Link unstyled partiallyActive to={to}>
       {children}
     </Link>
   </li>
@@ -53,7 +51,7 @@ const Item = ({ to, children }) => (
 export default ({ direction = 'horizontal' }) => (
   <Nav vertical={direction === 'vertical'}>
     <ul>
-      <Item to='/labs/thoughts'>Thoughts</Item>
+      <Item to='/thoughts'>Thoughts</Item>
       <Item to='/notes'>Notes</Item>
       <Item to='/books'>Books</Item>
       <Item to='/quotes'>Quotes</Item>

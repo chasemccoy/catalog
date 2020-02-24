@@ -190,11 +190,18 @@ const Nectar = props => (
           </a>
         </Box>
 
-        <Box width={[1, 1, 1, 1 / 4]} display='flex' alignItems='flex-end'>
+        <Box width={[1, 1, 1, 1 / 4]} display='flex'>
           <Text fontSize='0.8em' color='gray.4' px={[16, null, 0]}>
             Sprout's legacy UI compared to the new UI. You can see how the
-            “bones” of the app are largely the same. Click the images for the
-            full-size version.
+            “bones” of the app are largely the same.
+            <br />
+            <br />
+            We transitioned away from our classic green color palette to
+            something a bit less jarring. We also switched from Proxima Nova to
+            system fonts along with this refresh.
+            <br />
+            <br />
+            Click the images for the full-size version.
           </Text>
         </Box>
       </Grid>
@@ -214,27 +221,19 @@ const Nectar = props => (
       </Box>
     </Wide>
 
-    {/* <Wide>
-      <Text.p>
-        <Image src={SproutClassic} />
-      </Text.p>
-    </Wide> */}
-
     <Text.p>
-      We leveraged our design system and component library,{' '}
-      <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, to tackle this
-      project.
+      The team directly responsible for the redesign was formed around our
+      Design Systems team, and we heavily relied on our system and component
+      library, <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, to tackle
+      this project. This project gave our teams the opportunity to rebuild their
+      existing UIs using our latest tools and best-practices.
     </Text.p>
 
-    {/* <Wide>
-      <Text.p>
-        <Image src={Sprout} />
-      </Text.p>
-    </Wide> */}
-
     <Text.p>
-      The new interface is more consistent, accessible, and responsive than ever
-      before.
+      This project was truly the ultimate test for our design system, and
+      everyone (including our customers!) are very pleased with the results. Not
+      only is the new interface easier to use and more consistent than ever,
+      it's also more accessible, responsive, and scalable than ever before.
     </Text.p>
   </Box>
 )
@@ -457,7 +456,7 @@ const IndexPage = ({ data }) => {
         transparency, and sharing what I learn.
       </Text.p> */}
 
-      <CurveTextScroll mt={[0, -40]} mb={-40}>
+      <CurveTextScroll mt={[0, -40]} mb={[0, 0, -40]}>
         ~ keep the web weird ~
       </CurveTextScroll>
 
