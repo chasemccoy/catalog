@@ -501,7 +501,12 @@ const IndexPage = ({ data }) => {
 
       <Nectar my={64} />
 
-      <Page.Breakout bg='#0f0f0f' color='white' mt={64}>
+      <Page.Breakout
+        bg='#0f0f0f'
+        color='white'
+        mt={64}
+        mb={[-24, null, null, 0]}
+      >
         <Page.Wrapper py={0} px={0} flush>
           <Pico />
         </Page.Wrapper>
