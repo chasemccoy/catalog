@@ -134,7 +134,7 @@ const Page = ({
           </Box>
         </PageContainer>
 
-        <Footer showBorder={showHeader} />
+        {/* <Footer showBorder={showHeader} /> */}
       </main>
     </PageContext.Provider>
   )
@@ -156,8 +156,8 @@ const Header = ({ category, ...rest }) => {
       <Text
         as='p'
         color='gray.4'
-        fontFamily='serif'
-        fontSize='1.1rem'
+        // fontFamily='serif'
+        // fontSize='1.1rem'
         lineHeight='1.3'
         mb={0}
       >

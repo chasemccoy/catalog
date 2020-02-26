@@ -334,21 +334,28 @@ const IndexPage = ({ data }) => {
       </Text.p>
 
       <Text.p>
-        I hate the internet and I love the internet. I believe that it can and
-        should be a space that respects the creativity, diversity, and
-        well-being of those who occupy it. Like hypertext itself, our culture is
-        defined by the connections we make. I work to design and build tools
-        that serve those who create connections on (and with) the web.
+        Hi there! 👋 and welcome to my{' '}
+        <span
+          css={`
+            hyphens: auto;
+          `}
+        >
+          website/portfolio/blog/wiki/library/garden/hypertext portal/
+        </span>
+        etc. I'm a front-end engineer and designer who specializes in systems
+        thinking, design tooling, and advocacy. I also spend a lot of time
+        thinking about how the web works.
       </Text.p>
 
       <Text.p>
-        I’m currently working as a founding member of the Design Systems team at{' '}
-        <Link to='https://sproutsocial.com'>Sprout Social</Link>. I design and
-        build <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, our design
-        system, as well as other tools used by Sprout employees to deliver
-        consistently designed products to our customers. Previously I worked as
-        a mobile designer & iOS developer, creating indie apps in my spare time
-        and building products for enterprise clients at my day job.
+        I’m currently leading the Design Systems team at{' '}
+        <Link to='https://sproutsocial.com'>Sprout Social</Link>, which designs
+        and builds <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, our
+        design system, as well as other tools used by Sprout employees to
+        deliver consistently designed products to our customers. In the past
+        I've worked as a mobile designer & iOS developer, creating indie apps in
+        my spare time and building products for enterprise clients at my day
+        job.
       </Text.p>
 
       <Wide>
@@ -362,7 +369,14 @@ const IndexPage = ({ data }) => {
                 Focusing on —
               </Heading.h2>
 
-              <Text as='p' mb={0} fontSize='0.8em'>
+              <Text
+                as='p'
+                mb={0}
+                fontSize='0.85em'
+                css={`
+                  hyphens: auto;
+                `}
+              >
                 Hypertext, CSS, semantic HTML, design systems, internet culture,
                 online communities, indie publishing, creative coding, digital
                 preservationism, and a diverse & open&nbsp;web.

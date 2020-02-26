@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Box, Text, Grid } from '@chasemccoy/kit'
 import Page from 'components/NewPage'
 import Image from 'components/Image'
-// import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Link from 'components/Link'
 import { UnorderedList } from 'components/Lists'
 import { DataContext } from 'components/Layout'
@@ -16,7 +16,7 @@ import Nav from 'components/Nav'
 
 const Container = styled.footer(
   p => css`
-    font-size: 0.8em;
+    font-size: 0.85em;
     padding: 32px 0 40px;
 
     a:hover,
@@ -27,8 +27,6 @@ const Container = styled.footer(
     }
   `
 )
-
-const Section = props => <Box {...props} />
 
 const Heading = props => (
   <Text
@@ -59,49 +57,106 @@ const Heading = props => (
 //   </UnorderedList>
 // )
 
-// const Currently = ({ nowPlaying, weather }) => (
-//   <UnorderedList mb={0}>
-//     <Box as='li' mb={8}>
-//       Working on <Link to='https://sproutsocial.com/seeds'>Seeds</Link> at{' '}
-//       <Link to='https://sproutsocial.com'>Sprout Social</Link>
-//     </Box>
-//     <Box as='li' mb={8}>
-//       {nowPlaying ? (
-//         <React.Fragment>
-//           Listening to {nowPlaying.name} by {nowPlaying.artist} on{' '}
-//           <Link to='https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ'>
-//             Spotify
-//           </Link>
-//         </React.Fragment>
-//       ) : (
-//         'Loading...'
-//       )}
-//     </Box>
-//     <Box as='li'>
-//       {weather ? (
-//         <React.Fragment>{weather.temperature} in Chicago</React.Fragment>
-//       ) : (
-//         'Loading...'
-//       )}
-//     </Box>
-//   </UnorderedList>
-// )
+const Currently = ({ nowPlaying, weather }) => (
+  <UnorderedList>
+    <Box as='li' mb={8}>
+      {nowPlaying ? (
+        <React.Fragment>
+          Listening to {nowPlaying.name} by {nowPlaying.artist} on{' '}
+          <Link to='https://open.spotify.com/user/22n2eydjrvftle33bi3t4v2pi?si=GAaVgz0FTk-4J4eUPNWBqQ'>
+            Spotify
+          </Link>
+        </React.Fragment>
+      ) : (
+        'Loading...'
+      )}
+    </Box>
+    <Box as='li'>
+      {weather ? (
+        <React.Fragment>{weather.temperature} in Chicago</React.Fragment>
+      ) : (
+        'Loading...'
+      )}
+    </Box>
+  </UnorderedList>
+)
+
+const Sitemap = ({ ...rest }) => {
+  return (
+    <UnorderedList unstyled {...rest}>
+      <li>
+        <Link unstyled to='/thoughts'>
+          Thoughts
+        </Link>
+      </li>
+      <li>
+        <Link unstyled to='/notes'>
+          Notes
+        </Link>
+        <UnorderedList mt={0} ml={4}>
+          <li>
+            <Link unstyled to='/notes/code'>
+              Code
+            </Link>
+          </li>
+          <li>
+            <Link unstyled to='/notes/design-systems'>
+              Design systems
+            </Link>
+          </li>
+          <li>
+            <Link unstyled to='/notes/misc'>
+              Misc
+            </Link>
+          </li>
+        </UnorderedList>
+      </li>
+      <li>
+        <Link unstyled to='/books'>
+          Books
+        </Link>
+      </li>
+      <li>
+        <Link unstyled to='/quotes'>
+          Quotes
+        </Link>
+      </li>
+    </UnorderedList>
+  )
+}
 
 const Footer = ({ ...rest }) => {
-  // const { posts, blogroll } = useStaticQuery(query)
-  // const data = useContext(DataContext)
+  const { posts, blogroll } = useStaticQuery(query)
+  const { nowPlaying, weather } = useContext(DataContext)
 
   return (
     <Box {...rest}>
       <Grid overflow='visible'>
-        <Box width={[1, 1, 1 / 2]}>
-          <Section>
-            <Heading>Stay in touch</Heading>
-            <Nav direction='vertical' />
-          </Section>
+        <Box width={[1, 1, 1 / 3]}>
+          <Text.p>I do hope you'll stay in touch.</Text.p>
+
+          <Currently nowPlaying={nowPlaying} weather={weather} />
         </Box>
 
-        <Box width={[1, 1, 1 / 2]}></Box>
+        <Box width={[1, 1, 1 / 3]}>
+          <Box>
+            {/* <Heading>Stay in touch</Heading> */}
+            <Text fontWeight='semibold' mb={8}>
+              Sitemap
+            </Text>
+            {/* <Nav direction='vertical' /> */}
+          </Box>
+        </Box>
+
+        <Box width={[1, 1, 1 / 3]}>
+          <Box>
+            {/* <Heading>Sitemap</Heading> */}
+            <Text fontFamily='serif' mb={8} fontSize='1.2em'>
+              Sitemap
+            </Text>
+            <Sitemap />
+          </Box>
+        </Box>
       </Grid>
     </Box>
   )
@@ -117,29 +172,29 @@ export default () => (
   </React.Fragment>
 )
 
-// const query = graphql`
-//   query FooterQuery {
-//     posts: allBlog(
-//       filter: { format: { eq: "standard" } }
-//       sort: { fields: date, order: DESC }
-//       limit: 5
-//     ) {
-//       nodes {
-//         id
-//         title
-//         slug
-//         excerpt
-//         date(formatString: "MMMM Do")
-//       }
-//     }
+const query = graphql`
+  query FooterQuery {
+    posts: allBlog(
+      filter: { format: { eq: "standard" } }
+      sort: { fields: date, order: DESC }
+      limit: 5
+    ) {
+      nodes {
+        id
+        title
+        slug
+        excerpt
+        date(formatString: "MMMM Do")
+      }
+    }
 
-//     blogroll: allAirtable(filter: { queryName: { eq: "blogroll" } }) {
-//       nodes {
-//         data {
-//           title: Title
-//           url: URL
-//         }
-//       }
-//     }
-//   }
-// `
+    blogroll: allAirtable(filter: { queryName: { eq: "blogroll" } }) {
+      nodes {
+        data {
+          title: Title
+          url: URL
+        }
+      }
+    }
+  }
+`
