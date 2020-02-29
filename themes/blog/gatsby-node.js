@@ -1,6 +1,8 @@
 const path = require('path')
 const { createBlogNode } = require('./createBlogNode')
 
+const stripHTML = string => string.replace(/<[^>]+>/g, '')
+
 const formatTitle = title => {
   let words = title.replace('&nbsp;', ' ').split(' ')
 
@@ -114,7 +116,7 @@ exports.onCreateNode = ({
       slug: fullSlug,
       shortSlug: node.slug,
       tags,
-      excerpt: node.excerpt,
+      excerpt: stripHTML(node.excerpt),
       year: year,
       isMdx: false
     }

@@ -1,215 +1,207 @@
-import React from 'react'
+import React, { createContext, useContext } from 'react'
 import styled from 'styled-components'
 import { Box, Text } from '@chasemccoy/kit'
-import Sidebar from 'components/Sidebar'
-import Heading from 'components/Heading'
-import media from 'utils/media'
-import Link from 'components/Link'
 import Metadata from 'components/Metadata'
+import Logo from 'components/Logo'
+import media from 'utils/media'
+import Nav from 'components/Nav'
 
-const FLEX_SIDEBAR = '0.35'
+const PageContext = createContext({})
 
-const Container = styled(Box)`
-  display: flex;
-  width: 100%;
-  max-width: ${p => p.theme.sizes.layout.maxWidth}px;
-  color: ${p => p.theme.colors.page.text};
-  margin: 0 auto;
-
-  ${media.small`
-    flex-direction: column;
-  `}
+const PageContainer = styled.div`
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
 `
 
-const HeaderContainer = styled.header`
-  display: flex;
-  background: ${p => p.theme.colors.gray[0]};
-  border-bottom: 1px dashed ${p => p.theme.colors.gray[1]};
-`
+const Wrapper = styled(Box)`
+  margin-left: auto;
+  margin-right: auto;
 
-const SidebarContainer = styled(Box).attrs({ as: 'aside' })`
-  margin-right: ${p => (p.wide ? 0 : '24px')};
-  margin-bottom: -1px;
-
-  ${media.medium`
-    flex: 0.5;
-    margin-right: ${p => (p.wide ? 0 : '16px')};
-  `}
-
-  ${media.small`
-    flex: initial;
-    margin-right: 0;
-  `}
-`
-
-const Content = styled(Box).attrs({ as: 'main' })`
-  display: flex;
-  flex-wrap: nowrap;
-  flex: 2;
-  min-width: 0;
-
-  ${media.medium`
-    flex-wrap: wrap;
-    flex-direction: column;
-  `}
-`
-
-const Page = ({ header, sidebar, children, bg, wide, ...props }) => (
-  <React.Fragment>
-    <Metadata
-      title={props.title}
-      description={props.description}
-      article={props.article}
-      page
-    />
-
-    <HeaderContainer>
-      {React.cloneElement(header || <DefaultHeader />, {
-        title: props.title,
-        description: props.description,
-        wide
-      })}
-    </HeaderContainer>
-
-    <Container>
-      <SidebarContainer wide={wide} flex={FLEX_SIDEBAR}>
-        <Sidebar />
-      </SidebarContainer>
-
-      <Content
-        bg={bg}
-        ml={wide ? '-1px' : 0}
-        pt={wide ? 0 : 24}
-        px={wide ? 0 : 16}
-      >
-        <Box minWidth='0' maxWidth='100%' flex='1' zIndex={1}>
-          {children}
-        </Box>
-
-        {!wide && (
-          <SidebarContainer
-            flex='0.3'
-            ml={[0, 0, 0, 40]}
-            minWidth={['100%', '100%', '100%', '8rem']}
-            maxWidth='100%'
-            mt={[40, 40, 40, 0]}
-          >
-            <Text fontSize='13px' lineHeight='1.3'>
-              {sidebar}
-            </Text>
-          </SidebarContainer>
-        )}
-      </Content>
-    </Container>
-  </React.Fragment>
-)
-
-Page.Header = ({ title, description, children, wide, ...rest }) => {
-  const Title = props =>
-    title ? (
-      <Heading.h1 mb={16} {...props}>
-        {title}
-      </Heading.h1>
-    ) : null
-
-  let Description = null
-  const isCustomDescription = description && !description.endsWith('…')
-
-  if (isCustomDescription) {
-    Description = props => (
-      <Text color='gray.4' {...props}>
-        {description}
-      </Text>
+  display: grid;
+  grid-gap: ${p => (p.flush ? 0 : '24px')} 24px;
+  grid-template-columns:
+    1fr ${p => p.theme.sizes.sidebarWidth} minmax(
+      0,
+      ${p => p.theme.sizes.contentWidth}
     )
+    1fr;
+  grid-template-areas:
+    '.    logo    header .'
+    '.    sidebar main   .';
+
+  > * {
+    grid-area: main;
+    min-width: 0;
+
+    ${media.medium`
+      max-width: none;
+    `}
   }
 
+  aside {
+    grid-area: sidebar;
+    padding-right: 16px;
+  }
+
+  header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  ${media.medium`
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      'logo'
+      'header'
+      'main'
+      'sidebar';
+  `}
+`
+
+Wrapper.defaultProps = {
+  px: 16
+}
+
+const ArticleHeader = styled.header`
+  position: relative;
+  z-index: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -999rem;
+    right: -999rem;
+    top: -8px;
+    bottom: 0;
+    z-index: -1;
+  }
+`
+
+const Page = ({
+  children,
+  header,
+  aside,
+  title,
+  description,
+  article = false,
+  showHeader = true,
+  untitled = false,
+  ...rest
+}) => {
   return (
-    <Container {...rest}>
-      <SidebarContainer
-        as='div'
-        flex={FLEX_SIDEBAR}
-        display='flex'
-        flexDirection='column'
-        justifyContent='flex-end'
-        wide={wide}
-      >
-        <Box
-          bg={wide ? 'transparent' : 'accent.pop'}
-          border={wide ? 'none' : ['none', 'none', '1px dashed']}
-          borderBottom={
-            wide ? 'none' : ['1px dashed', '1px dashed', '1px dashed']
-          }
-          borderColor={['accent', 'accent', 'accent']}
-          height='100%'
-          width='100%'
-          minWidth='40px'
-          minHeight={wide ? 0 : ['24px', '24px', '40px']}
-        >
-          <Heading.h2
-            fontSize='14px'
-            color='type.body'
-            lineHeight='1.2'
-            m={0}
-            px={16}
-            py={8}
-            css={`
-              letter-spacing: 0.5px;
-            `}
-            display={['block', 'block', 'none']}
-          >
-            <Link unstyled to='/'>
-              CHASE McCOY
-            </Link>
-          </Heading.h2>
-        </Box>
-      </SidebarContainer>
+    <PageContext.Provider value={{ title, description }}>
+      <Metadata
+        title={title}
+        description={description}
+        article={article}
+        page
+      />
 
-      <Content
-        as='div'
-        pt={children ? [24, 24, 32, 40] : 0}
-        pb={children ? 16 : 0}
-        px={wide ? 0 : 16}
-      >
-        <Box minWidth='0' maxWidth='100%' flex='1'>
-          {children &&
-            (typeof children === 'function'
-              ? children(Title, Description, title)
-              : children)}
-        </Box>
+      <main>
+        <PageContainer>
+          <Wrapper flush mt={16}>
+            <div class='logo'>
+              <Logo mb={[4, null, 0]} />
+            </div>
+            <header>
+              <Nav />
+            </header>
+          </Wrapper>
 
-        {!wide && (
-          <SidebarContainer
-            flex='0.3'
-            ml={[0, 0, 0, 40]}
-            minWidth={['100%', '100%', '100%', '8rem']}
-            maxWidth='100%'
-          />
-        )}
-      </Content>
-    </Container>
+          <Box as={article ? 'article' : 'div'}>
+            <Wrapper>
+              {!untitled && (
+                <ArticleHeader>{header || <Header />}</ArticleHeader>
+              )}
+
+              <Box mt={untitled ? [0, 0, 0, 32] : 0}>{children}</Box>
+
+              {aside && (
+                <Box as='aside' mt={untitled ? 48 : 0}>
+                  <Text fontSize='13px' lineHeight='1.3'>
+                    {aside}
+                  </Text>
+                </Box>
+              )}
+            </Wrapper>
+          </Box>
+        </PageContainer>
+
+        {/* <Footer showBorder={showHeader} /> */}
+      </main>
+    </PageContext.Provider>
   )
 }
 
-const DefaultHeader = props => (
-  <Page.Header {...props}>
-    {(Title, Description) => (
-      <React.Fragment>
-        <Title mt={0} mb={Description ? 16 : 0} />
-        {Description && <Description />}
-      </React.Fragment>
-    )}
-  </Page.Header>
-)
+const Header = ({ category, ...rest }) => {
+  const { title, description } = useContext(PageContext)
+
+  if (!title && !description) return <Box mt={64} />
+
+  return (
+    <Box maxWidth='34rem' pb={24} {...rest}>
+      {/* <Breadcrumbs category={category} title={title} /> */}
+
+      <Text as='h1' mt={64} mb={description ? 12 : 0}>
+        {title}
+      </Text>
+
+      <Text
+        as='p'
+        color='gray.4'
+        // fontFamily='serif'
+        // fontSize='1.1rem'
+        lineHeight='1.3'
+        mb={0}
+      >
+        {description}
+      </Text>
+    </Box>
+  )
+}
 
 Page.SidebarHeader = props => (
   <Text
-    fontWeight='bold'
     mb={8}
-    pb='4px'
     borderBottom='1px solid'
     borderColor='gray.1'
+    fontFamily='serif'
+    fontSize='1.3em'
     {...props}
   />
 )
+
+const Breakout = styled(Box)`
+  width: calc(100vw - 16px);
+  margin-left: calc(
+    (-${p => p.theme.sizes.sidebarWidth} - 24px) -
+      (
+        (
+            100vw - ${p => p.theme.sizes.sidebarWidth} -
+              ${p => p.theme.sizes.contentWidth} - 40px
+          ) / 2
+      )
+  );
+
+  @media screen and (min-width: 900px) and (max-width: 1020px) {
+    margin-left: calc(-${p => p.theme.sizes.sidebarWidth} - 48px - 16px);
+  }
+
+  ${media.medium`
+    width: auto;
+    margin-left: -16px;
+    margin-right: -16px;
+  `}
+`
+
+Page.Wrapper = Wrapper
+Page.Header = Header
+Page.Breakout = Breakout
 
 export default Page

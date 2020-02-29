@@ -7,7 +7,7 @@ import { Box } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
 import MDX from 'components/MDX'
 
-const Container = styled.article`
+const Container = styled.div`
   &:after {
     content: '';
     display: block;
@@ -134,7 +134,7 @@ export const Post = props => {
 
   const title = props.title && (
     <Heading.h2
-      fontSize='1.8rem'
+      fontSize='1.7rem'
       mb={2}
       css={`
         border: none;
@@ -157,7 +157,7 @@ export const Post = props => {
       <AsideContainer photo={props.imagePost}>
         {metadata}
         {title}
-        {content}
+        {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
       </AsideContainer>
     )
   } else {
@@ -175,20 +175,16 @@ export const Post = props => {
   }
 }
 
-Post.Header = ({ title, to, date, tags: tagObjects }) => {
-  const tags = tagObjects && tagObjects.map(tag => tag.name)
-
+Post.Header = ({ title, to, date }) => {
   return (
     <React.Fragment>
-      <Date date={date} permalink={to} mb={title || tags ? 40 : 0} />
+      <Date date={date} permalink={to} mb={title ? 40 : 0} />
 
       {title && (
-        <Heading.h1 mt={0} mb={!tags && 0}>
+        <Heading.h1 mt={0} mb={0}>
           <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />
         </Heading.h1>
       )}
-
-      {tags && <Tags items={tags} />}
     </React.Fragment>
   )
 }

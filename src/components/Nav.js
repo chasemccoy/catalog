@@ -1,71 +1,60 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Link from 'components/Link'
-import { UnorderedList } from 'components/Lists'
-import media from 'utils/media'
-import { space } from 'styled-system'
+// import media from 'utils/media'
 
-const Container = styled.nav`
-  ${space}
-`
+const Nav = styled.nav(
+  p => css`
+  font-size: 0.8rem;
+  --space: ${p.vertical ? '8px' : '24px'};
+  margin-bottom: 4px;
 
-const MenuItem = styled.li`
-  color: ${p => p.theme.colors.type.menu};
-  font-size: 13px;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  vertical-align: text-top;
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
+
+  li {
+    display: ${p.vertical ? 'block' : 'inline-block'};
+    margin-bottom: 0;
+  }
+
+  li + li {
+    margin-top: 4px;
+    margin-${p.vertical ? 'top' : 'left'}: var(--space);
+  }
 
   a {
-    color: currentColor;
-    opacity: 0.5;
+    text-decoration: none;
+    color: ${p.theme.colors.gray[5]};
   }
 
   a:hover {
-    opacity: 0.75;
+    color: ${p.theme.colors.gray[5]};
+    text-decoration: underline;
   }
 
   a.selected {
-    text-decoration: none;
-    opacity: 1;
-    color: ${p => p.theme.colors.type.menu};
-    border-top: 1px solid ${p => p.theme.colors.accent};
-    padding-top: ${p => p.theme.space[3]}px;
-
-    ${media.small`
-      padding-top: ${p => p.theme.space[3] - 1}px;
-    `}
-  }
-
-  * + & {
-    margin-left: 24px;
-  }
-
-  &:last-child {
-    ${media.medium`
-      padding-right: 24px;
-    `}
-  }
-
-  .dark & {
-    color: ${p => p.theme.colors.gray[4]};
+    text-decoration: underline;
   }
 `
-const Item = ({ to, children, ...rest }) => (
-  <MenuItem {...rest}>
-    <Link to={to}>{children}</Link>
-  </MenuItem>
 )
 
-const Nav = props => (
-  <Container {...props}>
-    <UnorderedList inline borderTop='1px solid' borderColor='gray.1' pt={3}>
-      {props.children}
-    </UnorderedList>
-  </Container>
+const Item = ({ to, children }) => (
+  <li>
+    <Link unstyled partiallyActive to={to}>
+      {children}
+    </Link>
+  </li>
 )
 
-Nav.Item = Item
-
-export default Nav
+export default ({ direction = 'horizontal' }) => (
+  <Nav vertical={direction === 'vertical'}>
+    <ul>
+      <Item to='/thoughts'>Thoughts</Item>
+      <Item to='/notes'>Notes</Item>
+      <Item to='/books'>Books</Item>
+      <Item to='/quotes'>Quotes</Item>
+    </ul>
+  </Nav>
+)

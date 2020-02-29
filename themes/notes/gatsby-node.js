@@ -262,12 +262,12 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create the root /notes page
-  createPage({
-    path: notesPath,
-    context: {
-      notes: notes,
-      categories: groupedNotes
-    },
-    component: Notes
-  })
+  // createPage({
+  //   path: notesPath,
+  //   context: {
+  //     notes: notes,
+  //     categories: groupedNotes
+  //   },
+  //   component: Notes
+  // })
 }

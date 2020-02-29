@@ -1,4 +1,4 @@
-const breakpoints = ['550px', '600px', '800px', '1300px']
+const breakpoints = ['550px', '700px', '900px', '1300px']
 
 const namedBreakpoints = {
   tiny: breakpoints[0],
@@ -10,6 +10,9 @@ const namedBreakpoints = {
 const space = [0, 1, 2, 3, 4, 5, 6, 7]
 
 const sizes = {
+  contentWidth: '38rem',
+  sidebarWidth: '12rem',
+  sidebarWidthWithGutter: 'calc(12rem + 24px)',
   layout: {
     maxWidth: 952
   },
@@ -35,14 +38,14 @@ const fonts = {
     return this.system
   },
   get serif() {
-    return this.system
+    return this.headers
   },
   get mono() {
     return this.system
   },
-
+  headers: `"Untitled Serif", Georgia, Times New Roman, serif`,
   code: `"IBM Plex Mono", Consolas, Menlo, Monaco, monospace`,
-  system: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  system: `"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
   "Droid Sans", "Helvetica Neue", sans-serif`
 }
@@ -52,11 +55,10 @@ const colors = {
     light: '#FFFAE5',
     soft: '#FFE999',
     medium: '#ffda73',
-    pop: '#FFCD3F',
+    pop: '#FFC700',
     dark: '#b3821c'
   }),
   page: {
-    background: 'white',
     text: '#1e1f22',
     code: 'rgb(33, 33, 57)'
   },
@@ -69,12 +71,12 @@ const colors = {
     code: '#c6dbf4'
   },
   gray: {
-    0: '#F8F9FA',
-    1: '#EBEBEB',
-    2: '#D6D6D6',
-    3: '#A6A6A6',
-    4: '#616161',
-    5: '#414141'
+    0: '#faf9f8',
+    1: '#eeedea',
+    2: '#e2e1db',
+    3: '#a5a08d',
+    4: '#726c59',
+    5: '#423f34'
   }
 }
 

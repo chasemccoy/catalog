@@ -1,1 +1,1 @@
-// require("./src/fonts/fonts.css");
+require('./src/fonts/fonts.css')

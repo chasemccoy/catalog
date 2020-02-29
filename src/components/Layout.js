@@ -10,9 +10,16 @@ import 'isomorphic-fetch'
 
 const GlobalStyles = createGlobalStyle`
   html {
-    background: white;
+    background: ${props => props.theme.colors.accent.pop};
+    padding: 8px;
 
-    @media (prefers-color-scheme: dark) {
+    ${media.small`
+      padding: 8px 0;
+      font-size: 17px;
+    `}
+
+    ${
+      '' /* @media (prefers-color-scheme: dark) {
       filter: invert(90%) hue-rotate(25deg);
 
       img:not(.invert), .no-invert, .microlink_card__media_image, .twitter-tweet-rendered {
@@ -26,36 +33,23 @@ const GlobalStyles = createGlobalStyle`
       article img {
         box-shadow: none;
       }
+    } */
     }
   }
 
   body {
     line-height: inherit;
-    background: ${props => props.theme.colors.page.background};
     overflow: hidden;
   }
 
   a {
     color: ${p => p.theme.colors.type.body};
-    text-decoration: underline dashed;
+    text-decoration: underline;
     transition: all .15s;
 
     &:hover, &:focus {
       color: ${p => p.theme.colors.accent};
       outline: none;
-    }
-  }
-
-  p a, article ul a, article ol a {
-    color: ${p => p.theme.colors.type.body};
-    text-decoration: underline dashed;
-    text-decoration-color: ${p => p.theme.colors.accent};
-    transition: all .15s;
-    box-shadow: 0px -5px 0px ${p => p.theme.colors.accent.soft} inset;
-
-    &:hover, &:focus {
-      color: ${p => p.theme.colors.type.body};
-      background: ${p => p.theme.colors.accent.soft};
     }
   }
 
@@ -77,8 +71,7 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     margin-left: .5em;
     padding: 4px .5em 4px 1.2em;
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: 0.95em;
     color: ${p => p.theme.colors.gray[5]};
 
     &:before {

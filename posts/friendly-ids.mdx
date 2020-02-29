@@ -23,10 +23,10 @@ Once I had that, it was super simple to wire up a function to return a string ge
 import words from 'friendly-words'
 
 const randomName = () => {
-	const { predicates, objects } = words
-	const predicate = predicates[Math.floor(Math.random() * predicates.length)]
-	const object = objects[Math.floor(Math.random() * objects.length)]
-	return `${predicate}-${object}`
+  const { predicates, objects } = words
+  const predicate = predicates[Math.floor(Math.random() * predicates.length)]
+  const object = objects[Math.floor(Math.random() * objects.length)]
+  return `${predicate}-${object}`
 }
 ```
 
