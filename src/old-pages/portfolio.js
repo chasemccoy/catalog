@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Timeline, TimelineItem } from 'components/Timeline'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 
 const PortfolioPage = ({ data }) => {
   return (

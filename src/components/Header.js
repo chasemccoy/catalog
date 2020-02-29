@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '@chasemccoy/kit'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import Link from 'components/Link'
 import Logo from 'components/Logo'
 

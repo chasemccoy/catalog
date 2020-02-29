@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import { graphql } from 'gatsby'
 import { Box, Text } from '@chasemccoy/kit'
 import MultiColumn from 'components/MultiColumn'

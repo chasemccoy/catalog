@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import { Box } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
@@ -16,7 +16,6 @@ const Sidebar = ({ posts, ...props }) => (
           <Link
             unstyled
             to={post.slug}
-            color='gray.4'
             dangerouslySetInnerHTML={{ __html: post.title + '&nbsp;→' }}
           />
         </Box>

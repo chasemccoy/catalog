@@ -157,7 +157,7 @@ export const Post = props => {
       <AsideContainer photo={props.imagePost}>
         {metadata}
         {title}
-        {content}
+        {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
       </AsideContainer>
     )
   } else {

@@ -4,6 +4,7 @@ import { Post } from 'components/Blog'
 import { Box, Heading } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
+import Wide from 'components/Wide'
 
 const ShortPost = ({ slug, title }) => (
   <Heading.h3 fontSize='24px' m={0}>
@@ -11,14 +12,14 @@ const ShortPost = ({ slug, title }) => (
   </Heading.h3>
 )
 
-const LongPost = ({ title, slug, date, content, excerpt }) => (
+const LongPost = ({ title, slug, date, content, excerpt, isMdx }) => (
   <Post
-    aside
     title={title}
     to={slug}
     date={date}
     content={content}
     excerpt={excerpt}
+    isMdx={isMdx}
   />
 )
 
@@ -30,45 +31,33 @@ const ArchivePage = ({ data }) => {
   return (
     <Page title='Archive' untitled>
       {groups.map(group => (
-        <Box key={group.year}>
-          <Box bg='gray.1'>
-            <Heading.h2 mt={0}>{group.year}</Heading.h2>
+        <React.Fragment>
+          <Wide borderTop='1px solid' borderColor='gray.2' mb={24}>
+            <Heading.h2 mb={0} mt={16} fontSize='1.8em'>
+              {group.year}
+            </Heading.h2>
+          </Wide>
+
+          <Box mt={-52}>
+            {group.nodes.map(node => {
+              if (node.title) {
+                return (
+                  <Box mb={48} key={node.id}>
+                    <ShortPost {...node} />
+                  </Box>
+                )
+              } else {
+                console.log(node.isMdx)
+                return (
+                  <Box mb={48} key={node.id}>
+                    <LongPost {...node} />
+                  </Box>
+                )
+              }
+            })}
           </Box>
-
-          {group.nodes.map(node => {
-            if (node.title) {
-              return (
-                <Box mb={48} key={node.id}>
-                  <ShortPost {...node} />
-                </Box>
-              )
-            } else {
-              return (
-                <Box mb={48} key={node.id}>
-                  <LongPost {...node} />
-                </Box>
-              )
-            }
-          })}
-        </Box>
+        </React.Fragment>
       ))}
-
-      {/* {data.posts.nodes.map(node => {
-        if (node.title) {
-          return (
-            <Box mb={48}>
-              <ShortPost {...node} />
-            </Box>
-          )
-        }
-        else {
-          return (
-            <Box mb={48}>
-              <LongPost {...node} />
-            </Box>
-          )
-        }
-      })} */}
     </Page>
   )
 }
@@ -91,24 +80,9 @@ export const query = graphql`
           format
           content
           excerpt
+          isMdx
         }
       }
     }
   }
 `
-
-// export const query = graphql`
-//   query ArchiveQuery {
-//     posts: allBlog(filter: {format: {nin: ["image"]}}) {
-//       nodes {
-//         id
-//         title
-//         date(formatString: "MMMM Do, YYYY")
-//         slug
-//         format
-//         content
-//         excerpt
-//       }
-//     }
-//   }
-// `

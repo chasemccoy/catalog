@@ -3,7 +3,7 @@ import { Box } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import TableOfContents from './TableOfContents'
 import { capitalize } from 'utils'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 
 const Sidebar = ({ data, ...rest }) => (
   <Box mb={32} {...rest}>
@@ -16,7 +16,6 @@ const Sidebar = ({ data, ...rest }) => (
           <Link
             unstyled
             to={value[0].pagePath}
-            color='gray.4'
             partiallyActive
             css={`
               &.selected {

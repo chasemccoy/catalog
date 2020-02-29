@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import styled, { css } from 'styled-components'
 import { Box, Text, Grid } from '@chasemccoy/kit'
-import Page from 'components/NewPage'
-import Image from 'components/Image'
-import { useStaticQuery, graphql } from 'gatsby'
+import Page from 'components/Page'
+// import Image from 'components/Image'
+// import { useStaticQuery, graphql } from 'gatsby'
 import Link from 'components/Link'
 import { UnorderedList } from 'components/Lists'
 import { DataContext } from 'components/Layout'
-import Nav from 'components/Nav'
+// import Nav from 'components/Nav'
 
 // const border = {
 //   borderBottom: '.5px solid',
@@ -28,19 +28,19 @@ const Container = styled.footer(
   `
 )
 
-const Heading = props => (
-  <Text
-    as='h3'
-    mt={0}
-    fontSize='1.3em'
-    // fontFamily='sans'
-    // fontWeight='bold'
-    // css={css`
-    //   text-transform: uppercase;
-    // `}
-    {...props}
-  />
-)
+// const Heading = props => (
+//   <Text
+//     as='h3'
+//     mt={0}
+//     fontSize='1.3em'
+//     // fontFamily='sans'
+//     // fontWeight='bold'
+//     // css={css`
+//     //   text-transform: uppercase;
+//     // `}
+//     {...props}
+//   />
+// )
 
 // const Blogroll = ({ items, ...rest }) => (
 //   <UnorderedList
@@ -126,7 +126,7 @@ const Sitemap = ({ ...rest }) => {
 }
 
 const Footer = ({ ...rest }) => {
-  const { posts, blogroll } = useStaticQuery(query)
+  // const { posts, blogroll } = useStaticQuery(query)
   const { nowPlaying, weather } = useContext(DataContext)
 
   return (
@@ -172,29 +172,29 @@ export default () => (
   </React.Fragment>
 )
 
-const query = graphql`
-  query FooterQuery {
-    posts: allBlog(
-      filter: { format: { eq: "standard" } }
-      sort: { fields: date, order: DESC }
-      limit: 5
-    ) {
-      nodes {
-        id
-        title
-        slug
-        excerpt
-        date(formatString: "MMMM Do")
-      }
-    }
+// const query = graphql`
+//   query FooterQuery {
+//     posts: allBlog(
+//       filter: { format: { eq: "standard" } }
+//       sort: { fields: date, order: DESC }
+//       limit: 5
+//     ) {
+//       nodes {
+//         id
+//         title
+//         slug
+//         excerpt
+//         date(formatString: "MMMM Do")
+//       }
+//     }
 
-    blogroll: allAirtable(filter: { queryName: { eq: "blogroll" } }) {
-      nodes {
-        data {
-          title: Title
-          url: URL
-        }
-      }
-    }
-  }
-`
+//     blogroll: allAirtable(filter: { queryName: { eq: "blogroll" } }) {
+//       nodes {
+//         data {
+//           title: Title
+//           url: URL
+//         }
+//       }
+//     }
+//   }
+// `

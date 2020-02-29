@@ -47,4 +47,10 @@
 		url: https://www.amazon.com/Broad-Band-Untold-Story-Internet/dp/0735211752
 		image: broadband.jpg
 	}
+	{
+		title: Ruined by Design
+		metadata: Mike Monteiro
+		url: https://ruinedby.design
+		image: ruined-by-design.jpg
+	}
 ]

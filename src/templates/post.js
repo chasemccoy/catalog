@@ -1,4 +1,4 @@
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import { Box, Text } from '@chasemccoy/kit'
 import { Post } from 'components/Blog'
 import React from 'react'
@@ -45,9 +45,7 @@ const Sidebar = ({ items, tags, date }) => {
 
 export default ({ data, pageContext }) => {
   const post = data.blog
-  const normalizedTitle = post.title
-    ? post.title.replace(/&nbsp;/g, ' ')
-    : post.shortSlug
+  const normalizedTitle = post.title ? post.title.replace(/&nbsp;/g, ' ') : null
 
   return (
     <Page

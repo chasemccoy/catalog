@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import { Box } from '@chasemccoy/kit'
 import Layout from '../components/Layout'
 import Link from 'components/Link'
@@ -23,7 +23,7 @@ const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
 
         {tableOfContents.items.map((item, i) => (
           <Box key={i} mb={4}>
-            <Link unstyled to={item.url} color='gray.4'>
+            <Link unstyled to={item.url}>
               {item.title}
             </Link>
           </Box>
@@ -42,7 +42,6 @@ const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
                 <Link
                   unstyled
                   to={note.slug}
-                  color='gray.4'
                   css={`
                     &.selected {
                       color: ${props => props.theme.colors.accent};

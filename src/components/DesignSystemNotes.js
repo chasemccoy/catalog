@@ -16,7 +16,7 @@ const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
   >
     <Text as='h2' mb={2}>
       <Link unstyled to={slug}>
-        {title} →
+        {title}
       </Link>
     </Text>
 

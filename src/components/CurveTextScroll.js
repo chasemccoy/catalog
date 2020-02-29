@@ -1,6 +1,6 @@
 import React, { useRef, useLayoutEffect } from 'react'
 import styled from 'styled-components'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import { space } from 'styled-system'
 import media from 'utils/media'
 

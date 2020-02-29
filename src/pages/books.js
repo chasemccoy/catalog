@@ -1,4 +1,4 @@
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import React from 'react'
 import Image from 'components/Image'
 import { Box, Text, Grid } from '@chasemccoy/kit'

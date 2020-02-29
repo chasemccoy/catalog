@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import Sidebar from '../components/Sidebar'
 import Layout from '../components/Layout'
 import { capitalize } from 'utils'

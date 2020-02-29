@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
-import TitleLogo from 'assets/chase-mccoy.svg'
+// import TitleLogo from 'assets/chase-mccoy.svg'
 
 const Logo = props => (
   <Box {...props}>

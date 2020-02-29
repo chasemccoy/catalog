@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 // import { Grid, Box } from '@chasemccoy/kit'
 // import Wide from 'components/Wide'
 import { graphql } from 'gatsby'

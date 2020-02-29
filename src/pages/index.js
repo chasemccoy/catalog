@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'styled-components'
 import { graphql } from 'gatsby'
-import Page from 'components/NewPage'
+import Page from 'components/Page'
 import { Box, Text, Heading, Grid } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import CurveTextScroll from 'components/CurveTextScroll'
@@ -17,9 +17,6 @@ import picoBox3 from 'assets/pico-box-3.png'
 import picoBox4 from 'assets/pico-box-4.png'
 import MultiColumn from 'components/MultiColumn'
 import { UnorderedList } from 'components/Lists'
-// import Code from 'assets/code-icon.svg'
-// import Phone from 'assets/phone-icon.svg'
-// import Desktop from 'assets/desktop-icon.svg'
 import Calendar from 'assets/calendar-icon.svg'
 import Sprout from 'assets/sprout.png'
 import SproutClassic from 'assets/sprout-classic.png'
@@ -141,8 +138,6 @@ const Seeds = () => (
 
 const Nectar = props => (
   <Box {...props}>
-    {/* <Badge icon={Calendar}>2019</Badge> */}
-
     <Box width='40px'>
       <SproutLeaf />
     </Box>
@@ -151,35 +146,12 @@ const Nectar = props => (
       Redesigning the Sprout Social web app
     </Heading.h2>
 
-    {/* <Wide mb={32}>
-      <Grid>
-        <Box width={[3 / 4]}>
-          <Image
-            src={SproutClassic}
-            css={css`
-              object-fit: cover;
-              object-position: left center;
-            `}
-          />
-        </Box>
-
-        <Box width={[3 / 4]}>
-          <Image
-            src={Sprout}
-            css={css`
-              object-fit: cover;
-              object-position: left center;
-            `}
-          />
-        </Box>
-      </Grid>
-    </Wide> */}
-
     <Text.p>
       In 2019, Sprout set out to redesign our entire user interface from the
       ground up for the first time in almost a decade. The legacy Sprout web
       application had become a mess of conflicting styles, patterns, and
-      experiences.
+      experiences. The product design led effort shipped to 100% of our customer
+      base in January of 2020, and was very well received by our users.
     </Text.p>
 
     <Wide>
@@ -206,12 +178,6 @@ const Nectar = props => (
         </Box>
       </Grid>
     </Wide>
-    {/* 
-    <Text.p>
-      We leveraged our design system and component library,{' '}
-      <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, to tackle this
-      project.
-    </Text.p> */}
 
     <Wide mb='2em'>
       <Box {...fullWidthImage}>
@@ -334,17 +300,21 @@ const IndexPage = ({ data }) => {
       </Text.p>
 
       <Text.p>
-        Hi there! 👋 and welcome to my{' '}
+        Hi there!{' '}
+        <span role='img' aria-label='Waving hand emoji'>
+          👋
+        </span>{' '}
+        and welcome to my{' '}
         <span
           css={`
             hyphens: auto;
           `}
         >
-          website/portfolio/blog/wiki/library/garden/hypertext portal/
+          website/portfolio/blog/wiki/library/digital garden/hyperlink abyss/
         </span>
-        etc. I'm a front-end engineer and designer who specializes in systems
-        thinking, design tooling, and advocacy. I also spend a lot of time
-        thinking about how the web works.
+        etc. I’m a front-end engineer and designer who specializes in systems
+        thinking, design tooling, and advocacy. This site is where I catalog my
+        learnings as I go.
       </Text.p>
 
       <Text.p>
@@ -456,36 +426,9 @@ const IndexPage = ({ data }) => {
         </Grid>
       </Wide>
 
-      {/* <Text.p>
-        My work focuses on building thoughtful, intuitive, and delightful
-        interactions for the web, with a devotion to process, transparency, and
-        sharing what I learn.
-      </Text.p>
-
-      <Text.p>
-        My work focuses on building thoughtful, intuitive, and delightful
-        interactions for the web, with a devotion to process, transparency, and
-        sharing what I learn. My work focuses on building thoughtful, intuitive,
-        and delightful interactions for the web, with a devotion to process,
-        transparency, and sharing what I learn.
-      </Text.p> */}
-
       <CurveTextScroll mt={[0, -40]} mb={[0, 0, -40]}>
-        ~ keep the web weird ~
+        here are some things I've worked on
       </CurveTextScroll>
-
-      {/* <Page.Breakout
-        borderTop='1px solid'
-        borderColor='gray.1'
-        display='flex'
-        justifyContent='center'
-        py='1em'
-        color='gray.4'
-      >
-        <Text as='h1' fontSize='1em' m={0} id='#portfolio'>
-          Selected projects
-        </Text>
-      </Page.Breakout> */}
 
       <Page.Breakout
         bg='#fdfaee'
@@ -511,21 +454,6 @@ const IndexPage = ({ data }) => {
           <Pico />
         </Page.Wrapper>
       </Page.Breakout>
-
-      {/* <Box py={80}>
-        <Heading.h2 fontSize='1.6em' mt={0}>
-          Stay in touch
-        </Heading.h2>
-
-        <Text.p mb={0}>
-          If you’d like to chat, you can{' '}
-          <Link to='mailto:hi@chasem.co'>drop me a line</Link> or find me in a
-          coffee shop on Chicago’s west side{' '}
-          <span role='img' aria-label='Cup of coffee emoji.'>
-            ☕️
-          </span>
-        </Text.p>
-      </Box> */}
     </Page>
   )
 }
