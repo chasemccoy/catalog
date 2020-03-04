@@ -16,7 +16,7 @@ const Sidebar = ({ posts, ...props }) => (
           <Link
             unstyled
             to={post.slug}
-            dangerouslySetInnerHTML={{ __html: post.title + '&nbsp;→' }}
+            dangerouslySetInnerHTML={{ __html: post.title }}
           />
         </Box>
       ))}

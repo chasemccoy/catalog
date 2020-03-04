@@ -2,7 +2,7 @@ import React from 'react'
 import Table from 'components/Table'
 import { Text } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
-import { capitalize } from 'utils'
+import { capitalize, slugify } from 'utils'
 import Link from 'components/Link'
 
 const NoteList = ({ notes, ...rest }) => {
@@ -13,6 +13,7 @@ const NoteList = ({ notes, ...rest }) => {
           width: 25%;
         }
       `}
+      mt={-12}
       {...rest}
     >
       <tbody>
@@ -27,8 +28,14 @@ const NoteList = ({ notes, ...rest }) => {
                     {note.title}
                   </Link>
                 </Text>
-                <Text fontSize='0.75em' color='gray.4'>
-                  → {capitalize(note.category)}
+                <Text fontSize='0.75em'>
+                  <Link
+                    to={`/notes/${slugify(note.category)}`}
+                    unstyled
+                    color='gray.4'
+                  >
+                    → {capitalize(note.category)}
+                  </Link>
                 </Text>
               </td>
               <td>

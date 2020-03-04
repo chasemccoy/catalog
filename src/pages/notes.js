@@ -1,31 +1,47 @@
 import React from 'react'
 import Page from 'components/Page'
-// import { Grid, Box } from '@chasemccoy/kit'
-// import Wide from 'components/Wide'
 import { graphql } from 'gatsby'
-// import CategoryCard from 'components/CategoryCard'
 import NotesList from 'components/notes/List'
+import { slugify, capitalize } from 'utils'
+import Link from 'components/Link'
+import { Box } from '@chasemccoy/kit'
 
-const Notes = ({ data }) => (
-  <Page
-    title='Notes'
-    description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
-  >
-    {/* <Grid mb={40} overflow='visible'>
-      {data.categories.nodes.map(category => (
-        <Box width={[1, 1, 1, 1 / 2]}>
-          <CategoryCard
-            height='100%'
-            category={category}
-            key={category.name}
-          />
-        </Box>
-      ))}
-    </Grid> */}
+const Sidebar = ({ categories }) => (
+  <React.Fragment>
+    <Page.SidebarHeader>Categories</Page.SidebarHeader>
 
-    <NotesList notes={data.notes.nodes} />
-  </Page>
+    {categories.map(category => (
+      <Box mb={4} key={category}>
+        <Link
+          unstyled
+          to={`/notes/${slugify(category)}`}
+          partiallyActive
+          css={`
+            &.selected {
+              color: ${props => props.theme.colors.accent};
+            }
+          `}
+        >
+          {capitalize(category)}
+        </Link>
+      </Box>
+    ))}
+  </React.Fragment>
 )
+
+const Notes = ({ data }) => {
+  const categories = data.categories.nodes.map(node => node.name)
+
+  return (
+    <Page
+      title='Notes'
+      description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
+      aside={<Sidebar categories={categories} />}
+    >
+      <NotesList notes={data.notes.nodes} />
+    </Page>
+  )
+}
 
 export default Notes
 

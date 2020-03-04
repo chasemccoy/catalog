@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from 'components/Page'
-import Sidebar from '../components/Sidebar'
-import Layout from '../components/Layout'
+import Sidebar from 'components/notes/Sidebar'
+import Layout from 'components/notes/Layout'
 import { capitalize } from 'utils'
 import NotesList from 'components/notes/List'
 

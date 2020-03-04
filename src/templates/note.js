@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
 import { Box } from '@chasemccoy/kit'
-import Layout from '../components/Layout'
+import Layout from 'components/notes/Layout'
 import Link from 'components/Link'
-import NoteSidebar from '../components/Sidebar'
+import NoteSidebar from 'components/notes/Sidebar'
 import Tags from 'components/Tags'
 
 const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (

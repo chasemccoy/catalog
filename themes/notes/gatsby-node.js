@@ -1,8 +1,8 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const notesPath = '/notes'
-const Note = require.resolve(`./src/templates/note.js`)
-const Notes = require.resolve(`./src/templates/notes.js`)
+const Note = require.resolve('../../src/templates/note.js')
+const Notes = require.resolve('../../src/templates/notes.js')
 
 const mdxResolverPassthrough = fieldName => async (
   source,
