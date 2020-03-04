@@ -3,20 +3,21 @@ import Link from 'components/Link'
 import { UnorderedList } from 'components/Lists'
 import { Grid, Box, Text } from '@chasemccoy/kit'
 import { useStaticQuery, graphql } from 'gatsby'
+import ArrowRight from 'assets/arrow-right-icon.svg'
 
 const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
   <Box
-    bg='gray.0'
-    border='0.5px solid'
-    borderColor='gray.1'
-    borderRadius='12px'
-    p={24}
-    mb={24}
+    // bg='gray.0'
+    // border='0.5px solid'
+    // borderColor='gray.1'
+    // borderRadius='12px'
+    // p={24}
+    mb={40}
     key={id}
   >
-    <Text as='h2' mb={2}>
+    <Text as='h2' mb={16}>
       <Link unstyled to={slug}>
-        {title}
+        {title} <ArrowRight />
       </Link>
     </Text>
 
@@ -53,7 +54,8 @@ const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
 
 const DesignSystems = ({ category, ...rest }) => {
   const {
-    notes: { nodes }
+    notes: { nodes },
+    posts
   } = useStaticQuery(query)
 
   return (
@@ -61,6 +63,21 @@ const DesignSystems = ({ category, ...rest }) => {
       {nodes.map(node => (
         <Note {...node} />
       ))}
+
+      <Text as='h2'>Posts about design systems</Text>
+
+      <UnorderedList>
+        {posts.items
+          .filter(i => i.title)
+          .map(item => (
+            <li key={item.slug}>
+              <Link
+                to={item.slug}
+                dangerouslySetInnerHTML={{ __html: item.title }}
+              />
+            </li>
+          ))}
+      </UnorderedList>
     </React.Fragment>
   )
 }
@@ -82,6 +99,13 @@ const query = graphql`
         id
         tableOfContents
         excerpt
+      }
+    }
+
+    posts: tag(name: { eq: "design systems" }) {
+      items {
+        slug
+        title
       }
     }
   }
