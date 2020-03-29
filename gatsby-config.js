@@ -51,20 +51,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `bookmarks`,
-        path: `${__dirname}/data/bookmarks.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `favorites`,
-        path: `${__dirname}/data/favorites.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `portfolio`,
         path: `${__dirname}/data/portfolio.hjson`
       }
@@ -79,41 +65,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `music`,
-        path: `${__dirname}/data/music/music.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `templates`,
-        path: `${__dirname}/data/_templates.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `navigation`,
-        path: `${__dirname}/data/navigation.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `chicago`,
-        path: `${__dirname}/data/chicago.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `apps`,
-        path: `${__dirname}/data/apps/apps.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `json`,
         path: `${__dirname}/data/`
       }
@@ -123,13 +74,6 @@ module.exports = {
       options: {
         name: `quotes`,
         path: `${__dirname}/data/quotes.hjson`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `art`,
-        path: `${__dirname}/data/art/art.hjson`
       }
     },
     {

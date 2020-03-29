@@ -47,7 +47,6 @@ const ArchivePage = ({ data }) => {
                   </Box>
                 )
               } else {
-                console.log(node.isMdx)
                 return (
                   <Box mb={48} key={node.id}>
                     <LongPost {...node} />
