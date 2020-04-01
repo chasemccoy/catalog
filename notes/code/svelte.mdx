@@ -1,7 +1,7 @@
 ---
 title: Svelte
-excerpt: I spent a little bit of time diving into Svelte and walking through the official tutorial. Here are some things that stood out to me. 
-tags: 
+excerpt: I spent a little bit of time diving into Svelte and walking through the official tutorial. Here are some things that stood out to me.
+tags:
   - web dev
   - js
 modified: 2019-10-22
@@ -13,17 +13,17 @@ Here's how [Svelte][svelte] describes iteself:
 
 ## What I like
 
-I just love how... vanilla Svelte feels. Every `.svelte` file is a component. You can put JavaScript in a `<script>` tag. You can put CSS in a `<style>` tag. The rest is HTML + a templating syntax similiar to JSX. 
+I just love how... vanilla Svelte feels. Every `.svelte` file is a component. You can put JavaScript in a `<script>` tag. You can put CSS in a `<style>` tag. The rest is HTML + a templating syntax similiar to JSX.
 
 Just look at it:
 
 ```html
 <script>
-  const name = 'world';
+  const name = 'world'
 </script>
 
 <style>
-	p {
+  p {
     color: red;
   }
 </style>
@@ -31,10 +31,10 @@ Just look at it:
 <p>Hello {world}!</p>
 ```
 
-Other great things: 
+Other great things:
 
-- Styles are scoped to components by default. 
-- Often times, you set a prop with a variable that has the same name as the prop (i.e. `<img src={src}>`). In Svelte, you can short-hand it like this: `<img {src}>`. Love that. 
+- Styles are scoped to components by default.
+- Often times, you set a prop with a variable that has the same name as the prop (i.e. `<img src={src}>`). In Svelte, you can short-hand it like this: `<img {src}>`. Love that.
 - Notice in those examples above, I'm not including a trailing `/` slash for single HTML tags like React forces you to do (you still need them for custom components).
 
 ## What I'm not sure about
@@ -43,7 +43,7 @@ That's where the "plainness" ends though. Reactivity in Svelte is... weird. For 
 
 ```html
 <script>
-  const foo = 1;
+  const foo = 1
   $: reactiveValue = foo * 2
 </script>
 
@@ -53,23 +53,21 @@ That's where the "plainness" ends though. Reactivity in Svelte is... weird. For 
 Without that `$:`, the `reactiveValue` variable won't update whenever `foo` changes. If you wanna make multiple statements reactive, you can wrap them like this:
 
 ```html
-$: {
-  console.log(`the count is ${count}`);
-  alert(`I SAID THE COUNT IS ${count}`);
-}
+$: { console.log(`the count is ${count}`); alert(`I SAID THE COUNT IS
+${count}`); }
 ```
 
 Other examples of weird (maybe not weird, but... unexpected?) syntax includes blocks within the HTML itself:
 
 ```html
 {#if user.loggedIn}
-  <button on:click={toggle}>
-    Log out
-  </button>
+<button on:click="{toggle}">
+  Log out
+</button>
 {:else}
-  <button on:click={toggle}>
-    Log in
-  </button>
+<button on:click="{toggle}">
+  Log in
+</button>
 {/if}
 ```
 
@@ -77,17 +75,17 @@ This bit from the Svelte docs makes it easier to understand:
 
 > A `#` character always indicates a block opening tag. A `/` character always indicates a block closing tag. A `:` character, as in `{:else}`, indicates a _block continuation tag_.
 
-## Asynchronous markup 
+## Asynchronous markup
 
 This feature is really great:
 
 ```html
 {#await promise}
-  <p>...waiting</p>
+<p>...waiting</p>
 {:then number}
-  <p>The number is {number}</p>
+<p>The number is {number}</p>
 {:catch error}
-  <p style="color: red">{error.message}</p>
+<p style="color: red">{error.message}</p>
 {/await}
 ```
 
@@ -97,15 +95,15 @@ Instead of assigning values and updating state based on events, you can just do 
 
 ```html
 <script>
-  let name = 'world';
+  let name = 'world'
 </script>
 
-<input bind:value={name}>
+<input bind:value="{name}" />
 
 <h1>Hello {name}!</h1>
 ```
 
-Which I love. React should add this. 
+Which I love. React should add this.
 
 [svelte]: https://svelte.dev
 

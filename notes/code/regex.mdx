@@ -10,7 +10,7 @@ excerpt: I’ve always been terrible at regex (shouldn't have goofed off so much
 ```js
 const srcRegex = /<img.*?src=['"](.*?)['"]/
 const src = srcRegex.exec(string)[1]
-  
+
 // string = "<img src='http://link-to-image.com/image.png' />"
 // src = "http://link-to-image.com/image.png"
 ```
@@ -24,5 +24,5 @@ const internal = /^\/(?!\/)/.test(url)
 ### Strip HTML tags out of a string
 
 ```js
-const stripHTML = string => string.replace(/<[^>]+>/g, '')
+const stripHTML = (string) => string.replace(/<[^>]+>/g, '')
 ```

@@ -1,7 +1,7 @@
 ---
 title: CSS Recipes
 modified: 2020-03-21
-tags: 
+tags:
   - css
   - web dev
   - how to
@@ -18,14 +18,14 @@ Use the `<details>` element
 Instead of trying to get the styling right for IE 11, just add custom styles for browsers that support it well. You can do that by checking for support for the `-webkit-appearance` property:
 
 ```css
-@supports(-webkit-appearance: none) {
-  input[type="checkbox"] {
+@supports (-webkit-appearance: none) {
+  input[type='checkbox'] {
     /* style up your checkbox for browsers that can handle it */
   }
 }
 ```
 
-Of course, [this idea comes from the great Jen Simmons](https://twitter.com/jensimmons/status/1162106783642595328). 
+Of course, [this idea comes from the great Jen Simmons](https://twitter.com/jensimmons/status/1162106783642595328).
 
 ## Dropdown menus
 
@@ -62,7 +62,7 @@ Thanks to [this tweet from Cassie Evans](https://twitter.com/cassiecodes/status/
   flex-wrap: nowrap;
   overflow-x: auto;
 }
-  
+
 .item {
   flex: 0 0 auto;
 }
@@ -72,16 +72,16 @@ Thanks to [this tweet from Cassie Evans](https://twitter.com/cassiecodes/status/
 
 ## Responsive tiled layout with CSS Grid and no media queries
 
-This is great for making grid layouts of even-sized tiles where each tile never gets narrower than the specified min-width. But this *does not* work if you want to have items of varying widths. Stolen from [this tweet by @thekitze](https://twitter.com/thekitze/status/1131821007629692929).
+This is great for making grid layouts of even-sized tiles where each tile never gets narrower than the specified min-width. But this _does not_ work if you want to have items of varying widths. Stolen from [this tweet by @thekitze](https://twitter.com/thekitze/status/1131821007629692929).
 
 ```js
 const autoGrid = (minColumnWidth = 250, gap = 0) => css`
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(${minColumnWidth}px, 1fr));
- grid-gap: ${gap};
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(${minColumnWidth}px, 1fr));
+  grid-gap: ${gap};
 `
 ```
 
-## Text dividers 
+## Text dividers
 
 <Tweet url='https://twitter.com/CodyWebHouse/status/1233058458297143296' />

@@ -1,13 +1,13 @@
 ---
 title: React Hooks
-tags: 
+tags:
   - react
   - js
 ---
 
 ## useReducer
 
-You can use `useReducer` to simulate the old `this.setState({})` API of class components. 
+You can use `useReducer` to simulate the old `this.setState({})` API of class components.
 
 ```jsx
 const reducer = (state, newState) => ({
@@ -32,7 +32,7 @@ This ideas was stolen from this article:
 
 ## useStaticQuery & useSiteMetadata
 
-I really like [this idea of wrapping up common queries in a Gatsby site into custom hooks](https://blog.scottspence.me/gatsby-custom-react-hook-for-site-metadata) that can be used to access things like your site's metadata. 
+I really like [this idea of wrapping up common queries in a Gatsby site into custom hooks](https://blog.scottspence.me/gatsby-custom-react-hook-for-site-metadata) that can be used to access things like your site's metadata.
 
 ## useTextContent
 
@@ -47,22 +47,24 @@ useEffect(() => {
 }, [node])
 
 return (
-  <div ref={node}>This is text with a <a href='/'>link inside it</a>.</div>
+  <div ref={node}>
+    This is text with a <a href='/'>link inside it</a>.
+  </div>
 )
 ```
 
 In the code above, `textContent` is equal to the string `This is text with a link inside it.` This pattern could be very easily wrapped up into a custom hook:
 
 ```jsx
-const useTextContent = initial => {
+const useTextContent = (initial) => {
   const [textContent, setTextContent] = useState(initial)
-  
-  const ref = useCallback(node => {
+
+  const ref = useCallback((node) => {
     if (node !== null) {
-      setTextContent(node.textContent);
+      setTextContent(node.textContent)
     }
-  }, []);
-  
+  }, [])
+
   ref.current = textContent
   return ref
 }
@@ -71,8 +73,10 @@ const textContainer = useTextContent(null)
 
 return (
   <div>
-    <SomeComponent ref={textContainer}>This is text with a <a href='/'>link inside it</a>.</SomeComponent>
+    <SomeComponent ref={textContainer}>
+      This is text with a <a href='/'>link inside it</a>.
+    </SomeComponent>
     {textContainer.current}
   </div>
-) 
+)
 ```

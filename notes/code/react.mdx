@@ -1,6 +1,6 @@
 ---
 title: React Patterns
-tags: 
+tags:
   - react
   - js
   - web dev
@@ -15,15 +15,15 @@ class MyComponents extends React.Component {
   componentDidMount = () => {
     document.addEventListener('mousedown', this.handleClickOutside, false)
   }
-  
+
   componentWillUnmount = () => {
     document.removeEventListener('mousedown', this.handleClickOutside, false)
   }
-  
+
   handleClickOutside = e => {
     !this.container.contains(e.target) && console.log('Outside click detected!'))
   }
-  
+
   render() {
     return (
       <div ref={e => this.container = e}>

@@ -10,7 +10,7 @@ modified: 2019-09-14
 
 ```js
 const obj = {
-  ...condition && { prop: value }
+  ...(condition && { prop: value })
 }
 ```
 
@@ -42,14 +42,10 @@ Now you can access the default value with `color` instead of `color.default`. [T
 [@swyx shares this great tip on Twitter](https://twitter.com/swyx/status/1172604337366941697), again proving that I will never learn all of the secrets of objects in JavaScript.
 
 ```js
-const getFirstLast = array => {
-  const {
-    0: first,
-    length: len,
-    [len - 1]: last
-  } = array
+const getFirstLast = (array) => {
+  const { 0: first, length: len, [len - 1]: last } = array
 
-  return {first, last}
+  return { first, last }
 }
 
 getFirstLast('apple')
