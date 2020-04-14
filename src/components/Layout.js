@@ -10,7 +10,7 @@ import 'isomorphic-fetch'
 
 const GlobalStyles = createGlobalStyle`
   html {
-    background: ${props => props.theme.colors.accent.pop};
+    background: ${(props) => props.theme.colors.accent.pop};
     padding: 8px;
 
     ${media.small`
@@ -43,12 +43,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${p => p.theme.colors.type.body};
+    color: ${(p) => p.theme.colors.type.body};
     text-decoration: underline;
     transition: all .15s;
 
     &:hover, &:focus {
-      color: ${p => p.theme.colors.accent};
+      color: ${(p) => p.theme.colors.accent};
       outline: none;
     }
   }
@@ -72,7 +72,7 @@ const GlobalStyles = createGlobalStyle`
     margin-left: .5em;
     padding: 4px .5em 4px 1.2em;
     font-size: 0.95em;
-    color: ${p => p.theme.colors.gray[5]};
+    color: ${(p) => p.theme.colors.gray[5]};
 
     &:before {
       content: "";
@@ -80,7 +80,7 @@ const GlobalStyles = createGlobalStyle`
       left: 0;
       top: 0;
       width: 6px;
-      background: ${p => p.theme.colors.accent.pop};
+      background: ${(p) => p.theme.colors.accent.pop};
       border-radius: 3px;
       height: 100%;
     }
@@ -111,13 +111,13 @@ const GlobalStyles = createGlobalStyle`
 
     h2 {
       padding-bottom: 6px;
-      border-bottom: 4px solid ${p => p.theme.colors.gray[0]};
+      border-bottom: 4px solid ${(p) => p.theme.colors.gray[0]};
     }
 
     img {
       width: 100%;
       border-radius: 8px;
-      box-shadow: ${p => p.theme.colors.gray[1]} 0 0 16px 0px;
+      box-shadow: ${(p) => p.theme.colors.gray[1]} 0 0 16px 0px;
     }
 
     ${media.small`
@@ -128,10 +128,14 @@ const GlobalStyles = createGlobalStyle`
         border-radius: 0;
       }
     `}
+
+    twitter-widget {
+      margin-bottom: 1.5em !important;
+    }
   }
 
   hr {
-    background: ${p => p.theme.colors.gray[0]};
+    background: ${(p) => p.theme.colors.gray[0]};
     height: 4px;
   }
 
@@ -139,7 +143,7 @@ const GlobalStyles = createGlobalStyle`
     overflow: auto;
     background-color: #FBFBFB !important;
     border-radius: 8px;
-    border: .5px solid ${p => p.theme.colors.gray[1]};
+    border: .5px solid ${(p) => p.theme.colors.gray[1]};
 
     ${media.small`
       border-radius: 0;
@@ -156,9 +160,9 @@ const GlobalStyles = createGlobalStyle`
 
   code {
     font-feature-settings: normal;
-    font-family: ${p => p.theme.fonts.code};
+    font-family: ${(p) => p.theme.fonts.code};
     background-color: #FBFBFB;
-    border: .5px solid ${p => p.theme.colors.gray[1]};
+    border: .5px solid ${(p) => p.theme.colors.gray[1]};
     padding: .1em .3em .2em;
     vertical-align: middle;
     word-wrap: normal;
@@ -170,7 +174,7 @@ const GlobalStyles = createGlobalStyle`
   .gatsby-resp-image-wrapper {
     margin: 0 !important;
     border-radius: 8px;
-    box-shadow: ${p => p.theme.colors.gray[1]} 0 0 16px 0px;
+    box-shadow: ${(p) => p.theme.colors.gray[1]} 0 0 16px 0px;
 
     ${media.small`
       max-width: none;
@@ -190,7 +194,7 @@ const GlobalStyles = createGlobalStyle`
 
   .gatsby-resp-image-figcaption {
     margin: 8px 0;
-    color: ${p => p.theme.colors.gray[4]};
+    color: ${(p) => p.theme.colors.gray[4]};
     font-size: 14px;
     line-height: 1.4;
     max-width: 550px;
@@ -217,7 +221,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const getWeatherData = async set => {
+const getWeatherData = async (set) => {
   const response = await fetch('https://chs-stats.now.sh/weather')
   const result = await response.json()
   set({
@@ -226,7 +230,7 @@ const getWeatherData = async set => {
   })
 }
 
-const getNowPlayingData = async set => {
+const getNowPlayingData = async (set) => {
   const response = await fetch('https://chs-stats.now.sh/nowPlaying')
   const result = await response.json()
   set({
@@ -240,7 +244,7 @@ export const DataContext = React.createContext({
   nowPlaying: null
 })
 
-const Layout = props => {
+const Layout = (props) => {
   const [weather, setWeather] = useState(null)
   const [nowPlaying, setNowPlaying] = useState(null)
 

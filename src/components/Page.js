@@ -19,11 +19,11 @@ const Wrapper = styled(Box)`
   margin-right: auto;
 
   display: grid;
-  grid-gap: ${p => (p.flush ? 0 : '24px')} 24px;
+  grid-gap: ${(p) => (p.flush ? 0 : '24px')} 24px;
   grid-template-columns:
-    1fr ${p => p.theme.sizes.sidebarWidth} minmax(
+    1fr ${(p) => p.theme.sizes.sidebarWidth} minmax(
       0,
-      ${p => p.theme.sizes.contentWidth}
+      ${(p) => p.theme.sizes.contentWidth}
     )
     1fr;
   grid-template-areas:
@@ -106,7 +106,7 @@ const Page = ({
       <main>
         <PageContainer>
           <Wrapper flush mt={16}>
-            <div class='logo'>
+            <div className='logo'>
               <Logo mb={[4, null, 0]} />
             </div>
             <header>
@@ -166,7 +166,7 @@ const Header = ({ category, ...rest }) => {
   )
 }
 
-Page.SidebarHeader = props => (
+Page.SidebarHeader = (props) => (
   <Text
     mb={8}
     borderBottom='1px solid'
@@ -180,17 +180,17 @@ Page.SidebarHeader = props => (
 const Breakout = styled(Box)`
   width: calc(100vw - 16px);
   margin-left: calc(
-    (-${p => p.theme.sizes.sidebarWidth} - 24px) -
+    (-${(p) => p.theme.sizes.sidebarWidth} - 24px) -
       (
         (
-            100vw - ${p => p.theme.sizes.sidebarWidth} -
-              ${p => p.theme.sizes.contentWidth} - 40px
+            100vw - ${(p) => p.theme.sizes.sidebarWidth} -
+              ${(p) => p.theme.sizes.contentWidth} - 40px
           ) / 2
       )
   );
 
   @media screen and (min-width: 900px) and (max-width: 1020px) {
-    margin-left: calc(-${p => p.theme.sizes.sidebarWidth} - 48px - 16px);
+    margin-left: calc(-${(p) => p.theme.sizes.sidebarWidth} - 48px - 16px);
   }
 
   ${media.medium`

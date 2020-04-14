@@ -82,6 +82,14 @@ const autoGrid = (minColumnWidth = 250, gap = 0) => css`
 `
 ```
 
+Also [detailed here by Andy Bell](https://hankchizljaw.com/wrote/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid).
+
+This does have a bug though if the user resizes their browser to be less than `minColumnWidth`. You can fix it using a breakpoint, or using the `min` CSS function [as detailed in this post by Evan Minto](https://evanminto.com/blog/intrinsically-responsive-css-grid-minmax-min), which is beginning to see good browser support.
+
+I wrote a bit about this technique here:
+
+<Bookmark url='https://chasem.co/2020/04/gap-problem' >
+
 ## Text dividers
 
 <Tweet url='https://twitter.com/CodyWebHouse/status/1233058458297143296' />
