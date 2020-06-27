@@ -1,5 +1,5 @@
 ---
-title: Building Sprout Social's component library
+title: Building Sprout Social’s component library
 date: 2019-07-28
 excerpt: How our team of three built a component library that designers and engineers love using.
 tags:
@@ -8,7 +8,13 @@ tags:
 ---
 
 <Callout mb='1em'>
-  <b>Note!</b> This article was <Link to='https://medium.com/styled-components/how-to-build-a-great-component-library-a40d974a412d'>originally published on the Styled Component's blog</Link>. Big thanks to <Link to='https://twitter.com/mxstbr?lang=en'>Max Stoiber</Link> for letting me share my work with the Styled Components readers.
+  <b>Note!</b> This article was{' '}
+  <Link to='https://medium.com/styled-components/how-to-build-a-great-component-library-a40d974a412d'>
+    originally published on the Styled Component's blog
+  </Link>
+  . Big thanks to{' '}
+  <Link to='https://twitter.com/mxstbr?lang=en'>Max Stoiber</Link> for letting
+  me share my work with the Styled Components readers.
 </Callout>
 
 Sprout Social’s design system, [Seeds](https://sproutsocial.com/seeds), has done a lot of growing up since it launched in October of last year. When we launched, our system was home to four categories of guidelines and principles: Brand, Visual, Writing, and Product. A healthy showing, for sure, but something was suspiciously missing  —  components.
@@ -22,7 +28,7 @@ At its core, our component library was two things:
 
 What began as a slim, hand-crafted tool slowly grew more bloated over time. Racine was passed around by developers who had the time to work on it, but there was no dedicated team to manage it. Eventually, neither the local development experience, nor the experience as a documentation site, were delightful for anyone. We realized the component library was holding us back more than it was helping us.
 
-**We needed to fix this, and *fast.***
+**We needed to fix this, and _fast._**
 
 When we set out to build our design system, we chose to start from scratch. We didn’t want to adopt any of the debt that our older systems had accumulated, but we did want to use what we had learned from our previous attempts at component libraries to build something strong and stable for the future.
 
@@ -36,7 +42,7 @@ Today, Racine lives on as our component library. But no longer does it try to do
 
 <Wide>
 
-![Our component library now lives right inside our design system, at sproutsocial.com/seeds/components](seeds.png "Our component library now lives right inside our design system, at sproutsocial.com/seeds/components")
+![Our component library now lives right inside our design system, at sproutsocial.com/seeds/components](seeds.png 'Our component library now lives right inside our design system, at sproutsocial.com/seeds/components')
 
 </Wide>
 
@@ -66,7 +72,7 @@ We’ve explored the idea of these micro campaigns in a few ways that have helpe
 Being able to focus on documentation in isolation from development has proven to be crucial for us, and it has allowed us to discover that the key to facilitating really great documentation for a design system is to focus on two key areas of the experience:
 
 1. **Authorability.** People are busy, and they have better things to do than spend their time writing documentation. Plus, writing good documentation isn’t easy. We wanted to remove as many points of friction as possible to make sure that the authoring process wasn’t keeping anyone from contributing.
-2. **Interactivity.** People don’t like writing documentation and they don’t like reading it either, especially when they are trying to get their jobs done. We didn’t want our documentation to feel like a manual that needs to be read from cover-to-cover, but instead like a tool that can be *used*.
+2. **Interactivity.** People don’t like writing documentation and they don’t like reading it either, especially when they are trying to get their jobs done. We didn’t want our documentation to feel like a manual that needs to be read from cover-to-cover, but instead like a tool that can be _used_.
 
 [MDX](https://mdxjs.com), if you’re not familiar, is described as “Markdown for the component era.” Simply put, it’s a tool that allows users to write React components inline with their Markdown, which solves these two problems for us very well.
 
@@ -76,24 +82,24 @@ And, of course, the inclusion of React components means we make content more int
 
 MDX even allows us to customize how native Markdown elements are rendered. For instance, authors can write a regular Markdown code block, like this:
 
-``````
-```jsx live 
-  <Box 
-    display='flex' 
-    alignItems='center' 
-    justifyContent='center' 
-    bg='neutral.100' 
-    color='neutral.1000' 
+````
+```jsx live
+  <Box
+    display='flex'
+    alignItems='center'
+    justifyContent='center'
+    bg='neutral.100'
+    color='neutral.1000'
     p={600}
-  > 
-    This content will be centered within the box. 
-  </Box> 
+  >
+    This content will be centered within the box.
+  </Box>
 ```
-``````
+````
 
 and we can output an interactive, editable code block in our design system that looks like this:
 
-![Example of an interactive code block from Seeds](code-sandbox.png "Example of an interactive code block from Seeds")
+![Example of an interactive code block from Seeds](code-sandbox.png 'Example of an interactive code block from Seeds')
 
 Imagine how difficult it would have been before MDX to achieve something like this without the author of the documentation having to hand-write HTML or React.
 
@@ -121,7 +127,7 @@ We’ve tried not to make any of the content in our design system “templated�
 
 ### Interactive code blocks
 
-Every Markdown code block in our component pages turns into a fully editable sandbox for the component. Being able to try out different combinations of props is *huge* for both our developers and designers. Each code block is like a mini prototyping tool that makes writing code seem as simple as changing a few values.
+Every Markdown code block in our component pages turns into a fully editable sandbox for the component. Being able to try out different combinations of props is _huge_ for both our developers and designers. Each code block is like a mini prototyping tool that makes writing code seem as simple as changing a few values.
 
 Those editable code blocks are all thanks to [an excellent library called react-live](https://react-live.kitten.sh). One of the best features of react-live is that it allows us to specify a global scope for every code block on our site. We threw all of our components into the global scope, so that no matter what page you're on you have access to all of our components. If you're on [the page for the Icon component](https://sproutsocial.com/seeds/components/icon), and you want to see how it looks inside of a [Button](https://sproutsocial.com/seeds/components/button), you can just try it out right there on the page.
 
@@ -133,7 +139,7 @@ At the core of our design system are our design tokens — the atomic values tha
 
 We offer our design tokens in a variety of formats (Sass variables, JavaScript constants, etc.), and we reference them all over our design system. Instead of just referring to our tokens by name when we are writing content for our system, we created what we call **Token Tags** (patent pending):
 
-![This Token Tag is for the 700 shade of our purple color palette.](token-tag.png "This Token Tag is for the 700 shade of our purple color palette.")
+![This Token Tag is for the 700 shade of our purple color palette.](token-tag.png 'This Token Tag is for the 700 shade of our purple color palette.')
 
 That’s an example of a color token tag, which gives the reader an immediate visual reference to the actual color (instead of just a cryptic Purple 700). When the reader hovers over the tag, they can see the hex value for the color, and clicking the tag will copy the hex value to their clipboard:
 
@@ -149,7 +155,7 @@ We have a complex typographic scale that differs between our product and our bra
 
 <Wide>
 
-![Type some text, pick your options, and then copy the tokens for Sass, JavaScript, and CSS.](type-tool.png "Type some text, pick your options, and then copy the tokens for Sass, JavaScript, and CSS.")
+![Type some text, pick your options, and then copy the tokens for Sass, JavaScript, and CSS.](type-tool.png 'Type some text, pick your options, and then copy the tokens for Sass, JavaScript, and CSS.')
 
 </Wide>
 
@@ -159,11 +165,11 @@ Users can paste in the copy they would like to typeset, and then select whether 
 
 All of our components are built with [Styled Components](https://www.styled-components.com/), and we use the excellent [Styled System](https://styled-system.com) to attach “system props” to our component. Here’s how we describe these props in our documentation:
 
->  System props apply standard sets of properties to a component that can be used to alter its appearance on the fly.
+> System props apply standard sets of properties to a component that can be used to alter its appearance on the fly.
 
 We hook these system props up to our design tokens, so that consumers of our components can customize styles using our design tokens. Here’s an example of setting a color: `<Text color="green.500" />`.
 
-We are very careful about which system props we apply to which components. We don’t want consumers to be able to change *every* style on *any* component, so we break the system props out into groups (a technique which we shamelessly stole from the [GitHub Primer](https://primer.style) team, [who do the same for their components](https://primer.style/components/docs/system-props)):
+We are very careful about which system props we apply to which components. We don’t want consumers to be able to change _every_ style on _any_ component, so we break the system props out into groups (a technique which we shamelessly stole from the [GitHub Primer](https://primer.style) team, [who do the same for their components](https://primer.style/components/docs/system-props)):
 
 - `COMMON`
 - `TYPOGRAPHY`
