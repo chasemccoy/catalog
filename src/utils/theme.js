@@ -10,9 +10,9 @@ const namedBreakpoints = {
 const space = [0, 1, 2, 3, 4, 5, 6, 7]
 
 const sizes = {
-  contentWidth: '38rem',
-  sidebarWidth: '12rem',
-  sidebarWidthWithGutter: 'calc(12rem + 24px)',
+  contentWidth: '46rem',
+  sidebarWidth: '18rem',
+  sidebarWidthWithGutter: 'calc(18rem + 24px)',
   layout: {
     maxWidth: 952
   },

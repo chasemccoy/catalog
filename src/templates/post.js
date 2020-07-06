@@ -52,6 +52,7 @@ export default ({ data, pageContext }) => {
       title={normalizedTitle}
       article
       description={post.excerpt}
+      header={null}
       aside={
         <Sidebar
           items={data.relatedPosts.nodes}

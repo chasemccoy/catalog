@@ -8,11 +8,7 @@ import Nav from 'components/Nav'
 
 const PageContext = createContext({})
 
-const PageContainer = styled.div`
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-`
+const PageContainer = styled.div``
 
 const Wrapper = styled(Box)`
   margin-left: auto;
@@ -63,10 +59,6 @@ const Wrapper = styled(Box)`
       'sidebar';
   `}
 `
-
-Wrapper.defaultProps = {
-  px: 16
-}
 
 const ArticleHeader = styled.header`
   position: relative;
@@ -132,8 +124,6 @@ const Page = ({
             </Wrapper>
           </Box>
         </PageContainer>
-
-        {/* <Footer showBorder={showHeader} /> */}
       </main>
     </PageContext.Provider>
   )
@@ -146,20 +136,11 @@ const Header = ({ category, ...rest }) => {
 
   return (
     <Box maxWidth='34rem' pb={24} {...rest}>
-      {/* <Breadcrumbs category={category} title={title} /> */}
-
       <Text as='h1' mt={64} mb={description ? 12 : 0}>
         {title}
       </Text>
 
-      <Text
-        as='p'
-        color='gray.4'
-        // fontFamily='serif'
-        // fontSize='1.1rem'
-        lineHeight='1.3'
-        mb={0}
-      >
+      <Text as='p' color='gray.4' lineHeight='1.3' mb={0}>
         {description}
       </Text>
     </Box>

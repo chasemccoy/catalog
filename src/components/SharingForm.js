@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
 import { Text, Button } from '@chasemccoy/kit'
@@ -7,7 +8,7 @@ const Form = styled.form`
   input,
   textarea {
     width: 100%;
-    border: 2px solid ${p => p.theme.colors.gray[1]};
+    border: 2px solid ${(p) => p.theme.colors.gray[1]};
     padding: 4px 8px;
     border-radius: 4px;
     resize: vertical;
@@ -15,7 +16,7 @@ const Form = styled.form`
 
     &:focus {
       outline: none;
-      border-color: ${p => p.theme.colors.accent.pop};
+      border-color: ${(p) => p.theme.colors.accent.pop};
     }
   }
 
@@ -34,7 +35,7 @@ const Form = styled.form`
   }
 
   ${Button} {
-    background: ${p => p.theme.colors.accent.pop};
+    background: ${(p) => p.theme.colors.accent.pop};
     color: black;
     padding: 8px 12px;
     border-radius: 8px;
@@ -43,7 +44,7 @@ const Form = styled.form`
     transition: all 0.2s;
 
     &:hover {
-      background: ${p => p.theme.colors.accent.medium};
+      background: ${(p) => p.theme.colors.accent.medium};
     }
   }
 `
@@ -60,7 +61,7 @@ const SharingForm = ({
   onSubmit,
   ...rest
 }) => {
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     onSubmit()
   }
