@@ -4,8 +4,8 @@ import Link from 'components/Link'
 // import media from 'utils/media'
 
 const Nav = styled.nav(
-  p => css`
-  font-size: 0.8rem;
+  (p) => css`
+  ${'' /* font-size: 0.8rem; */}
   --space: ${p.vertical ? '8px' : '24px'};
   margin-bottom: 4px;
 

@@ -1,4 +1,4 @@
-const breakpoints = ['550px', '700px', '900px', '1300px']
+const breakpoints = ['550px', '700px', '900px', '1200px']
 
 const namedBreakpoints = {
   tiny: breakpoints[0],
@@ -10,7 +10,7 @@ const namedBreakpoints = {
 const space = [0, 1, 2, 3, 4, 5, 6, 7]
 
 const sizes = {
-  contentWidth: '46rem',
+  contentWidth: '50rem',
   sidebarWidth: '18rem',
   sidebarWidthWithGutter: 'calc(18rem + 24px)',
   layout: {

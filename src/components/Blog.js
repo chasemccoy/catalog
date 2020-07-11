@@ -14,7 +14,7 @@ const Container = styled.div`
     margin-top: 48px;
     margin-left: calc(50% - 5em);
     height: 8px;
-    background: ${props => props.theme.colors.gray[0]};
+    background: ${(props) => props.theme.colors.gray[0]};
     max-width: 10em;
   }
 
@@ -85,11 +85,11 @@ const AsideContainer = styled(Container)`
 `
 
 const Title = styled(Link)`
-  color: ${p => p.theme.colors.type.header};
+  color: ${(p) => p.theme.colors.type.header};
   text-decoration: none;
 
   &:hover {
-    color: ${p => p.theme.colors.type.header};
+    color: ${(p) => p.theme.colors.type.header};
     box-shadow: 0px -0.5em 0px #ffe999 inset;
   }
 `
@@ -97,12 +97,12 @@ const Title = styled(Link)`
 const PostMeta = styled(Box)`
   font-size: 13px;
   line-height: 1;
-  color: ${p => p.theme.colors.gray[3]};
+  color: ${(p) => p.theme.colors.gray[3]};
   text-transform: uppercase;
   letter-spacing: 0.5px;
 
   a {
-    color: ${p => p.theme.colors.gray[3]};
+    color: ${(p) => p.theme.colors.gray[3]};
     text-decoration: none;
   }
 `
@@ -129,17 +129,11 @@ const Metadata = ({ date, permalink, tags, ...props }) => (
   </Box>
 )
 
-export const Post = props => {
-  const tags = props.tags && props.tags.map(tag => tag.name)
+export const Post = (props) => {
+  const tags = props.tags && props.tags.map((tag) => tag.name)
 
   const title = props.title && (
-    <Heading.h2
-      fontSize='1.7rem'
-      mb={2}
-      css={`
-        border: none;
-      `}
-    >
+    <Heading.h2 fontSize='1.7rem'>
       <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
     </Heading.h2>
   )

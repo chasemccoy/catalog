@@ -1,16 +1,15 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Logo from 'components/Logo'
 import media from 'utils/media'
 import Nav from 'components/Nav'
+import Layout from 'components/Layout'
 
 const PageContext = createContext({})
 
-const PageContainer = styled.div``
-
-const Wrapper = styled(Box)`
+const DEPRECATED_Wrapper = styled(Box)`
   margin-left: auto;
   margin-right: auto;
 
@@ -60,19 +59,28 @@ const Wrapper = styled(Box)`
   `}
 `
 
-const ArticleHeader = styled.header`
-  position: relative;
-  z-index: 0;
+const SiteHeader = () => (
+  <Layout.Grid pt={16} pb={80} mb={48} bg='accent.pop'>
+    <Logo mb={[4, null, 0]} />
+    <Nav />
+  </Layout.Grid>
+)
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: -999rem;
-    right: -999rem;
-    top: -8px;
-    bottom: 0;
-    z-index: -1;
+const ContentGrid = styled(Box)`
+  display: grid;
+  grid-template-columns:
+    [full-start main-start] 1fr 1fr 1fr [main-end]
+    0.8fr [full-end];
+
+  & > * {
+    grid-column: main;
+    min-width: 0;
   }
+
+  ${media.large`
+    grid-template-columns:
+      [full-start main-start] 1fr 1fr 1fr 0.8fr [main-end full-end];
+  `}
 `
 
 const Page = ({
@@ -82,10 +90,32 @@ const Page = ({
   title,
   description,
   article = false,
-  showHeader = true,
   untitled = false,
   ...rest
 }) => {
+  useLayoutEffect(() => {
+    const sidebar = document.getElementById('sidebar')
+    const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 50
+
+    const headers = [...document.querySelectorAll('#main-content h2')]
+
+    let inTheClear = false
+    let index = 0
+
+    while (inTheClear === false && index < headers.length) {
+      const header = headers[index]
+      const headerOffset = header.offsetTop
+
+      if (headerOffset < bufferZone) {
+        header.classList.add('no-break')
+      } else {
+        inTheClear = true
+      }
+
+      index++
+    }
+  }, [])
+
   return (
     <PageContext.Provider value={{ title, description }}>
       <Metadata
@@ -95,35 +125,23 @@ const Page = ({
         page
       />
 
+      <header>
+        <SiteHeader />
+      </header>
+
       <main>
-        <PageContainer>
-          <Wrapper flush mt={16}>
-            <div className='logo'>
-              <Logo mb={[4, null, 0]} />
+        <Box as={article ? 'article' : 'div'}>
+          <Layout.Grid>
+            <div className='area-sidebar'>
+              {!untitled && <header>{header || <Header />}</header>}
+              <aside id='sidebar'>{aside}</aside>
             </div>
-            <header>
-              <Nav />
-            </header>
-          </Wrapper>
 
-          <Box as={article ? 'article' : 'div'}>
-            <Wrapper>
-              {!untitled && (
-                <ArticleHeader>{header || <Header />}</ArticleHeader>
-              )}
-
-              <Box mt={untitled ? [0, 0, 0, 32] : 0}>{children}</Box>
-
-              {aside && (
-                <Box as='aside' mt={untitled ? 48 : 0}>
-                  <Text fontSize='13px' lineHeight='1.3'>
-                    {aside}
-                  </Text>
-                </Box>
-              )}
-            </Wrapper>
-          </Box>
-        </PageContainer>
+            <div id='main-content' className='area-main'>
+              <ContentGrid>{children}</ContentGrid>
+            </div>
+          </Layout.Grid>
+        </Box>
       </main>
     </PageContext.Provider>
   )
@@ -136,7 +154,7 @@ const Header = ({ category, ...rest }) => {
 
   return (
     <Box maxWidth='34rem' pb={24} {...rest}>
-      <Text as='h1' mt={64} mb={description ? 12 : 0}>
+      <Text as='h1' mt={0} mb={description ? 12 : 0}>
         {title}
       </Text>
 
@@ -159,20 +177,8 @@ Page.SidebarHeader = (props) => (
 )
 
 const Breakout = styled(Box)`
-  width: calc(100vw - 16px);
-  margin-left: calc(
-    (-${(p) => p.theme.sizes.sidebarWidth} - 24px) -
-      (
-        (
-            100vw - ${(p) => p.theme.sizes.sidebarWidth} -
-              ${(p) => p.theme.sizes.contentWidth} - 40px
-          ) / 2
-      )
-  );
-
-  @media screen and (min-width: 900px) and (max-width: 1020px) {
-    margin-left: calc(-${(p) => p.theme.sizes.sidebarWidth} - 48px - 16px);
-  }
+  width: calc(100vw);
+  margin-left: calc(var(--maxWidth) / -2 + 56px);
 
   ${media.medium`
     width: auto;
@@ -181,7 +187,8 @@ const Breakout = styled(Box)`
   `}
 `
 
-Page.Wrapper = Wrapper
+Page.Wrapper = DEPRECATED_Wrapper
+Page.Grid = ContentGrid
 Page.Header = Header
 Page.Breakout = Breakout
 

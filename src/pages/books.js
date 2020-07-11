@@ -13,7 +13,7 @@ const BooksPage = ({ data }) => {
       title='Books'
       description='A few excellent reads that have shaped who I am, how I work, or how I think about the world around me.'
     >
-      <Wide>
+      <Wide left={false}>
         <Grid>
           {data.books.edges.map(({ node }, i) => (
             <Box

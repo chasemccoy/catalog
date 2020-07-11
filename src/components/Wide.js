@@ -1,15 +1,36 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@chasemccoy/kit'
 import media from 'utils/media'
 
-const Wide = styled(Box)`
-  width: calc(100% + ${p => p.theme.sizes.sidebarWidth} + 24px);
-  margin-left: calc(-${p => p.theme.sizes.sidebarWidth} - 24px);
+const Wide = styled(Box)(
+  ({ left, right, theme }) => css`
+    --right-offset: calc((100% / 3) * 0.8);
+    --left-offset: calc(${theme.sizes.sidebarWidth} + 56px);
 
-  ${media.medium`
-    width: 100%;
-    margin-left: 0;
-  `}
-`
+    width: calc(
+      100% + ${left ? `var(--left-offset)` : 0} +
+        ${right ? `var(--right-offset)` : 0}
+    );
+    margin-right: ${right ? `calc(var(--right-offset) * -1)` : 0};
+    margin-left: ${left ? `calc(var(--left-offset) * -1)` : 0};
+
+    ${media.large`
+      width: calc(100% + var(--left-offset) * 0.8);
+      margin-left: calc(var(--left-offset) * -0.8);
+      margin-right: 0;
+    `}
+
+    ${media.medium`
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    `}
+  `
+)
+
+Wide.defaultProps = {
+  left: true,
+  right: true
+}
 
 export default Wide

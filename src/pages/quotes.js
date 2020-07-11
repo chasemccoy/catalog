@@ -20,7 +20,7 @@ export const Quote = ({ content, source, ...rest }) => (
 const QuotesPage = ({ data }) => {
   return (
     <Page title='Quotes' description='Words worth keeping in mind.'>
-      <Wide mb={24}>
+      <Wide left={false} mb={24}>
         <MultiColumn count={2} gap='64px' minColumnWidth='15em'>
           {data.quotes.edges.map(({ node }, i) => (
             <Quote
@@ -30,7 +30,7 @@ const QuotesPage = ({ data }) => {
               pb={24}
               css={`
                 &:not(:last-child) {
-                  border-bottom: 4px solid ${p => p.theme.colors.gray[0]};
+                  border-bottom: 4px solid ${(p) => p.theme.colors.gray[0]};
                 }
 
                 &:last-child {

@@ -2,19 +2,9 @@ import { createGlobalStyle } from 'styled-components'
 import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
-  html {
-    ${'' /* background: ${(props) => props.theme.colors.accent.pop}; */}
-    ${'' /* padding: 8px; */}
-
-    ${media.small`
-      padding: 8px 0;
-      font-size: 17px;
-    `}
-  }
-
   body {
     line-height: inherit;
-    ${'' /* overflow: hidden; */}
+    overflow: hidden;
   }
 
   a {
@@ -84,9 +74,41 @@ const GlobalStyles = createGlobalStyle`
       margin-top: 0;
     }
 
-    h2 {
-      padding-bottom: 6px;
-      border-bottom: 4px solid ${(p) => p.theme.colors.gray[0]};
+    h2:not(.no-break) {
+      --width: 320px;
+
+      padding-top: 12px;
+      border-top: 1px solid black;
+      margin-top: 2rem;
+
+      width: var(--width);
+      margin-left: calc(-1 * var(--width) - 56px);
+      float: left;
+
+      & + * {
+        display: inline-block; /* prevents margin collapsing */
+        width: 100%;
+        margin-top: 2rem;
+        padding-top: 16px;
+        border-top: 1px solid black;
+
+        ${media.medium`
+          margin-top: unset;
+          padding-top: unset;
+          border: none;
+        `}
+      }
+
+      ${media.large`
+        --width: 250px;
+      `}
+
+      ${media.medium`
+        float: none;
+        width: 100%;
+        margin-top: 2em;
+        margin-left: 0;
+      `}
     }
 
     img {

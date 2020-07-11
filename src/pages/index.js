@@ -22,6 +22,7 @@ import Sprout from 'assets/sprout.png'
 import SproutClassic from 'assets/sprout-classic.png'
 import SproutLeaf from 'assets/sprout-leaf.svg'
 import media from 'utils/media'
+import Layout from 'components/Layout'
 
 const picoBoxes = {
   1: picoBox1,
@@ -37,7 +38,7 @@ const fullWidthImage = {
 
 const nectarImageCSS = css`
   border-radius: 8px;
-  border: 1px solid ${p => p.theme.colors.gray[1]};
+  border: 1px solid ${(p) => p.theme.colors.gray[1]};
 
   ${media.small`
     border: none;
@@ -63,7 +64,7 @@ const Badge = ({ icon: Icon, children, ...rest }) => (
 
 const Seeds = () => (
   <div>
-    <Wide>
+    <Wide right={false}>
       <Grid gutter='0'>
         <Box
           width={[1, 1, 1 / 2, 1 / 2, 495]}
@@ -82,14 +83,8 @@ const Seeds = () => (
           />
         </Box>
 
-        <Box
-          flex={1}
-          display='flex'
-          alignItems='center'
-          px={12}
-          mb={[24, 24, 0]}
-        >
-          <Box pl={[0, 0, 16, 40]}>
+        <Box flex={1} display='flex' alignItems='center' mb={[24, 24, 0]}>
+          <Box px={[0, 0, 24, 80]}>
             <Badge icon={Calendar} mt={48}>
               2018 — PRESENT
             </Badge>
@@ -136,7 +131,7 @@ const Seeds = () => (
   </div>
 )
 
-const Nectar = props => (
+const Nectar = (props) => (
   <Box {...props}>
     <Box width='40px'>
       <SproutLeaf />
@@ -209,7 +204,7 @@ const Pico = () => (
     <Wide pt={40}>
       <Grid>
         <Box width={[2 / 3, 1 / 2]} display='flex' alignItems='center'>
-          <Box pr={[16]} pl={[16, 16, 16, 0]}>
+          <Box px={[16, 24, 40, 80]}>
             <Image width={64} src={picoLogo} />
 
             <Heading.h2 fontSize='1.8em' mt={80} color='inherit'>
@@ -246,7 +241,7 @@ const Pico = () => (
             </Text.p>
 
             <Grid mb={40} maxWidth={[180, 180, 220, 'none']}>
-              {[1, 2, 3, 4].map(i => (
+              {[1, 2, 3, 4].map((i) => (
                 <Box width={[1 / 2, 1 / 2, 1 / 2, 1 / 4]} minWidth={75} key={i}>
                   <Image src={picoBoxes[i]} />
                 </Box>
@@ -272,7 +267,7 @@ const Pico = () => (
   </div>
 )
 
-const Portrait = props => (
+const Portrait = (props) => (
   <Box bg='accent.pop' {...props}>
     <Image
       src={portrait}
@@ -402,7 +397,7 @@ const IndexPage = ({ data }) => {
             </Page.SidebarHeader>
 
             <MultiColumn count={2} gap='24px' minColumnWidth='12em'>
-              {posts.nodes.map(post => (
+              {posts.nodes.map((post) => (
                 <Box mb={16} key={post.id}>
                   <Text
                     fontSize='1em'
@@ -437,9 +432,9 @@ const IndexPage = ({ data }) => {
         borderBottom='1px solid'
         borderColor='rgba(0, 0, 0, 0.08)'
       >
-        <Page.Wrapper py={0} flush>
+        <Layout.Grid>
           <Seeds />
-        </Page.Wrapper>
+        </Layout.Grid>
       </Page.Breakout>
 
       <Nectar my={64} />
