@@ -11,7 +11,7 @@ const Sidebar = ({ posts, ...props }) => (
     <Page.SidebarHeader mb={12}>Recently</Page.SidebarHeader>
 
     <UnorderedList>
-      {posts.map(post => (
+      {posts.map((post) => (
         <Box as='li' key={post.id}>
           <Link
             unstyled
@@ -29,11 +29,11 @@ const ThoughtsPage = ({ data }) => {
     <Page
       title='Thoughts'
       description="What's on my mind, and links to some interesting stuff on the web."
-      aside={<Sidebar posts={data.olderPosts.nodes} />}
+      // aside={<Sidebar posts={data.olderPosts.nodes} />}
       untitled
     >
-      <Box>
-        {data.posts.nodes.map(node => (
+      <Box mt={-24}>
+        {data.posts.nodes.map((node) => (
           <React.Fragment key={node.id}>
             <Box as='article' mb={[40, 40, 48]}>
               <Post

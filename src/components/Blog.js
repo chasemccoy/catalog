@@ -132,18 +132,25 @@ const Metadata = ({ date, permalink, tags, ...props }) => (
 export const Post = (props) => {
   const tags = props.tags && props.tags.map((tag) => tag.name)
 
+  const metadata = props.date && (
+    <Metadata date={props.date} permalink={props.to} tags={tags} mb={20} />
+  )
+
   const title = props.title && (
-    <Heading.h2 fontSize='1.7rem'>
-      <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
-    </Heading.h2>
+    <Box className='float-header'>
+      <Heading.h2 fontSize='1.7rem' className='inline'>
+        <Title
+          to={props.to}
+          dangerouslySetInnerHTML={{ __html: props.title }}
+        />
+      </Heading.h2>
+
+      {metadata}
+    </Box>
   )
 
   const content = props.content && (
     <div dangerouslySetInnerHTML={{ __html: props.content }} />
-  )
-
-  const metadata = props.date && (
-    <Metadata date={props.date} permalink={props.to} tags={tags} mb={20} />
   )
 
   if (props.aside) {
@@ -157,12 +164,7 @@ export const Post = (props) => {
   } else {
     return (
       <Container>
-        {!props.untitled && (
-          <React.Fragment>
-            {title}
-            {metadata}
-          </React.Fragment>
-        )}
+        {!props.untitled && <React.Fragment>{title}</React.Fragment>}
         {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
       </Container>
     )

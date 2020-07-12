@@ -74,7 +74,17 @@ const GlobalStyles = createGlobalStyle`
       margin-top: 0;
     }
 
-    h2:not(.no-break) {
+    h2.inline {
+      margin-bottom: 1.5rem;
+
+      &:not(:first-child) {
+        padding-top: 12px;
+        border-top: 1px solid black;
+      }
+    }
+
+    h2:not(.inline), 
+    .float-header {
       --width: 320px;
 
       padding-top: 12px;
@@ -215,6 +225,10 @@ const GlobalStyles = createGlobalStyle`
   twitter-widget::shadow .EmbeddedTweet {
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  .twitter-tweet + * {
+    margin-top: 1.5em;
   }
 `
 

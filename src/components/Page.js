@@ -94,6 +94,7 @@ const Page = ({
   ...rest
 }) => {
   useLayoutEffect(() => {
+    if (!aside) return
     const sidebar = document.getElementById('sidebar')
     const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 50
 
@@ -107,14 +108,14 @@ const Page = ({
       const headerOffset = header.offsetTop
 
       if (headerOffset < bufferZone) {
-        header.classList.add('no-break')
+        header.classList.add('inline')
       } else {
         inTheClear = true
       }
 
       index++
     }
-  }, [])
+  }, [aside])
 
   return (
     <PageContext.Provider value={{ title, description }}>
@@ -138,7 +139,7 @@ const Page = ({
             </div>
 
             <div id='main-content' className='area-main'>
-              <ContentGrid>{children}</ContentGrid>
+              <ContentGrid mt={8}>{children}</ContentGrid>
             </div>
           </Layout.Grid>
         </Box>
