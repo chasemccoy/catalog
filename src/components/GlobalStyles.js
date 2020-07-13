@@ -87,20 +87,21 @@ const GlobalStyles = createGlobalStyle`
     .float-header {
       --width: 320px;
 
-      padding-top: 12px;
-      border-top: 1px solid black;
+      padding-top: 16px;
+      border-top: 1px solid ${(p) => p.theme.colors.gray[3]};
       margin-top: 2rem;
 
       width: var(--width);
       margin-left: calc(-1 * var(--width) - 56px);
       float: left;
 
-      & + * {
+      & + *:before {
+        content: "";
         display: inline-block; /* prevents margin collapsing */
         width: 100%;
         margin-top: 2rem;
-        padding-top: 16px;
-        border-top: 1px solid black;
+        padding-top: 12px;
+        border-top: 1px solid ${(p) => p.theme.colors.gray[3]};
 
         ${media.medium`
           margin-top: unset;
@@ -118,6 +119,14 @@ const GlobalStyles = createGlobalStyle`
         width: 100%;
         margin-top: 2em;
         margin-left: 0;
+      `}
+
+      ${media.small`
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-left: 16px;
+        padding-right: 16px;
       `}
     }
 

@@ -204,7 +204,7 @@ const Pico = () => (
     <Wide pt={40}>
       <Grid>
         <Box width={[2 / 3, 1 / 2]} display='flex' alignItems='center'>
-          <Box px={[16, 24, 40, 80]}>
+          <Box px={[16, 24, 40, 40, 80]}>
             <Image width={64} src={picoLogo} />
 
             <Heading.h2 fontSize='1.8em' mt={80} color='inherit'>
@@ -250,7 +250,7 @@ const Pico = () => (
           </Box>
         </Box>
 
-        <Box width={[1 / 3, 1 / 2]}>
+        <Box width={[1 / 3, 1 / 2, 1 / 2, 1 / 2, 1 / 3]}>
           <Image
             src={pico}
             pl={[0, 0, 0, 120]}
@@ -287,7 +287,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Page untitled>
-      <Text.p fontSize='1.5em' lineHeight='1.4'>
+      <Text.p mt={-16} fontSize='1.5em' lineHeight='1.4'>
         <b>Chase McCoy</b> is a senior design technologist based in Chicago
         leading the team behind{' '}
         <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, Sprout Social’s
@@ -445,9 +445,9 @@ const IndexPage = ({ data }) => {
         mt={64}
         mb={[-24, null, null, 0]}
       >
-        <Page.Wrapper py={0} px={0} flush>
+        <Layout.Grid>
           <Pico />
-        </Page.Wrapper>
+        </Layout.Grid>
       </Page.Breakout>
     </Page>
   )

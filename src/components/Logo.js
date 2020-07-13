@@ -7,7 +7,9 @@ const Logo = (props) => (
   <Box {...props}>
     <Link to='/'>
       {/* <TitleLogo /> */}
-      <Text as='span'>Chase McCoy</Text>
+      <Text as='span' fontWeight='semibold'>
+        Chase McCoy
+      </Text>
     </Link>
   </Box>
 )

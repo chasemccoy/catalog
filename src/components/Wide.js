@@ -5,7 +5,7 @@ import media from 'utils/media'
 const Wide = styled(Box)(
   ({ left, right, theme }) => css`
     --right-offset: calc((100% / 3) * 0.8);
-    --left-offset: calc(${theme.sizes.sidebarWidth} + 56px);
+    --left-offset: calc(var(--sidebarWidth) + var(--gap));
 
     width: calc(
       100% + ${left ? `var(--left-offset)` : 0} +
@@ -15,8 +15,8 @@ const Wide = styled(Box)(
     margin-left: ${left ? `calc(var(--left-offset) * -1)` : 0};
 
     ${media.large`
-      width: calc(100% + var(--left-offset) * 0.8);
-      margin-left: calc(var(--left-offset) * -0.8);
+      width: calc(100% + var(--left-offset) * 1);
+      margin-left: calc(var(--left-offset) * -1);
       margin-right: 0;
     `}
 

@@ -8,16 +8,6 @@ import Tags from 'components/Tags'
 import MDX from 'components/MDX'
 
 const Container = styled.div`
-  &:after {
-    content: '';
-    display: block;
-    margin-top: 48px;
-    margin-left: calc(50% - 5em);
-    height: 8px;
-    background: ${(props) => props.theme.colors.gray[0]};
-    max-width: 10em;
-  }
-
   iframe {
     margin-bottom: 0;
     width: 100%;
@@ -94,36 +84,13 @@ const Title = styled(Link)`
   }
 `
 
-const PostMeta = styled(Box)`
-  font-size: 13px;
-  line-height: 1;
-  color: ${(p) => p.theme.colors.gray[3]};
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-
-  a {
-    color: ${(p) => p.theme.colors.gray[3]};
-    text-decoration: none;
-  }
-`
-
-const Date = ({ date, permalink, ...props }) => (
-  <PostMeta {...props}>
-    <Link to={permalink}>{date}</Link>
-  </PostMeta>
-)
-
 const Metadata = ({ date, permalink, tags, ...props }) => (
-  <Box display='flex' alignItems='center' className='meta' {...props}>
-    <Date
-      date={date}
-      permalink={permalink}
-      borderRight={tags ? '1px solid' : 'none'}
-      borderColor='gray.1'
-      pr='8px'
-      mr='8px'
-      flex='0 0 auto'
-    />
+  <Box className='meta' {...props}>
+    <Box mb={8}>
+      <Link color='gray.3' fontSize='0.8em' to={permalink}>
+        Posted on {date}
+      </Link>
+    </Box>
 
     {tags && <Tags display='inline' items={tags} />}
   </Box>
@@ -133,12 +100,18 @@ export const Post = (props) => {
   const tags = props.tags && props.tags.map((tag) => tag.name)
 
   const metadata = props.date && (
-    <Metadata date={props.date} permalink={props.to} tags={tags} mb={20} />
+    <Metadata
+      date={props.date}
+      permalink={props.to}
+      tags={tags}
+      mb={20}
+      mt={-16}
+    />
   )
 
   const title = props.title && (
     <Box className='float-header'>
-      <Heading.h2 fontSize='1.7rem' className='inline'>
+      <Heading.h2 fontSize='1.8rem' className='inline'>
         <Title
           to={props.to}
           dangerouslySetInnerHTML={{ __html: props.title }}
@@ -174,7 +147,7 @@ export const Post = (props) => {
 Post.Header = ({ title, to, date }) => {
   return (
     <React.Fragment>
-      <Date date={date} permalink={to} mb={title ? 40 : 0} />
+      {/* <Date date={date} permalink={to} mb={title ? 40 : 0} /> */}
 
       {title && (
         <Heading.h1 mt={0} mb={0}>

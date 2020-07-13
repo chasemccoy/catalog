@@ -9,58 +9,8 @@ import Layout from 'components/Layout'
 
 const PageContext = createContext({})
 
-const DEPRECATED_Wrapper = styled(Box)`
-  margin-left: auto;
-  margin-right: auto;
-
-  display: grid;
-  grid-gap: ${(p) => (p.flush ? 0 : '24px')} 24px;
-  grid-template-columns:
-    1fr ${(p) => p.theme.sizes.sidebarWidth} minmax(
-      0,
-      ${(p) => p.theme.sizes.contentWidth}
-    )
-    1fr;
-  grid-template-areas:
-    '.    logo    header .'
-    '.    sidebar main   .';
-
-  > * {
-    grid-area: main;
-    min-width: 0;
-
-    ${media.medium`
-      max-width: none;
-    `}
-  }
-
-  aside {
-    grid-area: sidebar;
-    padding-right: 16px;
-  }
-
-  header {
-    grid-area: header;
-    display: flex;
-    align-items: center;
-  }
-
-  .logo {
-    grid-area: logo;
-  }
-
-  ${media.medium`
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      'logo'
-      'header'
-      'main'
-      'sidebar';
-  `}
-`
-
 const SiteHeader = () => (
-  <Layout.Grid pt={16} pb={80} mb={48} bg='accent.pop'>
+  <Layout.Grid pt={16} pb={120} mb={48} bg='accent.pop' css='font-size: 0.9em;'>
     <Logo mb={[4, null, 0]} />
     <Nav />
   </Layout.Grid>
@@ -178,17 +128,24 @@ Page.SidebarHeader = (props) => (
 )
 
 const Breakout = styled(Box)`
-  width: calc(100vw);
-  margin-left: calc(var(--maxWidth) / -2 + 56px);
+  width: 100vw;
+  --offset: calc(var(--sidebarWidth) + var(--gap) + var(--padding));
+  --extraOffset: calc(
+    (100vw - var(--maxWidth) - var(--padding) - var(--padding)) / 2
+  );
+  margin-left: calc((var(--offset) + max(var(--extraOffset), 0px)) * -1);
+
+  ${media.large`
+    margin-left: calc(var(--offset) * -1);
+  `}
 
   ${media.medium`
     width: auto;
-    margin-left: -16px;
-    margin-right: -16px;
+    margin-left: -24px;
+    margin-right: -24px;
   `}
 `
 
-Page.Wrapper = DEPRECATED_Wrapper
 Page.Grid = ContentGrid
 Page.Header = Header
 Page.Breakout = Breakout

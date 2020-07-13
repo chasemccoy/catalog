@@ -30,11 +30,12 @@ Layout.Grid = styled(Box)(
     --sidebarWidth: ${theme.sizes.sidebarWidth};
     --gap: 56px;
     --maxWidth: calc(var(--sidebarWidth) + var(--gap) + var(--contentWidth));
+    --padding: 40px;
 
     display: grid;
     align-items: flex-start;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
 
     grid-template-columns:
     /* First column: flexible gutter that centers the content */
@@ -66,8 +67,7 @@ Layout.Grid = styled(Box)(
     `}
 
     ${media.medium`
-      padding-left: 24px;
-      padding-right: 24px;
+      --padding: 24px;
 
       grid-template-columns:
         /* First column: flexible gutter that centers the content */
@@ -79,8 +79,7 @@ Layout.Grid = styled(Box)(
     `}
 
     ${media.small`
-      padding-left: 16px;
-      padding-right: 16px;
+      --padding: 16px;
     `}
   `
 )

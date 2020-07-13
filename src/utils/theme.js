@@ -51,12 +51,12 @@ const fonts = {
 }
 
 const colors = {
-  accent: Object.assign('#DB9102', {
-    light: '#FFFAE5',
-    soft: '#FFE999',
-    medium: '#ffda73',
-    pop: '#FFC700',
-    dark: '#b3821c'
+  accent: Object.assign('#dd9903', {
+    light: '#fff8e2',
+    soft: '#ffe99a',
+    medium: '#ffe16e',
+    pop: '#ffcd1c',
+    dark: '#ba7506'
   }),
   page: {
     text: '#1e1f22',
@@ -77,6 +77,20 @@ const colors = {
     3: '#a5a08d',
     4: '#726c59',
     5: '#423f34'
+  },
+  yellow: {
+    0: '#fff8e2',
+    100: '#fdefcd',
+    200: '#ffe99a',
+    300: '#ffe16e',
+    400: '#ffd943',
+    500: '#ffcd1c',
+    600: '#ffbc00',
+    700: '#dd9903',
+    800: '#ba7506',
+    900: '#944c0c',
+    1000: '#542a00',
+    1100: '#2d1a05'
   }
 }
 
