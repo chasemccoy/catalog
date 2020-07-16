@@ -272,7 +272,8 @@ const Portrait = (props) => (
     <Image
       src={portrait}
       css={css`
-        height: 200px;
+        height: 100%;
+        max-height: 275px;
         width: 100%;
         mix-blend-mode: luminosity;
         object-fit: cover;
@@ -286,7 +287,7 @@ const IndexPage = ({ data }) => {
   const { posts } = data
 
   return (
-    <Page untitled>
+    <Page untitled mb={0}>
       <Text.p mt={-16} fontSize='1.5em' lineHeight='1.4'>
         <b>Chase McCoy</b> is a senior design technologist based in Chicago
         leading the team behind{' '}
@@ -326,7 +327,7 @@ const IndexPage = ({ data }) => {
       <Wide>
         <Grid gutter='0' overflow='visible' mb='1em' {...fullWidthImage}>
           <Box width={[1, 1, 2 / 3]}>
-            <Portrait mr={[0, 0, 12]} />
+            <Portrait mr={[0, 0, 12]} height='100%' />
           </Box>
           <Box flex={[1, 1, 1]}>
             <Box height='100%' bg='accent.pop' p={16} ml={[0, 0, 12]}>
@@ -350,11 +351,8 @@ const IndexPage = ({ data }) => {
           </Box>
         </Grid>
 
-        <Grid>
-          <Box
-            width={['auto', 'auto', 'sidebarWidthWithGutter']}
-            order={[2, 2, 1]}
-          >
+        <Layout.Grid flush>
+          <Box display={['none', null, null, 'block']}>
             <Box
               display='inline-block'
               borderRadius='50%'
@@ -386,7 +384,7 @@ const IndexPage = ({ data }) => {
             </Box>
           </Box>
 
-          <Box flex={['100%', '100%', 1]} order={[1, 1, 2]} zIndex={1}>
+          <Box zIndex={1}>
             <Page.SidebarHeader
               fontFamily='sans'
               pb={4}
@@ -418,7 +416,7 @@ const IndexPage = ({ data }) => {
               ))}
             </MultiColumn>
           </Box>
-        </Grid>
+        </Layout.Grid>
       </Wide>
 
       <CurveTextScroll mt={[0, -40]} mb={[0, 0, -40]}>

@@ -5,7 +5,7 @@ import Link from 'components/Link'
 
 const Logo = (props) => (
   <Box {...props}>
-    <Link to='/'>
+    <Link unstyled to='/'>
       {/* <TitleLogo /> */}
       <Text as='span' fontWeight='semibold'>
         Chase McCoy

@@ -25,7 +25,7 @@ const Layout = (props) => {
 }
 
 Layout.Grid = styled(Box)(
-  ({ theme }) => css`
+  ({ them, flush = false }) => css`
     --contentWidth: ${theme.sizes.contentWidth};
     --sidebarWidth: ${theme.sizes.sidebarWidth};
     --gap: 56px;
@@ -34,8 +34,8 @@ Layout.Grid = styled(Box)(
 
     display: grid;
     align-items: flex-start;
-    padding-left: var(--padding);
-    padding-right: var(--padding);
+    padding-left: ${flush ? 0 : 'var(--padding)'};
+    padding-right: ${flush ? 0 : 'var(--padding)'};
 
     grid-template-columns:
     /* First column: flexible gutter that centers the content */

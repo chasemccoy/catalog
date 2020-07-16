@@ -10,7 +10,13 @@ import Layout from 'components/Layout'
 const PageContext = createContext({})
 
 const SiteHeader = () => (
-  <Layout.Grid pt={16} pb={120} mb={48} bg='accent.pop' css='font-size: 0.9em;'>
+  <Layout.Grid
+    pt={16}
+    pb={[40, null, null, null, 120]}
+    mb={48}
+    bg='accent.pop'
+    css='font-size: 0.9em;'
+  >
     <Logo mb={[4, null, 0]} />
     <Nav />
   </Layout.Grid>
@@ -81,12 +87,12 @@ const Page = ({
       </header>
 
       <main>
-        <Box as={article ? 'article' : 'div'}>
+        <Box as={article ? 'article' : 'div'} mb={40} {...rest}>
           <Layout.Grid>
-            <div className='area-sidebar'>
+            <Box className='area-sidebar' mb={[40, null, null, 0]}>
               {!untitled && <header>{header || <Header />}</header>}
               <aside id='sidebar'>{aside}</aside>
-            </div>
+            </Box>
 
             <div id='main-content' className='area-main'>
               <ContentGrid mt={8}>{children}</ContentGrid>

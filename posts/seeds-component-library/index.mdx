@@ -12,12 +12,12 @@ tags:
   <Link to='https://medium.com/styled-components/how-to-build-a-great-component-library-a40d974a412d'>
     originally published on the Styled Component's blog
   </Link>
-  . Big thanks to{' '}
-  <Link to='https://twitter.com/mxstbr?lang=en'>Max Stoiber</Link> for letting
-  me share my work with the Styled Components readers.
+  . Big thanks to <Link to='https://twitter.com/mxstbr?lang=en'>
+    Max Stoiber
+  </Link> for letting me share my work with the Styled Components readers.
 </Callout>
 
-Sprout Social’s design system, [Seeds](https://sproutsocial.com/seeds), has done a lot of growing up since it launched in October of last year. When we launched, our system was home to four categories of guidelines and principles: Brand, Visual, Writing, and Product. A healthy showing, for sure, but something was suspiciously missing  —  components.
+Sprout Social’s design system, [Seeds](https://seeds.sproutsocial.com), has done a lot of growing up since it launched in October of last year. When we launched, our system was home to four categories of guidelines and principles: Brand, Visual, Writing, and Product. A healthy showing, for sure, but something was suspiciously missing  —  components.
 
 Sprout has had a React component library longer than it’s had a design system. We call ours Racine (after the avenue in Chicago where Sprout was once headquartered), and it has long been the source of truth for component patterns in our web app.
 
@@ -38,11 +38,11 @@ The design systems team at Sprout Social is relatively small. Our team of 3 (inc
 
 ## Separate development and documentation
 
-Today, Racine lives on as our component library. But no longer does it try to do the job of development tool and documentation site. [The documentation now lives in our design system](https://sproutsocial.com/seeds/components/), and our component library is just a tool for building, testing, and using components in web projects at Sprout.
+Today, Racine lives on as our component library. But no longer does it try to do the job of development tool and documentation site. [The documentation now lives in our design system](https://seeds.sproutsocial.com/components/), and our component library is just a tool for building, testing, and using components in web projects at Sprout.
 
 <Wide>
 
-![Our component library now lives right inside our design system, at sproutsocial.com/seeds/components](seeds.png 'Our component library now lives right inside our design system, at sproutsocial.com/seeds/components')
+![Our component library now lives right inside our design system, at seeds.sproutsocial.com/components](seeds.png 'Our component library now lives right inside our design system, at seeds.sproutsocial.com/components')
 
 </Wide>
 
@@ -129,7 +129,7 @@ We’ve tried not to make any of the content in our design system “templated�
 
 Every Markdown code block in our component pages turns into a fully editable sandbox for the component. Being able to try out different combinations of props is _huge_ for both our developers and designers. Each code block is like a mini prototyping tool that makes writing code seem as simple as changing a few values.
 
-Those editable code blocks are all thanks to [an excellent library called react-live](https://react-live.kitten.sh). One of the best features of react-live is that it allows us to specify a global scope for every code block on our site. We threw all of our components into the global scope, so that no matter what page you're on you have access to all of our components. If you're on [the page for the Icon component](https://sproutsocial.com/seeds/components/icon), and you want to see how it looks inside of a [Button](https://sproutsocial.com/seeds/components/button), you can just try it out right there on the page.
+Those editable code blocks are all thanks to [an excellent library called react-live](https://react-live.kitten.sh). One of the best features of react-live is that it allows us to specify a global scope for every code block on our site. We threw all of our components into the global scope, so that no matter what page you're on you have access to all of our components. If you're on [the page for the Icon component](https://seeds.sproutsocial.com/components/icon), and you want to see how it looks inside of a [Button](https://seeds.sproutsocial.com/components/button), you can just try it out right there on the page.
 
 That doesn’t just benefit our consumers. I can’t count the number of times I have used this for education and advocacy purposes. When a teammate reaches out with a question about how to something should work I can jump into a code block on Seeds, prototype a quick solution, and send over a screenshot with the code. In the future, we may even build upon that by having a “share” button on each code block that exports an shareable image (similar to something like [Carbon](https://carbon.now.sh/)).
 
@@ -149,7 +149,7 @@ This idea is a great example of ways we are using MDX to make our documentation 
 
 ### Typography playground
 
-Another great example where breaking out of the usual format allowed us to deliver a better experience is on [our Typography page](https://sproutsocial.com/seeds/visual/typography).
+Another great example where breaking out of the usual format allowed us to deliver a better experience is on [our Typography page](https://seeds.sproutsocial.com/visual/typography).
 
 We have a complex typographic scale that differs between our product and our brand and marketing materials. Instead of listing this out in a table, we built an interactive tool that takes inspiration from the websites of our favorite font foundries:
 
@@ -204,4 +204,4 @@ Finally, it’s important to note that we didn’t do any of this work in a vacu
 - [Max Stoiber](https://mxstbr.com) for [Styled Components](https://www.styled-components.com), and [Brent Jackson](https://jxnblk.com) for [Styled System](https://styled-system.com). They making building component libraries a joy.
 - [Netlify](https://www.netlify.com) for hosting our system, and [Algolia](https://www.algolia.com) for generously powering our search via [their DocSearch product](https://community.algolia.com/docsearch/).
 
-If you want to learn more about the design systems team at Sprout Social or what we’re up to, feel free to reach out to me on Twitter **[@chase_mccoy](https://twitter.com/chase_mccoy)** or email our team at **[designsystems@sproutsocial.com](mailto:designsystems@sproutsocial.com)**. And of course, you can check out our design system, Seeds, at **[sproutsocial.com/seeds](http://sproutsocial.com/seeds)**.
+If you want to learn more about the design systems team at Sprout Social or what we’re up to, feel free to reach out to me on Twitter **[@chase_mccoy](https://twitter.com/chase_mccoy)** or email our team at **[designsystems@sproutsocial.com](mailto:designsystems@sproutsocial.com)**. And of course, you can check out our design system, Seeds, at **[seeds.sproutsocial.com](http://seeds.sproutsocial.com)**.

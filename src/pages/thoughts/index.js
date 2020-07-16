@@ -35,7 +35,7 @@ const ThoughtsPage = ({ data }) => {
       <Box mt={-24}>
         {data.posts.nodes.map((node) => (
           <React.Fragment key={node.id}>
-            <Box as='article' mb={[40, 40, 48]}>
+            <Box as='article' mb={[120, null, null, 88]}>
               <Post
                 title={node.title}
                 to={node.slug}

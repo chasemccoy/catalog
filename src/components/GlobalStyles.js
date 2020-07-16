@@ -87,8 +87,8 @@ const GlobalStyles = createGlobalStyle`
     .float-header {
       --width: 320px;
 
-      padding-top: 16px;
-      border-top: 1px solid ${(p) => p.theme.colors.gray[3]};
+      padding-top: 20px;
+      border-top: 2px solid black;
       margin-top: 2rem;
 
       width: var(--width);
@@ -100,8 +100,8 @@ const GlobalStyles = createGlobalStyle`
         display: inline-block; /* prevents margin collapsing */
         width: 100%;
         margin-top: 2rem;
-        padding-top: 12px;
-        border-top: 1px solid ${(p) => p.theme.colors.gray[3]};
+        padding-top: 16px;
+        border-top: 2px solid black;
 
         ${media.medium`
           margin-top: unset;
@@ -122,11 +122,14 @@ const GlobalStyles = createGlobalStyle`
       `}
 
       ${media.small`
-        width: calc(100% + 32px);
+        ${
+          '' /* width: calc(100% + 32px);
         margin-left: -16px;
-        margin-right: -16px;
-        padding-left: 16px;
-        padding-right: 16px;
+        margin-right: -16px; */
+        }
+        padding-top: 24px;
+        ${'' /* padding-left: 16px;
+        padding-right: 16px; */}
       `}
     }
 
