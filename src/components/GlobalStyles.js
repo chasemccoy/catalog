@@ -2,6 +2,12 @@ import { createGlobalStyle } from 'styled-components'
 import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
+  html {
+    ${media.small`
+      font-size: 17px;
+    `}
+  }
+
   body {
     line-height: inherit;
     overflow: hidden;
@@ -104,9 +110,7 @@ const GlobalStyles = createGlobalStyle`
         border-top: 2px solid black;
 
         ${media.medium`
-          margin-top: unset;
-          padding-top: unset;
-          border: none;
+          content: none;
         `}
       }
 
@@ -122,14 +126,7 @@ const GlobalStyles = createGlobalStyle`
       `}
 
       ${media.small`
-        ${
-          '' /* width: calc(100% + 32px);
-        margin-left: -16px;
-        margin-right: -16px; */
-        }
         padding-top: 24px;
-        ${'' /* padding-left: 16px;
-        padding-right: 16px; */}
       `}
     }
 

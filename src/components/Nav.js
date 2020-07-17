@@ -1,43 +1,51 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import Link from 'components/Link'
-// import media from 'utils/media'
+import media from 'utils/media'
 
-const Nav = styled.nav(
-  (p) => css`
-  ${'' /* font-size: 0.8rem; */}
-  --space: ${p.vertical ? '8px' : '24px'};
-  margin-bottom: 4px;
+const NavContainer = styled.nav(
+  ({ theme }) => css`
+    --space: 40px;
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-  }
+    ul {
+      list-style-type: none;
+      margin: 0;
+    }
 
-  li {
-    display: ${p.vertical ? 'block' : 'inline-block'};
-    margin-bottom: 0;
-  }
+    li {
+      display: inline-block;
+      margin-bottom: 0;
+    }
 
-  li + li {
-    margin-top: 4px;
-    margin-${p.vertical ? 'top' : 'left'}: var(--space);
-  }
+    li + li {
+      margin-left: var(--space);
+    }
 
-  a {
-    text-decoration: none;
-    color: ${p.theme.colors.gray[5]};
-  }
+    a {
+      text-decoration: none;
+      color: ${theme.colors.gray[5]};
+    }
 
-  a:hover {
-    color: ${p.theme.colors.gray[5]};
-    text-decoration: underline;
-  }
+    a:hover {
+      color: ${theme.colors.gray[5]};
+      text-decoration: underline;
+    }
 
-  a.selected {
-    text-decoration: underline;
-  }
-`
+    a.selected {
+      text-decoration: underline;
+    }
+
+    ${media.small`
+    li {
+      display: block;
+    }
+
+    li + li {
+      margin-top: 4px;
+      margin-left: 0;
+    }
+  `}
+  `
 )
 
 const Item = ({ to, children }) => (
@@ -48,13 +56,15 @@ const Item = ({ to, children }) => (
   </li>
 )
 
-export default ({ direction = 'horizontal' }) => (
-  <Nav vertical={direction === 'vertical'}>
+const Nav = () => (
+  <NavContainer>
     <ul>
       <Item to='/thoughts'>Thoughts</Item>
       <Item to='/notes'>Notes</Item>
       <Item to='/books'>Books</Item>
       <Item to='/quotes'>Quotes</Item>
     </ul>
-  </Nav>
+  </NavContainer>
 )
+
+export default Nav

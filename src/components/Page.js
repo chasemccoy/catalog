@@ -11,13 +11,13 @@ const PageContext = createContext({})
 
 const SiteHeader = () => (
   <Layout.Grid
-    pt={16}
-    pb={[40, null, null, null, 120]}
+    pt={[24, 24, 24, 40]}
+    pb={[40, null, null, 104]}
     mb={48}
     bg='accent.pop'
     css='font-size: 0.9em;'
   >
-    <Logo mb={[4, null, 0]} />
+    <Logo mb={[12, null, 8, 0]} />
     <Nav />
   </Layout.Grid>
 )
@@ -89,10 +89,12 @@ const Page = ({
       <main>
         <Box as={article ? 'article' : 'div'} mb={40} {...rest}>
           <Layout.Grid>
-            <Box className='area-sidebar' mb={[40, null, null, 0]}>
-              {!untitled && <header>{header || <Header />}</header>}
-              <aside id='sidebar'>{aside}</aside>
-            </Box>
+            {(aside || !untitled) && (
+              <Box className='area-sidebar' mb={[40, null, null, 0]}>
+                {!untitled && <header>{header || <Header />}</header>}
+                <aside id='sidebar'>{aside}</aside>
+              </Box>
+            )}
 
             <div id='main-content' className='area-main'>
               <ContentGrid mt={8}>{children}</ContentGrid>
