@@ -65,9 +65,6 @@ const colors = {
   type: {
     body: '#1e1f22',
     header: '#1e1f22',
-    menu: '#666666',
-    link: '#0000FF',
-    linkHover: '#000088',
     code: '#c6dbf4'
   },
   gray: {

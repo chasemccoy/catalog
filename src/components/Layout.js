@@ -7,6 +7,7 @@ import Metadata from 'components/Metadata'
 import MDX from 'components/MDX'
 import GlobalStyles from 'components/GlobalStyles'
 import media from 'utils/media'
+import HCard from 'components/hCard'
 
 const Layout = (props) => {
   return (
@@ -19,6 +20,8 @@ const Layout = (props) => {
         <GlobalStyles />
 
         {props.children}
+
+        <HCard />
       </MDX.Provider>
     </ThemeProvider>
   )

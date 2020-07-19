@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import media from 'utils/media'
-import { Box } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
 import MDX from 'components/MDX'
 
@@ -88,7 +88,7 @@ const Metadata = ({ date, permalink, tags, ...props }) => (
   <Box className='meta' {...props}>
     <Box mb={8}>
       <Link color='gray.3' fontSize='0.8em' to={permalink}>
-        Posted on {date}
+        Published on {date}
       </Link>
     </Box>
 
@@ -117,6 +117,12 @@ export const Post = (props) => {
           dangerouslySetInnerHTML={{ __html: props.title }}
         />
       </Heading.h2>
+
+      {props.excerpt && (
+        <Text as='p' color='gray.4' lineHeight='1.3' mt={-8} mb={32}>
+          {props.excerpt}
+        </Text>
+      )}
 
       {metadata}
     </Box>
@@ -147,8 +153,6 @@ export const Post = (props) => {
 Post.Header = ({ title, to, date }) => {
   return (
     <React.Fragment>
-      {/* <Date date={date} permalink={to} mb={title ? 40 : 0} /> */}
-
       {title && (
         <Heading.h1 mt={0} mb={0}>
           <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />

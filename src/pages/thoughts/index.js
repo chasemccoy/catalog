@@ -19,6 +19,7 @@ const ThoughtsPage = ({ data }) => {
                 title={node.title}
                 to={node.slug}
                 content={node.content}
+                excerpt={node.excerpt}
                 date={node.date}
                 isMdx={node.isMdx}
                 tags={node.tags}

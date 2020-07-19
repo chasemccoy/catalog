@@ -12,10 +12,12 @@ const PageContext = createContext({})
 const SiteHeader = () => (
   <Layout.Grid
     pt={[24, 24, 24, 40]}
-    pb={[40, null, null, 104]}
+    pb={[40]}
     mb={48}
-    bg='accent.pop'
+    // bg='accent.pop'
     css='font-size: 0.9em;'
+    borderTop='8px solid'
+    borderColor='accent.pop'
   >
     <Logo mb={[12, null, 8, 0]} />
     <Nav />
@@ -112,7 +114,7 @@ const Header = ({ category, ...rest }) => {
   if (!title && !description) return <Box mt={64} />
 
   return (
-    <Box maxWidth='34rem' pb={24} {...rest}>
+    <Box pb={24} {...rest}>
       <Text as='h1' mt={0} mb={description ? 12 : 0}>
         {title}
       </Text>

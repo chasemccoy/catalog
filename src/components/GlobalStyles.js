@@ -94,7 +94,7 @@ const GlobalStyles = createGlobalStyle`
       --width: 320px;
 
       padding-top: 20px;
-      border-top: 2px solid black;
+      border-top: 2px solid ${(p) => p.theme.colors.type.body};
       margin-top: 2rem;
 
       width: var(--width);
@@ -107,7 +107,7 @@ const GlobalStyles = createGlobalStyle`
         width: 100%;
         margin-top: 2rem;
         padding-top: 16px;
-        border-top: 2px solid black;
+        border-top: 2px solid ${(p) => p.theme.colors.type.body};
 
         ${media.medium`
           content: none;
