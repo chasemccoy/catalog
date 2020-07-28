@@ -119,9 +119,13 @@ const Header = ({ category, ...rest }) => {
         {title}
       </Text>
 
-      <Text as='p' color='gray.4' lineHeight='1.3' mb={0}>
-        {description}
-      </Text>
+      <Text
+        as='p'
+        color='gray.4'
+        lineHeight='1.3'
+        mb={0}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
     </Box>
   )
 }

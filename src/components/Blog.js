@@ -48,6 +48,10 @@ const Container = styled.div`
 `
 
 const AsideContainer = styled(Container)`
+  background: ${(p) => p.theme.colors.gray[0]};
+  border-radius: 12px;
+  padding: 16px;
+
   p,
   blockquote,
   img {
@@ -100,13 +104,7 @@ export const Post = (props) => {
   const tags = props.tags && props.tags.map((tag) => tag.name)
 
   const metadata = props.date && (
-    <Metadata
-      date={props.date}
-      permalink={props.to}
-      tags={tags}
-      mb={20}
-      mt={-16}
-    />
+    <Metadata date={props.date} permalink={props.to} tags={tags} mt={-16} />
   )
 
   const title = props.title && (
@@ -119,9 +117,14 @@ export const Post = (props) => {
       </Heading.h2>
 
       {props.excerpt && (
-        <Text as='p' color='gray.4' lineHeight='1.3' mt={-8} mb={32}>
-          {props.excerpt}
-        </Text>
+        <Text
+          as='p'
+          color='gray.4'
+          lineHeight='1.3'
+          mt={-8}
+          mb={32}
+          dangerouslySetInnerHTML={{ __html: props.excerpt }}
+        />
       )}
 
       {metadata}
@@ -135,9 +138,9 @@ export const Post = (props) => {
   if (props.aside) {
     return (
       <AsideContainer photo={props.imagePost}>
-        {metadata}
         {title}
         {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
+        {metadata}
       </AsideContainer>
     )
   } else {

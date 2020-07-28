@@ -23,6 +23,7 @@ const ThoughtsPage = ({ data }) => {
                 date={node.date}
                 isMdx={node.isMdx}
                 tags={node.tags}
+                aside={node.format === 'aside'}
               />
             </Box>
           </React.Fragment>
@@ -37,9 +38,9 @@ export default ThoughtsPage
 export const query = graphql`
   query ThoughtsLabsQuery {
     posts: allBlog(
-      filter: { format: { nin: ["image"] } }
+      filter: { format: { nin: ["image", "aside"] } }
       sort: { fields: date, order: DESC }
-      limit: 50
+      limit: 20
     ) {
       nodes {
         id
@@ -52,6 +53,7 @@ export const query = graphql`
           name
         }
         isMdx
+        format
       }
     }
 
