@@ -130,6 +130,10 @@ const GlobalStyles = createGlobalStyle`
       `}
     }
 
+    h2:first-child {
+      margin-top: 0;
+    }
+
     img {
       width: 100%;
       border-radius: 8px;

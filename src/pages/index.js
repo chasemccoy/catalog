@@ -84,7 +84,7 @@ const Seeds = () => (
         </Box>
 
         <Box flex={1} display='flex' alignItems='center' mb={[24, 24, 0]}>
-          <Box px={[0, 0, 24, 80]}>
+          <Box px={[12, 12, 24, 40, 80]}>
             <Badge icon={Calendar} mt={48}>
               2018 — PRESENT
             </Badge>

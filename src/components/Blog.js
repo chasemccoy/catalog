@@ -104,7 +104,13 @@ export const Post = (props) => {
   const tags = props.tags && props.tags.map((tag) => tag.name)
 
   const metadata = props.date && (
-    <Metadata date={props.date} permalink={props.to} tags={tags} mt={-16} />
+    <Metadata
+      date={props.date}
+      permalink={props.to}
+      tags={tags}
+      mb={[20, null, null, 0]}
+      mt={-16}
+    />
   )
 
   const title = props.title && (

@@ -11,13 +11,13 @@ const Sidebar = ({ items, tags, date }) => {
 
   return (
     <Text fontSize='0.8em'>
-      <Box mb={24}>
+      <Box mb={tags || hasRelatedItems ? 24 : 0}>
         <Page.SidebarHeader>Published</Page.SidebarHeader>
-        <Text mb={24}>{date}</Text>
+        <Text>{date}</Text>
       </Box>
 
       {tags && (
-        <Box mb={24}>
+        <Box mb={hasRelatedItems ? 24 : 0}>
           <Page.SidebarHeader>Tags</Page.SidebarHeader>
           <Tags items={tags} />
         </Box>

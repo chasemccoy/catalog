@@ -92,7 +92,7 @@ const Page = ({
         <Box as={article ? 'article' : 'div'} mb={40} {...rest}>
           <Layout.Grid>
             {(aside || !untitled) && (
-              <Box className='area-sidebar' mb={[40, null, null, 0]}>
+              <Box className='area-sidebar' mb={[24, null, null, 0]}>
                 {!untitled && <header>{header || <Header />}</header>}
                 <aside id='sidebar'>{aside}</aside>
               </Box>
