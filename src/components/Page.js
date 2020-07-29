@@ -1,78 +1,44 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Logo from 'components/Logo'
 import media from 'utils/media'
 import Nav from 'components/Nav'
+import Layout from 'components/Layout'
 
 const PageContext = createContext({})
 
-const PageContainer = styled.div``
+const SiteHeader = () => (
+  <Layout.Grid
+    pt={[24, 24, 24, 40]}
+    pb={[40]}
+    mb={48}
+    // bg='accent.pop'
+    css='font-size: 0.9em;'
+    borderTop='8px solid'
+    borderColor='accent.pop'
+  >
+    <Logo mb={[12, null, 8, 0]} />
+    <Nav />
+  </Layout.Grid>
+)
 
-const Wrapper = styled(Box)`
-  margin-left: auto;
-  margin-right: auto;
-
+const ContentGrid = styled(Box)`
   display: grid;
-  grid-gap: ${(p) => (p.flush ? 0 : '24px')} 24px;
   grid-template-columns:
-    1fr ${(p) => p.theme.sizes.sidebarWidth} minmax(
-      0,
-      ${(p) => p.theme.sizes.contentWidth}
-    )
-    1fr;
-  grid-template-areas:
-    '.    logo    header .'
-    '.    sidebar main   .';
+    [full-start main-start] 1fr 1fr 1fr [main-end]
+    0.8fr [full-end];
 
-  > * {
-    grid-area: main;
+  & > * {
+    grid-column: main;
     min-width: 0;
-
-    ${media.medium`
-      max-width: none;
-    `}
   }
 
-  aside {
-    grid-area: sidebar;
-    padding-right: 16px;
-  }
-
-  header {
-    grid-area: header;
-    display: flex;
-    align-items: center;
-  }
-
-  .logo {
-    grid-area: logo;
-  }
-
-  ${media.medium`
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      'logo'
-      'header'
-      'main'
-      'sidebar';
+  ${media.large`
+    grid-template-columns:
+      [full-start main-start] 1fr 1fr 1fr 0.8fr [main-end full-end];
   `}
-`
-
-const ArticleHeader = styled.header`
-  position: relative;
-  z-index: 0;
-
-  &:before {
-    content: '';
-    position: absolute;
-    left: -999rem;
-    right: -999rem;
-    top: -8px;
-    bottom: 0;
-    z-index: -1;
-  }
 `
 
 const Page = ({
@@ -82,10 +48,33 @@ const Page = ({
   title,
   description,
   article = false,
-  showHeader = true,
   untitled = false,
   ...rest
 }) => {
+  useLayoutEffect(() => {
+    if (!aside) return
+    const sidebar = document.getElementById('sidebar')
+    const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 50
+
+    const headers = [...document.querySelectorAll('#main-content h2')]
+
+    let inTheClear = false
+    let index = 0
+
+    while (inTheClear === false && index < headers.length) {
+      const header = headers[index]
+      const headerOffset = header.offsetTop
+
+      if (headerOffset < bufferZone) {
+        header.classList.add('inline')
+      } else {
+        inTheClear = true
+      }
+
+      index++
+    }
+  }, [aside])
+
   return (
     <PageContext.Provider value={{ title, description }}>
       <Metadata
@@ -95,35 +84,25 @@ const Page = ({
         page
       />
 
+      <header>
+        <SiteHeader />
+      </header>
+
       <main>
-        <PageContainer>
-          <Wrapper flush mt={16}>
-            <div className='logo'>
-              <Logo mb={[4, null, 0]} />
+        <Box as={article ? 'article' : 'div'} mb={40} {...rest}>
+          <Layout.Grid>
+            {(aside || !untitled) && (
+              <Box className='area-sidebar' mb={[24, null, null, 0]}>
+                {!untitled && <header>{header || <Header />}</header>}
+                <aside id='sidebar'>{aside}</aside>
+              </Box>
+            )}
+
+            <div id='main-content' className='area-main'>
+              <ContentGrid mt={8}>{children}</ContentGrid>
             </div>
-            <header>
-              <Nav />
-            </header>
-          </Wrapper>
-
-          <Box as={article ? 'article' : 'div'}>
-            <Wrapper>
-              {!untitled && (
-                <ArticleHeader>{header || <Header />}</ArticleHeader>
-              )}
-
-              <Box mt={untitled ? [0, 0, 0, 32] : 0}>{children}</Box>
-
-              {aside && (
-                <Box as='aside' mt={untitled ? 48 : 0}>
-                  <Text fontSize='13px' lineHeight='1.3'>
-                    {aside}
-                  </Text>
-                </Box>
-              )}
-            </Wrapper>
-          </Box>
-        </PageContainer>
+          </Layout.Grid>
+        </Box>
       </main>
     </PageContext.Provider>
   )
@@ -135,14 +114,18 @@ const Header = ({ category, ...rest }) => {
   if (!title && !description) return <Box mt={64} />
 
   return (
-    <Box maxWidth='34rem' pb={24} {...rest}>
-      <Text as='h1' mt={64} mb={description ? 12 : 0}>
+    <Box pb={24} {...rest}>
+      <Text as='h1' mt={0} mb={description ? 12 : 0}>
         {title}
       </Text>
 
-      <Text as='p' color='gray.4' lineHeight='1.3' mb={0}>
-        {description}
-      </Text>
+      <Text
+        as='p'
+        color='gray.4'
+        lineHeight='1.3'
+        mb={0}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
     </Box>
   )
 }
@@ -159,29 +142,25 @@ Page.SidebarHeader = (props) => (
 )
 
 const Breakout = styled(Box)`
-  width: calc(100vw - 16px);
-  margin-left: calc(
-    (-${(p) => p.theme.sizes.sidebarWidth} - 24px) -
-      (
-        (
-            100vw - ${(p) => p.theme.sizes.sidebarWidth} -
-              ${(p) => p.theme.sizes.contentWidth} - 40px
-          ) / 2
-      )
+  width: 100vw;
+  --offset: calc(var(--sidebarWidth) + var(--gap) + var(--padding));
+  --extraOffset: calc(
+    (100vw - var(--maxWidth) - var(--padding) - var(--padding)) / 2
   );
+  margin-left: calc((var(--offset) + max(var(--extraOffset), 0px)) * -1);
 
-  @media screen and (min-width: 900px) and (max-width: 1020px) {
-    margin-left: calc(-${(p) => p.theme.sizes.sidebarWidth} - 48px - 16px);
-  }
+  ${media.large`
+    margin-left: calc(var(--offset) * -1);
+  `}
 
   ${media.medium`
     width: auto;
-    margin-left: -16px;
-    margin-right: -16px;
+    margin-left: -24px;
+    margin-right: -24px;
   `}
 `
 
-Page.Wrapper = Wrapper
+Page.Grid = ContentGrid
 Page.Header = Header
 Page.Breakout = Breakout
 

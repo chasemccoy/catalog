@@ -11,7 +11,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1000,
+              maxWidth: 1400,
               linkImagesToOriginal: true,
               showCaptions: ['title']
             }
@@ -72,7 +72,7 @@ module.exports = {
         normalizer: ({ entities }) => {
           // WordPress gives us back dates in UTC, so let's convert them to
           // America/Chicago time (+6 hour offset)
-          entities.map(entity => {
+          entities.map((entity) => {
             if (entity.date) {
               const adjustedDate = entity.date.replace('Z', '+0600')
               entity.date = adjustedDate
@@ -102,7 +102,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allBlog } }) => {
-              return allBlog.nodes.map(node => {
+              return allBlog.nodes.map((node) => {
                 const siteUrl = site.siteMetadata.siteUrl
 
                 return Object.assign(

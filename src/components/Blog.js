@@ -3,21 +3,11 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 import Heading from 'components/Heading'
 import media from 'utils/media'
-import { Box } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
 import MDX from 'components/MDX'
 
 const Container = styled.div`
-  &:after {
-    content: '';
-    display: block;
-    margin-top: 48px;
-    margin-left: calc(50% - 5em);
-    height: 8px;
-    background: ${props => props.theme.colors.gray[0]};
-    max-width: 10em;
-  }
-
   iframe {
     margin-bottom: 0;
     width: 100%;
@@ -58,6 +48,10 @@ const Container = styled.div`
 `
 
 const AsideContainer = styled(Container)`
+  background: ${(p) => p.theme.colors.gray[0]};
+  border-radius: 12px;
+  padding: 16px;
+
   p,
   blockquote,
   img {
@@ -85,90 +79,80 @@ const AsideContainer = styled(Container)`
 `
 
 const Title = styled(Link)`
-  color: ${p => p.theme.colors.type.header};
+  color: ${(p) => p.theme.colors.type.header};
   text-decoration: none;
 
   &:hover {
-    color: ${p => p.theme.colors.type.header};
+    color: ${(p) => p.theme.colors.type.header};
     box-shadow: 0px -0.5em 0px #ffe999 inset;
   }
 `
 
-const PostMeta = styled(Box)`
-  font-size: 13px;
-  line-height: 1;
-  color: ${p => p.theme.colors.gray[3]};
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-
-  a {
-    color: ${p => p.theme.colors.gray[3]};
-    text-decoration: none;
-  }
-`
-
-const Date = ({ date, permalink, ...props }) => (
-  <PostMeta {...props}>
-    <Link to={permalink}>{date}</Link>
-  </PostMeta>
-)
-
 const Metadata = ({ date, permalink, tags, ...props }) => (
-  <Box display='flex' alignItems='center' className='meta' {...props}>
-    <Date
-      date={date}
-      permalink={permalink}
-      borderRight={tags ? '1px solid' : 'none'}
-      borderColor='gray.1'
-      pr='8px'
-      mr='8px'
-      flex='0 0 auto'
-    />
+  <Box className='meta' {...props}>
+    <Box mb={8}>
+      <Link color='gray.3' fontSize='0.8em' to={permalink}>
+        Published on {date}
+      </Link>
+    </Box>
 
     {tags && <Tags display='inline' items={tags} />}
   </Box>
 )
 
-export const Post = props => {
-  const tags = props.tags && props.tags.map(tag => tag.name)
+export const Post = (props) => {
+  const tags = props.tags && props.tags.map((tag) => tag.name)
+
+  const metadata = props.date && (
+    <Metadata
+      date={props.date}
+      permalink={props.to}
+      tags={tags}
+      mb={[20, null, null, 0]}
+      mt={-16}
+    />
+  )
 
   const title = props.title && (
-    <Heading.h2
-      fontSize='1.7rem'
-      mb={2}
-      css={`
-        border: none;
-      `}
-    >
-      <Title to={props.to} dangerouslySetInnerHTML={{ __html: props.title }} />
-    </Heading.h2>
+    <Box className='float-header'>
+      <Heading.h2 fontSize='1.8rem' className='inline'>
+        <Title
+          to={props.to}
+          dangerouslySetInnerHTML={{ __html: props.title }}
+        />
+      </Heading.h2>
+
+      {props.excerpt && (
+        <Text
+          as='p'
+          color='gray.4'
+          lineHeight='1.3'
+          mt={-8}
+          mb={32}
+          dangerouslySetInnerHTML={{ __html: props.excerpt }}
+        />
+      )}
+
+      {metadata}
+    </Box>
   )
 
   const content = props.content && (
     <div dangerouslySetInnerHTML={{ __html: props.content }} />
   )
 
-  const metadata = props.date && (
-    <Metadata date={props.date} permalink={props.to} tags={tags} mb={20} />
-  )
-
   if (props.aside) {
     return (
       <AsideContainer photo={props.imagePost}>
-        {metadata}
         {title}
         {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
+        {metadata}
       </AsideContainer>
     )
   } else {
     return (
       <Container>
-        {!props.untitled && (
-          <React.Fragment>
-            {title}
-            {metadata}
-          </React.Fragment>
-        )}
+        {!props.untitled && <React.Fragment>{title}</React.Fragment>}
         {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
       </Container>
     )
@@ -178,8 +162,6 @@ export const Post = props => {
 Post.Header = ({ title, to, date }) => {
   return (
     <React.Fragment>
-      <Date date={date} permalink={to} mb={title ? 40 : 0} />
-
       {title && (
         <Heading.h1 mt={0} mb={0}>
           <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />

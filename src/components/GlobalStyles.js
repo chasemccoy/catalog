@@ -3,18 +3,14 @@ import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
   html {
-    ${'' /* background: ${(props) => props.theme.colors.accent.pop}; */}
-    ${'' /* padding: 8px; */}
-
     ${media.small`
-      padding: 8px 0;
       font-size: 17px;
     `}
   }
 
   body {
     line-height: inherit;
-    ${'' /* overflow: hidden; */}
+    overflow: hidden;
   }
 
   a {
@@ -84,9 +80,58 @@ const GlobalStyles = createGlobalStyle`
       margin-top: 0;
     }
 
-    h2 {
-      padding-bottom: 6px;
-      border-bottom: 4px solid ${(p) => p.theme.colors.gray[0]};
+    h2.inline {
+      margin-bottom: 1.5rem;
+
+      &:not(:first-child) {
+        padding-top: 12px;
+        border-top: 1px solid black;
+      }
+    }
+
+    h2:not(.inline), 
+    .float-header {
+      --width: 320px;
+
+      padding-top: 20px;
+      border-top: 2px solid ${(p) => p.theme.colors.type.body};
+      margin-top: 2rem;
+
+      width: var(--width);
+      margin-left: calc(-1 * var(--width) - 56px);
+      float: left;
+
+      & + *:before {
+        content: "";
+        display: inline-block; /* prevents margin collapsing */
+        width: 100%;
+        margin-top: 2rem;
+        padding-top: 16px;
+        border-top: 2px solid ${(p) => p.theme.colors.type.body};
+
+        ${media.medium`
+          content: none;
+        `}
+      }
+
+      ${media.large`
+        --width: 250px;
+      `}
+
+      ${media.medium`
+        float: none;
+        width: 100%;
+        margin-top: 2em;
+        margin-left: 0;
+      `}
+
+      ${media.small`
+        padding-top: 24px;
+      `}
+    }
+
+    h2:first-child {
+      margin-top: 0;
     }
 
     img {
@@ -193,6 +238,10 @@ const GlobalStyles = createGlobalStyle`
   twitter-widget::shadow .EmbeddedTweet {
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  .twitter-tweet + * {
+    margin-top: 1.5em;
   }
 `
 

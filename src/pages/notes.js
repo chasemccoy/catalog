@@ -4,13 +4,13 @@ import { graphql } from 'gatsby'
 import NotesList from 'components/notes/List'
 import { slugify, capitalize } from 'utils'
 import Link from 'components/Link'
-import { Box } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 
 const Sidebar = ({ categories }) => (
-  <React.Fragment>
+  <Text fontSize='0.8em'>
     <Page.SidebarHeader>Categories</Page.SidebarHeader>
 
-    {categories.map(category => (
+    {categories.map((category) => (
       <Box mb={4} key={category}>
         <Link
           unstyled
@@ -18,7 +18,7 @@ const Sidebar = ({ categories }) => (
           partiallyActive
           css={`
             &.selected {
-              color: ${props => props.theme.colors.accent};
+              color: ${(props) => props.theme.colors.accent};
             }
           `}
         >
@@ -26,11 +26,11 @@ const Sidebar = ({ categories }) => (
         </Link>
       </Box>
     ))}
-  </React.Fragment>
+  </Text>
 )
 
 const Notes = ({ data }) => {
-  const categories = data.categories.nodes.map(node => node.name)
+  const categories = data.categories.nodes.map((node) => node.name)
 
   return (
     <Page

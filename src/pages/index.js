@@ -22,6 +22,7 @@ import Sprout from 'assets/sprout.png'
 import SproutClassic from 'assets/sprout-classic.png'
 import SproutLeaf from 'assets/sprout-leaf.svg'
 import media from 'utils/media'
+import Layout from 'components/Layout'
 
 const picoBoxes = {
   1: picoBox1,
@@ -37,7 +38,7 @@ const fullWidthImage = {
 
 const nectarImageCSS = css`
   border-radius: 8px;
-  border: 1px solid ${p => p.theme.colors.gray[1]};
+  border: 1px solid ${(p) => p.theme.colors.gray[1]};
 
   ${media.small`
     border: none;
@@ -63,7 +64,7 @@ const Badge = ({ icon: Icon, children, ...rest }) => (
 
 const Seeds = () => (
   <div>
-    <Wide>
+    <Wide right={false}>
       <Grid gutter='0'>
         <Box
           width={[1, 1, 1 / 2, 1 / 2, 495]}
@@ -82,14 +83,8 @@ const Seeds = () => (
           />
         </Box>
 
-        <Box
-          flex={1}
-          display='flex'
-          alignItems='center'
-          px={12}
-          mb={[24, 24, 0]}
-        >
-          <Box pl={[0, 0, 16, 40]}>
+        <Box flex={1} display='flex' alignItems='center' mb={[24, 24, 0]}>
+          <Box px={[12, 12, 24, 40, 108]}>
             <Badge icon={Calendar} mt={48}>
               2018 — PRESENT
             </Badge>
@@ -136,7 +131,7 @@ const Seeds = () => (
   </div>
 )
 
-const Nectar = props => (
+const Nectar = (props) => (
   <Box {...props}>
     <Box width='40px'>
       <SproutLeaf />
@@ -209,7 +204,7 @@ const Pico = () => (
     <Wide pt={40}>
       <Grid>
         <Box width={[2 / 3, 1 / 2]} display='flex' alignItems='center'>
-          <Box pr={[16]} pl={[16, 16, 16, 0]}>
+          <Box px={[16, 24, 40, 40, 80]}>
             <Image width={64} src={picoLogo} />
 
             <Heading.h2 fontSize='1.8em' mt={80} color='inherit'>
@@ -246,7 +241,7 @@ const Pico = () => (
             </Text.p>
 
             <Grid mb={40} maxWidth={[180, 180, 220, 'none']}>
-              {[1, 2, 3, 4].map(i => (
+              {[1, 2, 3, 4].map((i) => (
                 <Box width={[1 / 2, 1 / 2, 1 / 2, 1 / 4]} minWidth={75} key={i}>
                   <Image src={picoBoxes[i]} />
                 </Box>
@@ -255,7 +250,7 @@ const Pico = () => (
           </Box>
         </Box>
 
-        <Box width={[1 / 3, 1 / 2]}>
+        <Box width={[1 / 3, 1 / 2, 1 / 2, 1 / 2, 1 / 3]}>
           <Image
             src={pico}
             pl={[0, 0, 0, 120]}
@@ -272,12 +267,13 @@ const Pico = () => (
   </div>
 )
 
-const Portrait = props => (
+const Portrait = (props) => (
   <Box bg='accent.pop' {...props}>
     <Image
       src={portrait}
       css={css`
-        height: 200px;
+        height: 100%;
+        max-height: 275px;
         width: 100%;
         mix-blend-mode: luminosity;
         object-fit: cover;
@@ -291,8 +287,8 @@ const IndexPage = ({ data }) => {
   const { posts } = data
 
   return (
-    <Page untitled>
-      <Text.p fontSize='1.5em' lineHeight='1.4'>
+    <Page untitled mb={0}>
+      <Text.p mt={-16} fontSize='1.5em' lineHeight='1.4'>
         <b>Chase McCoy</b> is a senior design technologist based in Chicago
         leading the team behind{' '}
         <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, Sprout Social’s
@@ -331,7 +327,7 @@ const IndexPage = ({ data }) => {
       <Wide>
         <Grid gutter='0' overflow='visible' mb='1em' {...fullWidthImage}>
           <Box width={[1, 1, 2 / 3]}>
-            <Portrait mr={[0, 0, 12]} />
+            <Portrait mr={[0, 0, 12]} height='100%' />
           </Box>
           <Box flex={[1, 1, 1]}>
             <Box height='100%' bg='accent.pop' p={16} ml={[0, 0, 12]}>
@@ -355,11 +351,8 @@ const IndexPage = ({ data }) => {
           </Box>
         </Grid>
 
-        <Grid>
-          <Box
-            width={['auto', 'auto', 'sidebarWidthWithGutter']}
-            order={[2, 2, 1]}
-          >
+        <Layout.Grid flush>
+          <Box display={['none', null, null, 'block']}>
             <Box
               display='inline-block'
               borderRadius='50%'
@@ -391,7 +384,7 @@ const IndexPage = ({ data }) => {
             </Box>
           </Box>
 
-          <Box flex={['100%', '100%', 1]} order={[1, 1, 2]} zIndex={1}>
+          <Box zIndex={1}>
             <Page.SidebarHeader
               fontFamily='sans'
               pb={4}
@@ -402,7 +395,7 @@ const IndexPage = ({ data }) => {
             </Page.SidebarHeader>
 
             <MultiColumn count={2} gap='24px' minColumnWidth='12em'>
-              {posts.nodes.map(post => (
+              {posts.nodes.map((post) => (
                 <Box mb={16} key={post.id}>
                   <Text
                     fontSize='1em'
@@ -423,7 +416,7 @@ const IndexPage = ({ data }) => {
               ))}
             </MultiColumn>
           </Box>
-        </Grid>
+        </Layout.Grid>
       </Wide>
 
       <CurveTextScroll mt={[0, -40]} mb={[0, 0, -40]}>
@@ -437,9 +430,9 @@ const IndexPage = ({ data }) => {
         borderBottom='1px solid'
         borderColor='rgba(0, 0, 0, 0.08)'
       >
-        <Page.Wrapper py={0} flush>
+        <Layout.Grid>
           <Seeds />
-        </Page.Wrapper>
+        </Layout.Grid>
       </Page.Breakout>
 
       <Nectar my={64} />
@@ -450,9 +443,9 @@ const IndexPage = ({ data }) => {
         mt={64}
         mb={[-24, null, null, 0]}
       >
-        <Page.Wrapper py={0} px={0} flush>
+        <Layout.Grid>
           <Pico />
-        </Page.Wrapper>
+        </Layout.Grid>
       </Page.Breakout>
     </Page>
   )

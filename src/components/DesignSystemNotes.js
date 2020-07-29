@@ -6,16 +6,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import ArrowRight from 'assets/arrow-right-icon.svg'
 
 const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
-  <Box
-    // bg='gray.0'
-    // border='0.5px solid'
-    // borderColor='gray.1'
-    // borderRadius='12px'
-    // p={24}
-    mb={40}
-    key={id}
-  >
-    <Text as='h2' mb={16}>
+  <Box mb={40} key={id}>
+    <Text as='h2' mb={8}>
       <Link unstyled to={slug}>
         {title} <ArrowRight />
       </Link>
@@ -60,7 +52,7 @@ const DesignSystems = ({ category, ...rest }) => {
 
   return (
     <React.Fragment>
-      {nodes.map(node => (
+      {nodes.map((node) => (
         <Note {...node} />
       ))}
 
@@ -68,8 +60,8 @@ const DesignSystems = ({ category, ...rest }) => {
 
       <UnorderedList>
         {posts.items
-          .filter(i => i.title)
-          .map(item => (
+          .filter((i) => i.title)
+          .map((item) => (
             <li key={item.slug}>
               <Link
                 to={item.slug}

@@ -2,14 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
-import { Box } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Layout from 'components/notes/Layout'
 import Link from 'components/Link'
 import NoteSidebar from 'components/notes/Sidebar'
 import Tags from 'components/Tags'
 
 const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
-  <Box>
+  <Text fontSize='0.8em'>
     {tags && (
       <Box mb={24}>
         <Page.SidebarHeader>Tags</Page.SidebarHeader>
@@ -36,7 +36,7 @@ const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
         <Page.SidebarHeader>More in {category}</Page.SidebarHeader>
 
         {notes.map(
-          note =>
+          (note) =>
             !note.isLandingPage && (
               <Box key={note.id} mb={4}>
                 <Link
@@ -44,7 +44,7 @@ const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
                   to={note.slug}
                   css={`
                     &.selected {
-                      color: ${props => props.theme.colors.accent};
+                      color: ${(props) => props.theme.colors.accent};
                     }
                   `}
                 >
@@ -57,14 +57,14 @@ const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
     )}
 
     <NoteSidebar mt={24} data={categories} />
-  </Box>
+  </Text>
 )
 
 const Note = ({
   data: { note },
   pageContext: { notes, categories, category }
 }) => {
-  const tags = note.tags && note.tags.map(tag => tag.name)
+  const tags = note.tags && note.tags.map((tag) => tag.name)
 
   return (
     <MDX.Provider>

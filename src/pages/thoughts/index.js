@@ -3,46 +3,27 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import { Box } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
-import Link from 'components/Link'
-import { UnorderedList } from 'components/Lists'
-
-const Sidebar = ({ posts, ...props }) => (
-  <React.Fragment>
-    <Page.SidebarHeader mb={12}>Recently</Page.SidebarHeader>
-
-    <UnorderedList>
-      {posts.map(post => (
-        <Box as='li' key={post.id}>
-          <Link
-            unstyled
-            to={post.slug}
-            dangerouslySetInnerHTML={{ __html: post.title }}
-          />
-        </Box>
-      ))}
-    </UnorderedList>
-  </React.Fragment>
-)
 
 const ThoughtsPage = ({ data }) => {
   return (
     <Page
       title='Thoughts'
       description="What's on my mind, and links to some interesting stuff on the web."
-      aside={<Sidebar posts={data.olderPosts.nodes} />}
       untitled
     >
-      <Box>
-        {data.posts.nodes.map(node => (
+      <Box mt={-24}>
+        {data.posts.nodes.map((node) => (
           <React.Fragment key={node.id}>
-            <Box as='article' mb={[40, 40, 48]}>
+            <Box as='article' mb={[120, null, null, 88]}>
               <Post
                 title={node.title}
                 to={node.slug}
                 content={node.content}
+                excerpt={node.excerpt}
                 date={node.date}
                 isMdx={node.isMdx}
                 tags={node.tags}
+                aside={node.format === 'aside'}
               />
             </Box>
           </React.Fragment>
@@ -57,9 +38,9 @@ export default ThoughtsPage
 export const query = graphql`
   query ThoughtsLabsQuery {
     posts: allBlog(
-      filter: { format: { nin: ["image"] } }
+      filter: { format: { nin: ["image", "aside"] } }
       sort: { fields: date, order: DESC }
-      limit: 50
+      limit: 20
     ) {
       nodes {
         id
@@ -72,6 +53,7 @@ export const query = graphql`
           name
         }
         isMdx
+        format
       }
     }
 

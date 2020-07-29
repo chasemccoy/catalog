@@ -1,9 +1,9 @@
 const path = require('path')
 const { createBlogNode } = require('./createBlogNode')
 
-const stripHTML = string => string.replace(/<[^>]+>/g, '')
+const stripHTML = (string) => string.replace(/<[^>]+>/g, '')
 
-const formatTitle = title => {
+const formatTitle = (title) => {
   let words = title.replace('&nbsp;', ' ').split(' ')
 
   if (words.length > 1) {
@@ -100,9 +100,11 @@ exports.onCreateNode = ({
     const date = `/${year}/${month}/`
     const fullSlug = date + node.slug
     createNodeField({ node, name: 'fullSlug', value: fullSlug })
+    const includeExcerpt =
+      node.excerpt && !node.excerpt.includes('Continue reading')
 
     const tags = node.tags___NODE
-      ? node.tags___NODE.map(tag => {
+      ? node.tags___NODE.map((tag) => {
           return getNode(tag).name
         })
       : null
@@ -116,7 +118,7 @@ exports.onCreateNode = ({
       slug: fullSlug,
       shortSlug: node.slug,
       tags,
-      excerpt: stripHTML(node.excerpt),
+      excerpt: includeExcerpt ? stripHTML(node.excerpt) : undefined,
       year: year,
       isMdx: false
     }
@@ -175,13 +177,13 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
 
-    result.data.allBlog.nodes.map(node => {
-      const tags = node.tags ? node.tags.map(tag => tag.id) : []
+    result.data.allBlog.nodes.map((node) => {
+      const tags = node.tags ? node.tags.map((tag) => tag.id) : []
 
       createPage({
         path: node.slug,

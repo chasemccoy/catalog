@@ -10,14 +10,14 @@ const Sidebar = ({ items, tags, date }) => {
   const hasRelatedItems = items && items.length !== 0
 
   return (
-    <React.Fragment>
-      <Box mb={24}>
+    <Text fontSize='0.8em'>
+      <Box mb={tags || hasRelatedItems ? 24 : 0}>
         <Page.SidebarHeader>Published</Page.SidebarHeader>
-        <Text mb={24}>{date}</Text>
+        <Text>{date}</Text>
       </Box>
 
       {tags && (
-        <Box mb={24}>
+        <Box mb={hasRelatedItems ? 24 : 0}>
           <Page.SidebarHeader>Tags</Page.SidebarHeader>
           <Tags items={tags} />
         </Box>
@@ -39,7 +39,7 @@ const Sidebar = ({ items, tags, date }) => {
           ))}
         </React.Fragment>
       )}
-    </React.Fragment>
+    </Text>
   )
 }
 
