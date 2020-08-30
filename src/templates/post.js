@@ -95,6 +95,7 @@ export const query = graphql`
       filter: {
         tags: { elemMatch: { id: { in: $tags } } }
         title: { ne: null }
+        id: { ne: $id }
       }
     ) {
       nodes {

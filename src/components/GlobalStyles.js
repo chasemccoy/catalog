@@ -91,7 +91,7 @@ const GlobalStyles = createGlobalStyle`
 
     h2:not(.inline), 
     .float-header {
-      --width: 320px;
+      --width: var(--sidebarWidth);
 
       padding-top: 20px;
       border-top: 2px solid ${(p) => p.theme.colors.type.body};
@@ -136,8 +136,6 @@ const GlobalStyles = createGlobalStyle`
 
     img {
       width: 100%;
-      border-radius: 8px;
-      box-shadow: ${(p) => p.theme.colors.gray[1]} 0 0 16px 0px;
     }
 
     ${media.small`
@@ -193,21 +191,11 @@ const GlobalStyles = createGlobalStyle`
 
   .gatsby-resp-image-wrapper {
     margin: 0 !important;
-    border-radius: 8px;
-    box-shadow: ${(p) => p.theme.colors.gray[1]} 0 0 16px 0px;
 
     ${media.small`
       max-width: none;
       width: calc(100% + 32px);
       margin-left: -16px !important;
-      border-radius: 0;
-    `}
-  }
-
-  .gatsby-resp-image-background-image {
-    border-radius: 8px;
-
-    ${media.small`
       border-radius: 0;
     `}
   }

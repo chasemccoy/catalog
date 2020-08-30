@@ -44,7 +44,21 @@ const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
                   to={note.slug}
                   css={`
                     &.selected {
-                      color: ${(props) => props.theme.colors.accent};
+                      position: relative;
+                      font-weight: 700;
+
+                      &:after {
+                        position: absolute;
+                        background-color: ${(p) => p.theme.colors.yellow[200]};
+                        margin-top: 0.25rem;
+                        margin-left: 0.25rem;
+                        width: 100%;
+                        z-index: -1;
+                        height: 100%;
+                        top: -3px;
+                        left: 0px;
+                        content: '';
+                      }
                     }
                   `}
                 >

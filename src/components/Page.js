@@ -54,7 +54,7 @@ const Page = ({
   useLayoutEffect(() => {
     if (!aside) return
     const sidebar = document.getElementById('sidebar')
-    const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 50
+    const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 100
 
     const headers = [...document.querySelectorAll('#main-content h2')]
 
@@ -115,7 +115,7 @@ const Header = ({ category, ...rest }) => {
 
   return (
     <Box pb={24} {...rest}>
-      <Text as='h1' mt={0} mb={description ? 12 : 0}>
+      <Text as='h1' fontSize='2rem' mt={0} mb={description ? 12 : 0}>
         {title}
       </Text>
 
