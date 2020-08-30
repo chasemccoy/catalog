@@ -45,11 +45,10 @@ const Sidebar = ({ items, tags, date }) => {
 
 export default ({ data, pageContext }) => {
   const post = data.blog
-  const normalizedTitle = post.title ? post.title.replace(/&nbsp;/g, ' ') : null
 
   return (
     <Page
-      title={normalizedTitle}
+      title={post.title}
       article
       description={post.excerpt}
       header={null}

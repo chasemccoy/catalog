@@ -3,6 +3,7 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import { Box } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
+import Wide from 'components/Wide'
 
 const ThoughtsPage = ({ data }) => {
   return (
@@ -11,10 +12,10 @@ const ThoughtsPage = ({ data }) => {
       description="What's on my mind, and links to some interesting stuff on the web."
       untitled
     >
-      <Box mt={-24}>
+      <Box mt={-64}>
         {data.posts.nodes.map((node) => (
           <React.Fragment key={node.id}>
-            <Box as='article' mb={[120, null, null, 88]}>
+            <Box as='article' mb={[-40, null, null, -24]}>
               <Post
                 title={node.title}
                 to={node.slug}
@@ -25,6 +26,15 @@ const ThoughtsPage = ({ data }) => {
                 tags={node.tags}
                 aside={node.format === 'aside'}
               />
+
+              <Wide right={false}>
+                <Box
+                  height='8px'
+                  width={1}
+                  mt={[88, null, null, 72]}
+                  bg='accent.pop'
+                />
+              </Wide>
             </Box>
           </React.Fragment>
         ))}

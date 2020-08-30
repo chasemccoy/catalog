@@ -101,6 +101,10 @@ const GlobalStyles = createGlobalStyle`
       margin-left: calc(-1 * var(--width) - 56px);
       float: left;
 
+      &.no-border {
+        border-top: none;
+      }
+
       & + *:before {
         content: "";
         display: inline-block; /* prevents margin collapsing */
@@ -112,6 +116,10 @@ const GlobalStyles = createGlobalStyle`
         ${media.medium`
           content: none;
         `}
+      }
+
+      &.no-border + *:before {
+        border-top: none;
       }
 
       ${media.large`

@@ -115,9 +115,13 @@ const Header = ({ category, ...rest }) => {
 
   return (
     <Box pb={24} {...rest}>
-      <Text as='h1' fontSize='2rem' mt={0} mb={description ? 12 : 0}>
-        {title}
-      </Text>
+      <Text
+        as='h1'
+        fontSize='2rem'
+        mt={0}
+        mb={description ? 16 : 0}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
 
       <Text
         as='p'
