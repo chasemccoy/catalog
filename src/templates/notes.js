@@ -4,6 +4,7 @@ import Sidebar from 'components/notes/Sidebar'
 import Layout from 'components/notes/Layout'
 import { capitalize } from 'utils'
 import NotesList from 'components/notes/List'
+import { Text } from '@chasemccoy/kit'
 
 const Notes = ({ pageContext: { notes, categories, category } }) => {
   const title = category ? capitalize(category) : 'Notes'
@@ -13,11 +14,17 @@ const Notes = ({ pageContext: { notes, categories, category } }) => {
     <Page
       title={title}
       description={description}
-      aside={categories ? <Sidebar data={categories} /> : null}
+      aside={
+        categories ? (
+          <Text fontSize='0.8em'>
+            <Sidebar data={categories} />
+          </Text>
+        ) : null
+      }
     >
       <Layout>
         <Layout.Content>
-          <NotesList notes={notes.filter(note => !note.isLandingPage)} />
+          <NotesList notes={notes.filter((note) => !note.isLandingPage)} />
         </Layout.Content>
       </Layout>
     </Page>
