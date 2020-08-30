@@ -23,6 +23,7 @@ import SproutClassic from 'assets/sprout-classic.png'
 import SproutLeaf from 'assets/sprout-leaf.svg'
 import media from 'utils/media'
 import Layout from 'components/Layout'
+import healthLabels from '../../posts/design-system-health/health-labels.svg'
 
 const picoBoxes = {
   1: picoBox1,
@@ -62,6 +63,57 @@ const Badge = ({ icon: Icon, children, ...rest }) => (
   </Box>
 )
 
+const DesignSystemHealth = () => (
+  <Wide right={false}>
+    <Box display='flex' justifyContent='center' mt={48}>
+      <Image
+        src={healthLabels}
+        alt='Three buttons representing three different categories of health—healthy, withering, and dormant.'
+      />
+    </Box>
+
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='center'
+      width={[1, 1, 3 / 4, 1 / 2]}
+      margin='auto'
+      mb={88}
+      mt={32}
+      px={16}
+      css='text-align: center;'
+    >
+      <Badge icon={Calendar}>2020</Badge>
+
+      <Heading.h2 mt={32}>Measuring the health of a design system</Heading.h2>
+
+      <Text.p px={32} mb={40}>
+        Design systems are like community gardens, and understanding their
+        health is key to success. Here's how the team at Sprout Social does it.
+      </Text.p>
+
+      <Link
+        to='/2020/08/design-system-health'
+        unstyled
+        py={12}
+        px={40}
+        css={`
+          border-radius: 8px;
+          border: 1px solid ${(p) => p.theme.colors.gray[2]};
+
+          &:hover {
+            border-color: ${(p) => p.theme.colors.accent.pop};
+            color: ${(p) => p.theme.colors.type.body};
+            background: ${(p) => p.theme.colors.accent.pop};
+          }
+        `}
+      >
+        Read the case study →
+      </Link>
+    </Box>
+  </Wide>
+)
+
 const Seeds = () => (
   <div>
     <Wide right={false}>
@@ -80,6 +132,7 @@ const Seeds = () => (
               align-self: center;
             `}
             px={[12, 12, 0]}
+            alt="A grid of random components, such as buttons and form elements, from Sprout Social's component library."
           />
         </Box>
 
@@ -153,7 +206,11 @@ const Nectar = (props) => (
       <Grid mt='2em' mb='1em' overflow='visible' {...fullWidthImage}>
         <Box width={[1, 1, 1, 3 / 4]}>
           <a href={SproutClassic}>
-            <Image src={SproutClassic} css={nectarImageCSS} />
+            <Image
+              src={SproutClassic}
+              css={nectarImageCSS}
+              alt='A screenshot of the Sprout product before the redesign.'
+            />
           </a>
         </Box>
 
@@ -177,7 +234,11 @@ const Nectar = (props) => (
     <Wide mb='2em'>
       <Box {...fullWidthImage}>
         <a href={Sprout}>
-          <Image src={Sprout} css={nectarImageCSS} />
+          <Image
+            src={Sprout}
+            css={nectarImageCSS}
+            alt='A screenshot of the Sprout application after the redesign.'
+          />
         </a>
       </Box>
     </Wide>
@@ -205,7 +266,7 @@ const Pico = () => (
       <Grid>
         <Box width={[2 / 3, 1 / 2]} display='flex' alignItems='center'>
           <Box px={[16, 24, 40, 40, 80]}>
-            <Image width={64} src={picoLogo} />
+            <Image width={64} src={picoLogo} alt='Logo for the Pico app.' />
 
             <Heading.h2 fontSize='1.8em' mt={80} color='inherit'>
               Pico Digital Film
@@ -243,7 +304,7 @@ const Pico = () => (
             <Grid mb={40} maxWidth={[180, 180, 220, 'none']}>
               {[1, 2, 3, 4].map((i) => (
                 <Box width={[1 / 2, 1 / 2, 1 / 2, 1 / 4]} minWidth={75} key={i}>
-                  <Image src={picoBoxes[i]} />
+                  <Image src={picoBoxes[i]} alt='' />
                 </Box>
               ))}
             </Grid>
@@ -260,6 +321,7 @@ const Pico = () => (
               object-position: left center;
               min-height: 100%;
             `}
+            alt='Screenshot of the Pico Cam app.'
           />
         </Box>
       </Grid>
@@ -279,6 +341,7 @@ const Portrait = (props) => (
         object-fit: cover;
         object-position: center bottom;
       `}
+      alt='Photo of Chase McCoy standing and speaking to a group.'
     />
   </Box>
 )
@@ -422,6 +485,16 @@ const IndexPage = ({ data }) => {
       <CurveTextScroll mt={[0, -40]} mb={[0, 0, -40]}>
         here are some things I've worked on
       </CurveTextScroll>
+
+      <Page.Breakout
+        borderTop='1px solid'
+        borderBottom='1px solid'
+        borderColor='rgba(0, 0, 0, 0.08)'
+      >
+        <Layout.Grid>
+          <DesignSystemHealth />
+        </Layout.Grid>
+      </Page.Breakout>
 
       <Page.Breakout
         bg='#fdfaee'
