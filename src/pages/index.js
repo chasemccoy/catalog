@@ -65,7 +65,7 @@ const Badge = ({ icon: Icon, children, ...rest }) => (
 
 const DesignSystemHealth = () => (
   <Wide right={false}>
-    <Box display='flex' justifyContent='center' mt={48}>
+    <Box display='flex' justifyContent='center' mt={[24, 24, 32, 48]}>
       <Image
         src={healthLabels}
         alt='Three buttons representing three different categories of health—healthy, withering, and dormant.'
@@ -87,7 +87,7 @@ const DesignSystemHealth = () => (
 
       <Heading.h2 mt={32}>Measuring the health of a design system</Heading.h2>
 
-      <Text.p px={32} mb={40}>
+      <Text.p px={[16, 16, 16, 32]} mb={40}>
         Design systems are like community gardens, and understanding their
         health is key to success. Here's how the team at Sprout Social does it.
       </Text.p>
@@ -486,11 +486,7 @@ const IndexPage = ({ data }) => {
         here are some things I've worked on
       </CurveTextScroll>
 
-      <Page.Breakout
-        borderTop='1px solid'
-        borderBottom='1px solid'
-        borderColor='rgba(0, 0, 0, 0.08)'
-      >
+      <Page.Breakout borderTop='1px solid' borderColor='rgba(0, 0, 0, 0.08)'>
         <Layout.Grid>
           <DesignSystemHealth />
         </Layout.Grid>
