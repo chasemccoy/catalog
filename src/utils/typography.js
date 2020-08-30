@@ -14,7 +14,7 @@ const typography = new Typography({
   bodyColor: theme.colors.type.body,
   headerFontFamily: fontFamilyArray(theme.fonts.headers),
   headerColor: theme.colors.type.header,
-  scaleRatio: 2.5,
+  scaleRatio: 2,
   headerWeight: theme.fontWeights.normal,
   bodyWeight: theme.fontWeights.normal,
   boldWeight: theme.fontWeights.bold,
@@ -25,7 +25,7 @@ const typography = new Typography({
     },
     'h1,h2,h3,h4,h5,h6': {
       marginTop: rhythm(1.5),
-      marginBottom: '0.6em'
+      marginBottom: '0.8em'
     },
     img: {
       height: 'auto'
