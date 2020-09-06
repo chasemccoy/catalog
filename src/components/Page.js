@@ -75,10 +75,12 @@ const Page = ({
     }
   }, [aside])
 
+  const normalizedTitle = title ? title.replace(/&nbsp;/g, ' ') : null
+
   return (
     <PageContext.Provider value={{ title, description }}>
       <Metadata
-        title={title}
+        title={normalizedTitle}
         description={description}
         article={article}
         page

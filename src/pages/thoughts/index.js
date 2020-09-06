@@ -31,7 +31,7 @@ const ThoughtsPage = ({ data }) => {
                 <Box
                   height='8px'
                   width={1}
-                  mt={[88, null, null, 72]}
+                  mt={[88, null, null, 120]}
                   bg='accent.pop'
                 />
               </Wide>

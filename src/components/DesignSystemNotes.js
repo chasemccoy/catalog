@@ -6,8 +6,16 @@ import { useStaticQuery, graphql } from 'gatsby'
 import ArrowRight from 'assets/arrow-right-icon.svg'
 
 const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
-  <Box mb={40} key={id}>
-    <Text as='h2' mb={8}>
+  <Box
+    border='1px solid'
+    borderRadius='12px'
+    px={16}
+    py={24}
+    borderColor='gray.2'
+    mb={24}
+    key={id}
+  >
+    <Text as='h2' className='inline' css='margin-bottom: 12px !important;'>
       <Link unstyled to={slug}>
         {title} <ArrowRight />
       </Link>

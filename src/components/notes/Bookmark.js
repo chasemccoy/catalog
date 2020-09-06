@@ -1,17 +1,18 @@
+import React from 'react'
 import styled from 'styled-components'
 import Microlink from '@microlink/react'
 
-const Bookmark = styled(Microlink)`
+const StyledMicrolink = styled(Microlink)`
   &&& {
     max-width: none;
-    border-color: ${p => p.theme.colors.gray[1]};
+    border-color: ${(p) => p.theme.colors.gray[1]};
     color: inherit;
     margin-bottom: 1.5em;
     border-radius: 8px;
 
     &:hover {
-      background: ${p => p.theme.colors.gray[0]};
-      border-color: ${p => p.theme.colors.gray[1]};
+      background: ${(p) => p.theme.colors.gray[0]};
+      border-color: ${(p) => p.theme.colors.gray[1]};
     }
 
     & + & {
@@ -33,8 +34,14 @@ const Bookmark = styled(Microlink)`
   }
 
   .microlink_card__content_url {
-    color: ${p => p.theme.colors.gray[3]};
+    color: ${(p) => p.theme.colors.gray[3]};
   }
 `
+
+const Bookmark = ({ media = ['image', 'logo'], ...rest }) => (
+  <div>
+    <StyledMicrolink media={media} {...rest} />
+  </div>
+)
 
 export default Bookmark
