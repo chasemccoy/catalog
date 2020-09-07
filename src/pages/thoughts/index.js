@@ -12,10 +12,19 @@ const ThoughtsPage = ({ data }) => {
       description="What's on my mind, and links to some interesting stuff on the web."
       untitled
     >
-      <Box mt={-64}>
+      <Box>
         {data.posts.nodes.map((node) => (
           <React.Fragment key={node.id}>
-            <Box as='article' mb={[-40, null, null, -24]}>
+            <Box as='article' mb={[88, null, null, 120]}>
+              <Wide>
+                <Box
+                  height='6px'
+                  width={1}
+                  bg='accent.pop'
+                  mb={[-40, null, null, -32]}
+                />
+              </Wide>
+
               <Post
                 title={node.title}
                 to={node.slug}
@@ -26,15 +35,6 @@ const ThoughtsPage = ({ data }) => {
                 tags={node.tags}
                 aside={node.format === 'aside'}
               />
-
-              <Wide right={false}>
-                <Box
-                  height='8px'
-                  width={1}
-                  mt={[88, null, null, 120]}
-                  bg='accent.pop'
-                />
-              </Wide>
             </Box>
           </React.Fragment>
         ))}

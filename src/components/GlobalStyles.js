@@ -83,7 +83,7 @@ const GlobalStyles = createGlobalStyle`
     h2.inline {
       margin-bottom: 1.5rem;
 
-      &:not(:first-child) {
+      &:not(.no-border) {
         padding-top: 12px;
         border-top: 2px solid black;
       }
@@ -93,12 +93,12 @@ const GlobalStyles = createGlobalStyle`
     .float-header {
       --width: var(--sidebarWidth);
 
-      padding-top: 20px;
+      padding-top: 16px;
       border-top: 2px solid ${(p) => p.theme.colors.type.body};
       margin-top: 2rem;
 
       width: var(--width);
-      margin-left: calc(-1 * var(--width) - 56px);
+      margin-left: calc(-1 * var(--width) - var(--gap));
       float: left;
 
       &.no-border {
@@ -121,10 +121,6 @@ const GlobalStyles = createGlobalStyle`
       &.no-border + *:before {
         border-top: none;
       }
-
-      ${media.large`
-        --width: 250px;
-      `}
 
       ${media.medium`
         float: none;

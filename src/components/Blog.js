@@ -115,7 +115,7 @@ export const Post = (props) => {
 
   const title = props.title && (
     <Box className='float-header no-border'>
-      <Heading.h2 fontSize='2rem' className='inline'>
+      <Heading.h2 fontSize='2rem' className='inline no-border'>
         <Title
           to={props.to}
           dangerouslySetInnerHTML={{ __html: props.title }}
