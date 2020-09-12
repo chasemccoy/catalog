@@ -5,7 +5,7 @@ import { Grid, Box, Text } from '@chasemccoy/kit'
 import { useStaticQuery, graphql } from 'gatsby'
 import ArrowRight from 'assets/arrow-right-icon.svg'
 
-const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
+const Note = ({ title, slug, tableOfContents, excerpt, ...rest }) => (
   <Box
     border='1px solid'
     borderRadius='12px'
@@ -13,9 +13,12 @@ const Note = ({ id, title, slug, tableOfContents, excerpt, ...rest }) => (
     py={24}
     borderColor='gray.2'
     mb={24}
-    key={id}
   >
-    <Text as='h2' className='inline' css='margin-bottom: 12px !important;'>
+    <Text
+      as='h2'
+      className='inline no-border'
+      css='margin-bottom: 12px !important;'
+    >
       <Link unstyled to={slug}>
         {title} <ArrowRight />
       </Link>
@@ -61,7 +64,7 @@ const DesignSystems = ({ category, ...rest }) => {
   return (
     <React.Fragment>
       {nodes.map((node) => (
-        <Note {...node} />
+        <Note key={node.id} {...node} />
       ))}
 
       <Text as='h2'>Posts about design systems</Text>
