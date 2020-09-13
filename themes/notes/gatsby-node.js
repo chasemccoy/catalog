@@ -4,7 +4,7 @@ const notesPath = '/notes'
 const Note = require.resolve('../../src/templates/note.js')
 const Notes = require.resolve('../../src/templates/notes.js')
 
-const mdxResolverPassthrough = fieldName => async (
+const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
   context,
@@ -192,7 +192,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const isProduction = process.env.NODE_ENV === 'production'
 
-  const notes = allNote.nodes.filter(node => {
+  const notes = allNote.nodes.filter((node) => {
     const noteIsPrivate = node.private === true
     // If this is a prod build, don't show private notes
     if (isProduction) {
@@ -220,7 +220,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }, {})
 
   // Create each note page at /notes/:slug
-  notes.forEach(node => {
+  notes.forEach((node) => {
     createPage({
       path: node.slug,
       context: {
@@ -246,7 +246,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pagePath = path.join(notesPath, key.replace(' ', '-'))
     // If we include an index.md it means we want to use a custom landing page,
     // so don't create an automatic one
-    const pageAlreadyExists = notes.find(node => node.slug === pagePath)
+    const pageAlreadyExists = notes.find((node) => node.slug === pagePath)
 
     if (!pageAlreadyExists) {
       createPage({
@@ -260,14 +260,4 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   })
-
-  // Create the root /notes page
-  // createPage({
-  //   path: notesPath,
-  //   context: {
-  //     notes: notes,
-  //     categories: groupedNotes
-  //   },
-  //   component: Notes
-  // })
 }

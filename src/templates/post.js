@@ -1,47 +1,8 @@
 import Page from 'components/Page'
-import { Box, Text } from '@chasemccoy/kit'
 import { Post } from 'components/Blog'
 import React from 'react'
 import { graphql } from 'gatsby'
-import Link from 'components/Link'
-import Tags from 'components/Tags'
-
-const Sidebar = ({ items, tags, date }) => {
-  const hasRelatedItems = items && items.length !== 0
-
-  return (
-    <Text fontSize='0.8em'>
-      <Box mb={tags || hasRelatedItems ? 24 : 0}>
-        <Page.SidebarHeader>Published</Page.SidebarHeader>
-        <Text>{date}</Text>
-      </Box>
-
-      {tags && (
-        <Box mb={hasRelatedItems ? 24 : 0}>
-          <Page.SidebarHeader>Tags</Page.SidebarHeader>
-          <Tags items={tags} />
-        </Box>
-      )}
-
-      {hasRelatedItems && (
-        <React.Fragment>
-          <Page.SidebarHeader>Related</Page.SidebarHeader>
-
-          {items.map((item, i) => (
-            <Box key={i} mb={8}>
-              <Link
-                unstyled
-                to={item.slug}
-                color='gray.4'
-                dangerouslySetInnerHTML={{ __html: item.title }}
-              />
-            </Box>
-          ))}
-        </React.Fragment>
-      )}
-    </Text>
-  )
-}
+import Sidebar from 'components/Sidebar'
 
 export default ({ data, pageContext }) => {
   const post = data.blog
@@ -54,9 +15,11 @@ export default ({ data, pageContext }) => {
       header={null}
       aside={
         <Sidebar
-          items={data.relatedPosts.nodes}
+          title={post.title}
+          description={post.excerpt}
+          relatedItems={data.relatedPosts.nodes}
           tags={post.tags}
-          date={post.date}
+          publishDate={post.date}
         />
       }
     >

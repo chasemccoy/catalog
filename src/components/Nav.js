@@ -36,14 +36,14 @@ const NavContainer = styled.nav(
     }
 
     ${media.small`
-    li {
-      display: block;
-    }
+      li {
+        display: block;
+      }
 
-    li + li {
-      margin-top: 4px;
-      margin-left: 0;
-    }
+      li + li {
+        margin-top: 4px;
+        margin-left: 0;
+      }
   `}
   `
 )

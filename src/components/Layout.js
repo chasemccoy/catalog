@@ -31,7 +31,7 @@ Layout.Grid = styled(Box)(
   ({ them, flush = false }) => css`
     --contentWidth: ${theme.sizes.contentWidth};
     --sidebarWidth: ${theme.sizes.sidebarWidth};
-    --gap: 56px;
+    --gap: 80px;
     --maxWidth: calc(var(--sidebarWidth) + var(--gap) + var(--contentWidth));
     --padding: 40px;
 
@@ -64,10 +64,11 @@ Layout.Grid = styled(Box)(
       min-width: 0;
     }
 
-    ${media.large`
+    ${
+      '' /* ${media.large`
       --sidebarWidth: calc(${theme.sizes.sidebarWidth} * 0.8);
-      --gap: 40px;
-    `}
+    `} */
+    }
 
     ${media.medium`
       --padding: 24px;

@@ -4,6 +4,7 @@ import { Post } from 'components/Blog'
 import { Box } from '@chasemccoy/kit'
 import { graphql } from 'gatsby'
 import Wide from 'components/Wide'
+import Sidebar from 'components/Sidebar'
 
 const ThoughtsPage = ({ data }) => {
   return (
@@ -11,6 +12,7 @@ const ThoughtsPage = ({ data }) => {
       title='Thoughts'
       description="What's on my mind, and links to some interesting stuff on the web."
       untitled
+      aside={<Sidebar />}
     >
       <Box>
         {data.posts.nodes.map((node) => (
@@ -64,18 +66,6 @@ export const query = graphql`
         }
         isMdx
         format
-      }
-    }
-
-    olderPosts: allBlog(
-      filter: { format: { eq: "standard" } }
-      sort: { fields: date, order: DESC }
-      limit: 8
-    ) {
-      nodes {
-        id
-        title
-        slug
       }
     }
   }

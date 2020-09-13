@@ -5,6 +5,7 @@ import { Box, Heading } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Wide from 'components/Wide'
+import Sidebar from 'components/Sidebar'
 
 const ShortPost = ({ slug, title }) => (
   <Heading.h3 fontSize='24px' m={0}>
@@ -29,8 +30,8 @@ const ArchivePage = ({ data }) => {
   )
 
   return (
-    <Page title='Archive' untitled>
-      {groups.map(group => (
+    <Page title='Archive' untitled aside={<Sidebar />}>
+      {groups.map((group) => (
         <React.Fragment>
           <Wide borderTop='1px solid' borderColor='gray.2' mb={24}>
             <Heading.h2 mb={0} mt={16} fontSize='1.8em'>
@@ -39,7 +40,7 @@ const ArchivePage = ({ data }) => {
           </Wide>
 
           <Box mt={-52}>
-            {group.nodes.map(node => {
+            {group.nodes.map((node) => {
               if (node.title) {
                 return (
                   <Box mb={48} key={node.id}>
@@ -66,7 +67,7 @@ export default ArchivePage
 export const query = graphql`
   query ArchiveQuery {
     posts: allBlog(
-      filter: { format: { nin: ["image"] } }
+      filter: { format: { nin: ["image", "aside"] } }
       sort: { fields: date, order: DESC }
     ) {
       group(field: year) {
