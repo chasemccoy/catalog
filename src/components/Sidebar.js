@@ -52,6 +52,7 @@ const Sidebar = ({
   return (
     <Text
       fontSize='0.8em'
+      mb={32}
       css={`
         > * + * {
           margin-top: 24px;

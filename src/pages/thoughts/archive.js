@@ -1,27 +1,24 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Post } from 'components/Blog'
-import { Box, Heading } from '@chasemccoy/kit'
+// import { Post } from 'components/Blog'
+import { Box, Heading, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Wide from 'components/Wide'
 import Sidebar from 'components/Sidebar'
 
-const ShortPost = ({ slug, title }) => (
-  <Heading.h3 fontSize='24px' m={0}>
-    <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
-  </Heading.h3>
-)
+const ShortPost = ({ slug, title, excerpt }) => (
+  <Box>
+    <Heading.h3 m={0}>
+      <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
+    </Heading.h3>
 
-const LongPost = ({ title, slug, date, content, excerpt, isMdx }) => (
-  <Post
-    title={title}
-    to={slug}
-    date={date}
-    content={content}
-    excerpt={excerpt}
-    isMdx={isMdx}
-  />
+    {excerpt && (
+      <Text as='p' mt={8} color='gray.4'>
+        {excerpt}
+      </Text>
+    )}
+  </Box>
 )
 
 const ArchivePage = ({ data }) => {
@@ -30,33 +27,17 @@ const ArchivePage = ({ data }) => {
   )
 
   return (
-    <Page title='Archive' untitled aside={<Sidebar />}>
+    <Page title='Archive' untitled aside={<Sidebar />} article>
       {groups.map((group) => (
-        <React.Fragment>
-          <Wide borderTop='1px solid' borderColor='gray.2' mb={24}>
-            <Heading.h2 mb={0} mt={16} fontSize='1.8em'>
-              {group.year}
-            </Heading.h2>
-          </Wide>
+        <Box mb={32}>
+          <Heading.h2 fontSize='1.8em'>{group.year}</Heading.h2>
 
-          <Box mt={-52}>
-            {group.nodes.map((node) => {
-              if (node.title) {
-                return (
-                  <Box mb={48} key={node.id}>
-                    <ShortPost {...node} />
-                  </Box>
-                )
-              } else {
-                return (
-                  <Box mb={48} key={node.id}>
-                    <LongPost {...node} />
-                  </Box>
-                )
-              }
-            })}
-          </Box>
-        </React.Fragment>
+          {group.nodes.map((node, i) => (
+            <Box mb={40} mt={i === 0 ? '-2rem' : null} key={node.id}>
+              <ShortPost {...node} />
+            </Box>
+          ))}
+        </Box>
       ))}
     </Page>
   )

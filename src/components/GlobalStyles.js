@@ -159,7 +159,7 @@ const GlobalStyles = createGlobalStyle`
       `}
 
       ${media.small`
-        padding-top: 24px;
+        padding-top: 12px;
       `}
     }
 

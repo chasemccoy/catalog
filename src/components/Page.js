@@ -12,7 +12,7 @@ const PageContext = createContext({})
 const SiteHeader = () => (
   <Layout.Grid
     pt={[24, 24, 24, 40]}
-    pb={[40]}
+    pb={[16, null, null, 40]}
     mb={48}
     mt={[24, null, null, 0]}
     css='font-size: 0.9em;'
@@ -100,6 +100,10 @@ const Page = ({
     if (!aside) return
     const sidebar = document.getElementById('sidebar')
     const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 200
+
+    if (sidebar.offsetHeight === 0) {
+      return
+    }
 
     const headers = [...document.querySelectorAll('#main-content h2')]
 
