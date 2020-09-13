@@ -233,6 +233,13 @@ const GlobalStyles = createGlobalStyle`
     `}
   }
 
+  *:not(.gatsby-resp-image-figure) > .gatsby-resp-image-wrapper,
+  .gatsby-resp-image-figure,
+  p > img {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+  }
+
   .gatsby-resp-image-figcaption {
     margin: 8px 0;
     color: ${(p) => p.theme.colors.gray[4]};

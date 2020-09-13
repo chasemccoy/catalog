@@ -21,10 +21,13 @@ const SidebarLink = (props) => (
     css={`
       &.selected {
         color: ${(p) => p.theme.colors.gray[5]};
-        position: relative;
         font-weight: 700;
 
-        &:after {
+        span {
+          position: relative;
+        }
+
+        span:after {
           position: absolute;
           background-color: var(--section-highlight);
           margin-top: 0.25rem;
@@ -78,8 +81,10 @@ const Sidebar = ({
           <SidebarHeader>Table of contents</SidebarHeader>
 
           {tableOfContents.items.map((item, i) => (
-            <Box key={i} mb={4}>
-              <SidebarLink to={item.url}>{item.title}</SidebarLink>
+            <Box key={i} mb={4} display='flex'>
+              <SidebarLink to={item.url} css='flex: 1;'>
+                {item.title}
+              </SidebarLink>
             </Box>
           ))}
         </Box>
@@ -97,22 +102,27 @@ const Sidebar = ({
               alignItems='center'
               justifyContent='space-between'
               css={`
-                & span {
+                a {
+                  flex: 1;
+                }
+
+                & span.arrow {
                   opacity: 0;
                   transition: opacity 0.15s;
                 }
 
-                &:hover span {
+                &:hover span.arrow {
                   opacity: 1;
                 }
               `}
             >
-              <SidebarLink
-                to={item.slug}
-                dangerouslySetInnerHTML={{ __html: item.title }}
-              />
+              <SidebarLink to={item.slug}>
+                <span dangerouslySetInnerHTML={{ __html: item.title }} />
+              </SidebarLink>
 
-              <Text.span color='gray.4'>→</Text.span>
+              <Text.span color='gray.4' className='arrow'>
+                →
+              </Text.span>
             </Box>
           ))}
         </Box>

@@ -19,7 +19,10 @@ export const Quote = ({ content, source, ...rest }) => (
 
 const QuotesPage = ({ data }) => {
   return (
-    <Page title='Quotes' description='Words worth keeping in mind.'>
+    <Page
+      title='Quotes'
+      description='A running list of musings than have struck me as worth keeping in mind.'
+    >
       <Wide left={false} mb={24}>
         <MultiColumn count={2} gap='64px' minColumnWidth='15em'>
           {data.quotes.edges.map(({ node }, i) => (
