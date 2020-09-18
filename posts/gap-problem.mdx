@@ -2,6 +2,7 @@
 title: The gap problem
 excerpt: Exploring techniques and trade offs for creating reusable grid components using modern CSS best practices.
 date: 2020-04-02
+featured: true
 ---
 
 Simple collections of items laid out in rows and columns is perhaps one of the most common UI patterns. Whether you're showing a literal grid of items, or building the layout of your site, grids are a fundamental element of design on the web (and you could say the same about print, too).
@@ -20,13 +21,9 @@ Maybe that's because for a while there wasn't a really clean way to add gaps bet
     <br />
     <br />
     &lt;div class=&quot;flex&quot; style=&quot;--gap: 10px;&quot;&gt;
-    <a href='https://t.co/gpiScF8XTe'>https://t.co/gpiScF8XTe</a>{' '}
-    <a href='https://t.co/cCrJH4R9Iw'>pic.twitter.com/cCrJH4R9Iw</a>
+    <a href='https://t.co/gpiScF8XTe'>https://t.co/gpiScF8XTe</a> <a href='https://t.co/cCrJH4R9Iw'>pic.twitter.com/cCrJH4R9Iw</a>
   </p>
-  &mdash; Devon Govett (@devongovett){' '}
-  <a href='https://twitter.com/devongovett/status/1244679626162450432?ref_src=twsrc%5Etfw'>
-    March 30, 2020
-  </a>
+  &mdash; Devon Govett (@devongovett) <a href='https://twitter.com/devongovett/status/1244679626162450432?ref_src=twsrc%5Etfw'>March 30, 2020</a>
 </blockquote>
 
 The basic idea here is that each child item in the grid has spacing around it, which creates the desired gap between items. A negative margin around the parent is applied to cancel out the unwanted spacing around the outer edges of the child items. Voila, you've got gaps between items with no errant spacing.

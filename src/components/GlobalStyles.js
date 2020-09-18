@@ -30,6 +30,7 @@ const GlobalStyles = createGlobalStyle`
       height: 100vh;
       left: 0;
       background: linear-gradient(to bottom, var(--section-gradient-color-1), var(--section-gradient-color-2));
+      background: ${(p) => p.theme.colors.accent.pop};
 
       ${media.medium`
         position: absolute;
@@ -38,6 +39,7 @@ const GlobalStyles = createGlobalStyle`
         left: 0;
         right: 0;
         background: linear-gradient(to right, var(--section-gradient-color-1), var(--section-gradient-color-2));
+        background: ${(p) => p.theme.colors.accent.pop};
       `}
     }
   }
@@ -235,7 +237,7 @@ const GlobalStyles = createGlobalStyle`
 
   *:not(.gatsby-resp-image-figure) > .gatsby-resp-image-wrapper,
   .gatsby-resp-image-figure,
-  p > img {
+  p:not(:first-child) > img {
     margin-top: 2em !important;
     margin-bottom: 2em !important;
   }

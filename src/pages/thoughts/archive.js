@@ -6,44 +6,91 @@ import { graphql } from 'gatsby'
 import Sidebar from 'components/Sidebar'
 import Tags from 'components/Tags'
 import Wide from 'components/Wide'
+import media from 'utils/media'
 
-const Card = ({ children, ...rest }) => (
-  <Box
-    // border='2px solid black'
-    borderRadius='8px'
-    bg='black'
-    height='300px'
+const Card = ({
+  title = 'Testing a card for posts',
+  excerpt,
+  slug,
+  ...rest
+}) => (
+  <Link
+    to={slug}
+    unstyled
     display='flex'
+    height='100%'
+    ml={-1}
     css={`
+      background: repeating-linear-gradient(
+        -55deg,
+        ${(p) => p.theme.colors.accent.pop},
+        ${(p) => p.theme.colors.accent.pop} 2px,
+        #000 2px,
+        #000 3px
+      );
+
+      &:hover {
+        color: inherit;
+      }
+
       & > div {
         transition: all 0.1s ease-in;
       }
 
       &:hover > div {
-        transform: translate(-6px, -6px);
+        transform: translate(-8px, -8px);
       }
     `}
     {...rest}
   >
-    <Box bg='accent.pop' borderRadius='6px' border='2px solid black' width={1}>
-      {children}
+    <Box
+      bg='accent.pop'
+      border='1px solid black'
+      px={24}
+      py={32}
+      width={1}
+      display='flex'
+      flexDirection='column'
+      justifyContent='space-between'
+    >
+      <Text
+        as='h2'
+        className='inline no-border'
+        fontFamily='sans'
+        fontWeight='heavy'
+        dangerouslySetInnerHTML={{ __html: title }}
+        css='hyphens: auto;'
+      />
+
+      <Text
+        as='p'
+        fontSize='0.8em'
+        mt={-12}
+        mb={0}
+        dangerouslySetInnerHTML={{ __html: excerpt }}
+      />
     </Box>
-  </Box>
+  </Link>
 )
 
-const Post = ({ slug, title, excerpt, tags, ...rest }) => (
+const Post = ({ slug, title, excerpt, tags, date, ...rest }) => (
   <Box {...rest}>
-    <Heading.h3 m={0}>
+    <Heading.h3 m={0} fontSize='1.5rem'>
       <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
     </Heading.h3>
 
     {excerpt && (
-      <Text as='p' mt={8} mb={16} color='gray.4'>
+      <Text as='p' mt={8} mb={12} color='gray.4'>
         {excerpt}
       </Text>
     )}
 
-    {tags && <Tags items={tags} />}
+    <Box display='flex' alignItems='center'>
+      <Text fontSize='0.8em' color='gray.4' mr={24}>
+        {date}
+      </Text>
+      {tags && <Tags items={tags} />}
+    </Box>
   </Box>
 )
 
@@ -55,27 +102,43 @@ const ArchivePage = ({ data }) => {
   return (
     <Page title='Archive' untitled aside={<Sidebar />} article>
       <Wide right={false}>
-        <Box bg='accent.pop' p={40} mb={64}>
-          <Grid overflow='visible'>
-            <Box width={1 / 4}>
-              <Card />
-            </Box>
-            <Box width={1 / 4}>
-              <Card />
-            </Box>
-            <Box width={1 / 4}>
-              <Card />
-            </Box>
-            <Box width={1 / 4}>
-              <Card />
-            </Box>
-          </Grid>
+        <Box
+          bg='accent.pop'
+          mb={64}
+          css={`
+            ${media.small`
+              width: calc(100% + 32px);
+              margin-left: -16px;
+            `}
+          `}
+        >
+          {/* <Text fontSize='0.9em' fontWeight='bold' mb={32} mt={-8}>
+            Featured posts
+          </Text> */}
+
+          <Box display='flex' flexWrap='wrap'>
+            <Box>Hey</Box>
+
+            {data.featuredPosts.nodes.map((node, i) => (
+              <Box flex={1}>
+                <Card {...node} />
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Wide>
 
       {groups.map((group) => (
         <Box mb={32}>
-          <Heading.h2 fontSize='1.8em'>{group.year}</Heading.h2>
+          <Heading.h2
+            fontSize='1.6em'
+            fontFamily='sans'
+            fontWeight='heavy'
+            color='gray.4'
+            mb={72}
+          >
+            {group.year}
+          </Heading.h2>
 
           {group.nodes.map((node, i) => (
             <Post
@@ -95,6 +158,19 @@ export default ArchivePage
 
 export const query = graphql`
   query ArchiveQuery {
+    featuredPosts: allBlog(
+      filter: { format: { nin: ["image", "aside"] } }
+      sort: { fields: date, order: DESC }
+      limit: 4
+    ) {
+      nodes {
+        title
+        excerpt
+        date
+        slug
+      }
+    }
+
     posts: allBlog(
       filter: { format: { nin: ["image", "aside"] } }
       sort: { fields: date, order: DESC }
@@ -105,7 +181,7 @@ export const query = graphql`
         nodes {
           id
           title
-          date(formatString: "MMMM Do, YYYY")
+          date(formatString: "MMMM Do")
           slug
           format
           content

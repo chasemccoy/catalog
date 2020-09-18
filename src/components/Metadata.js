@@ -36,6 +36,7 @@ const Metadata = ({
           titleTemplate={titleTemplate}
           defaultTitle={defaultTitle}
         >
+          <html lang='en' />
           <meta name='description' content={seo.description} />
 
           {article && <meta property='og:type' content='article' />}
@@ -43,14 +44,19 @@ const Metadata = ({
           <meta property='og:title' content={seo.title || defaultTitle} />
 
           {seo.url && pathname && (
-            <meta property='og:url' content={seo.url + pathname.replace(/\/$/, "")} />
+            <meta
+              property='og:url'
+              content={seo.url + pathname.replace(/\/$/, '')}
+            />
           )}
 
           {seo.description && (
             <meta property='og:description' content={seo.description} />
           )}
 
-          {(image && !article && page) && <meta property='og:image' content={seo.image} />}
+          {image && !article && page && (
+            <meta property='og:image' content={seo.image} />
+          )}
 
           <meta name='twitter:card' content='summary' />
 

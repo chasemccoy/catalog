@@ -64,12 +64,6 @@ Layout.Grid = styled(Box)(
       min-width: 0;
     }
 
-    ${
-      '' /* ${media.large`
-      --sidebarWidth: calc(${theme.sizes.sidebarWidth} * 0.8);
-    `} */
-    }
-
     ${media.medium`
       --padding: 24px;
 
