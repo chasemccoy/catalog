@@ -20,6 +20,7 @@ const Card = ({
     display='flex'
     height='100%'
     ml={-1}
+    mt={-1}
     css={`
       background: repeating-linear-gradient(
         -55deg,
@@ -112,18 +113,42 @@ const ArchivePage = ({ data }) => {
             `}
           `}
         >
-          {/* <Text fontSize='0.9em' fontWeight='bold' mb={32} mt={-8}>
-            Featured posts
-          </Text> */}
-
           <Box display='flex' flexWrap='wrap'>
-            <Box>Hey</Box>
+            <Box
+              display='flex'
+              flexDirection='column'
+              justifyContent={['flex-start', null, null, 'flex-end']}
+              flexBasis={['100%', null, null, '0%']}
+              pt={12}
+              pb={[12, null, null, 0]}
+              px={8}
+              pl={[24, 24, 12, 32]}
+              css={`
+                writing-mode: vertical-rl;
+                transform: rotate(-180deg);
 
-            {data.featuredPosts.nodes.map((node, i) => (
-              <Box flex={1}>
-                <Card {...node} />
-              </Box>
-            ))}
+                ${media.medium`
+                  writing-mode: initial;
+                  transform: none;
+                `}
+              `}
+            >
+              <Text fontFamily='code' fontSize='0.8em'>
+                Featured posts
+              </Text>
+            </Box>
+
+            <Box display='flex' flexWrap='wrap' flex='1 1 0%'>
+              {data.featuredPosts.nodes.map((node, i) => (
+                <Box
+                  css='flex-grow: 1; flex-shrink: 1;'
+                  flexBasis={['100%', null, '31%', '23%']}
+                  mt={[-1, null, null, 0]}
+                >
+                  <Card {...node} />
+                </Box>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Wide>
@@ -134,7 +159,7 @@ const ArchivePage = ({ data }) => {
             fontSize='1.6em'
             fontFamily='sans'
             fontWeight='heavy'
-            color='gray.4'
+            color='gray.5'
             mb={72}
           >
             {group.year}
@@ -159,7 +184,7 @@ export default ArchivePage
 export const query = graphql`
   query ArchiveQuery {
     featuredPosts: allBlog(
-      filter: { format: { nin: ["image", "aside"] } }
+      filter: { featured: { eq: true } }
       sort: { fields: date, order: DESC }
       limit: 4
     ) {
