@@ -1,10 +1,10 @@
 import React from 'react'
 import Page from 'components/Page'
-import Sidebar from 'components/notes/Sidebar'
+import NotesSidebar from 'components/notes/Sidebar'
 import Layout from 'components/notes/Layout'
 import { capitalize } from 'utils'
 import NotesList from 'components/notes/List'
-import { Text } from '@chasemccoy/kit'
+import Sidebar from 'components/Sidebar'
 
 const Notes = ({ pageContext: { notes, categories, category } }) => {
   const title = category ? capitalize(category) : 'Notes'
@@ -16,11 +16,12 @@ const Notes = ({ pageContext: { notes, categories, category } }) => {
       description={description}
       aside={
         categories ? (
-          <Text fontSize='0.8em'>
-            <Sidebar data={categories} />
-          </Text>
+          <Sidebar>
+            <NotesSidebar data={categories} />
+          </Sidebar>
         ) : null
       }
+      section='notes'
     >
       <Layout>
         <Layout.Content>

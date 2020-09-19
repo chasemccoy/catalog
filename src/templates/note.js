@@ -2,77 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
-import { Box, Text } from '@chasemccoy/kit'
 import Layout from 'components/notes/Layout'
-import Link from 'components/Link'
 import NoteSidebar from 'components/notes/Sidebar'
-import Tags from 'components/Tags'
-
-const Sidebar = ({ notes, category, categories, tableOfContents, tags }) => (
-  <Text fontSize='0.8em'>
-    {tags && (
-      <Box mb={24}>
-        <Page.SidebarHeader>Tags</Page.SidebarHeader>
-        <Tags items={tags} />
-      </Box>
-    )}
-
-    {tableOfContents && tableOfContents.items && (
-      <Box mb={24}>
-        <Page.SidebarHeader>On this page</Page.SidebarHeader>
-
-        {tableOfContents.items.map((item, i) => (
-          <Box key={i} mb={4}>
-            <Link unstyled to={item.url}>
-              {item.title}
-            </Link>
-          </Box>
-        ))}
-      </Box>
-    )}
-
-    {notes && (
-      <React.Fragment>
-        <Page.SidebarHeader>More in {category}</Page.SidebarHeader>
-
-        {notes.map(
-          (note) =>
-            !note.isLandingPage && (
-              <Box key={note.id} mb={4}>
-                <Link
-                  unstyled
-                  to={note.slug}
-                  css={`
-                    &.selected {
-                      position: relative;
-                      font-weight: 700;
-
-                      &:after {
-                        position: absolute;
-                        background-color: ${(p) => p.theme.colors.yellow[200]};
-                        margin-top: 0.25rem;
-                        margin-left: 0.25rem;
-                        width: 100%;
-                        z-index: -1;
-                        height: 100%;
-                        top: -3px;
-                        left: 0px;
-                        content: '';
-                      }
-                    }
-                  `}
-                >
-                  {note.title}
-                </Link>
-              </Box>
-            )
-        )}
-      </React.Fragment>
-    )}
-
-    <NoteSidebar mt={24} data={categories} />
-  </Text>
-)
+import Sidebar from 'components/Sidebar'
 
 const Note = ({
   data: { note },
@@ -89,13 +21,14 @@ const Note = ({
         header={<Page.Header category={category} />}
         aside={
           <Sidebar
-            notes={notes}
-            category={category}
-            categories={categories}
             tableOfContents={note.tableOfContents}
             tags={tags}
-          />
+            relatedItems={notes.filter((note) => !note.isLandingPage)}
+          >
+            <NoteSidebar data={categories} />
+          </Sidebar>
         }
+        section='notes'
       >
         <Layout>
           <Layout.Content mb={[0, 0, 0, 80]}>

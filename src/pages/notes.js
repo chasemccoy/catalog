@@ -3,44 +3,21 @@ import Page from 'components/Page'
 import { graphql } from 'gatsby'
 import NotesList from 'components/notes/List'
 import { slugify, capitalize } from 'utils'
-import Link from 'components/Link'
-import { Box, Text } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
+import Sidebar from 'components/Sidebar'
 
-const Sidebar = ({ categories }) => (
-  <Text fontSize='0.8em'>
-    <Page.SidebarHeader>Categories</Page.SidebarHeader>
+const NotesSidebar = ({ categories }) => (
+  <Box>
+    <Sidebar.Header>Categories</Sidebar.Header>
 
     {categories.map((category) => (
       <Box mb={4} key={category}>
-        <Link
-          unstyled
-          to={`/notes/${slugify(category)}`}
-          partiallyActive
-          css={`
-            &.selected {
-              position: relative;
-              font-weight: 700;
-
-              &:after {
-                position: absolute;
-                background-color: ${(p) => p.theme.colors.yellow[200]};
-                margin-top: 0.25rem;
-                margin-left: 0.25rem;
-                width: 100%;
-                z-index: -1;
-                height: 100%;
-                top: -3px;
-                left: 0px;
-                content: '';
-              }
-            }
-          `}
-        >
+        <Sidebar.Link to={`/notes/${slugify(category)}`} partiallyActive>
           {capitalize(category)}
-        </Link>
+        </Sidebar.Link>
       </Box>
     ))}
-  </Text>
+  </Box>
 )
 
 const Notes = ({ data }) => {
@@ -50,7 +27,12 @@ const Notes = ({ data }) => {
     <Page
       title='Notes'
       description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
-      aside={<Sidebar categories={categories} />}
+      aside={
+        <Sidebar>
+          <NotesSidebar categories={categories} />
+        </Sidebar>
+      }
+      section='notes'
     >
       <NotesList notes={data.notes.nodes} />
     </Page>

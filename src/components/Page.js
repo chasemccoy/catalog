@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useLayoutEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css, createGlobalStyle } from 'styled-components'
 import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Logo from 'components/Logo'
@@ -12,12 +12,10 @@ const PageContext = createContext({})
 const SiteHeader = () => (
   <Layout.Grid
     pt={[24, 24, 24, 40]}
-    pb={[40]}
+    pb={[16, null, null, 40]}
     mb={48}
-    // bg='accent.pop'
+    mt={[24, null, null, 0]}
     css='font-size: 0.9em;'
-    borderTop='8px solid'
-    borderColor='accent.pop'
   >
     <Logo mb={[12, null, 8, 0]} />
     <Nav />
@@ -41,6 +39,52 @@ const ContentGrid = styled(Box)`
   `}
 `
 
+const getSidebarStyles = () => css`
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 9999vh;
+    width: 100vw;
+    right: calc(-1 * var(--gap) / 2);
+    top: -50vh;
+    background: var(--section-sidebar-bg);
+    z-index: -1;
+    border-right: 1px solid ${(p) => p.theme.colors.gray[1]};
+
+    ${media.medium`
+      width: 200vw;
+      height: auto;
+      bottom: 0;
+      right: auto;
+      left: -100vw;
+      border-right: none;
+      border-bottom: 1px solid ${(p) => p.theme.colors.gray[1]};
+    `}
+  }
+`
+
+const getSectionStyles = (section) => {
+  switch (section) {
+    case 'notes':
+      return createGlobalStyle`
+        :root {
+          ${
+            '' /* --section-color: #2CDB7F;
+          --section-color-link-hover: #3F8050;
+          --section-gradient-color-1: #2CDB7F;
+          --section-gradient-color-2: #3F8050;
+          --section-sidebar-bg: #F7FDF4;
+          --section-highlight: #2CDB7F; */
+          }
+        }
+      `
+    default:
+      return createGlobalStyle``
+  }
+}
+
 const Page = ({
   children,
   header,
@@ -49,12 +93,17 @@ const Page = ({
   description,
   article = false,
   untitled = false,
+  section = 'default',
   ...rest
 }) => {
   useLayoutEffect(() => {
     if (!aside) return
     const sidebar = document.getElementById('sidebar')
-    const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 100
+    const bufferZone = sidebar.offsetTop + sidebar.offsetHeight + 200
+
+    if (sidebar.offsetHeight === 0) {
+      return
+    }
 
     const headers = [...document.querySelectorAll('#main-content h2')]
 
@@ -76,6 +125,7 @@ const Page = ({
   }, [aside])
 
   const normalizedTitle = title ? title.replace(/&nbsp;/g, ' ') : null
+  const SectionStyles = getSectionStyles(section)
 
   return (
     <PageContext.Provider value={{ title, description }}>
@@ -86,6 +136,8 @@ const Page = ({
         page
       />
 
+      <SectionStyles />
+
       <header>
         <SiteHeader />
       </header>
@@ -94,7 +146,11 @@ const Page = ({
         <Box as={article ? 'article' : 'div'} mb={40} {...rest}>
           <Layout.Grid>
             {(aside || !untitled) && (
-              <Box className='area-sidebar' mb={[24, null, null, 0]}>
+              <Box
+                className='area-sidebar'
+                mb={[24, null, null, 0]}
+                css={getSidebarStyles()}
+              >
                 {!untitled && <header>{header || <Header />}</header>}
                 <aside id='sidebar'>{aside}</aside>
               </Box>
@@ -113,39 +169,26 @@ const Page = ({
 const Header = ({ category, ...rest }) => {
   const { title, description } = useContext(PageContext)
 
-  if (!title && !description) return <Box mt={64} />
-
   return (
     <Box pb={24} {...rest}>
       <Text
         as='h1'
         fontSize='2rem'
         mt={0}
-        mb={description ? 16 : 0}
+        mb={description ? 8 : 0}
         dangerouslySetInnerHTML={{ __html: title }}
       />
 
       <Text
         as='p'
         color='gray.4'
-        lineHeight='1.3'
+        fontSize='0.9em'
         mb={0}
         dangerouslySetInnerHTML={{ __html: description }}
       />
     </Box>
   )
 }
-
-Page.SidebarHeader = (props) => (
-  <Text
-    mb={8}
-    borderBottom='1px solid'
-    borderColor='gray.1'
-    fontFamily='serif'
-    fontSize='1.3em'
-    {...props}
-  />
-)
 
 const Breakout = styled(Box)`
   width: 100vw;

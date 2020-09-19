@@ -37,6 +37,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       excerpt: { type: 'String' },
       year: { type: 'String' },
       isMdx: { type: 'Boolean' },
+      featured: { type: 'Boolean' },
       content: {
         type: 'String!',
         resolve(source, args, context, info) {
@@ -150,7 +151,8 @@ exports.onCreateNode = ({
         excerpt: node.frontmatter.excerpt,
         year: year,
         isMdx: true,
-        format: node.frontmatter.title ? 'standard' : 'aside'
+        format: node.frontmatter.title ? 'standard' : 'aside',
+        featured: node.frontmatter.featured ? true : false
       }
 
       createBlogNode(postData, {

@@ -15,8 +15,8 @@ const Wide = styled(Box)(
     margin-left: ${left ? `calc(var(--left-offset) * -1)` : 0};
 
     ${media.large`
-      width: calc(100% + var(--left-offset) * 1);
-      margin-left: calc(var(--left-offset) * -1);
+      width: ${left ? `calc(100% + var(--left-offset) * 1)` : '100%;'};
+      margin-left: ${left ? `calc(var(--left-offset) * -1)` : 0};
       margin-right: 0;
     `}
 

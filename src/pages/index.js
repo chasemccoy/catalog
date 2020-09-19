@@ -24,6 +24,7 @@ import SproutLeaf from 'assets/sprout-leaf.svg'
 import media from 'utils/media'
 import Layout from 'components/Layout'
 import healthLabels from '../../posts/design-system-health/health-labels.svg'
+import Sidebar from 'components/Sidebar'
 
 const picoBoxes = {
   1: picoBox1,
@@ -448,14 +449,9 @@ const IndexPage = ({ data }) => {
           </Box>
 
           <Box zIndex={1}>
-            <Page.SidebarHeader
-              fontFamily='sans'
-              pb={4}
-              mb={16}
-              fontSize='1.2em'
-            >
+            <Sidebar.Header fontFamily='sans' pb={4} mb={16} fontSize='1.2em'>
               Recent thoughts
-            </Page.SidebarHeader>
+            </Sidebar.Header>
 
             <MultiColumn count={2} gap='24px' minColumnWidth='12em'>
               {posts.nodes.map((post) => (

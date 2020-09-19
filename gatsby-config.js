@@ -24,7 +24,8 @@ module.exports = {
             options: {
               maxWidth: 1400,
               linkImagesToOriginal: true,
-              showCaptions: ['title']
+              showCaptions: ['title'],
+              disableBgImageOnAlpha: true
             }
           },
           {
@@ -47,7 +48,8 @@ module.exports = {
           options: {
             maxWidth: 1400,
             linkImagesToOriginal: true,
-            showCaptions: ['title']
+            showCaptions: ['title'],
+            disableBgImageOnAlpha: true
           }
         }
       ]
@@ -112,24 +114,6 @@ module.exports = {
       options: {
         name: `quotes`,
         path: `${__dirname}/data/quotes.hjson`
-      }
-    },
-    {
-      resolve: 'gatsby-source-airtable',
-      options: {
-        apiKey: `${process.env.GATSBY_AIRTABLE_API_KEY}`,
-        tables: [
-          {
-            baseId: 'appDBfiwr4Q6hG4qe',
-            tableName: 'Blogroll',
-            queryName: 'blogroll'
-          },
-          {
-            baseId: 'appDBfiwr4Q6hG4qe',
-            tableName: 'Reading List',
-            queryName: 'readingList'
-          }
-        ]
       }
     },
     {

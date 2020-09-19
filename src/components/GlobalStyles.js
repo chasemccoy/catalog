@@ -2,6 +2,15 @@ import { createGlobalStyle } from 'styled-components'
 import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
+  :root {
+    --section-color: ${(p) => p.theme.colors.accent.pop};
+    --section-color-link-hover: ${(p) => p.theme.colors.accent};
+    --section-gradient-color-1: ${(p) => p.theme.colors.yellow[300]};
+    --section-gradient-color-2: ${(p) => p.theme.colors.yellow[500]};
+    --section-sidebar-bg: ${(p) => p.theme.colors.gray[0]};
+    --section-highlight: ${(p) => p.theme.colors.yellow[200]};
+  }
+
   html {
     ${media.small`
       font-size: 17px;
@@ -11,6 +20,28 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: inherit;
     overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+
+    &:before {
+      content: "";
+      position: fixed;
+      width: 16px;
+      height: 100vh;
+      left: 0;
+      background: linear-gradient(to bottom, var(--section-gradient-color-1), var(--section-gradient-color-2));
+      background: ${(p) => p.theme.colors.accent.pop};
+
+      ${media.medium`
+        position: absolute;
+        height: 16px;
+        width: 100vw;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to right, var(--section-gradient-color-1), var(--section-gradient-color-2));
+        background: ${(p) => p.theme.colors.accent.pop};
+      `}
+    }
   }
 
   a {
@@ -19,7 +50,7 @@ const GlobalStyles = createGlobalStyle`
     transition: all .15s;
 
     &:hover, &:focus {
-      color: ${(p) => p.theme.colors.accent};
+      color: var(--section-color-link-hover);
       outline: none;
     }
   }
@@ -85,7 +116,7 @@ const GlobalStyles = createGlobalStyle`
 
       &:not(.no-border) {
         padding-top: 12px;
-        border-top: 2px solid black;
+        border-top: 2px solid ${(p) => p.theme.colors.gray[2]};
       }
     }
 
@@ -93,8 +124,8 @@ const GlobalStyles = createGlobalStyle`
     .float-header {
       --width: var(--sidebarWidth);
 
-      padding-top: 16px;
-      border-top: 2px solid ${(p) => p.theme.colors.type.body};
+      padding-top: 20px;
+      border-top: 2px solid ${(p) => p.theme.colors.gray[2]};
       margin-top: 2rem;
 
       width: var(--width);
@@ -111,7 +142,7 @@ const GlobalStyles = createGlobalStyle`
         width: 100%;
         margin-top: 2rem;
         padding-top: 16px;
-        border-top: 2px solid ${(p) => p.theme.colors.type.body};
+        border-top: 2px solid ${(p) => p.theme.colors.gray[2]};
 
         ${media.medium`
           content: none;
@@ -130,7 +161,7 @@ const GlobalStyles = createGlobalStyle`
       `}
 
       ${media.small`
-        padding-top: 24px;
+        padding-top: 12px;
       `}
     }
 
@@ -202,6 +233,13 @@ const GlobalStyles = createGlobalStyle`
       margin-left: -16px !important;
       border-radius: 0;
     `}
+  }
+
+  *:not(.gatsby-resp-image-figure) > .gatsby-resp-image-wrapper,
+  .gatsby-resp-image-figure,
+  p:not(:first-child) > img {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
   }
 
   .gatsby-resp-image-figcaption {
