@@ -11,7 +11,7 @@ const space = [0, 1, 2, 3, 4, 5, 6, 7]
 
 const sizes = {
   contentWidth: '50rem',
-  sidebarWidth: '17rem',
+  sidebarWidth: '15rem',
   sidebarWidthWithGutter: 'calc(18rem + 24px)',
   layout: {
     maxWidth: 952
