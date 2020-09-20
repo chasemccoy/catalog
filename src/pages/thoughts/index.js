@@ -1,6 +1,6 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Box, Heading, Text, Grid } from '@chasemccoy/kit'
+import { Box, Heading, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Sidebar from 'components/Sidebar'
@@ -20,7 +20,6 @@ const Card = ({
     display='flex'
     height='100%'
     ml={-1}
-    mt={-1}
     css={`
       background: repeating-linear-gradient(
         -55deg,
@@ -101,7 +100,13 @@ const ArchivePage = ({ data }) => {
   )
 
   return (
-    <Page title='Archive' untitled aside={<Sidebar />} article>
+    <Page
+      title='Thoughts'
+      description="What's on my mind, and links to some interesting stuff on the web."
+      untitled
+      aside={<Sidebar />}
+      article
+    >
       <Wide right={false}>
         <Box
           bg='accent.pop'
