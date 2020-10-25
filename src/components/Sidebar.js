@@ -120,7 +120,7 @@ const Sidebar = ({
                 <span dangerouslySetInnerHTML={{ __html: item.title }} />
               </SidebarLink>
 
-              <Text.span color='gray.4' className='arrow'>
+              <Text.span color='gray.4' className='arrow' ml={16}>
                 →
               </Text.span>
             </Box>

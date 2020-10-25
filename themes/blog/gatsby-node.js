@@ -3,17 +3,17 @@ const { createBlogNode } = require('./createBlogNode')
 
 const stripHTML = (string) => string.replace(/<[^>]+>/g, '')
 
-const formatTitle = (title) => {
-  let words = title.replace('&nbsp;', ' ').split(' ')
+// const formatTitle = (title) => {
+//   let words = title.replace('&nbsp;', ' ').split(' ')
 
-  if (words.length > 1) {
-    words[words.length - 2] += '&nbsp;' + words[words.length - 1]
-    words.pop()
-    return words.join(' ')
-  }
+//   if (words.length > 1) {
+//     words[words.length - 2] += '&nbsp;' + words[words.length - 1]
+//     words.pop()
+//     return words.join(' ')
+//   }
 
-  return title
-}
+//   return title
+// }
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
@@ -112,7 +112,7 @@ exports.onCreateNode = ({
 
     const postData = {
       parent: node.id,
-      title: formatTitle(node.title),
+      title: node.title,
       date: node.date,
       content: node.content,
       format: node.format,
@@ -144,7 +144,7 @@ exports.onCreateNode = ({
 
       const postData = {
         parent: node.id,
-        title: formatTitle(node.frontmatter.title),
+        title: node.frontmatter.title,
         date: node.frontmatter.date,
         slug: date + fileSlug,
         tags: node.frontmatter.tags,

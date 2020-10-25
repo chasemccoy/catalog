@@ -173,10 +173,11 @@ const Header = ({ category, ...rest }) => {
     <Box pb={24} {...rest}>
       <Text
         as='h1'
-        fontSize='2rem'
         mt={0}
+        fontSize='1.9rem'
         mb={description ? 8 : 0}
         dangerouslySetInnerHTML={{ __html: title }}
+        css='hyphens: auto; overflow-wrap: normal;'
       />
 
       <Text

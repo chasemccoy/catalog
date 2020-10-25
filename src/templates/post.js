@@ -15,7 +15,6 @@ export default ({ data, pageContext }) => {
       header={null}
       aside={
         <Sidebar
-          title={post.title}
           description={post.excerpt}
           relatedItems={data.relatedPosts.nodes}
           tags={post.tags}
@@ -24,8 +23,6 @@ export default ({ data, pageContext }) => {
       }
     >
       <Post
-        untitled
-        title={post.title}
         content={post.content}
         date={post.date}
         imagePost={post.format === 'image'}

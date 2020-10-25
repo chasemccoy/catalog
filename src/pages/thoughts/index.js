@@ -4,16 +4,11 @@ import { Box, Heading, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 import Sidebar from 'components/Sidebar'
-import Tags from 'components/Tags'
+// import Tags from 'components/Tags'
 import Wide from 'components/Wide'
 import media from 'utils/media'
 
-const Card = ({
-  title = 'Testing a card for posts',
-  excerpt,
-  slug,
-  ...rest
-}) => (
+const Card = ({ title, excerpt, slug, ...rest }) => (
   <Link
     to={slug}
     unstyled
@@ -73,23 +68,32 @@ const Card = ({
   </Link>
 )
 
-const Post = ({ slug, title, excerpt, tags, date, ...rest }) => (
+const Post = ({
+  slug,
+  title,
+  excerpt,
+  tags,
+  date,
+  content,
+  format,
+  ...rest
+}) => (
   <Box {...rest}>
     <Heading.h3 m={0} fontSize='1.5rem'>
       <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
     </Heading.h3>
 
     {excerpt && (
-      <Text as='p' mt={8} mb={12} color='gray.4'>
+      <Text as='p' mt={8} mb={0} pr={[0, 0, 0, 40]} color='gray.4'>
         {excerpt}
       </Text>
     )}
 
-    <Box display='flex' alignItems='center'>
+    <Box display='flex' alignItems='center' mt={12}>
       <Text fontSize='0.8em' color='gray.4' mr={24}>
         {date}
       </Text>
-      {tags && <Tags items={tags} />}
+      {/* {tags && <Tags items={tags} />} */}
     </Box>
   </Box>
 )
@@ -204,7 +208,7 @@ export const query = graphql`
     posts: allBlog(
       filter: { format: { nin: ["image", "aside"] } }
       sort: { fields: date, order: DESC }
-      limit: 20
+      limit: 22
     ) {
       group(field: year) {
         year: fieldValue
