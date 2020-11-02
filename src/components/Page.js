@@ -11,8 +11,8 @@ const PageContext = createContext({})
 
 const SiteHeader = () => (
   <Layout.Grid
-    pt={[24, 24, 24, 40]}
-    pb={[16, null, null, 40]}
+    pt={[24, 24, 24, 32]}
+    pb={[16, null, null, 32]}
     mb={48}
     mt={[24, null, null, 0]}
     css='font-size: 0.9em;'
@@ -65,26 +65,6 @@ const getSidebarStyles = () => css`
   }
 `
 
-const getSectionStyles = (section) => {
-  switch (section) {
-    case 'notes':
-      return createGlobalStyle`
-        :root {
-          ${
-            '' /* --section-color: #2CDB7F;
-          --section-color-link-hover: #3F8050;
-          --section-gradient-color-1: #2CDB7F;
-          --section-gradient-color-2: #3F8050;
-          --section-sidebar-bg: #F7FDF4;
-          --section-highlight: #2CDB7F; */
-          }
-        }
-      `
-    default:
-      return createGlobalStyle``
-  }
-}
-
 const Page = ({
   children,
   header,
@@ -125,7 +105,6 @@ const Page = ({
   }, [aside])
 
   const normalizedTitle = title ? title.replace(/&nbsp;/g, ' ') : null
-  const SectionStyles = getSectionStyles(section)
 
   return (
     <PageContext.Provider value={{ title, description }}>
@@ -133,10 +112,7 @@ const Page = ({
         title={normalizedTitle}
         description={description}
         article={article}
-        page
       />
-
-      <SectionStyles />
 
       <header>
         <SiteHeader />

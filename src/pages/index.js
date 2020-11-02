@@ -15,6 +15,8 @@ import picoBox1 from 'assets/pico-box-1.png'
 import picoBox2 from 'assets/pico-box-2.png'
 import picoBox3 from 'assets/pico-box-3.png'
 import picoBox4 from 'assets/pico-box-4.png'
+import stipplePattern from 'assets/stipple-pattern.png'
+import asciiHouse from 'assets/ascii-house.png'
 import MultiColumn from 'components/MultiColumn'
 import { UnorderedList } from 'components/Lists'
 import Calendar from 'assets/calendar-icon.svg'
@@ -25,6 +27,7 @@ import media from 'utils/media'
 import Layout from 'components/Layout'
 import healthLabels from '../../posts/design-system-health/health-labels.svg'
 import Sidebar from 'components/Sidebar'
+import Hero from './_Hero'
 
 const picoBoxes = {
   1: picoBox1,
@@ -352,7 +355,17 @@ const IndexPage = ({ data }) => {
 
   return (
     <Page untitled mb={0}>
-      <Text.p mt={-16} fontSize='1.5em' lineHeight='1.4'>
+      <Page.Breakout
+        mt={-56}
+        mb='4em'
+        borderTop='2px solid'
+        borderBottom='2px solid'
+        borderColor='black'
+      >
+        <Hero />
+      </Page.Breakout>
+
+      {/* <Text.p mt={-16} fontSize='1.5em' lineHeight='1.4'>
         <b>Chase McCoy</b> is a senior design technologist based in Chicago
         leading the team behind{' '}
         <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, Sprout Social’s
@@ -386,10 +399,51 @@ const IndexPage = ({ data }) => {
         I've worked as a mobile designer & iOS developer, creating indie apps in
         my spare time and building products for enterprise clients at my day
         job.
-      </Text.p>
+      </Text.p> */}
+
+      {/* <Wide mt={16} mb={24}>
+        <Grid gutter='0' overflow='visible' mb='1em' {...fullWidthImage}>
+          <Box width={[1, 1, 2 / 3]}>
+            <Portrait mr={[0, 0, 12]} mb={24} />
+            <Box
+              p={40}
+              css={`
+                background-image: url(${stipplePattern});
+                background-size: 50%;
+              `}
+              border='2px solid'
+              borderColor='black'
+              mr={[0, 0, 12]}
+            />
+          </Box>
+
+          <Box flex={[1, 1, 1]}>
+            <Box height='100%' bg='#b6e5a4' p={16} ml={[0, 0, 12]}>
+              <Heading.h2 mt={0} fontSize='1.1em'>
+                Focusing on —
+              </Heading.h2>
+
+              <Text
+                as='p'
+                mb={0}
+                fontSize='0.85em'
+                css={`
+                  hyphens: auto;
+                `}
+              >
+                Hypertext, CSS, semantic HTML, design systems, internet culture,
+                online communities, indie publishing, creative coding, digital
+                preservationism, and a diverse & open&nbsp;web.
+              </Text>
+
+              <Image src={asciiHouse} alt='' width='260px' mx='auto' />
+            </Box>
+          </Box>
+        </Grid>
+      </Wide> */}
 
       <Wide>
-        <Grid gutter='0' overflow='visible' mb='1em' {...fullWidthImage}>
+        {/* <Grid gutter='0' overflow='visible' mb='1em' {...fullWidthImage}>
           <Box width={[1, 1, 2 / 3]}>
             <Portrait mr={[0, 0, 12]} height='100%' />
           </Box>
@@ -413,7 +467,7 @@ const IndexPage = ({ data }) => {
               </Text>
             </Box>
           </Box>
-        </Grid>
+        </Grid> */}
 
         <Layout.Grid flush>
           <Box display={['none', null, null, 'block']}>
@@ -478,8 +532,16 @@ const IndexPage = ({ data }) => {
         </Layout.Grid>
       </Wide>
 
-      <CurveTextScroll mt={[0, -40]} mb={[0, 0, -40]}>
-        here are some things I've worked on
+      <CurveTextScroll
+        mt={[0, -40]}
+        mb={[0, 0, -40]}
+        css={`
+          font-family: 'Vulf Mono Demo';
+          font-weight: 300;
+          font-style: italic;
+        `}
+      >
+        here are some things I’ve worked on
       </CurveTextScroll>
 
       <Page.Breakout borderTop='1px solid' borderColor='rgba(0, 0, 0, 0.08)'>

@@ -8,8 +8,7 @@ const Metadata = ({
   description,
   image = '/site-image.jpg',
   article,
-  children,
-  page = false
+  children
 }) => {
   const data = useStaticQuery(query)
 
@@ -54,9 +53,7 @@ const Metadata = ({
             <meta property='og:description' content={seo.description} />
           )}
 
-          {image && !article && page && (
-            <meta property='og:image' content={seo.image} />
-          )}
+          {image && <meta property='og:image' content={seo.image} />}
 
           <meta name='twitter:card' content='summary' />
 

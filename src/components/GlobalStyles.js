@@ -23,7 +23,8 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     min-height: 100vh;
 
-    &:before {
+    ${
+      '' /* &:before {
       content: "";
       position: fixed;
       width: 16px;
@@ -41,6 +42,7 @@ const GlobalStyles = createGlobalStyle`
         background: linear-gradient(to right, var(--section-gradient-color-1), var(--section-gradient-color-2));
         background: ${(p) => p.theme.colors.accent.pop};
       `}
+    } */
     }
   }
 

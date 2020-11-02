@@ -43,7 +43,7 @@ const fonts = {
   get mono() {
     return this.system
   },
-  headers: `"Untitled Serif", Georgia, Times New Roman, serif`,
+  headers: `Charter, "Untitled Serif", Georgia, Times New Roman, serif`,
   code: `"IBM Plex Mono", Consolas, Menlo, Monaco, monospace`,
   system: `"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",

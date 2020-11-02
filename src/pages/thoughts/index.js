@@ -7,6 +7,7 @@ import Sidebar from 'components/Sidebar'
 // import Tags from 'components/Tags'
 import Wide from 'components/Wide'
 import media from 'utils/media'
+import Layout from 'components/Layout'
 
 const Card = ({ title, excerpt, slug, ...rest }) => (
   <Link
@@ -14,14 +15,14 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
     unstyled
     display='flex'
     height='100%'
-    ml={-1}
+    ml={-2}
     css={`
       background: repeating-linear-gradient(
         -55deg,
         ${(p) => p.theme.colors.accent.pop},
         ${(p) => p.theme.colors.accent.pop} 2px,
-        #000 2px,
-        #000 3px
+        black 2px,
+        black 3px
       );
 
       &:hover {
@@ -40,7 +41,7 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
   >
     <Box
       bg='accent.pop'
-      border='1px solid black'
+      border='2px solid'
       px={24}
       py={32}
       width={1}
@@ -60,7 +61,7 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
       <Text
         as='p'
         fontSize='0.8em'
-        mt={-12}
+        mt={24}
         mb={0}
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
@@ -93,7 +94,6 @@ const Post = ({
       <Text fontSize='0.8em' color='gray.4' mr={24}>
         {date}
       </Text>
-      {/* {tags && <Tags items={tags} />} */}
     </Box>
   </Box>
 )
@@ -111,8 +111,78 @@ const ArchivePage = ({ data }) => {
       aside={<Sidebar />}
       article
     >
+      <Page.Breakout
+        mt={-56}
+        mb='4em'
+        borderTop='2px solid'
+        borderBottom='2px solid'
+        borderColor='black'
+        bg='accent.pop'
+      >
+        <Layout.Grid>
+          <Wide right={false}>
+            <Box
+              my={-2}
+              css={`
+                ${media.small`
+                  width: calc(100% + 32px);
+                  margin-left: -16px;
+                `}
+              `}
+            >
+              <Box display='flex' flexWrap='wrap'>
+                <Box
+                  bg='white'
+                  border='2px solid'
+                  display='flex'
+                  flexDirection='column'
+                  justifyContent={['flex-start', null, null, 'flex-end']}
+                  flexBasis={['100%', null, null, '0%']}
+                  pt={12}
+                  pb={[12, null, null, 0]}
+                  px={8}
+                  pl={[24, 24, 12, 32]}
+                  css={`
+                    writing-mode: vertical-rl;
+                    transform: rotate(-180deg);
+
+                    ${media.medium`
+                      writing-mode: initial;
+                      transform: none;
+                    `}
+                  `}
+                >
+                  <Text
+                    fontSize='0.8em'
+                    fontWeight='bold'
+                    css={`
+                      font-family: 'Vulf Mono Demo';
+                      font-style: italic;
+                    `}
+                  >
+                    Featured posts
+                  </Text>
+                </Box>
+
+                <Box display='flex' flexWrap='wrap' flex='1 1 0%'>
+                  {data.featuredPosts.nodes.map((node, i) => (
+                    <Box
+                      css='flex-grow: 1; flex-shrink: 1;'
+                      flexBasis={['100%', null, '31%', '23%']}
+                      mt={[-1, null, null, 0]}
+                    >
+                      <Card {...node} />
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            </Box>
+          </Wide>
+        </Layout.Grid>
+      </Page.Breakout>
+
       <Wide right={false}>
-        <Box
+        {/* <Box
           bg='accent.pop'
           mb={64}
           css={`
@@ -159,7 +229,7 @@ const ArchivePage = ({ data }) => {
               ))}
             </Box>
           </Box>
-        </Box>
+        </Box> */}
       </Wide>
 
       {groups.map((group) => (
