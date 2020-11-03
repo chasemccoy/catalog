@@ -486,7 +486,12 @@ const IndexPage = ({ data }) => {
                 }
               `}
             >
-              <Text fontWeight='bold' fontSize='1.2em' textAlign='center'>
+              <Text
+                fontFamily='mono'
+                fontStyle='italic'
+                fontSize='1em'
+                textAlign='center'
+              >
                 <Link
                   unstyled
                   to='/thoughts'
@@ -496,7 +501,7 @@ const IndexPage = ({ data }) => {
                     display: block;
                   `}
                 >
-                  Blog&nbsp;→
+                  Blog&#8239;→
                 </Link>
               </Text>
             </Box>
@@ -509,9 +514,9 @@ const IndexPage = ({ data }) => {
 
             <MultiColumn count={2} gap='24px' minColumnWidth='12em'>
               {posts.nodes.map((post) => (
-                <Box mb={16} key={post.id}>
+                <Box mb={24} key={post.id}>
                   <Text
-                    fontSize='1em'
+                    fontSize='1.1em'
                     lineHeight='1.3'
                     fontFamily='serif'
                     mb={4}

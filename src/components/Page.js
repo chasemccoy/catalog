@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useLayoutEffect } from 'react'
-import styled, { css, createGlobalStyle } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Logo from 'components/Logo'

@@ -8,6 +8,34 @@ import asciiHouse from 'assets/ascii-house.png'
 import avatar from 'assets/avatar.png'
 import MusicMarquee from 'components/MusicMarquee'
 import media from 'utils/media'
+import blogroll from '../../data/blogroll'
+
+const LineHeader = (props) => (
+  <Text
+    // as='h3'
+    fontSize='0.8rem'
+    fontFamily='mono'
+    fontWeight='light'
+    fontStyle='italic'
+    css={`
+      display: grid;
+      width: 100%;
+      align-items: baseline;
+      grid-template-columns: auto minmax(20px, 1fr);
+      grid-gap: 16px;
+
+      &:after {
+        content: '';
+        border: 0;
+        border-top: 2px dotted;
+        border-image-slice: 20%;
+        border-image-repeat: round;
+        border-image-source: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxIiBjeT0iNiIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxIiBjeT0iMTEiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjEiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjExIiByPSIxIiBmaWxsPSJibGFjayIvPjxjaXJjbGUgY3g9IjExIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxMSIgY3k9IjYiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48L3N2Zz4=);
+      }
+    `}
+    {...props}
+  />
+)
 
 const CircleText = ({ children, radius: r = 120, ...rest }) => (
   <svg
@@ -77,7 +105,7 @@ const Avatar = () => (
         }
       `}
     >
-      Testin something out and here is some text.
+      Testing something out and here is some text.
     </CircleText>
   </Box>
 )
@@ -93,6 +121,7 @@ const Hero = () => (
       <Box bg='accent.pop' pt={48} pb={40} px={[24, null, 40, null, 80]}>
         <Box
           display='flex'
+          alignItems='flex-start'
           flexWrap={['wrap', null, null, null, 'nowrap']}
           mb={40}
         >
@@ -106,11 +135,16 @@ const Hero = () => (
               mb={0}
               fontFamily='serif'
             >
-              <b>Chase</b> is a senior design technologist based in Chicago
-              leading the team behind{' '}
+              <b>Chase</b> is a senior design technologist in Chicago leading
+              the team behind{' '}
               <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, Sprout
               Social’s design system.
             </Text.p>
+
+            <LineHeader mt={16}>Get in touch</LineHeader>
+            <LineHeader mt={8}>Get in touch</LineHeader>
+            <LineHeader mt={8}>Get in touch</LineHeader>
+            <LineHeader mt={8}>Get in touch</LineHeader>
           </Box>
         </Box>
 
@@ -217,15 +251,7 @@ const Hero = () => (
         justifyContent='space-between'
       >
         <Box>
-          <Heading.h2
-            mt={0}
-            fontFamily='code'
-            css={`
-              font-family: 'Vulf Mono Demo';
-              // font-weight: 300;
-              font-style: italic;
-            `}
-          >
+          <Heading.h2 mt={0} mb={16} fontFamily='mono' fontStyle='italic'>
             Welcome to my home on the web
           </Heading.h2>
 
@@ -242,7 +268,7 @@ const Hero = () => (
             preservationism, and a diverse & open&nbsp;web.
           </Text>
 
-          <Box
+          {/* <Box
             bg='rgba(0, 0, 0, 0.1)'
             borderRadius='8px'
             py={8}
@@ -270,20 +296,42 @@ const Hero = () => (
             mt={16}
           >
             Books
-          </Box>
+          </Box> */}
+
+          <LineHeader my={16}>Thoughts</LineHeader>
+          <LineHeader my={16}>Notes</LineHeader>
+          <LineHeader my={16}>Books</LineHeader>
+
+          <LineHeader mt={16} mb={4}>
+            Blogroll
+          </LineHeader>
 
           <Box
-            bg='rgba(0, 0, 0, 0.1)'
-            borderRadius='8px'
-            py={8}
-            px={12}
-            mt={16}
+            css={`
+              font-size: 0.8em;
+
+              span + span {
+                margin-left: 6px;
+
+                :before {
+                  content: '/';
+                  margin-right: 6px;
+                  opacity: 0.5;
+                }
+              }
+            `}
           >
-            Quotes
+            {Object.entries(blogroll).map(([name, url]) => (
+              <Box as='span' key={url}>
+                <Link to={url} key={url}>
+                  {name}
+                </Link>
+              </Box>
+            ))}
           </Box>
         </Box>
 
-        <Image src={asciiHouse} alt='' width='75%' mx='auto' mt={48} />
+        <Image src={asciiHouse} alt='' css='width: 75%;' mx='auto' mt={48} />
       </Box>
     </Box>
   </Grid>

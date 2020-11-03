@@ -40,14 +40,12 @@ const fonts = {
   get serif() {
     return this.headers
   },
-  get mono() {
-    return this.system
-  },
   headers: `Charter, "Untitled Serif", Georgia, Times New Roman, serif`,
   code: `"IBM Plex Mono", Consolas, Menlo, Monaco, monospace`,
   system: `"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-  "Droid Sans", "Helvetica Neue", sans-serif`
+  "Droid Sans", "Helvetica Neue", sans-serif`,
+  mono: 'Vulf Mono Demo'
 }
 
 const colors = {
@@ -55,7 +53,7 @@ const colors = {
     light: '#fff8e2',
     soft: '#ffe99a',
     medium: '#ffe16e',
-    pop: '#ffcd1c',
+    pop: '#FFDE66', // #FFCD1C
     dark: '#ba7506'
   }),
   page: {

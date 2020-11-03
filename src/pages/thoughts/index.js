@@ -141,7 +141,7 @@ const ArchivePage = ({ data }) => {
                   pt={12}
                   pb={[12, null, null, 0]}
                   px={8}
-                  pl={[24, 24, 12, 32]}
+                  // pl={[24, 24, 12, 32]}
                   css={`
                     writing-mode: vertical-rl;
                     transform: rotate(-180deg);

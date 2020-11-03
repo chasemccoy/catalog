@@ -8,6 +8,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 const Container = styled(Box)`
   position: relative;
   overflow: hidden;
+  font-family: ${(p) => p.theme.fonts.mono};
   --offset: 20vw;
   --move-initial: calc(-25% + var(--offset));
   --move-final: calc(-50% + var(--offset));
@@ -20,7 +21,7 @@ const Container = styled(Box)`
     height: 100%;
     top: 0;
     left: 0;
-    padding: 0 16px 0 22px;
+    padding: 0 16px;
     background: white;
     z-index: 1;
     display: flex;
@@ -46,6 +47,11 @@ const Container = styled(Box)`
 
   span + span {
     margin-left: 24px;
+
+    :before {
+      content: '•';
+      margin-right: 24px;
+    }
   }
 
   @keyframes marquee {
@@ -65,14 +71,7 @@ const MusicMarqee = (props) => {
 
   return (
     <Container duration={`${data.length}s`} {...props}>
-      <Text
-        className='label'
-        fontWeight='bold'
-        css={`
-          font-family: 'Vulf Mono Demo';
-          font-style: italic;
-        `}
-      >
+      <Text className='label' fontWeight='bold' fontStyle='italic'>
         On rotation
       </Text>
 
@@ -81,11 +80,8 @@ const MusicMarqee = (props) => {
           <Text
             as='span'
             key={track.name}
-            css={`
-              font-family: 'Vulf Mono Demo';
-              font-weight: 300;
-              font-style: italic;
-            `}
+            fontWeight='light'
+            fontStyle='italic'
           >
             {track.name} by {track.artist}
           </Text>

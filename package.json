@@ -5,7 +5,7 @@
   "author": "Chase McCoy",
   "dependencies": {
     "@babel/core": "7.11.6",
-    "@chasemccoy/kit": "0.7.6",
+    "@chasemccoy/kit": "0.7.7",
     "@mdx-js/mdx": "1.6.16",
     "@mdx-js/react": "1.6.16",
     "@microlink/react": "5.4.6",
