@@ -7,6 +7,7 @@ import stipplePattern from 'assets/stipple-pattern.png'
 import asciiHouse from 'assets/ascii-house.png'
 import avatar from 'assets/avatar.png'
 import MusicMarquee from 'components/MusicMarquee'
+import media from 'utils/media'
 
 const CircleText = ({ children, radius: r = 120, ...rest }) => (
   <svg
@@ -196,6 +197,10 @@ const Hero = () => (
         css={`
           background-image: url(${stipplePattern});
           background-size: 50%;
+
+          ${media.small`
+            background-size: 80%;
+          `}
         `}
         borderTop='2px solid'
         borderBottom={['2px solid', null, null, 'none']}
