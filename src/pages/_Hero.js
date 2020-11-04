@@ -16,7 +16,6 @@ const LineHeader = (props) => (
     fontSize='0.8rem'
     fontFamily='mono'
     fontWeight='light'
-    fontStyle='italic'
     css={`
       display: grid;
       width: 100%;
@@ -85,9 +84,8 @@ const Avatar = () => (
     <CircleText
       css={`
         font-size: 1.2rem;
-        font-family: 'Vulf Mono Demo';
+        font-family: ${(p) => p.theme.fonts.mono};
         font-weight: 300;
-        font-style: italic;
         position: absolute;
         top: 0;
         left: 0;
@@ -251,7 +249,7 @@ const Hero = () => (
         justifyContent='space-between'
       >
         <Box>
-          <Heading.h2 mt={0} mb={16} fontFamily='mono' fontStyle='italic'>
+          <Heading.h2 mt={0} mb={16} fontFamily='mono'>
             Welcome to my home on the web
           </Heading.h2>
 
@@ -302,7 +300,7 @@ const Hero = () => (
           <LineHeader my={16}>Notes</LineHeader>
           <LineHeader my={16}>Books</LineHeader>
 
-          <LineHeader mt={16} mb={4}>
+          <LineHeader mt={24} mb={8}>
             Blogroll
           </LineHeader>
 

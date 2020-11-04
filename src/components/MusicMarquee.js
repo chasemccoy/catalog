@@ -71,18 +71,13 @@ const MusicMarqee = (props) => {
 
   return (
     <Container duration={`${data.length}s`} {...props}>
-      <Text className='label' fontWeight='bold' fontStyle='italic'>
+      <Text className='label' fontWeight='bold'>
         On rotation
       </Text>
 
       <div className='inner' aria-hidden='true'>
         {data.map((track) => (
-          <Text
-            as='span'
-            key={track.name}
-            fontWeight='light'
-            fontStyle='italic'
-          >
+          <Text as='span' key={track.name} fontWeight='light'>
             {track.name} by {track.artist}
           </Text>
         ))}

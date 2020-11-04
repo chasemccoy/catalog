@@ -44,7 +44,7 @@
       format('woff');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Untitled Serif';
   src: url('./untitled-serif/untitled-serif-web-regular.eot'),
     url('./untitled-serif/untitled-serif-web-regular.eot?#iefix')
@@ -54,4 +54,37 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+} */
+
+@font-face {
+  font-family: 'Vulf Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./vulf-mono/Vulf_Mono-Italic_web.woff2')
+      format('woff2'),
+    url('./vulf-mono/Vulf_Mono-Italic_web.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Vulf Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./vulf-mono/Vulf_Mono-Light_Italic_web.woff2')
+      format('woff2'),
+    url('./vulf-mono/Vulf_Mono-Light_Italic_web.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Vulf Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./vulf-mono/Vulf_Mono-Bold_Italic_web.woff2')
+      format('woff2'),
+    url('./vulf-mono/Vulf_Mono-Bold_Italic_web.woff')
+      format('woff');
 }

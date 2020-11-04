@@ -486,12 +486,7 @@ const IndexPage = ({ data }) => {
                 }
               `}
             >
-              <Text
-                fontFamily='mono'
-                fontStyle='italic'
-                fontSize='1em'
-                textAlign='center'
-              >
+              <Text fontFamily='mono' fontSize='1em' textAlign='center'>
                 <Link
                   unstyled
                   to='/thoughts'
@@ -541,9 +536,8 @@ const IndexPage = ({ data }) => {
         mt={[0, -40]}
         mb={[0, 0, -40]}
         css={`
-          font-family: 'Vulf Mono Demo';
+          font-family: ${(p) => p.theme.fonts.mono};
           font-weight: 300;
-          font-style: italic;
         `}
       >
         here are some things I’ve worked on
