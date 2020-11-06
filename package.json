@@ -59,7 +59,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "prebuild": "gatsby clean",
+    "prebuild": "rm -rf .cache/caches/gatsby-plugin-mdx",
     "prestart": "yarn run prebuild",
     "build": "gatsby build",
     "start": "netlify dev",

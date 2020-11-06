@@ -10,6 +10,20 @@ import MusicMarquee from 'components/MusicMarquee'
 import media from 'utils/media'
 import blogroll from '../../data/blogroll'
 
+const dottedBorder = css`
+  display: grid;
+  width: 100%;
+
+  &:after {
+    content: '';
+    border: 0;
+    border-top: 2px dotted;
+    border-image-slice: 20%;
+    border-image-repeat: round;
+    border-image-source: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxIiBjeT0iNiIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxIiBjeT0iMTEiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjEiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjExIiByPSIxIiBmaWxsPSJibGFjayIvPjxjaXJjbGUgY3g9IjExIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxMSIgY3k9IjYiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48L3N2Zz4=);
+  }
+`
+
 const LineHeader = (props) => (
   <Text
     // as='h3'
@@ -17,20 +31,10 @@ const LineHeader = (props) => (
     fontFamily='mono'
     fontWeight='light'
     css={`
-      display: grid;
-      width: 100%;
       align-items: baseline;
       grid-template-columns: auto minmax(20px, 1fr);
       grid-gap: 16px;
-
-      &:after {
-        content: '';
-        border: 0;
-        border-top: 2px dotted;
-        border-image-slice: 20%;
-        border-image-repeat: round;
-        border-image-source: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxIiBjeT0iNiIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxIiBjeT0iMTEiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjEiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjExIiByPSIxIiBmaWxsPSJibGFjayIvPjxjaXJjbGUgY3g9IjExIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSIxMSIgY3k9IjYiIHI9IjEiIGZpbGw9ImJsYWNrIi8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMSIgZmlsbD0iYmxhY2siLz48L3N2Zz4=);
-      }
+      ${dottedBorder}
     `}
     {...props}
   />
@@ -116,12 +120,11 @@ const Hero = () => (
       display='flex'
       flexDirection='column'
     >
-      <Box bg='accent.pop' pt={48} pb={40} px={[24, null, 40, null, 80]}>
+      <Box bg='accent.pop' pt={48} px={[24, null, 40, null, 80]}>
         <Box
           display='flex'
-          alignItems='flex-start'
+          alignItems='center'
           flexWrap={['wrap', null, null, null, 'nowrap']}
-          mb={40}
         >
           <Avatar />
 
@@ -139,14 +142,25 @@ const Hero = () => (
               Social’s design system.
             </Text.p>
 
-            <LineHeader mt={16}>Get in touch</LineHeader>
+            <Text.p mt={12} mb={0} fontSize='0.9em'>
+              I’m currently leading the Design Systems team at{' '}
+              <Link to='https://sproutsocial.com'>Sprout Social</Link>, which
+              designs and builds{' '}
+              <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, our design
+              system, as well as other tools used by Sprout employees to deliver
+              consistently designed products to our customers.
+            </Text.p>
+
+            {/* <LineHeader mt={16}>Get in touch</LineHeader>
             <LineHeader mt={8}>Get in touch</LineHeader>
             <LineHeader mt={8}>Get in touch</LineHeader>
-            <LineHeader mt={8}>Get in touch</LineHeader>
+            <LineHeader mt={8}>Get in touch</LineHeader> */}
           </Box>
         </Box>
 
-        <Box
+        <Box css={dottedBorder} pt={40} pb={32} />
+
+        {/* <Box
           css={`
             columns: 300px 2;
             column-gap: 32px;
@@ -182,12 +196,13 @@ const Hero = () => (
             my spare time and building products for enterprise clients at my day
             job.
           </Text.p>
-        </Box>
+        </Box> */}
 
         <Box
           borderRadius='99999px'
           bg='#FF8E4F'
           mt={48}
+          mb={40}
           css={`
             background: repeating-linear-gradient(
               -55deg,
