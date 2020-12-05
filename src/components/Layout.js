@@ -15,8 +15,8 @@ const Layout = (props) => {
       <MDX.Provider>
         <Metadata title={props.title} description={props.description} />
 
-        <CSSReset />
-        <TypographyStyles />
+        {/* <CSSReset /> */}
+        {/* <TypographyStyles /> */}
         <GlobalStyles />
 
         {props.children}

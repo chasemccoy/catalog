@@ -3,23 +3,23 @@ import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
   :root {
+    --root-font-size: 18px;
+
     --section-color: ${(p) => p.theme.colors.accent.pop};
     --section-color-link-hover: ${(p) => p.theme.colors.accent};
     --section-gradient-color-1: ${(p) => p.theme.colors.yellow[300]};
     --section-gradient-color-2: ${(p) => p.theme.colors.yellow[500]};
     --section-sidebar-bg: ${(p) => p.theme.colors.gray[0]};
     --section-highlight: ${(p) => p.theme.colors.yellow[200]};
-  }
 
-  html {
     ${media.small`
-      font-size: 17px;
+      --root-font-size: 17px;
     `}
   }
-
   body {
-    line-height: inherit;
-    overflow: hidden;
+    font-family: var(--system-fonts);
+    
+    ${'' /* overflow: hidden; */}
     position: relative;
     min-height: 100vh;
 
