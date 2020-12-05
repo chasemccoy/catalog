@@ -1,5 +1,9 @@
+:root {
+  --flow-spacing: 1.2rem;
+}
+
 .prose > * + * {
-  margin-top: 1rem;
+  margin-top: var(--flow-spacing);
 }
 
 .prose li + li {
@@ -54,14 +58,14 @@ h6 {
 }
 
 .prose > :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
-/*   margin-top: min(1.2em, 1.2rem); */
   margin-top: 1.2em;
 }
 
 .caption, 
-figure > img + figcaption {
+figure > * + figcaption {
   margin-top: 0.8em;
   font-size: 0.83em;
+  line-height: 1.4;
 }
 
 li > ul, 

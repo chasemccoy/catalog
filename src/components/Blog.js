@@ -143,7 +143,7 @@ export const Post = (props) => {
 
   if (props.aside) {
     return (
-      <AsideContainer photo={props.imagePost}>
+      <AsideContainer photo={props.imagePost} className='prose'>
         {title}
         {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
         {metadata}
@@ -151,7 +151,7 @@ export const Post = (props) => {
     )
   } else {
     return (
-      <Container>
+      <Container className='prose'>
         {!props.untitled && <React.Fragment>{title}</React.Fragment>}
         {props.isMdx ? <MDX.Renderer>{props.content}</MDX.Renderer> : content}
       </Container>

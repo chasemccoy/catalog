@@ -16,32 +16,15 @@ const GlobalStyles = createGlobalStyle`
       --root-font-size: 17px;
     `}
   }
+
+  html {
+    overflow-y: scroll;
+  }
+
   body {
     font-family: var(--system-fonts);
-    
-    ${'' /* overflow: hidden; */}
-    position: relative;
+    overflow: hidden;
     min-height: 100vh;
-
-    &:before {
-      content: "";
-      position: fixed;
-      width: 16px;
-      height: 100vh;
-      left: 0;
-      background: linear-gradient(to bottom, var(--section-gradient-color-1), var(--section-gradient-color-2));
-      background: ${(p) => p.theme.colors.accent.pop};
-
-      ${media.medium`
-        position: absolute;
-        height: 16px;
-        width: 100vw;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to right, var(--section-gradient-color-1), var(--section-gradient-color-2));
-        background: ${(p) => p.theme.colors.accent.pop};
-      `}
-    }
   }
 
   a {
@@ -235,18 +218,20 @@ const GlobalStyles = createGlobalStyle`
     `}
   }
 
-  *:not(.gatsby-resp-image-figure) > .gatsby-resp-image-wrapper,
+  ${
+    '' /* *:not(.gatsby-resp-image-figure) > .gatsby-resp-image-wrapper,
   .gatsby-resp-image-figure,
   p:not(:first-child) > img {
     margin-top: 2em !important;
     margin-bottom: 2em !important;
+  } */
   }
 
   .gatsby-resp-image-figcaption {
-    margin: 8px 0;
+    ${'' /* margin: 8px 0; */}
     color: ${(p) => p.theme.colors.gray[4]};
-    font-size: 14px;
-    line-height: 1.4;
+    ${'' /* font-size: 14px;
+    line-height: 1.4; */}
     max-width: 550px;
   }
 

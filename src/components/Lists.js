@@ -3,6 +3,7 @@ import { space, display, borders, borderColor, fontSize } from 'styled-system'
 
 export const UnorderedList = styled.ul`
   list-style-type: none;
+  ${'' /* padding-left: 0; */}
 
   > li {
     margin-left: 1em;
@@ -14,7 +15,7 @@ export const UnorderedList = styled.ul`
     margin-right: 0.5em;
   }
 
-  ${props =>
+  ${(props) =>
     props.inline &&
     css`
       list-style-type: none;
@@ -36,7 +37,7 @@ export const UnorderedList = styled.ul`
       }
     `}
 
-  ${props =>
+  ${(props) =>
     props.unstyled &&
     css`
       margin: 0;
