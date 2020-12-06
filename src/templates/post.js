@@ -12,7 +12,6 @@ export default ({ data, pageContext }) => {
       title={post.title}
       article
       description={post.excerpt}
-      header={null}
       aside={
         <Sidebar
           description={post.excerpt}

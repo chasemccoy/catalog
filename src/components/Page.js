@@ -1,6 +1,6 @@
-import React, { createContext } from 'react'
+import React, { createContext, useContext } from 'react'
 import styled from 'styled-components'
-import { Box } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Logo from 'components/Logo'
 import Nav from 'components/Nav'
@@ -10,8 +10,9 @@ const PageContext = createContext({})
 const ContentGrid = Box
 
 const PageStyles = styled.div`
-  max-width: 65ch;
+  max-width: 60ch;
   margin: 0 auto;
+  padding: 40px 16px;
 `
 
 const Page = ({
@@ -37,8 +38,12 @@ const Page = ({
           page
         />
 
-        <header>
-          <Logo />
+        <header css='margin-bottom: 40px;'>
+          <Logo
+            css={`
+              margin-bottom: 16px;
+            `}
+          />
           <Nav />
         </header>
 
@@ -59,7 +64,32 @@ const Page = ({
   )
 }
 
-const Header = Box
+const Header = ({ category, ...rest }) => {
+  const { title, description } = useContext(PageContext)
+  if (!title && !description) return null
+
+  return (
+    <Box pb={24} {...rest}>
+      <Text
+        as='h1'
+        // mt={0}
+        // fontSize='1.9rem'
+        mb={description ? 8 : 0}
+        dangerouslySetInnerHTML={{ __html: title }}
+        css='hyphens: auto; overflow-wrap: normal;'
+      />
+
+      <Text
+        as='p'
+        color='gray.4'
+        fontSize='0.9em'
+        mb={0}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
+    </Box>
+  )
+}
+
 const Breakout = Box
 
 Page.Grid = ContentGrid

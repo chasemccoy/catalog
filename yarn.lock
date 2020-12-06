@@ -16101,11 +16101,6 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resetti@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/resetti/-/resetti-1.1.3.tgz#0269be3cd987e902c35d499cd4627b05b581e72b"
-  integrity sha512-TFv+aVSdKTk+E6I1FiEId4/zUCOyTjtvlucml3zClHzp9AI+/F2iXwRa/zTBzLX99UTx2qkJygSd3peX5lt8Zg==
-
 resolve-alpn@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/resolve-alpn/-/resolve-alpn-1.0.0.tgz#745ad60b3d6aff4b4a48e01b8c0bdc70959e0e8c"

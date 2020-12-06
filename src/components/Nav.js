@@ -15,16 +15,6 @@ const NavContainer = styled.nav(
       margin-left: var(--space);
     }
 
-    a {
-      text-decoration: none;
-      color: ${theme.colors.gray[5]};
-    }
-
-    a:hover {
-      color: ${theme.colors.gray[5]};
-      text-decoration: underline;
-    }
-
     a.selected {
       text-decoration: underline;
     }

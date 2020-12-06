@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
-import Layout from 'components/notes/Layout'
 import NoteSidebar from 'components/notes/Sidebar'
 import Sidebar from 'components/Sidebar'
 

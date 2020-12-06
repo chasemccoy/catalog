@@ -4,9 +4,14 @@ import media from 'utils/media'
 const GlobalStyles = createGlobalStyle`
   :root {
     --root-font-size: 18px;
+    --system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    --body-background: white;
+    --body-color: black;
+    --link-color: black;
+    --link-hover: ${(p) => p.theme.colors.accent};
 
     --section-color: ${(p) => p.theme.colors.accent.pop};
-    --section-color-link-hover: ${(p) => p.theme.colors.accent};
     --section-gradient-color-1: ${(p) => p.theme.colors.yellow[300]};
     --section-gradient-color-2: ${(p) => p.theme.colors.yellow[500]};
     --section-sidebar-bg: ${(p) => p.theme.colors.gray[0]};
@@ -25,15 +30,17 @@ const GlobalStyles = createGlobalStyle`
     font-family: var(--system-fonts);
     overflow: hidden;
     min-height: 100vh;
+    background: var(--body-background);
+    color: var(--body-color);
   }
 
   a {
-    color: ${(p) => p.theme.colors.type.body};
+    color: var(--link-color);
     text-decoration: underline;
     transition: all .15s;
 
     &:hover, &:focus {
-      color: var(--section-color-link-hover);
+      color: var(--link-hover);
       outline: none;
     }
   }

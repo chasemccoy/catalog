@@ -78,7 +78,6 @@ const TypographyStyles = createGlobalStyle`
 
     h1, h2, h3, h4, h5, h6 {
       margin-top: clamp(2rem, 1.6em, 9999rem);
-      font-family: var(--header-font);
       line-height: 1.2;
     }
 
