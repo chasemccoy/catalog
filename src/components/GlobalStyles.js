@@ -72,88 +72,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   article {
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 2em;
-
-      &:first-child {
-        margin-top: -4px;
-      }
-
-      a {
-        text-decoration: none;
-      }
-    }
-    
-    .meta + h2,
-    .meta + h3,
-    .meta + h4 {
-      margin-top: 0;
-    }
-
-    h2.inline {
-      margin-bottom: 1.5rem;
-
-      &:not(.no-border) {
-        padding-top: 12px;
-        border-top: 2px solid ${(p) => p.theme.colors.gray[2]};
-      }
-    }
-
-    h2:not(.inline), 
-    .float-header {
-      --width: var(--sidebarWidth);
-
-      padding-top: 20px;
-      border-top: 2px solid ${(p) => p.theme.colors.gray[2]};
-      margin-top: 2rem;
-
-      width: var(--width);
-      margin-left: calc(-1 * var(--width) - var(--gap));
-      float: left;
-
-      &.no-border {
-        border-top: none;
-      }
-
-      & + *:before {
-        content: "";
-        display: inline-block; /* prevents margin collapsing */
-        width: 100%;
-        margin-top: 2rem;
-        padding-top: 16px;
-        border-top: 2px solid ${(p) => p.theme.colors.gray[2]};
-
-        ${media.medium`
-          content: none;
-        `}
-      }
-
-      &.no-border + *:before {
-        border-top: none;
-      }
-
-      ${media.medium`
-        float: none;
-        width: 100%;
-        margin-top: 2em;
-        margin-left: 0;
-      `}
-
-      ${media.small`
-        padding-top: 12px;
-      `}
-    }
-
     h2:first-child {
       margin-top: 0;
-    }
-
-    img {
-      width: 100%;
     }
 
     ${media.small`
@@ -218,31 +138,9 @@ const GlobalStyles = createGlobalStyle`
     `}
   }
 
-  ${
-    '' /* *:not(.gatsby-resp-image-figure) > .gatsby-resp-image-wrapper,
-  .gatsby-resp-image-figure,
-  p:not(:first-child) > img {
-    margin-top: 2em !important;
-    margin-bottom: 2em !important;
-  } */
-  }
-
   .gatsby-resp-image-figcaption {
-    ${'' /* margin: 8px 0; */}
     color: ${(p) => p.theme.colors.gray[4]};
-    ${'' /* font-size: 14px;
-    line-height: 1.4; */}
     max-width: 550px;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    content: " ";
-    display: table;
-  }
-
-  .clearfix:after {
-    clear: both;
   }
 
   twitter-widget {

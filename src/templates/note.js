@@ -30,11 +30,7 @@ const Note = ({
         }
         section='notes'
       >
-        <Layout>
-          <Layout.Content mb={[0, 0, 0, 80]}>
-            <MDX.Renderer>{note.content}</MDX.Renderer>
-          </Layout.Content>
-        </Layout>
+        <MDX.Renderer>{note.content}</MDX.Renderer>
       </Page>
     </MDX.Provider>
   )
