@@ -3,7 +3,6 @@ import { space, display, borders, borderColor, fontSize } from 'styled-system'
 
 export const UnorderedList = styled.ul`
   list-style-type: none;
-  ${'' /* padding-left: 0; */}
 
   > li {
     margin-left: 1em;

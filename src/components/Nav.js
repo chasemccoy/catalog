@@ -7,14 +7,8 @@ const NavContainer = styled.nav(
   ({ theme }) => css`
     --space: 40px;
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-    }
-
     li {
       display: inline-block;
-      margin-bottom: 0;
     }
 
     li + li {

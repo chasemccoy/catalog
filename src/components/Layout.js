@@ -1,7 +1,8 @@
 import React from 'react'
 import styled, { ThemeProvider, css } from 'styled-components'
 import theme from 'utils/theme'
-import { CSSReset, Box } from '@chasemccoy/kit'
+import { Box } from '@chasemccoy/kit'
+import CSSReset from 'components/CSSReset'
 import TypographyStyles from 'utils/typography'
 import Metadata from 'components/Metadata'
 import MDX from 'components/MDX'
@@ -15,8 +16,8 @@ const Layout = (props) => {
       <MDX.Provider>
         <Metadata title={props.title} description={props.description} />
 
-        {/* <CSSReset /> */}
-        {/* <TypographyStyles /> */}
+        <CSSReset />
+        <TypographyStyles />
         <GlobalStyles />
 
         {props.children}

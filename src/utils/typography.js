@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import Typography from 'typography'
 import theme from 'utils/theme'
+import pilcrow from '!!raw-loader!../../pilcrow.css'
 
 const fontFamilyArray = (value) => value.replace(/[""&]+/g, '').split(', ')
 
@@ -51,7 +52,11 @@ const typography = new Typography({
 })
 
 const TypographyStyles = createGlobalStyle`
-  ${typography.toString()}
+  ${pilcrow}
+
+  pre code {
+    font-size: 14px;
+  }
 `
 
 export default TypographyStyles
