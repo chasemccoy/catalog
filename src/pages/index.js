@@ -6,8 +6,8 @@ import Link from 'components/Link'
 const PageStyles = createGlobalStyle`
   :root {
     --body-background: #222;
-    --body-color: white;
-    --link-color: white;
+    --body-color: #f7fafc;
+    --link-color: #f7fafc;
   }
 `
 
@@ -51,6 +51,48 @@ const IndexPage = () => {
           worked as a mobile designer & iOS developer, creating indie apps in my
           spare time and building products for enterprise clients at my day job.
         </p>
+      </div>
+
+      <div
+        css={`
+          margin-top: 24px;
+
+          > * + * {
+            margin-top: 24px;
+          }
+        `}
+      >
+        <div
+          css={`
+            border-radius: 12px;
+            padding: 24px;
+            background: #635bff;
+          `}
+        />
+
+        <div
+          css={`
+            border-radius: 12px;
+            padding: 24px;
+            background: #333;
+          `}
+        />
+
+        <div
+          css={`
+            border-radius: 12px;
+            padding: 24px;
+            background: #75dd66;
+          `}
+        />
+
+        <div
+          css={`
+            border-radius: 12px;
+            padding: 24px;
+            background: #9180f4;
+          `}
+        />
       </div>
     </Page>
   )

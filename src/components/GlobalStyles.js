@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
     --system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     --body-background: white;
-    --body-color: black;
+    --body-color: #2a2f45;
     --link-color: black;
     --link-hover: ${(p) => p.theme.colors.accent};
 
