@@ -72,7 +72,7 @@ const Page = ({
               {(aside || !untitled) && (
                 <React.Fragment>
                   {!untitled && <header>{header || <Header />}</header>}
-                  <aside id='sidebar'>{aside}</aside>
+                  {aside && <aside id='sidebar'>{aside}</aside>}
                 </React.Fragment>
               )}
 
@@ -90,13 +90,9 @@ const Header = ({ category, ...rest }) => {
   if (!title && !description) return null
 
   return (
-    <Box className='prose' pb={24} {...rest}>
+    <Box className='prose' {...rest}>
       {title && (
-        <Text
-          as='h1'
-          // mt={0}
-          // fontSize='1.9rem'
-          mb={description ? 8 : 0}
+        <h1
           dangerouslySetInnerHTML={{ __html: title }}
           css='hyphens: auto; overflow-wrap: normal;'
         />

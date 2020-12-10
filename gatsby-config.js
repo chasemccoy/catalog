@@ -13,6 +13,13 @@ module.exports = {
       instagram: '@chs_mc'
     }
   },
+  flags: {
+    // FAST_DEV: true,
+    FAST_REFRESH: true,
+    QUERY_ON_DEMAND: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    LAZY_IMAGES: true
+  },
   plugins: [
     'gatsby-plugin-preact',
     {
