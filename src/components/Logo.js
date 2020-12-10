@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import { Box, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 
 const clamp = function (min, n, max) {

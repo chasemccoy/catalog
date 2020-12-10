@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+// import styled, { css } from 'styled-components'
 import { Box } from '@chasemccoy/kit'
-import media from 'utils/media'
+// import media from 'utils/media'
 
 // const Wide = styled(Box)(
 //   ({ left, right, theme }) => css`

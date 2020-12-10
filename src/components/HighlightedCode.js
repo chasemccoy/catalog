@@ -15,16 +15,16 @@ const PreWithLineNumbers = styled.pre`
     top: 12px;
     left: 8px;
     bottom: 12px;
-    color: ${props => props.theme.colors.gray[3]};
+    color: ${(props) => props.theme.colors.gray[4]};
     opacity: 0.5;
     white-space: pre-line;
     overflow: hidden;
     text-align: right;
-    font-family: ${props => props.theme.fonts.code};
+    font-family: ${(props) => props.theme.fonts.code};
     font-size: 14px;
     line-height: 1.5;
     padding-right: 12px;
-    border-right: 0.5px solid ${props => props.theme.colors.gray[2]};
+    border-right: 0.5px solid ${(props) => props.theme.colors.gray[2]};
   }
 `
 
@@ -37,7 +37,7 @@ const HighlightedCode = ({ codeString, language, ...props }) => {
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <PreWithLineNumbers className={className} style={style}>
+        <PreWithLineNumbers className={className}>
           <code className={`language-${language}`}>
             {tokens.map((line, i) => (
               <div {...getLineProps({ line, key: i })}>

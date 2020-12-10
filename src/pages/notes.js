@@ -32,7 +32,6 @@ const Notes = ({ data }) => {
           <NotesSidebar categories={categories} />
         </Sidebar>
       }
-      section='notes'
     >
       <NotesList notes={data.notes.nodes} />
     </Page>

@@ -4,15 +4,38 @@ import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Logo from 'components/Logo'
 import Nav from 'components/Nav'
+import media from 'utils/media-new'
 
 const PageContext = createContext({})
 
-const ContentGrid = Box
-
-const PageStyles = styled.div`
-  max-width: 60ch;
+const Wrapper = styled.div`
+  max-width: 75ch;
   margin: 0 auto;
   padding: 40px 16px;
+  overflow: hidden;
+  --sidebar-gap: 40px;
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--sidebar-gap) / 2 * -1);
+  }
+
+  > div > header,
+  > div > main {
+    flex-grow: 1;
+    margin: calc(var(--sidebar-gap) / 2);
+  }
+
+  > div > main {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: calc(83% - var(--sidebar-gap));
+  }
+
+  ${media.tiny`
+    padding: 56px 40px;
+  `}
 `
 
 const Page = ({
@@ -23,14 +46,14 @@ const Page = ({
   description,
   article = false,
   untitled = false,
-  section = 'default',
   ...rest
 }) => {
   const normalizedTitle = title ? title.replace(/&nbsp;/g, ' ') : null
+  const SemanticContainer = article ? 'article' : 'div'
 
   return (
     <PageContext.Provider value={{ title, description }}>
-      <PageStyles>
+      <Wrapper>
         <Metadata
           title={normalizedTitle}
           description={description}
@@ -38,28 +61,26 @@ const Page = ({
           page
         />
 
-        <header css='margin-bottom: 40px;'>
-          <Logo
-            css={`
-              margin-bottom: 16px;
-            `}
-          />
-          <Nav />
-        </header>
+        <div>
+          <header>
+            <Logo className='mb-16 mt-8' />
+            <Nav />
+          </header>
 
-        <main>
-          <Box as={article ? 'article' : 'div'} {...rest}>
-            {(aside || !untitled) && (
-              <div>
-                {!untitled && <header>{header || <Header />}</header>}
-                <aside id='sidebar'>{aside}</aside>
-              </div>
-            )}
+          <main>
+            <SemanticContainer className={article && 'prose'}>
+              {(aside || !untitled) && (
+                <React.Fragment>
+                  {!untitled && <header>{header || <Header />}</header>}
+                  <aside id='sidebar'>{aside}</aside>
+                </React.Fragment>
+              )}
 
-            <div className={article && 'prose'}>{children}</div>
-          </Box>
-        </main>
-      </PageStyles>
+              {children}
+            </SemanticContainer>
+          </main>
+        </div>
+      </Wrapper>
     </PageContext.Provider>
   )
 }
@@ -69,31 +90,29 @@ const Header = ({ category, ...rest }) => {
   if (!title && !description) return null
 
   return (
-    <Box pb={24} {...rest}>
-      <Text
-        as='h1'
-        // mt={0}
-        // fontSize='1.9rem'
-        mb={description ? 8 : 0}
-        dangerouslySetInnerHTML={{ __html: title }}
-        css='hyphens: auto; overflow-wrap: normal;'
-      />
+    <Box className='prose' pb={24} {...rest}>
+      {title && (
+        <Text
+          as='h1'
+          // mt={0}
+          // fontSize='1.9rem'
+          mb={description ? 8 : 0}
+          dangerouslySetInnerHTML={{ __html: title }}
+          css='hyphens: auto; overflow-wrap: normal;'
+        />
+      )}
 
-      <Text
-        as='p'
-        color='gray.4'
-        fontSize='0.9em'
-        mb={0}
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+      {description && (
+        <Text
+          as='p'
+          color='gray.4'
+          fontSize='0.9em'
+          mb={0}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+      )}
     </Box>
   )
 }
-
-const Breakout = Box
-
-Page.Grid = ContentGrid
-Page.Header = Header
-Page.Breakout = Breakout
 
 export default Page

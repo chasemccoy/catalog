@@ -13,7 +13,7 @@ const PageStyles = createGlobalStyle`
 
 const IndexPage = () => {
   return (
-    <Page>
+    <Page untitled>
       <PageStyles />
       <div className='prose'>
         <p className='lead'>

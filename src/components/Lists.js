@@ -11,7 +11,9 @@ export const UnorderedList = styled.ul`
   > li:before {
     content: "–";
     margin-left: -1em;
-    margin-right: 0.5em;
+    margin-top: -1px;
+    ${'' /* margin-right: 0.5em; */}
+    float: left;
   }
 
   ${(props) =>
@@ -56,4 +58,12 @@ export const UnorderedList = styled.ul`
   ${borders}
   ${borderColor}
   ${fontSize}
+`
+
+export const OrderedList = styled.ul`
+  list-style-type: decimal;
+
+  > li {
+    margin-left: 1.5em;
+  }
 `
