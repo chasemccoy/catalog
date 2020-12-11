@@ -21,7 +21,7 @@ const PreWithLineNumbers = styled.pre`
     overflow: hidden;
     text-align: right;
     font-family: ${(props) => props.theme.fonts.code};
-    font-size: 14px;
+    font-size: 0.75em;
     line-height: 1.5;
     padding-right: 12px;
     border-right: 0.5px solid ${(props) => props.theme.colors.gray[2]};

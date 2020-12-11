@@ -3,7 +3,7 @@ import media from 'utils/media'
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --root-font-size: 16px;
+    --root-font-size: 17px;
     --system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     --body-background: white;

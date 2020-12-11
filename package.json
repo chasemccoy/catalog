@@ -58,9 +58,8 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "prebuild": "gatsby clean",
-    "build": "gatsby build",
-    "develop": "yarn prebuild && gatsby develop",
+    "build": "gatsby clean && gatsby build",
+    "develop": "gatsby clean && gatsby develop",
     "start": "netlify dev",
     "format": "prettier --write src/**/*.{js,jsx}",
     "test": "echo \"Error: no test specified\" && exit 1"
