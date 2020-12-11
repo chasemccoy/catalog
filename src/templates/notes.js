@@ -1,7 +1,6 @@
 import React from 'react'
 import Page from 'components/Page'
 import NotesSidebar from 'components/notes/Sidebar'
-import Layout from 'components/notes/Layout'
 import { capitalize } from 'utils'
 import NotesList from 'components/notes/List'
 import Sidebar from 'components/Sidebar'
@@ -21,13 +20,8 @@ const Notes = ({ pageContext: { notes, categories, category } }) => {
           </Sidebar>
         ) : null
       }
-      section='notes'
     >
-      <Layout>
-        <Layout.Content>
-          <NotesList notes={notes.filter((note) => !note.isLandingPage)} />
-        </Layout.Content>
-      </Layout>
+      <NotesList notes={notes.filter((note) => !note.isLandingPage)} />
     </Page>
   )
 }

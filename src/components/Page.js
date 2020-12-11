@@ -85,12 +85,12 @@ const Page = ({
   )
 }
 
-const Header = ({ category, ...rest }) => {
+const Header = (props) => {
   const { title, description } = useContext(PageContext)
   if (!title && !description) return null
 
   return (
-    <Box className='prose' {...rest}>
+    <Box className='prose' {...props}>
       {title && (
         <h1
           dangerouslySetInnerHTML={{ __html: title }}

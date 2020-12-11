@@ -12,26 +12,22 @@ const Note = ({
   const tags = note.tags && note.tags.map((tag) => tag.name)
 
   return (
-    <MDX.Provider>
-      <Page
-        title={note.title}
-        description={note.excerpt}
-        article
-        header={<Page.Header category={category} />}
-        aside={
-          <Sidebar
-            tableOfContents={note.tableOfContents}
-            tags={tags}
-            relatedItems={notes.filter((note) => !note.isLandingPage)}
-          >
-            <NoteSidebar data={categories} />
-          </Sidebar>
-        }
-        section='notes'
-      >
-        <MDX.Renderer>{note.content}</MDX.Renderer>
-      </Page>
-    </MDX.Provider>
+    <Page
+      title={note.title}
+      description={note.excerpt}
+      article
+      // aside={
+      //   <Sidebar
+      //     tableOfContents={note.tableOfContents}
+      //     tags={tags}
+      //     relatedItems={notes.filter((note) => !note.isLandingPage)}
+      //   >
+      //     <NoteSidebar data={categories} />
+      //   </Sidebar>
+      // }
+    >
+      <MDX.Renderer>{note.content}</MDX.Renderer>
+    </Page>
   )
 }
 
