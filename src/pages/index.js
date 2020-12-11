@@ -16,7 +16,17 @@ const IndexPage = () => {
     <Page untitled>
       <PageStyles />
       <div className='prose'>
-        <p className='lead'>
+        <span
+          css={`
+            color: ${(p) => p.theme.colors.accent.pop};
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75em;
+          `}
+        >
+          Welcome <span className='mx-4'>×</span> hello
+        </span>
+        <p className='lead mt-4'>
           <b>Chase McCoy</b> is a senior design technologist based in Chicago
           leading the team behind{' '}
           <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, Sprout

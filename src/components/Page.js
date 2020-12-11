@@ -63,7 +63,7 @@ const Page = ({
 
         <div>
           <header>
-            <Logo className='mb-16 mt-8' />
+            <Logo className='mb-24 mt-8' />
             <Nav />
           </header>
 

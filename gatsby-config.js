@@ -134,6 +134,14 @@ module.exports = {
         display: 'standalone',
         icon: 'src/favicon.png'
       }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets\/.*.component\.svg/
+        }
+      }
     }
   ]
 }

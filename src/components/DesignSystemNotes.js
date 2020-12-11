@@ -3,7 +3,7 @@ import Link from 'components/Link'
 import { UnorderedList } from 'components/Lists'
 import { Grid, Box, Text } from '@chasemccoy/kit'
 import { useStaticQuery, graphql } from 'gatsby'
-import ArrowRight from 'assets/arrow-right-icon.svg'
+import ArrowRight from 'assets/arrow-right-icon.component.svg'
 
 const Note = ({ title, slug, tableOfContents, excerpt, ...rest }) => (
   <Box
