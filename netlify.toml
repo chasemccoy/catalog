@@ -1,5 +1,10 @@
 [build]
+  command = "yarn build"
   functions = "api"
+
+[dev]
+  command = "yarn develop"
+  autoLaunch = false
   
 [[redirects]]
   from = "/api/*"
