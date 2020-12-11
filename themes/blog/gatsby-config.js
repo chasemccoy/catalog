@@ -13,6 +13,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
+        minimizeDeprecationNotice: true,
         baseUrl: 'chasemccoy.wordpress.com',
         protocol: 'https',
         hostingWPCOM: true,

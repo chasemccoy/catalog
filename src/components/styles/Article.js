@@ -37,7 +37,7 @@ const ArticleStyles = createGlobalStyle`
     width: calc(100% + 32px);
     margin-left: -16px;
     overflow: auto;
-    background-color: #fafbfc;
+    background-color: #fafbfc; /* #F8FAFC */
     border: .5px solid ${(p) => p.theme.colors.gray[1]};
 
     ${media.tiny`
@@ -56,7 +56,7 @@ const ArticleStyles = createGlobalStyle`
   code {
     font-feature-settings: normal;
     font-family: ${(p) => p.theme.fonts.code};
-    background-color: #fafbfc;
+    background-color: #fafbfc; /* #F8FAFC */
     border: .5px solid ${(p) => p.theme.colors.gray[1]};
     padding: .3em .3em .2em;
     vertical-align: middle;
