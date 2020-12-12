@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import Heading from 'components/Heading'
 import media from 'utils/media'
 import { Box, Text } from '@chasemccoy/kit'
 import Tags from 'components/Tags'
@@ -114,13 +113,13 @@ export const Post = (props) => {
   )
 
   const title = props.title && (
-    <Box className='float-header no-border'>
-      <Heading.h2 fontSize='2rem' className='inline no-border'>
+    <Box>
+      <h2 fontSize='2rem' className='inline no-border'>
         <Title
           to={props.to}
           dangerouslySetInnerHTML={{ __html: props.title }}
         />
-      </Heading.h2>
+      </h2>
 
       {props.excerpt && (
         <Text
@@ -163,9 +162,9 @@ Post.Header = ({ title, to, date }) => {
   return (
     <React.Fragment>
       {title && (
-        <Heading.h1 mt={0} mb={0}>
+        <h1 mt={0} mb={0}>
           <Title to={to} dangerouslySetInnerHTML={{ __html: title }} />
-        </Heading.h1>
+        </h1>
       )}
     </React.Fragment>
   )

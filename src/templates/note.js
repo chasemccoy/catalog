@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
+import TableOfContents from 'components/notes/TableOfContents'
 
 const Note = ({
   data: { note },
@@ -9,6 +10,7 @@ const Note = ({
 }) => {
   return (
     <Page title={note.title} description={note.excerpt} article>
+      <TableOfContents data={note.tableOfContents} />
       <MDX.Renderer>{note.content}</MDX.Renderer>
     </Page>
   )

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box } from '@chasemccoy/kit'
 import Link from 'components/Link'
 
 const renderItem = (item, key) => (
@@ -8,9 +7,6 @@ const renderItem = (item, key) => (
     <Link
       unstyled
       to={item.url}
-      display='block'
-      fontFamily='mono'
-      fontSize='15px'
     >
       {item.title}
     </Link>
@@ -19,7 +15,7 @@ const renderItem = (item, key) => (
   </li>
 )
 
-const renderList = item => {
+const renderList = (item) => {
   if (item.items) {
     return (
       <ul>
@@ -37,14 +33,13 @@ const renderList = item => {
   }
 }
 
-const Container = styled(Box)`
-  display: none;
-
+const Container = styled.div`
   ul {
     list-style-type: none;
     margin: 8px 0 8px 4px;
-    padding: 0 0 0 16px;
-    border-left: 1px solid ${props => props.theme.colors.accent.light};
+    padding: 0 0 0 12px;
+    border-left: 1px solid ${(props) => props.theme.colors.gray[2]};
+    font-size: 0.75em;
   }
 
   ul ul {
@@ -56,11 +51,11 @@ const Container = styled(Box)`
   }
 
   li + li {
-    margin-top: 4px;
+    margin-top: 2px;
   }
 
-  .selected + & {
-    display: block;
+  a.selected {
+    color: ${p => p.theme.colors.accent.pop};
   }
 `
 

@@ -2,43 +2,76 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Link from 'components/Link'
 import media from 'utils/media-new'
-import circle from 'assets/circle.svg'
+// import circle from 'assets/circle2.svg'
 
 const NavContainer = styled.nav(
   ({ theme }) => css`
-    a.selected {
+    a {
       display: block;
-      ${'' /* text-decoration: underline; */}
       position: relative;
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      transform: translateX(8px);
+      color: var(--highlight-color, #51CF66);
+    }
+
+    a.selected {
+      ${'' /* border-left: 2px solid var(--highlight-color, #51CF66);
+      padding-left: 8px;
+      margin-left: -8px;
+      transform: translateX(-1px); */}
+
+      color: var(--highlight-color, #51CF66);
 
       &:before {
+        content: "";
+        display: inline-block;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background: var(--highlight-color, #51CF66);
+        margin-right: 6px;
+        margin-left: -12px;
+        transform: translateY(-1px);
+      }
+    }
+
+    ${'' /* a.selected {
+      &:before {
         content: '';
-        background-image: url('${circle}');
+        mask: url('${circle}');
+        mask-size: contain;
+        mask-repeat: no-repeat;
         position: absolute;
-        top: -40%;
-        left: 45%;
-        width: 6rem;
+        background: red;
+        top: -70%;
+        left: 35%;
+        width: 5rem;
+        min-width: 100%;
         height: 3rem;
         transform: translateX(-50%);
         pointer-events: none;
-        background-repeat: no-repeat;
-        background-size: contain;
       }
 
       &.invert:before {
         filter: invert(1);
       }
-    }
+    } */}
 
     ul {
       display: flex;
+      ${'' /* border-left: 1px solid var(--color-border); */}
+      ${'' /* padding-left: 12px; */}
+      ${'' /* margin-left: -2px; */}
     }
 
     li {
       display: block;
-      font-size: 0.8em;
-      font-family: 'Vulf Mono Demo';
-      font-weight: 200;
+      font-size: 0.75em;
+      ${'' /* font-family: 'Vulf Mono Demo';
+      font-weight: 200; */}
     }
 
     li + li {
@@ -65,7 +98,7 @@ const NavContainer = styled.nav(
 
 const Item = ({ to, children, ...rest }) => (
   <li>
-    <Link unstyled partiallyActive to={to} {...rest}>
+    <Link unstyled to={to} {...rest}>
       {children}
     </Link>
   </li>
@@ -73,20 +106,43 @@ const Item = ({ to, children, ...rest }) => (
 
 // This regex matches links that contain the `YYYY/MM/` slug format
 const regex = /([12]\d{3}\/(0[1-9]|1[0-2]))\//
-const blogLinkMatcher = (url) => regex.test(url)
+const blogLinkMatcher = (location) => regex.test(location.pathname)
 
 const Nav = () => (
   <NavContainer>
     <ul>
       <Item to='/' className='invert'>
-        Home
+        <b>Chase M.</b>
       </Item>
-      <Item to='/thoughts' isActive={blogLinkMatcher}>
+      <Item
+        to='/thoughts'
+        isActive={blogLinkMatcher}
+        style={{ '--highlight-color': '#FF6B6B' }}
+        partiallyActive
+      >
         Thoughts
       </Item>
-      <Item to='/notes'>Notes</Item>
-      <Item to='/books'>Books</Item>
-      <Item to='/quotes'>Quotes</Item>
+      <Item
+        to='/notes'
+        style={{ '--highlight-color': '#FCC419' }}
+        partiallyActive
+      >
+        Notes
+      </Item>
+      <Item
+        to='/books'
+        style={{ '--highlight-color': '#74C0FC' }}
+        partiallyActive
+      >
+        Books
+      </Item>
+      <Item
+        to='/quotes'
+        style={{ '--highlight-color': '#8888FC' }}
+        partiallyActive
+      >
+        Quotes
+      </Item>
     </ul>
   </NavContainer>
 )

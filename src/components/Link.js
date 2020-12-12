@@ -21,7 +21,7 @@ const InternalLink = ({ isActive, className, ...rest }) => {
   const [selected, setSelected] = useState(false)
 
   useEffect(() => {
-    if (isActive && isActive(window.location.pathname)) {
+    if (isActive && isActive(window.location)) {
       setSelected(true)
     }
   }, [isActive, setSelected])
@@ -29,7 +29,7 @@ const InternalLink = ({ isActive, className, ...rest }) => {
   return (
     <Container
       as={GatsbyLink}
-      className={selected ? `selected ${className}` : className}
+      className={selected ? `selected ${className || ''}` : className}
       activeClassName='selected'
       {...rest}
     />
@@ -38,7 +38,7 @@ const InternalLink = ({ isActive, className, ...rest }) => {
 
 const Link = ({ to, external, ...rest }) => {
   const newTab = to.startsWith('http')
-  const internal = /^\/(?!\/)/.test(to) && !external
+  const internal = to.startsWith('#') || (/^\/(?!\/)/.test(to) && !external)
 
   if (!internal) {
     return (

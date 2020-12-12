@@ -36,7 +36,6 @@
     "gatsby-transformer-remark": "2.12.0",
     "gatsby-transformer-sharp": "2.8.0",
     "isomorphic-fetch": "2.2.1",
-    "mdx-utils": "0.2.0",
     "metascraper": "5.15.0",
     "metascraper-description": "5.15.0",
     "metascraper-title": "5.15.0",
@@ -49,8 +48,7 @@
     "react-helmet": "5.2.1",
     "slugify": "1.4.6",
     "styled-components": "5.2.1",
-    "styled-system": "5.1.5",
-    "typography": "0.16.19"
+    "styled-system": "5.1.5"
   },
   "keywords": [
     "gatsby"

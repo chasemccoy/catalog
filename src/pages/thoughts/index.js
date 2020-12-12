@@ -1,11 +1,8 @@
 import React from 'react'
 import Page from 'components/Page'
-import { Box, Heading, Text } from '@chasemccoy/kit'
+import { Box, Text } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
-import Sidebar from 'components/Sidebar'
-// import Tags from 'components/Tags'
-import Wide from 'components/Wide'
 import media from 'utils/media'
 
 const Card = ({ title, excerpt, slug, ...rest }) => (
@@ -78,27 +75,22 @@ const Post = ({
   format,
   ...rest
 }) => (
-  <Box {...rest}>
-    <Heading.h3 m={0} fontSize='1.5rem'>
+  <div className='prose' {...rest}>
+    <h3>
       <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
-    </Heading.h3>
+    </h3>
 
     {excerpt && (
-      <Text as='p' mt={8} mb={0} pr={[0, 0, 0, 40]} color='gray.4'>
+      <p>
         {excerpt}
-      </Text>
+      </p>
     )}
 
-    <Box display='flex' alignItems='center' mt={12}>
-      <Text fontSize='0.8em' color='gray.4' mr={24}>
-        {date}
-      </Text>
-      {/* {tags && <Tags items={tags} />} */}
-    </Box>
-  </Box>
+    <div>{date}</div>
+  </div>
 )
 
-const ArchivePage = ({ data }) => {
+const ThoughtsPage = ({ data }) => {
   const groups = data.posts.group.sort(
     (a, b) => parseInt(b.year) - parseInt(a.year)
   )
@@ -108,10 +100,7 @@ const ArchivePage = ({ data }) => {
       title='Thoughts'
       description="What's on my mind, and links to some interesting stuff on the web."
       untitled
-      aside={<Sidebar />}
-      article
     >
-      <Wide right={false}>
         <Box
           bg='accent.pop'
           mb={64}
@@ -160,19 +149,12 @@ const ArchivePage = ({ data }) => {
             </Box>
           </Box>
         </Box>
-      </Wide>
 
       {groups.map((group) => (
-        <Box mb={32}>
-          <Heading.h2
-            fontSize='1.6em'
-            fontFamily='sans'
-            fontWeight='heavy'
-            color='gray.5'
-            mb={72}
-          >
+        <div className='mb-32'>
+          <h2>
             {group.year}
-          </Heading.h2>
+          </h2>
 
           {group.nodes.map((node, i) => (
             <Post
@@ -182,13 +164,13 @@ const ArchivePage = ({ data }) => {
               {...node}
             />
           ))}
-        </Box>
+        </div>
       ))}
     </Page>
   )
 }
 
-export default ArchivePage
+export default ThoughtsPage
 
 export const query = graphql`
   query ArchiveQuery {

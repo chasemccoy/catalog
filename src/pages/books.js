@@ -4,7 +4,6 @@ import Image from 'components/Image'
 import { Box, Text, Grid } from '@chasemccoy/kit'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
-import Heading from 'components/Heading'
 import Wide from 'components/Wide'
 
 const BooksPage = ({ data }) => {
@@ -26,9 +25,9 @@ const BooksPage = ({ data }) => {
                 <Image fluid={node.image.childImageSharp.fluid} />
 
                 <Box height='8em'>
-                  <Heading.h3 my={8} lineHeight={1.3} color='page.text'>
+                  <h3 my={8} lineHeight={1.3} color='page.text'>
                     {node.title}
-                  </Heading.h3>
+                  </h3>
                   <Text.p fontSize='16px' color='gray.4'>
                     {node.metadata}
                   </Text.p>

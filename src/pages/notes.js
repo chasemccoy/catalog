@@ -7,7 +7,7 @@ const Notes = ({ data }) => {
   return (
     <Page
       title='Notes'
-      description={`A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`}
+      description={"A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life."}
     >
       <NotesList notes={data.notes.nodes} />
     </Page>

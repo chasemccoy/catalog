@@ -1,6 +1,5 @@
 import React, { createContext, useContext } from 'react'
 import styled from 'styled-components'
-import { Box, Text } from '@chasemccoy/kit'
 import Metadata from 'components/Metadata'
 import Logo from 'components/Logo'
 import Nav from 'components/Nav'
@@ -13,7 +12,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 40px 16px;
   overflow: hidden;
-  --sidebar-gap: 40px;
+  --sidebar-gap: 48px;
 
   > div {
     display: flex;
@@ -30,7 +29,7 @@ const Wrapper = styled.div`
   > div > main {
     flex-basis: 0;
     flex-grow: 999;
-    min-width: calc(83% - var(--sidebar-gap));
+    min-width: calc(80% - var(--sidebar-gap));
   }
 
   ${media.tiny`
@@ -90,7 +89,19 @@ const Header = (props) => {
   if (!title && !description) return null
 
   return (
-    <Box className='prose' {...props}>
+    <div className='prose' {...props}>
+      {/* <span
+        css={`
+          font-family: 'Vulf Mono Demo';
+          font-size: 0.75em;
+          color: ${p => p.theme.colors.gray[4]};
+        `}
+      >
+        https://chasem.co/2020/04/gap-problem
+      </span>
+
+      <hr className='mt-2 mb-24' css='height: 2px; background: gainsboro;' /> */}
+
       {title && (
         <h1
           dangerouslySetInnerHTML={{ __html: title }}
@@ -99,15 +110,9 @@ const Header = (props) => {
       )}
 
       {description && (
-        <Text
-          as='p'
-          color='gray.4'
-          fontSize='0.9em'
-          mb={0}
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <p dangerouslySetInnerHTML={{ __html: description }} />
       )}
-    </Box>
+    </div>
   )
 }
 

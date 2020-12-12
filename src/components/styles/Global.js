@@ -11,6 +11,8 @@ const GlobalStyles = createGlobalStyle`
     --link-color: black;
     --link-hover: ${(p) => p.theme.colors.accent};
 
+    --color-border: #E7E5E4;
+
     --section-color: ${(p) => p.theme.colors.accent.pop};
     --section-gradient-color-1: ${(p) => p.theme.colors.yellow[300]};
     --section-gradient-color-2: ${(p) => p.theme.colors.yellow[500]};

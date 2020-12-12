@@ -37,11 +37,10 @@ const ArticleStyles = createGlobalStyle`
     width: calc(100% + 32px);
     margin-left: -16px;
     overflow: auto;
-    background-color: #fafbfc; /* #F8FAFC */
-    border: .5px solid ${(p) => p.theme.colors.gray[1]};
+    border-top: 1px solid ${(p) => p.theme.colors.gray[1]};
+    border-bottom: 1px solid ${(p) => p.theme.colors.gray[1]};
 
     ${media.tiny`
-      border-radius: 8px;
       width: auto;
       margin: 0;
     `}
@@ -50,6 +49,7 @@ const ArticleStyles = createGlobalStyle`
       padding: 12px 16px;
       border: none;
       display: block;
+      background-color: transparent;
     }
   }
 
