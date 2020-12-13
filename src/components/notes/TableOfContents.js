@@ -34,11 +34,18 @@ const renderList = (item) => {
 }
 
 const Container = styled.div`
+  h2 {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
   ul {
     list-style-type: none;
     margin: 8px 0 8px 4px;
     padding: 0 0 0 12px;
-    border-left: 1px solid ${(props) => props.theme.colors.gray[2]};
+    border-left: 1px solid var(--color-border);
     font-size: 0.75em;
   }
 
@@ -51,7 +58,7 @@ const Container = styled.div`
   }
 
   li + li {
-    margin-top: 2px;
+    margin-top: 4px;
   }
 
   a.selected {
@@ -59,6 +66,11 @@ const Container = styled.div`
   }
 `
 
-const TableOfContents = ({ data }) => <Container>{renderList(data)}</Container>
+const TableOfContents = ({ data, ...rest }) => (
+  <Container {...rest}>
+    <h2>Table of contents</h2>
+    {renderList(data)}
+  </Container>
+)
 
 export default TableOfContents

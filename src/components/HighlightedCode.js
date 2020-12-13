@@ -13,9 +13,9 @@ const PreWithLineNumbers = styled.pre`
     width: 34px;
     position: absolute;
     top: 12px;
-    left: 8px;
+    left: 0px;
     bottom: 12px;
-    color: ${(props) => props.theme.colors.gray[4]};
+    color: var(--color-gray--500);
     opacity: 0.5;
     white-space: pre-line;
     overflow: hidden;

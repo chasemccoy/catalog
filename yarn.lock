@@ -1649,7 +1649,7 @@
     url-regex-safe "~1.0.2"
     video-extensions "~1.1.0"
 
-"@microlink/mql@~0.7.16":
+"@microlink/mql@~0.7.19":
   version "0.7.19"
   resolved "https://registry.yarnpkg.com/@microlink/mql/-/mql-0.7.19.tgz#ff66237f8330bdd14edb081d6152c77051a96160"
   integrity sha512-kd++8le4agFzaO+3o+MvTj/rlpnVra00xH7JWRvIryF1xonbxTvM/m6nxUia5Eo1uzzfNuTSf4rO/2tmEsjdcA==
@@ -1662,14 +1662,14 @@
     qss "~2.0.3"
     whoops "~4.1.0"
 
-"@microlink/react@5.5.1":
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/@microlink/react/-/react-5.5.1.tgz#cd410ca04e7ab666f383ca41425345a091f45693"
-  integrity sha512-bl0EeZ+xcAe5oegHGerUgzHuY/a1nkSJQC34QUNZggNu7aQy5LKh8/15Q8EHeZNJA7VIxyGkT+shsqcp/DwvGg==
+"@microlink/react@5.5.2":
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/@microlink/react/-/react-5.5.2.tgz#cdc2d6d1b7f7f4c252144ed37ade270e823b1cc1"
+  integrity sha512-hcff/4pRC5F7lF4+27zXTKdbTrghCfVRarwPNNpmHH+J1G9X1ZG/FXUe7HoVKNXl5AjN7Sx2cVeLPMMx2arnNg==
   dependencies:
-    "@microlink/mql" "~0.7.16"
+    "@microlink/mql" "~0.7.19"
     is-localhost-url "~1.0.3"
-    nanoclamp "~1.4.0"
+    nanoclamp "~1.4.1"
 
 "@mikaelkristiansson/domready@^1.0.10":
   version "1.0.10"
@@ -12547,7 +12547,7 @@ nan@^2.12.1, nan@^2.14.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nanoclamp@~1.4.0:
+nanoclamp@~1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/nanoclamp/-/nanoclamp-1.4.1.tgz#76f8ad333d64f984696dc0f847e6ef2fc661d3a1"
   integrity sha512-4lvU9+xWQCpNXkMDu5YkWyNMcoBNhcR0IOplFVvn8ut/xxYQXtDSSy/x0v3lQ96zWGzXfumVWwL1H8FICk1G/A==

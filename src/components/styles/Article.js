@@ -27,7 +27,7 @@ const ArticleStyles = createGlobalStyle`
   }
 
   hr {
-    background: ${(p) => p.theme.colors.gray[0]};
+    background: var(--color-gray--100);
     height: 4px;
     border: none;
   }
@@ -37,8 +37,8 @@ const ArticleStyles = createGlobalStyle`
     width: calc(100% + 32px);
     margin-left: -16px;
     overflow: auto;
-    border-top: 1px solid ${(p) => p.theme.colors.gray[1]};
-    border-bottom: 1px solid ${(p) => p.theme.colors.gray[1]};
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 
     ${media.tiny`
       width: auto;
@@ -46,7 +46,7 @@ const ArticleStyles = createGlobalStyle`
     `}
 
     code {
-      padding: 12px 16px;
+      padding: 12px 8px;
       border: none;
       display: block;
       background-color: transparent;
@@ -55,10 +55,10 @@ const ArticleStyles = createGlobalStyle`
 
   code {
     font-feature-settings: normal;
-    font-family: ${(p) => p.theme.fonts.code};
+    font-family: var(--font-code);
     background-color: #fafbfc; /* #F8FAFC */
-    border: .5px solid ${(p) => p.theme.colors.gray[1]};
-    padding: .3em .3em .2em;
+    border: .5px solid var(--color-border);
+    padding: .2em .3em;
     vertical-align: middle;
     word-wrap: normal;
     overflow: auto;

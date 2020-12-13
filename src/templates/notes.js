@@ -9,7 +9,7 @@ const Notes = ({ pageContext: { notes, categories, category } }) => {
 
   return (
     <Page title={title} description={description}>
-      <NotesList notes={notes.filter((note) => !note.isLandingPage)} />
+      <NotesList notes={notes.filter((note) => !note.isLandingPage)} className='mt-24' />
     </Page>
   )
 }

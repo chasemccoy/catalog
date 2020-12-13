@@ -13,7 +13,7 @@ const NavContainer = styled.nav(
     }
 
     a:hover {
-      transform: translateX(8px);
+      ${'' /* transform: translateX(8px); */}
       color: var(--highlight-color, #51CF66);
     }
 

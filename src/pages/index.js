@@ -73,11 +73,11 @@ const IndexPage = () => {
         </span> */}
 
         <p
-          className='mt-4 mb-24'
+          className='mb-24'
           css={`
-            font-family: Georgia;
+            font-family: var(--font-header);
             font-size: 1.5rem;
-            line-height: 1.3;
+            line-height: 1.4;
           `}
         >
           Chase McCoy is a senior design{' '}

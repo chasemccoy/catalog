@@ -40,7 +40,7 @@ const StyledMicrolink = styled(Microlink)`
 
 const Bookmark = ({ media = ['image', 'logo'], ...rest }) => (
   <div>
-    <StyledMicrolink media={media} {...rest} />
+    <StyledMicrolink media={media} lazy={false} {...rest} />
   </div>
 )
 

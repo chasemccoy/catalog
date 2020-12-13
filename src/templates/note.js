@@ -10,7 +10,7 @@ const Note = ({
 }) => {
   return (
     <Page title={note.title} description={note.excerpt} article>
-      <TableOfContents data={note.tableOfContents} />
+      <TableOfContents data={note.tableOfContents} className='mt-24' />
       <MDX.Renderer>{note.content}</MDX.Renderer>
     </Page>
   )

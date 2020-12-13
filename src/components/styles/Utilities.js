@@ -47,6 +47,18 @@ const marginAndPadding = Object.keys(spaceProperties)
 
 const Utilities = createGlobalStyle`
   ${marginAndPadding}
+
+  .smaller {
+    font-size: smaller;
+  }
+
+  .larger { 
+    font-size: larger;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
 `
 
 export default Utilities
