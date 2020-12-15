@@ -77,12 +77,12 @@ const IndexPage = () => {
           css={`
             font-family: var(--font-header);
             font-size: 1.5rem;
-            line-height: 1.4;
+            line-height: 1.3;
           `}
         >
           Chase McCoy is a senior design{' '}
-          <span css='color: #FF6B6B;'>technologist</span> leading the team behind Seeds, Sprout Social’s design system. I’m a{' '}
-          <span css='color: #74C0FC;'>front-end engineer</span> and designer who
+          <span css='color: #FF6B6B;'>technologist</span> leading the team behind Seeds, <span css='color: #8888FC;'>Sprout Social’s</span> design system. I’m a{' '}
+          <span css='color: #70D4FF;'>front-end engineer</span> and designer who
           specializes in <span css='color: #51CF66;'>systems thinking</span>,
           design tooling, and <span css='color: #FCC419;'>advocacy</span>.
         </p>
