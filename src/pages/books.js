@@ -20,7 +20,7 @@ const BooksPage = ({ data }) => {
             key={i}
           >
             <Link to={node.url} unstyled width='100%'>
-              <Image fluid={node.image.childImageSharp.fluid} />
+              <Image image={node.image.childImageSharp.gatsbyImageData} />
 
               <Box height='5em' className='mt-8'>
                 <h2>{node.title}</h2>
@@ -31,29 +31,26 @@ const BooksPage = ({ data }) => {
         ))}
       </Grid>
     </Page>
-  )
+  );
 }
 
 export default BooksPage
 
-export const query = graphql`
-  query BooksQuery {
-    books: allBooksHJson(sort: { fields: [title], order: ASC }) {
-      edges {
-        node {
-          title
-          metadata
-          description
-          url
-          image {
-            childImageSharp {
-              fluid(maxWidth: 900) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+export const query = graphql`query BooksQuery {
+  books: allBooksHJson(sort: {fields: [title], order: ASC}) {
+    edges {
+      node {
+        title
+        metadata
+        description
+        url
+        image {
+          childImageSharp {
+            gatsbyImageData(maxWidth: 900, layout: FLUID)
           }
         }
       }
     }
   }
+}
 `

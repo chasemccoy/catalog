@@ -1,10 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import Link from 'components/Link'
 import { borderRadius, space } from 'styled-system'
 
-const StyledImage = styled(Img)`
+const StyledImage = styled(GatsbyImage)`
   margin-bottom: 0;
 
   img {
@@ -42,7 +42,7 @@ const ImageLinkContainer = styled(ImageLink)`
 
 class Image extends React.Component {
   render() {
-    if (this.props.fluid) {
+    if (this.props.image) {
       return <StyledImage {...this.props} />
     } else if (this.props.src && this.props.to) {
       return <ImageLinkContainer className='no-invert' {...this.props} />

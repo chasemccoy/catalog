@@ -5,7 +5,7 @@ const TypographyStyles = createGlobalStyle`
     --flow-spacing: 1.1rem;
   }
 
-  .prose {
+  .prose, .wp-block-jetpack-markdown, .prose > div {
     & > * + * {
       margin-top: var(--flow-spacing);
     }
