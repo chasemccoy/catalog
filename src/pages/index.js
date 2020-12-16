@@ -8,7 +8,7 @@ import avatar from 'assets/avatar.png'
 
 const PageStyles = createGlobalStyle`
   :root {
-    --body-background: #222;
+    --body-background: #222; // #181B25
     --body-color: #f7fafc;
     --link-color: #f7fafc;
 
