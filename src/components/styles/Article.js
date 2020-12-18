@@ -67,13 +67,15 @@ const ArticleStyles = createGlobalStyle`
   }
 
   .gatsby-resp-image-wrapper {
-    margin: 0 !important;
+    max-width: none;
+    width: calc(100% + 32px);
+    margin-left: -16px !important;
+    border-radius: 0;
 
     ${media.small`
-      max-width: none;
-      width: calc(100% + 32px);
-      margin-left: -16px !important;
-      border-radius: 0;
+      max-width: 100%;
+      width: 100%;
+      margin: 0 !important;
     `}
   }
 

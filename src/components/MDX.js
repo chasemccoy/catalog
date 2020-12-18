@@ -10,6 +10,7 @@ import Bookmark from 'components/mdx/Bookmark'
 import Tweet from 'components/mdx/Tweet'
 import Wide from 'components/Wide'
 import Callout from 'components/mdx/Callout'
+import Video from 'components/mdx/Video'
 import Tags from 'components/Tags'
 
 const LinkAdapter = ({ href, ...rest }) => <Link to={href} {...rest} />
@@ -30,7 +31,8 @@ const Provider = (props) => {
     Tweet,
     Wide,
     Callout,
-    Tags
+    Tags,
+    Video
   }
 
   const newProps = { components, ...props }
