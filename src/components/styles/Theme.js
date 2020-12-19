@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import media from 'utils/media'
 
 const Theme = createGlobalStyle`
   :root {
@@ -7,7 +6,7 @@ const Theme = createGlobalStyle`
     --system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     --body-background: white; /* #F5F4F0; */
-    --body-color: #030303;
+    --body-color: #333333;
     --link-color: black;
     --link-hover: ${(p) => p.theme.colors.accent};
 
@@ -26,7 +25,7 @@ const Theme = createGlobalStyle`
 
     --font-code: "Source Code Pro", "IBM Plex Mono", Consolas, Menlo, Monaco, monospace;
     --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans","Droid Sans", "Helvetica Neue", sans-serif;
-    --font-header: Charter, Georgia, Times New Roman, serif;
+    --font-header: "Ivar Text", "Source Serif Pro", Charter, Georgia, Times New Roman, serif;
 
     --section-color: ${(p) => p.theme.colors.accent.pop};
     --section-gradient-color-1: ${(p) => p.theme.colors.yellow[300]};
@@ -34,7 +33,7 @@ const Theme = createGlobalStyle`
     --section-sidebar-bg: ${(p) => p.theme.colors.gray[0]};
     --section-highlight: ${(p) => p.theme.colors.yellow[200]};
 
-    --heading-scale: 0.9;
+    --heading-scale: 1;
   }
 `
 

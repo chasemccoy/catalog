@@ -81,7 +81,9 @@ const IndexPage = () => {
           `}
         >
           Chase McCoy is a senior design{' '}
-          <span css='color: #FF6B6B;'>technologist</span> leading the team behind Seeds, <span css='color: #8888FC;'>Sprout Social’s</span> design system. I’m a{' '}
+          <span css='color: #FF6B6B;'>technologist</span> leading the team
+          behind Seeds, <span css='color: #8888FC;'>Sprout Social’s</span>{' '}
+          design system. I’m a{' '}
           <span css='color: #70D4FF;'>front-end engineer</span> and designer who
           specializes in <span css='color: #51CF66;'>systems thinking</span>,
           design tooling, and <span css='color: #FCC419;'>advocacy</span>.
@@ -125,6 +127,14 @@ const IndexPage = () => {
           spare time and building products for enterprise clients at my day job.
         </p>
       </div>
+
+      <h2 css='font-size: 2.5em; font-family: var(--font-header); line-height: 1.2;'>
+        I’m currently focused on{' '}
+        <span css='text-decoration: underline; text-decoration-color: #51CF66;'>
+          design systems
+        </span>
+        .
+      </h2>
 
       {/* <Signature css={`filter: invert(1); max-width: 8rem;`} /> */}
 

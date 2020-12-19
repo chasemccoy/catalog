@@ -30,7 +30,6 @@ const TypographyStyles = createGlobalStyle`
       margin-top: clamp(2rem, 1.6em, 9999rem);
       line-height: 1.2;
       font-family: var(--font-header);
-      ${'' /* font-weight: normal; */}
     }
 
     h1 {

@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
     background: var(--body-background);
     color: var(--body-color);
 
-    -webkit-font-smoothing: antialiased;
+    ${'' /* -webkit-font-smoothing: antialiased; */}
     font-feature-settings: "cv10" 1, "cv02" 1;
   }
 

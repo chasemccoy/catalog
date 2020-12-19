@@ -45,13 +45,38 @@
 }
 
 @font-face {
-  font-family: 'Untitled Serif';
-  src: url('./untitled-serif/untitled-serif-web-regular.eot'),
-    url('./untitled-serif/untitled-serif-web-regular.eot?#iefix')
-      format('embedded-opentype'),
-    url('./untitled-serif/untitled-serif-web-regular.woff2') format('woff2'),
-    url('./untitled-serif/untitled-serif-web-regular.woff') format('woff');
+  font-family: 'Ivar Text';
+  src: url('./ivar-text/IvarText-Regular.woff2') format('woff2'),
+    url('./ivar-text/IvarText-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Ivar Text';
+  src: url('./ivar-text/IvarText-Italic.woff2') format('woff2'),
+    url('./ivar-text/IvarText-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ivar Text';
+  src: url('./ivar-text/IvarText-Medium.woff2') format('woff2'),
+    url('./ivar-text/IvarText-Medium.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ivar Text';
+  src: url('./ivar-text/IvarText-MediumItalic.woff2') format('woff2'),
+    url('./ivar-text/IvarText-MediumItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
