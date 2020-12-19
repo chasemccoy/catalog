@@ -14,6 +14,10 @@ const PageStyles = createGlobalStyle`
 
     --color-border: #404040;
   }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
 `
 
 const ProjectCard = styled.div`
@@ -73,9 +77,8 @@ const IndexPage = () => {
         </span> */}
 
         <p
-          className='mb-24'
+          className='mb-24 serif'
           css={`
-            font-family: var(--font-header);
             font-size: 1.5rem;
             line-height: 1.3;
           `}
@@ -128,7 +131,7 @@ const IndexPage = () => {
         </p>
       </div>
 
-      <h2 css='font-size: 2.5em; font-family: var(--font-header); line-height: 1.2;'>
+      <h2 className='serif' css='font-size: 2.5em; line-height: 1.2;'>
         I’m currently focused on{' '}
         <span css='text-decoration: underline; text-decoration-color: #51CF66;'>
           design systems

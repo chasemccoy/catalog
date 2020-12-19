@@ -59,6 +59,10 @@ const Utilities = createGlobalStyle`
   .bold {
     font-weight: bold;
   }
+
+  .serif {
+    font-family: var(--font-header);
+  }
 `
 
 export default Utilities
