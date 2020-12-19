@@ -4,11 +4,11 @@ import { createGlobalStyle } from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
 // import Signature from 'assets/sig.component.svg'
-import avatar from 'assets/avatar.png'
+// import avatar from 'assets/avatar.png'
 
 const PageStyles = createGlobalStyle`
   :root {
-    --body-background: #222; // #181B25
+    --body-background: #222; // #181B25;
     --body-color: #f7fafc;
     --link-color: #f7fafc;
 
@@ -30,26 +30,26 @@ const ProjectCard = styled.div`
   );
 `
 
-const Avatar = () => (
-  <img
-    src={avatar}
-    alt=''
-    css={`
-      width: 160px;
-      height: 160px;
-      // border-radius: 50%;
-      mix-blend-mode: multiply;
+// const Avatar = () => (
+//   <img
+//     src={avatar}
+//     alt=''
+//     css={`
+//       width: 160px;
+//       height: 160px;
+//       // border-radius: 50%;
+//       mix-blend-mode: multiply;
 
-      background: repeating-linear-gradient(
-        -55deg,
-        #303030,
-        #303030 2px,
-        var(--body-background) 2px,
-        var(--body-background) 6px
-      );
-    `}
-  />
-)
+//       background: repeating-linear-gradient(
+//         -55deg,
+//         #303030,
+//         #303030 2px,
+//         var(--body-background) 2px,
+//         var(--body-background) 6px
+//       );
+//     `}
+//   />
+// )
 
 const IndexPage = () => {
   return (
