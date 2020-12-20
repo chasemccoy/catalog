@@ -16,6 +16,6 @@ const Styles = memo(createGlobalStyle`
   ${utilities}
   ${global}
   ${article}
-`)
+`, true)
 
 export default Styles
