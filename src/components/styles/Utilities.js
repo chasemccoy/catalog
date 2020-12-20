@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 
 const spaces = [0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48]
 const spaceProperties = { m: 'margin', p: 'padding' }
@@ -45,7 +45,7 @@ const marginAndPadding = Object.keys(spaceProperties)
   })
   .join('')
 
-const Utilities = createGlobalStyle`
+const utilities = css`
   ${marginAndPadding}
 
   .smaller {
@@ -60,9 +60,13 @@ const Utilities = createGlobalStyle`
     font-weight: bold;
   }
 
+  .sans {
+    font-family: var(--font-body);
+  }
+
   .serif {
     font-family: var(--font-header);
   }
 `
 
-export default Utilities
+export default utilities

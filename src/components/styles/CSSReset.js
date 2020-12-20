@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 
-const CSSReset = createGlobalStyle`
+const cssReset = css`
   body,
   h1,
   h2,
@@ -159,4 +159,4 @@ const CSSReset = createGlobalStyle`
   }
 `
 
-export default CSSReset
+export default cssReset

@@ -34,7 +34,7 @@ const renderList = (item) => {
 }
 
 const Container = styled.div`
-  h2 {
+  && h2 {
     font-size: 0.75rem;
     font-family: var(--font-body);
     font-weight: bold;

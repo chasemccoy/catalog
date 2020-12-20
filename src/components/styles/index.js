@@ -1,22 +1,20 @@
-import React from 'react'
-import Theme from './Theme'
-import Global from './Global'
-import Typography from './Typography'
-import Utilities from './Utilities'
-import CSSReset from './CSSReset'
-import Article from './Article'
-import Fonts from './Fonts'
+import { createGlobalStyle } from 'styled-components'
+import theme from './Theme'
+import global from './Global'
+import typography from './Typography'
+import utilities from './Utilities'
+import cssReset from './CSSReset'
+import article from './Article'
+import fonts from './Fonts'
 
-const Styles = () => (
-  <React.Fragment>
-    <Fonts />
-    <CSSReset />
-    <Theme />
-    <Typography />
-    <Utilities />
-    <Global />
-    <Article />
-  </React.Fragment>
-)
+const Styles = createGlobalStyle`
+  ${fonts}
+  ${cssReset}
+  ${theme}
+  ${typography}
+  ${utilities}
+  ${global}
+  ${article}
+`
 
 export default Styles

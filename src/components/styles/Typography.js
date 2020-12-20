@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 
-const TypographyStyles = createGlobalStyle`
+const typographyStyles = css`
   :root {
     --flow-spacing: 1.1rem;
   }
@@ -112,4 +112,4 @@ const TypographyStyles = createGlobalStyle`
   }
 `
 
-export default TypographyStyles
+export default typographyStyles

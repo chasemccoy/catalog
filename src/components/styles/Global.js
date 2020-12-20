@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 import media from 'utils/media'
 
-const GlobalStyles = createGlobalStyle`
+const globalStyles = css`
   html {
     overflow-y: scroll;
   }
@@ -61,4 +61,4 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export default GlobalStyles
+export default globalStyles

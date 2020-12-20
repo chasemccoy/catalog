@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 
-const Fonts = createGlobalStyle`
+const fonts = css`
   @font-face {
     font-family: 'Inter';
     font-style: normal;
@@ -82,4 +82,4 @@ const Fonts = createGlobalStyle`
   }
 `
 
-export default Fonts
+export default fonts

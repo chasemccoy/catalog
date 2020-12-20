@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 import media from 'utils/media-new'
 
-const ArticleStyles = createGlobalStyle`
+const articleStyles = css`
   article {
     h2:first-child {
       margin-top: 0;
@@ -99,4 +99,4 @@ const ArticleStyles = createGlobalStyle`
   }
 `
 
-export default ArticleStyles
+export default articleStyles

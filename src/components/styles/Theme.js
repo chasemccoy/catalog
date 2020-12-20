@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 
-const Theme = createGlobalStyle`
+const theme = css`
   :root {
     --root-font-size: 17px;
     --system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -37,4 +37,4 @@ const Theme = createGlobalStyle`
   }
 `
 
-export default Theme
+export default theme
