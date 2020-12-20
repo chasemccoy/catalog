@@ -1,4 +1,5 @@
 const path = require('path')
+const express = require('express')
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
@@ -25,7 +26,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         resolve(source, args, context, info) {
           return context.nodeModel
             .getAllNodes({ type: 'Content' })
-            .filter(node => node.tags && node.tags.includes(source.name))
+            .filter((node) => node.tags && node.tags.includes(source.name))
         }
       }
     }
@@ -102,4 +103,8 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       ]
     }
   })
+}
+
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static('static'))
 }

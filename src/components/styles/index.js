@@ -5,9 +5,11 @@ import Typography from './Typography'
 import Utilities from './Utilities'
 import CSSReset from './CSSReset'
 import Article from './Article'
+import Fonts from './Fonts'
 
 const Styles = () => (
   <React.Fragment>
+    <Fonts />
     <CSSReset />
     <Theme />
     <Typography />

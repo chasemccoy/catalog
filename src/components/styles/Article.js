@@ -27,7 +27,7 @@ const ArticleStyles = createGlobalStyle`
   }
 
   hr {
-    background: var(--color-gray--100);
+    background: var(--color-border);
     height: 4px;
     border: none;
   }

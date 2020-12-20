@@ -134,10 +134,12 @@ const IndexPage = () => {
       <h2 className='serif' css='font-size: 2.5em; line-height: 1.2;'>
         I’m currently focused on{' '}
         <span css='text-decoration: underline; text-decoration-color: #51CF66;'>
-          design systems
+          design&nbsp;systems
         </span>
         .
       </h2>
+
+      <hr />
 
       {/* <Signature css={`filter: invert(1); max-width: 8rem;`} /> */}
 
