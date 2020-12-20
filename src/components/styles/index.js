@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import theme from './Theme'
 import global from './Global'
@@ -7,7 +8,7 @@ import cssReset from './CSSReset'
 import article from './Article'
 import fonts from './Fonts'
 
-const Styles = createGlobalStyle`
+const Styles = memo(createGlobalStyle`
   ${fonts}
   ${cssReset}
   ${theme}
@@ -15,6 +16,6 @@ const Styles = createGlobalStyle`
   ${utilities}
   ${global}
   ${article}
-`
+`)
 
 export default Styles
