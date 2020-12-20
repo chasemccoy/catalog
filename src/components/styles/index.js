@@ -6,10 +6,8 @@ import typography from './Typography'
 import utilities from './Utilities'
 import cssReset from './CSSReset'
 import article from './Article'
-import fonts from './Fonts'
 
 const Styles = memo(createGlobalStyle`
-  ${fonts}
   ${cssReset}
   ${theme}
   ${typography}
