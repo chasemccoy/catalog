@@ -5,7 +5,7 @@ const fonts = css`
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-display: block;
+    font-display: swap;
     src: url('/fonts/inter/Inter-Regular.woff2')
         format('woff2'),
       url('/fonts/inter/Inter-Regular.woff')
@@ -16,7 +16,7 @@ const fonts = css`
     font-family: 'Inter';
     font-style: italic;
     font-weight: 400;
-    font-display: block;
+    font-display: swap;
     src: url('/fonts/inter/Inter-Italic.woff2')
         format('woff2'),
       url('/fonts/inter/Inter-Italic.woff')
@@ -27,7 +27,7 @@ const fonts = css`
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-display: block;
+    font-display: swap;
     src: url('/fonts/inter/Inter-Bold.woff2')
         format('woff2'),
       url('/fonts/inter/Inter-Bold.woff')
@@ -38,7 +38,7 @@ const fonts = css`
     font-family: 'Inter';
     font-style: italic;
     font-weight: 700;
-    font-display: block;
+    font-display: swap;
     src: url('/fonts/inter/Inter-BoldItalic.woff2')
         format('woff2'),
       url('/fonts/inter/Inter-BoldItalic.woff')
@@ -51,7 +51,7 @@ const fonts = css`
       url('/fonts/ivar-text/IvarText-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
-    font-display: block;
+    font-display: swap;
   }
 
   @font-face {
@@ -60,7 +60,7 @@ const fonts = css`
       url('/fonts/ivar-text/IvarText-Italic.woff') format('woff');
     font-weight: 400;
     font-style: italic;
-    font-display: block;
+    font-display: swap;
   }
 
   @font-face {
@@ -69,7 +69,7 @@ const fonts = css`
       url('/fonts/ivar-text/IvarText-Medium.woff') format('woff');
     font-weight: 700;
     font-style: normal;
-    font-display: block;
+    font-display: swap;
   }
 
   @font-face {
@@ -78,7 +78,7 @@ const fonts = css`
       url('/fonts/ivar-text/IvarText-MediumItalic.woff') format('woff');
     font-weight: 700;
     font-style: italic;
-    font-display: block;
+    font-display: swap;
   }
 `
 
