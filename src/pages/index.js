@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
-// import Signature from 'assets/sig.component.svg'
-// import avatar from 'assets/avatar.png'
+import Components from 'assets/components.component.svg'
 
 const PageStyles = createGlobalStyle`
   :root {
@@ -34,26 +33,53 @@ const ProjectCard = styled.div`
   );
 `
 
-// const Avatar = () => (
-//   <img
-//     src={avatar}
-//     alt=''
-//     css={`
-//       width: 160px;
-//       height: 160px;
-//       // border-radius: 50%;
-//       mix-blend-mode: multiply;
+const Columns = ({ children, ...rest }) => (
+  <div
+    css={`
+      --gap: 1.2em;
+      --threshold: 30rem;
 
-//       background: repeating-linear-gradient(
-//         -55deg,
-//         #303030,
-//         #303030 2px,
-//         var(--body-background) 2px,
-//         var(--body-background) 6px
-//       );
-//     `}
-//   />
-// )
+      & > div {
+        display: flex;
+        flex-wrap: wrap;
+        margin: calc((var(--gap) / 2) * -1);
+      }
+
+      & > div > * {
+        flex-grow: 1;
+        flex-basis: calc((var(--threshold) - (100% - var(--gap))) * 999);
+        margin: calc(var(--gap) / 2);
+      }
+
+      & > div > :nth-last-child(n + 4),
+      & > div > :nth-last-child(n + 4) ~ * {
+        flex-basis: 100%;
+      }
+    `}
+    {...rest}
+  >
+    <div>{children}</div>
+  </div>
+)
+
+const Marker = styled.h2`
+  display: grid;
+  grid-template-columns: auto minmax(20px, 1fr);
+  align-items: center;
+  width: 100%;
+  font-size: 0.9rem;
+
+  span {
+    background: var(--color-red);
+    border-radius: 999px;
+    padding: 2px 16px;
+  }
+
+  &:after {
+    content: '';
+    border-top: 2px solid var(--color-red);
+  }
+`
 
 const IndexPage = () => {
   return (
@@ -131,7 +157,9 @@ const IndexPage = () => {
         </p>
       </div>
 
-      <h2 className='serif' css='font-size: 2.5em; line-height: 1.2;'>
+      <hr className='mt-32' />
+
+      <h2 className='mt-24 serif' css='font-size: 2.5em; line-height: 1.2;'>
         I’m currently focused on{' '}
         <span css='text-decoration: underline; text-decoration-color: #51CF66;'>
           design&nbsp;systems
@@ -139,7 +167,40 @@ const IndexPage = () => {
         .
       </h2>
 
-      <hr />
+      <Columns className='mt-32 smaller'>
+        <div>
+          <Components width='48px' />
+          <h3 className='mt-12 mb-2'>Community</h3>
+          <p>
+            A healthy system means fostering a healthy community of
+            collaborators.
+          </p>
+        </div>
+
+        <div>
+          <Components width='48px' />
+          <h3 className='mt-12 mb-2'>Documentation</h3>
+          <p>Here are some words about this thing. Maybe a paragraph or so.</p>
+        </div>
+
+        <div>
+          <Components width='48px' />
+          <h3 className='mt-12 mb-2'>Components</h3>
+          <p>Creating flexible and accessible foundations for web products.</p>
+        </div>
+      </Columns>
+
+      <Marker className='mt-32'>
+        <span>Now</span>
+      </Marker>
+
+      <Marker className='mt-32'>
+        <span>2017–2020</span>
+      </Marker>
+
+      <Marker className='mt-32'>
+        <span>Before that</span>
+      </Marker>
 
       {/* <Signature css={`filter: invert(1); max-width: 8rem;`} /> */}
 

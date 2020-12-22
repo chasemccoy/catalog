@@ -14,31 +14,34 @@ const NavContainer = styled.nav(
 
     a:hover {
       ${'' /* transform: translateX(8px); */}
-      color: var(--highlight-color, #51CF66);
+      color: var(--highlight-color, var(--color-green));
     }
 
     a.selected {
-      ${'' /* border-left: 2px solid var(--highlight-color, #51CF66);
+      ${
+        '' /* border-left: 2px solid var(--highlight-color, #51CF66);
       padding-left: 8px;
       margin-left: -8px;
-      transform: translateX(-1px); */}
+      transform: translateX(-1px); */
+      }
 
-      color: var(--highlight-color, #51CF66);
+      color: var(--highlight-color, var(--color-green));
 
       &:before {
-        content: "";
+        content: '';
         display: inline-block;
         height: 6px;
         width: 6px;
         border-radius: 50%;
-        background: var(--highlight-color, #51CF66);
+        background: var(--highlight-color, var(--color-green));
         margin-right: 6px;
         margin-left: -12px;
         transform: translateY(-1px);
       }
     }
 
-    ${'' /* a.selected {
+    ${
+      '' /* a.selected {
       &:before {
         content: '';
         mask: url('${circle}');
@@ -58,7 +61,8 @@ const NavContainer = styled.nav(
       &.invert:before {
         filter: invert(1);
       }
-    } */}
+    } */
+    }
 
     ul {
       display: flex;
@@ -117,28 +121,28 @@ const Nav = () => (
       <Item
         to='/thoughts'
         isActive={blogLinkMatcher}
-        style={{ '--highlight-color': '#FF6B6B' }}
+        style={{ '--highlight-color': 'var(--color-red)' }}
         partiallyActive
       >
         Thoughts
       </Item>
       <Item
         to='/notes'
-        style={{ '--highlight-color': '#FCC419' }}
+        style={{ '--highlight-color': 'var(--color-yellow)' }}
         partiallyActive
       >
         Notes
       </Item>
       <Item
         to='/books'
-        style={{ '--highlight-color': '#74C0FC' }}
+        style={{ '--highlight-color': 'var(--color-blue)' }}
         partiallyActive
       >
         Books
       </Item>
       <Item
         to='/quotes'
-        style={{ '--highlight-color': '#8888FC' }}
+        style={{ '--highlight-color': 'var(--color-purple)' }}
         partiallyActive
       >
         Quotes

@@ -1,5 +1,4 @@
 const path = require('path')
-const express = require('express')
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
@@ -103,8 +102,4 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       ]
     }
   })
-}
-
-exports.onCreateDevServer = ({ app }) => {
-  app.use(express.static('static'))
 }

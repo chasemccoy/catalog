@@ -8,7 +8,7 @@ import media from 'utils/media-new'
 const PageContext = createContext({})
 
 const Wrapper = styled.div`
-  max-width: 75ch;
+  max-width: 78ch;
   margin: 0 auto;
   padding: 40px 16px;
   overflow: hidden;
@@ -110,7 +110,10 @@ const Header = (props) => {
       )}
 
       {description && (
-        <p className='smaller mt-8' dangerouslySetInnerHTML={{ __html: description }} />
+        <p
+          className='smaller mt-8'
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       )}
     </div>
   )
