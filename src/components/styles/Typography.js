@@ -5,7 +5,7 @@ const typographyStyles = css`
     --flow-spacing: 1.1rem;
   }
 
-  .prose, .wp-block-jetpack-markdown, .prose > div {
+  .prose {
     & > * + * {
       margin-top: var(--flow-spacing);
     }
@@ -22,11 +22,21 @@ const typographyStyles = css`
       margin-top: 1.25rem;
     }
 
-    :is(h1, h2, h3, h4, h5, h6) + * {
+    h1 + *,
+    h2 + *,
+    h3 + *,
+    h4 + *,
+    h5 + *,
+    h6 + * {
       margin-top: 0.75em;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin-top: clamp(2rem, 1.6em, 9999rem);
       line-height: 1.2;
       font-family: var(--font-header);
@@ -66,18 +76,18 @@ const typographyStyles = css`
       margin-top: 1.2em;
     }
 
-    .caption, 
+    .caption,
     figure > * + figcaption {
       margin-top: 0.8em;
       font-size: 0.83em;
       line-height: 1.4;
     }
 
-    li > ul, 
+    li > ul,
     li > ol {
-      margin-top: 0.5rem; 
+      margin-top: 0.5rem;
       margin-left: 1rem;
-      padding-left: 0; 
+      padding-left: 0;
     }
 
     code {
@@ -92,23 +102,26 @@ const typographyStyles = css`
       text-align: left;
     }
 
-    td, th {
+    td,
+    th {
       text-align: left;
       border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
       font-feature-settings: 'tnum';
-      padding-left: 1rem; 
+      padding-left: 1rem;
       padding-right: 1rem;
       padding-top: 0.75rem;
       padding-bottom: calc(0.75rem - 1px);
     }
 
-    th:first-child, td:first-child {
+    th:first-child,
+    td:first-child {
       padding-left: 0;
     }
 
-    th:last-child, td:last-child {
+    th:last-child,
+    td:last-child {
       padding-right: 0;
-    } 
+    }
   }
 `
 

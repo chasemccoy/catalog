@@ -4,13 +4,16 @@ import { createGlobalStyle } from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
 import Components from 'assets/components.component.svg'
+import Scale from 'assets/scale.component.svg'
+import Documentation from 'assets/documentation.component.svg'
+import FeaturedPosts from 'components/FeaturedPosts'
 
 const PageStyles = createGlobalStyle`
   :root {
     --body-background: #222; // #181B25;
     --body-color: #f7fafc;
     --link-color: #f7fafc;
-
+    --link-hover: var(--color-green);
     --color-border: #404040;
   }
 
@@ -36,29 +39,21 @@ const ProjectCard = styled.div`
 const Columns = ({ children, ...rest }) => (
   <div
     css={`
-      --gap: 1.2em;
-      --threshold: 30rem;
+      --min: 200px;
 
-      & > div {
-        display: flex;
-        flex-wrap: wrap;
-        margin: calc((var(--gap) / 2) * -1);
-      }
+      display: grid;
+      grid-gap: 2rem;
 
-      & > div > * {
-        flex-grow: 1;
-        flex-basis: calc((var(--threshold) - (100% - var(--gap))) * 999);
-        margin: calc(var(--gap) / 2);
-      }
-
-      & > div > :nth-last-child(n + 4),
-      & > div > :nth-last-child(n + 4) ~ * {
-        flex-basis: 100%;
+      @supports (width: min(var(--min), 100%)) {
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(min(var(--min), 100%), 1fr)
+        );
       }
     `}
     {...rest}
   >
-    <div>{children}</div>
+    {children}
   </div>
 )
 
@@ -67,17 +62,18 @@ const Marker = styled.h2`
   grid-template-columns: auto minmax(20px, 1fr);
   align-items: center;
   width: 100%;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 
   span {
-    background: var(--color-red);
+    color: var(--body-background);
+    background: var(--color-accent, var(--color-red));
     border-radius: 999px;
     padding: 2px 16px;
   }
 
   &:after {
     content: '';
-    border-top: 2px solid var(--color-red);
+    border-top: 2px solid var(--color-accent, var(--color-red));
   }
 `
 
@@ -157,9 +153,11 @@ const IndexPage = () => {
         </p>
       </div>
 
-      <hr className='mt-32' />
+      <Marker className='mt-32'>
+        <span>Now</span>
+      </Marker>
 
-      <h2 className='mt-24 serif' css='font-size: 2.5em; line-height: 1.2;'>
+      <h2 className='mt-20 serif' css='font-size: 2.5em; line-height: 1.2;'>
         I’m currently focused on{' '}
         <span css='text-decoration: underline; text-decoration-color: #51CF66;'>
           design&nbsp;systems
@@ -167,42 +165,52 @@ const IndexPage = () => {
         .
       </h2>
 
-      <Columns className='mt-32 smaller'>
+      <Columns className='mt-48 smaller'>
         <div>
-          <Components width='48px' />
-          <h3 className='mt-12 mb-2'>Community</h3>
-          <p>
+          <Scale height='36px' />
+          <h3 className='mt-16'>Community</h3>
+          <p className='hyphens'>
             A healthy system means fostering a healthy community of
             collaborators.
           </p>
         </div>
 
         <div>
-          <Components width='48px' />
-          <h3 className='mt-12 mb-2'>Documentation</h3>
-          <p>Here are some words about this thing. Maybe a paragraph or so.</p>
+          <Documentation height='36px' />
+          <h3 className='mt-16'>Documentation</h3>
+          <p className='hyphens'>
+            Here are some words about this thing. Maybe a paragraph or so.
+          </p>
         </div>
 
         <div>
-          <Components width='48px' />
-          <h3 className='mt-12 mb-2'>Components</h3>
-          <p>Creating flexible and accessible foundations for web products.</p>
+          <Components height='36px' />
+          <h3 className='mt-16'>Components</h3>
+          <p className='hyphens'>
+            Creating flexible and accessible foundations for web products.
+          </p>
+        </div>
+
+        <div>
+          <Components height='36px' />
+          <h3 className='mt-16'>Components</h3>
+          <p className='hyphens'>
+            Creating flexible and accessible foundations for web products.
+          </p>
         </div>
       </Columns>
 
-      <Marker className='mt-32'>
-        <span>Now</span>
-      </Marker>
-
-      <Marker className='mt-32'>
+      <Marker className='mt-48' css='--color-accent: var(--color-green);'>
         <span>2017–2020</span>
       </Marker>
 
-      <Marker className='mt-32'>
+      <Marker className='mt-32' css='--color-accent: var(--color-purple);'>
         <span>Before that</span>
       </Marker>
 
       {/* <Signature css={`filter: invert(1); max-width: 8rem;`} /> */}
+
+      <FeaturedPosts className='mt-48' />
 
       <div
         css={`

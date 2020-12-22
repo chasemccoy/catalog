@@ -52,7 +52,7 @@ const utilities = css`
     font-size: smaller;
   }
 
-  .larger { 
+  .larger {
     font-size: larger;
   }
 
@@ -66,6 +66,10 @@ const utilities = css`
 
   .serif {
     font-family: var(--font-header);
+  }
+
+  .hyphens {
+    hyphens: auto;
   }
 `
 
