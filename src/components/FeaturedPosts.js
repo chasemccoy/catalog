@@ -47,8 +47,8 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
       justifyContent='space-between'
     >
       <h2
-        className='serif'
-        css='font-size: 1.3em; hyphens: auto;'
+        className='serif lead hyphens'
+        css='font-size: 1.3em; line-height: 1.3;'
         dangerouslySetInnerHTML={{ __html: title }}
       />
 

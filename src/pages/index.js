@@ -105,23 +105,45 @@ const IndexPage = () => {
             line-height: 1.3;
           `}
         >
-          Chase McCoy is a senior design{' '}
+          Chase McCoy is a{' '}
+          <span css='color: var(--color-green);'>product designer ✐</span> and{' '}
+          <span css='color: var(--color-blue);'>
+            front-end engineer{' '}
+            <span css='font-size: 2em; line-height: 1rem; vertical-align: middle;'>
+              ⌨
+            </span>
+          </span>{' '}
+          based out of{' '}
+          <span css='color: var(--color-red);'>
+            Chicago{' '}
+            <span css='font-size: 1.2em; line-height: 1rem; vertical-align: middle;'>
+              ✶
+            </span>
+          </span>{' '}
+          working on{' '}
+          <span css='color: var(--color-yellow);'>design systems ❏</span> at{' '}
+          <Link unstyled to='https://stripe.com'>
+            <span css='color: var(--color-purple);'>
+              Stripe{' '}
+              <span css='font-size: 1.3em; line-height: 1rem; vertical-align: middle;'>
+                ➯
+              </span>
+            </span>
+          </Link>
+          {/* ✐❏☻☺➫♦✻✼☄☁☞⚛ */}
+          {/* Chase McCoy is a Product Designer at Stripe in Chicago, working on product design systems. He spends his time exploring the internet, writing about design systems, and 
+          
+          He spends his time writing, thinking, tweeting, and talking about Design Systems: how they scale, how they break, and the people that maintain them.
+
+          Chase McCoy is an <span css='color: var(--color-green);'>internet explorer</span>, <span css='color: var(--color-blue);'>product designer</span>, and <span css='color: var(--color-purple);'>front-end engineer</span> */}
+          {/* Chase McCoy is a senior design{' '}
           <span css='color: #FF6B6B;'>technologist</span> leading the team
           behind Seeds, <span css='color: #8888FC;'>Sprout Social’s</span>{' '}
           design system. I’m a{' '}
           <span css='color: #70D4FF;'>front-end engineer</span> and designer who
           specializes in <span css='color: #51CF66;'>systems thinking</span>,
-          design tooling, and <span css='color: #FCC419;'>advocacy</span>.
+          design tooling, and <span css='color: #FCC419;'>advocacy</span>. */}
         </p>
-
-        {/* <Avatar /> */}
-
-        {/* <p className='lead mt-4'>
-          <b>Chase McCoy</b> is a senior design technologist based in Chicago
-          leading the team behind{' '}
-          <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, Sprout
-          Social’s design system.
-        </p> */}
 
         <p>
           Hi there!{' '}
