@@ -1,20 +1,62 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import theme from 'utils/theme'
 import Metadata from 'components/Metadata'
 import MDX from 'components/MDX'
 import HCard from 'components/hCard'
 import Styles from 'components/styles'
+import Logo from 'components/Logo'
+import Nav from 'components/Nav'
+import media from 'utils/media-new'
 
-const Layout = (props) => {
+const Wrapper = styled.div`
+  max-width: 78ch;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+  overflow: hidden;
+  --sidebar-gap: 48px;
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--sidebar-gap) / 2 * -1);
+  }
+
+  > div > header,
+  > div > main {
+    flex-grow: 1;
+    margin: calc(var(--sidebar-gap) / 2);
+  }
+
+  > div > main {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: calc(80% - var(--sidebar-gap));
+  }
+
+  ${media.tiny`
+    padding: 56px 40px;
+  `}
+`
+
+const Layout = ({ children, title, description }) => {
   return (
     <ThemeProvider theme={theme}>
       <MDX.Provider>
-        <Metadata title={props.title} description={props.description} />
+        <Metadata title={title} description={description} />
 
         <Styles />
 
-        {props.children}
+        <Wrapper>
+          <div>
+            <header>
+              <Logo className='mb-16 mt-8' />
+              <Nav />
+            </header>
+
+            <main>{children}</main>
+          </div>
+        </Wrapper>
 
         <HCard />
       </MDX.Provider>

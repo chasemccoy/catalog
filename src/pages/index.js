@@ -11,8 +11,9 @@ import Stripe from 'assets/stripe.component.svg'
 
 const PageStyles = createGlobalStyle`
   :root {
-    --body-background: #222; // #181B25;
-    --body-color: #f7fafc;
+    --color-body-background: #222; // #181B25;
+    --color-text: #f7fafc;
+    --color-header: #f7fafc;
     --link-color: #f7fafc;
     --link-hover: var(--color-green);
     --color-border: #404040;

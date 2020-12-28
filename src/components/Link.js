@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { Text } from '@chasemccoy/kit'
+import { globalHistory } from '@reach/router'
 
 const Container = styled(Text)`
   ${(props) =>
@@ -20,11 +21,23 @@ const Container = styled(Text)`
 const InternalLink = ({ isActive, className, ...rest }) => {
   const [selected, setSelected] = useState(false)
 
-  useEffect(() => {
+  const checkIfActive = useCallback(() => {
     if (isActive && isActive(window.location)) {
-      setSelected(true)
+      return true
     }
-  }, [isActive, setSelected])
+
+    return false
+  }, [isActive])
+
+  useEffect(() => {
+    return globalHistory.listen(({ action }) => {
+      if (action === 'PUSH') setSelected(checkIfActive())
+    })
+  }, [setSelected, checkIfActive])
+
+  useEffect(() => {
+    setSelected(checkIfActive())
+  }, [isActive, setSelected, checkIfActive])
 
   return (
     <Container

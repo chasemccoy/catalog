@@ -1,30 +1,19 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import Link from 'components/Link'
-import media from 'utils/media-new'
-// import circle from 'assets/circle2.svg'
 
 const NavContainer = styled.nav(
   ({ theme }) => css`
     a {
       display: block;
       position: relative;
-      transition: all 0.2s;
     }
 
     a:hover {
-      ${'' /* transform: translateX(8px); */}
       color: var(--highlight-color, var(--color-green));
     }
 
     a.selected {
-      ${
-        '' /* border-left: 2px solid var(--highlight-color, #51CF66);
-      padding-left: 8px;
-      margin-left: -8px;
-      transform: translateX(-1px); */
-      }
-
       color: var(--highlight-color, var(--color-green));
 
       &:before {
@@ -40,63 +29,20 @@ const NavContainer = styled.nav(
       }
     }
 
-    ${
-      '' /* a.selected {
-      &:before {
-        content: '';
-        mask: url('${circle}');
-        mask-size: contain;
-        mask-repeat: no-repeat;
-        position: absolute;
-        background: red;
-        top: -70%;
-        left: 35%;
-        width: 5rem;
-        min-width: 100%;
-        height: 3rem;
-        transform: translateX(-50%);
-        pointer-events: none;
-      }
-
-      &.invert:before {
-        filter: invert(1);
-      }
-    } */
-    }
-
     ul {
       display: flex;
-      ${'' /* border-left: 1px solid var(--color-border); */}
-      ${'' /* padding-left: 12px; */}
-      ${'' /* margin-left: -2px; */}
+      flex-direction: column;
     }
 
     li {
       display: block;
       font-size: 0.75em;
-      ${'' /* font-family: 'Vulf Mono Demo';
-      font-weight: 200; */}
     }
 
     li + li {
-      margin-left: 24px;
-      margin-top: 0;
+      margin-left: 0;
+      margin-top: 8px;
     }
-
-    ${media.small`
-      ul {
-        flex-direction: column;
-      }
-
-      li { 
-        display: block;
-      }
-
-      li + li {
-        margin-left: 0;
-        margin-top: 8px;
-      }
-    `}
   `
 )
 

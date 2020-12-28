@@ -19,11 +19,11 @@ const BooksPage = ({ data }) => {
             alignItems='flex-end'
             key={i}
           >
-            <Link to={node.url} unstyled width='100%'>
+            <Link to={node.url} unstyled width='100%' css={`&:hover { color: inherit; }`}>
               <Image image={node.image.childImageSharp.gatsbyImageData} />
 
               <Box height='5em' className='mt-8'>
-                <h2>{node.title}</h2>
+                <h2 className='serif larger mb-4'>{node.title}</h2>
                 <p className='smaller'>{node.metadata}</p>
               </Box>
             </Link>

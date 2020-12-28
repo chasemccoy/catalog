@@ -1,41 +1,7 @@
 import React, { createContext, useContext } from 'react'
-import styled from 'styled-components'
 import Metadata from 'components/Metadata'
-import Logo from 'components/Logo'
-import Nav from 'components/Nav'
-import media from 'utils/media-new'
 
 const PageContext = createContext({})
-
-const Wrapper = styled.div`
-  max-width: 78ch;
-  margin: 0 auto;
-  padding: 40px 16px;
-  overflow: hidden;
-  --sidebar-gap: 48px;
-
-  > div {
-    display: flex;
-    flex-wrap: wrap;
-    margin: calc(var(--sidebar-gap) / 2 * -1);
-  }
-
-  > div > header,
-  > div > main {
-    flex-grow: 1;
-    margin: calc(var(--sidebar-gap) / 2);
-  }
-
-  > div > main {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-width: calc(80% - var(--sidebar-gap));
-  }
-
-  ${media.tiny`
-    padding: 56px 40px;
-  `}
-`
 
 const Page = ({
   children,
@@ -52,34 +18,23 @@ const Page = ({
 
   return (
     <PageContext.Provider value={{ title, description }}>
-      <Wrapper>
-        <Metadata
-          title={normalizedTitle}
-          description={description}
-          article={article}
-          page
-        />
+      <Metadata
+        title={normalizedTitle}
+        description={description}
+        article={article}
+        page
+      />
 
-        <div>
-          <header>
-            <Logo className='mb-24 mt-8' />
-            <Nav />
-          </header>
+      <SemanticContainer className={article && 'prose'}>
+        {(aside || !untitled) && (
+          <React.Fragment>
+            {!untitled && <header>{header || <Header />}</header>}
+            {aside && <aside id='sidebar'>{aside}</aside>}
+          </React.Fragment>
+        )}
 
-          <main>
-            <SemanticContainer className={article && 'prose'}>
-              {(aside || !untitled) && (
-                <React.Fragment>
-                  {!untitled && <header>{header || <Header />}</header>}
-                  {aside && <aside id='sidebar'>{aside}</aside>}
-                </React.Fragment>
-              )}
-
-              {children}
-            </SemanticContainer>
-          </main>
-        </div>
-      </Wrapper>
+        {children}
+      </SemanticContainer>
     </PageContext.Provider>
   )
 }

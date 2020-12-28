@@ -5,8 +5,8 @@ import MultiColumn from 'components/MultiColumn'
 
 export const Quote = ({ content, source, ...rest }) => (
   <div {...rest}>
-    <p className=''>{content}</p>
-    <p className='mt-4 smaller bold'>— {source}</p>
+    <p className='serif'>{content}</p>
+    <p className='mt-12 smaller bold' css='color: var(--color-gray--600);'>— {source}</p>
   </div>
 )
 

@@ -2,7 +2,6 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import React from 'react'
 import { graphql } from 'gatsby'
-import Sidebar from 'components/Sidebar'
 
 export default ({ data, pageContext }) => {
   const post = data.blog

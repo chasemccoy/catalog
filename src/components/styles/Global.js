@@ -10,11 +10,24 @@ const globalStyles = css`
     font-family: var(--font-body);
     overflow: hidden;
     min-height: 100vh;
-    background: var(--body-background);
-    color: var(--body-color);
+    background: var(--color-body-background);
+    color: var(--color-text);
 
     ${'' /* -webkit-font-smoothing: antialiased; */}
     font-feature-settings: "cv10" 1, "cv02" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-header);
+
+    a {
+      --link-color: var(--color-header);
+    }
   }
 
   a {
