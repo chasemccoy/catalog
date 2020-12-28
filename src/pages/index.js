@@ -110,7 +110,7 @@ const IndexPage = () => {
         <Link unstyled to='https://stripe.com'>
           <Stripe
             height='1em'
-            css='display: inline; vertical-align: text-bottom; transform: translateY(-0.5px);'
+            css='display: inline; vertical-align: text-bottom; transform: translateY(-1px);'
           />
         </Link>
         {/* ✐❏☻☺➫♦✻✼☄☁☞⚛ */}
