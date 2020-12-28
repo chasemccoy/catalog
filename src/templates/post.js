@@ -1,7 +1,25 @@
 import Page from 'components/Page'
+import styled from 'styled-components'
 import { Post } from 'components/Blog'
 import React from 'react'
 import { graphql } from 'gatsby'
+
+const Marker = styled.h2`
+  display: grid;
+  grid-template-columns: auto minmax(20px, 1fr);
+  align-items: center;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+
+  span {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    color: var(--body-background);
+    background: var(--color-accent, var(--color-red));
+    border-radius: 999px;
+    padding: 4px 12px;
+  }
+`
 
 export default ({ data, pageContext }) => {
   const post = data.blog
@@ -11,7 +29,12 @@ export default ({ data, pageContext }) => {
       title={post.title}
       article
       description={post.excerpt}
-      header={<h1 className='hyphens'>{post.title}</h1>}
+      header={
+        <React.Fragment>
+          <Marker className='mt-8 mb-16'><span>{post.date}</span></Marker>
+          <h1 className='hyphens'>{post.title}</h1>
+        </React.Fragment>
+      }
       // aside={
       //   <Sidebar
       //     description={post.excerpt}

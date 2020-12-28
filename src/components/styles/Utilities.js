@@ -11,33 +11,33 @@ const marginAndPadding = Object.keys(spaceProperties)
       .map(
         (space) => `
     .${p}-${space} {
-      ${n}: ${space}px;
+      ${n}: ${space}px !important;
     }
 
     .${p}x-${space} {
-      ${n}-right: ${space}px;
-      ${n}-left: ${space}px;
+      ${n}-right: ${space}px !important;
+      ${n}-left: ${space}px !important;
     }
 
     .${p}y-${space} {
-      ${n}-top: ${space}px;
-      ${n}-bottom: ${space}px;
+      ${n}-top: ${space}px !important;
+      ${n}-bottom: ${space}px !important;
     }
 
     .${p}t-${space} {
-      ${n}-top: ${space}px;
+      ${n}-top: ${space}px !important;
     }
 
     .${p}r-${space} {
-      ${n}-right: ${space}px;
+      ${n}-right: ${space}px !important;
     }
 
     .${p}b-${space} {
-      ${n}-bottom: ${space}px;
+      ${n}-bottom: ${space}px !important;
     }
 
     .${p}l-${space} {
-      ${n}-left: ${space}px;
+      ${n}-left: ${space}px !important;
     }
   `
       )

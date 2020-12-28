@@ -67,7 +67,7 @@ const Marker = styled.h2`
   font-size: 0.8rem;
 
   span {
-    color: var(--body-background);
+    color: var(--color-body-background);
     background: var(--color-accent, var(--color-red));
     border-radius: 999px;
     padding: 2px 16px;

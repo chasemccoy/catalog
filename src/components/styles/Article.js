@@ -56,7 +56,7 @@ const articleStyles = css`
   code {
     font-feature-settings: normal;
     font-family: var(--font-code);
-    background-color: #fafbfc; /* #F8FAFC */
+    background-color: var(--color-gray--0);
     border: .5px solid var(--color-border);
     padding: .2em .3em;
     vertical-align: middle;
@@ -80,7 +80,7 @@ const articleStyles = css`
   }
 
   .gatsby-resp-image-figcaption {
-    color: ${(p) => p.theme.colors.gray[4]};
+    color: var(--color-gray--500);
     max-width: 550px;
   }
 
