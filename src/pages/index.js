@@ -7,6 +7,7 @@ import Components from 'assets/components.component.svg'
 import Scale from 'assets/scale.component.svg'
 import Documentation from 'assets/documentation.component.svg'
 import FeaturedPosts from 'components/FeaturedPosts'
+import Stripe from 'assets/stripe.component.svg'
 
 const PageStyles = createGlobalStyle`
   :root {
@@ -110,7 +111,7 @@ const IndexPage = () => {
           <span css='color: var(--color-blue);'>
             front-end engineer{' '}
             <span css='font-size: 2em; line-height: 1rem; vertical-align: middle;'>
-              ⌨
+              ⌨&#xFE0E;
             </span>
           </span>{' '}
           based out of{' '}
@@ -123,12 +124,10 @@ const IndexPage = () => {
           working on{' '}
           <span css='color: var(--color-yellow);'>design systems ❏</span> at{' '}
           <Link unstyled to='https://stripe.com'>
-            <span css='color: var(--color-purple);'>
-              Stripe{' '}
-              <span css='font-size: 1.3em; line-height: 1rem; vertical-align: middle;'>
-                ➯
-              </span>
-            </span>
+            <Stripe
+              height='1.05em'
+              css='display: inline; vertical-align: text-bottom;'
+            />
           </Link>
           {/* ✐❏☻☺➫♦✻✼☄☁☞⚛ */}
           {/* Chase McCoy is a Product Designer at Stripe in Chicago, working on product design systems. He spends his time exploring the internet, writing about design systems, and 
@@ -187,7 +186,7 @@ const IndexPage = () => {
         .
       </h2>
 
-      <Columns className='mt-48 smaller'>
+      <Columns className='mt-40 smaller'>
         <div>
           <Scale height='36px' />
           <h3 className='mt-16'>Community</h3>

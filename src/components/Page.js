@@ -103,10 +103,7 @@ const Header = (props) => {
       <hr className='mt-2 mb-24' css='height: 2px; background: gainsboro;' /> */}
 
       {title && (
-        <h1
-          dangerouslySetInnerHTML={{ __html: title }}
-          css='hyphens: auto; overflow-wrap: normal;'
-        />
+        <h1 dangerouslySetInnerHTML={{ __html: title }} className='hyphens' />
       )}
 
       {description && (

@@ -20,11 +20,10 @@ const globalStyles = css`
   a {
     color: var(--link-color);
     text-decoration: underline;
-    transition: all .15s;
+    transition: all 0.15s;
 
-    &:hover, &:focus {
+    &:hover {
       color: var(--link-hover);
-      outline: none;
     }
   }
 
@@ -44,12 +43,12 @@ const globalStyles = css`
 
   blockquote {
     position: relative;
-    margin-left: .5em;
-    padding: 4px .5em 4px 1.2em;
+    margin-left: 0.5em;
+    padding: 4px 0.5em 4px 1.2em;
     font-size: 0.95em;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;

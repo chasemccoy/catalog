@@ -12,14 +12,15 @@ export default ({ data, pageContext }) => {
       title={post.title}
       article
       description={post.excerpt}
-      aside={
-        <Sidebar
-          description={post.excerpt}
-          relatedItems={data.relatedPosts.nodes}
-          tags={post.tags}
-          publishDate={post.date}
-        />
-      }
+      header={<h1 className='hyphens'>{post.title}</h1>}
+      // aside={
+      //   <Sidebar
+      //     description={post.excerpt}
+      //     relatedItems={data.relatedPosts.nodes}
+      //     tags={post.tags}
+      //     publishDate={post.date}
+      //   />
+      // }
     >
       <Post
         content={post.content}
