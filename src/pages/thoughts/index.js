@@ -36,7 +36,7 @@ const ThoughtsPage = ({ data }) => {
       description="What's on my mind, and links to some interesting stuff on the web."
       untitled
     >
-      <FeaturedPosts />
+      {/* <FeaturedPosts /> */}
 
       {groups.map((group) => (
         <div className='mb-32'>
