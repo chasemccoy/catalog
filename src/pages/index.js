@@ -190,8 +190,8 @@ const IndexPage = () => {
       <Columns className='mt-40 smaller'>
         <div>
           <Scale height='36px' />
-          <h3 className='mt-16'>Community</h3>
-          <p className='hyphens'>
+          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Community</h3>
+          <p className='hyphens' css='color: var(--color-gray--400);'>
             A healthy system means fostering a healthy community of
             collaborators.
           </p>
@@ -199,24 +199,24 @@ const IndexPage = () => {
 
         <div>
           <Documentation height='36px' />
-          <h3 className='mt-16'>Documentation</h3>
-          <p className='hyphens'>
+          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Documentation</h3>
+          <p className='hyphens' css='color: var(--color-gray--400);'>
             Here are some words about this thing. Maybe a paragraph or so.
           </p>
         </div>
 
         <div>
           <Components height='36px' />
-          <h3 className='mt-16'>Components</h3>
-          <p className='hyphens'>
+          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Components</h3>
+          <p className='hyphens' css='color: var(--color-gray--400);'>
             Creating flexible and accessible foundations for web products.
           </p>
         </div>
 
         <div>
           <Components height='36px' />
-          <h3 className='mt-16'>Components</h3>
-          <p className='hyphens'>
+          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Components</h3>
+          <p className='hyphens' css='color: var(--color-gray--400);'>
             Creating flexible and accessible foundations for web products.
           </p>
         </div>
