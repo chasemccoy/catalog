@@ -16,6 +16,7 @@ const NavContainer = styled.nav(
 
     a.selected {
       color: var(--highlight-color);
+      font-weight: bold;
 
       &:before {
         content: '';
@@ -42,7 +43,7 @@ const NavContainer = styled.nav(
 
     li + li {
       margin-left: 0;
-      margin-top: 8px;
+      margin-top: 6px;
     }
   `
 )

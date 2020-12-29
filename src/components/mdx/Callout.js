@@ -17,7 +17,7 @@ const Callout = ({ children, ...rest }) => (
       `}
       {...rest}
     >
-      <Box bg='white' borderRadius='8px' py={12} px={12} css='box-shadow: var(--shadow-medium)'>
+      <Box bg='white' borderRadius='8px' py={12} px={12} css='box-shadow: var(--shadow-small)'>
         <p className='smaller'>{children}</p>
       </Box>
     </Box>

@@ -72,7 +72,7 @@ const Marker = styled.h2`
     color: var(--color-body-background);
     background: var(--color-accent, var(--color-red));
     border-radius: 999px;
-    padding: 2px 16px;
+    padding: 2px 16px 1px;
   }
 
   &:after {
@@ -156,7 +156,7 @@ const IndexPage = () => {
 
       <h2 className='mt-20 serif' css='font-size: 2.5em; line-height: 1.1;'>
         I’m currently focused on{' '}
-        <span css='text-decoration: underline; text-decoration-color: #51CF66;'>
+        <span css='text-decoration: underline; text-decoration-color: #51CF66; font-style: italic;'>
           design&nbsp;systems
         </span>
         .
@@ -172,6 +172,11 @@ const IndexPage = () => {
       <Columns
         className='mt-32 smaller'
         css={`
+          h3 {
+            font-size: 1.1em;
+            color: var(--color-gray--300);
+          }
+
           p {
             color: var(--color-gray--400);
           }

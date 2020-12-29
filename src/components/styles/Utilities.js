@@ -93,6 +93,10 @@ const utilities = css`
   .hyphens {
     hyphens: auto;
   }
+
+  .color-section {
+    color: var(--section-color);
+  }
 `
 
 export default utilities

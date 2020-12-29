@@ -1,8 +1,28 @@
 import React from 'react'
+import styled from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
-import FeaturedPosts from 'components/FeaturedPosts'
+
+const Marker = styled.h2`
+  display: grid;
+  grid-template-columns: auto minmax(20px, 1fr);
+  align-items: center;
+  width: 100%;
+  font-size: 0.9rem;
+
+  span {
+    color: var(--color-body-background);
+    background: var(--section-color, var(--color-red));
+    border-radius: 999px;
+    padding: 2px 16px 1px;
+  }
+
+  &:after {
+    content: '';
+    border-top: 2px solid var(--section-color, var(--color-red));
+  }
+`
 
 const Post = ({
   slug,
@@ -12,16 +32,18 @@ const Post = ({
   date,
   content,
   format,
+  featured,
   ...rest
 }) => (
-  <div className='prose' {...rest}>
-    <h3>
+  <div className='prose' css={`& + & { margin-top: 32px; }`} {...rest}>
+    <h3 className='mt-0' css='position: relative;'>
+      {featured && <span className='color-section' css='position: absolute; left: -1em;'>✹</span>}
       <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
     </h3>
 
-    {excerpt && <p>{excerpt}</p>}
+    {excerpt && <p className='caption'>{excerpt}</p>}
 
-    <div>{date}</div>
+    <p className='caption'>{date}</p>
   </div>
 )
 
@@ -37,11 +59,9 @@ const ThoughtsPage = ({ data }) => {
       untitled
       section='blog'
     >
-      {/* <FeaturedPosts /> */}
-
       {groups.map((group) => (
-        <div className='mb-32'>
-          <h2>{group.year}</h2>
+        <div className='mb-48'>
+          <Marker className='mb-20'><span>{group.year}</span></Marker>
 
           {group.nodes.map((node, i) => (
             <Post
@@ -76,6 +96,7 @@ export const query = graphql`
           format
           content
           excerpt
+          featured
           isMdx
           tags {
             name
