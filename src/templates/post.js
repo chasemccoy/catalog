@@ -15,7 +15,7 @@ const Marker = styled.h2`
     font-size: 0.7rem;
     font-family: var(--font-body);
     color: var(--body-background);
-    background: var(--color-accent, var(--color-red));
+    background: var(--section-color);
     border-radius: 999px;
     padding: 4px 12px;
   }
@@ -31,9 +31,36 @@ export default ({ data, pageContext }) => {
       description={post.excerpt}
       header={
         <div className='mb-24'>
-          <Marker className='mt-8 mb-16'><span>{post.date}</span></Marker>
+          <Marker className='mt-8 mb-16'>
+            <span>Blog post</span>
+          </Marker>
+
           <h1 className='hyphens'>{post.title}</h1>
-          <hr className='my-16' />
+
+          <p className='mono smaller'>
+            <span css='color: var(--section-color);' className='bold'>
+              {post.date}
+            </span>
+            {post.tags && (
+              <React.Fragment>
+                <span className='color-gray--400'> × </span>
+                <span className='color-gray--600'>
+                  {post.tags.map((tag) => tag.name).join(', ')}
+                </span>
+              </React.Fragment>
+            )}
+          </p>
+
+          <hr
+            css={`
+              background: none;
+              border-top: 1px dashed var(--color-border);
+              height: 1px;
+            `}
+            className='mt-16'
+          />
+
+          {/* <hr className='my-16' /> */}
         </div>
       }
       // aside={

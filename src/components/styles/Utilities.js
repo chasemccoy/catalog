@@ -62,8 +62,6 @@ const colorUtils = palettes
   })
   .join('')
 
-console.log(colorUtils)
-
 const utilities = css`
   ${spaceUtils}
   ${colorUtils}
@@ -86,6 +84,10 @@ const utilities = css`
 
   .serif {
     font-family: var(--font-header);
+  }
+
+  .mono {
+    font-family: var(--font-code);
   }
 
   .hyphens {

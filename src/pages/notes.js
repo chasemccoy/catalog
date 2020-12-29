@@ -8,6 +8,7 @@ const Notes = ({ data }) => {
     <Page
       title='Notes'
       description={"A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life."}
+      section='notes'
     >
       <NotesList notes={data.notes.nodes} className='mt-24' />
     </Page>

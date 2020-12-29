@@ -8,7 +8,7 @@ const Notes = ({ pageContext: { notes, categories, category } }) => {
   const description = `A collection of links, thoughts, ideas, images, quotes, and other miscellanea I've collected in my travels across the web and through life.`
 
   return (
-    <Page title={title} description={description}>
+    <Page title={title} description={description} section='notes'>
       <NotesList notes={notes.filter((note) => !note.isLandingPage)} className='mt-24' />
     </Page>
   )

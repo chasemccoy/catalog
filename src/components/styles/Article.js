@@ -94,6 +94,14 @@ const articleStyles = css`
     max-width: 100% !important;
   }
 
+  .prose > * + .twitter-tweet {
+    margin-top: var(--flow-spacing) !important;
+  }
+
+  .twitter-tweet {
+    margin-bottom: 0 !important;
+  }
+
   .twitter-tweet + * {
     margin-top: 1.5em;
   }

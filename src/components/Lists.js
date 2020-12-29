@@ -61,9 +61,23 @@ export const UnorderedList = styled.ul`
 `
 
 export const OrderedList = styled.ul`
-  list-style-type: decimal;
+  ${'' /* list-style-type: decimal; */}
+  list-style: none;
+  counter-reset: muffins;
+  --offset: 1.5em;
 
   > li {
-    margin-left: 1.5em;
+    margin-left: var(--offset);
+    counter-increment: ol-counter;
+    position: relative;
+  }
+
+  > li:before {
+    content: counter(ol-counter) ". ";
+    font-feature-settings: "tnum";
+    font-weight: bold;
+    padding-right: 0.5em;
+    position: absolute;
+    left: calc(-1 * var(--offset));
   }
 `

@@ -9,7 +9,7 @@ const Note = ({
   pageContext: { notes, categories, category }
 }) => {
   return (
-    <Page title={note.title} description={note.excerpt} article>
+    <Page title={note.title} description={note.excerpt} article section='notes'>
       <TableOfContents data={note.tableOfContents} className='mt-24' />
       <MDX.Renderer>{note.content}</MDX.Renderer>
     </Page>

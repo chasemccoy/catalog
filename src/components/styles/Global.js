@@ -36,7 +36,7 @@ const globalStyles = css`
     transition: all 0.15s;
 
     &:hover {
-      color: var(--link-hover);
+      color: var(--section-color, var(--link-hover));
     }
   }
 

@@ -1,5 +1,6 @@
 import React, { createContext, useContext } from 'react'
 import Metadata from 'components/Metadata'
+import { getColorForSection } from 'utils'
 
 const PageContext = createContext({})
 
@@ -11,6 +12,7 @@ const Page = ({
   description,
   article = false,
   untitled = false,
+  section,
   ...rest
 }) => {
   const normalizedTitle = title ? title.replace(/&nbsp;/g, ' ') : null
@@ -25,7 +27,9 @@ const Page = ({
         page
       />
 
-      <SemanticContainer className={article && 'prose'}>
+      <SemanticContainer className={article && 'prose'} style={{
+        '--section-color': getColorForSection(section)
+      }}>
         {(aside || !untitled) && (
           <React.Fragment>
             {!untitled && <header>{header || <Header />}</header>}
@@ -45,18 +49,6 @@ const Header = (props) => {
 
   return (
     <div className='prose' {...props}>
-      {/* <span
-        css={`
-          font-family: 'Vulf Mono Demo';
-          font-size: 0.75em;
-          color: ${p => p.theme.colors.gray[4]};
-        `}
-      >
-        https://chasem.co/2020/04/gap-problem
-      </span>
-
-      <hr className='mt-2 mb-24' css='height: 2px; background: gainsboro;' /> */}
-
       {title && (
         <h1 dangerouslySetInnerHTML={{ __html: title }} className='hyphens' />
       )}

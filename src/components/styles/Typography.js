@@ -86,7 +86,7 @@ const typographyStyles = css`
     li > ul,
     li > ol {
       margin-top: 0.5rem;
-      margin-left: 1rem;
+      margin-left: 0.5rem;
       padding-left: 0;
     }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import Link from 'components/Link'
+import { getColorForSection } from 'utils'
 
 const NavContainer = styled.nav(
   ({ theme }) => css`
@@ -10,11 +11,11 @@ const NavContainer = styled.nav(
     }
 
     a:hover {
-      color: var(--highlight-color, var(--color-green));
+      color: var(--highlight-color);
     }
 
     a.selected {
-      color: var(--highlight-color, var(--color-green));
+      color: var(--highlight-color);
 
       &:before {
         content: '';
@@ -22,7 +23,7 @@ const NavContainer = styled.nav(
         height: 6px;
         width: 6px;
         border-radius: 50%;
-        background: var(--highlight-color, var(--color-green));
+        background: var(--highlight-color);
         margin-right: 6px;
         margin-left: -12px;
         transform: translateY(-1px);
@@ -61,34 +62,34 @@ const blogLinkMatcher = (location) => regex.test(location.pathname)
 const Nav = () => (
   <NavContainer>
     <ul>
-      <Item to='/' className='invert'>
+      <Item to='/' className='invert' style={{ '--highlight-color': getColorForSection() }}>
         <b>Chase M.</b>
       </Item>
       <Item
         to='/thoughts'
         isActive={blogLinkMatcher}
-        style={{ '--highlight-color': 'var(--color-red)' }}
+        style={{ '--highlight-color': getColorForSection('blog') }}
         partiallyActive
       >
-        Thoughts
+        Blog
       </Item>
       <Item
         to='/notes'
-        style={{ '--highlight-color': 'var(--color-yellow)' }}
+        style={{ '--highlight-color': getColorForSection('notes') }}
         partiallyActive
       >
         Notes
       </Item>
       <Item
         to='/books'
-        style={{ '--highlight-color': 'var(--color-blue)' }}
+        style={{ '--highlight-color': getColorForSection('books') }}
         partiallyActive
       >
         Books
       </Item>
       <Item
         to='/quotes'
-        style={{ '--highlight-color': 'var(--color-purple)' }}
+        style={{ '--highlight-color': getColorForSection('quotes') }}
         partiallyActive
       >
         Quotes

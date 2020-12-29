@@ -40,11 +40,11 @@ const theme = css`
       'Droid Sans', 'Helvetica Neue', sans-serif;
     --font-header: 'Ivar Text', Charter, Georgia, Times New Roman, serif;
 
-    --section-color: ${(p) => p.theme.colors.accent.pop};
-    --section-gradient-color-1: ${(p) => p.theme.colors.yellow[300]};
-    --section-gradient-color-2: ${(p) => p.theme.colors.yellow[500]};
-    --section-sidebar-bg: ${(p) => p.theme.colors.gray[0]};
-    --section-highlight: ${(p) => p.theme.colors.yellow[200]};
+    --section-color: var(--color-yellow);
+
+    --shadow-small: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);
+    --shadow-medium: 0 0 transparent, 0 0 transparent, 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-large: 0 0 transparent, 0 0 transparent, 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 
     --heading-scale: 1;
   }
