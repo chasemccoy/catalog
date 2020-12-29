@@ -48,7 +48,7 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
     >
       <h2
         className='serif lead hyphens'
-        css='font-size: 1.3em; line-height: 1.3;'
+        css='font-size: 1.3em; line-height: 1.3; color: inherit;'
         dangerouslySetInnerHTML={{ __html: title }}
       />
 
@@ -67,7 +67,7 @@ const FeaturedPosts = (props) => {
     <Box
       bg='var(--color-accent)'
       css={`
-        color: var(--body-background);
+        color: var(--color-body-background);
         --color-accent: var(--color-purple);
 
         ${media.small`

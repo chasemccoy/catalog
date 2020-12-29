@@ -12,7 +12,7 @@ const Marker = styled.h2`
   -webkit-font-smoothing: antialiased;
 
   span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-family: var(--font-body);
     color: var(--body-background);
     background: var(--color-accent, var(--color-red));
@@ -30,10 +30,11 @@ export default ({ data, pageContext }) => {
       article
       description={post.excerpt}
       header={
-        <React.Fragment>
+        <div className='mb-24'>
           <Marker className='mt-8 mb-16'><span>{post.date}</span></Marker>
           <h1 className='hyphens'>{post.title}</h1>
-        </React.Fragment>
+          <hr className='my-16' />
+        </div>
       }
       // aside={
       //   <Sidebar

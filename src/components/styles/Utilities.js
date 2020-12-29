@@ -3,7 +3,10 @@ import { css } from 'styled-components'
 const spaces = [0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48]
 const spaceProperties = { m: 'margin', p: 'padding' }
 
-const marginAndPadding = Object.keys(spaceProperties)
+const palettes = ['gray']
+const colors = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+
+const spaceUtils = Object.keys(spaceProperties)
   .map((p) => {
     const n = spaceProperties[p]
 
@@ -45,8 +48,25 @@ const marginAndPadding = Object.keys(spaceProperties)
   })
   .join('')
 
+const colorUtils = palettes
+  .map((p) => {
+    return colors
+      .map(
+        (color) => `
+          .color-${p}--${color} {
+            color: var(--color-${p}--${color});
+          }
+        `
+      )
+      .join('')
+  })
+  .join('')
+
+console.log(colorUtils)
+
 const utilities = css`
-  ${marginAndPadding}
+  ${spaceUtils}
+  ${colorUtils}
 
   .smaller {
     font-size: smaller;

@@ -4,17 +4,19 @@ import { createGlobalStyle } from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
 import Components from 'assets/components.component.svg'
-import Scale from 'assets/scale.component.svg'
+// import Scale from 'assets/scale.component.svg'
 import Documentation from 'assets/documentation.component.svg'
+import Pattern from 'assets/pattern.component.svg'
+import Collab from 'assets/collab.component.svg'
 import FeaturedPosts from 'components/FeaturedPosts'
 import Stripe from 'assets/stripe.component.svg'
 
 const PageStyles = createGlobalStyle`
   :root {
     --color-body-background: #222; // #181B25;
-    --color-text: #f7fafc;
-    --color-header: #f7fafc;
-    --link-color: #f7fafc;
+    --color-text: var(--color-gray--200);
+    --color-header: var(--color-gray--200);
+    --link-color: var(--color-gray--200);
     --link-hover: var(--color-green);
     --color-border: #404040;
   }
@@ -31,10 +33,10 @@ const ProjectCard = styled.div`
 
   background: repeating-linear-gradient(
     -55deg,
-    #303030,
-    #303030 2px,
-    var(--body-background) 2px,
-    var(--body-background) 6px
+    var(--color-gray--700),
+    var(--color-gray--700) 2px,
+    var(--color-body-background) 2px,
+    var(--color-body-background) 6px
   );
 `
 
@@ -85,66 +87,39 @@ const IndexPage = () => {
       <PageStyles />
 
       <h2
-        className='mb-24 serif'
+        className='mb-24 serif hyphens'
         css={`
           font-size: 1.7rem;
           line-height: 1.3;
         `}
       >
         Chase McCoy is a{' '}
-        <span css='color: var(--color-green);'>product designer ✐</span> and{' '}
+        <span css='color: var(--color-green);'>product designer&nbsp;✐</span>{' '}
+        and{' '}
         <span css='color: var(--color-blue);'>
-          front-end engineer{' '}
+          front-end engineer&nbsp;
           <span css='font-size: 2em; line-height: 1rem; vertical-align: middle;'>
             ⌨&#xFE0E;
           </span>
         </span>{' '}
         based out of{' '}
         <span css='color: var(--color-red);'>
-          Chicago{' '}
+          Chicago&nbsp;
           <span css='font-size: 1.2em; line-height: 1rem; vertical-align: middle;'>
             ✶
           </span>
         </span>{' '}
         working on{' '}
-        <span css='color: var(--color-yellow);'>design systems ❏</span> at{' '}
+        <span css='color: var(--color-yellow);'>design systems&nbsp;❏</span> at{' '}
         <Link unstyled to='https://stripe.com'>
           <Stripe
             height='1em'
             css='display: inline; vertical-align: text-bottom; transform: translateY(-1px);'
           />
         </Link>
-        {/* ✐❏☻☺➫♦✻✼☄☁☞⚛ */}
-        {/* Chase McCoy is a Product Designer at Stripe in Chicago, working on product design systems. He spends his time exploring the internet, writing about design systems, and 
-          
-          He spends his time writing, thinking, tweeting, and talking about Design Systems: how they scale, how they break, and the people that maintain them.
-
-          Chase McCoy is an <span css='color: var(--color-green);'>internet explorer</span>, <span css='color: var(--color-blue);'>product designer</span>, and <span css='color: var(--color-purple);'>front-end engineer</span> */}
-        {/* Chase McCoy is a senior design{' '}
-          <span css='color: #FF6B6B;'>technologist</span> leading the team
-          behind Seeds, <span css='color: #8888FC;'>Sprout Social’s</span>{' '}
-          design system. I’m a{' '}
-          <span css='color: #70D4FF;'>front-end engineer</span> and designer who
-          specializes in <span css='color: #51CF66;'>systems thinking</span>,
-          design tooling, and <span css='color: #FCC419;'>advocacy</span>. */}
       </h2>
 
       <div className='prose'>
-        {/* <span
-          css={`
-            font-family: 'Vulf Mono Demo';
-            font-size: 0.75em;
-            background: linear-gradient(45deg, #F35655 10%, #F5F11B 25%,#01FEB5 50%, #00bbcb 75%, #5830FB 90%);
-            background-clip: text;
-            text-fill-color: transparent;
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            -webkit-text-fill-color: transparent; 
-            -moz-text-fill-color: transparent;
-          `}
-        >
-          Welcome <span className='mx-4'>×</span> hello
-        </span> */}
         <p>
           Hi there!{' '}
           <span role='img' aria-label='Waving hand emoji'>
@@ -179,7 +154,7 @@ const IndexPage = () => {
         <span>Now</span>
       </Marker>
 
-      <h2 className='mt-20 serif' css='font-size: 2.5em; line-height: 1.2;'>
+      <h2 className='mt-20 serif' css='font-size: 2.5em; line-height: 1.1;'>
         I’m currently focused on{' '}
         <span css='text-decoration: underline; text-decoration-color: #51CF66;'>
           design&nbsp;systems
@@ -187,36 +162,50 @@ const IndexPage = () => {
         .
       </h2>
 
-      <Columns className='mt-40 smaller'>
+      <p className='mt-24 color-gray--300'>
+        Chase McCoy is a Product Designer at Stripe in Chicago, working on
+        product design systems. He spends his time exploring the internet,
+        writing about design systems, and how they scale, how they
+        break, and the people that maintain&nbsp;them.
+      </p>
+
+      <Columns
+        className='mt-32 smaller'
+        css={`
+          p {
+            color: var(--color-gray--400);
+          }
+        `}
+      >
         <div>
-          <Scale height='36px' />
-          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Community</h3>
-          <p className='hyphens' css='color: var(--color-gray--400);'>
+          <Collab height='32px' />
+          <h3 className='mt-16 mb-2'>Community</h3>
+          <p className='hyphens'>
             A healthy system means fostering a healthy community of
             collaborators.
           </p>
         </div>
 
         <div>
-          <Documentation height='36px' />
-          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Documentation</h3>
-          <p className='hyphens' css='color: var(--color-gray--400);'>
+          <Documentation height='32px' />
+          <h3 className='mt-16 mb-2'>Documentation</h3>
+          <p className='hyphens'>
             Here are some words about this thing. Maybe a paragraph or so.
           </p>
         </div>
 
         <div>
-          <Components height='36px' />
-          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Components</h3>
-          <p className='hyphens' css='color: var(--color-gray--400);'>
+          <Components height='32px' />
+          <h3 className='mt-16 mb-2'>Components</h3>
+          <p className='hyphens'>
             Creating flexible and accessible foundations for web products.
           </p>
         </div>
 
         <div>
-          <Components height='36px' />
-          <h3 className='mt-16 mb-2' css='color: var(--color-gray--300);'>Components</h3>
-          <p className='hyphens' css='color: var(--color-gray--400);'>
+          <Pattern height='32px' />
+          <h3 className='mt-16 mb-2'>Patterns</h3>
+          <p className='hyphens'>
             Creating flexible and accessible foundations for web products.
           </p>
         </div>
