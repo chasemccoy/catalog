@@ -35,6 +35,7 @@ const ThoughtsPage = ({ data }) => {
       title='Thoughts'
       description="What's on my mind, and links to some interesting stuff on the web."
       untitled
+      section='blog'
     >
       {/* <FeaturedPosts /> */}
 

@@ -29,6 +29,7 @@ export default ({ data, pageContext }) => {
       title={post.title}
       article
       description={post.excerpt}
+      section='blog'
       header={
         <div className='mb-24'>
           <Marker className='mt-8 mb-16'>

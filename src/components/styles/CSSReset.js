@@ -44,7 +44,7 @@ const cssReset = css`
 
   html {
     font-size: var(--root-font-size);
-    line-height: 1.5;
+    line-height: var(--root-line-height);
     scroll-behavior: smooth;
   }
 

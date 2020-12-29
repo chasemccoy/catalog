@@ -16,7 +16,7 @@ const QuotesPage = ({ data }) => {
       title='Quotes'
       description='A running list of musings than have struck me as worth keeping in mind.'
     >
-      <MultiColumn count={2} gap='64px' minColumnWidth='15em' className='mt-24'>
+      <MultiColumn count={2} gap='32px' minColumnWidth='15em' className='mt-24'>
         {data.quotes.edges.map(({ node }, i) => (
           <Quote
             content={node.content}
@@ -24,7 +24,7 @@ const QuotesPage = ({ data }) => {
             className='mb-16 pb-16'
             css={`
               &:not(:last-child) {
-                border-bottom: 2px solid var(--color-border);
+                border-bottom: 1px solid var(--color-border);
               }
 
               &:last-child {

@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -39,6 +39,50 @@
   src: url('./inter/Inter-BoldItalic.woff2')
       format('woff2'),
     url('./inter/Inter-BoldItalic.woff')
+      format('woff');
+} */
+
+@font-face {
+  font-family: 'GT America';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-Regular.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-Regular.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'GT America';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-RegularItalic.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-RegularItalic.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'GT America';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-Bold.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-Bold.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'GT America';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-BoldItalic.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-BoldItalic.woff')
       format('woff');
 }
 

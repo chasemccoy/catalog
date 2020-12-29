@@ -3,6 +3,7 @@ import { css } from 'styled-components'
 const theme = css`
   :root {
     --root-font-size: 17px;
+    --root-line-height: 1.45;
     --system-fonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
       'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol';
@@ -35,7 +36,7 @@ const theme = css`
 
     --font-code: 'Source Code Pro', 'IBM Plex Mono', Consolas, Menlo, Monaco,
       monospace;
-    --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    --font-body: 'GT America', 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
       'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
       'Droid Sans', 'Helvetica Neue', sans-serif;
     --font-header: 'Ivar Text', Charter, Georgia, Times New Roman, serif;
