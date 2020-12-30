@@ -91,6 +91,7 @@ const IndexPage = () => {
         css={`
           font-size: 1.7rem;
           line-height: 1.3;
+          margin-top: -6px;
         `}
       >
         Chase McCoy is a{' '}
@@ -237,7 +238,7 @@ const IndexPage = () => {
           }
         `}
       >
-        <ProjectCard>
+        {/* <ProjectCard>
           <div
             css={`
               border-radius: 8px;
@@ -245,7 +246,7 @@ const IndexPage = () => {
               background: #635bff;
             `}
           />
-        </ProjectCard>
+        </ProjectCard> */}
 
         {/* <div
           css={`

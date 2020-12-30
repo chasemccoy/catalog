@@ -40,14 +40,15 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
       bg='var(--color-accent)'
       border='1px solid black'
       px={24}
-      py={32}
+      py={24}
       width={1}
       display='flex'
       flexDirection='column'
       justifyContent='space-between'
+      className='prose'
     >
       <h2
-        className='serif lead hyphens'
+        className='lead hyphens mt-0'
         css='font-size: 1.3em; line-height: 1.3; color: inherit;'
         dangerouslySetInnerHTML={{ __html: title }}
       />

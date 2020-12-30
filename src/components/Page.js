@@ -27,9 +27,13 @@ const Page = ({
         page
       />
 
-      <SemanticContainer className={article && 'prose'} style={{
-        '--section-color': getColorForSection(section)
-      }}>
+      <SemanticContainer
+        className={article ? 'prose' : ''}
+        style={{
+          '--section-color': getColorForSection(section),
+          marginTop: '6px'
+        }}
+      >
         {(aside || !untitled) && (
           <React.Fragment>
             {!untitled && <header>{header || <Header />}</header>}

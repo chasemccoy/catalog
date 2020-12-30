@@ -4,19 +4,12 @@ import Page from 'components/Page'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
 
-const Marker = styled.h2`
+const Marker = styled.div`
   display: grid;
   grid-template-columns: auto minmax(20px, 1fr);
   align-items: center;
   width: 100%;
   font-size: 0.9rem;
-
-  span {
-    color: var(--color-body-background);
-    background: var(--section-color, var(--color-red));
-    border-radius: 999px;
-    padding: 2px 16px 1px;
-  }
 
   &:after {
     content: '';
@@ -35,15 +28,23 @@ const Post = ({
   featured,
   ...rest
 }) => (
-  <div className='prose' css={`& + & { margin-top: 32px; }`} {...rest}>
+  <div
+    className='prose'
+    css={`
+      & + & {
+        margin-top: 32px;
+      }
+    `}
+    {...rest}
+  >
     <h3 className='mt-0' css='position: relative;'>
-      {featured && <span className='color-section' css='position: absolute; left: -1em;'>✹</span>}
+      {/* {featured && <span className='color-section' css='position: absolute; left: -1em;'>✹</span>} */}
       <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
     </h3>
 
-    {excerpt && <p className='caption'>{excerpt}</p>}
+    {excerpt && <p className='color-gray--500 mt-8'>{excerpt}</p>}
 
-    <p className='caption'>{date}</p>
+    {/* <p className='caption mono'>{date}</p> */}
   </div>
 )
 
@@ -61,7 +62,9 @@ const ThoughtsPage = ({ data }) => {
     >
       {groups.map((group) => (
         <div className='mb-48'>
-          <Marker className='mb-20'><span>{group.year}</span></Marker>
+          <Marker className='mb-20'>
+            <h2 className='badge larger'>{group.year}</h2>
+          </Marker>
 
           {group.nodes.map((node, i) => (
             <Post

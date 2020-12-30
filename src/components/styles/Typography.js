@@ -39,7 +39,7 @@ const typographyStyles = css`
     h6 {
       margin-top: clamp(2rem, 1.6em, 9999rem);
       line-height: 1.2;
-      font-family: var(--font-header);
+      font-family: var(--font-body);
     }
 
     h1 {
@@ -69,7 +69,7 @@ const typographyStyles = css`
 
     .lead {
       font-size: 1.25rem;
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {

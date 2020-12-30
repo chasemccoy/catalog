@@ -97,6 +97,22 @@ const utilities = css`
   .color-section {
     color: var(--section-color);
   }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem !important;
+    font-family: var(--font-body) !important;
+    color: var(--body-background);
+    background: var(--section-color);
+    border-radius: 999px;
+    padding: 4px 12px;
+    line-height: 1.2;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 `
 
 export default utilities
