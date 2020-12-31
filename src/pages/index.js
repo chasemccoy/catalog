@@ -240,7 +240,7 @@ const IndexPage = () => {
           <Components height='32px' />
           <h3 className='mt-12 mb-2'>Components</h3>
           <p className='hyphens'>
-            Creating flexible and accessible foundations for web products.
+            The key to a well-adopted design system is getting developers to use a well-crafted set of accessible components.
           </p>
         </div>
 
@@ -248,7 +248,7 @@ const IndexPage = () => {
           <Pattern height='32px' />
           <h3 className='mt-12 mb-2'>Patterns</h3>
           <p className='hyphens'>
-            Creating flexible and accessible foundations for web products.
+            Our responsibility as system practitioners is to be the stewards, shepherds, scribes, and librarians of a product experience.
           </p>
         </div>
       </Columns>
