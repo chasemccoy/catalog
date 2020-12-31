@@ -12,6 +12,8 @@ import FeaturedPosts from 'components/FeaturedPosts'
 import Stripe from 'assets/stripe.component.svg'
 import avatar from 'assets/avatar-yellow.png'
 import media from 'utils/media-new'
+import asciiHouse from 'assets/ascii-house.png'
+import ContactMe from 'components/Contact'
 
 const PageStyles = createGlobalStyle`
   :root {
@@ -91,9 +93,13 @@ const Avatar = () => (
       border-radius: 50%;
       overflow: hidden;
       float: right;
-      margin: -8px 0 8px 20px;
+      margin: 8px 0 8px 20px;
       clip-path: circle();
       shape-outside: circle();
+
+      ${media.medium`
+        margin-top: -8px;
+      `}
     `}
   >
     <div
@@ -105,16 +111,13 @@ const Avatar = () => (
         background: repeating-linear-gradient(
           -55deg,
           var(--color-gray--600),
-          var(--color-gray--600) .5px,
-          var(--color-body-background) .5px,
+          var(--color-gray--600) 0.5px,
+          var(--color-body-background) 0.5px,
           var(--color-body-background) 3px
         );
       `}
     >
-      <img
-        src={avatar}
-        alt=''
-      />
+      <img src={avatar} alt='' />
     </div>
   </div>
 )
@@ -160,17 +163,20 @@ const IndexPage = () => {
 
       <div className='prose'>
         <p className='hyphens'>
-          <Avatar />I grew up on the web, back when the web made us feel better
-          about ourselves and the world instead of worse. Since then I have seen
-          the web become an often bloated behemoth that is inaccessible and even
-          hostile to many of its users. The change I want to see is a better
-          user experience across the web, <i>especially</i> in the places where
-          people spend the most of their time. Here, a better user experience
-          means embracing the fundamentals of the web as a raw material.
+          <Avatar />I spend a lot of time thinking about the web—how it works,
+          how it’s changing, and how we can make it a better place.
         </p>
+
+        <p className='mb-40'>This site is my home on the web where i do x y and z</p>
+
+        {/* <div css='background: var(--color-gray--700)' className='p-24 mt-48'>
+          hey
+        </div> */}
+
+        <ContactMe />
       </div>
 
-      <Marker className='mt-24'>
+      <Marker className='mt-32'>
         <span>Now</span>
       </Marker>
 
@@ -183,7 +189,7 @@ const IndexPage = () => {
       </h2>
 
       <div className='prose mt-20'>
-        <p>
+        {/* <p>
           I grew up on the web, back when the web made us feel better about
           ourselves and the world instead of worse. Since then I have seen the
           web become an often bloated behemoth that is inaccessible and even
@@ -191,19 +197,29 @@ const IndexPage = () => {
           user experience across the web, <i>especially</i> in the places where
           people spend the most of their time. Here, a better user experience
           means embracing the fundamentals of the web as a raw material.
-        </p>
+        </p> */}
 
         <p>
-          Working on design systems gives us an incredible opportunity to
-          realize that change, and to teach others how to be a part of that as
-          well. Why design systems, particularly for large web products? Because
-          it allows me to wield my love of the open, semantic, accessible web to
+          Why design systems, particularly for large web products? Because it
+          allows me to wield my love of the open, semantic, accessible web to
           help improve the tools that people use to do their jobs and live their
           lives. Design systems give those of us who deeply love the idea of
           what the web could be a chance to introduce tools and practices that
           help others make that idea a reality.
         </p>
+
+        <p>
+          {/* While I love the technical side of design systems, I find the the most
+          satisfaction solving people problems through close collaboration with
+          others. This soft, squishy center of systems work is essential to a
+          successful design system. My background as a designer and developer,
+          as well as my love for solving */}
+
+          As a design systems practitioner my work is typically split between a few focus areas:
+        </p>
       </div>
+
+      {/* <img src={asciiHouse} alt="" css='filter: invert(); width: 15em; margin: 0 auto;' /> */}
 
       <Columns
         className='mt-32 smaller'
@@ -211,6 +227,19 @@ const IndexPage = () => {
           h3 {
             font-size: 1.1em;
             color: var(--color-gray--300);
+            position: relative;
+
+            &:before {
+              content: '';
+              display: inline-block;
+              height: 6px;
+              width: 6px;
+              border-radius: 50%;
+              background: var(--highlight-color);
+              margin-right: 6px;
+              margin-left: -12px;
+              transform: translateY(-2px);
+            }
           }
 
           p {
@@ -220,7 +249,7 @@ const IndexPage = () => {
       >
         <div>
           <Collab height='32px' />
-          <h3 className='mt-12 mb-2'>Community</h3>
+          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-green)'}}>Community</h3>
           <p className='hyphens'>
             Systems exist to serve human beings. A healthy system means
             fostering a healthy community of users and collaborators.
@@ -229,7 +258,7 @@ const IndexPage = () => {
 
         <div>
           <Documentation height='32px' />
-          <h3 className='mt-12 mb-2'>Documentation</h3>
+          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-yellow)'}}>Documentation</h3>
           <p className='hyphens'>
             Educating users and communicating decisions through effective
             communication is key to a system's success.
@@ -238,7 +267,7 @@ const IndexPage = () => {
 
         <div>
           <Components height='32px' />
-          <h3 className='mt-12 mb-2'>Components</h3>
+          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-blue)'}}>Components</h3>
           <p className='hyphens'>
             The key to a well-adopted design system is getting developers to use
             a well-crafted set of accessible components.
@@ -247,7 +276,7 @@ const IndexPage = () => {
 
         <div>
           <Pattern height='32px' />
-          <h3 className='mt-12 mb-2'>Patterns</h3>
+          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-red)'}}>Patterns</h3>
           <p className='hyphens'>
             Our responsibility as system practitioners is to be the stewards,
             shepherds, scribes, and librarians of a product experience.

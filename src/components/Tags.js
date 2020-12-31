@@ -6,7 +6,7 @@ const Tag = styled((props) => <Box as='span' {...props} />)`
   border-radius: 6px;
   padding: 1px 6px;
   margin-right: 8px;
-  background: var(--color-yellow);
+  background: var(--section-color);
   display: inline-flex;
   align-items: center;
   line-height: 1.4;
