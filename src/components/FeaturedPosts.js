@@ -10,7 +10,7 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
     unstyled
     display='flex'
     height='100%'
-    ml={-1}
+    borderRadius='8px'
     css={`
       background: repeating-linear-gradient(
         -55deg,
@@ -39,13 +39,15 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
     <Box
       bg='var(--color-accent)'
       border='1px solid black'
-      px={24}
-      py={24}
+      px={20}
+      py={16}
       width={1}
       display='flex'
       flexDirection='column'
       justifyContent='space-between'
       className='prose'
+      borderRadius='8px'
+      // overflow='hidden'
     >
       <h2
         className='lead hyphens mt-0'
@@ -66,24 +68,23 @@ const FeaturedPosts = (props) => {
 
   return (
     <Box
-      bg='var(--color-accent)'
       css={`
         color: var(--color-body-background);
         --color-accent: var(--color-purple);
 
-        ${media.small`
-          width: calc(100% + 32px);
-          margin-left: -16px;
-        `}
+        // ${media.small`
+        //   width: calc(100% + 32px);
+        //   margin-left: -16px;
+        // `}
       `}
       {...props}
     >
-      <Box display='flex' flexWrap='wrap' flex='1 1 0%'>
+      <Box display='flex' flexWrap='wrap' flex='1 1 0%' m={-6}>
         {posts.nodes.map((node, i) => (
           <Box
             css='flex-grow: 1; flex-shrink: 1;'
             flexBasis={['100%', null, '50%']}
-            mt={[-1]}
+            p={6}
           >
             <Card {...node} />
           </Box>

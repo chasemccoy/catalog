@@ -38,7 +38,7 @@ export default ({ data, pageContext }) => {
               border-top: 1px dashed var(--color-border);
               height: 1px;
             `}
-            className='mt-20'
+            className='mt-24'
           />
 
           {/* <hr className='my-16' /> */}

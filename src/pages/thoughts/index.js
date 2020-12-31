@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
@@ -48,10 +48,37 @@ const Post = ({
   </div>
 )
 
-const ThoughtsPage = ({ data }) => {
-  const groups = data.posts.group.sort(
+const ThoughtsPage = ({ data: { posts, tags } }) => {
+  const initialData = posts.group.sort(
     (a, b) => parseInt(b.year) - parseInt(a.year)
   )
+  const [groups, setGroups] = useState(initialData)
+
+
+  const filterData = (filter) => {
+    console.log(initialData)
+    if (filter) {
+      const filteredGroups = initialData.map((group) => {
+        return {
+          ...group,
+          posts: group.posts.filter((post) => {
+            if (post.tags) {
+              const postTags = post.tags.map((tag) => tag.name)
+              return postTags.includes(filter)
+            }
+
+            return false
+          })
+        }
+      })
+
+      setGroups(
+        filteredGroups.filter((group) => group.posts && group.posts.length > 0)
+      )
+    } else {
+      setGroups(initialData)
+    }
+  }
 
   return (
     <Page
@@ -60,13 +87,19 @@ const ThoughtsPage = ({ data }) => {
       untitled
       section='blog'
     >
+      {tags.names.map((tag) => (
+        <button onClick={() => filterData(tag)}>
+          <span className='badge'>{tag}</span>
+        </button>
+      ))}
+
       {groups.map((group) => (
         <div className='mb-48'>
           <Marker className='mb-20'>
             <h2 className='badge larger'>{group.year}</h2>
           </Marker>
 
-          {group.nodes.map((node, i) => (
+          {group.posts.map((node, i) => (
             <Post
               mb={48}
               mt={i === 0 ? '-2rem' : null}
@@ -84,19 +117,18 @@ export default ThoughtsPage
 
 export const query = graphql`
   query ArchiveQuery {
-    posts: allBlog(
-      filter: { format: { nin: ["image", "aside"] } }
-      sort: { fields: date, order: DESC }
-      limit: 22
-    ) {
+    tags: allBlog {
+      names: distinct(field: tags___name)
+    }
+
+    posts: allBlog(sort: { fields: date, order: DESC }) {
       group(field: year) {
         year: fieldValue
-        nodes {
+        posts: nodes {
           id
           title
           date(formatString: "MMMM Do")
           slug
-          format
           content
           excerpt
           featured

@@ -70,6 +70,10 @@ const utilities = css`
     font-size: smaller;
   }
 
+  .tighter {
+    line-height: 1.25;
+  }
+
   .larger {
     font-size: larger;
   }
@@ -100,13 +104,15 @@ const utilities = css`
 
   .badge {
     display: inline-block;
+    vertical-align: top;
     font-size: 0.7rem !important;
     font-family: var(--font-body) !important;
     color: var(--body-background);
     background: var(--section-color);
     border-radius: 999px;
-    padding: 4px 12px;
+    padding: 3px 12px 4px;
     line-height: 1.2;
+    font-weight: bold;
   }
 
   .uppercase {

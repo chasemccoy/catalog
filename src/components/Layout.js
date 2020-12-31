@@ -10,7 +10,7 @@ import Nav from 'components/Nav'
 import media from 'utils/media-new'
 
 const Wrapper = styled.div`
-  max-width: 78ch;
+  max-width: 76ch;
   margin: 0 auto;
   padding: 16px 16px 40px;
   overflow: hidden;

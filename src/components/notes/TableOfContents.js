@@ -4,10 +4,7 @@ import Link from 'components/Link'
 
 const renderItem = (item, key) => (
   <li key={key}>
-    <Link
-      unstyled
-      to={item.url}
-    >
+    <Link unstyled to={item.url}>
       {item.title}
     </Link>
 
@@ -35,10 +32,9 @@ const renderList = (item) => {
 
 const Container = styled.div`
   && h2 {
-    font-size: 0.75rem;
-    font-family: var(--font-body);
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 0.9rem;
+    ${'' /* font-family: var(--font-body); */}
+    ${'' /* font-weight: bold; */}
   }
 
   ul {
@@ -62,15 +58,19 @@ const Container = styled.div`
   }
 
   a.selected {
-    color: ${p => p.theme.colors.accent.pop};
+    color: ${(p) => p.theme.colors.accent.pop};
   }
 `
 
-const TableOfContents = ({ data, ...rest }) => (
-  <Container {...rest}>
-    <h2>Table of contents</h2>
-    {renderList(data)}
-  </Container>
-)
+const TableOfContents = ({ data, ...rest }) => {
+  if (!data.items) return null
+
+  return (
+    <Container {...rest}>
+      <h2>Table of contents</h2>
+      {renderList(data)}
+    </Container>
+  )
+}
 
 export default TableOfContents

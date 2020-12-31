@@ -14,15 +14,11 @@ const Note = ({ title, slug, tableOfContents, excerpt, ...rest }) => (
     borderColor='gray.2'
     mb={24}
   >
-    <Text
-      as='h2'
-      className='inline no-border'
-      css='margin-bottom: 12px !important;'
-    >
+    <h2>
       <Link unstyled to={slug}>
-        {title} <ArrowRight />
+        {title} <ArrowRight css='display: inline-block;' />
       </Link>
-    </Text>
+    </h2>
 
     <Grid overflow='visible'>
       <Box width={[1, 1, 3 / 5]}>
@@ -37,13 +33,13 @@ const Note = ({ title, slug, tableOfContents, excerpt, ...rest }) => (
             m={0}
             css={`
               li + li {
-                margin-top: 4px;
+                margin-top: 0px !important;
               }
             `}
           >
             {tableOfContents.items.map((item, i) => (
               <Box as='li' m={0} key={i}>
-                <Link fontSize='15px' fontWeight='bold' to={slug + item.url}>
+                <Link className='smaller tighter bold' to={slug + item.url}>
                   {item.title}
                 </Link>
               </Box>

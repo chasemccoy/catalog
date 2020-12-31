@@ -32,15 +32,15 @@ const slugify = string => {
 const getColorForSection = (section) => {
   switch (section) {
     case 'blog':
-      return 'var(--color-red)'
+      return 'var(--color-green)'
     case 'notes':
-      return 'var(--color-yellow)'
+      return 'var(--color-purple)'
     case 'books':
       return 'var(--color-blue)'
     case 'quotes':
-      return 'var(--color-purple)'
+      return 'var(--color-red)'
     default:
-      return 'var(--color-green)'
+      return 'var(--color-yellow)'
   }
 }
 

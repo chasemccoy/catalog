@@ -10,13 +10,15 @@ import Pattern from 'assets/pattern.component.svg'
 import Collab from 'assets/collab.component.svg'
 import FeaturedPosts from 'components/FeaturedPosts'
 import Stripe from 'assets/stripe.component.svg'
+import avatar from 'assets/avatar.png'
+import media from 'utils/media-new'
 
 const PageStyles = createGlobalStyle`
   :root {
     --color-body-background: #222; // #181B25;
-    --color-text: var(--color-gray--200);
+    --color-text: var(--color-gray--300);
     --color-header: var(--color-gray--200);
-    --link-color: var(--color-gray--200);
+    --link-color: var(--color-text);
     --link-hover: var(--color-green);
     --color-border: #404040;
   }
@@ -72,7 +74,7 @@ const Marker = styled.h2`
     color: var(--color-body-background);
     background: var(--color-accent, var(--color-red));
     border-radius: 999px;
-    padding: 2px 16px 1px;
+    padding: 2px 16px;
   }
 
   &:after {
@@ -81,13 +83,49 @@ const Marker = styled.h2`
   }
 `
 
+const Avatar = () => (
+  <div
+    css={`
+      border: 1px dashed var(--color-gray--700);
+      padding: 8px;
+      border-radius: 50%;
+      overflow: hidden;
+      float: right;
+      margin: 0 0 8px 20px;
+      clip-path: circle();
+      shape-outside: circle();
+
+      ${media.medium`
+        margin-top: -24px;
+      `}
+    `}
+  >
+    <div
+      css={`
+        width: 7em;
+        background: var(--color-green);
+        border-radius: 50%;
+        overflow: hidden;
+      `}
+    >
+      <img
+        src={avatar}
+        alt=''
+        css={`
+          mix-blend-mode: multiply;
+        `}
+      />
+    </div>
+  </div>
+)
+
 const IndexPage = () => {
   return (
     <Page untitled>
       <PageStyles />
 
       <h2
-        className='mb-24 serif hyphens'
+        className='mb-12 serif hyphens'
         css={`
           font-size: 1.7rem;
           line-height: 1.3;
@@ -121,37 +159,18 @@ const IndexPage = () => {
       </h2>
 
       <div className='prose'>
-        <p>
-          Hi there!{' '}
-          <span role='img' aria-label='Waving hand emoji'>
-            👋
-          </span>{' '}
-          and welcome to my{' '}
-          <span
-            css={`
-              hyphens: auto;
-            `}
-          >
-            website/portfolio/blog/wiki/library/digital garden/hyperlink abyss/
-          </span>
-          etc. I’m a front-end engineer and designer who specializes in systems
-          thinking, design tooling, and advocacy. This site is where I catalog
-          my learnings as I go.
-        </p>
-
-        <p>
-          I’m currently leading the Design Systems team at{' '}
-          <Link to='https://sproutsocial.com'>Sprout Social</Link>, which
-          designs and builds{' '}
-          <Link to='https://seeds.sproutsocial.com'>Seeds</Link>, our design
-          system, as well as other tools used by Sprout employees to deliver
-          consistently designed products to our customers. In the past I've
-          worked as a mobile designer & iOS developer, creating indie apps in my
-          spare time and building products for enterprise clients at my day job.
+        <p className='hyphens'>
+          <Avatar />I grew up on the web, back when the web made us feel better
+          about ourselves and the world instead of worse. Since then I have seen
+          the web become an often bloated behemoth that is inaccessible and even
+          hostile to many of its users. The change I want to see is a better
+          user experience across the web, <i>especially</i> in the places where
+          people spend the most of their time. Here, a better user experience
+          means embracing the fundamentals of the web as a raw material.
         </p>
       </div>
 
-      <Marker className='mt-32'>
+      <Marker className='mt-24'>
         <span>Now</span>
       </Marker>
 
@@ -163,12 +182,28 @@ const IndexPage = () => {
         .
       </h2>
 
-      <p className='mt-24 color-gray--300'>
-        Chase McCoy is a Product Designer at Stripe in Chicago, working on
-        product design systems. He spends his time exploring the internet,
-        writing about design systems, and how they scale, how they
-        break, and the people that maintain&nbsp;them.
-      </p>
+      <div className='prose mt-20'>
+        <p>
+          I grew up on the web, back when the web made us feel better about
+          ourselves and the world instead of worse. Since then I have seen the
+          web become an often bloated behemoth that is inaccessible and even
+          hostile to many of its users. The change I want to see is a better
+          user experience across the web, <i>especially</i> in the places where
+          people spend the most of their time. Here, a better user experience
+          means embracing the fundamentals of the web as a raw material.
+        </p>
+
+        <p>
+          Working on design systems gives us an incredible opportunity to
+          realize that change, and to teach others how to be a part of that as
+          well. Why design systems, particularly for large web products? Because
+          it allows me to wield my love of the open, semantic, accessible web to
+          help improve the tools that people use to do their jobs and live their
+          lives. Design systems give those of us who deeply love the idea of
+          what the web could be a chance to introduce tools and practices that
+          help others make that idea a reality.
+        </p>
+      </div>
 
       <Columns
         className='mt-32 smaller'
@@ -185,24 +220,25 @@ const IndexPage = () => {
       >
         <div>
           <Collab height='32px' />
-          <h3 className='mt-16 mb-2'>Community</h3>
+          <h3 className='mt-12 mb-2'>Community</h3>
           <p className='hyphens'>
-            A healthy system means fostering a healthy community of
-            collaborators.
+            Systems exist to serve human beings. A healthy system means
+            fostering a healthy community of users and collaborators.
           </p>
         </div>
 
         <div>
           <Documentation height='32px' />
-          <h3 className='mt-16 mb-2'>Documentation</h3>
+          <h3 className='mt-12 mb-2'>Documentation</h3>
           <p className='hyphens'>
-            Here are some words about this thing. Maybe a paragraph or so.
+            Educating users and communicating decisions through effective
+            communication is key to a system's success.
           </p>
         </div>
 
         <div>
           <Components height='32px' />
-          <h3 className='mt-16 mb-2'>Components</h3>
+          <h3 className='mt-12 mb-2'>Components</h3>
           <p className='hyphens'>
             Creating flexible and accessible foundations for web products.
           </p>
@@ -210,12 +246,28 @@ const IndexPage = () => {
 
         <div>
           <Pattern height='32px' />
-          <h3 className='mt-16 mb-2'>Patterns</h3>
+          <h3 className='mt-12 mb-2'>Patterns</h3>
           <p className='hyphens'>
             Creating flexible and accessible foundations for web products.
           </p>
         </div>
       </Columns>
+
+      <div className='prose mt-32'>
+        <p>
+          Embodying the spirit of the web in our work takes a lot of effort, and
+          there’s a lot working against us. The fragmentation of the web
+          platform in and of itself makes implementing accessible and
+          sufficiently complex user interfaces quite difficult to get right.
+        </p>
+
+        <p>
+          Luckily, helping others learn and correctly apply patterns is one of
+          the primary functions of a design system. If we can use our system to,
+          say, help someone design a great form, why couldn’t we also use it to
+          help someone build a web experience that honors the web as a medium.
+        </p>
+      </div>
 
       <Marker className='mt-48' css='--color-accent: var(--color-green);'>
         <span>2017–2020</span>

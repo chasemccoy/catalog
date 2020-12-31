@@ -27,7 +27,7 @@ const theme = css`
 
     --body-background: white; /* #F5F4F0; */
     --body-color: var(--color-gray--700);
-    --link-color: black;
+    --link-color: var(--body-color);
     --link-hover: var(--color-purple);
     --color-body-background: var(--body-background);
     --color-text: var(--body-color);
