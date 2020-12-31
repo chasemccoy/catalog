@@ -34,8 +34,7 @@ const theme = css`
     --color-header: var(--color-gray--700);
     --color-border: var(--color-gray--200);
 
-    --font-code: 'Source Code Pro', 'IBM Plex Mono', Consolas, Menlo, Monaco,
-      monospace;
+    --font-code: 'Source Code Pro', 'IBM Plex Mono', Consolas, Menlo, Monaco, monospace;
     --font-body: 'GT America', 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
       'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
       'Droid Sans', 'Helvetica Neue', sans-serif;

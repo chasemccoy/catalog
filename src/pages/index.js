@@ -10,7 +10,7 @@ import Pattern from 'assets/pattern.component.svg'
 import Collab from 'assets/collab.component.svg'
 import FeaturedPosts from 'components/FeaturedPosts'
 import Stripe from 'assets/stripe.component.svg'
-import avatar from 'assets/avatar.png'
+import avatar from 'assets/avatar-yellow.png'
 import media from 'utils/media-new'
 
 const PageStyles = createGlobalStyle`
@@ -86,34 +86,34 @@ const Marker = styled.h2`
 const Avatar = () => (
   <div
     css={`
-      border: 1px dashed var(--color-gray--700);
+      border: 1px dashed var(--color-gray--600);
       padding: 8px;
       border-radius: 50%;
       overflow: hidden;
       float: right;
-      margin: 0 0 8px 20px;
+      margin: -8px 0 8px 20px;
       clip-path: circle();
       shape-outside: circle();
-
-      ${media.medium`
-        margin-top: -24px;
-      `}
     `}
   >
     <div
       css={`
         width: 7em;
-        background: var(--color-green);
+        // background: var(--color-yellow);
         border-radius: 50%;
         overflow: hidden;
+        background: repeating-linear-gradient(
+          -55deg,
+          var(--color-gray--600),
+          var(--color-gray--600) .5px,
+          var(--color-body-background) .5px,
+          var(--color-body-background) 3px
+        );
       `}
     >
       <img
         src={avatar}
         alt=''
-        css={`
-          mix-blend-mode: multiply;
-        `}
       />
     </div>
   </div>
@@ -240,7 +240,8 @@ const IndexPage = () => {
           <Components height='32px' />
           <h3 className='mt-12 mb-2'>Components</h3>
           <p className='hyphens'>
-            The key to a well-adopted design system is getting developers to use a well-crafted set of accessible components.
+            The key to a well-adopted design system is getting developers to use
+            a well-crafted set of accessible components.
           </p>
         </div>
 
@@ -248,7 +249,8 @@ const IndexPage = () => {
           <Pattern height='32px' />
           <h3 className='mt-12 mb-2'>Patterns</h3>
           <p className='hyphens'>
-            Our responsibility as system practitioners is to be the stewards, shepherds, scribes, and librarians of a product experience.
+            Our responsibility as system practitioners is to be the stewards,
+            shepherds, scribes, and librarians of a product experience.
           </p>
         </div>
       </Columns>

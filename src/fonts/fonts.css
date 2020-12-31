@@ -45,7 +45,7 @@
 @font-face {
   font-family: 'GT America';
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-display: swap;
   src: url('./gt-america/GTAmerica-Regular.woff2')
       format('woff2'),
@@ -56,7 +56,7 @@
 @font-face {
   font-family: 'GT America';
   font-style: italic;
-  font-weight: 400;
+  font-weight: normal;
   font-display: swap;
   src: url('./gt-america/GTAmerica-RegularItalic.woff2')
       format('woff2'),
@@ -67,7 +67,7 @@
 @font-face {
   font-family: 'GT America';
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   font-display: swap;
   src: url('./gt-america/GTAmerica-Bold.woff2')
       format('woff2'),
@@ -78,7 +78,7 @@
 @font-face {
   font-family: 'GT America';
   font-style: italic;
-  font-weight: 700;
+  font-weight: bold;
   font-display: swap;
   src: url('./gt-america/GTAmerica-BoldItalic.woff2')
       format('woff2'),
@@ -90,7 +90,7 @@
   font-family: 'Ivar Text';
   src: url('./ivar-text/IvarText-Regular.woff2') format('woff2'),
     url('./ivar-text/IvarText-Regular.woff') format('woff');
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -99,7 +99,7 @@
   font-family: 'Ivar Text';
   src: url('./ivar-text/IvarText-Italic.woff2') format('woff2'),
     url('./ivar-text/IvarText-Italic.woff') format('woff');
-  font-weight: 400;
+  font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
@@ -108,7 +108,7 @@
   font-family: 'Ivar Text';
   src: url('./ivar-text/IvarText-Medium.woff2') format('woff2'),
     url('./ivar-text/IvarText-Medium.woff') format('woff');
-  font-weight: 700;
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -117,8 +117,45 @@
   font-family: 'Ivar Text';
   src: url('./ivar-text/IvarText-MediumItalic.woff2') format('woff2'),
     url('./ivar-text/IvarText-MediumItalic.woff') format('woff');
-  font-weight: 700;
+  font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-It.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-It.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-BoldIt.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-BoldIt.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-Bold.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-Regular.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
