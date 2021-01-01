@@ -5,6 +5,7 @@ import Twitter from 'assets/icons/twitter.component.svg'
 import GitHub from 'assets/icons/github.component.svg'
 import Camera from 'assets/icons/camera.component.svg'
 import Email from 'assets/icons/email.component.svg'
+import Spotify from 'assets/icons/spotify.component.svg'
 
 // const ContactMe = () => {
 //   return (
@@ -114,8 +115,8 @@ const ContactMe = () => {
             unstyled
             to='mailto:hi@chasem.co'
             css={`
-              --link-color: var(--color-green);
-              --section-color: var(--color-green);
+              --link-color: var(--color-yellow);
+              --section-color: var(--color-yellow);
             `}
           >
             <Email className='inline' /> <span>Email</span>
@@ -143,6 +144,18 @@ const ContactMe = () => {
             `}
           >
             <Camera className='inline' /> <span>Instagram</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            unstyled
+            to='https://chs.is/listening'
+            css={`
+              --link-color: var(--color-green);
+              --section-color: var(--color-green);
+            `}
+          >
+            <Spotify className='inline' /> <span>Spotify</span>
           </Link>
         </li>
       </ul>

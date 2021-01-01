@@ -31,11 +31,17 @@ const Wrapper = styled.div`
   > div > main {
     flex-basis: 0;
     flex-grow: 999;
-    min-width: calc(80% - var(--sidebar-gap));
+    min-width: calc(83% - var(--sidebar-gap));
   }
 
   ${media.tiny`
     padding: 56px 40px;
+  `}
+
+  ${media.small`
+    > div {
+      flex-wrap: nowrap;
+    }
   `}
 `
 

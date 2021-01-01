@@ -14,6 +14,15 @@ import avatar from 'assets/avatar-yellow.png'
 import media from 'utils/media-new'
 import asciiHouse from 'assets/ascii-house.png'
 import ContactMe from 'components/Contact'
+import Globe from 'assets/icons/globe.component.svg'
+import picoLogo from 'assets/pico-logo.png'
+import picoScreenshot from 'assets/pico.png'
+import picoBox1 from 'assets/pico-box-1.png'
+import picoBox2 from 'assets/pico-box-2.png'
+import picoBox3 from 'assets/pico-box-3.png'
+import picoBox4 from 'assets/pico-box-4.png'
+
+const picoBoxes = [picoBox1, picoBox2, picoBox3, picoBox4]
 
 const PageStyles = createGlobalStyle`
   :root {
@@ -93,7 +102,7 @@ const Avatar = () => (
       border-radius: 50%;
       overflow: hidden;
       float: right;
-      margin: 8px 0 8px 20px;
+      margin: 8px 0 8px 24px;
       clip-path: circle();
       shape-outside: circle();
 
@@ -135,21 +144,25 @@ const IndexPage = () => {
         `}
       >
         Chase McCoy is a{' '}
-        <span css='color: var(--color-green);'>product designer&nbsp;✐</span>{' '}
-        and{' '}
+        <span css='color: var(--color-green);'>product designer&nbsp;✐</span>,{' '}
         <span css='color: var(--color-blue);'>
           front-end engineer&nbsp;
           <span css='font-size: 2em; line-height: 1rem; vertical-align: middle;'>
             ⌨&#xFE0E;
           </span>
+        </span>
+        , and{' '}
+        <span css='color: var(--color-red);'>
+          internet explorer&nbsp;
+          <Globe css='display: inline; margin-top: -4px;' />
         </span>{' '}
-        based out of{' '}
+        {/* based out of{' '}
         <span css='color: var(--color-red);'>
           Chicago&nbsp;
           <span css='font-size: 1.2em; line-height: 1rem; vertical-align: middle;'>
             ✶
           </span>
-        </span>{' '}
+        </span>{' '} */}
         working on{' '}
         <span css='color: var(--color-yellow);'>design systems&nbsp;❏</span> at{' '}
         <Link unstyled to='https://stripe.com'>
@@ -162,9 +175,10 @@ const IndexPage = () => {
 
       <div className='prose'>
         <p className='hyphens'>
-          <Avatar /> While I have a background in mobile design and development,
-          I spend most of my time these days thinking about the web—how it
-          works, how it’s changing, and how we can make it a better place.
+          <Avatar /> Born and raised in Mississippi, I’m currently based out of
+          Chicago. While I have a background in mobile design and development, I
+          spend most of my time these days thinking about the web—how it works,
+          how it’s changing, and how we can make it a better place.
         </p>
 
         <p>
@@ -172,12 +186,9 @@ const IndexPage = () => {
           <Link to='https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/'>
             the words of Laurel Schwulst
           </Link>{' '}
-          it is truly “a shifting house next to a river of knowledge.” This is where I catalog my findings from exploring the internet.
+          it is truly “a shifting house next to a river of knowledge.” This is
+          where I catalog my findings from exploring the internet.
         </p>
-
-        {/* <div css='background: var(--color-gray--700)' className='p-24 mt-48'>
-          hey
-        </div> */}
 
         <ContactMe />
       </div>
@@ -206,7 +217,10 @@ const IndexPage = () => {
         </p> */}
 
         <p>
-          My love for the web and skills as a hybrid designer/developer led me to design systems. In my roles on system teams I have been able to create tools and infrastructures used to deliver and improve upon web experiences relied upon by hundreds of thousands of users ever day. 
+          My love for the web and skills as a hybrid designer/developer led me
+          to design systems. In my roles on system teams I have been able to
+          create tools and infrastructures used to deliver and improve upon web
+          experiences relied upon by hundreds of thousands of users ever day.
         </p>
 
         <p>
@@ -291,6 +305,88 @@ const IndexPage = () => {
           </p>
         </div>
       </Columns>
+
+      <div
+        className='pr-24 pt-16 mobile-breakout mt-40'
+        css={`
+          background: black;
+          display: flex;
+          align-items: center;
+          padding-left: 24px; 
+
+          ${media.tiny`
+            border-radius: 12px;
+            padding-left: 32px; 
+          `}
+        `}
+      >
+        <div
+          css={`
+            flex: 1 1 auto;
+
+            a {
+              color: inherit;
+            }
+
+            a:hover {
+              color: var(--color-gray--400);
+            }
+          `}
+          className='py-24 prose mr-40 smaller color-gray--500'
+        >
+          <img src={picoLogo} alt='Pico logo' width='72' className='mb-40' />
+          <p>
+            A fun little camera app for iOS designed by{' '}
+            <Link to='http://louiemantia.com/'>Louie Mantia</Link> and built
+            using Swift by yours truly. Pico Cam allowed you to pick from one of
+            a few carefully crafted films, and shoot photos pre-processed with
+            that film.
+          </p>
+          <p>
+            Pico is no longer available for sale, and the domain for the website
+            has expired. However, you can still{' '}
+            <Link to='https://web.archive.org/web/20190620065334/http://pico.camera/'>
+              check out the site on the Internet Archive
+            </Link>
+            . Louie also{' '}
+            <Link to='https://medium.com/@mantia/pico-digital-film-5ad232977394'>
+              wrote about the history of the project when it launched back in
+              2017
+            </Link>
+            .
+          </p>
+          <div
+            className='mt-40'
+            css={`
+              img {
+                display: inline;
+                width: 18%;
+              }
+
+              img + img {
+                margin-left: 16px;
+              }
+            `}
+          >
+            {picoBoxes.map((src) => (
+              <img src={src} alt='' />
+            ))}
+          </div>
+        </div>
+
+        <div
+          css={`
+            flex: 1 0 40%;
+            align-self: flex-end;
+
+            ${media.small`
+              flex-basis: 30%;
+            `}
+          `}
+        >
+          <img src={picoScreenshot} alt='Screenshot of the Pico Cam app.' />
+        </div>
+      </div>
 
       {/* <div className='prose mt-32'>
         <p>
