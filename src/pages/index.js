@@ -314,11 +314,11 @@ const IndexPage = () => {
         className='pr-24 pt-16 mobile-breakout mt-24'
         css={`
           background: black;
-          display: flex;
           align-items: center;
           padding-left: 24px; 
 
           ${media.tiny`
+            display: flex;
             border-radius: 12px;
             padding-left: 32px; 
           `}
@@ -335,8 +335,12 @@ const IndexPage = () => {
             a:hover {
               color: var(--color-gray--400);
             }
+
+            ${media.tiny`
+              margin-right: 40px;
+            `}
           `}
-          className='py-24 prose mr-40 smaller color-gray--500'
+          className='py-24 prose smaller color-gray--500'
         >
           <img src={picoLogo} alt='Pico logo' width='72' className='mb-40' />
           <p>
@@ -382,6 +386,21 @@ const IndexPage = () => {
           css={`
             flex: 1 0 40%;
             align-self: flex-end;
+
+            img {
+              object-fit: cover;
+              height: 350px;
+              width: 75%;
+              object-position: 100% 0;
+              margin: 0 auto;
+            }
+
+            ${media.tiny`
+              img {
+                height: auto;
+                width: auto;
+              }
+            `}
 
             ${media.small`
               flex-basis: 30%;
