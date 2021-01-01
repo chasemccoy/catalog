@@ -24,7 +24,7 @@ const Note = ({
 
           <p className='lead mt-8 color-gray--500'>{note.excerpt}</p>
 
-          <p className='mono smaller'>
+          <p className='smaller mt-16'>
             <Link
               unstyled
               to={`/notes/${note.category}`}
@@ -41,7 +41,7 @@ const Note = ({
             {note.tags && (
               <React.Fragment>
                 <span className='color-gray--400'> × </span>
-                <span className='color-gray--600'>
+                <span className='color-gray--500'>
                   {note.tags.map((tag) => tag.name).join(', ')}
                 </span>
               </React.Fragment>

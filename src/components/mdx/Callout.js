@@ -2,22 +2,36 @@ import React from 'react'
 import { Box } from '@chasemccoy/kit'
 
 const Callout = ({ children, ...rest }) => (
-  <Box>
+  <Box p={4} border='1px dashed var(--color-gray--300)' borderRadius='16px' {...rest}>
     <Box
       as='aside'
       borderRadius='12px'
       // mx={-8}
       p={8}
       // border='1px solid var(--color-yellow)'
-      bg='var(--color-gray--100)'
+      // bg='var(--color-gray--100)'
       css={`
         p:last-child {
           margin: 0;
         }
+
+        background: repeating-linear-gradient(
+          -55deg,
+          var(--color-gray--300),
+          var(--color-gray--300) 0.5px,
+          var(--color-body-background) 0.5px,
+          var(--color-body-background) 3px
+        );
       `}
-      {...rest}
     >
-      <Box bg='white' borderRadius='8px' py={12} px={12} css='box-shadow: var(--shadow-small)'>
+      <Box
+        bg='white'
+        borderRadius='8px'
+        py={12}
+        px={12}
+        // border='1px solid var(--color-border)'
+        // css='box-shadow: var(--shadow-small)'
+      >
         <p className='smaller'>{children}</p>
       </Box>
     </Box>

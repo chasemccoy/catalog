@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'components/Link'
+import media from 'utils/media-new'
 import Twitter from 'assets/icons/twitter.component.svg'
 import GitHub from 'assets/icons/github.component.svg'
 import Camera from 'assets/icons/camera.component.svg'
@@ -64,75 +65,88 @@ import Email from 'assets/icons/email.component.svg'
 
 const ContactMe = () => {
   return (
-    <ul
-      className='mb-12 bold'
-      css={`
-        li {
-          display: inline;
-        }
+    <React.Fragment>
+      <h3 className='mt-24 color-gray--500' css='font-size: .7rem !important; font-weight: normal;'>Get in touch</h3>
 
-        li + li {
-          margin-left: 1.5em;
-        }
+      <ul
+        className='mt-8 mb-12 bold'
+        css={`
+          li {
+            display: block;
 
-        svg {
-          margin-top: -5px;
-        }
+            ${media.small`
+            display: inline;
+          `}
+          }
 
-        a:hover > span {
-          text-decoration: underline;
-        }
-      `}
-    >
-      <li>
-        <Link
-          unstyled
-          to='https://twitter.com/chase_mccoy'
-          css={`
-            --link-color: var(--color-blue);
-            --section-color: var(--color-blue);
+          li + li {
+            margin-left: 0;
+
+            ${media.small`
+            margin-left: 1.5em;
           `}
-        >
-          <Twitter className='inline' /> <span>Twitter</span> 
-        </Link>
-      </li>
-      <li>
-        <Link
-          unstyled
-          to='mailto:hi@chasem.co'
-          css={`
-            --link-color: var(--color-green);
-            --section-color: var(--color-green);
-          `}
-        >
-          <Email className='inline' /> <span>Email</span>
-        </Link>
-      </li>
-      <li>
-        <Link
-          unstyled
-          to='https://github.com/chasemccoy'
-          css={`
-            --link-color: var(--color-text);
-            --section-color: var(--color-text);
-          `}
-        >
-          <GitHub className='inline' /> <span>GitHub</span>
-        </Link>
-      </li>
-      <li>
-        <Link
-          unstyled
-          to='https://instagram.com/chs_mc'
-          css={`
-            --link-color: var(--color-red);
-            --section-color: var(--color-red);
-          `}
-        >
-          <Camera className='inline' /> <span>Instagram</span>
-        </Link>
-      </li>
-    </ul>
+          }
+
+          svg {
+            margin-top: -4px;
+            margin-right: 2px;
+          }
+
+          a:hover > span {
+            text-decoration: underline;
+          }
+        `}
+      >
+        <li>
+          <Link
+            unstyled
+            to='https://twitter.com/chase_mccoy'
+            css={`
+              --link-color: var(--color-blue);
+              --section-color: var(--color-blue);
+            `}
+          >
+            <Twitter className='inline' /> <span>Twitter</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            unstyled
+            to='mailto:hi@chasem.co'
+            css={`
+              --link-color: var(--color-green);
+              --section-color: var(--color-green);
+            `}
+          >
+            <Email className='inline' /> <span>Email</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            unstyled
+            to='https://github.com/chasemccoy'
+            css={`
+              --link-color: var(--color-text);
+              --section-color: var(--color-text);
+            `}
+          >
+            <GitHub className='inline' /> <span>GitHub</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            unstyled
+            to='https://instagram.com/chs_mc'
+            css={`
+              --link-color: var(--color-red);
+              --section-color: var(--color-red);
+            `}
+          >
+            <Camera className='inline' /> <span>Instagram</span>
+          </Link>
+        </li>
+      </ul>
+    </React.Fragment>
   )
 }
 

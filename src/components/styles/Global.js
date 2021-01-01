@@ -66,7 +66,7 @@ const globalStyles = css`
       left: 0;
       top: 0;
       width: 6px;
-      background: ${(p) => p.theme.colors.accent.pop};
+      background: var(--section-color);
       border-radius: 3px;
       height: 100%;
     }

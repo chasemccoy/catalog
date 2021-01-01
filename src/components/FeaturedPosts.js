@@ -15,8 +15,8 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
       background: repeating-linear-gradient(
         -55deg,
         var(--color-accent),
-        var(--color-accent) 2px,
-        #000 2px,
+        var(--color-accent) 0.5px,
+        #000 0.5px,
         #000 3px
       );
 

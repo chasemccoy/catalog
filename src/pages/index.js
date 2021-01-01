@@ -105,7 +105,6 @@ const Avatar = () => (
     <div
       css={`
         width: 7em;
-        // background: var(--color-yellow);
         border-radius: 50%;
         overflow: hidden;
         background: repeating-linear-gradient(
@@ -163,11 +162,18 @@ const IndexPage = () => {
 
       <div className='prose'>
         <p className='hyphens'>
-          <Avatar />I spend a lot of time thinking about the web—how it works,
-          how it’s changing, and how we can make it a better place.
+          <Avatar /> While I have a background in mobile design and development,
+          I spend most of my time these days thinking about the web—how it
+          works, how it’s changing, and how we can make it a better place.
         </p>
 
-        <p className='mb-40'>This site is my home on the web where i do x y and z</p>
+        <p>
+          This website is my home on the web, and in{' '}
+          <Link to='https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/'>
+            the words of Laurel Schwulst
+          </Link>{' '}
+          it is truly “a shifting house next to a river of knowledge.” This is where I catalog my findings from exploring the internet.
+        </p>
 
         {/* <div css='background: var(--color-gray--700)' className='p-24 mt-48'>
           hey
@@ -200,12 +206,7 @@ const IndexPage = () => {
         </p> */}
 
         <p>
-          Why design systems, particularly for large web products? Because it
-          allows me to wield my love of the open, semantic, accessible web to
-          help improve the tools that people use to do their jobs and live their
-          lives. Design systems give those of us who deeply love the idea of
-          what the web could be a chance to introduce tools and practices that
-          help others make that idea a reality.
+          My love for the web and skills as a hybrid designer/developer led me to design systems. In my roles on system teams I have been able to create tools and infrastructures used to deliver and improve upon web experiences relied upon by hundreds of thousands of users ever day. 
         </p>
 
         <p>
@@ -214,8 +215,8 @@ const IndexPage = () => {
           others. This soft, squishy center of systems work is essential to a
           successful design system. My background as a designer and developer,
           as well as my love for solving */}
-
-          As a design systems practitioner my work is typically split between a few focus areas:
+          As a design systems practitioner my work is typically split between a
+          few focus areas:
         </p>
       </div>
 
@@ -227,19 +228,6 @@ const IndexPage = () => {
           h3 {
             font-size: 1.1em;
             color: var(--color-gray--300);
-            position: relative;
-
-            &:before {
-              content: '';
-              display: inline-block;
-              height: 6px;
-              width: 6px;
-              border-radius: 50%;
-              background: var(--highlight-color);
-              margin-right: 6px;
-              margin-left: -12px;
-              transform: translateY(-2px);
-            }
           }
 
           p {
@@ -249,7 +237,12 @@ const IndexPage = () => {
       >
         <div>
           <Collab height='32px' />
-          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-green)'}}>Community</h3>
+          <h3
+            className='mt-12 mb-2 dotted'
+            style={{ '--dot-color': 'var(--color-green)' }}
+          >
+            Community
+          </h3>
           <p className='hyphens'>
             Systems exist to serve human beings. A healthy system means
             fostering a healthy community of users and collaborators.
@@ -258,7 +251,12 @@ const IndexPage = () => {
 
         <div>
           <Documentation height='32px' />
-          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-yellow)'}}>Documentation</h3>
+          <h3
+            className='mt-12 mb-2 dotted'
+            style={{ '--dot-color': 'var(--color-yellow)' }}
+          >
+            Documentation
+          </h3>
           <p className='hyphens'>
             Educating users and communicating decisions through effective
             communication is key to a system's success.
@@ -267,7 +265,12 @@ const IndexPage = () => {
 
         <div>
           <Components height='32px' />
-          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-blue)'}}>Components</h3>
+          <h3
+            className='mt-12 mb-2 dotted'
+            style={{ '--dot-color': 'var(--color-blue)' }}
+          >
+            Components
+          </h3>
           <p className='hyphens'>
             The key to a well-adopted design system is getting developers to use
             a well-crafted set of accessible components.
@@ -276,7 +279,12 @@ const IndexPage = () => {
 
         <div>
           <Pattern height='32px' />
-          <h3 className='mt-12 mb-2' style={{ '--highlight-color': 'var(--color-red)'}}>Patterns</h3>
+          <h3
+            className='mt-12 mb-2 dotted'
+            style={{ '--dot-color': 'var(--color-red)' }}
+          >
+            Patterns
+          </h3>
           <p className='hyphens'>
             Our responsibility as system practitioners is to be the stewards,
             shepherds, scribes, and librarians of a product experience.
@@ -284,7 +292,7 @@ const IndexPage = () => {
         </div>
       </Columns>
 
-      <div className='prose mt-32'>
+      {/* <div className='prose mt-32'>
         <p>
           Embodying the spirit of the web in our work takes a lot of effort, and
           there’s a lot working against us. The fragmentation of the web
@@ -298,7 +306,7 @@ const IndexPage = () => {
           say, help someone design a great form, why couldn’t we also use it to
           help someone build a web experience that honors the web as a medium.
         </p>
-      </div>
+      </div> */}
 
       <Marker className='mt-48' css='--color-accent: var(--color-green);'>
         <span>2017–2020</span>

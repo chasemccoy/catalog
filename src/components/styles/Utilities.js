@@ -123,6 +123,22 @@ const utilities = css`
   .inline {
     display: inline;
   }
+
+  .dotted {
+    position: relative;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+      background: var(--dot-color);
+      margin-right: 6px;
+      margin-left: -12px;
+      transform: translateY(-2px);
+    }
+  }
 `
 
 export default utilities
