@@ -306,8 +306,12 @@ const IndexPage = () => {
         </div>
       </Columns>
 
+      <Marker className='mt-40' css='--color-accent: var(--color-green);'>
+        <span>2017–2020</span>
+      </Marker>
+
       <div
-        className='pr-24 pt-16 mobile-breakout mt-40'
+        className='pr-24 pt-16 mobile-breakout mt-24'
         css={`
           background: black;
           display: flex;
@@ -403,10 +407,6 @@ const IndexPage = () => {
           help someone build a web experience that honors the web as a medium.
         </p>
       </div> */}
-
-      <Marker className='mt-48' css='--color-accent: var(--color-green);'>
-        <span>2017–2020</span>
-      </Marker>
 
       <Marker className='mt-32' css='--color-accent: var(--color-purple);'>
         <span>Before that</span>
