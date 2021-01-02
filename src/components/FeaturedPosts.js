@@ -93,13 +93,22 @@ const FeaturedPosts = (props) => {
 
   return (
     <div>
-      <h3 className='color-gray--500' css='font-size: .7rem !important; font-weight: normal;'>Featured writing</h3>
+      <h3
+        className='mt-24 color-gray--500'
+        css='font-size: .7rem !important; font-weight: normal;'
+      >
+        Featured writing
+      </h3>
 
-      <p className='mt-8'>
+      <p className='mt-8 serif larger'>
         {posts.nodes.map((node, i) => (
           <React.Fragment>
-            {!!i && ', '}
-            <span><Link unstyled to={node.slug}>{node.title}</Link></span>
+            {!!i && <span className='color-gray--500 mx-8'>/</span>}
+            <span>
+              <Link unstyled to={node.slug}>
+                {node.title}
+              </Link>
+            </span>
           </React.Fragment>
         ))}
       </p>

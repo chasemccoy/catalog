@@ -67,7 +67,12 @@ import Spotify from 'assets/icons/spotify.component.svg'
 const ContactMe = () => {
   return (
     <React.Fragment>
-      <h3 className='mt-24 color-gray--500' css='font-size: .7rem !important; font-weight: normal;'>Get in touch</h3>
+      <h3
+        className='mt-24 color-gray--500'
+        css='font-size: .7rem !important; font-weight: normal;'
+      >
+        Get in touch
+      </h3>
 
       <ul
         className='mt-8 mb-12 bold'

@@ -184,12 +184,11 @@ const IndexPage = () => {
           where I catalog my findings from exploring the internet.
         </p>
 
-        <FeaturedPosts />
-
+        <FeaturedPosts css='clear: both;' />
         <ContactMe />
       </div>
 
-      <Marker className='mt-32'>
+      <Marker className='mt-40'>
         <span>Now</span>
       </Marker>
 
@@ -302,13 +301,28 @@ const IndexPage = () => {
         </div>
       </Columns>
 
-      <Marker className='mt-40' css='--color-accent: var(--color-green);'>
-        <span>Previous work</span>
+      <Marker
+        className='mt-40 mb-24'
+        css='--color-accent: var(--color-gray--500);'
+      >
+        <span>Previously</span>
       </Marker>
 
-      <Seeds />
+      <div
+        css={`
+          > div + div {
+            margin-top: 0;
+          }
 
-      <Pico />
+          ${media.tiny`
+            > div + div { margin-top: 24px; }
+          `}
+        `}
+      >
+        <Seeds />
+
+        <Pico />
+      </div>
 
       {/* <div className='prose mt-32'>
         <p>
@@ -326,9 +340,9 @@ const IndexPage = () => {
         </p>
       </div> */}
 
-      <Marker className='mt-32' css='--color-accent: var(--color-purple);'>
+      {/* <Marker className='mt-32' css='--color-accent: var(--color-purple);'>
         <span>Before that</span>
-      </Marker>
+      </Marker> */}
 
       {/* <Signature css={`filter: invert(1); max-width: 8rem;`} /> */}
 

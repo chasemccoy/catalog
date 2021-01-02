@@ -13,7 +13,7 @@ const picoBoxes = [picoBox1, picoBox2, picoBox3, picoBox4]
 const Pico = () => {
   return (
     <div
-      className='pr-24 pt-16 mobile-breakout mt-24'
+      className='pr-24 pt-16 mobile-breakout'
       css={`
         background: black;
         align-items: center;

@@ -7,8 +7,9 @@ import seedsScreenshot from 'assets/seeds-resources.png'
 const Seeds = () => {
   return (
     <div
-      className='mobile-breakout mt-24'
+      className='mobile-breakout'
       css={`
+        overflow: hidden;
         background: var(--color-gray--800);
         --padding: 24px;
 
@@ -18,14 +19,19 @@ const Seeds = () => {
         `}
       `}
     >
-      {/* <h3 className='color-gray--500' css='font-size: .7rem; font-weight: normal;'>Sprout Social’s design system</h3> */}
-
       <div
         className='prose hyphens'
         css={`
           padding: 24px var(--padding) 0;
         `}
       >
+        {/* <h3
+          className='mt-8 mb-12 color-gray--500'
+          css='font-size: .7rem !important; font-weight: normal;'
+        >
+          2017 – 2020
+        </h3> */}
+
         <Link unstyled to='https://seeds.sproutsocial.com'>
           <h2
             className='mt-0'
@@ -49,7 +55,7 @@ const Seeds = () => {
                 `}
               `}
               className='mr-12'
-            />{' '}
+            />
             <span className='mr-12'>Seeds</span>
             <span
               css={`
@@ -57,12 +63,12 @@ const Seeds = () => {
                 font-size: 0.7rem;
                 font-weight: normal;
                 align-self: flex-end;
-                transform: translateY(-0.75ch);
+                transform: translateY(-0.8ex);
                 max-width: 25ch;
 
                 ${media.tiny`
                   0.8rem;
-                  transform: translateY(-1.2ch);
+                  transform: translateY(-1.5ex);
                 `}
               `}
             >
@@ -71,7 +77,7 @@ const Seeds = () => {
           </h2>
         </Link>
 
-        <p className='lead mt-12 color-gray--400'>
+        <p className='lead'>
           During my time at Sprout I helped found the first Design Systems team,
           developed our component library, and went on to become team lead.
         </p>
@@ -92,6 +98,19 @@ const Seeds = () => {
           margin-left: auto;
         `}
       />
+
+      {/* <div
+        className='prose hyphens'
+        css={`
+          padding: 24px var(--padding) 32px;
+        `}
+      >
+        <p>
+          Check out Seeds, and browse through our component documentation. Read
+          my article on how we created a component library that our developers
+          love using. Check out my notes on design systems.
+        </p>
+      </div> */}
     </div>
   )
 }
