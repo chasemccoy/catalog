@@ -47,7 +47,6 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
       justifyContent='space-between'
       className='prose'
       borderRadius='8px'
-      // overflow='hidden'
     >
       <h2
         className='lead hyphens mt-0'
@@ -63,34 +62,48 @@ const Card = ({ title, excerpt, slug, ...rest }) => (
   </Link>
 )
 
+// const FeaturedPosts = (props) => {
+//   const { posts } = useStaticQuery(query)
+
+//   return (
+//     <Box
+//       css={`
+//         color: var(--color-body-background);
+//         --color-accent: var(--color-purple);
+//       `}
+//       {...props}
+//     >
+//       <Box display='flex' flexWrap='wrap' flex='1 1 0%' m={-6}>
+//         {posts.nodes.map((node, i) => (
+//           <Box
+//             css='flex-grow: 1; flex-shrink: 1;'
+//             flexBasis={['100%', null, '50%']}
+//             p={6}
+//           >
+//             <Card {...node} />
+//           </Box>
+//         ))}
+//       </Box>
+//     </Box>
+//   )
+// }
+
 const FeaturedPosts = (props) => {
   const { posts } = useStaticQuery(query)
 
   return (
-    <Box
-      css={`
-        color: var(--color-body-background);
-        --color-accent: var(--color-purple);
+    <div>
+      <h3 className='color-gray--500' css='font-size: .7rem !important; font-weight: normal;'>Featured writing</h3>
 
-        // ${media.small`
-        //   width: calc(100% + 32px);
-        //   margin-left: -16px;
-        // `}
-      `}
-      {...props}
-    >
-      <Box display='flex' flexWrap='wrap' flex='1 1 0%' m={-6}>
+      <p className='mt-8'>
         {posts.nodes.map((node, i) => (
-          <Box
-            css='flex-grow: 1; flex-shrink: 1;'
-            flexBasis={['100%', null, '50%']}
-            p={6}
-          >
-            <Card {...node} />
-          </Box>
+          <React.Fragment>
+            {!!i && ', '}
+            <span><Link unstyled to={node.slug}>{node.title}</Link></span>
+          </React.Fragment>
         ))}
-      </Box>
-    </Box>
+      </p>
+    </div>
   )
 }
 

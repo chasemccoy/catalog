@@ -184,6 +184,8 @@ const IndexPage = () => {
           where I catalog my findings from exploring the internet.
         </p>
 
+        <FeaturedPosts />
+
         <ContactMe />
       </div>
 
@@ -329,8 +331,6 @@ const IndexPage = () => {
       </Marker>
 
       {/* <Signature css={`filter: invert(1); max-width: 8rem;`} /> */}
-
-      <FeaturedPosts className='mt-48' />
 
       <div
         css={`
