@@ -2,7 +2,7 @@ import React from 'react'
 import media from 'utils/media-new'
 import Link from 'components/Link'
 import SeedsLogo from 'assets/seeds.component.svg'
-import seedsScreenshot from 'assets/seeds-resources.png'
+import seedsScreenshot from 'assets/seeds-screenshot.png'
 
 const Seeds = () => {
   return (

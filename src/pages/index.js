@@ -176,8 +176,8 @@ const IndexPage = () => {
 
       <div className='prose'>
         <p className='hyphens'>
-          <Avatar /> Born and raised in Mississippi, I’m currently based out of
-          Chicago. While I have a background in mobile design and development, I
+          <Avatar /> I was born born and raised in Mississippi, and I’m currently based out of
+          Chicago, but I live online. While I have a background in mobile design and development, I
           spend most of my time these days thinking about the web—how it works,
           how it’s changing, and how we can make it a better place.
         </p>
