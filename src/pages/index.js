@@ -119,7 +119,7 @@ const Avatar = () => (
         );
       `}
     >
-      <img src={avatar} alt='' />
+      <img src={avatar} alt='Chase McCoy' />
     </div>
   </div>
 )

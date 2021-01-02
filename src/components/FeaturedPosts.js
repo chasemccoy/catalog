@@ -92,7 +92,7 @@ const FeaturedPosts = (props) => {
   const { posts } = useStaticQuery(query)
 
   return (
-    <div>
+    <div {...props}>
       <h3
         className='mt-24 color-gray--500'
         css='font-size: .7rem !important; font-weight: normal;'
