@@ -101,7 +101,7 @@ const ContactMe = () => {
         <li>
           <Link
             unstyled
-            to='https://twitter.com/chase_mccoy'
+            to='https://chs.is/tweeting'
             css={`
               --link-color: var(--color-blue);
               --section-color: var(--color-blue);
@@ -125,7 +125,7 @@ const ContactMe = () => {
         <li>
           <Link
             unstyled
-            to='https://github.com/chasemccoy'
+            to='https://chs.is/coding'
             css={`
               --link-color: var(--color-text);
               --section-color: var(--color-text);
@@ -137,7 +137,7 @@ const ContactMe = () => {
         <li>
           <Link
             unstyled
-            to='https://instagram.com/chs_mc'
+            to='https://chs.is/ig'
             css={`
               --link-color: var(--color-red);
               --section-color: var(--color-red);

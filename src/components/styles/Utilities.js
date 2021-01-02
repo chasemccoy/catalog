@@ -66,6 +66,11 @@ const colorUtils = palettes
 const utilities = css`
   ${spaceUtils}
   ${colorUtils}
+  ${['red', 'yellow', 'blue', 'green', 'purple'].map(color => `
+    .color-${color} {
+      color: var(--color-${color});
+    }
+  `).join('')}
 
   .smaller {
     font-size: smaller;
