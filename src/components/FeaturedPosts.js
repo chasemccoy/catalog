@@ -92,7 +92,7 @@ const FeaturedPosts = (props) => {
   const { posts } = useStaticQuery(query)
 
   return (
-    <div {...props}>
+    <React.Fragment>
       <h3
         className='mt-24 color-gray--500'
         css='font-size: .7rem !important; font-weight: normal;'
@@ -103,7 +103,7 @@ const FeaturedPosts = (props) => {
       <p className='mt-8 serif larger'>
         {posts.nodes.map((node, i) => (
           <React.Fragment>
-            {!!i && <span className='color-gray--500 mx-8'>/</span>}
+            {!!i && <span className='color-gray--500 mx-8'>×</span>}
             <span>
               <Link unstyled to={node.slug}>
                 {node.title}
@@ -112,7 +112,7 @@ const FeaturedPosts = (props) => {
           </React.Fragment>
         ))}
       </p>
-    </div>
+    </React.Fragment>
   )
 }
 

@@ -184,7 +184,7 @@ const IndexPage = () => {
           where I catalog my findings from exploring the internet.
         </p>
 
-        <FeaturedPosts css='clear: both;' />
+        <FeaturedPosts />
         <ContactMe />
       </div>
 
