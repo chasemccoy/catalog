@@ -108,6 +108,7 @@ const Avatar = () => (
     <div
       css={`
         width: 7em;
+        height: 7em;
         border-radius: 50%;
         overflow: hidden;
         background: repeating-linear-gradient(
