@@ -72,7 +72,8 @@ const Marker = styled.h2`
   display: grid;
   grid-template-columns: auto minmax(20px, 1fr);
   align-items: center;
-  width: 100%;
+  width: calc(100% + 16px);
+  margin-right: -16px;
   font-size: 0.8rem;
 
   span {
@@ -86,6 +87,11 @@ const Marker = styled.h2`
     content: '';
     border-top: 2px solid var(--color-accent, var(--color-red));
   }
+
+  ${media.tiny`
+    width: 100%;
+    margin-right: 0;
+  `}
 `
 
 const Avatar = () => (
@@ -302,28 +308,35 @@ const IndexPage = () => {
         </div>
       </Columns>
 
-      <Marker
-        className='mt-40 mb-24'
-        css='--color-accent: var(--color-gray--500);'
-      >
-        <span>Previously</span>
-      </Marker>
-
       <div
         css={`
-          > div + div {
+          > * + * {
             margin-top: 0;
             border-top: 1px dashed var(--color-border);
           }
 
           ${media.tiny`
-            > div + div { 
+            > * + * { 
               margin-top: 24px;
               border: none;
             }
           `}
         `}
       >
+        <Marker
+          className='mt-40'
+          css={`
+            --color-accent: var(--color-purple);
+            margin-bottom: -12px;
+
+            ${media.tiny`
+              margin-bottom: 16px;
+            `}
+          `}
+        >
+          <span>Previously</span>
+        </Marker>
+
         <Seeds />
 
         <Pico />

@@ -21,10 +21,6 @@ const Seeds = () => {
           color: var(--color-gray--400);
         }
 
-        // p {
-        //   color: var(--color-gray--400);
-        // }
-
         ${media.tiny`
           border-radius: 12px;
           --padding: 32px;
@@ -34,7 +30,11 @@ const Seeds = () => {
       <div
         className='prose hyphens'
         css={`
-          padding: 24px var(--padding) 0;
+          padding: 48px var(--padding) 0;
+
+          ${media.tiny`
+            padding: 24px var(--padding) 0;
+          `}
         `}
       >
         {/* <h3
