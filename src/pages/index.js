@@ -253,7 +253,7 @@ const IndexPage = () => {
           >
             Community
           </h3>
-          <p className='hyphens'>
+          <p className='hyphens pr-12s'>
             Systems exist to serve human beings. A healthy system means
             fostering a healthy community of users and collaborators.
           </p>
@@ -267,7 +267,7 @@ const IndexPage = () => {
           >
             Documentation
           </h3>
-          <p className='hyphens'>
+          <p className='hyphens pr-12s'>
             Educating users and communicating decisions through effective
             communication is key to a system's success.
           </p>
@@ -281,7 +281,7 @@ const IndexPage = () => {
           >
             Components
           </h3>
-          <p className='hyphens'>
+          <p className='hyphens pr-12s'>
             The key to a well-adopted design system is getting developers to use
             a well-crafted set of accessible components.
           </p>
@@ -295,7 +295,7 @@ const IndexPage = () => {
           >
             Patterns
           </h3>
-          <p className='hyphens'>
+          <p className='hyphens pr-12s'>
             Our responsibility as system practitioners is to be the stewards,
             shepherds, scribes, and librarians of a product experience.
           </p>
@@ -313,10 +313,14 @@ const IndexPage = () => {
         css={`
           > div + div {
             margin-top: 0;
+            border-top: 1px dashed var(--color-border);
           }
 
           ${media.tiny`
-            > div + div { margin-top: 24px; }
+            > div + div { 
+              margin-top: 24px;
+              border: none;
+            }
           `}
         `}
       >

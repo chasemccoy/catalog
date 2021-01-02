@@ -10,8 +10,20 @@ const Seeds = () => {
       className='mobile-breakout'
       css={`
         overflow: hidden;
-        background: var(--color-gray--800);
+        background: #2f2f2f;
         --padding: 24px;
+
+        a {
+          color: inherit;
+        }
+
+        a:hover {
+          color: var(--color-gray--400);
+        }
+
+        // p {
+        //   color: var(--color-gray--400);
+        // }
 
         ${media.tiny`
           border-radius: 12px;
@@ -77,15 +89,35 @@ const Seeds = () => {
           </h2>
         </Link>
 
-        <p className='lead'>
-          During my time at Sprout I helped found the first Design Systems team,
-          developed our component library, and went on to become team lead.
+        <p
+          className='lead'
+          css={`
+            a {
+              text-decoration-color: var(--color-gray--600);
+            }
+          `}
+        >
+          As lead of the Design Systems team at Sprout I{' '}
+          <Link to='https://sproutsocial.com/insights/sprout-social-design-refresh'>
+            helped ship a complete redesign our product
+          </Link>
+          ,{' '}
+          <Link to='https://seeds.sproutsocial.com/components'>
+            developed a themeable component library
+          </Link>
+          , and{' '}
+          <Link to='https://seeds.sproutsocial.com/newsletter/july-2020.html'>
+            established design systems as key partners in product development
+          </Link>
+          .
         </p>
 
         <p>
-          Check out Seeds, and browse through our component documentation. Read
-          my article on how we created a component library that our developers
-          love using. Check out my notes on design systems.
+          I also helped to design and build our design system, Seeds, which is
+          available publicly at{' '}
+          <Link to='https://seeds.sproutsocial.com'>
+            seeds.sproutsocial.com
+          </Link>
         </p>
       </div>
 
@@ -99,10 +131,11 @@ const Seeds = () => {
         `}
       />
 
-      {/* <div
+      <div
         className='prose hyphens'
         css={`
-          padding: 24px var(--padding) 32px;
+          border-top: 1px solid var(--color-gray--700);
+          padding: 24px var(--padding) 24px;
         `}
       >
         <p>
@@ -110,7 +143,7 @@ const Seeds = () => {
           my article on how we created a component library that our developers
           love using. Check out my notes on design systems.
         </p>
-      </div> */}
+      </div>
     </div>
   )
 }

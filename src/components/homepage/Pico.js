@@ -46,7 +46,7 @@ const Pico = () => {
       >
         <img src={picoLogo} alt='Pico logo' width='72' className='mb-40' />
         <p>
-          A fun little camera app for iOS designed by{' '}
+          Pico Digital Film was a fun little camera app for iOS designed by{' '}
           <Link to='http://louiemantia.com/'>Louie Mantia</Link> and built using
           Swift by yours truly. Pico Cam allowed you to pick from one of a few
           carefully crafted films, and shoot photos pre-processed with that

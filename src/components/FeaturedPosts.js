@@ -100,7 +100,7 @@ const FeaturedPosts = (props) => {
         Featured writing
       </h3>
 
-      <p className='mt-8 serif larger'>
+      <p className='mt-4 serif larger'>
         {posts.nodes.map((node, i) => (
           <React.Fragment>
             {!!i && <span className='color-gray--500 mx-8'>×</span>}

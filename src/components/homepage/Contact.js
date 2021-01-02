@@ -112,7 +112,7 @@ const ContactMe = () => {
               --section-color: var(--color-blue);
             `}
           >
-            <Twitter className='inline' /> <span>Twitter</span>
+            <Twitter className='inline' />&nbsp;<span>Twitter</span>
           </Link>
         </li>
         <li>
@@ -124,7 +124,7 @@ const ContactMe = () => {
               --section-color: var(--color-yellow);
             `}
           >
-            <Email className='inline' /> <span>Email</span>
+            <Email className='inline' />&nbsp;<span>Email</span>
           </Link>
         </li>
         <li>
@@ -136,7 +136,7 @@ const ContactMe = () => {
               --section-color: var(--color-text);
             `}
           >
-            <GitHub className='inline' /> <span>GitHub</span>
+            <GitHub className='inline' />&nbsp;<span>GitHub</span>
           </Link>
         </li>
         <li>
@@ -148,7 +148,7 @@ const ContactMe = () => {
               --section-color: var(--color-red);
             `}
           >
-            <Camera className='inline' /> <span>Instagram</span>
+            <Camera className='inline' />&nbsp;<span>Instagram</span>
           </Link>
         </li>
         <li>
@@ -160,7 +160,7 @@ const ContactMe = () => {
               --section-color: var(--color-green);
             `}
           >
-            <Spotify className='inline' /> <span>Spotify</span>
+            <Spotify className='inline' />&nbsp;<span>Spotify</span>
           </Link>
         </li>
       </ul>
