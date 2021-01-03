@@ -32,7 +32,7 @@ const theme = css`
     --color-body-background: var(--body-background);
     --color-text: var(--body-color);
     --color-header: var(--color-gray--700);
-    --color-border: var(--color-gray--300);
+    --color-border: var(--color-gray--200);
 
     --font-code: 'Source Code Pro', 'IBM Plex Mono', Consolas, Menlo, Monaco, monospace;
     --font-body: 'GT America', 'Inter', system-ui, -apple-system, BlinkMacSystemFont,

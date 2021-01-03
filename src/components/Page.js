@@ -58,10 +58,7 @@ const Header = (props) => {
       )}
 
       {description && (
-        <p
-          className='smaller mt-8'
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <p className='lead mt-8 color-gray--500' dangerouslySetInnerHTML={{ __html: description }} />
       )}
     </div>
   )

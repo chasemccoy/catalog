@@ -150,7 +150,6 @@ const IndexPage = () => {
           internet explorer&nbsp;
           <Globe css='display: inline; margin-top: -4px;' />
         </span>{' '}
-
         working on{' '}
         <span css='color: var(--color-yellow);'>design systems&nbsp;❏</span> at{' '}
         <Link unstyled to='https://stripe.com'>
@@ -161,22 +160,44 @@ const IndexPage = () => {
         </Link>
       </h2>
 
+      {/* <h2
+        className='serif'
+        css={`
+          font-size: 1.2rem;
+
+          > * + * {
+            margin-left: 4px;
+          }
+        `}
+      >
+        <span css='color: var(--color-green);'>✐</span>
+        <span css='color: var(--color-blue); font-size: 2em; line-height: 1rem; vertical-align: middle; margin-top: -4px; display: inline-block;'>
+          ⌨&#xFE0E;
+        </span>
+        <Globe css='color: var(--color-red); display: inline; margin-top: -4px; max-width: 1em;' />
+        <span css='color: var(--color-yellow);'>❏</span>
+      </h2> */}
+
       <div className='prose'>
         <p className='hyphens'>
-          <Avatar /> I was born born and raised in Mississippi, and I’m currently based out of
-          Chicago, but I live online. While I have a background in mobile design and development, I
-          spend most of my time these days thinking about the web—how it works,
-          how it’s changing, and how we can make it a better place.
+          <Avatar />I was born and raised in Mississippi where I spent many
+          evenings at a young age exploring the internet via a dial-up
+          connection. It was there that I developed a love for visual and
+          interface design, and I would later go on to earn a degree in Computer
+          Science so I could make those designs real. I got my start doing iOS
+          design and development, but I spend most of my time these days
+          thinking about the web—how it works, how it’s changing, and how we can
+          make it a better place.
         </p>
 
-        <p>
+        {/* <p>
           This website is my home on the web, and in{' '}
           <Link to='https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/'>
             the words of Laurel Schwulst
           </Link>{' '}
           it is truly “a shifting house next to a river of knowledge.” This is
           where I catalog my findings from exploring the internet.
-        </p>
+        </p> */}
 
         <FeaturedPosts />
         <ContactMe />
@@ -206,21 +227,12 @@ const IndexPage = () => {
         </p> */}
 
         <p>
-          My love for the web and skills as a hybrid designer/developer led me
-          to design systems. In my roles on system teams I have been able to
-          create tools and infrastructures used to deliver and improve upon web
-          experiences relied upon by hundreds of thousands of users ever day.
+          By focusing on design systems, I hope to help ensure that the spaces online where we are frequently spending more and more of our time are built in ways that are accessible, inclusive, and respectful of the web as a material.
+
+          Using my skills as a hybrid designer/developer, I have been able to create tools, systems, and processes that allow other designers and developers to consistently deliver experiences that are well-designed, well-made, and more inclusive than ever. 
         </p>
 
-        <p>
-          {/* While I love the technical side of design systems, I find the the most
-          satisfaction solving people problems through close collaboration with
-          others. This soft, squishy center of systems work is essential to a
-          successful design system. My background as a designer and developer,
-          as well as my love for solving */}
-          As a design systems practitioner my work is typically split between a
-          few focus areas:
-        </p>
+        <p>My love for systems work stems from my love of collaborating with and enabling others to ship excellent user experiences. Here are some ways in which I accomplish that:</p>
       </div>
 
       <Columns
@@ -234,6 +246,12 @@ const IndexPage = () => {
           p {
             color: var(--color-gray--400);
           }
+
+          padding-left: 12px;
+
+          ${media.small`
+            padding-left: 0;
+          `}
         `}
       >
         <div>
