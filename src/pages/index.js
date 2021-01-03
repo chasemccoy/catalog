@@ -32,20 +32,12 @@ const PageStyles = createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
   }
-`
 
-const ProjectCard = styled.div`
-  border-radius: 12px;
-  padding: 16px;
-  background: #303030;
-
-  background: repeating-linear-gradient(
-    -55deg,
-    var(--color-gray--700),
-    var(--color-gray--700) 2px,
-    var(--color-body-background) 2px,
-    var(--color-body-background) 6px
-  );
+  h3.subheader {
+    font-size: .7rem; 
+    font-weight: normal;
+    color: var(--color-gray--500);
+  }
 `
 
 const Columns = ({ children, ...rest }) => (

@@ -67,12 +67,7 @@ import Spotify from 'assets/icons/spotify.component.svg'
 const ContactMe = () => {
   return (
     <React.Fragment>
-      <h3
-        className='mt-24 color-gray--500'
-        css='font-size: .7rem !important; font-weight: normal;'
-      >
-        Get in touch
-      </h3>
+      <h3 className='mt-24 subheader'>Get in touch</h3>
 
       <ul
         className='mt-8 mb-12 bold'
@@ -112,7 +107,8 @@ const ContactMe = () => {
               --section-color: var(--color-blue);
             `}
           >
-            <Twitter className='inline' />&nbsp;<span>Twitter</span>
+            <Twitter className='inline' />
+            &nbsp;<span>Twitter</span>
           </Link>
         </li>
         <li>
@@ -124,7 +120,8 @@ const ContactMe = () => {
               --section-color: var(--color-yellow);
             `}
           >
-            <Email className='inline' />&nbsp;<span>Email</span>
+            <Email className='inline' />
+            &nbsp;<span>Email</span>
           </Link>
         </li>
         <li>
@@ -136,7 +133,8 @@ const ContactMe = () => {
               --section-color: var(--color-text);
             `}
           >
-            <GitHub className='inline' />&nbsp;<span>GitHub</span>
+            <GitHub className='inline' />
+            &nbsp;<span>GitHub</span>
           </Link>
         </li>
         <li>
@@ -148,7 +146,8 @@ const ContactMe = () => {
               --section-color: var(--color-red);
             `}
           >
-            <Camera className='inline' />&nbsp;<span>Instagram</span>
+            <Camera className='inline' />
+            &nbsp;<span>Instagram</span>
           </Link>
         </li>
         <li>
@@ -160,7 +159,8 @@ const ContactMe = () => {
               --section-color: var(--color-green);
             `}
           >
-            <Spotify className='inline' />&nbsp;<span>Spotify</span>
+            <Spotify className='inline' />
+            &nbsp;<span>Spotify</span>
           </Link>
         </li>
       </ul>
