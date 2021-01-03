@@ -105,7 +105,7 @@ const FeaturedPosts = (props) => {
           <React.Fragment>
             {!!i && <span className='color-gray--500 mx-8'>×</span>}
             <span>
-              <Link unstyled to={node.slug}>
+              <Link to={node.slug} css={`text-decoration-color: var(--color-gray--600);`}>
                 {node.title}
               </Link>
             </span>

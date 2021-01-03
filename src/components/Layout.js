@@ -8,6 +8,7 @@ import Styles from 'components/styles'
 import Logo from 'components/Logo'
 import Nav from 'components/Nav'
 import media from 'utils/media-new'
+import Footer from 'components/Footer'
 
 const Wrapper = styled.div`
   max-width: 76ch;
@@ -60,7 +61,10 @@ const Layout = ({ children, title, description }) => {
               <Nav />
             </header>
 
-            <main>{children}</main>
+            <main>
+              {children}
+              <Footer />
+            </main>
           </div>
         </Wrapper>
 

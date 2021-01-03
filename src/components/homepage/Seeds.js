@@ -3,6 +3,7 @@ import media from 'utils/media-new'
 import Link from 'components/Link'
 import SeedsLogo from 'assets/seeds.component.svg'
 import seedsScreenshot from 'assets/seeds-screenshot.png'
+import { OrderedList } from 'components/Lists'
 
 const Seeds = () => {
   return (
@@ -136,6 +137,8 @@ const Seeds = () => {
         css={`
           border-top: 1px solid var(--color-gray--700);
           padding: 24px var(--padding) 24px;
+          box-shadow: 2px -16px 32px -4px rgba(0, 0, 0, 0.3);
+          position: relative;
         `}
       >
         <p>
@@ -143,6 +146,46 @@ const Seeds = () => {
           my article on how we created a component library that our developers
           love using. Check out my notes on design systems.
         </p>
+
+        <OrderedList
+          className='mt-32'
+          css={`
+            font-size: 1.2rem;
+
+            > li {
+              margin-left: 2.25em;
+            }
+
+            > li:before {
+              content: counter(ol-counter);
+              color: var(--color-body-background);
+              background: var(--accent-color, var(--color-yellow));
+              border-radius: 50%;
+              width: 1.5em;
+              height: 1.5em;
+              text-align: center;
+              font-weight: bold;
+              padding: 0;
+              left: -2.25em;
+            }
+          `}
+        >
+          <li>
+            <p>
+              <b>This is a heading</b>
+            </p>
+          </li>
+          <li style={{ '--accent-color': 'var(--color-green)' }}>
+            <p>
+              <b>This is a heading</b>
+            </p>
+          </li>
+          <li style={{ '--accent-color': 'var(--color-blue)' }}>
+            <p>
+              <b>This is a heading</b>
+            </p>
+          </li>
+        </OrderedList>
       </div>
     </div>
   )

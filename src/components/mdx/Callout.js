@@ -2,14 +2,16 @@ import React from 'react'
 import { Box } from '@chasemccoy/kit'
 
 const Callout = ({ children, ...rest }) => (
-  <Box p={4} border='1px dashed var(--color-gray--300)' borderRadius='16px' {...rest}>
+  <Box
+    p={4}
+    border='1px dashed var(--color-border)'
+    borderRadius='16px'
+    {...rest}
+  >
     <Box
       as='aside'
       borderRadius='12px'
-      // mx={-8}
       p={8}
-      // border='1px solid var(--color-yellow)'
-      // bg='var(--color-gray--100)'
       css={`
         p:last-child {
           margin: 0;

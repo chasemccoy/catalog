@@ -74,7 +74,6 @@ export const OrderedList = styled.ul`
   > li:before {
     content: counter(ol-counter) ". ";
     font-feature-settings: "tnum";
-    ${'' /* font-weight: bold; */}
     padding-right: 0.5em;
     position: absolute;
     left: calc(-1 * var(--offset));

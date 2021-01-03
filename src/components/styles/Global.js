@@ -33,7 +33,7 @@ const globalStyles = css`
   a {
     color: var(--link-color);
     text-decoration: underline;
-    transition: all 0.15s;
+    transition: all 0.25s;
 
     &:hover {
       color: var(--section-color, var(--link-hover));

@@ -12,7 +12,6 @@ import FeaturedPosts from 'components/FeaturedPosts'
 import Stripe from 'assets/stripe.component.svg'
 import avatar from 'assets/avatar-yellow.png'
 import media from 'utils/media-new'
-import asciiHouse from 'assets/ascii-house.png'
 import ContactMe from 'components/homepage/Contact'
 import Globe from 'assets/icons/globe.component.svg'
 import Pico from 'components/homepage/Pico'
@@ -26,6 +25,8 @@ const PageStyles = createGlobalStyle`
     --link-color: var(--color-text);
     --link-hover: var(--color-green);
     --color-border: #404040;
+
+    --ascii-filter: invert();
   }
 
   body {
@@ -236,8 +237,6 @@ const IndexPage = () => {
         </p>
       </div>
 
-      {/* <img src={asciiHouse} alt="" css='filter: invert(); width: 15em; margin: 0 auto;' /> */}
-
       <Columns
         className='mt-32 smaller'
         css={`
@@ -259,7 +258,7 @@ const IndexPage = () => {
           >
             Community
           </h3>
-          <p className='hyphens pr-12s'>
+          <p className='hyphens pr-12'>
             Systems exist to serve human beings. A healthy system means
             fostering a healthy community of users and collaborators.
           </p>
@@ -273,7 +272,7 @@ const IndexPage = () => {
           >
             Documentation
           </h3>
-          <p className='hyphens pr-12s'>
+          <p className='hyphens pr-12'>
             Educating users and communicating decisions through effective
             communication is key to a system's success.
           </p>
@@ -287,7 +286,7 @@ const IndexPage = () => {
           >
             Components
           </h3>
-          <p className='hyphens pr-12s'>
+          <p className='hyphens pr-12'>
             The key to a well-adopted design system is getting developers to use
             a well-crafted set of accessible components.
           </p>
@@ -301,7 +300,7 @@ const IndexPage = () => {
           >
             Patterns
           </h3>
-          <p className='hyphens pr-12s'>
+          <p className='hyphens pr-12'>
             Our responsibility as system practitioners is to be the stewards,
             shepherds, scribes, and librarians of a product experience.
           </p>

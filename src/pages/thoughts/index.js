@@ -52,33 +52,33 @@ const ThoughtsPage = ({ data: { posts, tags } }) => {
   const initialData = posts.group.sort(
     (a, b) => parseInt(b.year) - parseInt(a.year)
   )
-  const [groups, setGroups] = useState(initialData)
+  const [groups] = useState(initialData)
 
 
-  const filterData = (filter) => {
-    console.log(initialData)
-    if (filter) {
-      const filteredGroups = initialData.map((group) => {
-        return {
-          ...group,
-          posts: group.posts.filter((post) => {
-            if (post.tags) {
-              const postTags = post.tags.map((tag) => tag.name)
-              return postTags.includes(filter)
-            }
+  // const filterData = (filter) => {
+  //   console.log(initialData)
+  //   if (filter) {
+  //     const filteredGroups = initialData.map((group) => {
+  //       return {
+  //         ...group,
+  //         posts: group.posts.filter((post) => {
+  //           if (post.tags) {
+  //             const postTags = post.tags.map((tag) => tag.name)
+  //             return postTags.includes(filter)
+  //           }
 
-            return false
-          })
-        }
-      })
+  //           return false
+  //         })
+  //       }
+  //     })
 
-      setGroups(
-        filteredGroups.filter((group) => group.posts && group.posts.length > 0)
-      )
-    } else {
-      setGroups(initialData)
-    }
-  }
+  //     setGroups(
+  //       filteredGroups.filter((group) => group.posts && group.posts.length > 0)
+  //     )
+  //   } else {
+  //     setGroups(initialData)
+  //   }
+  // }
 
   return (
     <Page
@@ -87,11 +87,11 @@ const ThoughtsPage = ({ data: { posts, tags } }) => {
       untitled
       section='blog'
     >
-      {tags.names.map((tag) => (
+      {/* {tags.names.map((tag) => (
         <button onClick={() => filterData(tag)}>
           <span className='badge'>{tag}</span>
         </button>
-      ))}
+      ))} */}
 
       {groups.map((group) => (
         <div className='mb-48'>
