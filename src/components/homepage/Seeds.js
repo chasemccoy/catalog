@@ -148,7 +148,7 @@ const Seeds = () => {
         </p>
 
         <OrderedList
-          className='mt-32'
+          className='mt-32 mb-16'
           css={`
             font-size: 1.2rem;
 
