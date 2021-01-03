@@ -150,13 +150,7 @@ const IndexPage = () => {
           internet explorer&nbsp;
           <Globe css='display: inline; margin-top: -4px;' />
         </span>{' '}
-        {/* based out of{' '}
-        <span css='color: var(--color-red);'>
-          Chicago&nbsp;
-          <span css='font-size: 1.2em; line-height: 1rem; vertical-align: middle;'>
-            ✶
-          </span>
-        </span>{' '} */}
+
         working on{' '}
         <span css='color: var(--color-yellow);'>design systems&nbsp;❏</span> at{' '}
         <Link unstyled to='https://stripe.com'>

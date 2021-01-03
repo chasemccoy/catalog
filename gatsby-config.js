@@ -20,7 +20,7 @@ module.exports = {
   //   LAZY_IMAGES: true
   // },
   plugins: [
-    'gatsby-plugin-preact',
+    // 'gatsby-plugin-preact',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {

@@ -97,16 +97,14 @@ const FeaturedPosts = (props) => {
         {posts.nodes.map((node, i) => (
           <React.Fragment>
             {!!i && <span className='color-gray--500 mx-8'>×</span>}
-            <span>
-              <Link
-                to={node.slug}
-                css={`
-                  text-decoration-color: var(--color-gray--600);
-                `}
-              >
-                {node.title}
-              </Link>
-            </span>
+            <Link
+              to={node.slug}
+              css={`
+                text-decoration-color: var(--color-gray--600);
+              `}
+            >
+              {node.title}
+            </Link>
           </React.Fragment>
         ))}
       </p>
