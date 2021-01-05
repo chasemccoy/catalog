@@ -35,7 +35,6 @@ const PreWithLineNumbers = styled.pre`
     font-size: 0.75em;
     line-height: var(--root-line-height);
     padding-right: 12px;
-    ${'' /* border-right: 0.5px solid ${(props) => props.theme.colors.gray[2]}; */}
   }
 `
 

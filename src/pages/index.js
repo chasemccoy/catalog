@@ -90,13 +90,14 @@ const Marker = styled.h2`
 const Avatar = () => (
   <div
     css={`
+      width: 8em;
+      height: 8em;
       border: 1px dashed var(--color-gray--600);
       padding: 8px;
       border-radius: 50%;
       overflow: hidden;
       float: right;
       margin: 8px 0 8px 24px;
-      clip-path: circle();
       shape-outside: circle();
 
       ${media.medium`
@@ -106,8 +107,6 @@ const Avatar = () => (
   >
     <div
       css={`
-        width: 7em;
-        height: 7em;
         border-radius: 50%;
         overflow: hidden;
         background: repeating-linear-gradient(
@@ -181,7 +180,7 @@ const IndexPage = () => {
       <div className='prose'>
         <p className='hyphens'>
           <Avatar />I was born and raised in Mississippi where I spent many
-          evenings at a young age exploring the internet via a dial-up
+          evenings growing up exploring the internet via a dial-up
           connection. It was there that I developed a love for visual and
           interface design, and I would later go on to earn a degree in Computer
           Science so I could make those designs real. I got my start doing iOS

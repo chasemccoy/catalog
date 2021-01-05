@@ -30,7 +30,7 @@ const NoteList = ({ notes, ...rest }) => {
                 <Link
                   to={`/notes/${slugify(note.category)}`}
                   unstyled
-                  color='gray.4'
+                  color='var(--color-gray--500)'
                   css='font-size: smaller;'
                 >
                   → {capitalize(note.category)}
@@ -40,7 +40,7 @@ const NoteList = ({ notes, ...rest }) => {
                 {note.excerpt && (
                   <p css='font-size: smaller;'>{note.excerpt}</p>
                 )}
-                <Tags mt={0} items={tags} />
+                <Tags className='mt-8' items={tags} />
               </td>
             </tr>
           )

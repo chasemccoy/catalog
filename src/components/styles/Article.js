@@ -37,8 +37,8 @@ const articleStyles = css`
     width: calc(100% + 32px);
     margin-left: -16px;
     overflow: auto;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    border-top: 1px dashed var(--color-border);
+    border-bottom: 1px dashed var(--color-border);
 
     ${media.tiny`
       width: auto;
