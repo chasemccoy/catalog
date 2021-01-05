@@ -3,19 +3,7 @@ import styled from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
-
-const Marker = styled.div`
-  display: grid;
-  grid-template-columns: auto minmax(20px, 1fr);
-  align-items: center;
-  width: 100%;
-  font-size: 0.9rem;
-
-  &:after {
-    content: '';
-    border-top: 2px solid var(--section-color, var(--color-red));
-  }
-`
+import Marker from 'components/Marker'
 
 const Post = ({
   slug,
@@ -96,7 +84,7 @@ const ThoughtsPage = ({ data: { posts, tags } }) => {
       {groups.map((group) => (
         <div className='mb-48'>
           <Marker className='mb-20'>
-            <h2 className='badge larger'>{group.year}</h2>
+           {group.year}
           </Marker>
 
           {group.posts.map((node, i) => (

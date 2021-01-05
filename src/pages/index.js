@@ -16,6 +16,7 @@ import ContactMe from 'components/homepage/Contact'
 import Globe from 'assets/icons/globe.component.svg'
 import Pico from 'components/homepage/Pico'
 import Seeds from 'components/homepage/Seeds'
+import Marker from 'components/Marker'
 
 const PageStyles = createGlobalStyle`
   :root {
@@ -60,32 +61,6 @@ const Columns = ({ children, ...rest }) => (
     {children}
   </div>
 )
-
-const Marker = styled.h2`
-  display: grid;
-  grid-template-columns: auto minmax(20px, 1fr);
-  align-items: center;
-  width: calc(100% + 16px);
-  margin-right: -16px;
-  font-size: 0.8rem;
-
-  span {
-    color: var(--color-body-background);
-    background: var(--color-accent, var(--color-red));
-    border-radius: 999px;
-    padding: 2px 16px;
-  }
-
-  &:after {
-    content: '';
-    border-top: 2px solid var(--color-accent, var(--color-red));
-  }
-
-  ${media.tiny`
-    width: 100%;
-    margin-right: 0;
-  `}
-`
 
 const Avatar = () => (
   <div
@@ -180,13 +155,13 @@ const IndexPage = () => {
       <div className='prose'>
         <p className='hyphens'>
           <Avatar />I was born and raised in Mississippi where I spent many
-          evenings growing up exploring the internet via a dial-up
-          connection. It was there that I developed a love for visual and
-          interface design, and I would later go on to earn a degree in Computer
-          Science so I could make those designs real. I got my start doing iOS
-          design and development, but I spend most of my time these days
-          thinking about the web—how it works, how it’s changing, and how we can
-          make it a better place.
+          evenings growing up exploring the internet via a dial-up connection.
+          It was there that I developed a love for visual and interface design,
+          and I would later go on to earn a degree in Computer Science so I
+          could make those designs real. I got my start doing iOS design and
+          development, but I spend most of my time these days thinking about the
+          web—how it works, how it’s changing, and how we can make it a better
+          place.
         </p>
 
         {/* <p>
@@ -202,9 +177,7 @@ const IndexPage = () => {
         <ContactMe />
       </div>
 
-      <Marker className='mt-40'>
-        <span>Now</span>
-      </Marker>
+      <Marker className='mt-40'>Now</Marker>
 
       <h2 className='mt-20 serif' css='font-size: 2.5em; line-height: 1.1;'>
         I’m currently focused on{' '}
@@ -226,12 +199,20 @@ const IndexPage = () => {
         </p> */}
 
         <p>
-          By focusing on design systems, I hope to help ensure that the spaces online where we are frequently spending more and more of our time are built in ways that are accessible, inclusive, and respectful of the web as a material.
-
-          Using my skills as a hybrid designer/developer, I have been able to create tools, systems, and processes that allow other designers and developers to consistently deliver experiences that are well-designed, well-made, and more inclusive than ever. 
+          By focusing on design systems, I hope to help ensure that the spaces
+          online where we are frequently spending more and more of our time are
+          built in ways that are accessible, inclusive, and respectful of the
+          web as a material. Using my skills as a hybrid designer/developer, I
+          have been able to create tools, systems, and processes that allow
+          other designers and developers to consistently deliver experiences
+          that are well-designed, well-made, and more inclusive than ever.
         </p>
 
-        <p>My love for systems work stems from my love of collaborating with and enabling others to ship excellent user experiences. Here are some ways in which I accomplish that:</p>
+        <p>
+          My love for systems work stems from my love of collaborating with and
+          enabling others to ship excellent user experiences. Here are some ways
+          in which I accomplish that:
+        </p>
       </div>
 
       <Columns
@@ -336,7 +317,7 @@ const IndexPage = () => {
             `}
           `}
         >
-          <span>Previously</span>
+          Previously
         </Marker>
 
         <Seeds />
@@ -359,12 +340,6 @@ const IndexPage = () => {
           help someone build a web experience that honors the web as a medium.
         </p>
       </div> */}
-
-      {/* <Marker className='mt-32' css='--color-accent: var(--color-purple);'>
-        <span>Before that</span>
-      </Marker> */}
-
-      {/* <Signature css={`filter: invert(1); max-width: 8rem;`} /> */}
 
       <div
         css={`
