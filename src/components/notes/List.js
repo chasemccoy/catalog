@@ -3,6 +3,7 @@ import Table from 'components/Table'
 import Tags from 'components/Tags'
 import { capitalize, slugify } from 'utils'
 import Link from 'components/Link'
+import Folder from 'assets/icons/folder.component.svg'
 
 const NoteList = ({ notes, ...rest }) => {
   return (
@@ -31,16 +32,23 @@ const NoteList = ({ notes, ...rest }) => {
                   to={`/notes/${slugify(note.category)}`}
                   unstyled
                   color='var(--color-gray--500)'
-                  css='font-size: smaller;'
+                  className='smaller mt-8 block'
                 >
-                  → {capitalize(note.category)}
+                  <Folder
+                    className='inline'
+                    css={`
+                      position: relative;
+                      top: -0.2em;
+                    `}
+                  />{' '}
+                  {capitalize(note.category)}
                 </Link>
               </td>
               <td>
                 {note.excerpt && (
                   <p css='font-size: smaller;'>{note.excerpt}</p>
                 )}
-                <Tags className='mt-8' items={tags} />
+                {/* <Tags items={tags} /> */}
               </td>
             </tr>
           )

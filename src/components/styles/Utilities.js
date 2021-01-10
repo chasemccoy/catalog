@@ -130,6 +130,10 @@ const utilities = css`
     display: inline;
   }
 
+  .block {
+    display: block;
+  }
+
   .dotted {
     position: relative;
 

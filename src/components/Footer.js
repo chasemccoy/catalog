@@ -17,7 +17,7 @@ const Footer = () => {
       >
         <div
           css={`
-            max-width: 10em;
+            max-width: 8em;
           `}
         >
           <img
@@ -30,7 +30,7 @@ const Footer = () => {
           />
         </div>
         <div
-          className='ml-20 mb-4'
+          className='ml-16 mb-2'
           css={`
             flex: 1 0 auto;
           `}

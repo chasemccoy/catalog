@@ -1,13 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
-import Components from 'assets/components.component.svg'
-// import Scale from 'assets/scale.component.svg'
-import Documentation from 'assets/documentation.component.svg'
-import Pattern from 'assets/pattern.component.svg'
-import Collab from 'assets/collab.component.svg'
 import FeaturedPosts from 'components/FeaturedPosts'
 import Stripe from 'assets/stripe.component.svg'
 import avatar from 'assets/avatar-yellow.png'
@@ -17,6 +11,7 @@ import Globe from 'assets/icons/globe.component.svg'
 import Pico from 'components/homepage/Pico'
 import Seeds from 'components/homepage/Seeds'
 import Marker from 'components/Marker'
+import DesignSystems from 'components/homepage/DesignSystems'
 
 const PageStyles = createGlobalStyle`
   :root {
@@ -40,27 +35,6 @@ const PageStyles = createGlobalStyle`
     color: var(--color-gray--500);
   }
 `
-
-const Columns = ({ children, ...rest }) => (
-  <div
-    css={`
-      --min: 200px;
-
-      display: grid;
-      grid-gap: 2rem;
-
-      @supports (width: min(var(--min), 100%)) {
-        grid-template-columns: repeat(
-          auto-fit,
-          minmax(min(var(--min), 100%), 1fr)
-        );
-      }
-    `}
-    {...rest}
-  >
-    {children}
-  </div>
-)
 
 const Avatar = () => (
   <div
@@ -179,117 +153,7 @@ const IndexPage = () => {
 
       <Marker className='mt-40'>Now</Marker>
 
-      <h2 className='mt-20 serif' css='font-size: 2.5em; line-height: 1.1;'>
-        I’m currently focused on{' '}
-        <span css='text-decoration: underline; text-decoration-color: #51CF66; font-style: italic;'>
-          design&nbsp;systems
-        </span>
-        .
-      </h2>
-
-      <div className='prose mt-20'>
-        {/* <p>
-          I grew up on the web, back when the web made us feel better about
-          ourselves and the world instead of worse. Since then I have seen the
-          web become an often bloated behemoth that is inaccessible and even
-          hostile to many of its users. The change I want to see is a better
-          user experience across the web, <i>especially</i> in the places where
-          people spend the most of their time. Here, a better user experience
-          means embracing the fundamentals of the web as a raw material.
-        </p> */}
-
-        <p>
-          By focusing on design systems, I hope to help ensure that the spaces
-          online where we are frequently spending more and more of our time are
-          built in ways that are accessible, inclusive, and respectful of the
-          web as a material. Using my skills as a hybrid designer/developer, I
-          have been able to create tools, systems, and processes that allow
-          other designers and developers to consistently deliver experiences
-          that are well-designed, well-made, and more inclusive than ever.
-        </p>
-
-        <p>
-          My love for systems work stems from my love of collaborating with and
-          enabling others to ship excellent user experiences. Here are some ways
-          in which I accomplish that:
-        </p>
-      </div>
-
-      <Columns
-        className='mt-32 smaller'
-        css={`
-          h3 {
-            font-size: 1.1em;
-            color: var(--color-gray--300);
-          }
-
-          p {
-            color: var(--color-gray--400);
-          }
-
-          padding-left: 12px;
-
-          ${media.small`
-            padding-left: 0;
-          `}
-        `}
-      >
-        <div>
-          <Collab height='32px' />
-          <h3
-            className='mt-12 mb-2 dotted'
-            style={{ '--dot-color': 'var(--color-green)' }}
-          >
-            Community
-          </h3>
-          <p className='hyphens pr-12'>
-            Systems exist to serve human beings. A healthy system means
-            fostering a healthy community of users and collaborators.
-          </p>
-        </div>
-
-        <div>
-          <Documentation height='32px' />
-          <h3
-            className='mt-12 mb-2 dotted'
-            style={{ '--dot-color': 'var(--color-yellow)' }}
-          >
-            Documentation
-          </h3>
-          <p className='hyphens pr-12'>
-            Educating users and communicating decisions through effective
-            communication is key to a system's success.
-          </p>
-        </div>
-
-        <div>
-          <Components height='32px' />
-          <h3
-            className='mt-12 mb-2 dotted'
-            style={{ '--dot-color': 'var(--color-blue)' }}
-          >
-            Components
-          </h3>
-          <p className='hyphens pr-12'>
-            The key to a well-adopted design system is getting developers to use
-            a well-crafted set of accessible components.
-          </p>
-        </div>
-
-        <div>
-          <Pattern height='32px' />
-          <h3
-            className='mt-12 mb-2 dotted'
-            style={{ '--dot-color': 'var(--color-red)' }}
-          >
-            Patterns
-          </h3>
-          <p className='hyphens pr-12'>
-            Our responsibility as system practitioners is to be the stewards,
-            shepherds, scribes, and librarians of a product experience.
-          </p>
-        </div>
-      </Columns>
+      <DesignSystems />
 
       <div
         css={`
@@ -323,74 +187,6 @@ const IndexPage = () => {
         <Seeds />
 
         <Pico />
-      </div>
-
-      {/* <div className='prose mt-32'>
-        <p>
-          Embodying the spirit of the web in our work takes a lot of effort, and
-          there’s a lot working against us. The fragmentation of the web
-          platform in and of itself makes implementing accessible and
-          sufficiently complex user interfaces quite difficult to get right.
-        </p>
-
-        <p>
-          Luckily, helping others learn and correctly apply patterns is one of
-          the primary functions of a design system. If we can use our system to,
-          say, help someone design a great form, why couldn’t we also use it to
-          help someone build a web experience that honors the web as a medium.
-        </p>
-      </div> */}
-
-      <div
-        css={`
-          margin-top: 24px;
-
-          > * + * {
-            margin-top: 24px;
-          }
-        `}
-      >
-        {/* <ProjectCard>
-          <div
-            css={`
-              border-radius: 8px;
-              padding: 24px;
-              background: #635bff;
-            `}
-          />
-        </ProjectCard> */}
-
-        {/* <div
-          css={`
-            border-radius: 12px;
-            padding: 24px;
-            background: #635bff;
-          `}
-        />
-
-        <div
-          css={`
-            border-radius: 12px;
-            padding: 24px;
-            background: #333;
-          `}
-        />
-
-        <div
-          css={`
-            border-radius: 12px;
-            padding: 24px;
-            background: #2079c3;
-          `}
-        />
-
-        <div
-          css={`
-            border-radius: 12px;
-            padding: 24px;
-            background: #9180f4;
-          `}
-        /> */}
       </div>
     </Page>
   )

@@ -3,8 +3,9 @@ import { graphql } from 'gatsby'
 import MDX from 'components/MDX'
 import Page from 'components/Page'
 import TableOfContents from 'components/notes/TableOfContents'
-import { capitalize } from 'utils'
+import { capitalize, slugify } from 'utils'
 import Link from 'components/Link'
+import Folder from 'assets/icons/folder.component.svg'
 
 const Note = ({
   data: { note },
@@ -27,7 +28,7 @@ const Note = ({
           <p className='smaller mt-16'>
             <Link
               unstyled
-              to={`/notes/${note.category}`}
+              to={`/notes/${slugify(note.category)}`}
               css={`
                 color: var(--section-color);
                 &:hover {
@@ -36,11 +37,18 @@ const Note = ({
               `}
               className='bold'
             >
+              <Folder
+                className='inline'
+                css={`
+                  position: relative;
+                  top: -0.2em;
+                `}
+              />{' '}
               {capitalize(note.category)}
             </Link>
             {note.tags && (
               <React.Fragment>
-                <span className='color-gray--400'> × </span>
+                <span className='color-gray--400 mx-8'>×</span>
                 <span className='color-gray--500'>
                   {note.tags.map((tag) => tag.name).join(', ')}
                 </span>

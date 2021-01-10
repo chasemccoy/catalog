@@ -38,13 +38,6 @@ const Seeds = () => {
           `}
         `}
       >
-        {/* <h3
-          className='mt-8 mb-12 color-gray--500'
-          css='font-size: .7rem !important; font-weight: normal;'
-        >
-          2017 – 2020
-        </h3> */}
-
         <Link unstyled to='https://seeds.sproutsocial.com'>
           <h2
             className='mt-0'
@@ -100,25 +93,27 @@ const Seeds = () => {
         >
           As lead of the Design Systems team at Sprout I{' '}
           <Link to='https://sproutsocial.com/insights/sprout-social-design-refresh'>
-            helped ship a complete redesign our product
+            helped ship a complete redesign of our product
           </Link>
-          ,{' '}
+          , developed a{' '}
           <Link to='https://seeds.sproutsocial.com/components'>
-            developed a themeable component library
+            themeable component library
           </Link>
           , and{' '}
-          <Link to='https://seeds.sproutsocial.com/newsletter/july-2020.html'>
-            established design systems as key partners in product development
+          <Link to='https://medium.com/sprout-social-design/design-system-health-3004551060f0'>
+            fostered a healthy community to support our system
           </Link>
           .
         </p>
 
         <p>
-          I also helped to design and build our design system, Seeds, which is
-          available publicly at{' '}
-          <Link to='https://seeds.sproutsocial.com'>
-            seeds.sproutsocial.com
-          </Link>
+          The{' '}
+          <Link to='https://seeds.sproutsocial.com'>Seeds design system</Link>{' '}
+          covers a large breath of content for stakeholders across product and
+          brand design, writing, engineering, and more. Despite this, the team
+          responsible for Seeds was just 3 people (including myself). I used
+          both my technical and design skills to help us achieve a system
+          powered by a strong community of users and contributors.
         </p>
       </div>
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import Page from 'components/Page'
 import Link from 'components/Link'
 import { graphql } from 'gatsby'
