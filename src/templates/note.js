@@ -56,7 +56,7 @@ const Note = ({
             )}
           </p>
 
-          <TableOfContents data={note.tableOfContents} className='mt-20' />
+          <TableOfContents data={note.tableOfContents} className='mt-16' />
 
           <hr
             css={`

@@ -22,7 +22,7 @@ const NoteList = ({ notes, ...rest }) => {
           return (
             <tr key={note.id}>
               <td>
-                <h2>
+                <h2 className='tighter'>
                   <Link to={note.slug} unstyled>
                     {note.title}
                   </Link>
