@@ -128,24 +128,17 @@ const IndexPage = () => {
 
       <div className='prose'>
         <p className='hyphens'>
-          <Avatar />I was born and raised in Mississippi where I spent many
-          evenings growing up exploring the internet via a dial-up connection.
-          It was there that I developed a love for visual and interface design,
-          and I would later go on to earn a degree in Computer Science so I
-          could make those designs real. I got my start doing iOS design and
-          development, but I spend most of my time these days thinking about the
-          web—how it works, how it’s changing, and how we can make it a better
-          place.
+          <Avatar />I spent many evenings growing up exploring the internet via a dial-up connection. It was there that I developed a love for visual and interface design, and I would later go on to earn a degree in Computer Science so I could make those designs real. I got my start doing iOS design and development, but I spend most of my time these days thinking about the web—how it works, how it’s changing, and how we can make it a better place.
         </p>
 
-        {/* <p>
+        <p>
           This website is my home on the web, and in{' '}
           <Link to='https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/'>
             the words of Laurel Schwulst
           </Link>{' '}
           it is truly “a shifting house next to a river of knowledge.” This is
           where I catalog my findings from exploring the internet.
-        </p> */}
+        </p>
 
         <FeaturedPosts />
         <ContactMe />

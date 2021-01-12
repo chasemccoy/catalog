@@ -5,6 +5,8 @@ import Documentation from 'assets/documentation.component.svg'
 import Pattern from 'assets/pattern.component.svg'
 import Collab from 'assets/collab.component.svg'
 import media from 'utils/media-new'
+import Folder from 'assets/icons/folder.component.svg'
+import Link from 'components/Link'
 
 const Columns = ({ children, ...rest }) => (
   <div
@@ -50,13 +52,7 @@ const DesignSystems = () => {
         </p> */}
 
         <p>
-          By focusing on design systems, I hope to help ensure that the spaces
-          online where we are frequently spending more and more of our time are
-          built in ways that are accessible, inclusive, and respectful of the
-          web as a material. Using my skills as a hybrid designer/developer, I
-          have been able to create tools, systems, and processes that allow
-          other designers and developers to consistently deliver experiences
-          that are well-designed, well-made, and more inclusive than ever.
+          I believe that design systems can be powerful catalysts for change within a product organization, and provide a shared vocabulary that makes collaboration more efficient and inclusive. By focusing on systems, I hope to help ensure that the spaces where we are frequently spending more and more of our time online are built in ways that are accessible, intentional, and respectful of the web as a material.
         </p>
 
         <p>
@@ -141,6 +137,28 @@ const DesignSystems = () => {
           </p>
         </div>
       </Columns>
+
+      <Link 
+        unstyled
+        to='/notes/design-systems'
+        className='flex mt-40 p-16'
+        css={`
+          align-items: flex-start;
+          border: 1px solid var(--color-border);
+          border-radius: 12px;
+
+          &:hover {
+            background: var(--color-gray--800);
+          }
+        `}
+      >
+        <Folder css={`width: 2rem; flex: 1 0 auto; color: var(--color-purple);`} />
+
+        <div className='ml-16'>
+          <h2 className='mb-2'>Read my notes on design systems</h2>
+          <p className='color-gray--400'>The notes section of this site contains useful links, quotes, and insights related to design systems and the work that goes into them.</p>
+        </div>
+      </Link>
     </React.Fragment>
   )
 }

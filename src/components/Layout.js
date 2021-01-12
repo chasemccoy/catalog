@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   max-width: 76ch;
   margin: 0 auto;
   padding: 16px 16px 40px;
-  overflow: hidden;
+  ${'' /* overflow: hidden; */}
   --sidebar-gap: 48px;
 
   > div {

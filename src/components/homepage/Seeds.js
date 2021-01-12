@@ -4,13 +4,14 @@ import Link from 'components/Link'
 import SeedsLogo from 'assets/seeds.component.svg'
 import seedsScreenshot from 'assets/seeds-screenshot.png'
 import { OrderedList } from 'components/Lists'
+import seeds from 'assets/seeds.png'
+import sprout from 'assets/sprout.png'
 
 const Seeds = () => {
   return (
     <div
       className='mobile-breakout'
       css={`
-        overflow: hidden;
         background: #2f2f2f;
         --padding: 24px;
 
@@ -128,7 +129,7 @@ const Seeds = () => {
       />
 
       <div
-        className='prose hyphens'
+        className='hyphens'
         css={`
           border-top: 1px solid var(--color-gray--700);
           padding: 24px var(--padding) 24px;
@@ -136,13 +137,26 @@ const Seeds = () => {
           position: relative;
         `}
       >
+        <img 
+          src={seeds} 
+          alt='A photograph of the Seeds website on a laptop.' 
+          css={`
+            border-radius: 4px;
+            float: right;
+            margin: -64px -40% 24px 24px;
+            height: 250px;
+            width: 400px;
+            object-fit: cover;
+            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+          `} 
+        />
         <p>
           Check out Seeds, and browse through our component documentation. Read
           my article on how we created a component library that our developers
           love using. Check out my notes on design systems.
         </p>
 
-        <OrderedList
+        {/* <OrderedList
           className='mt-32 mb-16'
           css={`
             font-size: 1.2rem;
@@ -180,7 +194,31 @@ const Seeds = () => {
               <b>This is a heading</b>
             </p>
           </li>
-        </OrderedList>
+        </OrderedList> */}
+
+        <img 
+          src={sprout} 
+          alt='A screenshot of the Sprout Social web application.' 
+          css={`
+            border-radius: 4px;
+            float: left;
+            margin: 24px 24px 0 -45%;
+            width: 500px;
+            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+          `} 
+        />
+
+        <p className='mt-24'>
+          Check out Seeds, and browse through our component documentation. Read
+          my article on how we created a component library that our developers
+          love using. Check out my notes on design systems.
+        </p>
+
+        <p className='mt-24'>
+          Check out Seeds, and browse through our component documentation. Read
+          my article on how we created a component library that our developers
+          love using. Check out my notes on design systems.
+        </p>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 import Table from 'components/Table'
-import Tags from 'components/Tags'
+// import Tags from 'components/Tags'
 import { capitalize, slugify } from 'utils'
 import Link from 'components/Link'
 import Folder from 'assets/icons/folder.component.svg'
@@ -17,7 +17,7 @@ const NoteList = ({ notes, ...rest }) => {
     >
       <tbody>
         {notes.map((note) => {
-          const tags = note.tags && note.tags.map((tag) => tag.name)
+          // const tags = note.tags && note.tags.map((tag) => tag.name)
 
           return (
             <tr key={note.id}>

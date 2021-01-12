@@ -134,6 +134,10 @@ const utilities = css`
     display: block;
   }
 
+  .flex {
+    display: flex;
+  }
+
   .dotted {
     position: relative;
 

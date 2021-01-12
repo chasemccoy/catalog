@@ -51,6 +51,10 @@ const typographyStyles = css`
       font-size: calc(1.5rem * var(--heading-scale, 1));
     }
 
+    header + h2 {
+      margin-top: 0;
+    }
+
     h3 {
       font-size: calc(1.25rem * var(--heading-scale, 1));
     }
