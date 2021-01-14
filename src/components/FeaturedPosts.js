@@ -94,7 +94,7 @@ const FeaturedPosts = (props) => {
     <React.Fragment>
       <h3 className='mt-24 subheader'>Featured writing</h3>
 
-      <p className='mt-4 serif larger' css={`--section-color: ${getColorForSection('blog')};`}>
+      <p className='mt-4 serif larger bold' css={`--section-color: ${getColorForSection('blog')};`}>
         {posts.nodes.map((node, i) => (
           <React.Fragment>
             {!!i && <span className='color-gray--500 mx-8'>×</span>}

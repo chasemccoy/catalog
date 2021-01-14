@@ -12,6 +12,7 @@ import Pico from 'components/homepage/Pico'
 import Seeds from 'components/homepage/Seeds'
 import Marker from 'components/Marker'
 import DesignSystems from 'components/homepage/DesignSystems'
+import 'fonts/ivar-text.css'
 
 const PageStyles = createGlobalStyle`
   :root {

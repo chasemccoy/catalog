@@ -3,7 +3,7 @@ import media from 'utils/media-new'
 import Link from 'components/Link'
 import SeedsLogo from 'assets/seeds.component.svg'
 import seedsScreenshot from 'assets/seeds-screenshot.png'
-import { OrderedList } from 'components/Lists'
+// import { OrderedList } from 'components/Lists'
 import seeds from 'assets/seeds.png'
 import dsPlanning from 'assets/ds-planning.jpg'
 

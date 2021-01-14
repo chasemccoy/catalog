@@ -120,7 +120,7 @@ const DesignSystems = () => {
             className='mt-12 mb-2 dotted'
             style={{ '--dot-color': 'var(--color-red)' }}
           >
-            Systemization
+            Patterns
           </h3>
           <p className='hyphens pr-12'>
             System practitioners are masters of abstraction, and serve as the stewards, scribes, and librarians of a product experience.
