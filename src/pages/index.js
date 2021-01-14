@@ -39,8 +39,8 @@ const PageStyles = createGlobalStyle`
 const Avatar = () => (
   <div
     css={`
-      width: 8em;
-      height: 8em;
+      width: 9em;
+      height: 9em;
       border: 1px dashed var(--color-gray--600);
       padding: 8px;
       border-radius: 50%;
@@ -128,7 +128,7 @@ const IndexPage = () => {
 
       <div className='prose'>
         <p className='hyphens'>
-          <Avatar />I spent many evenings growing up exploring the internet via a dial-up connection. It was there that I developed a love for visual and interface design, and I would later go on to earn a degree in Computer Science so I could make those designs real. I got my start doing iOS design and development, but I spend most of my time these days thinking about the web—how it works, how it’s changing, and how we can make it a better place.
+          <Avatar />Growing up online is where I developed a love for visual and interface design, and I earned a degree in Computer Science so I could make those designs real. I got my start doing iOS design and development, but I spend most of my time these days thinking about the web—how it works, how it’s changing, and how we can make it a better place.
         </p>
 
         <p>
@@ -136,8 +136,7 @@ const IndexPage = () => {
           <Link to='https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/'>
             the words of Laurel Schwulst
           </Link>{' '}
-          it is truly “a shifting house next to a river of knowledge.” This is
-          where I catalog my findings from exploring the internet.
+          it is truly “a shifting house next to a river of knowledge.” I use this site to share my thoughts, keep a record of my work, and catalog the things I discover online.
         </p>
 
         <FeaturedPosts />

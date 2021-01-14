@@ -54,12 +54,6 @@ const DesignSystems = () => {
         <p>
           I believe that design systems can be powerful catalysts for change within a product organization, and provide a shared vocabulary that makes collaboration more efficient and inclusive. By focusing on systems, I hope to help ensure that the spaces where we are frequently spending more and more of our time online are built in ways that are accessible, intentional, and respectful of the web as a material.
         </p>
-
-        <p>
-          My love for systems work stems from my love of collaborating with and
-          enabling others to ship excellent user experiences. Here are some ways
-          in which I accomplish that:
-        </p>
       </div>
 
       <Columns
@@ -90,8 +84,7 @@ const DesignSystems = () => {
             Community
           </h3>
           <p className='hyphens pr-12'>
-            Systems exist to serve human beings. A healthy system means
-            fostering a healthy community of users and collaborators.
+            Scaling systems requires a community effort. Collaborating with stakeholders and earning trust is a huge part of the work.
           </p>
         </div>
 
@@ -104,8 +97,7 @@ const DesignSystems = () => {
             Communication
           </h3>
           <p className='hyphens pr-12'>
-            Educating users and communicating decisions through effective
-            communication is key to a system's success.
+            Design systems are often about managing change over time, and the best way to do that is clear and frequent communication.
           </p>
         </div>
 
@@ -115,11 +107,10 @@ const DesignSystems = () => {
             className='mt-12 mb-2 dotted'
             style={{ '--dot-color': 'var(--color-blue)' }}
           >
-            Components
+            Tooling
           </h3>
           <p className='hyphens pr-12'>
-            The key to a well-adopted design system is getting developers to use
-            a well-crafted set of accessible components.
+            Empowering creatives with well-crafted component libraries and bespoke design tooling.
           </p>
         </div>
 
@@ -129,11 +120,10 @@ const DesignSystems = () => {
             className='mt-12 mb-2 dotted'
             style={{ '--dot-color': 'var(--color-red)' }}
           >
-            Pattern making
+            Systemization
           </h3>
           <p className='hyphens pr-12'>
-            Our responsibility as system practitioners is to be the stewards,
-            shepherds, scribes, and librarians of a product experience.
+            System practitioners are masters of abstraction, and serve as the stewards, scribes, and librarians of a product experience.
           </p>
         </div>
       </Columns>

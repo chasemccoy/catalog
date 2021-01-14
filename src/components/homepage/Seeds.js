@@ -5,7 +5,7 @@ import SeedsLogo from 'assets/seeds.component.svg'
 import seedsScreenshot from 'assets/seeds-screenshot.png'
 import { OrderedList } from 'components/Lists'
 import seeds from 'assets/seeds.png'
-import sprout from 'assets/sprout.png'
+import dsPlanning from 'assets/ds-planning.jpg'
 
 const Seeds = () => {
   return (
@@ -111,8 +111,7 @@ const Seeds = () => {
           The{' '}
           <Link to='https://seeds.sproutsocial.com'>Seeds design system</Link>{' '}
           covers a large breath of content for stakeholders across product and
-          brand design, writing, engineering, and more. Despite this, the team
-          responsible for Seeds was just 3 people (including myself). I used
+          brand design, writing, engineering, and more. Under my leadership, a small team of 3 people grew this system from the ground up to support a massive product organization. I used
           both my technical and design skills to help us achieve a system
           powered by a strong community of users and contributors.
         </p>
@@ -129,7 +128,7 @@ const Seeds = () => {
       />
 
       <div
-        className='hyphens'
+        className='hyphens prose'
         css={`
           border-top: 1px solid var(--color-gray--700);
           padding: 24px var(--padding) 24px;
@@ -141,19 +140,20 @@ const Seeds = () => {
           src={seeds} 
           alt='A photograph of the Seeds website on a laptop.' 
           css={`
-            border-radius: 4px;
-            float: right;
-            margin: -64px -40% 24px 24px;
-            height: 250px;
-            width: 400px;
-            object-fit: cover;
-            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+            ${media.small`
+              border-radius: 8px;
+              float: right;
+              margin: -100px -35% 24px 24px;
+              height: 250px;
+              width: 400px;
+              object-fit: cover;
+              box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+            `}
           `} 
         />
-        <p>
-          Check out Seeds, and browse through our component documentation. Read
-          my article on how we created a component library that our developers
-          love using. Check out my notes on design systems.
+
+        <p className='mt-0'>
+          Seeds has two sides: products and programs. The products our team produced took the form of the system website, our component library, and all the related tooling associated with being creative at Sprout.
         </p>
 
         {/* <OrderedList
@@ -197,21 +197,22 @@ const Seeds = () => {
         </OrderedList> */}
 
         <img 
-          src={sprout} 
+          src={dsPlanning} 
           alt='A screenshot of the Sprout Social web application.' 
           css={`
-            border-radius: 4px;
-            float: left;
-            margin: 24px 24px 0 -45%;
-            width: 500px;
-            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+            ${media.small`
+              border-radius: 8px;
+              float: left;
+              clear: right;
+              margin: -32px 24px 0 -45%;
+              width: 450px;
+              box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+            `}
           `} 
         />
 
-        <p className='mt-24'>
-          Check out Seeds, and browse through our component documentation. Read
-          my article on how we created a component library that our developers
-          love using. Check out my notes on design systems.
+        <p className='mt-24' css={`clear: right;`}>
+          The program side of Seeds involved services offered by our team that made Design Systems a strategic partner for creatives at Sprout. Our team offered as consultants and partners, helping other teams multiply their efforts and break out of organizational siloes. 
         </p>
 
         <p className='mt-24'>
