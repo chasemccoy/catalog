@@ -128,32 +128,55 @@ const Seeds = () => {
       />
 
       <div
-        className='hyphens prose'
+        className='hyphens prose color-gray--400'
         css={`
+          --flow-spacing: 0.75em;
+          font-size: 0.9em;
           border-top: 1px solid var(--color-gray--700);
           padding: 24px var(--padding) 24px;
           box-shadow: 2px -16px 32px -4px rgba(0, 0, 0, 0.3);
           position: relative;
+
+          span.product {
+            color: var(--color-green);
+          }
+
+          span.program {
+            color: var(--color-yellow);
+          }
         `}
       >
         <img 
           src={seeds} 
           alt='A photograph of the Seeds website on a laptop.' 
           css={`
+            border-radius: 8px;
+            float: right;
+            height: 230px;
+            width: 300px;
+            margin: 8px -25% 20px 24px;
+            object-fit: cover;
+            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+
             ${media.small`
-              border-radius: 8px;
-              float: right;
-              margin: -100px -35% 24px 24px;
+              margin: -64px -35% 20px 24px;
               height: 250px;
               width: 400px;
-              object-fit: cover;
-              box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
             `}
           `} 
         />
 
-        <p className='mt-0'>
-          Seeds has two sides: products and programs. The products our team produced took the form of the system website, our component library, and all the related tooling associated with being creative at Sprout.
+        <p className='mt-0 larger' css={`
+          color: white;
+          span { font-style: italic; font-weight: bold; }
+        `}>
+          Design systems are a combination of two things: <span className='product'>products</span> and <span className='program'>programs</span>. 
+        </p>
+
+        <p>
+          The <span className='product'>products</span> our team produced took the form of the system website, our component library, and design tooling such as bespoke Figma plugins.
+
+          The products our team produced took the form of the system website, our component library.
         </p>
 
         {/* <OrderedList
@@ -204,18 +227,22 @@ const Seeds = () => {
               border-radius: 8px;
               float: left;
               clear: right;
-              margin: -32px 24px 0 -45%;
+              margin: -12px 20px 0 -45%;
               width: 450px;
               box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
             `}
           `} 
         />
 
-        <p className='mt-24' css={`clear: right;`}>
-          The program side of Seeds involved services offered by our team that made Design Systems a strategic partner for creatives at Sprout. Our team offered as consultants and partners, helping other teams multiply their efforts and break out of organizational siloes. 
+        <p css={`clear: right; margin-top: -12px;`}>
+          While product offerings makes work more correct and efficient, <span className='program'>programs</span> are intended to make work more collaborative and inclusive. 
+        </p>
+        
+        <p>
+        The program side of Seeds involved services offered by our team that made Design Systems a strategic partner for creatives at Sprout. Our team offered as consultants and partners, helping other teams multiply their efforts and break out of organizational siloes. 
         </p>
 
-        <p className='mt-24'>
+        <p>
           Check out Seeds, and browse through our component documentation. Read
           my article on how we created a component library that our developers
           love using. Check out my notes on design systems.
