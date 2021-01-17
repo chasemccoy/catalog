@@ -111,9 +111,11 @@ const Seeds = () => {
           The{' '}
           <Link to='https://seeds.sproutsocial.com'>Seeds design system</Link>{' '}
           covers a large breath of content for stakeholders across product and
-          brand design, writing, engineering, and more. Under my leadership, a small team of 3 people grew this system from the ground up to support a massive product organization. I used
-          both my technical and design skills to help us achieve a system
-          powered by a strong community of users and contributors.
+          brand design, writing, engineering, and more. Under my leadership, a
+          small team of 3 people grew this system from the ground up to support
+          a massive product organization. I used both my technical and design
+          skills to help us achieve a system powered by a strong community of
+          users and contributors.
         </p>
       </div>
 
@@ -146,37 +148,52 @@ const Seeds = () => {
           }
         `}
       >
-        <img 
-          src={seeds} 
-          alt='A photograph of the Seeds website on a laptop.' 
+        <img
+          src={seeds}
+          alt='A photograph of the Seeds website on a laptop.'
           css={`
             border-radius: 8px;
             float: right;
-            height: 230px;
-            width: 300px;
-            margin: 8px -25% 20px 24px;
+            height: 150px;
+            width: 200px;
+            margin: 8px -15% 16px 12px;
             object-fit: cover;
             box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
 
+            ${media.tiny`
+              height: 230px;
+              width: 300px;
+              margin: 8px -25% 0px 16px;
+            `}
+
             ${media.small`
-              margin: -64px -35% 20px 24px;
+              margin: -72px -35% 12px 16px;
               height: 250px;
               width: 400px;
             `}
-          `} 
+          `}
         />
 
-        <p className='mt-0 larger' css={`
-          color: white;
-          span { font-style: italic; font-weight: bold; }
-        `}>
-          Design systems are a combination of two things: <span className='product'>products</span> and <span className='program'>programs</span>. 
+        <p
+          className='mt-0 larger'
+          css={`
+            color: white;
+            span {
+              font-style: italic;
+              font-weight: bold;
+            }
+          `}
+        >
+          Design systems are a combination of two things:{' '}
+          <span className='product'>products</span> and{' '}
+          <span className='program'>programs</span>.
         </p>
 
         <p>
-          The <span className='product'>products</span> our team produced took the form of the system website, our component library, and design tooling such as bespoke Figma plugins.
-
-          The products our team produced took the form of the system website, our component library.
+          The <span className='product'>products</span> our team produced took
+          the form of the system website, our component library, and design
+          tooling such as bespoke Figma plugins. The products our team produced
+          took the form of the system website, our component library.
         </p>
 
         {/* <OrderedList
@@ -219,27 +236,45 @@ const Seeds = () => {
           </li>
         </OrderedList> */}
 
-        <img 
-          src={dsPlanning} 
-          alt='A screenshot of the Sprout Social web application.' 
+        <img
+          src={dsPlanning}
+          alt='A screenshot of the Sprout Social web application.'
           css={`
+            border-radius: 8px;
+
             ${media.small`
-              border-radius: 8px;
               float: left;
               clear: right;
-              margin: -12px 20px 0 -45%;
+              margin: 12px 20px 0 -45%;
               width: 450px;
               box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
             `}
-          `} 
+          `}
         />
 
-        <p css={`clear: right; margin-top: -12px;`}>
-          While product offerings makes work more correct and efficient, <span className='program'>programs</span> are intended to make work more collaborative and inclusive. 
+        <p
+          css={`
+            clear: right;
+
+            ${media.small`
+              // margin-top: -12px;
+            `}
+
+            ${media.medium`
+              margin-top: 32px;
+            `}
+          `}
+        >
+          While product offerings makes work more correct and efficient,{' '}
+          <span className='program'>programs</span> are intended to make work
+          more collaborative and inclusive.
         </p>
-        
+
         <p>
-        The program side of Seeds involved services offered by our team that made Design Systems a strategic partner for creatives at Sprout. Our team offered as consultants and partners, helping other teams multiply their efforts and break out of organizational siloes. 
+          The program side of Seeds involved services offered by our team that
+          made Design Systems a strategic partner for creatives at Sprout. Our
+          team offered as consultants and partners, helping other teams multiply
+          their efforts and break out of organizational siloes.
         </p>
 
         <p>
