@@ -2,6 +2,7 @@ import React from 'react'
 import Page from 'components/Page'
 import { graphql } from 'gatsby'
 import MultiColumn from 'components/MultiColumn'
+import 'fonts/ivar-text.css'
 
 export const Quote = ({ content, source, ...rest }) => (
   <div {...rest}>
