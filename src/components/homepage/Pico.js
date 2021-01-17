@@ -17,7 +17,7 @@ const Pico = () => {
       css={`
         background: black;
         align-items: center;
-        padding-left: 24px;
+        padding-left: 16px;
 
         ${media.tiny`
           display: flex;

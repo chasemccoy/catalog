@@ -13,7 +13,7 @@ const Seeds = () => {
       className='mobile-breakout'
       css={`
         background: #2f2f2f;
-        --padding: 24px;
+        --padding: 16px;
 
         a {
           color: inherit;
@@ -25,7 +25,7 @@ const Seeds = () => {
 
         ${media.tiny`
           border-radius: 12px;
-          --padding: 32px;
+          --padding: 24px;
         `}
       `}
     >
@@ -160,13 +160,13 @@ const Seeds = () => {
             object-fit: cover;
             box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
 
-            ${media.tiny`
-              height: 230px;
-              width: 300px;
-              margin: 8px -25% 0px 16px;
-            `}
+            // ${media.tiny`
+            //   height: 230px;
+            //   width: 300px;
+            //   margin: 8px -25% 0px 16px;
+            // `}
 
-            ${media.small`
+            ${media.tiny`
               margin: -72px -35% 12px 16px;
               height: 250px;
               width: 400px;
