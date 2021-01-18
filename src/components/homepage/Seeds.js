@@ -153,6 +153,7 @@ const Seeds = () => {
           src={seeds}
           alt='A photograph of the Seeds website on a laptop.'
           css={`
+            display: none;
             border-radius: 8px;
             float: right;
             height: 200px;
@@ -162,6 +163,7 @@ const Seeds = () => {
             box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
 
             ${media.tiny`
+              display: block;
               margin: -72px -35% 12px 16px;
               height: 250px;
               width: 400px;
@@ -195,6 +197,7 @@ const Seeds = () => {
           src={dsPlanning}
           alt='A screenshot of the Sprout Social web application.'
           css={`
+            display: none;
             border-radius: 8px;
             float: left;
             clear: right;
@@ -205,6 +208,7 @@ const Seeds = () => {
             box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
 
             ${media.tiny`
+              display: block;
               width: 450px;
               height: auto;
               margin: 20px 20px 0 -45%;
@@ -216,10 +220,30 @@ const Seeds = () => {
           `}
         />
 
+        <div className='prose' css={`
+          display: block;
+          
+          img {
+            object-fit: cover;
+            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+            border-radius: 8px;
+          }
+
+          ${media.tiny`
+            display: none;
+          `}
+        `}>
+        <img
+          src={seeds}
+          alt='A photograph of the Seeds website on a laptop.' />
+        <img
+          src={dsPlanning}
+          alt='A screenshot of the Sprout Social web application.' />
+        </div>
+
         <p
           css={`
             clear: right;
-            margin-top: 20px;
 
             ${media.medium`
               margin-top: 24px;
