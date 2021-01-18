@@ -220,25 +220,30 @@ const Seeds = () => {
           `}
         />
 
-        <div className='prose' css={`
-          display: block;
-          
-          img {
-            object-fit: cover;
-            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
-            border-radius: 8px;
-          }
+        <div
+          className='prose'
+          css={`
+            display: block;
 
-          ${media.tiny`
+            img {
+              object-fit: cover;
+              box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+              border-radius: 8px;
+            }
+
+            ${media.tiny`
             display: none;
           `}
-        `}>
-        <img
-          src={seeds}
-          alt='A photograph of the Seeds website on a laptop.' />
-        <img
-          src={dsPlanning}
-          alt='A screenshot of the Sprout Social web application.' />
+          `}
+        >
+          <img
+            src={seeds}
+            alt='A photograph of the Seeds website on a laptop.'
+          />
+          <img
+            src={dsPlanning}
+            alt='A screenshot of the Sprout Social web application.'
+          />
         </div>
 
         <p
@@ -251,10 +256,9 @@ const Seeds = () => {
           `}
         >
           While product help to make our user’s work more correct and efficient,{' '}
-          <span className='program'>programs</span>  make work
-          more collaborative and inclusive. These are the services and
-          activities that the system team provides to their users. I like to
-          focus on three in particular:
+          <span className='program'>programs</span> make work more collaborative
+          and inclusive. These are the services and activities that the system
+          team provides to their users. I like to focus on three in particular:
         </p>
 
         <OrderedList

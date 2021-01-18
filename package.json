@@ -55,6 +55,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "postinstall": "husky install",
     "build": "gatsby clean && gatsby build",
     "develop": "gatsby clean && gatsby develop",
     "start": "netlify dev",
@@ -62,15 +63,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "husky": "4.3.5",
+    "husky": "^5.0.6",
     "lint-staged": "9.4.1",
     "netlify-cli": "2.69.11",
     "prettier": "^2.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{js,jsx,mdx}": [
