@@ -3,9 +3,10 @@ import media from 'utils/media-new'
 import Link from 'components/Link'
 import SeedsLogo from 'assets/seeds.component.svg'
 import seedsScreenshot from 'assets/seeds-screenshot.png'
-// import { OrderedList } from 'components/Lists'
+import { OrderedList } from 'components/Lists'
 import seeds from 'assets/seeds.png'
 import dsPlanning from 'assets/ds-planning.jpg'
+// import intake from 'assets/intake.png'
 
 const Seeds = () => {
   return (
@@ -97,7 +98,7 @@ const Seeds = () => {
             helped ship a complete redesign of our product
           </Link>
           , developed a{' '}
-          <Link to='https://seeds.sproutsocial.com/components'>
+          <Link to='https://medium.com/styled-components/how-to-build-a-great-component-library-a40d974a412d'>
             themeable component library
           </Link>
           , and{' '}
@@ -154,17 +155,11 @@ const Seeds = () => {
           css={`
             border-radius: 8px;
             float: right;
-            height: 150px;
+            height: 200px;
             width: 200px;
             margin: 8px -15% 16px 12px;
             object-fit: cover;
             box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
-
-            // ${media.tiny`
-            //   height: 230px;
-            //   width: 300px;
-            //   margin: 8px -25% 0px 16px;
-            // `}
 
             ${media.tiny`
               margin: -72px -35% 12px 16px;
@@ -184,25 +179,73 @@ const Seeds = () => {
             }
           `}
         >
-          Design systems are a combination of two things:{' '}
+          A successful design system practice combines two things:{' '}
           <span className='product'>products</span> and{' '}
-          <span className='program'>programs</span>.
+          <span className='program'>programs</span>
         </p>
 
         <p>
-          The <span className='product'>products</span> our team produced took
-          the form of the system website, our component library, and design
-          tooling such as bespoke Figma plugins. The products our team produced
-          took the form of the system website, our component library.
+          <span className='product'>Products</span> take the form of
+          documentation websites, design tokens, component libraries, and custom
+          design or developer tools. The problems in this space are often
+          technical and lay the foundation for a healthy system.
         </p>
 
-        {/* <OrderedList
-          className='mt-32 mb-16'
+        <img
+          src={dsPlanning}
+          alt='A screenshot of the Sprout Social web application.'
           css={`
-            font-size: 1.2rem;
+            border-radius: 8px;
+            float: left;
+            clear: right;
+            margin: 24px 20px 0 -15%;
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
+
+            ${media.tiny`
+              width: 450px;
+              height: auto;
+              margin: 20px 20px 0 -45%;
+            `}
+
+            ${media.medium`
+              margin: 8px 20px 0 -45%;
+            `}
+          `}
+        />
+
+        <p
+          css={`
+            clear: right;
+            margin-top: 20px;
+
+            ${media.medium`
+              margin-top: 24px;
+            `}
+          `}
+        >
+          While product help to make our user’s work more correct and efficient,{' '}
+          <span className='program'>programs</span>  make work
+          more collaborative and inclusive. These are the services and
+          activities that the system team provides to their users. I like to
+          focus on three in particular:
+        </p>
+
+        <OrderedList
+          className='mt-24 mb-16 pb-4 pl-12'
+          css={`
+            font-size: 0.9rem;
+            overflow: hidden;
+            color: var(--color-gray--300);
 
             > li {
               margin-left: 2.25em;
+            }
+
+            li + li {
+              margin-top: -0.25em;
             }
 
             > li:before {
@@ -221,54 +264,20 @@ const Seeds = () => {
         >
           <li>
             <p>
-              <b>This is a heading</b>
+              <b>Consultation</b>
             </p>
           </li>
           <li style={{ '--accent-color': 'var(--color-green)' }}>
             <p>
-              <b>This is a heading</b>
+              <b>Partnership</b>
             </p>
           </li>
           <li style={{ '--accent-color': 'var(--color-blue)' }}>
             <p>
-              <b>This is a heading</b>
+              <b>Documentation</b>
             </p>
           </li>
-        </OrderedList> */}
-
-        <img
-          src={dsPlanning}
-          alt='A screenshot of the Sprout Social web application.'
-          css={`
-            border-radius: 8px;
-
-            ${media.small`
-              float: left;
-              clear: right;
-              margin: 12px 20px 0 -45%;
-              width: 450px;
-              box-shadow: 0px 4px 48px 24px rgba(0, 0, 0, 0.24);
-            `}
-          `}
-        />
-
-        <p
-          css={`
-            clear: right;
-
-            ${media.small`
-              // margin-top: -12px;
-            `}
-
-            ${media.medium`
-              margin-top: 32px;
-            `}
-          `}
-        >
-          While product offerings makes work more correct and efficient,{' '}
-          <span className='program'>programs</span> are intended to make work
-          more collaborative and inclusive.
-        </p>
+        </OrderedList>
 
         <p>
           The program side of Seeds involved services offered by our team that
@@ -277,11 +286,7 @@ const Seeds = () => {
           their efforts and break out of organizational siloes.
         </p>
 
-        <p>
-          Check out Seeds, and browse through our component documentation. Read
-          my article on how we created a component library that our developers
-          love using. Check out my notes on design systems.
-        </p>
+        <p></p>
       </div>
     </div>
   )
