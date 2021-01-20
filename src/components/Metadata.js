@@ -56,6 +56,8 @@ const Metadata = ({
 
           {image && <meta property='og:image' content={seo.image} />}
 
+          {image && <meta property='twitter:image' content={seo.image} />}
+
           <meta name='twitter:card' content='summary' />
 
           {social && social.twitter && (

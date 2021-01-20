@@ -5,7 +5,7 @@ module.exports = {
     title: 'Chase McCoy',
     titleTemplate: '%s | Chase McCoy',
     description:
-      'Chase McCoy is a designer and developer based in Chicago, IL specializing in systems thinking, design tooling, and front-end engineering.',
+      'Chase McCoy is a product designer, front-end engineer, and internet explorer working on design systems at Stripe.',
     siteUrl: 'https://chasem.co',
     social: {
       twitter: '@chase_mccoy',
