@@ -1,50 +1,43 @@
 import React from 'react'
 import Page from 'components/Page'
 import { graphql } from 'gatsby'
-import { Box, Text } from '@chasemccoy/kit'
 import MultiColumn from 'components/MultiColumn'
-import Wide from 'components/Wide'
+import 'fonts/ivar-text.css'
 
 export const Quote = ({ content, source, ...rest }) => (
-  <Box {...rest}>
-    <Text.p fontSize='1.1em' mb={12}>
-      {content}
-    </Text.p>
-
-    <Text.p m={0} fontSize='1.2em' fontFamily='serif' color='gray.4'>
-      {source}
-    </Text.p>
-  </Box>
+  <div {...rest}>
+    <p className='serif'>{content}</p>
+    <p className='mt-8 bold' css='color: var(--color-gray--600);'>
+      — {source}
+    </p>
+  </div>
 )
 
 const QuotesPage = ({ data }) => {
   return (
     <Page
       title='Quotes'
-      description='A running list of musings than have struck me as worth keeping in mind.'
+      description='A collection of passages that have stuck with me, and that I like to come back to when I need some inspiration.'
     >
-      <Wide left={false} mb={24}>
-        <MultiColumn count={2} gap='64px' minColumnWidth='15em'>
-          {data.quotes.edges.map(({ node }, i) => (
-            <Quote
-              content={node.content}
-              source={node.metadata}
-              mb={24}
-              pb={24}
-              css={`
-                &:not(:last-child) {
-                  border-bottom: 4px solid ${(p) => p.theme.colors.gray[0]};
-                }
+      <MultiColumn count={2} gap='32px' minColumnWidth='15em' className='mt-24'>
+        {data.quotes.edges.map(({ node }, i) => (
+          <Quote
+            content={node.content}
+            source={node.metadata}
+            className='mb-16 pb-16'
+            css={`
+              &:not(:last-child) {
+                border-bottom: 1px solid var(--color-border);
+              }
 
-                &:last-child {
-                  margin-bottom: 0;
-                }
-              `}
-              key={i}
-            />
-          ))}
-        </MultiColumn>
-      </Wide>
+              &:last-child {
+                margin-bottom: 0;
+              }
+            `}
+            key={i}
+          />
+        ))}
+      </MultiColumn>
     </Page>
   )
 }

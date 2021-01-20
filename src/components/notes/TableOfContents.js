@@ -1,17 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box } from '@chasemccoy/kit'
 import Link from 'components/Link'
 
 const renderItem = (item, key) => (
   <li key={key}>
-    <Link
-      unstyled
-      to={item.url}
-      display='block'
-      fontFamily='mono'
-      fontSize='15px'
-    >
+    <Link unstyled to={item.url}>
       {item.title}
     </Link>
 
@@ -19,7 +12,7 @@ const renderItem = (item, key) => (
   </li>
 )
 
-const renderList = item => {
+const renderList = (item) => {
   if (item.items) {
     return (
       <ul>
@@ -37,14 +30,19 @@ const renderList = item => {
   }
 }
 
-const Container = styled(Box)`
-  display: none;
+const Container = styled.div`
+  && h2 {
+    font-size: 0.9rem;
+    ${'' /* font-family: var(--font-body); */}
+    ${'' /* font-weight: bold; */}
+  }
 
   ul {
     list-style-type: none;
     margin: 8px 0 8px 4px;
-    padding: 0 0 0 16px;
-    border-left: 1px solid ${props => props.theme.colors.accent.light};
+    padding: 0 0 0 12px;
+    border-left: 1px solid var(--color-border);
+    font-size: 0.75em;
   }
 
   ul ul {
@@ -59,11 +57,20 @@ const Container = styled(Box)`
     margin-top: 4px;
   }
 
-  .selected + & {
-    display: block;
+  a.selected {
+    color: ${(p) => p.theme.colors.accent.pop};
   }
 `
 
-const TableOfContents = ({ data }) => <Container>{renderList(data)}</Container>
+const TableOfContents = ({ data, ...rest }) => {
+  if (!data.items) return null
+
+  return (
+    <Container {...rest}>
+      <h2>Table of contents</h2>
+      {renderList(data)}
+    </Container>
+  )
+}
 
 export default TableOfContents

@@ -2,7 +2,6 @@ import Page from 'components/Page'
 import { Post } from 'components/Blog'
 import React from 'react'
 import { graphql } from 'gatsby'
-import Sidebar from 'components/Sidebar'
 
 export default ({ data, pageContext }) => {
   const post = data.blog
@@ -12,15 +11,49 @@ export default ({ data, pageContext }) => {
       title={post.title}
       article
       description={post.excerpt}
-      header={null}
-      aside={
-        <Sidebar
-          description={post.excerpt}
-          relatedItems={data.relatedPosts.nodes}
-          tags={post.tags}
-          publishDate={post.date}
-        />
+      section='blog'
+      header={
+        <div className='mb-24 prose'>
+          <h2 className='badge mb-16'>Blog post</h2>
+
+          <h1 className='hyphens'>{post.title}</h1>
+
+          <p className='lead mt-8 color-gray--500'>{post.excerpt}</p>
+
+          <p className='smaller mt-16'>
+            <span css='color: var(--color-gray--500);' className='bold'>
+              {post.date}
+            </span>
+            {post.tags && (
+              <React.Fragment>
+                <span className='color-gray--400'> × </span>
+                <span className='color-gray--500'>
+                  {post.tags.map((tag) => tag.name).join(', ')}
+                </span>
+              </React.Fragment>
+            )}
+          </p>
+
+          <hr
+            css={`
+              background: none;
+              border-top: 1px dashed var(--color-border);
+              height: 1px;
+            `}
+            className='mt-24'
+          />
+
+          {/* <hr className='my-16' /> */}
+        </div>
       }
+      // aside={
+      //   <Sidebar
+      //     description={post.excerpt}
+      //     relatedItems={data.relatedPosts.nodes}
+      //     tags={post.tags}
+      //     publishDate={post.date}
+      //   />
+      // }
     >
       <Post
         content={post.content}

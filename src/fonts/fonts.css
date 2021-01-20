@@ -1,13 +1,11 @@
-/* @import url('https://rsms.me/inter/inter.css'); */
-
-@font-face {
+/* @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.15')
+  src: url('./inter/Inter-Regular.woff2')
       format('woff2'),
-    url('https://rsms.me/inter/font-files/Inter-Regular.woff?v=3.15')
+    url('./inter/Inter-Regular.woff')
       format('woff');
 }
 
@@ -16,9 +14,9 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('https://rsms.me/inter/font-files/Inter-Italic.woff2?v=3.15')
+  src: url('./inter/Inter-Italic.woff2')
       format('woff2'),
-    url('https://rsms.me/inter/font-files/Inter-Italic.woff?v=3.15')
+    url('./inter/Inter-Italic.woff')
       format('woff');
 }
 
@@ -27,9 +25,9 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('https://rsms.me/inter/font-files/Inter-Bold.woff2?v=3.15')
+  src: url('./inter/Inter-Bold.woff2')
       format('woff2'),
-    url('https://rsms.me/inter/font-files/Inter-Bold.woff?v=3.15')
+    url('./inter/Inter-Bold.woff')
       format('woff');
 }
 
@@ -38,20 +36,90 @@
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('https://rsms.me/inter/font-files/Inter-BoldItalic.woff2?v=3.15')
+  src: url('./inter/Inter-BoldItalic.woff2')
       format('woff2'),
-    url('https://rsms.me/inter/font-files/Inter-BoldItalic.woff?v=3.15')
+    url('./inter/Inter-BoldItalic.woff')
+      format('woff');
+} */
+
+@font-face {
+  font-family: 'GT America';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-Regular.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-Regular.woff')
       format('woff');
 }
 
 @font-face {
-  font-family: 'Untitled Serif';
-  src: url('./untitled-serif/untitled-serif-web-regular.eot'),
-    url('./untitled-serif/untitled-serif-web-regular.eot?#iefix')
-      format('embedded-opentype'),
-    url('./untitled-serif/untitled-serif-web-regular.woff2') format('woff2'),
-    url('./untitled-serif/untitled-serif-web-regular.woff') format('woff');
-  font-weight: 400;
+  font-family: 'GT America';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-RegularItalic.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-RegularItalic.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'GT America';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-Bold.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-Bold.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'GT America';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./gt-america/GTAmerica-BoldItalic.woff2')
+      format('woff2'),
+    url('./gt-america/GTAmerica-BoldItalic.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-It.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-It.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-BoldIt.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-BoldIt.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-Bold.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-Bold.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./source-code-pro/SourceCodePro-Regular.woff2') format('woff2'),
+      url('./source-code-pro/SourceCodePro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+

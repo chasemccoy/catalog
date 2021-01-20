@@ -11,10 +11,12 @@ export const UnorderedList = styled.ul`
   > li:before {
     content: "–";
     margin-left: -1em;
-    margin-right: 0.5em;
+    margin-top: -1px;
+    ${'' /* margin-right: 0.5em; */}
+    float: left;
   }
 
-  ${props =>
+  ${(props) =>
     props.inline &&
     css`
       list-style-type: none;
@@ -36,7 +38,7 @@ export const UnorderedList = styled.ul`
       }
     `}
 
-  ${props =>
+  ${(props) =>
     props.unstyled &&
     css`
       margin: 0;
@@ -56,4 +58,24 @@ export const UnorderedList = styled.ul`
   ${borders}
   ${borderColor}
   ${fontSize}
+`
+
+export const OrderedList = styled.ul`
+  list-style: none;
+  counter-reset: muffins;
+  --offset: 1.5em;
+
+  > li {
+    margin-left: var(--offset);
+    counter-increment: ol-counter;
+    position: relative;
+  }
+
+  > li:before {
+    content: counter(ol-counter) ". ";
+    font-feature-settings: "tnum";
+    padding-right: 0.5em;
+    position: absolute;
+    left: calc(-1 * var(--offset));
+  }
 `

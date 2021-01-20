@@ -25,7 +25,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         resolve(source, args, context, info) {
           return context.nodeModel
             .getAllNodes({ type: 'Content' })
-            .filter(node => node.tags && node.tags.includes(source.name))
+            .filter((node) => node.tags && node.tags.includes(source.name))
         }
       }
     }

@@ -13,8 +13,14 @@ module.exports = {
       instagram: '@chs_mc'
     }
   },
+  // flags: {
+  //   FAST_REFRESH: true,
+  //   QUERY_ON_DEMAND: true,
+  //   PRESERVE_FILE_DOWNLOAD_CACHE: true,
+  //   LAZY_IMAGES: true
+  // },
   plugins: [
-    'gatsby-plugin-preact',
+    // 'gatsby-plugin-preact',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -127,6 +133,14 @@ module.exports = {
         theme_color: '#FFC700',
         display: 'standalone',
         icon: 'src/favicon.png'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets\/.*.component\.svg/
+        }
       }
     }
   ]
