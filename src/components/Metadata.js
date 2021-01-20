@@ -6,7 +6,7 @@ import { Location } from '@reach/router'
 const Metadata = ({
   title,
   description,
-  image = '/site-image.jpg',
+  image = '/site-image.png',
   article,
   children,
   page = false
@@ -54,9 +54,7 @@ const Metadata = ({
             <meta property='og:description' content={seo.description} />
           )}
 
-          {image && !article && page && (
-            <meta property='og:image' content={seo.image} />
-          )}
+          {image && <meta property='og:image' content={seo.image} />}
 
           <meta name='twitter:card' content='summary' />
 
