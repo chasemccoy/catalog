@@ -7,7 +7,9 @@ import 'fonts/ivar-text.css'
 export const Quote = ({ content, source, ...rest }) => (
   <div {...rest}>
     <p className='serif'>{content}</p>
-    <p className='mt-12 smaller bold' css='color: var(--color-gray--600);'>— {source}</p>
+    <p className='mt-8 bold' css='color: var(--color-gray--600);'>
+      — {source}
+    </p>
   </div>
 )
 
@@ -15,7 +17,7 @@ const QuotesPage = ({ data }) => {
   return (
     <Page
       title='Quotes'
-      description='A running list of musings than have struck me as worth keeping in mind.'
+      description='A collection of passages that have stuck with me, and that I like to come back to when I need some inspiration.'
     >
       <MultiColumn count={2} gap='32px' minColumnWidth='15em' className='mt-24'>
         {data.quotes.edges.map(({ node }, i) => (

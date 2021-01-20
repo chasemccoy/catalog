@@ -65,7 +65,7 @@
   "devDependencies": {
     "husky": "^5.0.6",
     "lint-staged": "9.4.1",
-    "netlify-cli": "2.69.11",
+    "netlify-cli": "^3.2.3",
     "prettier": "^2.2.1"
   },
   "lint-staged": {

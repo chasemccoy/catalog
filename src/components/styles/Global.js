@@ -12,9 +12,7 @@ const globalStyles = css`
     min-height: 100vh;
     background: var(--color-body-background);
     color: var(--color-text);
-
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "cv10" 1, "cv02" 1;
   }
 
   h1,

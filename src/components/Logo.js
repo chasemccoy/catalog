@@ -99,14 +99,4 @@ const Mark = (props) => {
   )
 }
 
-// const Logo = (props) => (
-//   <Box {...props}>
-//     <Link unstyled to='/'>
-//       <Text as='span' fontWeight='semibold'>
-//         Chase McCoy
-//       </Text>
-//     </Link>
-//   </Box>
-// )
-
 export default Mark

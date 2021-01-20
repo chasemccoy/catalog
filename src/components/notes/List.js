@@ -31,8 +31,7 @@ const NoteList = ({ notes, ...rest }) => {
                 <Link
                   to={`/notes/${slugify(note.category)}`}
                   unstyled
-                  color='var(--color-gray--500)'
-                  className='smaller mt-8 block'
+                  className='smaller mt-8 block color-gray--500'
                 >
                   <Folder
                     className='inline'

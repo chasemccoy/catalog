@@ -6,7 +6,6 @@ import seedsScreenshot from 'assets/seeds-screenshot.png'
 import { OrderedList } from 'components/Lists'
 import seeds from 'assets/seeds.png'
 import dsPlanning from 'assets/ds-planning.jpg'
-// import intake from 'assets/intake.png'
 
 const Seeds = () => {
   return (
@@ -211,11 +210,11 @@ const Seeds = () => {
               display: block;
               width: 450px;
               height: auto;
-              margin: 20px 20px 0 -45%;
+              margin: 20px 20px 8px -45%;
             `}
 
             ${media.medium`
-              margin: 8px 20px 0 -45%;
+              margin: 8px 20px 8px -45%;
             `}
           `}
         />
@@ -232,8 +231,8 @@ const Seeds = () => {
             }
 
             ${media.tiny`
-            display: none;
-          `}
+              display: none;
+            `}
           `}
         >
           <img
@@ -262,7 +261,7 @@ const Seeds = () => {
         </p>
 
         <OrderedList
-          className='mt-24 mb-16 pb-4 pl-12'
+          className='mt-16 mb-12 pb-4 pl-12'
           css={`
             font-size: 0.9rem;
             overflow: hidden;
@@ -308,13 +307,32 @@ const Seeds = () => {
         </OrderedList>
 
         <p>
-          The program side of Seeds involved services offered by our team that
-          made Design Systems a strategic partner for creatives at Sprout. Our
-          team offered as consultants and partners, helping other teams multiply
-          their efforts and break out of organizational siloes.
+          Providing services like these for our users builds trust and
+          investment in the system, and helps them integrate systems thinking
+          back into their own work. Being service-oriented also provides lots of
+          great opportunities for on-the-spot user research that, in turn, can
+          be used to improve our core products and programs.
         </p>
 
-        <p></p>
+        <Link
+          unstyled
+          to='https://seeds.sproutsocial.com'
+          className='bold larger mt-24'
+          css={`
+            display: block;
+            border: 2px solid var(--color-green);
+            text-align: center;
+            border-radius: 9999px;
+            padding: 12px;
+            color: white !important;
+
+            &:hover {
+              background: var(--color-green);
+            }
+          `}
+        >
+          Visit Seeds to learn more
+        </Link>
       </div>
     </div>
   )

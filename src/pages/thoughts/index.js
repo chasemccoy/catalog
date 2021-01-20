@@ -25,13 +25,10 @@ const Post = ({
     {...rest}
   >
     <h3 className='mt-0' css='position: relative;'>
-      {/* {featured && <span className='color-section' css='position: absolute; left: -1em;'>✹</span>} */}
       <Link unstyled to={slug} dangerouslySetInnerHTML={{ __html: title }} />
     </h3>
 
-    {excerpt && <p className='color-gray--500 mt-8'>{excerpt}</p>}
-
-    {/* <p className='caption mono'>{date}</p> */}
+    {excerpt && <p className='color-gray--500 mt-4'>{excerpt}</p>}
   </div>
 )
 
@@ -40,7 +37,6 @@ const ThoughtsPage = ({ data: { posts, tags } }) => {
     (a, b) => parseInt(b.year) - parseInt(a.year)
   )
   const [groups] = useState(initialData)
-
 
   // const filterData = (filter) => {
   //   console.log(initialData)
@@ -82,9 +78,7 @@ const ThoughtsPage = ({ data: { posts, tags } }) => {
 
       {groups.map((group) => (
         <div className='mb-48'>
-          <Marker className='mb-20'>
-           {group.year}
-          </Marker>
+          <Marker className='mb-20'>{group.year}</Marker>
 
           {group.posts.map((node, i) => (
             <Post

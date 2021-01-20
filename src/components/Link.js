@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
-import { Text } from '@chasemccoy/kit'
 import { globalHistory } from '@reach/router'
 
-const Container = styled(Text)`
+const Container = styled.div`
   ${(props) =>
     props.unstyled &&
     css`
