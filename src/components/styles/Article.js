@@ -57,8 +57,8 @@ const articleStyles = css`
     font-feature-settings: normal;
     font-family: var(--font-code);
     background-color: var(--color-gray--0);
-    border: .5px solid var(--color-border);
-    padding: .2em .3em;
+    border: 0.5px solid var(--color-border);
+    padding: 0.2em 0.3em;
     vertical-align: middle;
     word-wrap: normal;
     overflow: auto;
@@ -80,7 +80,7 @@ const articleStyles = css`
   }
 
   .gatsby-resp-image-figcaption {
-    color: var(--color-gray--500);
+    color: var(--color-caption);
     max-width: 550px;
   }
 
@@ -88,7 +88,7 @@ const articleStyles = css`
     width: 100% !important;
     max-width: 100% !important;
   }
-  
+
   twitter-widget::shadow .EmbeddedTweet {
     width: 100% !important;
     max-width: 100% !important;

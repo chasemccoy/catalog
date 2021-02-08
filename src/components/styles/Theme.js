@@ -33,18 +33,23 @@ const theme = css`
     --color-text: var(--body-color);
     --color-header: var(--color-gray--700);
     --color-border: var(--color-gray--200);
+    --color-caption: var(--color-gray--500);
 
-    --font-code: 'Source Code Pro', 'IBM Plex Mono', Consolas, Menlo, Monaco, monospace;
-    --font-body: 'GT America', 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
-      'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-      'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-code: 'Source Code Pro', 'IBM Plex Mono', Consolas, Menlo, Monaco,
+      monospace;
+    --font-body: 'GT America', 'Inter', system-ui, -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     --font-header: 'Ivar Text', Charter, Georgia, Times New Roman, serif;
 
     --section-color: var(--color-yellow);
 
-    --shadow-small: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);
-    --shadow-medium: 0 0 transparent, 0 0 transparent, 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-large: 0 0 transparent, 0 0 transparent, 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-small: 0 0 transparent, 0 0 transparent,
+      0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 0 transparent, 0 0 transparent,
+      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-large: 0 0 transparent, 0 0 transparent,
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
     --heading-scale: 1;
   }
