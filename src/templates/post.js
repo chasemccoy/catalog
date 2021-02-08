@@ -18,16 +18,14 @@ export default ({ data, pageContext }) => {
 
           <h1 className='hyphens'>{post.title}</h1>
 
-          <p className='lead mt-8 color-gray--500'>{post.excerpt}</p>
+          <p className='lead mt-8 color-caption'>{post.excerpt}</p>
 
           <p className='smaller mt-16'>
-            <span css='color: var(--color-gray--500);' className='bold'>
-              {post.date}
-            </span>
+            <span className='color-caption bold'>{post.date}</span>
             {post.tags && (
               <React.Fragment>
                 <span className='color-gray--400'> × </span>
-                <span className='color-gray--500'>
+                <span className='color-caption'>
                   {post.tags.map((tag) => tag.name).join(', ')}
                 </span>
               </React.Fragment>
@@ -42,18 +40,8 @@ export default ({ data, pageContext }) => {
             `}
             className='mt-24'
           />
-
-          {/* <hr className='my-16' /> */}
         </div>
       }
-      // aside={
-      //   <Sidebar
-      //     description={post.excerpt}
-      //     relatedItems={data.relatedPosts.nodes}
-      //     tags={post.tags}
-      //     publishDate={post.date}
-      //   />
-      // }
     >
       <Post
         content={post.content}
