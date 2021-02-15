@@ -12,6 +12,7 @@ import Pico from 'components/homepage/Pico'
 import Seeds from 'components/homepage/Seeds'
 import Marker from 'components/Marker'
 import DesignSystems from 'components/homepage/DesignSystems'
+import Museo from 'components/homepage/Museo'
 import 'fonts/ivar-text.css'
 
 const PageStyles = createGlobalStyle`
@@ -150,6 +151,10 @@ const IndexPage = () => {
       <Marker className='mt-40'>Now</Marker>
 
       <DesignSystems />
+
+      <hr className='mt-40 mb-24' />
+
+      <Museo />
 
       <div
         css={`

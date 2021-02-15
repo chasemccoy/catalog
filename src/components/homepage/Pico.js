@@ -77,8 +77,8 @@ const Pico = () => {
             }
           `}
         >
-          {picoBoxes.map((src) => (
-            <img src={src} alt='' />
+          {picoBoxes.map((src, i) => (
+            <img src={src} alt='' key={i} />
           ))}
         </div>
       </div>

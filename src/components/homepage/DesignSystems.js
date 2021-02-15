@@ -34,7 +34,7 @@ const DesignSystems = () => {
     <React.Fragment>
       <h2 className='mt-20 serif' css='font-size: 2.5em; line-height: 1.1;'>
         I’m currently focused on{' '}
-        <span css='text-decoration: underline; text-decoration-color: #51CF66; font-style: italic;'>
+        <span css='text-decoration: underline; text-decoration-color: var(--color-green); font-style: italic;'>
           design&nbsp;systems
         </span>
         .
@@ -52,7 +52,12 @@ const DesignSystems = () => {
         </p> */}
 
         <p>
-          I believe that design systems can be powerful catalysts for change within a product organization, and provide a shared vocabulary that makes collaboration more efficient and inclusive. By focusing on systems, I hope to help ensure that the spaces where we are frequently spending more and more of our time online are built in ways that are accessible, intentional, and respectful of the web as a material.
+          I believe that design systems can be powerful catalysts for change
+          within a product organization, and provide a shared vocabulary that
+          makes collaboration more efficient and inclusive. By focusing on
+          systems, I hope to help ensure that the spaces where we are frequently
+          spending more and more of our time online are built in ways that are
+          accessible, intentional, and respectful of the web as a material.
         </p>
       </div>
 
@@ -84,7 +89,8 @@ const DesignSystems = () => {
             Community
           </h3>
           <p className='hyphens pr-12'>
-            Scaling systems requires a community effort. Collaborating with stakeholders and earning trust is a huge part of the work.
+            Scaling systems requires a community effort. Collaborating with
+            stakeholders and earning trust is a huge part of the work.
           </p>
         </div>
 
@@ -97,7 +103,8 @@ const DesignSystems = () => {
             Communication
           </h3>
           <p className='hyphens pr-12'>
-            Design systems are often about managing change over time, and the best way to do that is clear and frequent communication.
+            Design systems are often about managing change over time, and the
+            best way to do that is clear and frequent communication.
           </p>
         </div>
 
@@ -110,7 +117,8 @@ const DesignSystems = () => {
             Tooling
           </h3>
           <p className='hyphens pr-12'>
-            Empowering creatives with well-crafted component libraries and bespoke design tooling.
+            Empowering creatives with well-crafted component libraries and
+            bespoke design tooling.
           </p>
         </div>
 
@@ -123,12 +131,13 @@ const DesignSystems = () => {
             Patterns
           </h3>
           <p className='hyphens pr-12'>
-            System practitioners are masters of abstraction, and serve as the stewards, scribes, and librarians of a product experience.
+            System practitioners are masters of abstraction, and serve as the
+            stewards, scribes, and librarians of a product experience.
           </p>
         </div>
       </Columns>
 
-      <Link 
+      <Link
         unstyled
         to='/notes/design-systems'
         className='flex mt-40 p-16'
@@ -142,11 +151,20 @@ const DesignSystems = () => {
           }
         `}
       >
-        <Folder css={`width: 2rem; flex: 1 0 auto; color: var(--color-purple);`} />
+        <Folder
+          css={`
+            width: 2rem;
+            flex: 1 0 auto;
+            color: var(--color-purple);
+          `}
+        />
 
         <div className='ml-16'>
           <h2 className='mb-2'>Read my notes on design systems</h2>
-          <p className='color-gray--400'>The notes section of this site contains useful links, quotes, and insights related to design systems and the work that goes into them.</p>
+          <p className='color-gray--400'>
+            The notes section of this site contains useful links, quotes, and
+            insights related to design systems and the work that goes into them.
+          </p>
         </div>
       </Link>
     </React.Fragment>
